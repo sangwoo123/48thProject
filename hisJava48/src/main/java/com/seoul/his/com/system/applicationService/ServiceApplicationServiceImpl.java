@@ -6,15 +6,15 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.seoul.his.com.base.dao.ServiceDAO;
-import com.seoul.his.com.base.to.ServiceBean;
+import com.seoul.his.com.system.dao.ServiceDAO;
+import com.seoul.his.com.system.to.ServiceBean;
 
 @Component
 public class ServiceApplicationServiceImpl implements ServiceApplicationService {
-    
+
     @Autowired
     private ServiceDAO serviceDAO;
-    
+
     @Override
     public List<ServiceBean> findService(Map<String, String> argsMap) {
         return serviceDAO.selectService(argsMap);

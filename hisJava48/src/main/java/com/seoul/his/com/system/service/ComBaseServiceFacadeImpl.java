@@ -6,19 +6,19 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.seoul.his.com.base.applicationService.AuthApplicationService;
-import com.seoul.his.com.base.applicationService.CodeApplicationService;
-import com.seoul.his.com.base.applicationService.LoginApplicationService;
-import com.seoul.his.com.base.applicationService.MenuApplicationService;
-import com.seoul.his.com.base.applicationService.ServiceApplicationService;
-import com.seoul.his.com.base.exception.AuthMenuNotFoundException;
-import com.seoul.his.com.base.exception.IdNotFoundException;
-import com.seoul.his.com.base.exception.PwMissMatchException;
-import com.seoul.his.com.base.to.AuthBean;
-import com.seoul.his.com.base.to.CodeBean;
-import com.seoul.his.com.base.to.CodeNmBean;
-import com.seoul.his.com.base.to.MenuBean;
-import com.seoul.his.com.base.to.ServiceBean;
+import com.seoul.his.com.system.applicationService.AuthApplicationService;
+import com.seoul.his.com.system.applicationService.CodeApplicationService;
+import com.seoul.his.com.system.applicationService.LoginApplicationService;
+import com.seoul.his.com.system.applicationService.MenuApplicationService;
+import com.seoul.his.com.system.applicationService.ServiceApplicationService;
+import com.seoul.his.com.system.exception.AuthMenuNotFoundException;
+import com.seoul.his.com.system.exception.IdNotFoundException;
+import com.seoul.his.com.system.exception.PwMissMatchException;
+import com.seoul.his.com.system.to.AuthBean;
+import com.seoul.his.com.system.to.CodeBean;
+import com.seoul.his.com.system.to.CodeNmBean;
+import com.seoul.his.com.system.to.MenuBean;
+import com.seoul.his.com.system.to.ServiceBean;
 
 /**
  * @Package  com.seoul.his.com.base.service
@@ -27,7 +27,7 @@ import com.seoul.his.com.base.to.ServiceBean;
  * @Author   godseop
  * @Description 시스템공통 서비스퍼사드
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 @Service
 public class ComBaseServiceFacadeImpl implements ComBaseServiceFacade {
@@ -55,7 +55,7 @@ public class ComBaseServiceFacadeImpl implements ComBaseServiceFacade {
     public List<CodeBean> findCodeList(Map<String, String> argsMap) {
         return codeApplicationService.findCodeList(argsMap);
     }
-    
+
     @Override
     public List<CodeNmBean> findCode(Map<String, String> argsMap) {
         return codeApplicationService.findCode(argsMap);
@@ -66,7 +66,7 @@ public class ComBaseServiceFacadeImpl implements ComBaseServiceFacade {
     public void batchCodeProcess(List<CodeBean> codeList) {
         codeApplicationService.batchCodeProcess(codeList);
     }
-    
+
     @Override
     public List<CodeNmBean> findCodePopupList(Map<String, String> argsMap) {
         return codeApplicationService.findCodePopupList(argsMap);

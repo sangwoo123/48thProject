@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoul.his.com.base.service.ComBaseServiceFacade;
-import com.seoul.his.com.base.to.CodeBean;
-import com.seoul.his.com.base.to.CodeNmBean;
+import com.seoul.his.com.system.service.ComBaseServiceFacade;
+import com.seoul.his.com.system.to.CodeBean;
+import com.seoul.his.com.system.to.CodeNmBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 
@@ -24,7 +24,7 @@ import com.seoul.his.common.util.DataSetBeanMapper;
  * @Author   godseop
  * @Description 시스템공통 코드관리 컨트롤러
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 @Controller
 public class CodeController {
@@ -62,7 +62,7 @@ public class CodeController {
         dataSetBeanMapper.beansToDataset(outData, codeList, "dsCode", CodeNmBean.class);
 
     }
-   
+
     @RequestMapping("com/findCode.do")
     public void findCode(HttpServletRequest request, HttpServletResponse response)
             throws Exception {

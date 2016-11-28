@@ -3,7 +3,7 @@ package com.seoul.his.com.system.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.seoul.his.com.base.to.AuthBean;
+import com.seoul.his.com.system.to.AuthBean;
 
 /**
  * @Package  com.seoul.his.com.base.dao
@@ -12,7 +12,7 @@ import com.seoul.his.com.base.to.AuthBean;
  * @Author   godseop
  * @Description 시스템공통 권한 Data Access Object Interface
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 public interface AuthDAO {
 

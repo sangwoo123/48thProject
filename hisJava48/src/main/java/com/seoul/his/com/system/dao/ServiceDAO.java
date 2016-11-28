@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.dao.DataAccessException;
 
-import com.seoul.his.com.base.to.ServiceBean;
+import com.seoul.his.com.system.to.ServiceBean;
 
 /**
  * @Package  com.seoul.his.com.base.dao
@@ -14,7 +14,7 @@ import com.seoul.his.com.base.to.ServiceBean;
  * @Author   godseop
  * @Description 시스템공통 시스템에러 전산요청 Data Access Object Interface
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 public interface ServiceDAO {
     public List<ServiceBean> selectService(Map<String, String> argsMap);

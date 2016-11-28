@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoul.his.com.base.service.ComBaseServiceFacade;
-import com.seoul.his.com.base.to.ServiceBean;
+import com.seoul.his.com.system.service.ComBaseServiceFacade;
+import com.seoul.his.com.system.to.ServiceBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 /**
@@ -22,7 +22,7 @@ import com.seoul.his.common.util.DataSetBeanMapper;
  * @Author   godseop
  * @Description 시스템에러관리 컨트롤러
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 @Controller
 public class ServiceController {

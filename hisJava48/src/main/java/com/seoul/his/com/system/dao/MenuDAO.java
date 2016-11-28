@@ -3,7 +3,7 @@ package com.seoul.his.com.system.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.seoul.his.com.base.to.MenuBean;
+import com.seoul.his.com.system.to.MenuBean;
 
 /**
  * @Package com.seoul.his.com.base.dao
