@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SSE_SpecimenBlockPopupForm" classname="SSE_SpecimenBlockPopupForm" left="0" top="0" width="400" height="500" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="검체번호 검색" left="23" top="24" right="61" height="40" style="font:bold 20 Dotum;"/>
+        <Button id="Button00" taborder="1" text="조회" left="77.5%" top="80" right="5.75%" height="33"/>
+        <Grid id="Grid00" taborder="2" useinputpanel="false" left="6%" top="129" right="23" height="352" autofittype="col" autoenter="select">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="158"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="검체번호"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
