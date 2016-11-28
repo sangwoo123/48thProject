@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoul.his.com.base.exception.IdNotFoundException;
-import com.seoul.his.com.base.exception.PwMissMatchException;
-import com.seoul.his.com.base.service.ComBaseServiceFacade;
+import com.seoul.his.com.system.exception.IdNotFoundException;
+import com.seoul.his.com.system.exception.PwMissMatchException;
+import com.seoul.his.com.system.service.ComBaseServiceFacade;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.hrs.emp.to.EmpBean;
 
@@ -23,7 +23,7 @@ import com.seoul.his.hrs.emp.to.EmpBean;
  * @Author   godseop
  * @Description 로그인 컨트롤러
  *      TODO : login 메서드 강제형변환 코드 수정할것
- * @LastUpdated 
+ * @LastUpdated
  */
 @Controller
 public class LoginController {
