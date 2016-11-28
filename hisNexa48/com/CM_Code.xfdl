@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CM_Code" classname="CM_Code" left="0" top="0" width="1250" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" right="-62.88%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="코드관리" left="2.8%" top="-4" right="91.3%" height="60" style="color:dodgerblue;font:bold 20 Arial;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="subCodeStc01" taborder="1" text="그룹코드" onclick="subCodeStc_onclick" left="1.92%" top="67" right="91.04%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc02" taborder="2" text="코드" onclick="subCodeStc_onclick" left="23.36%" top="67" right="69.6%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc03" taborder="3" text="코드명" onclick="subCodeStc_onclick" left="45.28%" top="67" right="47.68%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Edit id="codeNameEdit" taborder="4" left="52.96%" top="68" right="35.84%" height="30"/>
+        <Static id="subCodeStc04" taborder="5" text="사용여부" onclick="subCodeStc_onclick" left="66%" top="67" right="26.96%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Grid id="codeGrid" taborder="6" binddataset="dsCode" useinputpanel="false" autofittype="col" left="2.24%" top="103" right="2.64%" height="628">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="75"/>
+                <Column size="60"/>
+                <Column size="79"/>
+                <Column size="206"/>
+                <Column size="224"/>
+                <Column size="153"/>
+                <Column size="147"/>
+                <Column size="170"/>
+                <Column size="199"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="그룹코드"/>
+                <Cell col="1" text="코드"/>
+                <Cell col="2" text="상세코드"/>
+                <Cell col="3" text="코드명"/>
+                <Cell col="4" text="상세코드명"/>
+                <Cell col="5" text="등록자ID"/>
+                <Cell col="6" text="등록자IP"/>
+                <Cell col="7" text="수정가능여부"/>
+                <Cell col="8" text="사용가능여부"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:subCode"/>
+                <Cell col="1" text="bind:code"/>
+                <Cell col="2" displaytype="text" edittype="text" text="bind:detailCode"/>
+                <Cell col="3" displaytype="text" edittype="text" text="bind:codeName"/>
+                <Cell col="4" displaytype="text" edittype="text" text="bind:detailCodeName"/>
+                <Cell col="5" text="bind:regId"/>
+                <Cell col="6" text="bind:regIp"/>
+                <Cell col="7" displaytype="combo" edittype="combo" text="bind:modiyn" combodataset="dsUse" combocodecol="value" combodatacol="value"/>
+                <Cell col="8" displaytype="combo" edittype="combo" text="bind:useYn" combodataset="dsUse" combocodecol="value" combodatacol="value"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="addBtn" taborder="7" onclick="addBtn_onclick" cssclass="DelBtn" left="80.56%" top="14" right="10.64%" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="DelBtn00" taborder="8" onclick="DelBtn00_onclick" cssclass="DelBtn" left="71.92%" top="14" right="19.36%" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="saveBtn" taborder="9" onclick="saveBtn_onclick" cssclass="DelBtn" left="89.2%" top="14" right="2.32%" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="searchCodeBtn" taborder="10" onclick="DelBtn_onclick" cssclass="searchBtn" left="63.12%" top="14" right="28.16%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Combo id="subcombo" taborder="11" value="GD" text="GD" innerdataset="dsSubCode" codecolumn="subcode" datacolumn="subcode" index="0" onitemclick="subcombo_onitemclick" left="9.2%" top="66" right="78.8%" height="30"/>
+        <Combo id="codecombo" taborder="12" innerdataset="dsCodeNm" codecolumn="code" datacolumn="code" left="31.04%" top="66" right="56.96%" height="30"/>
+        <Radio id="useRadio" taborder="13" columncount="2" innerdataset="dsUse" codecolumn="value" datacolumn="value" left="73.84%" top="58" right="18%" height="50" style="buttonimage:URL('theme://images\btn_radio_N.png');"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsSubCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="subcode" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="subcode">GD</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">HS</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">GF</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">SP</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">AC</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">MD</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">GA</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">GP</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">GB</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">GS</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">SC</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">CM</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">CL</Col>
+          </Row>
+          <Row>
+            <Col id="subcode">HSP</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="detailCode" type="STRING" size="256"/>
+          <Column id="codeName" type="STRING" size="256"/>
+          <Column id="subCode" type="STRING" size="256"/>
+          <Column id="useYn" type="STRING" size="256"/>
+          <Column id="editId" type="STRING" size="256"/>
+          <Column id="editIp" type="STRING" size="256"/>
+          <Column id="regId" type="STRING" size="256"/>
+          <Column id="regIp" type="STRING" size="256"/>
+          <Column id="detailCodeName" type="STRING" size="256"/>
+          <Column id="modiyn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findCodeList</Col>
+            <Col id="URL">erp47::com/findCodeList.do</Col>
+            <Col id="inData"/>
+            <Col id="argument"/>
+            <Col id="callbackFunc">findCodeListCallback</Col>
+            <Col id="outData">dsCode=dsCode</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findCode</Col>
+            <Col id="URL">erp47::com/findCode.do</Col>
+            <Col id="outData">dsCodeNm=dsCodeNm</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchCode</Col>
+            <Col id="URL">erp47::com/batchCode.do</Col>
+            <Col id="inData">dsCode=dsCode:u</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsUse" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">Y</Col>
+          </Row>
+          <Row>
+            <Col id="value">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCodeNm" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
+코드관리 화면                                           						                                                                         
+@Path			시스템공통            				   				
+@Description	시스템 공통 코드 관리하는 화면
+@Author	  		강현준				    			                        								                                            
+@Create             
+@LastUpdated     
+                         		                    				                   		                    				                                           
+********************************************************************************/
+
+include "scripts::commonScripts.xjs";
+
+
+
+//조회버튼 클릭시 발생하는 이벤트
+this.DelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+		
+		var subCode = this.subcombo.text;
+		var code = this.codecombo.text;
+		var codeName =  this.codeNameEdit.value;
+		var use = this.useRadio.value;
+	
+		var argument = "subCode='"+subCode+"' code='"+code+"' codeName='"+codeName+"' use='"+use+"' ";
+	
+	
+	alert(argument);
+	
+	this.dsService.setColumn(0,4,argument);  //transaction에 넘길 변수값 셋팅.
+	
+	//alert(this.dsService.getColumn(0,4));
+	
+	this.gfnService("findCodeList",true);
+	
+}
+
+
+//그룹코드 선택시 발생하는 이벤트
+this.subcombo_onitemclick = function(obj:Combo, e:nexacro.ListBoxClickEventInfo)
+{
+	
+		this.dsService.setColumn(1,4,"subCode="+e.itemtext);  //transaction에 넘길 변수값 셋팅.
+		this.gfnService("findCode");
+}
+
+
+
+//등록버튼 클릭시 발생하는 이벤트
+this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+		this.dsCode.addRow();
+		this.dsCode.setColumn(this.codeGrid.currentrow,"subCode",this.subcombo.text);
+		this.dsCode.setColumn(this.codeGrid.currentrow,"code",this.codecombo.text);
+		
+		
+}
+
+
+//저장버튼 클릭시 발생하는 이벤트
+this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.gfnService("batchCode");
+		
+}
+
+
+//삭제버튼 클릭시 발생하는 이벤트.
+this.DelBtn00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.dsCode.deleteRow(this.codeGrid.currentrow);
+	
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="1.2">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <Application id="nexa" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="" themeid="default.xtheme" onload="application_onload">
+    <Layout>
+      <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="false" showtitlebar="true" showstatusbar="false" left="0" top="0" width="1255" height="965" titletext="서울병원정보시스템" showcascadestatustext="false" showcascadetitletext="false">
+        <VFrameSet id="frameSet" separatesize="85,40,*,40">
+          <Frames>
+            <ChildFrame id="MenuFrame" formurl="frame::menuFrame.xfdl" showtitlebar="false"/>
+            <ChildFrame id="tabFrame" formurl="frame::tabFrame.xfdl" showtitlebar="false"/>
+            <FrameSet id="mainFrame"/>
+            <ChildFrame id="BottomFrame" formurl="frame::bottomFrame.xfdl" showtitlebar="false"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+    <ScreenInfo/>
+  </Application>
+  <Script type="xscript5.0"><![CDATA[this.application_onload = function(obj:Application, e:nexacro.LoadEventInfo)
+{
+	var loginFrame = new ChildFrame();
+	
+	loginFrame.init("LOGIN","absolute", 400, 300, 536, 376,null,null,"com::CM_LoginForm.xfdl");
+	loginFrame.set_openalign("center middle");
+	loginFrame.showModal("LOGIN");
+}
+]]></Script>
+</ADL>
