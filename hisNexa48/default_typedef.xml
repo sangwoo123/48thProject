@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TypeDefinition version="1.1">
+<TypeDefinition version="1.2">
   <Modules>
     <Module url="CompBase.json"/>
     <Module url="ComComp.json"/>
@@ -38,6 +38,13 @@
     <Service prefixid="frame" type="form" url="./frame/" version="0" communicationversion="0"/>
     <Service prefixid="his" type="JSP" url="http://localhost:8282/his/" version="0" communicationversion="0"/>
     <Service prefixid="pic" type="JSP" url="http://localhost/his/images/" version="0" communicationversion="0"/>
+    <Service prefixid="acc" type="form" url="./acc/" version="0" communicationversion="0"/>
+    <Service prefixid="hrs" type="form" url="./hrs/" version="0" communicationversion="0"/>
+    <Service prefixid="log" type="form" url="./log/" version="0" communicationversion="0"/>
+    <Service prefixid="mcm" type="form" url="./mcm/" version="0" communicationversion="0"/>
+    <Service prefixid="pre" type="form" url="./pre/" version="0" communicationversion="0"/>
+    <Service prefixid="sup" type="form" url="./sup/" version="0" communicationversion="0"/>
   </Services>
   <Update/>
+  <Protocols/>
 </TypeDefinition>
