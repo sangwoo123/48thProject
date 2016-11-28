@@ -8,7 +8,6 @@ import com.seoul.his.hdm.admission.to.AdmissionBean;
 
 
 public interface AdmissionApplicationService {
-
 	List<AdmissionBean> findAdmissionList(Map<String, String> argsMap);
 
 
