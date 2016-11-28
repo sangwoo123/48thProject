@@ -9,5 +9,4 @@ import com.seoul.his.hdm.outstandingamount.to.OutstandingAmountBean;
 public interface OutstandingAmountServiceFacade {
 
 	List<OutstandingAmountBean> findOutstandingAmountList(Map<String, String> argsMap);
-
 }
