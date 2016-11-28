@@ -27,7 +27,6 @@ import com.seoul.his.common.util.DataSetBeanMapper;
 
 @Controller
 public class OutstandingAmountController {	 
-	
 	@Autowired
 	DataSetBeanMapper dataSetBeanMapper; 
 	@Autowired
