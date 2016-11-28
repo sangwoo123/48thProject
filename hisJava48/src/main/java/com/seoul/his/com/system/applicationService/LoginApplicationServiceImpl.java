@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
 
-import com.seoul.his.com.base.dao.MenuDAO;
-import com.seoul.his.com.base.exception.IdNotFoundException;
-import com.seoul.his.com.base.exception.PwMissMatchException;
+import com.seoul.his.com.system.dao.MenuDAO;
+import com.seoul.his.com.system.exception.IdNotFoundException;
+import com.seoul.his.com.system.exception.PwMissMatchException;
 import com.seoul.his.hrs.emp.dao.EmpDAO;
 import com.seoul.his.hrs.emp.to.EmpBean;
 

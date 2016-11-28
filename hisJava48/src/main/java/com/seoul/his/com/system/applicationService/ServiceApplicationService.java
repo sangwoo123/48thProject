@@ -3,7 +3,7 @@ package com.seoul.his.com.system.applicationService;
 import java.util.List;
 import java.util.Map;
 
-import com.seoul.his.com.base.to.ServiceBean;
+import com.seoul.his.com.system.to.ServiceBean;
 
 public interface ServiceApplicationService {
     public List<ServiceBean> findService(Map<String, String> argsMap);

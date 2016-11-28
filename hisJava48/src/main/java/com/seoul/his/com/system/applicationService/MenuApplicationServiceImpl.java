@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.stereotype.Component;
 
-import com.seoul.his.com.base.dao.MenuDAO;
-import com.seoul.his.com.base.exception.AuthMenuNotFoundException;
-import com.seoul.his.com.base.to.MenuBean;
+import com.seoul.his.com.system.dao.MenuDAO;
+import com.seoul.his.com.system.exception.AuthMenuNotFoundException;
+import com.seoul.his.com.system.to.MenuBean;
 
 @Component
 public class MenuApplicationServiceImpl implements MenuApplicationService {

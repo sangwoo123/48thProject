@@ -11,9 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoul.his.com.base.service.ComBaseServiceFacade;
-import com.seoul.his.com.base.to.AuthBean;
-import com.seoul.his.com.base.to.MenuBean;
+import com.seoul.his.com.system.service.ComBaseServiceFacade;
+import com.seoul.his.com.system.to.AuthBean;
+import com.seoul.his.com.system.to.MenuBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 /**
@@ -22,8 +22,8 @@ import com.seoul.his.common.util.DataSetBeanMapper;
  * @Create   2016. 5. 26.
  * @Author   godseop
  * @Description 메뉴 컨트롤러
- *      
- * @LastUpdated 
+ *
+ * @LastUpdated
  */
 @Controller
 public class MenuController {
