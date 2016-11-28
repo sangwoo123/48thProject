@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seoul.his.acc.resol.dao.PayRecDAO">
+<cache flushInterval="86400000" eviction="LRU" />
+
+<!-- 지불내역 상세 조회 -->
+    <select id="selectPayRecDetail" flushCache="false"  useCache="true" resultType="PayRecBean">
+        SELECT  
+            SEQ
+            ,CARD_NO
+            ,PAY_DIV
+            ,STD_TASK
+            ,STD_BIMOK
+            ,CARD_USE_DATE
+            ,APRV_NO
+            ,CUST_CD
+            ,OPER_NO
+            ,ADDR
+            ,DEPO_OWNER
+            ,TRANS_DATE
+            ,TRANS_BANK
+            ,ACCOUNT_NO
+            ,PRICE
+            ,ATT
+            ,CTT_INWON
+            ,USERS
+            ,FOOD_COST_YB
+            ,TAXINV_YB
+            ,NOTE
+            ,ACC_PRID
+            ,RESOL_NO
+            ,SLIP_NO
+            ,EXE_PURP
+        FROM
+            AR_PAY_REC
+        WHERE
+           RESOL_NO = #{resolNo}
+    </select>
+
+    <!-- 지불내역 등록 -->
+    <insert id="insertPayRec" flushCache="false" parameterType="PayRecBean">
+        INSERT INTO 
+            AR_PAY_REC 
+        VALUES(
+            #{seq         }
+           ,#{cardNo     }
+           ,#{payDiv     }
+           ,#{stdTask    }
+           ,#{stdBimok   }
+           ,#{cardUseDate}
+           ,#{aprvNo     }
+           ,#{custCd     }
+           ,#{operNo     }
+           ,#{addr       }
+           ,#{depoOwner  }
+           ,#{transDate  }
+           ,#{transBank  }
+           ,#{accountNo  }
+           ,#{price      }
+           ,#{att        }
+           ,#{cttInwon   }
+           ,#{users      }
+           ,#{foodCostYb }
+           ,#{taxinvYb   }
+           ,#{note       }
+           ,#{accPrid    }
+           ,#{resolNo    }
+           ,#{slipNo     }
+           ,#{exePurp    }
+        )
+    </insert>
+
+    <!-- 지불내역 삭제 -->
+    <delete id="deletePayRec" flushCache="false" parameterType="string">
+        DELETE  FROM
+            AR_PAY_REC
+        WHERE   RESOL_NO=#{resolNo}
+    </delete>
+    <!-- 지불내역 수정 -->
+    <update id="updatePayRec" flushCache="false" parameterType="PayRecBean">
+        UPDATE 
+            AR_PAY_REC 
+        SET
+            CARD_NO       = #{cardNo     }
+           ,PAY_DIV      = #{payDiv     }
+           ,STD_TASK     = #{stdTask    }
+           ,STD_BIMOK    = #{stdBimok   }
+           ,CARD_USE_DATE= #{cardUseDate}
+           ,APRV_NO      = #{aprvNo     }
+           ,CUST_CD      = #{custCd     }
+           ,OPER_NO      = #{operNo     }
+           ,ADDR         = #{addr       }
+           ,DEPO_OWNER   = #{depoOwner  }
+           ,TRANS_DATE   = #{transDate  }
+           ,TRANS_BANK   = #{transBank  }
+           ,ACCOUNT_NO   = #{accountNo  }
+           ,PRICE        = #{price      }
+           ,ATT          = #{att        }
+           ,CTT_INWON    = #{cttInwon   }
+           ,USERS        = #{users      }
+           ,FOOD_COST_YB = #{foodCostYb }
+           ,TAXINV_YB    = #{taxinvYb   }
+           ,NOTE         = #{note       }
+           ,ACC_PRID     = #{accPrid    }
+           ,SLIP_NO      = #{slipNo     }
+           ,EXE_PURP     = #{exePurp    }
+        WHERE
+            RESOL_NO      = #{resolNo    }
+            AND SEQ       = #{seq        }
+    </update>
+</mapper>
