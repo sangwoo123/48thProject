@@ -45,7 +45,7 @@
         </Grid>
         <Edit id="rrn2Ed" taborder="5" password="true" maxlength="7" left="37.14%" top="100" right="49.43%" height="30" style="align:center middle;font:antialias 9 돋움;" class="AreaEdt"/>
         <Static id="Static03" taborder="6" text="-" left="34.71%" top="100" right="62%" height="27"/>
-        <Static id="Static04" taborder="7" text="            환자등록번호 조회." onclick="Static04_onclick" left="-7.43%" top="-3" right="41.14%" height="60" style="color:dodgerblue;font:bold 20 다음_Regular;"/>
+        <Static id="Static04" taborder="7" text="            환자등록번호 조회" onclick="Static04_onclick" left="-7.43%" top="-3" right="41.14%" height="60" style="color:dodgerblue;font:bold 20 다음_Regular;"/>
         <Div id="Div01" taborder="8" text="성명" left="3.86%" top="62" right="82.71%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
         <Div id="Div00" taborder="9" text="주민등록번호" left="4%" top="100" right="82.57%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
         <Div id="Div02" taborder="10" text="전화번호" left="37.14%" top="62" right="49.43%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
