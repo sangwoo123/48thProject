@@ -12,7 +12,7 @@
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="801"/>
+                <Column size="80"/>
                 <Column size="80"/>
               </Columns>
               <Rows>
@@ -38,7 +38,7 @@
                 <Column size="87"/>
                 <Column size="148"/>
                 <Column size="84"/>
-                <Column size="117"/>
+                <Column size="120"/>
               </Columns>
               <Rows>
                 <Row size="24" band="head"/>
@@ -166,13 +166,14 @@ include "scripts::commonScripts.xjs"
 //권한 조회 버튼
 this.searchAuthBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {	
+	
 	//검색어 셋팅
 	this.dsService.setColumn(0,4,"authName=" + this.authEdt.text);
 	
 	//권한 검색
 	this.gfnService("findAuthList");
 	
-	//권한 전체다
+	//권한 전체임임임임수정
 	this.gfnService("findAllMenu");
 }
 
