@@ -12,7 +12,7 @@
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="80"/>
+                <Column size="801"/>
                 <Column size="80"/>
               </Columns>
               <Rows>
