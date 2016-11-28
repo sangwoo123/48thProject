@@ -173,7 +173,7 @@ this.searchAuthBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	//권한 검색
 	this.gfnService("findAuthList");
 	
-	//권한 전체다
+	//권한 전체
 	this.gfnService("findAllMenu");
 }
 
