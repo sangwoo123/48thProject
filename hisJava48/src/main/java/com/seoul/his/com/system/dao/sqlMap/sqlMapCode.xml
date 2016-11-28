@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seoul.his.com.base.dao.CodeDAO">
+<mapper namespace="com.seoul.his.com.system.dao.CodeDAO">
     <cache flushInterval="86400000" eviction="LRU" />
 
     <select id="selectCodeList" flushCache="false" useCache="true" resultType="CodeBean">
@@ -16,7 +16,7 @@
           , SUB_CODE         AS subCode
           , CODE_NAME        AS codeName
           , DETAIL_CODE_NAME AS detailCodeName
-        FROM 
+        FROM
             CM_CODE
         WHERE
             SUB_CODE = #{subCode}
@@ -29,21 +29,21 @@
         <if test="use != null">
             AND USE_YN = #{use}
         </if>
-        ORDER BY 
+        ORDER BY
             DETAIL_CODE
     </select>
-    
+
     <select id="selectCode" resultType="CodeNmBean">
-        SELECT DISTINCT 
+        SELECT DISTINCT
             CODE
-        FROM 
+        FROM
             CM_CODE
-        WHERE 
+        WHERE
             SUB_CODE = #{subCode}
-        ORDER BY 
+        ORDER BY
             CODE
     </select>
-    
+
     <insert id="insertCode" parameterType="CodeBean">
         INSERT INTO
             CM_CODE (
@@ -76,7 +76,7 @@
     </insert>
 
     <update id="updateCode" parameterType="CodeBean">
-        UPDATE 
+        UPDATE
             CM_CODE
         SET
             DETAIL_CODE      = #{detailCode},
@@ -90,7 +90,7 @@
             SUB_CODE         = #{subCode},
             CODE_NAME        = #{codeName},
             DETAIL_CODE_NAME = #{detailCodeName}
-        WHERE 
+        WHERE
             DETAIL_CODE = #{detailCode}
         AND CODE        = #{code}
     </update>
@@ -108,9 +108,9 @@
         SELECT
             DETAIL_CODE AS code,
             DETAIL_CODE_NAME AS codeName
-        FROM 
+        FROM
             CM_CODE
-        WHERE 
+        WHERE
             CODE = #{code}
     </select>
 
