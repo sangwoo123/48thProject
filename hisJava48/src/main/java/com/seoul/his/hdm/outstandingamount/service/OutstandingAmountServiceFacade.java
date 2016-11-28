@@ -10,8 +10,4 @@ public interface OutstandingAmountServiceFacade {
 
 	List<OutstandingAmountBean> findOutstandingAmountList(Map<String, String> argsMap);
 
-
-
-
-
 }
