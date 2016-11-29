@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seoul.his.hdm.foreign.dao.ForeignDAO;
+import com.seoul.his.hdm.foreign.dao.ReceiptInfoDAO;
 import com.seoul.his.hdm.foreign.exception.ForeignException;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
@@ -18,8 +19,10 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 	
 	@Autowired
 	ForeignDAO foreignDAO;
+	@Autowired
+	ReceiptInfoDAO receiptInfoDAO;
 
-	/*@Override
+	@Override
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
 		return receiptInfoDAO.selectReceiptList(argsMap);
 	}
@@ -33,7 +36,7 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 	@Override
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
 		receiptInfoDAO.deleteReceipt(receiptInfoBean);
-	}*/
+	}
 
 	@Override
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap) {

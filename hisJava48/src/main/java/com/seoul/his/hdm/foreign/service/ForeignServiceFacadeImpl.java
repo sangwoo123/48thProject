@@ -25,7 +25,7 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 		return foreignApplicationService.findPat(argsMap);
 	}
 
-	/*@Override
+	@Override
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
 		return foreignApplicationService.findDiagnosisReceiptList(argsMap);
 	}
@@ -38,6 +38,6 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	@Override
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
 		foreignApplicationService.removeDiagnosisReceipt(receiptInfoBean);
-	}*/
+	}
 
 }
