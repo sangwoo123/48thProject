@@ -313,52 +313,32 @@
         <Rows>
           <Row>
             <Col id="serviceID">findPat</Col>
-            <Col id="URL">his::won/outPatMngnt/findPat.do</Col>
+            <Col id="URL">his::hdm/foreign/findPat.do</Col>
             <Col id="outData">dsPat=dsPat</Col>
             <Col id="inData"/>
             <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">registerPat</Col>
-            <Col id="URL">his::won/outPatMngnt/registerPat.do</Col>
-            <Col id="inData">dsPat=dsPat:U</Col>
-            <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
-          </Row>
-          <Row>
-            <Col id="serviceID">findLastPatNo</Col>
-            <Col id="URL">his::won/outPatMngnt/findLastPatNo.do</Col>
-            <Col id="outData">dsPat=dsPat</Col>
-            <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
-          </Row>
-          <Row>
             <Col id="serviceID">findReceiptList</Col>
-            <Col id="URL">his::won/outPatMngnt/findReceiptList.do</Col>
+            <Col id="URL">his::hdm/foreign/findDiagnosisReceiptList.do</Col>
             <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
             <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
           </Row>
           <Row>
             <Col id="serviceID">registerReceipt</Col>
-            <Col id="URL">his::won/outPatMngnt/registerReceipt.do</Col>
+            <Col id="URL">his::hdm/foreign/registerDiagnosisReceipt.do</Col>
             <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
             <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
           </Row>
           <Row>
             <Col id="serviceID">removeReceipt</Col>
-            <Col id="URL">his::won/outPatMngnt/removeReceipt.do</Col>
+            <Col id="URL">his::hdm/foreign/removeDiagnosisReceipt.do</Col>
             <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
             <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">modifyPat</Col>
-            <Col id="URL">his::won/outPatMngnt/modifyPat.do</Col>
-            <Col id="inData">dsPat=dsPat:U</Col>
-            <Col id="outData"/>
-            <Col id="argument"/>
-            <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
-          </Row>
-          <Row>
             <Col id="serviceID">findPatList</Col>
-            <Col id="URL">his::won/outPatMngnt/findPatList.do</Col>
+            <Col id="URL">his::hdm/foreign/findPatList.do</Col>
             <Col id="inData"/>
             <Col id="outData">dsPat=dsPat</Col>
             <Col id="argument"/>
