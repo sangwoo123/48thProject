@@ -11,13 +11,13 @@ import lombok.ToString;
 @Setter
 @ToString
 @Dataset(name = "dsOutpaReceipt")
-public class ReceiptInfoBean extends BaseBean{
+	public class ReceiptInfoBean extends BaseBean{
 	private String outpaReceiptNo,			//접수번호
                    trmtDate,                //진료일
                    trmtDept,				//진료과명
                    trmtDeptNm,
-                   trmtDoct,			   //진료의명
-                   trmtDoctNm,
+                   trmtDoct,			  
+                   trmtDoctNm,				 //진료의명
                    hosptlzYb,               //입원여부
                    hosptlzRsvtYb,           //입원예약여부
                    patType,                 //환자유형
