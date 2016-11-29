@@ -4,12 +4,19 @@
   <Form id="SPN_WardPatientForm" classname="SPN_WardPatientForm" left="0" top="0" width="1024" height="768" titletext="New Form">
     <Layouts>
       <Layout>
-        <Div id="Div01" taborder="9" left="40.63%" top="72" right="0.59%" height="680" style="background:#eceff1ff;border:1 solid #808080ff ;"/>
+        <Div id="Div01" taborder="9" left="40.63%" top="72" right="0.59%" height="680" style="background:#eceff1ff;border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="   가나다라마바사아자차타카파하늘이 보우하사" left="0.5%" top="2" right="0.5%" height="45" style="background:#78909cff;color:white;font:10 Dotum;"/>
+            </Layout>
+          </Layouts>
+        </Div>
         <Div id="Div00" taborder="7" text="Div00" left="1.17%" top="72" right="59.77%" height="680" style="background:#eceff1ff;border:1 solid #808080ff ;gradation:linear 0,0 black 100,100 black;">
           <Layouts>
             <Layout>
               <Static id="Static00" taborder="0" text="   병동환자조회" left="0.5%" top="2" right="0.5%" height="45" style="background:#78909cff;color:white;font:10 Dotum;"/>
               <Button id="Button00" taborder="1" left="56.03%" top="66" height="39" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:0 none #999999ff ;bordertype:round 3 3 ;" width="39"/>
+              <Static id="Static01" taborder="2" text="   병동환자조회" left="102.26%" top="7" right="-100.75%" height="45" style="background:#78909cff;color:white;font:10 Dotum;"/>
             </Layout>
           </Layouts>
         </Div>
