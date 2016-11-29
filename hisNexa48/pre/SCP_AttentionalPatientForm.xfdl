@@ -9,18 +9,16 @@
         <Div id="adrDiv" taborder="2" left="2%" top="66" width="381" height="398" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
-              <Static id="pNameStc" taborder="20" text="환자명" onclick="subCodeStc_onclick" left="2.64%" top="46" right="74.67%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="fieldStc" taborder="21" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="87" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="trmtDeptEd" taborder="23" enable="false" left="65.96%" top="46" width="115" height="30" class="AreaEdt" style="font:9 돋움;"/>
+              <Static id="pNameStc" taborder="20" text="환자명" onclick="subCodeStc_onclick" left="2.37%" top="46" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc" taborder="21" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="124" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="trmtDoctEd" taborder="24" enable="false" left="28.76%" top="46" width="94" height="30" class="AreaEdt" style="font:9 돋움;"/>
-              <Button id="DelBtn10" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="211" top="44" width="32" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Static id="fieldStc00" taborder="28" text="관심분류" onclick="subCodeStc_onclick" left="2.64%" top="128" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="fieldStc01" taborder="29" text="등록일자" onclick="subCodeStc_onclick" left="2.64%" top="169" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="fieldStc02" taborder="30" text="종료일자" onclick="subCodeStc_onclick" left="2.64%" top="210" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="fieldStc03" taborder="31" text="관심내역" onclick="subCodeStc_onclick" left="2.64%" top="251" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Calendar id="writeDateCal" taborder="32" autoskip="true" dateformat="yyyy-MM-dd" left="28.76%" top="169" right="22.43%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
-              <Calendar id="writeDateCal00" taborder="33" autoskip="true" dateformat="yyyy-MM-dd" left="28.76%" top="210" right="22.43%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
-              <Combo id="patGenderCombo" taborder="34" codecolumn="codecolumn" datacolumn="datacolumn" left="28.76%" top="128" right="22.43%" height="30" style="font:9 돋움;">
+              <Static id="fieldStc00" taborder="28" text="관심분류" onclick="subCodeStc_onclick" left="2.64%" top="163" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc01" taborder="29" text="등록일자" onclick="subCodeStc_onclick" left="2.64%" top="202" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc02" taborder="30" text="종료일자" onclick="subCodeStc_onclick" left="2.64%" top="241" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc03" taborder="31" text="관심내역" onclick="subCodeStc_onclick" left="2.64%" top="280" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="writeDateCal" taborder="32" autoskip="true" dateformat="yyyy-MM-dd" left="28.5%" top="202" right="22.69%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
+              <Calendar id="writeDateCal00" taborder="33" autoskip="true" dateformat="yyyy-MM-dd" left="28.5%" top="241" right="22.69%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
+              <Combo id="patGenderCombo" taborder="34" codecolumn="codecolumn" datacolumn="datacolumn" left="28.5%" top="163" right="22.69%" height="30" style="font:9 돋움;">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -38,7 +36,7 @@
                   </Rows>
                 </Dataset>
               </Combo>
-              <Combo id="patGenderCombo00" taborder="35" codecolumn="codecolumn" datacolumn="datacolumn" left="28.76%" top="87" right="22.43%" height="30" style="font:9 돋움;">
+              <Combo id="patGenderCombo00" taborder="35" codecolumn="codecolumn" datacolumn="datacolumn" left="28.5%" top="124" right="22.69%" height="30" style="font:9 돋움;">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -56,16 +54,17 @@
                   </Rows>
                 </Dataset>
               </Combo>
+              <Edit id="trmtDoctEd00" taborder="36" enable="false" left="28.76%" top="85" width="94" height="30" style="font:9 돋움;" class="AreaEdt"/>
+              <Static id="pNameStc00" taborder="37" text="환자번호" onclick="subCodeStc_onclick" left="2.37%" top="85" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="patDiv" taborder="14" left="33.92%" top="66" width="805" height="670" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="patDiv" taborder="14" left="33.92%" top="67" width="805" height="670" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc02" taborder="1" text="관심영역" onclick="subCodeStc_onclick" left="0.87%" top="82" right="87.8%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc00" taborder="2" text="환자명" onclick="subCodeStc_onclick" left="0.87%" top="47" right="87.8%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="prscNoEdit" taborder="3" left="12.95%" top="47" right="73.97%" height="30" style="font:9 돋움;"/>
-              <Button id="prscSearchBtn" taborder="4" left="215" top="47" width="32" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="patDiv_prscSearchBtn_onclick"/>
               <Static id="subCodeStc01" taborder="7" text="관심분류" onclick="subCodeStc_onclick" left="0.87%" top="121" right="87.8%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Combo id="patGenderCombo" taborder="8" left="12.95%" top="82" right="58.53%" height="30" codecolumn="codecolumn" datacolumn="datacolumn" style="font:9 돋움;">
                 <Dataset id="innerdataset">
@@ -142,10 +141,14 @@
                 </Dataset>
               </Combo>
               <Static id="subCodeStc03" taborder="15" text="   관심환자조회" onclick="subCodeStc_onclick" left="0.87%" top="6" right="2.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Button id="prscSearchBtn" taborder="16" onclick="patDiv_prscSearchBtn_onclick" left="431" top="48" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="DelBtn00" taborder="17" onclick="searchBtn_onclick" cssclass="DelBtn" left="399" top="47" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="DelBtn01" taborder="18" onclick="searchBtn_onclick" cssclass="DelBtn" left="215" top="46" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="DelBtn02" taborder="19" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
             </Layout>
           </Layouts>
         </Div>
-        <TextArea id="TextArea00" taborder="16" left="10.8%" top="318" right="68.4%" height="136" style="font:9 돋움;"/>
+        <TextArea id="TextArea00" taborder="16" left="10.8%" top="350" right="68.4%" height="104" style="font:9 돋움;"/>
         <Div id="adrDiv01" taborder="17" left="1.92%" top="472" width="381" height="264" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
@@ -197,6 +200,12 @@
         </Grid>
         <Static id="subCodeStc03" taborder="19" text="   관심환자등록" onclick="subCodeStc_onclick" left="2.8%" top="74" right="68.08%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc00" taborder="20" text="   관심분류코드" onclick="subCodeStc_onclick" left="2.72%" top="480" right="68.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Button id="DelBtn10" taborder="21" onclick="searchBtn_onclick" cssclass="DelBtn" left="328" top="512" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="prscSearchBtn00" taborder="22" onclick="patDiv_prscSearchBtn_onclick" left="362" top="512" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="prscSearchBtn01" taborder="23" onclick="patDiv_prscSearchBtn_onclick" left="360" top="112" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="DelBtn00" taborder="24" onclick="searchBtn_onclick" cssclass="DelBtn" left="328" top="111" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="DelBtn02" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="srcPatBtn" taborder="26" left="237" top="113" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="srcPatBtn_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -307,8 +316,16 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[include "scripts::commonScripts.xjs"
-include "scripts::medScripts.xjs"
+    <Script type="xscript5.0"><![CDATA[this.srcPatBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.WS_OutPatReceiptMngnDiv.patNoEd.value==null){
+	alert("조회할 환자를 선택하세요!");
+	return;
+	}
+	this.dsService.setColumn(0,"argument",'patNo='+this.WS_OutPatReceiptMngnDiv.patNoEd.value);
+	this.dsPat.clearData();
+	this.gfnService("findPat","false");		
+}
 
 this.adrDiv_searchAdrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
@@ -371,10 +388,7 @@ this.patCallback = function(svcID, errorCode, errorMsg)
 	
 	
 }
-this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	
-}
+
 ]]></Script>
   </Form>
 </FDL>
