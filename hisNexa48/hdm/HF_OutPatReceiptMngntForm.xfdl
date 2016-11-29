@@ -1,36 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WS_OutPatReceiptMngntForm" classname="WS_OutPatReceiptMngntForm" left="0" top="0" width="1250" height="768" titletext="외래관리">
+  <Form id="WS_OutPatReceiptMngntForm" classname="WS_OutPatReceiptMngntForm" left="0" top="0" width="1250" height="768" titletext="외래관리" style="background:#90a4aeff;">
     <Layouts>
       <Layout>
-        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent;">
           <Layouts>
             <Layout>
-              <Static id="titleStc" taborder="0" text="외래관리" left="45.6%" top="0" right="41.12%" height="60" style="color:dodgerblue;font:bold 20 다음_Regular;"/>
+              <Static id="titleStc" taborder="0" text="외래관리" left="45.6%" top="0" right="44.16%" height="60" style="color:#455a64ff;font:bold 20 돋움체;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="WS_OutPatReceiptMngnDiv" taborder="1" left="1.07%" top="65" right="0.78%" height="693" style="background:#edececff;">
+        <Div id="WS_OutPatReceiptMngnDiv" taborder="1" left="1.07%" top="65" right="0.78%" height="693" style="background:#90a4aeff;">
           <Layouts>
             <Layout>
-              <GroupBox id="patMngntGroupBox" text="환자조회" taborder="152" left="0.9%" top="11" right="55.02%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:dodgerblue;font:bold underline 14 arial;" onlbuttondown="WS_OutPatReceiptMngnDiv_patMngntGroupBox_onlbuttondown"/>
-              <GroupBox id="receiptGroupBox" text="외래환자 접수등록" taborder="153" left="45.87%" top="11" right="0.7%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:dodgerblue;font:bold underline 14 arial;"/>
-              <Static id="patNoStc" taborder="154" text="환자등록번호" left="1.79%" top="46" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="patNmStc" taborder="155" text="성명" left="1.79%" top="78" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="rrnStc" taborder="156" text="주민번호" left="1.79%" top="110" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="zipStc" taborder="157" text="우편번호" left="1.79%" top="142" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="addrStc" taborder="158" text="주소" left="1.79%" top="174" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="telStc" taborder="159" text="연락처" left="1.79%" top="206" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="smsNoStc" taborder="160" text="SMS" left="1.79%" top="238" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="recNwDateStc" taborder="161" text="최근내원일" left="1.79%" top="270" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="barrAssStc" taborder="162" text="장애종별" left="1.79%" top="302" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="deathDateStc" taborder="163" text="사망일시" left="1.79%" top="334" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="certfctNoStc" taborder="164" text="의료보험증" left="1.79%" top="366" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="insuNmStc" taborder="165" text="피보험자명" left="1.79%" top="398" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="insuRrnStc" taborder="166" text="주민번호" left="1.79%" top="430" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="applyStc" taborder="167" text="적용기간" left="1.79%" top="462" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="noteStc" taborder="168" text="메모" left="1.79%" top="494" right="88.26%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <GroupBox id="patMngntGroupBox" text="환자조회" taborder="152" left="0.9%" top="11" right="55.02%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:#455a64ff;font:bold underline 14 돋움;" onlbuttondown="WS_OutPatReceiptMngnDiv_patMngntGroupBox_onlbuttondown"/>
+              <GroupBox id="receiptGroupBox" text="외래환자 접수등록" taborder="153" left="45.87%" top="11" right="0.7%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:#455a64ff;font:bold underline 14 돋움체;"/>
+              <Static id="patNoStc" taborder="154" text="환자등록번호" left="1.79%" top="46" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="patNmStc" taborder="155" text="성명" left="1.79%" top="78" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="rrnStc" taborder="156" text="주민번호" left="1.79%" top="110" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="zipStc" taborder="157" text="우편번호" left="1.79%" top="142" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="addrStc" taborder="158" text="주소" left="1.79%" top="174" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="telStc" taborder="159" text="연락처" left="1.79%" top="206" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="smsNoStc" taborder="160" text="SMS" left="1.79%" top="238" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="recNwDateStc" taborder="161" text="최근내원일" left="1.79%" top="270" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="barrAssStc" taborder="162" text="장애종별" left="1.79%" top="302" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="deathDateStc" taborder="163" text="사망일시" left="1.79%" top="334" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="certfctNoStc" taborder="164" text="의료보험증" left="1.79%" top="366" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="insuNmStc" taborder="165" text="피보험자명" left="1.79%" top="398" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="insuRrnStc" taborder="166" text="주민번호" left="1.79%" top="430" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="applyStc" taborder="167" text="적용기간" left="1.79%" top="462" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="noteStc" taborder="168" text="메모" left="1.79%" top="494" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Edit id="patNoEd" taborder="169" left="12.14%" top="46" right="78.11%" height="28"/>
               <Button id="searchPatNoBtn" taborder="170" onclick="clickBtn" cssclass="AddBtn" left="22.39%" top="44" right="75.02%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
               <Button id="searchPatBtn" taborder="171" text="환자조회" onclick="clickBtn" left="26.47%" top="44" right="65.87%" height="28" style="background:#848484ff;color:white;font:bold 10 돋움;"/>
@@ -50,7 +50,7 @@
               <Edit id="rrn2Ed" taborder="188" left="23.28%" top="110" right="66.97%" height="28"/>
               <Radio id="genderRadio" taborder="189" columncount="2" innerdataset="dsGenderCode" codecolumn="code" datacolumn="value" left="34.13%" top="111" right="58.61%" height="27" style="buttonimage:URL('theme://images\btn_radio_N.png');"/>
               <CheckBox id="smsCheck" taborder="191" left="22.39%" top="239" right="75.32%" height="26" style="buttonalign:center middle;align:center middle;"/>
-              <Static id="smsReceiverStc" taborder="192" text="관계" left="24.68%" top="238" right="65.37%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="smsReceiverStc" taborder="192" text="관계" left="24.68%" top="238" right="65.37%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Edit id="smsReceiverEd" taborder="193" left="35.02%" top="238" right="55.82%" height="28"/>
               <Calendar id="recNwDateCal" taborder="194" left="12.14%" top="271" right="78.01%" height="27"/>
               <Calendar id="deathDateCal" taborder="195" left="12.14%" top="335" right="78.01%" height="27"/>
@@ -58,9 +58,9 @@
               <Calendar id="applyStartDateCal" taborder="199" left="12.14%" top="463" right="78.01%" height="27"/>
               <Calendar id="applyEndDateCal" taborder="200" left="23.28%" top="463" right="66.87%" height="27"/>
               <Static id="Static02" taborder="201" text="~" left="21.99%" top="463" right="77.01%" height="26" style="align:center middle;"/>
-              <Static id="trmtDeptStc" taborder="202" text="진료과" left="46.87%" top="46" right="45.17%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="expStc" taborder="203" text="진료의사" left="46.87%" top="78" right="45.17%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="patNoStc16" taborder="204" text="감면사항" left="46.87%" top="110" right="45.17%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="trmtDeptStc" taborder="202" text="진료과" left="46.87%" top="46" right="45.17%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="expStc" taborder="203" text="진료의사" left="46.87%" top="78" right="45.17%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="patNoStc16" taborder="204" text="감면사항" left="46.87%" top="110" right="45.17%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Edit id="trmtDeptCdEd" taborder="205" readonly="true" left="55.22%" top="46" right="39.2%" height="28"/>
               <Edit id="trmtDoctCdEd" taborder="206" readonly="true" left="55.22%" top="78" right="39.2%" height="28"/>
               <Edit id="expCdEd" taborder="207" readonly="true" left="55.22%" top="110" right="39.2%" height="28"/>
@@ -70,15 +70,15 @@
               <Edit id="trmtDeptNmEd" taborder="211" readonly="true" left="64.18%" top="46" right="25.37%" height="28"/>
               <Edit id="trmtDoctNmEd" taborder="212" readonly="true" left="64.18%" top="78" right="25.37%" height="28"/>
               <Edit id="expNmEd" taborder="213" readonly="true" left="64.18%" top="110" right="25.37%" height="28"/>
-              <Static id="ntTtStc" taborder="214" text="초/재진" left="76.82%" top="46" right="15.12%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="nwDivStc" taborder="215" text="내원구분" left="76.82%" top="78" right="15.12%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Static id="trmtDateStc" taborder="216" text="진료일시" left="76.82%" top="110" right="15.12%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="ntTtStc" taborder="214" text="초/재진" left="76.82%" top="46" right="15.12%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="nwDivStc" taborder="215" text="내원구분" left="76.82%" top="78" right="15.12%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="trmtDateStc" taborder="216" text="진료일시" left="76.82%" top="110" right="15.12%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Combo id="ntTtCombo" taborder="217" innerdataset="dsNtTt" codecolumn="code" datacolumn="value" left="85.27%" top="47" right="2.99%" height="26"/>
-              <Static id="patTypeStc" taborder="218" text="환자유형" left="76.82%" top="142" right="15.12%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="patTypeStc" taborder="218" text="환자유형" left="76.82%" top="142" right="15.12%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Combo id="nwDivCombo" taborder="219" innerdataset="dsNwDiv" codecolumn="code" datacolumn="value" left="85.27%" top="79" right="2.99%" height="26"/>
               <Combo id="patTypeCombo" taborder="220" innerdataset="dsPatType" codecolumn="code" datacolumn="value" left="85.27%" top="143" right="2.99%" height="26"/>
               <Calendar id="trmtDateCal" taborder="221" left="85.27%" top="111" right="2.99%" height="27"/>
-              <Static id="trmtHistTitleStc" taborder="222" text="과거진료이력" left="46.87%" top="190" right="43.18%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="trmtHistTitleStc" taborder="222" text="과거진료이력" left="46.87%" top="190" right="43.18%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Grid id="trmtHistGrid" taborder="223" binddataset="dsReceiptHist" useinputpanel="false" autofittype="col" left="46.87%" top="222" right="1.39%" height="188">
                 <Formats>
                   <Format id="default">
@@ -113,7 +113,7 @@
                   </Format>
                 </Formats>
               </Grid>
-              <Static id="noTrmtHistTitleStc" taborder="224" text="당일&amp;미진료 접수내역" left="46.86%" top="422" right="41.73%" height="28" style="background:dodgerblue;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="noTrmtHistTitleStc" taborder="224" text="당일&amp;미진료 접수내역" left="46.86%" top="422" right="41.73%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Grid id="noTrmtHistGrid" taborder="225" binddataset="dsOutpaReceipt" useinputpanel="false" autofittype="col" left="46.87%" top="454" right="1.39%" height="188">
                 <Formats>
                   <Format id="default">

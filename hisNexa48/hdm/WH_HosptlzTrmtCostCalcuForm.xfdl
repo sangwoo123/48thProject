@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WH_HosptlzTrmtCostCalcuForm" classname="WH_HosptlzTrmtCostCalcuForm" left="0" top="0" width="1250" height="768" titletext="입원진료비 계산" onload="WH_HosptlzTrmtCostCalcuForm_onload">
+  <Form id="WH_HosptlzTrmtCostCalcuForm" classname="WH_HosptlzTrmtCostCalcuForm" left="0" top="0" width="1250" height="768" titletext="입원진료비 계산" onload="WH_HosptlzTrmtCostCalcuForm_onload" name="HC_HosptlzTrmtCostCalcuForm">
     <Layouts>
       <Layout>
         <Static id="Static01" taborder="0" text="성명" left="0.64%" top="145" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
