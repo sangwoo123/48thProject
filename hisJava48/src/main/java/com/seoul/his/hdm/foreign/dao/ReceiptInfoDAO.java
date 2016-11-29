@@ -7,11 +7,12 @@ import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 
 public interface ReceiptInfoDAO {
 
-		List<ReceiptInfoBean> selectReceiptList(Map<String, String> argsMap);
+    List<ReceiptInfoBean> selectReceiptList(Map<String, String> argsMap);
 
-	    void insertReceipt(ReceiptInfoBean receiptInfoBean);
-	    
-	    void updateReceipt(ReceiptInfoBean receiptInfoBean);
+    void insertReceipt(ReceiptInfoBean receiptInfoBean);
+    
+    void updateReceipt(ReceiptInfoBean receiptInfoBean);
 
-	    void deleteReceipt(ReceiptInfoBean receiptInfoBean);
+    void deleteReceipt(ReceiptInfoBean receiptInfoBean);
+
 }

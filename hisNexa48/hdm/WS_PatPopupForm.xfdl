@@ -65,7 +65,7 @@
         <Rows>
           <Row>
             <Col id="serviceID">findPatList</Col>
-            <Col id="URL">his::won/outPatMngnt/findPatList.do</Col>
+            <Col id="URL">his::hdm/foreign/findPatList.do</Col>
             <Col id="outData">dsPat=dsPat</Col>
             <Col id="inData"/>
           </Row>
