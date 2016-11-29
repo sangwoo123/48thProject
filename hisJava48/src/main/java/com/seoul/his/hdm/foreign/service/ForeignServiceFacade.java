@@ -9,11 +9,11 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
 public interface ForeignServiceFacade {
 
-	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap);	
+	/*public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap);	
 
 	public void registerDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
 
-	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
+	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);*/
 	
 	public PatInfoBean findPat(Map<String, String> argsMap);
 	
