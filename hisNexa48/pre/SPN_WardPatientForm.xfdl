@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SPN_WardPatientForm" classname="SPN_WardPatientForm" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div01" taborder="9" left="40.63%" top="72" right="0.59%" height="680" style="background:#eceff1ff;border:1 solid #808080ff ;"/>
+        <Div id="Div00" taborder="7" text="Div00" left="1.17%" top="72" right="59.77%" height="680" style="background:#eceff1ff;border:1 solid #808080ff ;gradation:linear 0,0 black 100,100 black;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="   병동환자조회" left="0.5%" top="2" right="0.5%" height="45" style="background:#78909cff;color:white;font:10 Dotum;"/>
+              <Button id="Button00" taborder="1" left="56.03%" top="66" height="39" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:0 none #999999ff ;bordertype:round 3 3 ;" width="39"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="wardPatientGrid" taborder="1" useinputpanel="false" left="1.86%" top="204" right="60.55%" height="540" binddataset="dsWardPatient" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#b0bec5ff;" text="WARD"/>
+                <Cell col="1" style="background:#b0bec5ff;" text="HROOM_NO"/>
+                <Cell col="2" style="background:#b0bec5ff;" text="HROOM"/>
+                <Cell col="3" style="background:#b0bec5ff;" text="DEPT"/>
+                <Cell col="4" style="background:#b0bec5ff;" text="DOCT_NM"/>
+                <Cell col="5" style="background:#b0bec5ff;" text="PATIENT_NM"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:WARD"/>
+                <Cell col="1" text="bind:HROOM_NO"/>
+                <Cell col="2" text="bind:HROOM"/>
+                <Cell col="3" text="bind:DEPT"/>
+                <Cell col="4" text="bind:DOCT_NM"/>
+                <Cell col="5" text="bind:PATIENT_NM"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="5" style="background:#b0bec5ff;" text="총인원"/>
+                <Cell col="5" style="background:#b0bec5ff;" expr="expr:dataset.getrowcount()" mask="##명"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="2" useinputpanel="false" left="51.07%" top="204" right="1.56%" height="540">
+          <Formats/>
+        </Grid>
+        <Combo id="WardCombo" taborder="3" left="8.79%" top="139" right="77.64%" height="39"/>
+        <Static id="Static00" taborder="5" text="병동" left="2.05%" top="139" right="91.99%" height="39" style="background:#b9bec5ff;color:black;align:center middle;"/>
+        <Grid id="Grid02" taborder="8" useinputpanel="false" left="41.5%" top="284" right="49.8%" height="460">
+          <Formats/>
+        </Grid>
+        <Div id="Div02" taborder="10" left="-1.07%" top="9" right="-0.68%" height="59" style="align:left middle;background:transparent URL('img::titleBar2.jpg');font:11 Dotum;">
+          <Layouts>
+            <Layout width="1006" height="45">
+              <Static id="Static00" taborder="0" text="병동환자관리" left="4.28%" top="5" right="82.41%" height="45" style="align:center middle;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsWardPatient">
+        <ColumnInfo>
+          <Column id="WARD" type="STRING" size="256"/>
+          <Column id="HROOM_NO" type="STRING" size="256"/>
+          <Column id="HROOM" type="STRING" size="256"/>
+          <Column id="DEPT" type="STRING" size="256"/>
+          <Column id="DOCT_NM" type="STRING" size="256"/>
+          <Column id="PATIENT_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[]]></Script>
+  </Form>
+</FDL>
