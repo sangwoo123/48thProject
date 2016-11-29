@@ -59,4 +59,5 @@
   </Dataset>
   <Variable id="gvTabIndex" initval="0"/>
   <Variable id="rsvtNo"/>
+  <Variable id="gv_system" initval="PMS"/>
 </GlobalVariables>

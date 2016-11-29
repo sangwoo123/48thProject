@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample_Grid" classname="Sample_Grid" left="0" top="0" width="1024" height="860" titletext="그리드 기능" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <GroupBox id="GroupBox02" text="정렬" taborder="15" left="10" top="741" right="10" height="217"/>
+        <GroupBox id="GroupBox01" text="Copy &amp; Paste" taborder="8" left="10" top="64" right="10" height="440"/>
+        <Static id="Static00" taborder="0" text="@ 그리드 기능" left="10" top="10" right="10" height="41" style="background:whitesmoke;border:1 solid black ;color:black;padding:0 0 0 20;font:bold 14 Dotum;"/>
+        <Grid id="grd_bottom" taborder="1" binddataset="ds_bottom" useinputpanel="false" selecttype="area" autofittype="col" left="529" top="116" height="161" right="19">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="C"/>
+                <Cell col="3" text="D"/>
+                <Cell col="4" text="E"/>
+                <Cell col="5" text="F"/>
+                <Cell col="6" style="background2: ;" text="G"/>
+                <Cell col="7" text="H"/>
+              </Band>
+              <Band id="body" style="selectbackground:#dbeef3ff;selectcolor:#222222ff;cellline:1 solid #808080ff ;cellpadding:0 2 0 0;cellalign:right middle;">
+                <Cell edittype="normal" style="selectbackground:EXPR((currow%2)?'#e8f587ff':'#fdd695ff');" text="bind:A"/>
+                <Cell col="1" edittype="normal" text="bind:B"/>
+                <Cell col="2" edittype="normal" text="bind:C"/>
+                <Cell col="3" edittype="normal" text="bind:D"/>
+                <Cell col="4" edittype="normal" text="bind:E"/>
+                <Cell col="5" edittype="normal" style="background2: ;" text="bind:F"/>
+                <Cell col="6" edittype="normal" style="background2: ;" text="bind:G"/>
+                <Cell col="7" edittype="normal" text="bind:H"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_top" taborder="2" binddataset="ds_top" useinputpanel="false" selecttype="area" cellsizingtype="col" left="24" top="116" width="476" height="161">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="A"/>
+                <Cell col="1" text="B"/>
+                <Cell col="2" text="C"/>
+                <Cell col="3" text="D"/>
+                <Cell col="4" text="E"/>
+                <Cell col="5" text="F"/>
+                <Cell col="6" text="G"/>
+                <Cell col="7" text="H"/>
+              </Band>
+              <Band id="body" style="selectbackground:#dbeef3ff;selectcolor:#222222ff;cellline:1 solid #808080ff ;cellpadding:0 2 0 0;cellalign:right middle;">
+                <Cell edittype="normal" text="bind:A"/>
+                <Cell col="1" edittype="normal" text="bind:B"/>
+                <Cell col="2" edittype="normal" style="selectbackground: ;" text="bind:C"/>
+                <Cell col="3" edittype="normal" style="selectbackground: ;" text="bind:D"/>
+                <Cell col="4" edittype="normal" text="bind:E"/>
+                <Cell col="5" edittype="normal" text="bind:F"/>
+                <Cell col="6" edittype="normal" text="bind:G"/>
+                <Cell col="7" edittype="normal" text="bind:H"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Tab id="Tab00" taborder="5" left="24" top="301" width="476" height="176" tabindex="0" scrollbars="autoboth">
+          <Tabpages>
+            <Tabpage id="tabpage1" text="tabpage1" url="Sample::Sample_Grid_Sub.xfdl"/>
+            <Tabpage id="tabpage2" text="tabpage2"/>
+          </Tabpages>
+        </Tab>
+        <Div id="Div00" taborder="6" url="Sample::Sample_Grid_Sub.xfdl" text="Div00" left="529" top="334" height="143" style="border:1 solid #808080ff ;" right="19"/>
+        <Static id="Static01" taborder="7" text="Div" left="528" top="307" width="105" height="21" style="font:bold antialias 11 Verdana;"/>
+        <GroupBox id="GroupBox00" text="전체선택" taborder="9" left="10" top="525" right="10" height="179"/>
+        <Grid id="grd_checkall" taborder="10" useinputpanel="false" left="28" top="557" width="378" height="130" binddataset="ds_checkall" cellsizingtype="none" autofittype="col" onheadclick="Grid00_onheadclick" selecttype="area">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="1" text="Column1"/>
+                <Cell col="2" text="Column2"/>
+                <Cell col="3" displaytype="checkbox" edittype="checkbox"/>
+                <Cell col="4" text="Column4"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="checkbox" edittype="checkbox" text="bind:_chk"/>
+                <Cell col="1" edittype="normal" text="bind:Column1"/>
+                <Cell col="2" edittype="normal" text="bind:Column2"/>
+                <Cell col="3" displaytype="checkbox" edittype="checkbox" text="bind:Column3"/>
+                <Cell col="4" edittype="normal" text="bind:Column4"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button00" taborder="11" text="데이타셋확인" left="423" top="557" width="97" height="34" onclick="Button00_onclick"/>
+        <Button id="btn_onOff" taborder="12" text="on / off" onclick="btn_onOff_onclick" left="529" top="80" width="62" height="29"/>
+        <Static id="st_msg" taborder="13" text="◀ cell &gt; &lt;b v='true'&gt;selectbackground&lt;/b&gt;: EXPR((currow%2)?'#e8f587ff':'#fdd695ff')" usedecorate="true" visible="false" left="534" top="180" width="480" height="42" style="background:yellow;border:3 solid #808080ff ;"/>
+        <Grid id="grd_sort" taborder="14" binddataset="ds_sort" useinputpanel="false" cellsizingtype="col" cellmovingtype="col" left="28" top="768" width="580" height="174" onmouseenter="grd_sort_onmouseenter" onmouseleave="grd_sort_onmouseleave">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="30" band="head"/>
+                <Row size="30" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="4" text="Merge1"/>
+                <Cell col="4" rowspan="2" text="col5"/>
+                <Cell col="5" colspan="2" text="Merge2"/>
+                <Cell row="1" text="col1" expandshow="hide"/>
+                <Cell row="1" col="1" text="col2"/>
+                <Cell row="1" col="2" text="col3"/>
+                <Cell row="1" col="3" text="col4"/>
+                <Cell row="1" col="5" text="col6"/>
+                <Cell row="1" col="6" text="col7"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:col1"/>
+                <Cell col="1" displaytype="combo" text="bind:col2" combodataset="ds_type" combocodecol="code" combodatacol="value"/>
+                <Cell col="2" text="bind:col3"/>
+                <Cell col="3" text="bind:col4"/>
+                <Cell col="4" displaytype="date" text="bind:col5"/>
+                <Cell col="5" displaytype="number" style="align:right;" text="bind:col6"/>
+                <Cell col="6" displaytype="number" style="align:right;" text="bind:col7"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="16" text="소트초기화" left="632" top="768" width="120" height="50" onclick="Button01_onclick"/>
+        <TextArea id="TextArea00" taborder="17" left="532" top="538" height="156" right="16"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_top01" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="A" type="STRING" size="256"/>
+          <Column id="B" type="STRING" size="256"/>
+          <Column id="C" type="STRING" size="256"/>
+          <Column id="D" type="STRING" size="256"/>
+          <Column id="E" type="STRING" size="256"/>
+          <Column id="F" type="STRING" size="256"/>
+          <Column id="G" type="STRING" size="256"/>
+          <Column id="H" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row>
+            <Col id="B">1</Col>
+            <Col id="C">2</Col>
+            <Col id="D">3</Col>
+          </Row>
+          <Row>
+            <Col id="B">4.2</Col>
+            <Col id="C">5.2</Col>
+            <Col id="D">6.2</Col>
+          </Row>
+          <Row>
+            <Col id="B">A</Col>
+            <Col id="C">B</Col>
+            <Col id="D">C</Col>
+          </Row>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_top" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="A" type="STRING" size="256"/>
+          <Column id="B" type="STRING" size="256"/>
+          <Column id="C" type="STRING" size="256"/>
+          <Column id="D" type="STRING" size="256"/>
+          <Column id="E" type="STRING" size="256"/>
+          <Column id="F" type="STRING" size="256"/>
+          <Column id="G" type="STRING" size="256"/>
+          <Column id="H" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row>
+            <Col id="B">1</Col>
+            <Col id="C">2</Col>
+            <Col id="D">3</Col>
+          </Row>
+          <Row>
+            <Col id="B">4.2</Col>
+            <Col id="C">5.2</Col>
+            <Col id="D">6.2</Col>
+          </Row>
+          <Row>
+            <Col id="B">100</Col>
+            <Col id="C">200</Col>
+            <Col id="D">300</Col>
+          </Row>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_bottom" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="ds_bottom_oncolumnchanged" onrowposchanged="ds_bottom_onrowposchanged">
+        <ColumnInfo>
+          <Column id="A" type="STRING" size="256"/>
+          <Column id="B" type="STRING" size="256"/>
+          <Column id="C" type="STRING" size="256"/>
+          <Column id="D" type="STRING" size="256"/>
+          <Column id="E" type="STRING" size="256"/>
+          <Column id="F" type="STRING" size="256"/>
+          <Column id="G" type="STRING" size="256"/>
+          <Column id="H" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+          <Row/>
+          <Row>
+            <Col id="B">11</Col>
+            <Col id="C">22</Col>
+            <Col id="D">33</Col>
+          </Row>
+          <Row>
+            <Col id="B">14.2</Col>
+            <Col id="C">15.2</Col>
+            <Col id="D">16.2</Col>
+          </Row>
+          <Row>
+            <Col id="B">500</Col>
+            <Col id="C">600</Col>
+            <Col id="D">700</Col>
+          </Row>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_checkall">
+        <ColumnInfo>
+          <Column id="_chk" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column2" type="STRING" size="256"/>
+          <Column id="Column3" type="STRING" size="256"/>
+          <Column id="Column4" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="Column1">1</Col>
+            <Col id="Column2">1</Col>
+            <Col id="Column3"/>
+            <Col id="Column4">1</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">2</Col>
+            <Col id="Column2">2</Col>
+            <Col id="Column3"/>
+            <Col id="Column4">2</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">3</Col>
+            <Col id="Column2">3</Col>
+            <Col id="Column3"/>
+            <Col id="Column4">3</Col>
+          </Row>
+          <Row>
+            <Col id="Column1">4</Col>
+            <Col id="Column2">4</Col>
+            <Col id="Column3"/>
+            <Col id="Column4">4</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset enableevent="true" firefirstcount="0" firenextcount="0" id="ds_sort" preload="true" updatecontrol="true" useclientlayout="false">
+        <ColumnInfo>
+          <Column id="col1" size="256" type="STRING"/>
+          <Column id="col2" size="256" type="STRING"/>
+          <Column id="col3" size="256" type="STRING"/>
+          <Column id="col4" size="256" type="STRING"/>
+          <Column id="col5" size="256" type="STRING"/>
+          <Column id="col6" size="256" type="STRING"/>
+          <Column id="col7" size="256" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">2G</Col>
+            <Col id="col4">SCH-W420</Col>
+            <Col id="col5">20081223</Col>
+            <Col id="col6">235000</Col>
+            <Col id="col7">320000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">SCH-M490</Col>
+            <Col id="col5">20090111</Col>
+            <Col id="col6">353000</Col>
+            <Col id="col7">420000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">SCH-W270</Col>
+            <Col id="col5">20090209</Col>
+            <Col id="col6">498000</Col>
+            <Col id="col7">680000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">2G</Col>
+            <Col id="col4">SCH-W570</Col>
+            <Col id="col5">20081201</Col>
+            <Col id="col6">351000</Col>
+            <Col id="col7">510000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">SCH-W550</Col>
+            <Col id="col5">20090125</Col>
+            <Col id="col6">150000</Col>
+            <Col id="col7">610000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">AnyCall</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">SCH-W750</Col>
+            <Col id="col5">20090225</Col>
+            <Col id="col6">589000</Col>
+            <Col id="col7">860000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">cyon</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">2G</Col>
+            <Col id="col4">LG-KH2100</Col>
+            <Col id="col5"/>
+            <Col id="col6">256000</Col>
+            <Col id="col7">370000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">cyon</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">LG-KU6000</Col>
+            <Col id="col5">20090212</Col>
+            <Col id="col6">430000</Col>
+            <Col id="col7">590000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">cyon</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">2G</Col>
+            <Col id="col4">LG-KU9100</Col>
+            <Col id="col5">20081205</Col>
+            <Col id="col6">360000</Col>
+            <Col id="col7">630000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">cyon</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">LG-KH8000</Col>
+            <Col id="col5"/>
+            <Col id="col6">470000</Col>
+            <Col id="col7">720000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">cyon</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">LG-KH6500</Col>
+            <Col id="col5">20090219</Col>
+            <Col id="col6">560000</Col>
+            <Col id="col7">840000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">팬택&amp;큐리</Col>
+            <Col id="col2">2</Col>
+            <Col id="col3">2G</Col>
+            <Col id="col4">canU-S1000</Col>
+            <Col id="col5">20090303</Col>
+            <Col id="col6">270000</Col>
+            <Col id="col7">410000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">팬택&amp;큐리</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">canU801EX</Col>
+            <Col id="col5"/>
+            <Col id="col6"/>
+            <Col id="col7">600000</Col>
+          </Row>
+          <Row>
+            <Col id="col1">팬택&amp;큐리</Col>
+            <Col id="col2">1</Col>
+            <Col id="col3">3G</Col>
+            <Col id="col4">canU502S</Col>
+            <Col id="col5">20090109</Col>
+            <Col id="col6">300000</Col>
+            <Col id="col7"/>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+ * 01. 업무구분 : 샘플
+ * 02. 메뉴명   : 
+ * 03. 메뉴설명 :  
+ * 04. 작성일   : 
+ * 05. 작성자   : 
+ * 06. 수정이력 : 
+ ***********************************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************************
+ *     
+ **********************************************************************************/
+
+
+/***********************************************************************************
+* include 선언부  													               *
+***********************************************************************************/
+
+
+/***********************************************************************************/
+/* 폼 전역변수 선언부												               */
+/***********************************************************************************/
+
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+/**
+ * form onload 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//기본 공통  함수 초기화
+	Iject.formOnload(obj);
+	
+	//그리드 복사&붙여넣기 설정
+	var config = { copypaste:true };
+	Iject.Grid.init(this, [this.grd_top, this.grd_bottom], config);
+	
+	//전체체크 설정
+	//updatecontrol - false : rowtype 변경안됨, true : rowtype 자동변경
+	config = { copypaste:true, checkall:true, sorting:true, updatecontrol:true};
+	Iject.Grid.init(this, this.grd_checkall, config);	
+	
+	//정렬 설정
+	config = { sorting:true };
+	Iject.Grid.init(this, this.grd_sort, config);	
+}
+
+/***********************************************************************************
+* Transaction Function
+***********************************************************************************/
+
+
+/***********************************************************************************
+* 사용자 Function
+***********************************************************************************/
+
+
+/***********************************************************************************
+* Component Event Function
+***********************************************************************************/
+
+
+this.btn_onOff_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.st_msg.visible){
+		this.st_msg.set_visible(false);
+	} else {
+		this.st_msg.set_visible(true);
+	}
+}
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.TextArea00.set_value(this.ds_checkall.saveXML("ds_checkall", "a"));
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.Grid.clearAllSort(this.grd_sort);
+}
+]]></Script>
+  </Form>
+</FDL>
