@@ -15,8 +15,7 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
 
 @Component
-public class ForeignApplicationServiceImpl implements ForeignApplicationService {
-	
+public class ForeignApplicationServiceImpl implements ForeignApplicationService {	
 	@Autowired
 	ForeignDAO foreignDAO;
 	@Autowired
