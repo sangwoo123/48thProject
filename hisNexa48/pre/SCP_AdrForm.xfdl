@@ -6,22 +6,23 @@
       <Layout>
         <Div id="Div01" taborder="0" left="0.16%" top="0" width="1249" height="60" style="background:transparent URL('img::titleBar2.jpg');"/>
         <Static id="Static00" taborder="1" text="약물유해반응 관리" left="4.8%" top="-5" right="71.84%" height="60" style="color:#6c6c6cff;font:antialias 20 맑은 고딕;"/>
-        <Div id="adrDiv" taborder="2" left="1.92%" top="66" width="381" height="104" style="background:#eceff1ff;border:1 solid #808080ff ;">
+        <Div id="adrDiv" taborder="2" left="1.92%" top="66" width="381" height="310" style="background:#eceff1ff;border:1 solid #808080ff ;">
           <Layouts>
             <Layout>
-              <Static id="subCodeStc02" taborder="20" text="작성자" onclick="subCodeStc_onclick" left="2.9%" top="13" right="74.41%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc00" taborder="21" text="작성일" onclick="subCodeStc_onclick" left="3.17%" top="59" right="74.41%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Calendar id="writeDateCal" taborder="22" dateformat="yyyy-MM-dd" left="29.02%" top="59" right="30.08%" height="31"/>
+              <Static id="pNameStc" taborder="20" text="환자명" onclick="subCodeStc_onclick" left="2.64%" top="13" right="74.67%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc" taborder="21" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="56" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="trmtDeptEd" taborder="23" enable="false" left="66.23%" top="13" width="115" height="30" class="AreaEdt"/>
               <Edit id="trmtDoctEd" taborder="24" enable="false" left="29.02%" top="12" width="94" height="30" class="AreaEdt"/>
               <Button id="DelBtn10" taborder="25" onclick="DelBtn_onclick" cssclass="DelBtn" left="212" top="11" width="32" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="searchAdrBtn" taborder="26" left="276" top="59" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="" onclick="adrDiv_searchAdrBtn_onclick"/>
+              <Edit id="trmtDoctEd00" taborder="27" enable="false" left="29.02%" top="55" width="155" height="30" class="AreaEdt"/>
+              <Static id="fieldStc00" taborder="28" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="99" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc01" taborder="29" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="142" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc02" taborder="30" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="185" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc03" taborder="31" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="228" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
             </Layout>
           </Layouts>
         </Div>
-        <Button id="addBtn" taborder="3" left="24" top="192" width="32" height="32" style="background:@gradation URL('img::miniPlusBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="" onclick="addBtn_onclick"/>
-        <Button id="delBtn" taborder="4" left="60" top="192" width="32" height="32" style="background:@gradation URL('img::miniMinusBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="" onclick="delBtn_onclick"/>
-        <Grid id="Grid00" taborder="5" useinputpanel="false" left="1.92%" top="232" right="67.6%" height="520" binddataset="dsAdr" autofittype="col">
+        <Grid id="Grid00" taborder="5" useinputpanel="false" left="1.92%" top="510" right="67.6%" height="242" binddataset="dsAdr" autofittype="col">
           <Formats>
             <Format id="default">
               <Columns>
@@ -52,8 +53,6 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="batchBtn" taborder="6" left="200" top="188" width="110" height="32" style="background:@gradation URL('img::batchBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="" onclick="batchBtn_onclick"/>
-        <Button id="DelBtn26" taborder="7" onclick="DelBtn_onclick" cssclass="DelBtn" left="315" top="188" width="90" height="32" style="background:@gradation URL('img::receiptBtn.png') stretch;border:1 none #999999ff ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Div id="writerDiv" taborder="9" left="33.92%" top="149" width="805" height="45" style="background:whitesmoke;border:1 solid #808080ff ;">
           <Layouts>
             <Layout>
