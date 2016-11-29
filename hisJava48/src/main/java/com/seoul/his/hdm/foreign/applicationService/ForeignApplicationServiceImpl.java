@@ -13,6 +13,7 @@ import com.seoul.his.hdm.foreign.exception.ForeignException;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
+
 @Component
 public class ForeignApplicationServiceImpl implements ForeignApplicationService {
 	@Autowired
