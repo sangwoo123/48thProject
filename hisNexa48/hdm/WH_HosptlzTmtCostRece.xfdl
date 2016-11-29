@@ -8,7 +8,11 @@
           <Formats>
             <Format id="default">
               <Columns>
+<<<<<<< HEAD
+                <Column size="230"/>
+=======
                 <Column size="229"/>
+>>>>>>> branch 'erp48' of https://github.com/sangwoo123/48thProject.git
                 <Column size="211"/>
               </Columns>
               <Rows>

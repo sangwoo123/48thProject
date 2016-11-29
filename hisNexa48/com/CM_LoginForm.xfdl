@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="CM_LoginForm" classname="CM_LoginForm" left="0" top="0" width="635" height="350" titletext="LoginForm" style="background:URL('theme://main.jpg') stretch;">
+  <Form id="CM_LoginForm" classname="CM_LoginForm" left="0" top="0" width="635" height="350" titletext="LoginForm" style="background:URL('img::main.jpg') stretch;">
     <Layouts>
       <Layout>
         <Edit id="idNmEd" taborder="8" readonly="true" oneditclick="id_oneditclick" left="80%" top="200" right="2.2%" height="30" style="align:center middle; :readonly {background:white;border:1 solid darkgray ;}" value="박영하"/>
