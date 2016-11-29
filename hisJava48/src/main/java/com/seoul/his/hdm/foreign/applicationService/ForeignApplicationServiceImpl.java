@@ -8,31 +8,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seoul.his.hdm.foreign.dao.ForeignDAO;
+import com.seoul.his.hdm.foreign.dao.ReceiptInfoDAO;
 import com.seoul.his.hdm.foreign.exception.ForeignException;
-import com.seoul.his.hdm.foreign.to.ForeignBean;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
-/**
- * @Package  com.seoul.his.acc.budget.applicationService
- * @Class    AccBudgetApplicationServiceImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated 
- */
 
 @Component
-public class ForeignApplicationServiceImpl implements ForeignApplicationService{
+public class ForeignApplicationServiceImpl implements ForeignApplicationService {	
 	@Autowired
 	ForeignDAO foreignDAO;
-	
-
-
+	@Autowired
+	ReceiptInfoDAO receiptInfoDAO;
 
 	@Override
-	public List<ForeignBean> findForeignList(Map<String, String> argsMap) {
-		List<ForeignBean> foreignList = foreignDAO.selectForeignList(argsMap);
-		return foreignList;		
+	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
+		return receiptInfoDAO.selectReceiptList(argsMap);
 	}
 
+	@Override
+	public void registerDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
+		receiptInfoDAO.insertReceipt(receiptInfoBean);
+
+	}
+
+	@Override
+	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
+		receiptInfoDAO.deleteReceipt(receiptInfoBean);
+	}
+
+	@Override
+	public List<PatInfoBean> findPatList(Map<String, String> argsMap) {
+		return foreignDAO.selectPatList(argsMap);
+	}
+
+	@Override
+	public PatInfoBean findPat(Map<String, String> argsMap) {
+		return foreignDAO.selectPat(argsMap);
+	}
 }

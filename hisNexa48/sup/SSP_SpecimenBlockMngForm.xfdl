@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SSE_SpecimenBlockMngForm" classname="SSE_SpecimenBlockMngForm" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="검체블록관리" left="23" top="24" right="700" height="40" style="font:bold 20 Dotum;"/>
+        <Static id="Static01" taborder="1" text="검체번호" left="2.34%" top="80" right="88.87%" height="33" style="background:floralwhite;border:2 solid #808080ff ;bordertype:round 5 5 ;align:center middle;"/>
+        <Edit id="Edit00" taborder="2" left="11.72%" top="80" right="78.52%" height="33" style="bordertype:round 5 5 ;"/>
+        <Button id="Button00" taborder="3" text="검색" left="22.17%" top="80" right="73.44%" height="33"/>
+        <Grid id="Grid00" taborder="4" useinputpanel="false" left="2.34%" top="136" right="2.15%" height="572" autoenter="select" autofittype="col">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="134"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="검체번호"/>
+                <Cell col="1" text="검체블록코드"/>
+                <Cell col="2" text="제작일"/>
+                <Cell col="3" text="제작시간"/>
+                <Cell col="4" text="수량"/>
+                <Cell col="5" text="환자번호"/>
+                <Cell col="6" text="환자명"/>
+              </Band>
+              <Band id="body">
+                <Cell/>
+                <Cell col="1"/>
+                <Cell col="2"/>
+                <Cell col="3"/>
+                <Cell col="4"/>
+                <Cell col="5"/>
+                <Cell col="6"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="Button01" taborder="5" text="저장" left="90.92%" top="720" right="2.25%" height="32"/>
+        <Button id="Button02" taborder="6" text="삭제" left="83.11%" top="720" right="10.06%" height="32"/>
+        <Button id="Button03" taborder="7" text="추가" left="75.29%" top="720" right="17.87%" height="32"/>
+        <Button id="Button04" taborder="8" text="저장" left="90.92%" top="80" right="2.25%" height="33"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
