@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WS_OutPatReceiptMngntForm" classname="WS_OutPatReceiptMngntForm" left="0" top="0" width="1250" height="768" titletext="외래관리">
+  <Form id="WS_OutPatReceiptMngntForm" classname="WS_OutPatReceiptMngntForm" left="0" top="0" width="1250" height="768" titletext="외래관리" style="background:#cfd8dcff;">
     <Layouts>
       <Layout>
-        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent;">
+        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:#90a4aeff stretch;">
           <Layouts>
             <Layout>
-              <Static id="titleStc" taborder="0" text="외래관리" left="45.6%" top="0" right="44.16%" height="60" style="color:#455a64ff;font:bold 20 돋움체;"/>
+              <Static id="titleStc" taborder="0" text="외래관리" left="45.6%" top="0" right="44.16%" height="60" style="color:#37474fff;font:bold 20 돋움체;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="WS_OutPatReceiptMngnDiv" taborder="1" left="1.07%" top="65" right="0.78%" height="693" style="background:#90a4aeff;">
+        <Div id="WS_OutPatReceiptMngnDiv" taborder="1" left="1.07%" top="65" right="0.78%" height="693">
           <Layouts>
             <Layout>
-              <GroupBox id="patMngntGroupBox" text="환자조회" taborder="152" left="0.9%" top="11" right="55.02%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:#455a64ff;font:bold underline 14 돋움;" onlbuttondown="WS_OutPatReceiptMngnDiv_patMngntGroupBox_onlbuttondown"/>
-              <GroupBox id="receiptGroupBox" text="외래환자 접수등록" taborder="153" left="45.87%" top="11" right="0.7%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#edececff;border:1 solid darkgray ;color:#455a64ff;font:bold underline 14 돋움체;"/>
+              <GroupBox id="patMngntGroupBox" text="환자조회" taborder="152" left="0.9%" top="11" right="55.02%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#90a4aeff;border:1 solid darkgray ;color:#37474fff;font:bold 14 돋움;" onlbuttondown="WS_OutPatReceiptMngnDiv_patMngntGroupBox_onlbuttondown"/>
+              <GroupBox id="receiptGroupBox" text="외래환자 접수등록" taborder="153" left="45.87%" top="11" right="0.7%" height="640" style="titleimage:URL('theme://images\img_grouptitle_D.png');background:#90a4aeff;border:1 solid darkgray ;color:#37474fff;font:bold 14 돋움체;"/>
               <Static id="patNoStc" taborder="154" text="환자등록번호" left="1.79%" top="46" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Static id="patNmStc" taborder="155" text="성명" left="1.79%" top="78" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Static id="rrnStc" taborder="156" text="주민번호" left="1.79%" top="110" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
@@ -31,9 +31,8 @@
               <Static id="insuRrnStc" taborder="166" text="주민번호" left="1.79%" top="430" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Static id="applyStc" taborder="167" text="적용기간" left="1.79%" top="462" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Static id="noteStc" taborder="168" text="메모" left="1.79%" top="494" right="88.26%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
-              <Edit id="patNoEd" taborder="169" left="12.14%" top="46" right="78.11%" height="28"/>
-              <Button id="searchPatNoBtn" taborder="170" onclick="clickBtn" cssclass="AddBtn" left="22.39%" top="44" right="75.02%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="searchPatBtn" taborder="171" text="환자조회" onclick="clickBtn" left="26.47%" top="44" right="65.87%" height="28" style="background:#848484ff;color:white;font:bold 10 돋움;"/>
+              <Edit id="patNoEd" taborder="169" left="12.14%" top="46" right="78.11%" height="28" oneditclick="WS_OutPatReceiptMngnDiv_patNoEd_oneditclick" value="선택해주세요"/>
+              <Button id="searchPatNoBtn" taborder="170" cssclass="AddBtn" left="22.39%" top="44" right="75.02%" height="32" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="WS_OutPatReceiptMngnDiv_searchPatNoBtn_onclick"/>
               <Edit id="patNmEd" taborder="173" left="12.14%" top="78" right="78.11%" height="28"/>
               <Edit id="rrn1Ed" taborder="174" left="12.14%" top="110" right="78.11%" height="28"/>
               <Edit id="zipEd" taborder="175" readonly="true" left="12.14%" top="142" right="78.11%" height="28"/>
@@ -64,9 +63,9 @@
               <Edit id="trmtDeptCdEd" taborder="205" readonly="true" left="55.22%" top="46" right="39.2%" height="28"/>
               <Edit id="trmtDoctCdEd" taborder="206" readonly="true" left="55.22%" top="78" right="39.2%" height="28"/>
               <Edit id="expCdEd" taborder="207" readonly="true" left="55.22%" top="110" right="39.2%" height="28"/>
-              <Button id="searchTrmtDeptCdBtn" taborder="208" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="44" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="searchTrmtDoctCdBtn" taborder="209" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="76" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="searchExpCdBtn" taborder="210" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="108" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="searchTrmtDeptCdBtn" taborder="208" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="44" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="searchTrmtDoctCdBtn" taborder="209" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="76" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="searchExpCdBtn" taborder="210" onclick="clickBtn" cssclass="AddBtn" left="61.19%" top="108" right="36.22%" height="32" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
               <Edit id="trmtDeptNmEd" taborder="211" readonly="true" left="64.18%" top="46" right="25.37%" height="28"/>
               <Edit id="trmtDoctNmEd" taborder="212" readonly="true" left="64.18%" top="78" right="25.37%" height="28"/>
               <Edit id="expNmEd" taborder="213" readonly="true" left="64.18%" top="110" right="25.37%" height="28"/>
@@ -95,12 +94,12 @@
                       <Row size="24"/>
                     </Rows>
                     <Band id="head">
-                      <Cell text="진료일자"/>
-                      <Cell col="1" text="진료과"/>
-                      <Cell col="2" text="진료의사"/>
-                      <Cell col="3" text="유형"/>
-                      <Cell col="4" text="입원여부"/>
-                      <Cell col="5" text="진단명"/>
+                      <Cell style="background:#455a64ff;color:white;" text="진료일자"/>
+                      <Cell col="1" style="background:#455a64ff;color:white;" text="진료과"/>
+                      <Cell col="2" style="background:#455a64ff;color:white;" text="진료의사"/>
+                      <Cell col="3" style="background:#455a64ff;color:white;" text="유형"/>
+                      <Cell col="4" style="background:#455a64ff;color:white;" text="입원여부"/>
+                      <Cell col="5" style="background:#455a64ff;color:white;" text="진단명"/>
                     </Band>
                     <Band id="body">
                       <Cell text="bind:trmtDate"/>
@@ -131,13 +130,13 @@
                       <Row size="24"/>
                     </Rows>
                     <Band id="head">
-                      <Cell text="접수번호"/>
-                      <Cell col="1" text="접수일자"/>
-                      <Cell col="2" text="진료일자"/>
-                      <Cell col="3" text="환자명"/>
-                      <Cell col="4" text="진료과"/>
-                      <Cell col="5" text="진료의사"/>
-                      <Cell col="6" text="유형"/>
+                      <Cell style="background:#455a64ff;color:white;" text="접수번호"/>
+                      <Cell col="1" style="background:#455a64ff;color:white;" text="접수일자"/>
+                      <Cell col="2" style="background:#455a64ff;color:white;" text="진료일자"/>
+                      <Cell col="3" style="background:#455a64ff;color:white;" text="환자명"/>
+                      <Cell col="4" style="background:#455a64ff;color:white;" text="진료과"/>
+                      <Cell col="5" style="background:#455a64ff;color:white;" text="진료의사"/>
+                      <Cell col="6" style="background:#455a64ff;color:white;" text="유형"/>
                     </Band>
                     <Band id="body">
                       <Cell text="bind:outpaReceiptNo"/>
@@ -483,12 +482,6 @@ this.edOnkeyDown = function(obj:Edit, e:KeyEventInfo){
 
 this.clickBtn = function(obj){	
 	switch(obj){ 
-		case this.WS_OutPatReceiptMngnDiv.searchPatNoBtn: 	    //환자등록번호 검색
-			this.clickSearchPatNoBtn();
-			break;
-		case this.WS_OutPatReceiptMngnDiv.searchPatBtn: 	    //환자 검색
-			this.clickSearchPatBtn();
-			break;
 		case this.WS_OutPatReceiptMngnDiv.createPatBtn: 	    //신환등록을 위한 작업
 			this.clickCreatePatBtn();
 			break;	
@@ -541,22 +534,7 @@ this.setDoct = function(arr){
 >>  조회
 +-------------------------------------------------------------------------------------------------*/
      
-this.clickSearchPatNoBtn = function(){	//환자등록번호조회
-	this.gfnPatPopup();
-	this.setPatInfo = function(arrRtn){
-		this.WS_OutPatReceiptMngnDiv.patNoEd.set_value(arrRtn[0]);
-	}
-}
-this.clickSearchPatBtn = function(){	//환자조회
-	if(this.WS_OutPatReceiptMngnDiv.patNoEd.value==null){
-		alert("조회할 환자를 선택하세요!");
-		return;
-	}
-	this.dsService.setColumn(0,"argument",'patNo='+this.WS_OutPatReceiptMngnDiv.patNoEd.value);
-	this.dsPat.clearData();
-	this.gfnService("findPat","false");		
-			
-}
+
 
 this.clickSearchTrmtDeptCdBtn = function(){	//진료과 조회
 	this.gfnCodePopup("GP080");
@@ -654,6 +632,27 @@ this.WS_OutPatReceiptMngnDiv_modPatBtn_onclick = function(obj:Button,  e:nexacro
 {
 	this.gfnService("modifyPat","false");
 	receiptFlag=1;
-}]]></Script>
+}
+
+
+this.WS_OutPatReceiptMngnDiv_patNoEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
+{
+	this.gfnPatPopup();
+	this.setPatInfo = function(arrRtn){
+		this.WS_OutPatReceiptMngnDiv.patNoEd.set_value(arrRtn[0]);
+	}
+}
+
+this.WS_OutPatReceiptMngnDiv_searchPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.WS_OutPatReceiptMngnDiv.patNoEd.value==null){
+		alert("조회할 환자를 선택하세요!");
+		return;
+	}
+	this.dsService.setColumn(0,"argument",'patNo='+this.WS_OutPatReceiptMngnDiv.patNoEd.value);
+	this.dsPat.clearData();
+	this.gfnService("findPat","false");	
+}
+]]></Script>
   </Form>
 </FDL>

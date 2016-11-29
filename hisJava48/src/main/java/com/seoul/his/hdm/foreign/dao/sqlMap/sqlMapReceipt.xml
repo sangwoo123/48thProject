@@ -29,7 +29,7 @@
         <result property="patNm"           column="PAT_NM" />                <!--환자이름       -->
     </resultMap>
 
-        <select id="selectReceiptList" resultType="receiptInfoBean">
+        <select id="selectReceiptList" resultMap="resultReceipt">
         SELECT
             P.PAT_NO,
             P.PAT_NM ,
