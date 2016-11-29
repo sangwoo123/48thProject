@@ -13,6 +13,7 @@
       <setting value="true" name="mapUnderscoreToCamelCase" />
    </settings>
 
+
    <typeAliases>
 
       <!-- 시스템공통 -->
