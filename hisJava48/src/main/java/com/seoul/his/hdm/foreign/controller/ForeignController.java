@@ -12,18 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.hdm.foreign.service.ForeignServiceFacade;
-import com.seoul.his.hdm.foreign.to.ForeignBean;
+import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
-/**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated 
- */
 
 @Controller
 public class ForeignController {
@@ -32,13 +23,32 @@ public class ForeignController {
 	DataSetBeanMapper dataSetBeanMapper; 
 	@Autowired
 	ForeignServiceFacade foreignServiceFacade;
+
+	private PlatformData outData;
+	private PlatformData inData;
+	private Map<String, String> argsMap;	
 	
-	@RequestMapping("hdm/foreign/findForeignList.do")
-	public void findForeignList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData) request.getAttribute("inData");
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData); 
-		List<ForeignBean> foreignList = foreignServiceFacade.findForeignList(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, foreignList, ForeignBean.class);
+	@RequestMapping("hdm/foreign/findPatList.do")
+	public void findPatList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	    inData = (PlatformData) request.getAttribute("inData");
+		outData = (PlatformData) request.getAttribute("outData");
+		argsMap = dataSetBeanMapper.variablesToMap(inData);
+
+		List<PatInfoBean> list
+		= foreignServiceFacade.findPatList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, list, PatInfoBean.class);
 	}
+
+	
+    @RequestMapping("hdm/foreign/findPat.do")
+    public void findPat(HttpServletRequest request
+                            , HttpServletResponse response) throws Exception {
+        outData = (PlatformData) request.getAttribute("outData");
+        inData = (PlatformData) request.getAttribute("inData");
+        argsMap = dataSetBeanMapper.variablesToMap(inData);
+         System.out.println("PatController - 환자한명조회");
+        PatInfoBean patInfoBean = foreignServiceFacade.findPat(argsMap);
+        System.out.println(patInfoBean);
+        dataSetBeanMapper.beanToDataset(outData, patInfoBean, PatInfoBean.class);
+    }
 }
