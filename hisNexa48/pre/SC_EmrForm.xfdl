@@ -5,9 +5,9 @@
     <Layouts>
       <Layout>
         <Static id="Static00" taborder="0" text="EMR" left="2.34%" top="14" right="84.77%" height="46" style="color:#6c6c6cff;align:middle;font:antialias 20 맑은 고딕;"/>
-        <Tab id="medTab" taborder="1" left="3.22%" top="68" right="34.47%" height="612" tabindex="0" scrollbars="autoboth" style="buttongradation:liner 0,0 #feffffff 0,100 #e1e1dfff [60% #f2f2efff][70% #ecece9ff];background:white;bordertype:round 5 5 ;font:13 Dotum;">
+        <Tab id="reportTab" taborder="2" left="43.65%" top="90" right="17.09%" height="500" tabindex="0" scrollbars="autoboth" style="buttongradation:liner 0,0 #feffffff 0,100 #e1e1dfff [60% #f2f2efff][70% #ecece9ff];background:white;bordertype:round 5 5 ;font:13 Dotum;">
           <Tabpages>
-            <Tabpage id="reportTp" text="진단">
+            <Tabpage id="med" text="진료기록">
               <Layouts>
                 <Layout width="430" height="208">
                   <Grid id="Grid00" taborder="49" binddataset="dsBaseExam" scrollbars="none" useinputpanel="false" autofittype="col" fillareatype="allrow" hideendline="col" useselcolor="false" mergeview="fullview" left="-304" top="19" width="266" height="147" style="border:1px solid azure ;font:9 Dotum;">
@@ -73,7 +73,97 @@
             </Tabpage>
           </Tabpages>
         </Tab>
-        <Div id="chartDiv" taborder="2" left="3.32%" top="96" right="34.57%" height="30" style="border:1 solid black ;bordertype:round 5 5 ;" cssclass="TStc"/>
+        <Div id="patientDiv" taborder="3" left="1.07%" top="191" width="427" height="84" style="background:whitesmoke;border:1 solid #808080ff ;bordertype:round 5 5 ;">
+          <Layouts>
+            <Layout>
+              <Static id="subCodeStc" taborder="49" text="입원여부" onclick="subCodeStc_onclick" left="68%" top="44" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Combo id="hosCombo" taborder="50" innerdataset="dsYnType" codecolumn="ynType" datacolumn="ynType" left="82.82%" top="45" width="70" height="29"/>
+              <Edit id="searchDeptEd04" taborder="51" enable="false" left="48.94%" top="44" width="78" height="30" class="AreaEdt"/>
+              <Static id="subCodeStc00" taborder="52" text="유형" onclick="subCodeStc_onclick" left="34.35%" top="44" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc01" taborder="53" text="진료여부" onclick="subCodeStc_onclick" left="68%" top="7" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc02" taborder="54" text="등록번호" onclick="subCodeStc_onclick" left="34.35%" top="7" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="searchDeptEd02" taborder="55" enable="false" left="48.94%" top="8" width="78" height="30" class="AreaEdt"/>
+              <Static id="subCodeStc03" taborder="56" text="환자명" onclick="subCodeStc_onclick" left="0.94%" top="7" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="searchDeptEd00" taborder="57" enable="false" left="15.29%" top="8" width="78" height="30" class="AreaEdt"/>
+              <Static id="subCodeStc04" taborder="58" text="초/재진" onclick="subCodeStc_onclick" left="0.94%" top="44" width="60" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="searchDeptEd01" taborder="59" enable="false" left="15.29%" top="44" width="78" height="30" class="AreaEdt"/>
+              <Combo id="trmtCombo" taborder="60" innerdataset="dsYnType" codecolumn="ynType" datacolumn="ynType" left="82.82%" top="8" width="70" height="29"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="trmtDiv" taborder="4" left="1.07%" top="111" width="426" height="46" style="background:whitesmoke;border:1 solid #808080ff ;bordertype:round 5 5 ;">
+          <Layouts>
+            <Layout>
+              <Static id="subCodeStc01" taborder="19" text="과" onclick="subCodeStc_onclick" left="75.47%" top="6" right="17.69%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc02" taborder="20" text="진료의" onclick="subCodeStc_onclick" left="42.45%" top="6" right="43.4%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc00" taborder="21" text="진료일" onclick="subCodeStc_onclick" left="1.18%" top="6" right="85.85%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="trmtDateCal" taborder="22" dateformat="yyyy-MM-dd" left="14.62%" top="5" right="58.02%" height="31"/>
+              <Edit id="trmtDeptEd" taborder="23" enable="false" left="82.78%" top="6" width="67" height="30" class="AreaEdt"/>
+              <Edit id="trmtDoctEd" taborder="24" enable="false" left="57.08%" top="6" width="74" height="30" class="AreaEdt"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="titleStc00" taborder="5" text="진료 정보" onclick="titleStc00_onclick" left="13" top="80" width="116" height="26" style="color:dimgray;bordertype:round 5 5 ;font:antialias bold 14 맑은 고딕;" class="TStc"/>
+        <Static id="titleStc01" taborder="6" text="환자 정보" onclick="titleStc00_onclick" left="13" top="163" width="116" height="26" style="color:dimgray;bordertype:round 5 5 ;font:antialias bold 14 맑은 고딕;" class="TStc"/>
+        <Button id="searchBtn" taborder="7" onclick="searchBtn_onclick" left="346" top="712" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Grid id="patGrid" taborder="8" binddataset="dsOutpaReceipt" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="24" top="336" width="401" height="351">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="20"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO"/>
+                <Cell col="1" text="환자번호"/>
+                <Cell col="2" text="환자명"/>
+                <Cell col="3" text="환자유형"/>
+                <Cell col="4" text="초/재진여부"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="expr:currow+1"/>
+                <Cell col="1" text="bind:patNo"/>
+                <Cell col="2" text="bind:patNm"/>
+                <Cell col="3" text="bind:patType"/>
+                <Cell col="4" text="bind:ntTtYb"/>
+              </Band>
+              <Band id="summary">
+                <Cell colspan="3" style="background:gainsboro;" text="인원"/>
+                <Cell col="3" colspan="2" style="background:gainsboro;" expr="expr:dataset.getRowCount()" mask="##명"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Radio id="inoutRadio" taborder="9" columncount="3" index="0" codecolumn="codecolumn" datacolumn="datacolumn" onitemchanged="inoutRadio_onitemchanged" left="1.07%" top="288" right="85.16%" height="25">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="codecolumn" size="256"/>
+              <Column id="datacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="codecolumn"/>
+                <Col id="datacolumn">전체</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">Y</Col>
+                <Col id="datacolumn">입원</Col>
+              </Row>
+              <Row>
+                <Col id="codecolumn">N</Col>
+                <Col id="datacolumn">외래</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Radio>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
