@@ -6,12 +6,12 @@
       <Layout>
         <Div id="Div01" taborder="0" left="0.16%" top="0" width="1249" height="60" style="background:transparent URL('img::titleBar2.jpg');font:9 돋움;"/>
         <Static id="Static00" taborder="1" text="관심환자관리" left="4.8%" top="-5" right="71.84%" height="60" style="color:#6c6c6cff;font:9 돋움;"/>
-        <Div id="adrDiv" taborder="2" left="2%" top="66" width="381" height="398" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="SCP_regAttPatDiv" taborder="2" left="2%" top="66" width="381" height="398" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="pNameStc" taborder="20" text="환자명" onclick="subCodeStc_onclick" left="2.37%" top="46" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="fieldStc" taborder="21" text="관심영역" onclick="subCodeStc_onclick" left="2.64%" top="124" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="trmtDoctEd" taborder="24" enable="false" left="28.76%" top="46" width="94" height="30" class="AreaEdt" style="font:9 돋움;"/>
+              <Edit id="patNmEd" taborder="24" enable="false" left="28.76%" top="46" width="94" height="30" class="AreaEdt" style="font:9 돋움;"/>
               <Static id="fieldStc00" taborder="28" text="관심분류" onclick="subCodeStc_onclick" left="2.64%" top="163" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="fieldStc01" taborder="29" text="등록일자" onclick="subCodeStc_onclick" left="2.64%" top="202" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="fieldStc02" taborder="30" text="종료일자" onclick="subCodeStc_onclick" left="2.64%" top="241" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -54,7 +54,7 @@
                   </Rows>
                 </Dataset>
               </Combo>
-              <Edit id="trmtDoctEd00" taborder="36" enable="false" left="28.76%" top="85" width="94" height="30" style="font:9 돋움;" class="AreaEdt"/>
+              <Edit id="patNoEd" taborder="36" enable="false" left="28.76%" top="85" width="94" height="30" style="font:9 돋움;" class="AreaEdt"/>
               <Static id="pNameStc00" taborder="37" text="환자번호" onclick="subCodeStc_onclick" left="2.37%" top="85" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
             </Layout>
           </Layouts>
@@ -85,7 +85,7 @@
                 </Dataset>
               </Combo>
               <Edit id="diseaseNmEdit" taborder="12" left="33%" top="47" right="53.18%" height="30" style="font:9 돋움;"/>
-              <Grid id="Grid00" taborder="13" binddataset="dsAdr" useinputpanel="false" autofittype="col" left="0.87%" top="164" right="2.24%" height="488" style="font:9 돋움;">
+              <Grid id="Grid00" taborder="13" binddataset="dsAdr" useinputpanel="false" autofittype="col" left="0.87%" top="164" right="2.24%" height="488" style="border:2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;font:9 돋움;">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -205,7 +205,7 @@
         <Button id="prscSearchBtn01" taborder="23" onclick="patDiv_prscSearchBtn_onclick" left="360" top="112" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Button id="DelBtn00" taborder="24" onclick="searchBtn_onclick" cssclass="DelBtn" left="328" top="111" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Button id="DelBtn02" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="srcPatBtn" taborder="26" left="237" top="113" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="srcPatBtn_onclick"/>
+        <Button id="searchPatNoBtn" taborder="26" left="237" top="113" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="clickBtn"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -316,78 +316,44 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[this.srcPatBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+    <Script type="xscript5.0"><![CDATA[
+/**************************************************************************************************
+*                                         공통 Script Include                                     *
+***************************************************************************************************/
+
+include "scripts::commonScripts.xjs";
+include "scripts::wonScripts.xjs";
+
+
+
+/***************************************************************************************************
+*                                          버튼 EVENT START                                       *
+/*-------------------------------------------------------------------------------------------------+
+>>  click EVENT
++-------------------------------------------------------------------------------------------------*/
+
+this.clickBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	if(this.WS_OutPatReceiptMngnDiv.patNoEd.value==null){
-	alert("조회할 환자를 선택하세요!");
-	return;
+	switch(obj){ 
+		case this.SCP_regAttPatDiv.searchPatNoBtn: 	    //환자 검색
+			this.clickSearchPatNoBtn();
+			break;
 	}
-	this.dsService.setColumn(0,"argument",'patNo='+this.WS_OutPatReceiptMngnDiv.patNoEd.value);
-	this.dsPat.clearData();
-	this.gfnService("findPat","false");		
-}
-
-this.adrDiv_searchAdrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.gfnService("findAdrList");
 }
 
 
-this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.dsAdr.deleteRow(this.dsAdr.rowposition);
-}
-
-this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.dsAdr.addRow();
-	this.writerDiv.writeDateCal.set_value(this.gfnLocalDate());
-	this.writerDiv.writerNoEdit.set_value(application.gdsEmp.getColumn(0, "empNo"));
-	this.writerDiv.writerNmEdit.set_value(application.gdsEmp.getColumn(0, "empNm"));
-	this.writerDiv.writerJobRadio.set_value(application.gdsEmp.getColumn(0, "jobrk"));
-}
-
-this.batchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.gfnService("batchAdrProcess");
-}
+/*-------------------------------------------------------------------------------------------------+
+>>  조회
++-------------------------------------------------------------------------------------------------*/
 
 
-this.patDiv_prscSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.medOpenDrugPrscDialog();
+this.clickSearchPatNoBtn = function(){	//환자등록번호조회
+	this.gfnPatPopup();
+	this.setPatInfo = function(arrRtn){
+		this.SCP_regAttPatDiv.patNoEd.set_value(arrRtn[0]);
+	}
 }
 
-this.setDrugPrscInfo = function(arrRtn) 
-{
-	this.patDiv.prscNoEdit.set_value(arrRtn[0]);			// 처방번호 세팅
-	this.patDiv.diseaseNmEdit.set_value(arrRtn[1]);			// 진단명 세팅
-	this.patDiv.patNoEdit.set_value(arrRtn[2]);				// 환자번호 세팅
-	
-	this.dsPat.clearData();
-	this.dsService.setColumn(2, 4, "patNo=" + arrRtn[2]);
-	this.gfnService("findPat");
-	
-	this.drugDiv.drugNoEdit.set_value(arrRtn[3]);
-	
-	var drugNm = arrRtn[4].slice(1, arrRtn[4].lastIndexOf("("));
-	var manifacture = arrRtn[4].slice(arrRtn[4].lastIndexOf("(") + 1, arrRtn[4].length - 1);
-	
-	this.drugDiv.drugNmEdit.set_value(drugNm);
-	this.drugDiv.manifactureEdit.set_value(manifacture);
-}
-
-this.patCallback = function(svcID, errorCode, errorMsg)
-{
-	//trace(this.dsPat.saveXML());
-	this.patDiv.patNmEdit.set_value(this.dsPat.getColumn(0, "patNm"));
-	this.patDiv.patAgeEdit.set_value(this.dsPat.getColumn(0, "age"));
-	this.patDiv.patGenderCombo.set_value(this.dsPat.getColumn(0, "gender"));
-	
-	
-	
-	
-}
 
 ]]></Script>
   </Form>
