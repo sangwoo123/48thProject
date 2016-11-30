@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="SCP_AttentionalPatientForm" classname="MA_AdrForm" left="0" top="0" width="1250" height="768" titletext="약물유해반응 관리">
+  <Form id="SCP_AttentionalPatientForm" classname="MA_AdrForm" left="0" top="0" width="1250" height="768" titletext="약물유해반응 관리" onload="SCP_AttentionalPatientForm_onload">
     <Layouts>
       <Layout>
         <Div id="Div01" taborder="0" left="0.16%" top="0" width="1249" height="60" style="background:transparent URL('img::titleBar2.jpg');font:9 돋움;"/>
@@ -18,47 +18,30 @@
               <Static id="fieldStc03" taborder="31" text="관심내역" onclick="subCodeStc_onclick" left="2.64%" top="280" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Calendar id="writeDateCal" taborder="32" autoskip="true" dateformat="yyyy-MM-dd" left="28.5%" top="202" right="22.69%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
               <Calendar id="writeDateCal00" taborder="33" autoskip="true" dateformat="yyyy-MM-dd" left="28.5%" top="241" right="22.69%" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
-              <Combo id="patGenderCombo" taborder="34" codecolumn="codecolumn" datacolumn="datacolumn" left="28.5%" top="163" right="22.69%" height="30" style="font:9 돋움;">
-                <Dataset id="innerdataset">
-                  <ColumnInfo>
-                    <Column id="codecolumn" size="256"/>
-                    <Column id="datacolumn" size="256"/>
-                  </ColumnInfo>
-                  <Rows>
-                    <Row>
-                      <Col id="codecolumn">남</Col>
-                      <Col id="datacolumn">남성</Col>
-                    </Row>
-                    <Row>
-                      <Col id="codecolumn">여</Col>
-                      <Col id="datacolumn">여성</Col>
-                    </Row>
-                  </Rows>
-                </Dataset>
-              </Combo>
-              <Combo id="patGenderCombo00" taborder="35" codecolumn="codecolumn" datacolumn="datacolumn" left="28.5%" top="124" right="22.69%" height="30" style="font:9 돋움;">
-                <Dataset id="innerdataset">
-                  <ColumnInfo>
-                    <Column id="codecolumn" size="256"/>
-                    <Column id="datacolumn" size="256"/>
-                  </ColumnInfo>
-                  <Rows>
-                    <Row>
-                      <Col id="codecolumn">남</Col>
-                      <Col id="datacolumn">남성</Col>
-                    </Row>
-                    <Row>
-                      <Col id="codecolumn">여</Col>
-                      <Col id="datacolumn">여성</Col>
-                    </Row>
-                  </Rows>
-                </Dataset>
-              </Combo>
+              <Combo id="patGenderCombo" taborder="34" codecolumn="ATTENTIONAL_FIELD" datacolumn="ATTENTIONAL_CODE_NAME" left="28.5%" top="163" right="22.69%" height="30" style="font:9 돋움;" innerdataset="@dsAttentionalCode"/>
               <Edit id="patNoEd" taborder="36" enable="false" left="28.76%" top="85" width="94" height="30" style="font:9 돋움;" class="AreaEdt"/>
               <Static id="pNameStc00" taborder="37" text="환자번호" onclick="subCodeStc_onclick" left="2.37%" top="85" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Button id="searchPatNoBtn" taborder="38" text="조회" left="55.67%" top="50" right="32.98%" height="22" style="bordertype:normal 3 3 ;" onclick="clickBtn"/>
+              <Combo id="patGenderCombo00" taborder="38" codecolumn="codecolumn" datacolumn="datacolumn" left="28.5%" top="123" right="22.69%" height="30" style="font:9 돋움;">
+                <Dataset id="innerdataset">
+                  <ColumnInfo>
+                    <Column id="codecolumn" size="256"/>
+                    <Column id="datacolumn" size="256"/>
+                  </ColumnInfo>
+                  <Rows>
+                    <Row>
+                      <Col id="codecolumn">내</Col>
+                      <Col id="datacolumn">내과</Col>
+                    </Row>
+                    <Row>
+                      <Col id="codecolumn">외</Col>
+                      <Col id="datacolumn">외과</Col>
+                    </Row>
+                  </Rows>
+                </Dataset>
+              </Combo>
             </Layout>
           </Layouts>
+          <InitValue/>
         </Div>
         <Div id="patDiv" taborder="14" left="33.92%" top="67" width="805" height="670" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
@@ -140,7 +123,6 @@
               </Combo>
               <Static id="subCodeStc03" taborder="15" text="   관심환자조회" onclick="subCodeStc_onclick" left="0.87%" top="6" right="2.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Button id="DelBtn02" taborder="19" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="Button05" taborder="20" text="조회" cssclass="btn_WF_Search" left="410" top="48" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;"/>
             </Layout>
           </Layouts>
         </Div>
@@ -148,9 +130,9 @@
         <Div id="attCodeDiv" taborder="17" left="1.92%" top="472" width="381" height="264" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
-              <Static id="fieldStc" taborder="37" text="관심영역" onclick="subCodeStc_onclick" left="2.37%" top="41" right="75.2%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="fieldStc00" taborder="41" text="관심분류" onclick="subCodeStc_onclick" left="2.37%" top="76" right="75.2%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Combo id="patGenderCombo00" taborder="48" codecolumn="codecolumn" datacolumn="datacolumn" left="28.76%" top="41" right="22.43%" height="30" style="font:9 돋움;">
+              <Static id="fieldStc" taborder="37" text="관심영역" onclick="subCodeStc_onclick" left="2.9%" top="41" right="74.67%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="fieldStc00" taborder="41" text="관심분류" onclick="subCodeStc_onclick" left="2.9%" top="76" right="74.67%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Combo id="attFieldEd" taborder="48" codecolumn="codecolumn" datacolumn="datacolumn" left="28.76%" top="41" right="22.43%" height="30" style="font:9 돋움;">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -168,11 +150,11 @@
                   </Rows>
                 </Dataset>
               </Combo>
-              <Edit id="trmtDoctEd" taborder="49" enable="false" left="28.76%" top="76" width="166" height="30" class="AreaEdt" style="font:9 돋움;"/>
+              <Edit id="attDivEd" taborder="49" enable="false" left="28.76%" top="76" width="166" height="30" class="AreaEdt" style="font:9 돋움;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="Grid00" taborder="18" binddataset="dsAdr" useinputpanel="false" autofittype="col" left="2.72%" top="584" right="68.48%" height="140" style="font:9 돋움;">
+        <Grid id="Grid00" taborder="18" binddataset="dsAttentionalCode" useinputpanel="false" autofittype="col" left="2.72%" top="584" right="68.48%" height="140" style="font:9 돋움;">
           <Formats>
             <Format id="default">
               <Columns>
@@ -188,8 +170,8 @@
                 <Cell col="1" style="background:#cfd8dcff;" text="분류명"/>
               </Band>
               <Band id="body">
-                <Cell displaytype="normal" text="bind:adrNo"/>
-                <Cell col="1" edittype="text" text="bind:patNo"/>
+                <Cell displaytype="normal" text="bind:attentionalCode"/>
+                <Cell col="1" edittype="text" text="bind:attentionalCodeName"/>
               </Band>
             </Format>
           </Formats>
@@ -197,8 +179,15 @@
         <Static id="subCodeStc03" taborder="19" text="   관심환자등록" onclick="subCodeStc_onclick" left="2.8%" top="74" right="68.08%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc00" taborder="20" text="   관심분류코드" onclick="subCodeStc_onclick" left="2.72%" top="480" right="68.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Button id="DelBtn02" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="searchAttCodeBtn" taborder="26" text="조회" cssclass="btn_WF_Search" left="275" top="483" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
-        <Button id="Button00" taborder="27" text="조회" cssclass="btn_WF_Search" left="280" top="77" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;"/>
+        <Button id="searchAttCodeBtn" taborder="26" text="조회" cssclass="btn_WF_Search" left="827" top="77" width="58" height="23" style="background:#455a64ff;bordertype:normal 3 3 ;font:9 Gulim;" onclick="clickBtn"/>
+        <Button id="Button03" taborder="28" text="추가" cssclass="btn_WF_CRUD" left="308" top="552" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="Button03_onclick"/>
+        <Button id="Button01" taborder="29" text="저장" cssclass="btn_WF_CRUD" left="299" top="482" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="Button02" taborder="30" text="삭제" cssclass="btn_WF_CRUD" left="344" top="482" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="Button00" taborder="32" text="저장" cssclass="btn_WF_CRUD" left="299" top="76" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="Button05" taborder="33" text="초기화" cssclass="btn_WF_CRUD" left="344" top="76" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="Button04" taborder="34" text="삭제" cssclass="btn_WF_CRUD" left="885" top="76" width="58" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="Button06" taborder="35" cssclass="btn_WF_SearchSmall" left="232" top="113" width="30" height="30"/>
+        <Button id="Button07" taborder="36" cssclass="btn_WF_SearchSmall" left="641" top="115" width="30" height="30"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -211,44 +200,15 @@
       <BindItem id="item32" compid="adrDiv.patGenderCombo" propid="value" datasetid="dsAdr" columnid="patGender"/>
       <BindItem id="item33" compid="adrDiv.patGenderCombo00" propid="value" datasetid="dsAdr" columnid="patGender"/>
       <BindItem id="item4" compid="patDiv.patGenderCombo00" propid="value" datasetid="dsAdr" columnid="patGender"/>
+      <BindItem id="item3" compid="SCP_regAttPatDiv.patNmEd" propid="value" datasetid="dsAttentionalPatient" columnid="PAT_NAME"/>
+      <BindItem id="item5" compid="SCP_regAttPatDiv.patNoEd" propid="value" datasetid="dsAttentionalPatient" columnid="PAT_NO"/>
+      <BindItem id="item6" compid="SCP_regAttPatDiv.patGenderCombo00" propid="innerdataset" datasetid="dsAttentionalCode" columnid=""/>
+      <BindItem id="item7" compid="SCP_regAttPatDiv.patGenderCombo" propid="innerdataset" datasetid="dsAttentionalCode" columnid="ATTENTIONAL_FIELD"/>
+      <BindItem id="item8" compid="SCP_regAttPatDiv.patGenderCombo" propid="codecolumn" datasetid="dsAttentionalCode" columnid="ATTENTIONAL_CODE"/>
+      <BindItem id="item9" compid="SCP_regAttPatDiv.patGenderCombo" propid="datacolumn" datasetid="dsAttentionalCode" columnid="ATTENTIONAL_CODE_NAME"/>
     </Bind>
     <InitValue/>
     <Objects>
-      <Dataset id="dsAdr">
-        <ColumnInfo>
-          <Column id="adrNo" type="STRING" size="256"/>
-          <Column id="patNo" type="STRING" size="256"/>
-          <Column id="patNm" type="STRING" size="256"/>
-          <Column id="patAge" type="STRING" size="256"/>
-          <Column id="patGender" type="STRING" size="256"/>
-          <Column id="prescNo" type="STRING" size="256"/>
-          <Column id="diseaseNm" type="STRING" size="256"/>
-          <Column id="writerNo" type="STRING" size="256"/>
-          <Column id="writerNm" type="STRING" size="256"/>
-          <Column id="writeDate" type="STRING" size="256"/>
-          <Column id="writerJob" type="STRING" size="256"/>
-          <Column id="drugNo" type="STRING" size="256"/>
-          <Column id="drugNm" type="STRING" size="256"/>
-          <Column id="manifacture" type="STRING" size="256"/>
-          <Column id="usage" type="STRING" size="256"/>
-          <Column id="capct" type="STRING" size="256"/>
-          <Column id="injcStartDate" type="STRING" size="256"/>
-          <Column id="injcEndDate" type="STRING" size="256"/>
-          <Column id="injcPurp" type="STRING" size="256"/>
-          <Column id="rvlStartDate" type="STRING" size="256"/>
-          <Column id="rvlEndDate" type="STRING" size="256"/>
-          <Column id="rvlRecogDate" type="STRING" size="256"/>
-          <Column id="afterInjcRvl" type="STRING" size="256"/>
-          <Column id="symptom" type="STRING" size="256"/>
-          <Column id="prog" type="STRING" size="256"/>
-          <Column id="rltnExmntNm" type="STRING" size="256"/>
-          <Column id="rltnExmntVal" type="STRING" size="256"/>
-          <Column id="action" type="STRING" size="256"/>
-          <Column id="reinjcReact" type="STRING" size="256"/>
-          <Column id="opinion" type="STRING" size="256"/>
-          <Column id="reportYn" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
       <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="serviceID" type="STRING" size="256"/>
@@ -260,53 +220,20 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="serviceID">findAdrList</Col>
-            <Col id="URL">his::med/adr/findAdrList.do</Col>
-            <Col id="callbackFunc">adrCallback</Col>
-            <Col id="outData">dsAdr=dsAdr</Col>
+            <Col id="serviceID">findAttentionalPatientList</Col>
+            <Col id="URL">his::msv/mcm/patientservice/findAttentionalPatientList.do</Col>
+            <Col id="callbackFunc">attentionalPatientCallback</Col>
+            <Col id="outData">dsAttentionalPatient=dsAttentionalPatient</Col>
+            <Col id="inData"></Col>
           </Row>
           <Row>
-            <Col id="serviceID">batchAdrProcess</Col>
-            <Col id="URL">his::med/adr/batchAdrProcess.do</Col>
-            <Col id="inData">dsAdr=dsAdr:u</Col>
-            <Col id="callbackFunc">adrCallback</Col>
-          </Row>
-          <Row>
-            <Col id="serviceID">findPat</Col>
-            <Col id="URL">his::won/outPatMngnt/findPat.do</Col>
-            <Col id="outData">dsPat=dsPat</Col>
-            <Col id="callbackFunc">patCallback</Col>
+            <Col id="serviceID">findAttentionalCodeList</Col>
+            <Col id="URL">his::msv/mcm/patientservice/findAttentionalCodeList.do</Col>
+            <Col id="inData"></Col>
+            <Col id="callbackFunc">attentionalCodeCallback</Col>
+            <Col id="outData">dsAttentionalCode=dsAttentionalCode</Col>
           </Row>
         </Rows>
-      </Dataset>
-      <Dataset id="dsPat" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
-        <ColumnInfo>
-          <Column id="patNo" type="STRING" size="256"/>
-          <Column id="patNm" type="STRING" size="256"/>
-          <Column id="rrn1" type="STRING" size="256"/>
-          <Column id="rrn2" type="STRING" size="256"/>
-          <Column id="age" type="STRING" size="256"/>
-          <Column id="tel" type="STRING" size="256"/>
-          <Column id="addr" type="STRING" size="256"/>
-          <Column id="barrAss" type="STRING" size="256"/>
-          <Column id="dtlAddr" type="STRING" size="256"/>
-          <Column id="zip" type="STRING" size="256"/>
-          <Column id="deathDate" type="STRING" size="256"/>
-          <Column id="note" type="STRING" size="256"/>
-          <Column id="gender" type="STRING" size="256"/>
-          <Column id="smsReceiveYb" type="STRING" size="256"/>
-          <Column id="smsReceiveNo" type="STRING" size="256"/>
-          <Column id="smsReceiver" type="STRING" size="256"/>
-          <Column id="recNwDate" type="STRING" size="256"/>
-          <Column id="estbGiho" type="STRING" size="256"/>
-          <Column id="certfctNo" type="STRING" size="256"/>
-          <Column id="insuRrn" type="STRING" size="256"/>
-          <Column id="insuNm" type="STRING" size="256"/>
-          <Column id="applyStartDate" type="STRING" size="256"/>
-          <Column id="applyEndDate" type="STRING" size="256"/>
-          <Column id="outpaReceiptNo" type="STRING" size="256"/>
-          <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
-        </ColumnInfo>
       </Dataset>
       <Dataset id="dsAttentionalPatient">
         <ColumnInfo>
@@ -321,8 +248,9 @@
       </Dataset>
       <Dataset id="dsAttentionalCode">
         <ColumnInfo>
-          <Column id="ATTENTIONAL_CODE" type="STRING" size="256"/>
-          <Column id="ATTENTIONAL_CODE_NAME" type="STRING" size="256"/>
+          <Column id="attentionalCode" type="STRING" size="256"/>
+          <Column id="attentionalCodeName" type="STRING" size="256"/>
+          <Column id="attentionalField" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
     </Objects>
@@ -368,9 +296,28 @@ this.clickSearchPatNoBtn = function(){	//환자등록번호조회
 }
 
 this.clickSearchAttCodeBtn =function () {
-
 	alert("빨리가라");
-	
+	if(this.SCP_attCodeDiv.attFieldEd.value==null){
+		alert("관심영역을 선택하세요!");
+		return;
+	}
+	if(this.SCP_attCodeDiv.attDivEd.value=null){
+		alert("관심분류를 선택하세요!");
+		return;
+	}
+
+}
+this.SCP_AttentionalPatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.dsAttentionalCode.clearData();
+	//this.dsAttentionalPatient.addRow();
+	this.gfnService("findAttentionalCodeList","false");		
+}
+
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert(this.dsAttentionalCode.getColumn(0,"attentionalCode"));
 }]]></Script>
   </Form>
 </FDL>

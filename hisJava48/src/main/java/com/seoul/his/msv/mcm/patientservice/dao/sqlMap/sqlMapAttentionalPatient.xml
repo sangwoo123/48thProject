@@ -25,7 +25,7 @@
 				    , ATTENTIONAL_DIV
 				    , START_DATE
 				    , END_DATE
-	   FROM     ATTENTIONAL_PATIENT
+	   FROM     MB_ATTENTIONAL_PATIENT
 
  	</select>
 

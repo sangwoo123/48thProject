@@ -7,15 +7,17 @@
 	<resultMap type="AttentionalCodeBean" id="AttentionalCode">
 
 		<result property="attentionalCode" column="ATTENTIONAL_CODE" />
-		<result property="attentionalName" column="ATTENTIONAL_NAME" />
+		<result property="attentionalCodeName" column="ATTENTIONAL_CODE_NAME" />
+		<result property="attentionalField" column="ATTENTIONAL_FIELD" />
 
  	</resultMap>
 
  	<select id="selectAttentionalCodeList" flushCache="false"  useCache="true" resultMap="AttentionalCode" >
 
 		SELECT    ATTENTIONAL_CODE
-					, ATTENTIONAL_NAME
-		FROM     ATTENTIONAL_CD
+					, ATTENTIONAL_CODE_NAME
+					, ATTENTIONAL_FIELD
+		FROM    MB_ATTENTIONAL_CD
 
  	</select>
 </mapper>

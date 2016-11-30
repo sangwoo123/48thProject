@@ -16,9 +16,9 @@ import lombok.ToString;
 @Dataset(name = "dsAttentionalCode")
 public class AttentionalCodeBean extends BaseBean {
 
-	
-	
-	
-	private String attentionalCode ,attentionalCodeName;
+
+
+
+	private String attentionalCode ,attentionalCodeName, attentionalField;
 
 }
