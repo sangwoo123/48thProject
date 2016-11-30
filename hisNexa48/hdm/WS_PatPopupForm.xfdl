@@ -134,6 +134,8 @@ this.patGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 	arrRtn[i++] = this.dsPat.getColumn(e.row,"patNm");  // 환자명 1 
 	arrRtn[i++] = this.dsPat.getColumn(e.row,"rrn1");   // 주민번호 앞 생년월일
 	arrRtn[i++] = this.dsPat.getColumn(e.row,"rrn2");   // 주민번호 뒷자리
+	arrRtn[i++] = this.dsPat.getColumn(e.row,"outpaReceiptNo");	// 외래접수번호
+	arrRtn[i++] = this.dsPat.getColumn(e.row,"hosptlzReceiptNo");	// 입원접수번호
 	this.opener.setPatInfo(arrRtn);
 	this.close();
 }

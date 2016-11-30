@@ -128,7 +128,7 @@
           </Formats>
         </Grid>
         <Static id="Static06" taborder="21" text="등록번호" left="0.64%" top="114" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
-        <Edit id="patNoCdEd" taborder="22" readonly="true" left="6.32%" top="114" right="84.96%" height="28" style="align:center middle;" class="AreaEdt" oneditclick="patNoCdEd_oneditclick"/>
+        <Edit id="patNoCdEd" taborder="22" readonly="true" left="6.32%" top="114" right="84.96%" height="28" style="align:center middle;" class="AreaEdt" oneditclick="patNoCdEd_oneditclick" value="선택해주세요"/>
         <Button id="trmtCostCalcuBtn" taborder="23" text="입원진료비계산" onclick="trmtCostCalcuBtn_onclick" left="91.12%" top="241" right="0.96%" height="30" class="AreaBtn" style="background:#848484ff;color:cornsilk;font:bold 9 arial;"/>
         <Edit id="rrn1Ed" taborder="24" readonly="true" left="6.32%" top="177" right="87.12%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="rrn2Ed" taborder="25" password="true" readonly="true" left="13.92%" top="177" right="77.84%" height="28" style="align:center middle;" class="AreaEdt"/>
@@ -395,20 +395,18 @@ this.matchCdNm = function()
 this.patNoCdEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
 {
 	this.gfnPatPopup();
-	this.setPatInfo = function(arrRtn){
-		this.patNoCdEd.set_value(arrRtn[0]);
-	}
+	this.setPatInfo = function(pat)
+{	
+   this.patNoCdEd.set_value(pat[0]);
+   this.outpaReceiptNo = pat[4];
+   this.hosptlzReceiptNo = pat[5];
+}
+
 		
 	var argument = 'outpaReceiptNo='+this.outpaReceiptNo; ;
 	this.dsService.setColumn(0,"argument",argument);
 }
 
-this.setPatInfo = function(pat)
-{
-   this.patNoCdEd.set_value(pat[0]);
-   this.outpaReceiptNo = pat[4];
-   this.hosptlzReceiptNo = pat[5];
-}
 
 
 
