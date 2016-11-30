@@ -56,6 +56,7 @@
               </Combo>
               <Edit id="patNoEd" taborder="36" enable="false" left="28.76%" top="85" width="94" height="30" style="font:9 돋움;" class="AreaEdt"/>
               <Static id="pNameStc00" taborder="37" text="환자번호" onclick="subCodeStc_onclick" left="2.37%" top="85" right="74.93%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Button id="searchPatNoBtn" taborder="38" text="조회" left="55.67%" top="50" right="32.98%" height="22" style="bordertype:normal 3 3 ;" onclick="clickBtn"/>
             </Layout>
           </Layouts>
         </Div>
@@ -141,9 +142,6 @@
                 </Dataset>
               </Combo>
               <Static id="subCodeStc03" taborder="15" text="   관심환자조회" onclick="subCodeStc_onclick" left="0.87%" top="6" right="2.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Button id="prscSearchBtn" taborder="16" onclick="patDiv_prscSearchBtn_onclick" left="431" top="48" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="DelBtn00" taborder="17" onclick="searchBtn_onclick" cssclass="DelBtn" left="399" top="47" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="DelBtn01" taborder="18" onclick="searchBtn_onclick" cssclass="DelBtn" left="215" top="46" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
               <Button id="DelBtn02" taborder="19" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
             </Layout>
           </Layouts>
@@ -200,12 +198,7 @@
         </Grid>
         <Static id="subCodeStc03" taborder="19" text="   관심환자등록" onclick="subCodeStc_onclick" left="2.8%" top="74" right="68.08%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc00" taborder="20" text="   관심분류코드" onclick="subCodeStc_onclick" left="2.72%" top="480" right="68.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Button id="DelBtn10" taborder="21" onclick="searchBtn_onclick" cssclass="DelBtn" left="328" top="512" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="prscSearchBtn00" taborder="22" onclick="patDiv_prscSearchBtn_onclick" left="362" top="512" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="prscSearchBtn01" taborder="23" onclick="patDiv_prscSearchBtn_onclick" left="360" top="112" width="32" height="32" style="background:@gradation URL('img::ic_clear_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="DelBtn00" taborder="24" onclick="searchBtn_onclick" cssclass="DelBtn" left="328" top="111" width="32" height="32" style="background:@gradation URL('img::ic_done_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Button id="DelBtn02" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="searchPatNoBtn" taborder="26" left="237" top="113" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="clickBtn"/>
       </Layout>
     </Layouts>
     <Bind>
