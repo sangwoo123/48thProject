@@ -16,7 +16,7 @@
 
  	</resultMap>
 
- 	<select id="selecAttentionalCodeList" flushCache="false"  useCache="true" resultMap="AttentionalCode" >
+ 	<select id="selectAttentionalPatientList" flushCache="false"  useCache="true" resultMap="AttentionalPatient" >
 
 		SELECT    ATTENTIONAL_REG_NO
 				    , PAT_NO

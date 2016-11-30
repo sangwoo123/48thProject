@@ -7,6 +7,16 @@ import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
+/**
+ * <pre>
+ * com.seoul.his.msv.mcm.patientservice.service
+ *    |_ PatientServiceServiceFacade.java
+ * </pre>
+ *
+ * @date : 2016. 11. 30. 오후 5:44:11
+ * @version :
+ * @author : Minhyeog
+ */
 
 public interface PatientServiceServiceFacade {
 
