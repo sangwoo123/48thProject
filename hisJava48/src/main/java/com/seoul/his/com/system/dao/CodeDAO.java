@@ -5,17 +5,10 @@ import java.util.Map;
 
 import com.seoul.his.com.system.to.CodeBean;
 import com.seoul.his.com.system.to.CodeNmBean;
+import com.seoul.his.com.system.to.OutCodeBean;
 
 
-/**
- * @Package  com.seoul.his.com.base.dao
- * @Class    CodeDAO.java
- * @Create   2016. 5. 26.
- * @Author   godseop
- * @Description 시스템공통 코드 Data Access Object Interface
- *
- * @LastUpdated
- */
+
 public interface CodeDAO {
     public List<CodeBean> selectCodeList(Map<String, String> argsMap);
 
@@ -28,5 +21,7 @@ public interface CodeDAO {
     public List<CodeNmBean> selectCodePopupList(Map<String, String> argsMap);
 
     public List<CodeNmBean> selectCode(Map<String, String> argsMap);
+    
+    public List<OutCodeBean> selectCodeBindList(String code);
 
 }

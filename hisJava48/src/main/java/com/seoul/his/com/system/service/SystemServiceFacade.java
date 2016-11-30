@@ -10,8 +10,4 @@ public interface SystemServiceFacade {
 
 	List<SystemBean> findSystemList(Map<String, String> argsMap);
 
-
-
-
-
 }

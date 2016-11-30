@@ -7,9 +7,11 @@ import com.seoul.his.com.system.exception.AuthMenuNotFoundException;
 import com.seoul.his.com.system.exception.IdNotFoundException;
 import com.seoul.his.com.system.exception.PwMissMatchException;
 import com.seoul.his.com.system.to.AuthBean;
+import com.seoul.his.com.system.to.BindCodeBean;
 import com.seoul.his.com.system.to.CodeBean;
 import com.seoul.his.com.system.to.CodeNmBean;
 import com.seoul.his.com.system.to.MenuBean;
+import com.seoul.his.com.system.to.OutCodeBean;
 import com.seoul.his.com.system.to.ServiceBean;
 
 public interface ComBaseServiceFacade {
@@ -46,4 +48,7 @@ public interface ComBaseServiceFacade {
     public List<ServiceBean> findService(Map<String, String> argsMap);
 
     public void batchErrorProcess(List<ServiceBean> service);
+    
+    // 코드 바인드
+    public Map<String, List<OutCodeBean>> bindCode(List<BindCodeBean> bindCodeList);
 }

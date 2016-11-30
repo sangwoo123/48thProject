@@ -17,15 +17,7 @@ import com.seoul.his.com.system.to.CodeNmBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 
-/**
- * @Package  com.seoul.his.com.base.controller
- * @Class    CodeController.java
- * @Create   2016. 5. 26.
- * @Author   godseop
- * @Description 시스템공통 코드관리 컨트롤러
- *
- * @LastUpdated
- */
+
 @Controller
 public class CodeController {
 

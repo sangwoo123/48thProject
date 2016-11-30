@@ -7,15 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @Package  com.seoul.his.log.base.to
- * @Class    BindLogCdBean.java
- * @Create   2016. 5. 25.
- * @Author   godseop
- * @Description 코드바인드
- *
- * @LastUpdated 
- */
 @Getter
 @Setter
 @ToString

@@ -14,15 +14,14 @@ import com.seoul.his.hdm.consultationfee.to.HosptlzPatBean;
 import com.seoul.his.hdm.consultationfee.to.HosptlzPatReceBean;
 import com.seoul.his.hdm.consultationfee.to.HosptlzTrmtCostReceReceiptBean;
 
-
 @Component
-public class ConsultationFeeApplicationServiceImpl implements ConsultationFeeApplicationService{
+public class ConsultationFeeApplicationServiceImpl implements ConsultationFeeApplicationService {
 	@Autowired
 	InpatientPaymentDAO inpatientPaymentDAO;
-	
+
 	@Autowired
 	InpatientReceDAO inpatientReceDAO;
-	
+
 	@Autowired
 	ResourceBundleMessageSource msg;
 
@@ -32,22 +31,20 @@ public class ConsultationFeeApplicationServiceImpl implements ConsultationFeeApp
 	}
 
 	@Override
-	public List<HosptlzPatBean> findInpatientPayment(
-			Map<String, String> argsMap) throws ConsultationFeeException {
+	public List<HosptlzPatBean> findInpatientPayment(Map<String, String> argsMap) throws ConsultationFeeException {
 		List<HosptlzPatBean> hosptlzPatList;
 		hosptlzPatList = inpatientPaymentDAO.selectInpatientPayment(argsMap);
 		for (HosptlzPatBean hosptlzPatBean : hosptlzPatList) {
 			if (hosptlzPatBean.getHosptlzYb().equals("N")) {
-				throw new ConsultationFeeException(msg.getMessage("WON001",
-						new Object[] { hosptlzPatBean.getPatNm() }, null));
+				throw new ConsultationFeeException(
+						msg.getMessage("WON001", new Object[] { hosptlzPatBean.getPatNm() }, null));
 			}
 		}
 		return hosptlzPatList;
 	}
 
 	@Override
-	public HosptlzPatReceBean findHosptlzPatRece(
-			Map<String, String> argsMap) {
+	public HosptlzPatReceBean findHosptlzPatRece(Map<String, String> argsMap) {
 		HosptlzPatReceBean hosptlzPatReceBean;
 		hosptlzPatReceBean = inpatientReceDAO.selectHosptlzPatRece(argsMap);
 		return hosptlzPatReceBean;
@@ -58,12 +55,13 @@ public class ConsultationFeeApplicationServiceImpl implements ConsultationFeeApp
 		inpatientReceDAO.callHosptlzPatRece(hosptlzPatReceBean);
 	}
 
-	/*@Override
-	public List<HosptlzTrmtCostReceReceiptBean> callHosptlzCostReceReceipt(
-			String outpaReceiptNo) {
-		List<HosptlzTrmtCostReceReceiptBean> hosptlzTrmtCostReceReceipt;
-		hosptlzTrmtCostReceReceipt = inpatientPaymentDAO.callHosptlzCostReceReceipt(outpaReceiptNo);
-		return hosptlzTrmtCostReceReceipt;
-	}*/
+	/*
+	 * @Override public List<HosptlzTrmtCostReceReceiptBean>
+	 * callHosptlzCostReceReceipt( String outpaReceiptNo) {
+	 * List<HosptlzTrmtCostReceReceiptBean> hosptlzTrmtCostReceReceipt;
+	 * hosptlzTrmtCostReceReceipt =
+	 * inpatientPaymentDAO.callHosptlzCostReceReceipt(outpaReceiptNo); return
+	 * hosptlzTrmtCostReceReceipt; }
+	 */
 
 }

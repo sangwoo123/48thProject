@@ -1,4 +1,4 @@
-package com.seoul.his.common.util;
+package com.seoul.his.com.system.to;
 
 import com.seoul.his.common.annotation.Dataset;
 import com.seoul.his.common.to.BaseBean;

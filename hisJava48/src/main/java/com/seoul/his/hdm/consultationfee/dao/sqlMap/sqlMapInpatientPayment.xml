@@ -17,7 +17,7 @@
 	    <result property="ward" column="WARD"/>
 	    <result property="hroom" column="HROOM"/>
 	    <result property="tel" column="TEL"/>
-	    <result property="memo" column="MEMO"/>
+	    <result property="note" column="NOTE"/>
 	    <result property="grtorNm" column="GRTOR_NM"/>
 	    <result property="grtorRrn" column="GRTOR_RRN"/>
 	    <result property="grtorTel" column="GRTOR_TEL"/>
@@ -85,7 +85,7 @@
      		  	   FROM MC_IN_PAIENT) i
 		WHERE h.OUTPA_RECEIPT_NO = o.OUTPA_RECEIPT_NO
    		  AND p.PAT_NO = o.PAT_NO
-   		  AND h.HOSPTLZ_RECEIPT_NO = c.HOSPTLZ_RECEIPT_NO
+   		  AND i.HOSPTLZ_RECEIPT_NO = c.HOSPTLZ_RECEIPT_NO
    		  AND c.HOSPTLZ_RECEIPT_NO = r.HOSPTLZ_RECEIPT_NO
    		  AND o.OUTPA_RECEIPT_NO = #{outpaReceiptNo}
 	</select>
