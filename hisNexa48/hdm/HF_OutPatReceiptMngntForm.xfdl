@@ -590,14 +590,13 @@ this.outPatReceiptMngntCallbackFunc = function(svcID, errorCode, errorMsg){
 			if(this.dsPat.rowcount==0){
 				alert("조건에 맞는 환자조회 결과가 없습니다.");
 				receiptFlag=0;
-			}else{
-				this.WS_OutPatReceiptMngnDiv.patNoEd.set_value(this.dsPat.getColumn(0,'patNo'));
-				
-				this.dsService.setColumn(3,"argument",'patNo='+this.dsPat.getColumn(0,'patNo'));
+			}else{				
+				this.WS_OutPatReceiptMngnDiv.patNoEd.set_value(this.dsPat.getColumn(0,'patNo'));				
+				this.dsService.setColumn(1,"argument",'patNo='+this.dsPat.getColumn(0,'patNo'));
 				this.gfnService("findReceiptList","false");
 				receiptFlag=1;
 			}
-		}else if(svcID=="findReceiptList"){
+		}else if(svcID=="findReceiptList"){			
 			this.dsReceiptHist.copyData(this.dsOutpaReceipt);
 			this.dsOutpaReceipt.filter("trmtYb=='N'");
 			this.dsReceiptHist.filter("trmtYb=='Y'");
