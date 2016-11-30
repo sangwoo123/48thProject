@@ -7,18 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApplicationService;
+import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
 /**
- * @Package com.seoul.his.acc.budget.service
- * @Class BudgetServiceFacadeImpl.java
- * @Create 2016. 6. 27.
- * @Author jeong
- * @Description
- *
- * @LastUpdated
+ * @author  :   Minhyeog
+ * @date     :   2016. 11. 30.
  */
+
 
 @Service
 public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFacade {
@@ -31,11 +28,17 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 		return patientserviceList;
 	}
 
-	/* 관심환자관리 */
+	/*  관심환자관리  */
 	@Override
 	public List<AttentionalPatientBean> findAttentionalPatientList(Map<String, String> argsMap) {
 		List<AttentionalPatientBean> attentionalPatientList = patientserviceApplicationService.findAttentionalPatientList(argsMap);
 		return attentionalPatientList;
 	}
 
+	/* 관심분류코드관리 */
+	@Override
+	public List<AttentionalCodeBean> findAttentionalCodeList(Map<String, String> argsMap) {
+		List<AttentionalCodeBean> attentionalCodeList = patientserviceApplicationService.findAttentionalCodeList(argsMap);
+		return attentionalCodeList;
+	}
 }

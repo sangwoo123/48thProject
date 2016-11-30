@@ -13,16 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.msv.mcm.patientservice.service.PatientServiceServiceFacade;
+import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 
 /**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated
+ * @author : Minhyeog
+ * @date : 2016. 11. 30.
  */
 
 @Controller
@@ -34,11 +30,21 @@ public class AttentionalPatientController {
 	PatientServiceServiceFacade patientserviceServiceFacade;
 
 	@RequestMapping("msv/mcm/patientservice/findAttentionalPatientList.do")
-	public void findAttentionalPatientList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData) request.getAttribute("inData");
+	public void findAttentionalPatientList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
 		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		List<AttentionalPatientBean> attentionalPatientList = patientserviceServiceFacade.findAttentionalPatientList(argsMap);
+		List<AttentionalPatientBean> attentionalPatientList = patientserviceServiceFacade
+				.findAttentionalPatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, attentionalPatientList, AttentionalPatientBean.class);
+	}
+
+	@RequestMapping("msv/mcm/patientservice/findAttentionalCodeList.do")
+	public void findAttentionalCodeList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		PlatformData inData = (PlatformData) request.getAttribute("inData");
+		PlatformData outData = (PlatformData) request.getAttribute("outData");
+		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+		List<AttentionalCodeBean> attentionalCodeList = patientserviceServiceFacade.findAttentionalCodeList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, attentionalCodeList, AttentionalCodeBean.class);
 	}
 }

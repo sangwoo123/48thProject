@@ -140,11 +140,12 @@
               </Combo>
               <Static id="subCodeStc03" taborder="15" text="   관심환자조회" onclick="subCodeStc_onclick" left="0.87%" top="6" right="2.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Button id="DelBtn02" taborder="19" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="Button05" taborder="20" text="조회" cssclass="btn_WF_Search" left="410" top="48" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;"/>
             </Layout>
           </Layouts>
         </Div>
         <TextArea id="TextArea00" taborder="16" left="10.8%" top="350" right="68.4%" height="104" style="font:9 돋움;"/>
-        <Div id="adrDiv01" taborder="17" left="1.92%" top="472" width="381" height="264" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="attCodeDiv" taborder="17" left="1.92%" top="472" width="381" height="264" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="fieldStc" taborder="37" text="관심영역" onclick="subCodeStc_onclick" left="2.37%" top="41" right="75.2%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -196,6 +197,8 @@
         <Static id="subCodeStc03" taborder="19" text="   관심환자등록" onclick="subCodeStc_onclick" left="2.8%" top="74" right="68.08%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc00" taborder="20" text="   관심분류코드" onclick="subCodeStc_onclick" left="2.72%" top="480" right="68.24%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Button id="DelBtn02" taborder="25" onclick="searchBtn_onclick" cssclass="DelBtn" left="-188" top="45" width="32" height="32" style="background:@gradation URL('img::ic_search_black_24dp_2x.png') stretch;border:1 none #999999ff ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="searchAttCodeBtn" taborder="26" text="조회" cssclass="btn_WF_Search" left="275" top="483" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
+        <Button id="Button00" taborder="27" text="조회" cssclass="btn_WF_Search" left="280" top="77" width="58" height="25" style="background:#455a64ff;bordertype:normal 3 3 ;"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -305,6 +308,23 @@
           <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsAttentionalPatient">
+        <ColumnInfo>
+          <Column id="ATTENDTIONAL_REG_NO" type="STRING" size="256"/>
+          <Column id="PAT_NO" type="STRING" size="256"/>
+          <Column id="PAT_NAME" type="STRING" size="256"/>
+          <Column id="ATTENDTIONAL_FIELD" type="STRING" size="256"/>
+          <Column id="ATTENDTIONAL_DIV" type="STRING" size="256"/>
+          <Column id="START_DATE" type="STRING" size="256"/>
+          <Column id="END_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsAttentionalCode">
+        <ColumnInfo>
+          <Column id="ATTENTIONAL_CODE" type="STRING" size="256"/>
+          <Column id="ATTENTIONAL_CODE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[
 /**************************************************************************************************
@@ -328,6 +348,9 @@ this.clickBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
 		case this.SCP_regAttPatDiv.searchPatNoBtn: 	    //환자 검색
 			this.clickSearchPatNoBtn();
 			break;
+		case this.SCP_attCodeDiv.searchAttCodeBtn: 	    //환자 검색
+			this.clickSearchAttCodeBtn();
+			break;
 	}
 }
 
@@ -344,7 +367,10 @@ this.clickSearchPatNoBtn = function(){	//환자등록번호조회
 	}
 }
 
+this.clickSearchAttCodeBtn =function () {
 
-]]></Script>
+	alert("빨리가라");
+	
+}]]></Script>
   </Form>
 </FDL>

@@ -9,5 +9,4 @@ public interface AttentionalPatientDAO {
 
 	List<AttentionalPatientBean> selectAttentionalPatientList(Map<String, String> argsMap);
 
-
 }
