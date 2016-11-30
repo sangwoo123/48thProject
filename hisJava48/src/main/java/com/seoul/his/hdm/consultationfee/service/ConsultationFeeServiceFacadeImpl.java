@@ -7,31 +7,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.hdm.consultationfee.applicationService.ConsultationFeeApplicationService;
-import com.seoul.his.hdm.consultationfee.to.ConsultationFeeBean;
+import com.seoul.his.hdm.consultationfee.to.HosptlzPatBean;
+import com.seoul.his.hdm.consultationfee.to.HosptlzPatReceBean;
 
 
-/**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated 
- */
 
 @Service
 public class ConsultationFeeServiceFacadeImpl implements ConsultationFeeServiceFacade{
 	@Autowired
 	ConsultationFeeApplicationService consultationfeeApplicationService;
 
-
 	@Override
-		public List<ConsultationFeeBean> findConsultationFeeList(Map<String, String> argsMap) {
-		List<ConsultationFeeBean> consultationfeeList = consultationfeeApplicationService.findConsultationFeeList(argsMap);
-		return consultationfeeList;
-	}
-	
-	
+    public void calcuInpatientPayment(Map<String, String> argsMap) {
+		consultationfeeApplicationService.calcuInpatientPayment(argsMap);
+    }
+
+    @Override
+    public List<HosptlzPatBean> findInpatientPayment(
+            Map<String, String> argsMap) throws Exception {
+        List<HosptlzPatBean> hosptlzPatList;
+        hosptlzPatList = consultationfeeApplicationService.findInpatientPayment(argsMap);
+        return hosptlzPatList;
+    }
+
+    @Override
+    public HosptlzPatReceBean findHosptlzPatRece(
+            Map<String, String> argsMap) {
+        HosptlzPatReceBean hosptlzPatReceBean;
+        hosptlzPatReceBean = consultationfeeApplicationService.findHosptlzPatRece(argsMap);
+        return hosptlzPatReceBean;
+    }
+
+    @Override
+    public void callHosptlzPatRece(HosptlzPatReceBean hosptlzPatReceBean) {
+    	consultationfeeApplicationService.callHosptlzPatRece(hosptlzPatReceBean);
+    }	
 	
 }
