@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WH_HosptlzTrmtCostCalcuForm" classname="WH_HosptlzTrmtCostCalcuForm" left="0" top="0" width="1250" height="768" titletext="입원진료비 계산" onload="WH_HosptlzTrmtCostCalcuForm_onload" name="HC_HosptlzTrmtCostCalcuForm">
+  <Form id="WH_HosptlzTrmtCostCalcuForm" classname="WH_HosptlzTrmtCostCalcuForm" left="0" top="0" width="1250" height="768" titletext="입원진료비 계산" onload="WH_HosptlzTrmtCostCalcuForm_onload" name="HC_HosptlzTrmtCostCalcuForm" style="background:#cfd8dcff;">
     <Layouts>
       <Layout>
-        <Static id="Static01" taborder="0" text="성명" left="0.64%" top="145" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static01" taborder="0" text="성명" left="0.64%" top="145" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="patNmEd" taborder="1" readonly="true" left="6.32%" top="145" right="81.04%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static02" taborder="2" text="주민번호" left="0.64%" top="177" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
-        <Static id="Static04" taborder="3" text="성별" left="0.64%" top="209" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static02" taborder="2" text="주민번호" left="0.64%" top="177" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static04" taborder="3" text="성별" left="0.64%" top="209" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="genderEd" taborder="4" readonly="true" left="6.32%" top="209" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static05" taborder="5" text="나이" left="0.64%" top="241" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static05" taborder="5" text="나이" left="0.64%" top="241" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="ageEd" taborder="6" readonly="true" left="6.32%" top="241" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static07" taborder="7" text="진료과" left="0.64%" top="273" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static07" taborder="7" text="진료과" left="0.64%" top="273" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="trmtDeptCdEd" taborder="8" readonly="true" left="6.32%" top="273" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="trmtDeptNmEd" taborder="9" readonly="true" left="15.6%" top="273" right="75.84%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static08" taborder="10" text="병동" left="0.64%" top="305" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static08" taborder="10" text="병동" left="0.64%" top="305" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="wardEd" taborder="11" readonly="true" left="6.32%" top="305" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="wardNmEd" taborder="12" readonly="true" left="15.6%" top="305" right="75.84%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static09" taborder="13" text="입원경로" left="0.64%" top="369" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static09" taborder="13" text="입원경로" left="0.64%" top="369" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="hosptlzRouteCdEd" taborder="14" readonly="true" left="6.32%" top="369" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="hosptlzRouteNmEd" taborder="15" readonly="true" left="15.6%" top="369" right="75.84%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Static id="Static10" taborder="16" text="퇴원일자" left="0.64%" top="401" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static10" taborder="16" text="퇴원일자" left="0.64%" top="401" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Grid id="trmtCostHistGrid" taborder="17" binddataset="dsHosptlzTrmtCost" scrollbars="autohorz" useinputpanel="false" useselcolor="false" left="0.56%" top="480" right="70.8%" height="267" class="AreaGrid">
           <Formats>
             <Format id="default">
@@ -67,14 +67,14 @@
                 <Row size="20" band="head"/>
                 <Row size="24"/>
               </Rows>
-              <Band id="head">
-                <Cell colspan="2" text="입원기간"/>
-                <Cell col="2" rowspan="2" text="진료과"/>
-                <Cell col="3" rowspan="2" text="담당의"/>
-                <Cell col="4" rowspan="2" text="환자상태"/>
-                <Cell col="5" rowspan="2" text="수납상태"/>
-                <Cell row="1" text="입원일자"/>
-                <Cell row="1" col="1" text="퇴원일자"/>
+              <Band id="head" style="cellcolor:#333333ff;">
+                <Cell colspan="2" style="background:#455a64ff;color:white;" text="입원기간"/>
+                <Cell col="2" rowspan="2" style="background:#455a64ff;color:white;" text="진료과"/>
+                <Cell col="3" rowspan="2" style="background:#455a64ff;color:white;" text="담당의"/>
+                <Cell col="4" rowspan="2" style="background:#455a64ff;color:white;" text="환자상태"/>
+                <Cell col="5" rowspan="2" style="background:#455a64ff;color:white;" text="수납상태"/>
+                <Cell row="1" style="background:#455a64ff;color:white;" text="입원일자"/>
+                <Cell row="1" col="1" style="background:#455a64ff;color:white;" text="퇴원일자"/>
               </Band>
               <Band id="body">
                 <Cell displaytype="date" text="bind:hosptlzDate"/>
@@ -102,11 +102,11 @@
                 <Row size="0" band="summ"/>
                 <Row size="48" band="summ"/>
               </Rows>
-              <Band id="head">
-                <Cell celltype="head" displaytype="normal" text="항목"/>
-                <Cell col="1" displaytype="normal" text="급여"/>
-                <Cell col="2" displaytype="normal" text="비급여"/>
-                <Cell col="3" displaytype="normal" text="총 진료비"/>
+              <Band id="head" style="cellcolor:#333333ff;">
+                <Cell celltype="head" displaytype="normal" style="background:#455a64ff;color:white;" text="항목"/>
+                <Cell col="1" displaytype="normal" style="background:#455a64ff;color:white;" text="급여"/>
+                <Cell col="2" displaytype="normal" style="background:#455a64ff;color:white;" text="비급여"/>
+                <Cell col="3" displaytype="normal" style="background:#455a64ff;color:white;" text="총 진료비"/>
               </Band>
               <Band id="body">
                 <Cell text="bind:exmntAtc"/>
@@ -119,30 +119,29 @@
                 <Cell col="1"/>
                 <Cell col="2"/>
                 <Cell col="3"/>
-                <Cell row="1" celltype="head" style="background:lightblue;" text="합계"/>
-                <Cell row="1" col="1" celltype="head" displaytype="number" style="background:lightblue;" expr="expr:dataset.getSum(&quot;parseInt(sal)&quot;)"/>
-                <Cell row="1" col="2" celltype="head" displaytype="number" style="background:lightblue;" expr="expr:dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
-                <Cell row="1" col="3" celltype="head" displaytype="number" style="background:lightblue;" expr="expr:dataset.getSum(&quot;parseInt(sal)&quot;)+dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
+                <Cell row="1" celltype="head" style="background:#263238ff;color:white;" text="합계"/>
+                <Cell row="1" col="1" celltype="head" displaytype="number" style="background:#263238ff;color:white;" expr="expr:dataset.getSum(&quot;parseInt(sal)&quot;)"/>
+                <Cell row="1" col="2" celltype="head" displaytype="number" style="background:#263238ff;color:white;" expr="expr:dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
+                <Cell row="1" col="3" celltype="head" displaytype="number" style="background:#263238ff;color:white;" expr="expr:dataset.getSum(&quot;parseInt(sal)&quot;)+dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Static id="Static06" taborder="21" text="등록번호" left="0.64%" top="114" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
-        <Edit id="patNoCdEd" taborder="22" readonly="true" left="6.32%" top="114" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
+        <Static id="Static06" taborder="21" text="등록번호" left="0.64%" top="114" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Edit id="patNoCdEd" taborder="22" readonly="true" left="6.32%" top="114" right="84.96%" height="28" style="align:center middle;" class="AreaEdt" oneditclick="patNoCdEd_oneditclick"/>
         <Button id="trmtCostCalcuBtn" taborder="23" text="입원진료비계산" onclick="trmtCostCalcuBtn_onclick" left="91.12%" top="241" right="0.96%" height="30" class="AreaBtn" style="background:#848484ff;color:cornsilk;font:bold 9 arial;"/>
         <Edit id="rrn1Ed" taborder="24" readonly="true" left="6.32%" top="177" right="87.12%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="rrn2Ed" taborder="25" password="true" readonly="true" left="13.92%" top="177" right="77.84%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Static id="titleEdt00" taborder="26" text="-" left="13.12%" top="177" right="85.52%" height="26" class="TStc"/>
-        <Static id="Static00" taborder="27" text="병실" left="0.64%" top="337" right="93.68%" height="28" style="background:dodgerblue;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
+        <Static id="Static00" taborder="27" text="병실" left="0.64%" top="337" right="93.68%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
         <Edit id="wardEdt00" taborder="28" readonly="true" left="6.32%" top="337" right="84.96%" height="28" style="align:center middle;" class="AreaEdt"/>
         <Edit id="hroomNmEd" taborder="29" readonly="true" left="15.6%" top="337" right="75.84%" height="28" style="align:center middle;" class="AreaEdt"/>
-        <Button id="searchPatNoBtn" taborder="30" onclick="searchPatNoBtn_onclick" cssclass="SearchBtn" left="21.52%" top="114" right="72.32%" height="27" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;" class="SearchBtn"/>
-        <Button id="patNoBtn" taborder="31" onclick="patNoBtn_onclick" cssclass="PBtn" left="15.6%" top="115" right="82.24%" height="23" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none @gradation ;color:black;bordertype:round 3 3 ;shadow:outer 0,0 0 gray;" class="PBtn"/>
-        <Static id="Static03" taborder="33" text="입원진료비 계산" left="41.2%" top="8" right="41.12%" height="52" style="color:dodgerblue;font:bold 20 다음_Regular;"/>
-        <Static id="subCodeStc02" taborder="34" text="환자 정보" onclick="subCodeStc_onclick" left="1.68%" top="74" right="81.28%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="subCodeStc00" taborder="35" text="진료비 내역" onclick="subCodeStc_onclick" left="1.04%" top="445" right="81.92%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="subCodeStc01" taborder="36" text="입원 내역" onclick="subCodeStc_onclick" left="29.6%" top="68" right="53.36%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="subCodeStc03" taborder="37" text="진료비 상세 내역" onclick="subCodeStc_onclick" left="29.68%" top="241" right="53.28%" height="27" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Button id="patNoBtn" taborder="31" onclick="patNoBtn_onclick" cssclass="PBtn" left="15.6%" top="115" right="82.24%" height="23" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none @gradation ;color:black;bordertype:round 3 3 ;shadow:outer 0,0 0 gray;" class="PBtn"/>
+        <Static id="Static03" taborder="33" text="입원진료비 계산" left="0.48%" top="8" right="-0.4%" height="52" style="background:#90a4aeff stretch;color:#37474fff;align:center middle;font:bold 20 arial;"/>
+        <Static id="subCodeStc02" taborder="34" text="환자 정보" onclick="subCodeStc_onclick" left="1.68%" top="74" right="81.28%" height="27" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc00" taborder="35" text="진료비 내역" onclick="subCodeStc_onclick" left="1.04%" top="445" right="81.92%" height="27" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc01" taborder="36" text="입원 내역" onclick="subCodeStc_onclick" left="29.6%" top="68" right="53.36%" height="27" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc03" taborder="37" text="진료비 상세 내역" onclick="subCodeStc_onclick" left="29.68%" top="241" right="53.28%" height="27" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -247,12 +246,12 @@
         <Rows>
           <Row>
             <Col id="serviceID">findHosptlzTrmtCost</Col>
-            <Col id="URL">his::won/hosptlzTrmtCost/findHosptlzTrmtCost.do</Col>
+            <Col id="URL">his::hdm/consultationfee/findInpatientPayment.do</Col>
             <Col id="outData">dshosptlzPat=dshosptlzPat dsHosptlzTrmtCost=dsHosptlzTrmtCost</Col>
           </Row>
           <Row>
             <Col id="serviceID">calcuHosptlzTrmtCost</Col>
-            <Col id="URL">his::won/hosptlzTrmtCost/calcuHosptlzTrmtCost.do</Col>
+            <Col id="URL">his::hdm/consultationfee/calcuInpatientPayment.do</Col>
             <Col id="outData">dshosptlzPat=dshosptlzPat dsHosptlzTrmtCost=dsHosptlzTrmtCost</Col>
           </Row>
           <Row>
@@ -391,7 +390,9 @@ this.matchCdNm = function()
 /**************************************************************************************************
 *                               환자번호 조회 button click event                                 *
 ***************************************************************************************************/
-this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+
+
+this.patNoCdEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
 {
 	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){
@@ -414,7 +415,8 @@ this.setPatInfo = function(pat)
 /**************************************************************************************************
 *                                 환자 조회 button click event                                   *
 ***************************************************************************************************/
-this.searchPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+
+this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var patNo = this.patNoCdEd.value;
    
@@ -431,7 +433,6 @@ this.searchPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
       this.matchCdNm();
    }
 }
-
 
 
 
@@ -454,6 +455,7 @@ this.trmtCostCalcuBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.gfnService("calcuHosptlzTrmtCost", false);
 	}
 }
+
 
 
 
