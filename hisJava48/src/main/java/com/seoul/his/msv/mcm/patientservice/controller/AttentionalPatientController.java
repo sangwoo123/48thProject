@@ -17,8 +17,14 @@ import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 
 /**
+ * <pre>
+ * com.seoul.his.msv.mcm.patientservice.controller
+ *    |_ AttentionalPatientController.java
+ * </pre>
+ *
+ * @date : 2016. 11. 30. 오후 5:38:19
+ * @version :
  * @author : Minhyeog
- * @date : 2016. 11. 30.
  */
 
 @Controller

@@ -11,10 +11,10 @@ import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
-/**
- * @author  :   Minhyeog
- * @date     :   2016. 11. 30.
- */
+
+
+
+
 
 
 @Service
