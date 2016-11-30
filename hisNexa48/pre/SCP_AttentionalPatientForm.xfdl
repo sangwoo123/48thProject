@@ -94,7 +94,6 @@
                       <Column size="80"/>
                       <Column size="80"/>
                       <Column size="80"/>
-                      <Column size="80"/>
                       <Column size="90"/>
                       <Column size="89"/>
                     </Columns>
@@ -103,22 +102,20 @@
                       <Row size="24"/>
                     </Rows>
                     <Band id="head">
-                      <Cell style="background:#cfd8dcff;" text="선택"/>
-                      <Cell col="1" style="background:#cfd8dcff;" text="등록번호"/>
-                      <Cell col="2" style="background:#cfd8dcff;" text="이름"/>
-                      <Cell col="3" style="background:#cfd8dcff;" text="관심영역"/>
-                      <Cell col="4" style="background:#cfd8dcff;" text="관심분류"/>
-                      <Cell col="5" style="background:#cfd8dcff;" text="시작일자"/>
-                      <Cell col="6" style="background:#cfd8dcff;" text="종료일자"/>
+                      <Cell style="background:#cfd8dcff;" text="등록번호"/>
+                      <Cell col="1" style="background:#cfd8dcff;" text="이름"/>
+                      <Cell col="2" style="background:#cfd8dcff;" text="관심영역"/>
+                      <Cell col="3" style="background:#cfd8dcff;" text="관심분류"/>
+                      <Cell col="4" style="background:#cfd8dcff;" text="시작일자"/>
+                      <Cell col="5" style="background:#cfd8dcff;" text="종료일자"/>
                     </Band>
                     <Band id="body">
-                      <Cell text="bind:adrNo"/>
-                      <Cell col="1" edittype="text" text="bind:patNo"/>
-                      <Cell col="2" edittype="text" text="bind:prescNo"/>
-                      <Cell col="3" edittype="text" text="bind:writeDate"/>
-                      <Cell col="4" edittype="text" text="bind:drugNm"/>
+                      <Cell edittype="text" text="bind:patNo"/>
+                      <Cell col="1" edittype="text" text="bind:prescNo"/>
+                      <Cell col="2" edittype="text" text="bind:writeDate"/>
+                      <Cell col="3" edittype="text" text="bind:drugNm"/>
+                      <Cell col="4"/>
                       <Cell col="5"/>
-                      <Cell col="6"/>
                     </Band>
                   </Format>
                 </Formats>
