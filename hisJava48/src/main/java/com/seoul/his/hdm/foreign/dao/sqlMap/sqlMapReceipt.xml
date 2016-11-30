@@ -69,7 +69,7 @@
         ORDER BY R.OUTPA_RECEIPT_NO 
     </select>
 				
-    <insert id="insertReceipt" parameterType="ReceiptInfoBean">
+    <update id="insertReceipt" parameterType="ReceiptInfoBean">
         INSERT INTO
         ws_outpa_receipt
         (
@@ -112,7 +112,7 @@
             #{nwDiv},
             #{hosptlzRsvtYb}
         )
-    </insert>
+    </update>
     
 <update id="updateReceipt" parameterType="ReceiptInfoBean">
         UPDATE

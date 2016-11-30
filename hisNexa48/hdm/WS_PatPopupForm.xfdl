@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WS_PatPopupForm" classname="WS_PatPopupForm" left="0" top="0" width="700" height="390" titletext="환자등록번호 조회">
+  <Form id="WS_PatPopupForm" classname="WS_PatPopupForm" left="0" top="0" width="700" height="390" titletext="환자등록번호 조회" style="background:#cfd8dcff;">
     <Layouts>
       <Layout>
-        <Div id="Div06" taborder="0" left="0%" top="0" right="3.29%" height="60" style="align:left middle;background:transparent URL('img::titleBar7.jpg');"/>
         <Edit id="patNmEd" taborder="1" left="18.29%" top="62" right="67.43%" height="30" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Edit id="telEd" taborder="2" left="51.43%" top="62" right="19.57%" height="30" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Edit id="rrn1Ed" taborder="3" maxlength="6" left="18.29%" top="100" right="67.43%" height="30" style="align:center middle;font:antialias 9 돋움;" class="AreaEdt"/>
@@ -24,14 +23,14 @@
                 <Row size="24" band="head"/>
                 <Row size="24"/>
               </Rows>
-              <Band id="head">
+              <Band id="head" style="cellbackground:#455a64ff;cellcolor:white;">
                 <Cell text="등록번호"/>
                 <Cell col="1" text="성명"/>
                 <Cell col="2" colspan="3" text="주민등록번호"/>
                 <Cell col="5" text="전화번호"/>
                 <Cell col="6" text="주소"/>
               </Band>
-              <Band id="body">
+              <Band id="body" style="selectbackground:#b0bec5ff;selectcolor:black;">
                 <Cell text="bind:patNo"/>
                 <Cell col="1" text="bind:patNm"/>
                 <Cell col="2" text="bind:rrn1"/>
@@ -45,11 +44,11 @@
         </Grid>
         <Edit id="rrn2Ed" taborder="5" password="true" maxlength="7" left="37.14%" top="100" right="49.43%" height="30" style="align:center middle;font:antialias 9 돋움;" class="AreaEdt"/>
         <Static id="Static03" taborder="6" text="-" left="34.71%" top="100" right="62%" height="27"/>
-        <Static id="Static04" taborder="7" text="            환자등록번호 조회" onclick="Static04_onclick" left="-7.43%" top="-3" right="41.14%" height="60" style="color:dodgerblue;font:bold 20 다음_Regular;"/>
-        <Div id="Div01" taborder="8" text="성명" left="3.86%" top="62" right="82.71%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
-        <Div id="Div00" taborder="9" text="주민등록번호" left="4%" top="100" right="82.57%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
-        <Div id="Div02" taborder="10" text="전화번호" left="37.14%" top="62" right="49.43%" height="30" style="background:dodgerblue;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
-        <Button id="searchBtn" taborder="11" onclick="searchBtn_onclick" left="82.86%" top="60" right="4.29%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+        <Div id="Div01" taborder="8" text="성명" left="3.86%" top="62" right="82.71%" height="30" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
+        <Div id="Div00" taborder="9" text="주민등록번호" left="4%" top="100" right="82.57%" height="30" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
+        <Div id="Div02" taborder="10" text="전화번호" left="37.14%" top="62" right="49.43%" height="30" style="background:#455a64ff;color:cornsilk;bordertype:round 5 5 ;font:bold 10 arial;"/>
+        <Button id="searchBtn" taborder="11" onclick="searchBtn_onclick" left="81.86%" top="59" right="13.29%" height="34" style="background:@gradation URL('img::miniSearchBtn1.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+        <Static id="Static04" taborder="12" text="환자등록번호 조회" onclick="Static04_onclick" left="0%" top="0" right="0%" height="60" style="background:#90a4aeff stretch;color:#37474fff;align:center middle;font:bold 20 Arial;"/>
       </Layout>
     </Layouts>
     <Objects>

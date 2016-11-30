@@ -24,6 +24,12 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	public PatInfoBean findPat(Map<String, String> argsMap) {
 		return foreignApplicationService.findPat(argsMap);
 	}
+	
+	@Override
+    public PatInfoBean findLastPatNo() {
+        System.out.println("OutPatMngntServiceFacadeImpl - findLastPatNo");
+        return foreignApplicationService.findLastPatNo();
+    }
 
 	@Override
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
@@ -39,5 +45,7 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
 		foreignApplicationService.removeDiagnosisReceipt(receiptInfoBean);
 	}
+	
+	
 
 }

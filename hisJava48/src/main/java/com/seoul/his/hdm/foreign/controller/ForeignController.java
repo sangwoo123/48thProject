@@ -51,4 +51,13 @@ public class ForeignController {
         System.out.println(patInfoBean);
         dataSetBeanMapper.beanToDataset(outData, patInfoBean, PatInfoBean.class);
     }
+    
+    @RequestMapping("hdm/foreign/findLastPatNo.do")
+    public void findLastPatNo(HttpServletRequest request
+                                    , HttpServletResponse response) throws Exception {
+        outData = (PlatformData) request.getAttribute("outData");
+        PatInfoBean patInfoBean
+        = foreignServiceFacade.findLastPatNo();
+        dataSetBeanMapper.beanToDataset(outData, patInfoBean, PatInfoBean.class);
+    }
 }

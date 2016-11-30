@@ -101,7 +101,7 @@
                       <Cell col="4" style="background:#455a64ff;color:white;" text="입원여부"/>
                       <Cell col="5" style="background:#455a64ff;color:white;" text="진단명"/>
                     </Band>
-                    <Band id="body">
+                    <Band id="body" style="selectbackground:#b0bec5ff;selectcolor:black;">
                       <Cell text="bind:trmtDate"/>
                       <Cell col="1" text="bind:trmtDeptNm"/>
                       <Cell col="2" text="bind:trmtDoct"/>
@@ -138,7 +138,7 @@
                       <Cell col="5" style="background:#455a64ff;color:white;" text="진료의사"/>
                       <Cell col="6" style="background:#455a64ff;color:white;" text="유형"/>
                     </Band>
-                    <Band id="body">
+                    <Band id="body" style="selectbackground:#b0bec5ff;selectcolor:black;">
                       <Cell text="bind:outpaReceiptNo"/>
                       <Cell col="1" text="bind:receiptDate"/>
                       <Cell col="2" text="bind:trmtDate"/>
@@ -482,15 +482,6 @@ this.edOnkeyDown = function(obj:Edit, e:KeyEventInfo){
 
 this.clickBtn = function(obj){	
 	switch(obj){ 
-		case this.WS_OutPatReceiptMngnDiv.createPatBtn: 	    //신환등록을 위한 작업
-			this.clickCreatePatBtn();
-			break;	
-		case this.WS_OutPatReceiptMngnDiv.addPatBtn: 	        //신환등록(환자등록)
-			this.clickAddPatBtn();
-			break;	
-		case this.WS_OutPatReceiptMngnDiv.searchZipBtn:         //우편번호 검색
-			this.clickSearchZipBtn();	                        
-			break;
 		case this.WS_OutPatReceiptMngnDiv.searchTrmtDeptCdBtn:	//진료과 검색
 			this.clickSearchTrmtDeptCdBtn();
 			break;
@@ -618,21 +609,10 @@ this.outPatReceiptMngntCallbackFunc = function(svcID, errorCode, errorMsg){
 		}
 		else if(svcID="removeReceipt"){
 			this.gfnService("findReceiptList","false");
-		}else if(svcID=="modifyPat"){
-			//trace("환자수정 성공");
 		}
 	}
 }
 
-/***************************************************************************************************
-*                                       정보수정                                                  *
-***************************************************************************************************/
-
-this.WS_OutPatReceiptMngnDiv_modPatBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.gfnService("modifyPat","false");
-	receiptFlag=1;
-}
 
 
 this.WS_OutPatReceiptMngnDiv_patNoEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)

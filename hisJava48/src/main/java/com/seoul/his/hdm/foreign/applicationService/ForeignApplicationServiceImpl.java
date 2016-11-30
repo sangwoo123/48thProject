@@ -47,4 +47,9 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 	public PatInfoBean findPat(Map<String, String> argsMap) {
 		return foreignDAO.selectPat(argsMap);
 	}
+	
+	@Override
+    public PatInfoBean findLastPatNo() {
+        return foreignDAO.selectLastPatNo();
+    }
 }
