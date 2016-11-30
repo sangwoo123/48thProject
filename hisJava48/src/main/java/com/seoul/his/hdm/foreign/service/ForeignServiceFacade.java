@@ -18,8 +18,6 @@ public interface ForeignServiceFacade {
 	public PatInfoBean findPat(Map<String, String> argsMap);
 	
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap);
-	
-	public PatInfoBean findLastPatNo();
 
 	
 

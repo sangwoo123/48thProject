@@ -20,7 +20,4 @@ public interface ForeignApplicationService {
 
 	public PatInfoBean findPat(Map<String, String> argsMap);
 	
-	public PatInfoBean findLastPatNo();
-
-
 }
