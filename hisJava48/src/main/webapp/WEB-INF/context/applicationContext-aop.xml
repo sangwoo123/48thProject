@@ -14,9 +14,7 @@
 
 
     <aop:config>
-        <aop:pointcut id="svcPointcut"
-            expression="execution(* com..service.*.*(..))" />
-            
+        <aop:pointcut id="svcPointcut" expression="execution(* com..service.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="svcPointcut" />
     </aop:config>
     

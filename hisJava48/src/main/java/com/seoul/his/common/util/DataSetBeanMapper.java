@@ -78,7 +78,7 @@ public class DataSetBeanMapper {
         datasetList.add(dataset);
 
         Method[] methods = classType.getDeclaredMethods();
-        for (Method method : methods)
+        for (Method method : methods) 
             setColumnName(dataset, nameMap, method);
         for (T bean : beanList)
             setColumnValue(dataset, nameMap, bean);

@@ -34,8 +34,7 @@ public class ForeignController {
 		outData = (PlatformData) request.getAttribute("outData");
 		argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-		List<PatInfoBean> list
-		= foreignServiceFacade.findPatList(argsMap);
+		List<PatInfoBean> list= foreignServiceFacade.findPatList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, list, PatInfoBean.class);
 	}
 
