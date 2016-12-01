@@ -217,12 +217,12 @@ include "scripts::wonScripts.xjs";
 var deptCd;
 
 this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
-	trace("-----");
+	alert("-----");
 	this.gfnBind();
-	trace("=====");
+	alert("=====");
 	this.gfnService("empInfo", false);
 	this.gdsEmp.filter(this.gfnLike("jobrk", "의사"));
-	trace("@@@@@@@@@@");
+	alert("@@@@@@@@@@");
 }
 
 //환자등록번호조회
