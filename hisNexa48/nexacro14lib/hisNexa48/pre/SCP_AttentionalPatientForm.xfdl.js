@@ -39,6 +39,10 @@
             obj._setContents("<ColumnInfo><Column id=\"attentionalCode\" type=\"STRING\" size=\"256\"/><Column id=\"attentionalCodeName\" type=\"STRING\" size=\"256\"/><Column id=\"attentionalField\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
+            obj = new Dataset("ds_checkall", this);
+            obj._setContents("<ColumnInfo><Column id=\"_chk\" type=\"STRING\" size=\"256\"/><Column id=\"Column1\" type=\"STRING\" size=\"256\"/><Column id=\"Column2\" type=\"STRING\" size=\"256\"/><Column id=\"Column3\" type=\"STRING\" size=\"256\"/><Column id=\"Column4\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"Column1\">1</Col><Col id=\"Column2\">1</Col><Col id=\"Column3\"/><Col id=\"Column4\">1</Col></Row><Row><Col id=\"Column1\">2</Col><Col id=\"Column2\">2</Col><Col id=\"Column3\"/><Col id=\"Column4\">2</Col></Row><Row><Col id=\"Column1\">3</Col><Col id=\"Column2\">3</Col><Col id=\"Column3\"/><Col id=\"Column4\">3</Col></Row><Row><Col id=\"Column1\">4</Col><Col id=\"Column2\">4</Col><Col id=\"Column3\"/><Col id=\"Column4\">4</Col></Row></Rows>");
+            this.addChild(obj.name, obj);
+
 
             
             // UI Components Initialize
@@ -196,7 +200,7 @@
             obj.set_autofittype("col");
             obj.style.set_border("2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff");
             obj.style.set_font("9 돋움");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"90\"/><Column size=\"89\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"환자번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"이름\"/><Cell col=\"2\" style=\"background:#cfd8dcff;\" text=\"관심영역\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"관심분류\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"시작일자\"/><Cell col=\"5\" style=\"background:#cfd8dcff;\" text=\"종료일자\"/></Band><Band id=\"body\"><Cell edittype=\"text\" text=\"bind:pat_no\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:pat_name\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:attendtional_field\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:attendtional_div\"/><Cell col=\"4\" text=\"bind:start_date\"/><Cell col=\"5\" text=\"bind:end_date\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"90\"/><Column size=\"89\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"환자번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"이름\"/><Cell col=\"2\" style=\"background:#cfd8dcff;\" text=\"관심영역\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"관심분류\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"시작일자\"/><Cell col=\"5\" style=\"background:#cfd8dcff;\" text=\"종료일자\"/></Band><Band id=\"body\"><Cell displaytype=\"normal\" edittype=\"normal\" text=\"bind:patNo\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:patName\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:attentionalDiv\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:attentionalDiv\"/><Cell col=\"4\" text=\"bind:startDate\"/><Cell col=\"5\" text=\"bind:endDate\"/></Band></Format></Formats>");
             this.attPatDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc03", "absolute", "0.87%", "6", null, "30", "2.24%", null, this.attPatDiv);
             obj.set_taborder("15");
@@ -240,7 +244,7 @@
             this.attCodeDiv.addChild(obj.name, obj);
             obj = new Static("fieldStc00", "absolute", "2.9%", "76", null, "30", "74.67%", null, this.attCodeDiv);
             obj.set_taborder("41");
-            obj.set_text("관심분류");
+            obj.set_text("분류명");
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
@@ -258,18 +262,10 @@
             obj.style.set_font("9 돋움");
             obj = new Edit("attDivEd", "absolute", "28.76%", "76", "166", "30", null, null, this.attCodeDiv);
             obj.set_taborder("49");
-            obj.set_enable("false");
+            obj.set_enable("true");
             obj.getSetter("class").set("AreaEdt");
             obj.style.set_font("9 돋움");
             this.attCodeDiv.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00", "absolute", "2.72%", "584", null, "140", "68.48%", null, this);
-            obj.set_taborder("18");
-            obj.set_binddataset("dsAttentionalCode");
-            obj.set_autofittype("col");
-            obj.style.set_font("9 돋움");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"148\"/><Column size=\"207\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"분류코드\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"분류명\"/></Band><Band id=\"body\"><Cell displaytype=\"normal\" text=\"bind:attentionalCode\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:attentionalCodeName\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
 
             obj = new Static("regAttStc", "absolute", "2.8%", "74", null, "30", "68.08%", null, this);
             obj.set_taborder("19");
@@ -283,7 +279,7 @@
 
             obj = new Static("subCodeStc00", "absolute", "2.72%", "480", null, "30", "68.24%", null, this);
             obj.set_taborder("20");
-            obj.set_text("   관심분류코드");
+            obj.set_text("   관심분류등록");
             obj.style.set_background("#78909cff");
             obj.style.set_color("ivory");
             obj.style.set_align("left middle");
@@ -311,7 +307,7 @@
             obj.style.set_font("9 Gulim");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button03", "absolute", "308", "552", "45", "25", null, null, this);
+            obj = new Button("addCodeBtn", "absolute", "308", "552", "45", "25", null, null, this);
             obj.set_taborder("28");
             obj.set_text("추가");
             obj.set_cssclass("btn_WF_CRUD");
@@ -373,6 +369,15 @@
             obj = new Button("Button07", "absolute", "641", "115", "30", "30", null, null, this);
             obj.set_taborder("36");
             obj.set_cssclass("btn_WF_SearchSmall");
+            this.addChild(obj.name, obj);
+
+            obj = new Grid("Grid01", "absolute", "2.88%", "589", null, "131", "68.4%", null, this);
+            obj.set_taborder("37");
+            obj.set_binddataset("dsAttentionalCode");
+            obj.set_autofittype("col");
+            obj.style.set_border("2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff");
+            obj.style.set_font("9 돋움");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"46\"/><Column size=\"220\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"분류명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"align:center middle;\" text=\"bind:attentionalCodeName\"/><Cell col=\"1\" text=\"bind:attentionalCodeName\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
 
@@ -498,14 +503,17 @@
         this.clickBtn = function(obj,e)
         {
         	switch(obj){ 
-        		case this.regAttBtn:  		 // 관심환자 등록
+        		case this.regAttBtn:  		// 관심환자 등록
         			this.clickRegAttBtn();
         			break;
-        		case this.clearAttBtn: 	     // 관심환자 등록 시 데이터 초기화
+        		case this.clearAttBtn: 	    // 관심환자 등록 시 데이터 초기화
         			this.clickClearAttBtn();
         			break;
-        		case this.searchAttBtn: 	 // 관심환자 조회
+        		case this.searchAttBtn: 	// 관심환자 조회
         			this.clickSearchAttBtn();
+        			break;
+        		case this.addCodeBtn: 		// 코드 추가
+        			this.clickAddCodeBtn();
         			break;
         	}
         }
@@ -554,9 +562,12 @@
         	this.gfnService("findAttentionalCodeList","false");		
         }
 
-        this.Button03_onclick = function(obj,e)
+        /*-------------------------------------------------------------------------------------------------+
+        >>  행추가
+        +-------------------------------------------------------------------------------------------------*/
+        this.clickAddCodeBtn = function(obj,e)
         {
-        	alert(this.dsAttentionalCode.getColumn(0,"attentionalCode"));
+        	this.dsAttentionalCode.addRow();
         }
 
         
@@ -603,7 +614,7 @@
             this.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
             this.searchAttBtn.addEventHandler("onclick", this.clickBtn, this);
-            this.Button03.addEventHandler("onclick", this.Button03_onclick, this);
+            this.addCodeBtn.addEventHandler("onclick", this.clickBtn, this);
             this.regAttBtn.addEventHandler("onclick", this.clickBtn, this);
             this.clearAttBtn.addEventHandler("onclick", this.clickBtn, this);
 
