@@ -248,16 +248,16 @@ this.searchJwjBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
 	var end =  this.hosptlzEndDateCal.value;    
 	var respDoctNm = this.respDoctNmCombo.value;  
 	
-	if(patNo == null){
-		alert("환자등록번호 선택 후 조회하십시오.");		
-	}else{	
+	//if(patNo == null){
+	//	alert("환자등록번호 선택 후 조회하십시오.");		
+	//}else{	
 		var argument = "patNo='"+patNo+"' patNm='"+patNm+"' ward='"+ward+"' deptCd='"+deptCd
 						+"' start='"+start+"' end='"+end+"' respDoctNm='"+respDoctNm+"'";
 
 		var row = this.dsService.findRow('serviceID' , "findInpatientList");
 		this.dsService.setColumn(row, "argument", argument);
 		this.gfnService("findInpatientList",false);   
-	}
+	//}
 }
 ]]></Script>
   </Form>
