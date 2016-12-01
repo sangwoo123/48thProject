@@ -8,7 +8,7 @@
         <Edit id="patNmEd" taborder="1" left="18.29%" top="62" right="67.43%" height="30" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Edit id="telEd" taborder="2" left="51.43%" top="62" right="19.57%" height="30" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Edit id="rrn1Ed" taborder="3" maxlength="6" left="18.29%" top="100" right="67.43%" height="30" style="align:center middle;font:antialias 9 돋움;" class="AreaEdt"/>
-        <Grid id="patGrid" taborder="4" binddataset="dsPat" useinputpanel="false" autofittype="col" oncelldblclick="patGrid_oncelldblclick" left="4%" top="143" right="4.43%" height="212">
+        <Grid id="patGrid" taborder="4" binddataset="dsPatient" useinputpanel="false" autofittype="col" oncelldblclick="patGrid_oncelldblclick" left="4%" top="143" right="4.43%" height="212">
           <Formats>
             <Format id="default">
               <Columns>
@@ -64,14 +64,14 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="serviceID">findPatList</Col>
-            <Col id="URL">his::won/outPatMngnt/findPatList.do</Col>
-            <Col id="outData">dsPat=dsPat</Col>
+            <Col id="serviceID">findPatientList</Col>
+            <Col id="URL">his::hdm/patient/findPatientList.do</Col>
+            <Col id="outData">dsPatient=dsPatient</Col>
             <Col id="inData"/>
           </Row>
         </Rows>
       </Dataset>
-      <Dataset id="dsPat" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsPatient" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="patNo" type="STRING" size="256"/>
           <Column id="patNm" type="STRING" size="256"/>
@@ -123,7 +123,7 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	var rrn2=this.rrn2Ed.value;
 	var argument='patNm='+patNm+' tel='+tel+' rrn1='+rrn1+' rrn2='+rrn2;
 	this.dsService.setColumn(0,"argument",argument);
-	this.gfnService("findPatList",true);
+	this.gfnService("findPatientList",true);
 }
 
 this.patGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
@@ -131,10 +131,10 @@ this.patGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 	var arrRtn = new Array;
 	var i=0;
 	
-	arrRtn[i++] = this.dsPat.getColumn(e.row,"patNo");  // 환자등록번호 0
-	arrRtn[i++] = this.dsPat.getColumn(e.row,"patNm");  // 환자명 1 
-	arrRtn[i++] = this.dsPat.getColumn(e.row,"rrn1");   // 주민번호 앞 생년월일
-	arrRtn[i++] = this.dsPat.getColumn(e.row,"rrn2");   // 주민번호 뒷자리
+	arrRtn[i++] = this.dsPatient.getColumn(e.row,"patNo");  // 환자등록번호 0
+	arrRtn[i++] = this.dsPatient.getColumn(e.row,"patNm");  // 환자명 1 
+	arrRtn[i++] = this.dsPatient.getColumn(e.row,"rrn1");   // 주민번호 앞 생년월일
+	arrRtn[i++] = this.dsPatient.getColumn(e.row,"rrn2");   // 주민번호 뒷자리
 	this.opener.setPatInfo(arrRtn);
 	this.close();
 }

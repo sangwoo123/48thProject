@@ -11,8 +11,8 @@
 // 환자등록번호조회팝업
 this.gfnPatPopup = function() {
 	return application.open(
-			"WS_PatPopupForm",
-			"hdm::WS_PatPopupForm.xfdl",
+			"HP_PatPopupForm",
+			"hdm::HP_PatPopupForm.xfdl",
 			this.parent,
 			{},
 			"showtitlebar=true showstatusbar=false",

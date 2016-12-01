@@ -22,22 +22,22 @@ import com.seoul.his.common.util.DataSetBeanMapper;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Controller
 public class PatientController {
-	
+
 	@Autowired
-	DataSetBeanMapper dataSetBeanMapper; 
+	DataSetBeanMapper dataSetBeanMapper;
 	@Autowired
 	PatientServiceFacade patientServiceFacade;
-	
+
 	@RequestMapping("hdm/patient/findPatientList.do")
 	public void findPatientList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 	    PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData); 
+		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<PatientBean> patientList = patientServiceFacade.findPatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, patientList, PatientBean.class);
 	}
