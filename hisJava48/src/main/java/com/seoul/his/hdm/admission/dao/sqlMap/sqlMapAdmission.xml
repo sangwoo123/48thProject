@@ -61,14 +61,15 @@
             <if test="patNo != '' and patNo != null">
                 AND R.pat_no=#{patNo}
             </if>
-            <if test="trmtDoct != '' and trmtDoct != null">
-                AND R.trmt_doct=#{trmtDoct}
+            <if test="respDoctNm != '' and respDoctNm != null">
+                AND R.trmt_doct=#{respDoctNm}
             </if>
+        <!--     <if test="ward != '' and ward != null">
+                AND R.pat_no=#{ward}
+            </if> -->
+
             <if test="trmtDate != '' and trmtDate != null">
                 AND R.trmt_date=#{trmtDate}
-            </if>
-            <if test="gubun != '' and gubun !=null">
-                AND HOSPTLZ_YB=#{gubun}
             </if>
         ORDER BY R.OUTPA_RECEIPT_NO
     </select>

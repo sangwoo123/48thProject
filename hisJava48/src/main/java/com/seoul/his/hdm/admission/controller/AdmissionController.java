@@ -38,10 +38,6 @@ public class AdmissionController {
 	    PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
 		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		System.out.println("111"+argsMap.size());
-		for (String key : argsMap.keySet()) {
-			System.out.println(key+" : "+argsMap.get(key));
-		}
 		List<InpatientBean> inpatientList = admissionServiceFacade.findInpatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, inpatientList, InpatientBean.class);
 	}
