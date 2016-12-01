@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WH_JwjSearchForm" classname="WH_JwjSearchForm" left="0" top="0" width="1250" height="768" titletext="WH_JwjSearchForm" onload="WH_JwjSearchForm_onload">
+  <Form id="HA_InpatientForm" classname="WH_JwjSearchForm" left="0" top="0" width="1250" height="768" titletext="HA_InpatientForm" onload="WH_JwjSearchForm_onload">
     <Layouts>
       <Layout>
         <Div id="Div03" taborder="0" left="0%" top="0" width="1200" height="60" style="background:transparent URL('img::titleBar4.jpg');"/>
@@ -97,9 +97,9 @@
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">findJwjList</Col>
-            <Col id="URL">his::won/base/findJwjList.do</Col>
-            <Col id="outData">dsJwj=dsJwj</Col>
+            <Col id="serviceID">findInpatientList</Col>
+            <Col id="URL">his::hdm/patient/findInpatientList.do</Col>
+            <Col id="outData">dsInpatient=dsInpatient</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
         </Rows>
@@ -181,7 +181,7 @@
           <Column id="lunar" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsJwj" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsInpatient" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="patNm" type="STRING" size="256"/>
           <Column id="rrn1" type="STRING" size="256"/>
@@ -207,7 +207,7 @@
 * @Description  조건검색으로 현재 재원환자 현황을 파악한다.	*
 * @Author		김민욱   					                        *
 * 								                                    *
-* Created on 2016. 11.  29.                             		        *
+* Created on 2016. 11.  29.                             		    *
 *								                                    *
 ********************************************************************/
 
@@ -216,7 +216,7 @@ include "scripts::wonScripts.xjs";
 
 var deptCd;
 
-this.WH_JwjSearchForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
+this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
 	this.gfnBind();
 	this.gfnService("empInfo", false);
 	this.gdsEmp.filter(this.gfnLike("jobrk", "의사"));
@@ -252,9 +252,9 @@ this.searchJwjBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
 		var argument = "patNo='"+patNo+"' patNm='"+patNm+"' ward='"+ward+"' deptCd='"+deptCd
 						+"' start='"+start+"' end='"+end+"' respDoctNm='"+respDoctNm+"'";
 
-		var row = this.dsService.findRow('serviceID' , "findJwjList");
+		var row = this.dsService.findRow('serviceID' , "findInpatientList");
 		this.dsService.setColumn(row, "argument", argument);
-		this.gfnService("findJwjList",false);   
+		this.gfnService("findInpatientList",false);   
 	}
 }]]></Script>
   </Form>

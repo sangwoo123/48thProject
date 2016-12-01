@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="WS_PatPopupForm" classname="WS_PatPopupForm" left="0" top="0" width="700" height="390" titletext="환자등록번호 조회">
+  <Form id="HP_PatPopupForm" classname="WS_PatPopupForm" left="0" top="0" width="700" height="390" titletext="환자등록번호 조회">
     <Layouts>
       <Layout>
         <Div id="Div06" taborder="0" left="0%" top="0" right="3.29%" height="60" style="align:left middle;background:transparent URL('img::titleBar7.jpg');"/>
