@@ -32,7 +32,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsAttentionalPatient", this);
-            obj._setContents("<ColumnInfo><Column id=\"ATTENDTIONAL_REG_NO\" type=\"STRING\" size=\"256\"/><Column id=\"PAT_NO\" type=\"STRING\" size=\"256\"/><Column id=\"PAT_NAME\" type=\"STRING\" size=\"256\"/><Column id=\"ATTENDTIONAL_FIELD\" type=\"STRING\" size=\"256\"/><Column id=\"ATTENDTIONAL_DIV\" type=\"STRING\" size=\"256\"/><Column id=\"START_DATE\" type=\"STRING\" size=\"256\"/><Column id=\"END_DATE\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"attentionalRegNo\" type=\"STRING\" size=\"256\"/><Column id=\"patNo\" type=\"STRING\" size=\"256\"/><Column id=\"patName\" type=\"STRING\" size=\"256\"/><Column id=\"attentionalField\" type=\"STRING\" size=\"256\"/><Column id=\"attentionalDiv\" type=\"STRING\" size=\"256\"/><Column id=\"startDate\" type=\"STRING\" size=\"256\"/><Column id=\"endDate\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsAttentionalCode", this);
@@ -121,27 +121,27 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
-            obj = new Calendar("writeDateCal", "absolute", "28.5%", "202", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
+            obj = new Calendar("startDateCal", "absolute", "28.5%", "202", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
             obj.set_taborder("32");
             obj.set_autoskip("true");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_padding("0 0 0 0");
             obj.style.set_font("9 돋움");
-            obj = new Calendar("writeDateCal00", "absolute", "28.5%", "241", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
+            obj = new Calendar("endDateCal", "absolute", "28.5%", "241", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
             obj.set_taborder("33");
             obj.set_autoskip("true");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_padding("0 0 0 0");
             obj.style.set_font("9 돋움");
-            obj = new Combo("patGenderCombo", "absolute", "28.5%", "163", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
+            obj = new Combo("attDivCombo", "absolute", "28.5%", "163", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
             obj.set_taborder("34");
-            obj.set_codecolumn("ATTENTIONAL_FIELD");
-            obj.set_datacolumn("ATTENTIONAL_CODE_NAME");
+            obj.set_datacolumn("attentionalField");
             obj.style.set_font("9 돋움");
             obj.set_innerdataset("@dsAttentionalCode");
+            obj.set_codecolumn("attentionalCodeName");
             obj = new Edit("patNoEd", "absolute", "28.76%", "85", "94", "30", null, null, this.SCP_regAttPatDiv);
             obj.set_taborder("36");
             obj.set_enable("false");
@@ -157,32 +157,23 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
-            obj = new Combo("patGenderCombo00", "absolute", "28.5%", "123", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
+            obj = new Combo("attFieldCombo", "absolute", "28.5%", "123", null, "30", "22.69%", null, this.SCP_regAttPatDiv);
             this.SCP_regAttPatDiv.addChild(obj.name, obj);
-            var patGenderCombo00_innerdataset = new Dataset("patGenderCombo00_innerdataset", this.SCP_regAttPatDiv.patGenderCombo00);
-            patGenderCombo00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">내</Col><Col id=\"datacolumn\">내과</Col></Row><Row><Col id=\"codecolumn\">외</Col><Col id=\"datacolumn\">외과</Col></Row></Rows>");
-            obj.set_innerdataset(patGenderCombo00_innerdataset);
+            var attFieldCombo_innerdataset = new Dataset("attFieldCombo_innerdataset", this.SCP_regAttPatDiv.attFieldCombo);
+            attFieldCombo_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">내</Col><Col id=\"datacolumn\">내과</Col></Row><Row><Col id=\"codecolumn\">외</Col><Col id=\"datacolumn\">외과</Col></Row></Rows>");
+            obj.set_innerdataset(attFieldCombo_innerdataset);
             obj.set_taborder("38");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             obj.style.set_font("9 돋움");
 
-            obj = new Div("patDiv", "absolute", "33.92%", "67", "805", "670", null, null, this);
+            obj = new Div("attPatDiv", "absolute", "33.92%", "67", "805", "670", null, null, this);
             obj.set_taborder("14");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
-            obj = new Static("subCodeStc02", "absolute", "0.87%", "82", null, "30", "87.8%", null, this.patDiv);
-            obj.set_taborder("1");
-            obj.set_text("관심영역");
-            obj.style.set_background("#b0bec5ff");
-            obj.style.set_color("black");
-            obj.style.set_align("center middle");
-            obj.style.set_font("9 돋움");
-            obj.getSetter("class").set("AreaStc");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc00", "absolute", "0.87%", "47", null, "30", "87.8%", null, this.patDiv);
+            obj = new Static("subCodeStc00", "absolute", "0.87%", "47", null, "30", "87.8%", null, this.attPatDiv);
             obj.set_taborder("2");
             obj.set_text("환자명");
             obj.style.set_background("#b0bec5ff");
@@ -190,51 +181,24 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Edit("prscNoEdit", "absolute", "12.95%", "47", null, "30", "73.97%", null, this.patDiv);
+            this.attPatDiv.addChild(obj.name, obj);
+            obj = new Edit("prscNoEdit", "absolute", "12.95%", "47", null, "30", "73.97%", null, this.attPatDiv);
             obj.set_taborder("3");
             obj.style.set_font("9 돋움");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc01", "absolute", "0.87%", "121", null, "30", "87.8%", null, this.patDiv);
-            obj.set_taborder("7");
-            obj.set_text("관심분류");
-            obj.style.set_background("#b0bec5ff");
-            obj.style.set_color("black");
-            obj.style.set_align("center middle");
-            obj.style.set_font("9 돋움");
-            obj.getSetter("class").set("AreaStc");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Combo("patGenderCombo", "absolute", "12.95%", "82", null, "30", "58.53%", null, this.patDiv);
-            this.patDiv.addChild(obj.name, obj);
-            var patGenderCombo_innerdataset = new Dataset("patGenderCombo_innerdataset", this.patDiv.patGenderCombo);
-            patGenderCombo_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">남</Col><Col id=\"datacolumn\">남성</Col></Row><Row><Col id=\"codecolumn\">여</Col><Col id=\"datacolumn\">여성</Col></Row></Rows>");
-            obj.set_innerdataset(patGenderCombo_innerdataset);
-            obj.set_taborder("8");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            obj.style.set_font("9 돋움");
-            obj = new Edit("diseaseNmEdit", "absolute", "33%", "47", null, "30", "53.18%", null, this.patDiv);
+            this.attPatDiv.addChild(obj.name, obj);
+            obj = new Edit("attPtNoEd", "absolute", "33%", "47", null, "30", "53.18%", null, this.attPatDiv);
             obj.set_taborder("12");
             obj.style.set_font("9 돋움");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Grid("Grid00", "absolute", "0.87%", "164", null, "488", "2.24%", null, this.patDiv);
+            this.attPatDiv.addChild(obj.name, obj);
+            obj = new Grid("Grid00", "absolute", "0.87%", "89", null, "563", "2.24%", null, this.attPatDiv);
             obj.set_taborder("13");
-            obj.set_binddataset("dsAdr");
+            obj.set_binddataset("dsAttentionalPatient");
             obj.set_autofittype("col");
             obj.style.set_border("2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff");
             obj.style.set_font("9 돋움");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"90\"/><Column size=\"89\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"등록번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"이름\"/><Cell col=\"2\" style=\"background:#cfd8dcff;\" text=\"관심영역\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"관심분류\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"시작일자\"/><Cell col=\"5\" style=\"background:#cfd8dcff;\" text=\"종료일자\"/></Band><Band id=\"body\"><Cell edittype=\"text\" text=\"bind:patNo\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:prescNo\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:writeDate\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:drugNm\"/><Cell col=\"4\"/><Cell col=\"5\"/></Band></Format></Formats>");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Combo("patGenderCombo00", "absolute", "12.95%", "121", null, "30", "58.53%", null, this.patDiv);
-            this.patDiv.addChild(obj.name, obj);
-            var patGenderCombo00_innerdataset = new Dataset("patGenderCombo00_innerdataset", this.patDiv.patGenderCombo00);
-            patGenderCombo00_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">남</Col><Col id=\"datacolumn\">남성</Col></Row><Row><Col id=\"codecolumn\">여</Col><Col id=\"datacolumn\">여성</Col></Row></Rows>");
-            obj.set_innerdataset(patGenderCombo00_innerdataset);
-            obj.set_taborder("14");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            obj.style.set_font("9 돋움");
-            obj = new Static("subCodeStc03", "absolute", "0.87%", "6", null, "30", "2.24%", null, this.patDiv);
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"90\"/><Column size=\"89\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"환자번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"이름\"/><Cell col=\"2\" style=\"background:#cfd8dcff;\" text=\"관심영역\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"관심분류\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"시작일자\"/><Cell col=\"5\" style=\"background:#cfd8dcff;\" text=\"종료일자\"/></Band><Band id=\"body\"><Cell edittype=\"text\" text=\"bind:pat_no\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:pat_name\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:attendtional_field\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:attendtional_div\"/><Cell col=\"4\" text=\"bind:start_date\"/><Cell col=\"5\" text=\"bind:end_date\"/></Band></Format></Formats>");
+            this.attPatDiv.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "0.87%", "6", null, "30", "2.24%", null, this.attPatDiv);
             obj.set_taborder("15");
             obj.set_text("   관심환자조회");
             obj.style.set_background("#78909cff");
@@ -242,8 +206,8 @@
             obj.style.set_align("left middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.patDiv.addChild(obj.name, obj);
-            obj = new Button("DelBtn02", "absolute", "-188", "45", "32", "32", null, null, this.patDiv);
+            this.attPatDiv.addChild(obj.name, obj);
+            obj = new Button("DelBtn02", "absolute", "-188", "45", "32", "32", null, null, this.attPatDiv);
             obj.set_taborder("19");
             obj.set_cssclass("DelBtn");
             obj.style.set_background("@gradation URL('img::ic_search_black_24dp_2x.png') stretch");
@@ -252,7 +216,7 @@
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
-            this.patDiv.addChild(obj.name, obj);
+            this.attPatDiv.addChild(obj.name, obj);
 
             obj = new TextArea("TextArea00", "absolute", "10.8%", "350", null, "104", "68.4%", null, this);
             obj.set_taborder("16");
@@ -307,7 +271,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"148\"/><Column size=\"207\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"분류코드\"/><Cell col=\"1\" style=\"background:#cfd8dcff;\" text=\"분류명\"/></Band><Band id=\"body\"><Cell displaytype=\"normal\" text=\"bind:attentionalCode\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:attentionalCodeName\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc03", "absolute", "2.8%", "74", null, "30", "68.08%", null, this);
+            obj = new Static("regAttStc", "absolute", "2.8%", "74", null, "30", "68.08%", null, this);
             obj.set_taborder("19");
             obj.set_text("   관심환자등록");
             obj.style.set_background("#78909cff");
@@ -338,7 +302,7 @@
             obj.getSetter("class").set("DelBtn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("searchAttCodeBtn", "absolute", "827", "77", "58", "23", null, null, this);
+            obj = new Button("searchAttBtn", "absolute", "827", "77", "58", "23", null, null, this);
             obj.set_taborder("26");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -374,7 +338,7 @@
             obj.style.set_bordertype("normal 3 3");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button00", "absolute", "299", "76", "45", "25", null, null, this);
+            obj = new Button("regAttBtn", "absolute", "299", "76", "45", "25", null, null, this);
             obj.set_taborder("32");
             obj.set_text("저장");
             obj.set_cssclass("btn_WF_CRUD");
@@ -383,7 +347,7 @@
             obj.style.set_bordertype("normal 3 3");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button05", "absolute", "344", "76", "45", "25", null, null, this);
+            obj = new Button("clearAttBtn", "absolute", "344", "76", "45", "25", null, null, this);
             obj.set_taborder("33");
             obj.set_text("초기화");
             obj.set_cssclass("btn_WF_CRUD");
@@ -428,7 +392,7 @@
             this.SCP_regAttPatDiv.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 805, 670, this.patDiv,
+            obj = new Layout("default", "", 805, 670, this.attPatDiv,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("14");
@@ -438,7 +402,7 @@
 
             	}
             );
-            this.patDiv.addLayout(obj.name, obj);
+            this.attPatDiv.addLayout(obj.name, obj);
 
             //-- Default Layout
             obj = new Layout("default", "", 381, 264, this.attCodeDiv,
@@ -476,9 +440,6 @@
             obj = new BindItem("item2","patDiv.patGenderCombo","value","dsAdr","patGender");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item29","TextArea00","value","dsAdr","opinion");
-            this.addChild(obj.name, obj);
-            obj.bind();
             obj = new BindItem("item30","adrDiv.writeDateCal","value","dsAdr","writeDate");
             this.addChild(obj.name, obj);
             obj.bind();
@@ -494,22 +455,16 @@
             obj = new BindItem("item4","patDiv.patGenderCombo00","value","dsAdr","patGender");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item3","SCP_regAttPatDiv.patNmEd","value","dsAttentionalPatient","PAT_NAME");
+            obj = new BindItem("item6","SCP_regAttPatDiv.attFieldCombo","innerdataset","dsAttentionalPatient","ATTENDTIONAL_FIELD");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item5","SCP_regAttPatDiv.patNoEd","value","dsAttentionalPatient","PAT_NO");
+            obj = new BindItem("item7","SCP_regAttPatDiv.attDivCombo","innerdataset","dsAttentionalPatient","ATTENDTIONAL_DIV");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item6","SCP_regAttPatDiv.patGenderCombo00","innerdataset","dsAttentionalCode","");
+            obj = new BindItem("item11","SCP_regAttPatDiv.endDateCal","innerdataset","dsAttentionalPatient","END_DATE");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item7","SCP_regAttPatDiv.patGenderCombo","innerdataset","dsAttentionalCode","ATTENTIONAL_FIELD");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item8","SCP_regAttPatDiv.patGenderCombo","codecolumn","dsAttentionalCode","ATTENTIONAL_CODE");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item9","SCP_regAttPatDiv.patGenderCombo","datacolumn","dsAttentionalCode","ATTENTIONAL_CODE_NAME");
+            obj = new BindItem("item10","SCP_regAttPatDiv.startDateCal","innerdataset","dsAttentionalPatient","START_DATE");
             this.addChild(obj.name, obj);
             obj.bind();
 
@@ -543,11 +498,14 @@
         this.clickBtn = function(obj,e)
         {
         	switch(obj){ 
-        		case this.SCP_regAttPatDiv.searchPatNoBtn: 	    //환자 검색
-        			this.clickSearchPatNoBtn();
+        		case this.regAttBtn:  		 // 관심환자 등록
+        			this.clickRegAttBtn();
         			break;
-        		case this.SCP_attCodeDiv.searchAttCodeBtn: 	    //환자 검색
-        			this.clickSearchAttCodeBtn();
+        		case this.clearAttBtn: 	     // 관심환자 등록 시 데이터 초기화
+        			this.clickClearAttBtn();
+        			break;
+        		case this.searchAttBtn: 	 // 관심환자 조회
+        			this.clickSearchAttBtn();
         			break;
         	}
         }
@@ -557,7 +515,17 @@
         >>  조회
         +-------------------------------------------------------------------------------------------------*/
 
+        this.clickSearchAttBtn = function () {
+        	var attPtNo=this.attPatDiv.attPtNoEd.value;
+        	this.dsAttentionalPatient.clearData();
+        	var argument = 'attPtNo='+attPtNo; ;
+        	var serviceRow = this.dsService.findRow("serviceID", "findAttentionalPatientList");
+        	this.dsService.setColumn(serviceRow,"argument",argument);
+        	this.gfnService("findAttentionalPatientList","false");
+        }
+
         
+        /*
         this.clickSearchPatNoBtn = function(){	//환자등록번호조회
         	this.gfnPatPopup();
         	this.setPatInfo = function(arrRtn){
@@ -577,6 +545,8 @@
         	}
 
         }
+
+        */
         this.SCP_AttentionalPatientForm_onload = function(obj,e)
         {
         	this.dsAttentionalCode.clearData();
@@ -584,11 +554,31 @@
         	this.gfnService("findAttentionalCodeList","false");		
         }
 
-        
         this.Button03_onclick = function(obj,e)
         {
         	alert(this.dsAttentionalCode.getColumn(0,"attentionalCode"));
         }
+
+        
+        /*-------------------------------------------------------------------------------------------------+
+        >>  저장
+        +-------------------------------------------------------------------------------------------------*/
+        this.clickRegAttBtn = function()
+        {
+        	alert("dd");
+        }
+        this.clickClearAttBtn = function ()
+        {
+        	/*this.startDateCal.set_value(1);
+        	 this.SCP_regAttPatDiv.clear();
+        	 this.patNoEd.clear();
+        	 this.attFileldCombo.clear();
+        	 this.attDivCombo.clear();
+        	 this.startDateCal.clear();
+        	 this.endDateCal.clear(); */
+        	 alert("dd");
+        }
+        
         });
 
 
@@ -604,18 +594,18 @@
             this.SCP_regAttPatDiv.fieldStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.SCP_regAttPatDiv.fieldStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.SCP_regAttPatDiv.pNameStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patDiv.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patDiv.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patDiv.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patDiv.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patDiv.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
+            this.attPatDiv.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.attPatDiv.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.attPatDiv.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
             this.attCodeDiv.fieldStc.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.attCodeDiv.fieldStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.regAttStc.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
-            this.searchAttCodeBtn.addEventHandler("onclick", this.clickBtn, this);
+            this.searchAttBtn.addEventHandler("onclick", this.clickBtn, this);
             this.Button03.addEventHandler("onclick", this.Button03_onclick, this);
+            this.regAttBtn.addEventHandler("onclick", this.clickBtn, this);
+            this.clearAttBtn.addEventHandler("onclick", this.clickBtn, this);
 
         };
 

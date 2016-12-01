@@ -8,7 +8,7 @@
         <GroupBox id="GroupBox00" text="기간달력" taborder="1" left="10" top="68" height="76" right="10"/>
         <Div id="xdiv_period" taborder="2" text="Div00" left="55" top="96" width="601" height="29" url="Comm::comm_period.xfdl" scrollbars="none"/>
         <Button id="Button00" taborder="3" text="확인" left="712" top="96" width="120" height="29" onclick="Button00_onclick"/>
-        <GroupBox id="GroupBox01" text="월달력" taborder="4" left="10" top="172" right="10" height="76"/>
+        <GroupBox id="GroupBox01" text="월달력" taborder="4" left="10" top="172" right="10" height="76" onlbuttondown="GroupBox01_onlbuttondown"/>
         <Div id="xdiv_month" taborder="5" url="Comm::comm_month.xfdl" text="Div00" left="55" top="200" width="137" height="29" scrollbars="none"/>
         <Button id="Button01" taborder="6" text="확인" left="216" top="200" width="120" height="29" onclick="Button01_onclick"/>
         <GroupBox id="GroupBox02" text="멀티콤보" taborder="7" left="10" top="276" right="10" height="76"/>
@@ -215,6 +215,8 @@ this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.alert("validate");
 	var rtn = this.xdiv_combo.validate();		
 }
+
+
 ]]></Script>
   </Form>
 </FDL>

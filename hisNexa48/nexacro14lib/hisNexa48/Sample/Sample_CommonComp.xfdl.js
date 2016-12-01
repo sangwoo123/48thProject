@@ -276,6 +276,8 @@
         	this.alert("validate");
         	var rtn = this.xdiv_combo.validate();		
         }
+
+        
         
         });
 
@@ -286,6 +288,7 @@
         {
             this.addEventHandler("onload", this.form_onload, this);
             this.Button00.addEventHandler("onclick", this.Button00_onclick, this);
+            this.GroupBox01.addEventHandler("onlbuttondown", this.GroupBox01_onlbuttondown, this);
             this.Button01.addEventHandler("onclick", this.Button01_onclick, this);
             this.Button02.addEventHandler("onclick", this.Button02_onclick, this);
 

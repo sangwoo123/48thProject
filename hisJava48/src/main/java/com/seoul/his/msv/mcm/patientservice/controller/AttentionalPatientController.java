@@ -39,7 +39,9 @@ public class AttentionalPatientController {
 	public void findAttentionalPatientList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
+		String attPtNo=request.getParameter("attPtNo");
 		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+		argsMap.put("attPtNo", attPtNo);
 		List<AttentionalPatientBean> attentionalPatientList = patientserviceServiceFacade
 				.findAttentionalPatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, attentionalPatientList, AttentionalPatientBean.class);
