@@ -32,7 +32,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 
 /**
- * 
+ *
  * @Package  com.seoul.his.hrs.emp.controller
  * @Class    EmpController.java
  * @Create   2016. 6. 25.
@@ -56,8 +56,9 @@ public class EmpController {
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
 		Map<String,String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		
+
 		List<EmpBean> list = empServiceFacade.findEmpList(argsMap);
+		System.out.println("@@@@@@@@@@@@@@@@@@"+list.size());
 		dataSetBeanMapper.beansToDataset(outData, list, EmpBean.class);
 	}
 

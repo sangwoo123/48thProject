@@ -224,8 +224,6 @@ this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
 
 //환자등록번호조회
 this.patBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
-	alert(gdsEmp.getRowCount());
-	alert(gdsEmp.getRowCount);
 	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){ 
 		this.patNoEd.set_value(arrRtn[0]);  
