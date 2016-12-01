@@ -397,6 +397,7 @@ this.patNoCdEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
 	this.gfnPatPopup();
 	this.setPatInfo = function(pat)
 {	
+	alert(pat[4]+', '+pat[5]);
    this.patNoCdEd.set_value(pat[0]);
    this.outpaReceiptNo = pat[4];
    this.hosptlzReceiptNo = pat[5];
@@ -439,14 +440,14 @@ this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 ***************************************************************************************************/
 this.trmtCostCalcuBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	var patNo = this.patNoCdEd.value;
+	 var patNo = this.patNoCdEd.value;
 	if(this.gfnIsNull(patNo)){
 		alert("환자등록번호를 입력하세요.");
 		return;
 	}else if(this.dsHosptlzTrmtCost.getRowCount() != 0){
 		alert("입원진료비 계산이 완료 되었습니다");
 	}else{
-		var argument = 'outpaReceiptNo='+outpaReceiptNo+' hosptlzReceiptNo='+hosptlzReceiptNo+' patNo='+patNo;
+		var argument = 'outpaReceiptNo='+this.outpaReceiptNo+' hosptlzReceiptNo='+this.hosptlzReceiptNo+' patNo='+patNo;
 				   
 		this.dsService.setColumn(1, "argument", argument);
 				   
