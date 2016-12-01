@@ -217,16 +217,15 @@ include "scripts::wonScripts.xjs";
 var deptCd;
 
 this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
-	alert("-----");
 	this.gfnBind();
-	alert("=====");
 	this.gfnService("empInfo", false);
 	this.gdsEmp.filter(this.gfnLike("jobrk", "의사"));
-	alert("@@@@@@@@@@");
 }
 
 //환자등록번호조회
 this.patBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
+	alert(gdsEmp.getRowCount());
+	alert(gdsEmp.getRowCount);
 	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){ 
 		this.patNoEd.set_value(arrRtn[0]);  
