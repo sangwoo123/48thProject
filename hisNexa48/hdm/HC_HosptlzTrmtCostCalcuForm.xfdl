@@ -76,7 +76,7 @@
                 <Cell row="1" style="background:#455a64ff;color:white;" text="입원일자"/>
                 <Cell row="1" col="1" style="background:#455a64ff;color:white;" text="퇴원일자"/>
               </Band>
-              <Band id="body">
+              <Band id="body" style="selectbackground:#607d8bff;">
                 <Cell displaytype="date" text="bind:hosptlzDate"/>
                 <Cell col="1" displaytype="date" text="bind:dscgDate"/>
                 <Cell col="2" text="bind:trmtDept"/>

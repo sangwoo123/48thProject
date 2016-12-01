@@ -77,7 +77,7 @@
               <Combo id="nwDivCombo" taborder="219" innerdataset="dsNwDiv" codecolumn="code" datacolumn="value" left="85.27%" top="79" right="2.99%" height="26"/>
               <Combo id="patTypeCombo" taborder="220" innerdataset="dsPatType" codecolumn="code" datacolumn="value" left="85.27%" top="143" right="2.99%" height="26"/>
               <Calendar id="trmtDateCal" taborder="221" left="85.27%" top="111" right="2.99%" height="27"/>
-              <Static id="trmtHistTitleStc" taborder="222" text="과거진료이력" left="46.87%" top="190" right="43.18%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
+              <Static id="trmtHistTitleStc" taborder="222" text="수진이력" left="46.87%" top="190" right="43.18%" height="28" style="background:#455a64ff;color:ivory;align:center middle;font:bold 9 arial;"/>
               <Grid id="trmtHistGrid" taborder="223" binddataset="dsReceiptHist" useinputpanel="false" autofittype="col" left="46.87%" top="222" right="1.39%" height="188">
                 <Formats>
                   <Format id="default">

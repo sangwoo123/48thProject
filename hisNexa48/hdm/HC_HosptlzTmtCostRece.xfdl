@@ -4,7 +4,7 @@
   <Form id="HC_HosptlzTmtCostRece" classname="HC_HosptlzTmtCostRece" left="0" top="0" width="1250" height="768" titletext="입원진료비 수납" style="background:#cfd8dcff;" onload="WH_HosptlzTmtCostRece_onload">
     <Layouts>
       <Layout>
-        <Grid id="trmtCostHistGrid" taborder="0" binddataset="dsHosptlzTrmtCost" scrollbars="none" useinputpanel="false" autofittype="col" useselcolor="false" left="29.28%" top="396" right="36.08%" height="312" class="AreaGrid">
+        <Grid id="trmtCostHistGrid" taborder="0" binddataset="dsHosptlzTrmtCost" scrollbars="none" useinputpanel="false" autofittype="col" useselcolor="false" left="29.28%" top="396" right="36.08%" height="322" class="AreaGrid">
           <Formats>
             <Format id="default">
               <Columns>
@@ -12,19 +12,19 @@
                 <Column size="211"/>
               </Columns>
               <Rows>
-                <Row size="82"/>
-                <Row size="91"/>
-                <Row size="85"/>
+                <Row size="72"/>
+                <Row size="80"/>
+                <Row size="87"/>
                 <Row size="83"/>
               </Rows>
               <Band id="body">
-                <Cell celltype="head" text="총 진료비"/>
+                <Cell celltype="head" style="background:#455a64ff;color:white;" text="총 진료비"/>
                 <Cell col="1" displaytype="number" text="expr:dataset.getSum(&quot;parseInt(sal)&quot;)+dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
-                <Cell row="1" celltype="head" text="급여 총금액"/>
+                <Cell row="1" celltype="head" style="background:#455a64ff;color:white;" text="급여 총금액"/>
                 <Cell row="1" col="1" displaytype="number" text="expr:dataset.getSum(&quot;parseInt(sal)&quot;)"/>
-                <Cell row="2" celltype="head" text="비급여 금액"/>
+                <Cell row="2" celltype="head" style="background:#455a64ff;color:white;" text="비급여 금액"/>
                 <Cell row="2" col="1" displaytype="number" text="expr:dataset.getSum(&quot;parseInt(nonSal)&quot;)"/>
-                <Cell row="3" celltype="head" text="본인부담금"/>
+                <Cell row="3" celltype="head" style="background:#455a64ff;color:white;" text="본인부담금"/>
                 <Cell row="3" col="1" displaytype="number" text="expr:dataset.getSum(&quot;parseInt(sal)&quot;)*0.2+dataset.getSum(&quot;parseInt(nonSal)&quot;)" mask="9,999"/>
               </Band>
             </Format>
@@ -35,29 +35,29 @@
             <Format id="default">
               <Columns>
                 <Column size="34"/>
-                <Column size="57"/>
-                <Column size="107"/>
+                <Column size="115"/>
+                <Column size="295"/>
               </Columns>
               <Rows>
-                <Row size="24"/>
-                <Row size="24"/>
-                <Row size="24"/>
-                <Row size="24"/>
-                <Row size="24"/>
-                <Row size="24"/>
+                <Row size="42"/>
+                <Row size="46"/>
+                <Row size="47"/>
+                <Row size="48"/>
+                <Row size="47"/>
+                <Row size="43"/>
               </Rows>
               <Band id="body">
-                <Cell colspan="2" celltype="head" text="수납일자"/>
+                <Cell colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="수납일자"/>
                 <Cell col="2" displaytype="text" edittype="mask" text="bind:receDate" mask="@@@@-@@-@@"/>
-                <Cell row="1" colspan="2" celltype="head" text="수납유형"/>
+                <Cell row="1" colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="수납유형"/>
                 <Cell row="1" col="2" displaytype="combo" edittype="combo" text="bind:receType" combodataset="dsReceType" combocodecol="value" combodatacol="value"/>
-                <Cell row="2" colspan="2" celltype="head" text="기수납액"/>
+                <Cell row="2" colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="기수납액"/>
                 <Cell row="2" col="2" displaytype="number" edittype="text" text="bind:alrdReceAmt"/>
-                <Cell row="3" colspan="2" celltype="head" text="수납금액"/>
+                <Cell row="3" colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="수납금액"/>
                 <Cell row="3" col="2" displaytype="number" edittype="text" text="bind:receAmt"/>
-                <Cell row="4" colspan="2" celltype="head" text="수납자"/>
+                <Cell row="4" colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="수납자"/>
                 <Cell row="4" col="2" edittype="text" text="bind:recp"/>
-                <Cell row="5" colspan="2" celltype="head" text="처리자"/>
+                <Cell row="5" colspan="2" celltype="head" style="background:#455a64ff;color:white;" text="처리자"/>
                 <Cell row="5" col="2" edittype="text" text="bind:procWorker"/>
               </Band>
             </Format>
@@ -69,7 +69,7 @@
               <Static id="Static18" taborder="26" text="보증인성명" left="11.97%" top="17" right="61.27%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
               <Edit id="grtorNmEdt" taborder="27" readonly="true" left="38.73%" top="17" right="21.48%" height="28" style="align:center middle;" class="AreaEdt"/>
               <Static id="Static19" taborder="28" text="환 자 관 계" left="11.97%" top="49" right="61.27%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
-              <Edit id="patRship" taborder="29" readonly="true" left="38.73%" top="49" right="29.23%" height="28" style="align:center middle;" class="AreaEdt"/>
+              <Edit id="patRship" taborder="29" readonly="true" left="38.95%" top="49" right="21.51%" height="28" style="align:center middle;" class="AreaEdt"/>
               <Static id="Static20" taborder="30" text="보증인주민번호" left="11.97%" top="81" right="61.27%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
               <Edit id="grtorRrnEdt" taborder="31" readonly="true" left="38.73%" top="81" right="18.31%" height="28" style="align:center middle;" class="AreaEdt"/>
               <Static id="Static21" taborder="32" text="보증인전화번호" left="11.97%" top="113" right="61.27%" height="28" style="background:#455a64ff;color:cornsilk;align:center;font:bold 9 arial;" class="AreaStc"/>
@@ -77,18 +77,18 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="receHistGrid00" taborder="3" binddataset="dsHosptlzPatRece" scrollbars="autohorz" useinputpanel="false" useselcolor="false" left="29.36%" top="708" right="36.08%" height="58" style="color:#5f5f5fff;" class="AreaGrid">
+        <Grid id="receHistGrid00" taborder="3" binddataset="dsHosptlzPatRece" scrollbars="autohorz" useinputpanel="false" useselcolor="false" left="29.36%" top="718" right="36.08%" height="47" style="color:#5f5f5fff;" class="AreaGrid">
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="78"/>
-                <Column size="117"/>
+                <Column size="101"/>
+                <Column size="331"/>
               </Columns>
               <Rows>
-                <Row size="58"/>
+                <Row size="47"/>
               </Rows>
               <Band id="body">
-                <Cell celltype="head" text="미수금액"/>
+                <Cell celltype="head" style="background:#263238ff;color:white;" text="미수금액"/>
                 <Cell col="1" displaytype="number" edittype="text" text="bind:outAmt"/>
               </Band>
             </Format>
@@ -120,7 +120,7 @@
                 <Cell row="1" style="background:#455a64ff;color:white;" text="입원일자"/>
                 <Cell row="1" col="1" style="background:#455a64ff;color:white;" text="퇴원일자"/>
               </Band>
-              <Band id="body">
+              <Band id="body" style="selectbackground:#607d8bff;">
                 <Cell displaytype="date" text="bind:hosptlzDate"/>
                 <Cell col="1" displaytype="date" text="bind:dscgDate"/>
                 <Cell col="2" text="bind:trmtDept"/>
@@ -274,26 +274,26 @@
         <Rows>
           <Row>
             <Col id="serviceID">findHosptlzTrmtCost</Col>
-            <Col id="URL">erp47::won/hosptlzTrmtCost/findHosptlzTrmtCost.do</Col>
+            <Col id="URL">his::hdm/consultationfee/findInpatientPayment.do</Col>
             <Col id="outData">dshosptlzPat=dshosptlzPat dsHosptlzTrmtCost=dsHosptlzTrmtCost</Col>
           </Row>
           <Row>
             <Col id="serviceID">findHosptlzPatRece</Col>
-            <Col id="URL">erp47::won/hosptlzTrmtCost/findHosptlzPatRece.do</Col>
+            <Col id="URL">his::hdm/consultationfee/findHosptlzPatRece.do</Col>
             <Col id="outData">dsHosptlzPatRece=dsHosptlzPatRece</Col>
             <Col id="callbackFunc"/>
           </Row>
           <Row>
             <Col id="serviceID">callHosptlzPatRece</Col>
-            <Col id="URL">erp47::won/hosptlzTrmtCost/callHosptlzPatRece.do</Col>
+            <Col id="URL">his::hdm/consultationfee/callHosptlzPatRece.do</Col>
             <Col id="inData">dsHosptlzPatRece=dsHosptlzPatRece:u</Col>
             <Col id="outData">dsHosptlzPatRece=dsHosptlzPatRece dshosptlzPat=dshosptlzPat dsHosptlzTrmtCost=dsHosptlzTrmtCost</Col>
           </Row>
           <Row>
             <Col id="serviceID">empInfo</Col>
-            <Col id="URL">erp47::hrs/emp/findEmpList.do</Col>
-            <Col id="inData">dsHmEmp=dsHmEmp</Col>
-            <Col id="outData">dsHmEmp=dsHmEmp</Col>
+            <Col id="URL">his::hrs/emp/findEmpList.do</Col>
+            <Col id="inData">gdsEmp=dsHmEmp</Col>
+            <Col id="outData">dsHmEmp=gdsEmp</Col>
             <Col id="argument"/>
             <Col id="callbackFunc"/>
           </Row>
@@ -390,6 +390,25 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div01.patNmEd" propid="value" datasetid="dshosptlzPat" columnid="patNm"/>
+      <BindItem id="item1" compid="Div01.rrn1Ed" propid="value" datasetid="dshosptlzPat" columnid="rrn1"/>
+      <BindItem id="item2" compid="Div01.rrn2Ed" propid="value" datasetid="dshosptlzPat" columnid="rrn2"/>
+      <BindItem id="item3" compid="Div01.genderEd" propid="value" datasetid="dshosptlzPat" columnid="gender"/>
+      <BindItem id="item4" compid="Div01.ageEd" propid="value" datasetid="dshosptlzPat" columnid="age"/>
+      <BindItem id="item5" compid="Div01.phonNoEdt" propid="value" datasetid="dshosptlzPat" columnid="tel"/>
+      <BindItem id="item6" compid="Div01.patTypeCdEdt" propid="value" datasetid="dshosptlzPat" columnid="patType"/>
+      <BindItem id="item7" compid="Div01.trmtDeptCdEd" propid="value" datasetid="dshosptlzPat" columnid="trmtDept"/>
+      <BindItem id="item8" compid="Div01.wardEd" propid="value" datasetid="dshosptlzPat" columnid="ward"/>
+      <BindItem id="item9" compid="Div01.hroomEd" propid="value" datasetid="dshosptlzPat" columnid="hroom"/>
+      <BindItem id="item10" compid="Div01.hosptlzRouteCdEd" propid="value" datasetid="dshosptlzPat" columnid="hosptlzRoute"/>
+      <BindItem id="item11" compid="Div01.dscgPlnDayCal" propid="value" datasetid="dshosptlzPat" columnid="dscgDate"/>
+      <BindItem id="item12" compid="Div01.noteArea" propid="value" datasetid="dshosptlzPat" columnid="note"/>
+      <BindItem id="item13" compid="Div02.grtorNmEdt" propid="value" datasetid="dshosptlzPat" columnid="grtorNm"/>
+      <BindItem id="item14" compid="Div02.patRship" propid="value" datasetid="dshosptlzPat" columnid="rship"/>
+      <BindItem id="item15" compid="Div02.grtorRrnEdt" propid="value" datasetid="dshosptlzPat" columnid="grtorRrn"/>
+      <BindItem id="item16" compid="Div02.grtorPhonNoEdt" propid="value" datasetid="dshosptlzPat" columnid="grtorTel"/>
+    </Bind>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
 *                                                                               *
 * 입원진료비 수납 관리                                                    	*
@@ -452,17 +471,16 @@ this.matchCdNm = function(){
 this.Div01_patNoCdEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
 {
 	this.gfnPatPopup();
-	this.setPatInfo = function(arrRtn){
-		this.Div01.patNoCdEd.set_value(arrRtn[0]);
-	}
-}
-
-this.setPatInfo = function(pat)
+	this.setPatInfo = function(pat)
 {
+	alert(pat[4]+", "+pat[5]);
    this.Div01.patNoCdEd.set_value(pat[0]);
    this.outpaReceiptNo = pat[4];
    this.hosptlzReceiptNo = pat[5];
 }
+}
+
+
 
 
 /**************************************************************************************************
@@ -483,6 +501,7 @@ this.Div01_patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.gfnService("findHosptlzTrmtCost","false");		
 		
 		var argument1 = 'hosptlzReceiptNo='+this.hosptlzReceiptNo;
+		alert(argument1);
 		this.dsService.setColumn(1, "argument", argument1);
 		this.gfnService("findHosptlzPatRece","false");
 		this.matchCdNm();
