@@ -15,7 +15,7 @@
  	</resultMap>
 
  	<select id="selectAttentionalPatientList" flushCache="false"
- 			   useCache="true" resultMap="AttentionalPatient" parameterType="map">
+ 			   useCache="true" resultMap="AttentionalPatient" parameterType="Map">
 
 		SELECT    ATTENTIONAL_REG_NO
 				    , PAT_NO
@@ -25,7 +25,7 @@
 				    , START_DATE
 				    , END_DATE
 	   FROM     MB_ATTENTIONAL_PATIENT
-	   WHERE    PAT_NO = #{attPatNo}
+	   WHERE    PAT_NO = #{attPtNo}
 
  	</select>
 

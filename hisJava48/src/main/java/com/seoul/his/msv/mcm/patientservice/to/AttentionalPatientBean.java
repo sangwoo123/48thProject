@@ -8,8 +8,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @author  :   Minhyeog
- * @date     :   2016. 11. 30.
+ * <pre>
+ * com.seoul.his.msv.mcm.patientservice.to
+ *    |_ AttentionalPatientBean.java
+ * </pre>
+ *
+ * @date : 2016. 12. 1. 오후 3:34:38
+ * @version :
+ * @author : Minhyeog
  */
 
 @Getter
@@ -19,6 +25,6 @@ import lombok.ToString;
 @Dataset(name = "dsAttentionalPatient")
 public class AttentionalPatientBean extends BaseBean {
 
-	private String attendtionalRegNo, patNo, patName, attendtionalField, attendtionalDiv, startDate, endDate;
+	private String attentionalRegNo, patNo, patName, attentionalField, attentionalDiv, startDate, endDate;
 
 }
