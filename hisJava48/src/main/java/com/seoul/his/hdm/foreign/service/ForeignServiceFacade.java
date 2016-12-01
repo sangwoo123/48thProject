@@ -3,8 +3,11 @@ package com.seoul.his.hdm.foreign.service;
 import java.util.List;
 import java.util.Map;
 
-import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+import com.seoul.his.hdm.foreign.to.ApplyHistoryBean;
+import com.seoul.his.hdm.foreign.to.CalendarBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
 
 
 public interface ForeignServiceFacade {
@@ -20,6 +23,12 @@ public interface ForeignServiceFacade {
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap);
 
 	
+	//의사진료일정조회
+	List<CalendarBean> findCalendarList(String yearMonth);
+
+    List<TrmtSchdBean> findTrmtSchdList(Map<String, String> argsMap);
+
+    List<ApplyHistoryBean> findApplyHistoryList(String empNo);
 
 
 	/*CalcuOutpaTrmtCostBean calcuOutpaTrmtCost(Map<String, Object> procedureMap) throws Exception;
