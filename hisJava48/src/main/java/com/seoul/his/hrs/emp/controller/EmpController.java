@@ -53,6 +53,7 @@ public class EmpController {
 	@RequestMapping("hrs/emp/findEmpList.do")
 	public void findEmpList(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		System.out.println("도대체 어디야?");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
 		Map<String,String> argsMap = dataSetBeanMapper.variablesToMap(inData);
