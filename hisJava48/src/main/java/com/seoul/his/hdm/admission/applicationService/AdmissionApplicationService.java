@@ -3,12 +3,11 @@ package com.seoul.his.hdm.admission.applicationService;
 import java.util.List;
 import java.util.Map;
 
-import com.seoul.his.hdm.admission.exception.AdmissionException;
-import com.seoul.his.hdm.admission.to.AdmissionBean;
+import com.seoul.his.hdm.admission.to.InpatientBean;
 
 
 public interface AdmissionApplicationService {
-	List<AdmissionBean> findAdmissionList(Map<String, String> argsMap);
+	List<InpatientBean> findInpatientList(Map<String, String> argsMap);
 
 
 }

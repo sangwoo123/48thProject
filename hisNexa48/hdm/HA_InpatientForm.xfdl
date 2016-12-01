@@ -8,7 +8,7 @@
         <Static id="Static00" taborder="1" text="재원환자조회" left="4.8%" top="-4" right="81.68%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
         <Div id="baseDiv" taborder="2" left="2.24%" top="64" right="1.68%" height="91" style="background:#edececff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;"/>
         <Static id="patStc" taborder="3" text="환자등록번호" left="3.28%" top="75" right="87.84%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
-        <Combo id="wardCombo" taborder="4" innerdataset="@dsWard" codecolumn="code" datacolumn="value" left="45.84%" top="79" right="44.72%" height="28" style="itemfont:9 Dotum;background:transparent;font:9 돋움;"/>
+        <Combo id="wardCombo" taborder="4" innerdataset="@dsWard" codecolumn="code" datacolumn="bigValue" left="45.84%" top="79" right="44.72%" height="28" style="itemfont:9 Dotum;background:transparent;font:9 돋움;"/>
         <Edit id="patNmEd" taborder="6" left="24.48%" top="78" right="66.32%" height="28"/>
         <Button id="searchJwjBtn" taborder="7" left="1129" top="113" width="74" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="searchChangeSalBtn" onclick="searchJwjBtn_onclick"/>
         <Static id="deptStc" taborder="8" text="담당의사" left="60.8%" top="116" right="30.48%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
@@ -217,9 +217,7 @@ include "scripts::wonScripts.xjs";
 var deptCd;
 
 this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
-	alert(111);
 	this.gfnBind();
-	alert(222);
 	this.gfnService("empInfo", false);
 	this.gdsEmp.filter(this.gfnLike("jobrk", "의사"));
 	alert(dsWard.getRowCount);

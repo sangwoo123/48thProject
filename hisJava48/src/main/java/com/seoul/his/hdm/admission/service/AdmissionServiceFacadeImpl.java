@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.hdm.admission.applicationService.AdmissionApplicationService;
-import com.seoul.his.hdm.admission.to.AdmissionBean;
+import com.seoul.his.hdm.admission.to.InpatientBean;
 
 
 /**
@@ -17,7 +17,7 @@ import com.seoul.his.hdm.admission.to.AdmissionBean;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Service
@@ -27,11 +27,11 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 
 
 	@Override
-		public List<AdmissionBean> findAdmissionList(Map<String, String> argsMap) {
-		List<AdmissionBean> admissionList = admissionApplicationService.findAdmissionList(argsMap);
-		return admissionList;
+		public List<InpatientBean> findInpatientList(Map<String, String> argsMap) {
+		List<InpatientBean> inpatientList = admissionApplicationService.findInpatientList(argsMap);
+		return inpatientList;
 	}
-	
-	
-	
+
+
+
 }
