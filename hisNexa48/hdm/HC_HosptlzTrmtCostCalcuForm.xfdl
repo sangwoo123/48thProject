@@ -257,8 +257,8 @@
           <Row>
             <Col id="serviceID">empInfo</Col>
             <Col id="URL">his::hrs/emp/findEmpList.do</Col>
-            <Col id="inData">dsHmEmp=gdsEmp</Col>
-            <Col id="outData">gdsEmp=dsHmEmp</Col>
+            <Col id="inData">gdsEmp=dsHmEmp</Col>
+            <Col id="outData">dsHmEmp=gdsEmp</Col>
             <Col id="argument"/>
             <Col id="callbackFunc"/>
           </Row>
