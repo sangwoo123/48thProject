@@ -3,7 +3,7 @@
 
 <mapper namespace="com.seoul.his.com.util.dao.CodeUtilDAO">
     <cache flushInterval="86400000" eviction="LRU" />
-    
+
     <select id="selectCodeList" flushCache="false" useCache="true" resultType="OutCodeBean">
         SELECT
             DETAIL_CODE AS code,
@@ -13,16 +13,6 @@
             CM_CODE
         WHERE
             CODE = #{code}
-    </select>
-    
-    <select id="selectCodeName" flushCache="false" useCache="true" resultType="string">
-        SELECT 
-            DETAIL_CODE_NAME
-        FROM
-            CM_CODE
-        WHERE 
-            CODE        = #{code}
-        AND DETAIL_CODE = #{detailCode}
     </select>
 
 </mapper>

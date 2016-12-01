@@ -33,7 +33,7 @@ public class CodeUtilController {
     @Autowired
     private DataSetBeanMapper dataSetBeanMapper;
 
-    @RequestMapping("com/bindCode.do")
+	@RequestMapping("com/bindCode.do")
     public void bindCode(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData outData = (PlatformData) request.getAttribute("outData");
