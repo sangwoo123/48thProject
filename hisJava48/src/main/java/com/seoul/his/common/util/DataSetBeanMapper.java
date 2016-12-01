@@ -28,10 +28,10 @@ import com.seoul.his.common.annotation.Remove;
  * @Create   2016. 5. 22.
  * @Author   godseop
  * @Description
- * 
- * @LastUpdated 
+ *
+ * @LastUpdated
  *      2016.5.25 기존 카멜케이스<->스네이크케이스를 단순 get/set substring으로 변경(데이터셋컬럼=TO멤버변수)
- *      2016.6.16 procedureVariablesToMap 메서드 추가   : 프로시져 빈객체 리턴받을시 사용  --황태경-- 
+ *      2016.6.16 procedureVariablesToMap 메서드 추가   : 프로시져 빈객체 리턴받을시 사용  --황태경--
  */
 @Component
 public class DataSetBeanMapper {
@@ -83,7 +83,7 @@ public class DataSetBeanMapper {
         for (T bean : beanList)
             setColumnValue(dataset, nameMap, bean);
     }
-    
+
     public <T> void beansToDataset(PlatformData outData, List<T> beanList, String datasetName, Class<T> classType)
             throws Exception {
         Map<String, String> nameMap = new HashMap<String, String>();
@@ -98,7 +98,7 @@ public class DataSetBeanMapper {
         for (T bean : beanList)
             setColumnValue(dataset, nameMap, bean);
     }
-   
+
 
     public <T> void beanToDataset(PlatformData outData, T bean, Class<T> classType)
             throws Exception {
