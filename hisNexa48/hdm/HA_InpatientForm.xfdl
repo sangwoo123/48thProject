@@ -222,7 +222,7 @@ this.HA_InpatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo){
 	trace("=====");
 	this.gfnService("empInfo", false);
 	this.gdsEmp.filter(this.gfnLike("jobrk", "의사"));
-	trace("@@@@@@@@@@")
+	trace("@@@@@@@@@@");
 }
 
 //환자등록번호조회
