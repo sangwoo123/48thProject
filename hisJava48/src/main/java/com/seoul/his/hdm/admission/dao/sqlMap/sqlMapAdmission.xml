@@ -29,7 +29,7 @@
         <result property="patNm"           column="PAT_NM" />                <!--환자이름       -->
     </resultMap>
 
-    <select id="selectInpatientList" resultMap="InpatientBean">
+    <select id="selectInpatientList" resultMap="Inpatient">
         SELECT
             P.PAT_NO,
             P.PAT_NM ,
@@ -57,6 +57,7 @@
             WS_OUTPA_RECEIPT R
         ,   WS_PAT P
         WHERE R.PAT_NO=P.PAT_NO
+        AND R.HOSPTLZ_YB='Y'
             <if test="patNo != '' and patNo != null">
                 AND R.pat_no=#{patNo}
             </if>

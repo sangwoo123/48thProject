@@ -22,7 +22,7 @@
         <Calendar id="hosptlzStartDateCal" taborder="17" autoskip="true" left="12.56%" top="115" right="77.6%" height="30" style="padding:0 0 0 0;"/>
         <Calendar id="hosptlzEndDateCal" taborder="18" autoskip="true" left="24.08%" top="115" right="66.08%" height="30" style="padding:0 0 0 0;"/>
         <Static id="Stc" taborder="19" text="~" left="22.88%" top="116" right="75.36%" height="28" style="border:1 none #808080ff ;color:black;font:bold 10 arial;"/>
-        <Grid id="expTgmGrid" taborder="20" binddataset="dsJwj" useinputpanel="false" autofittype="col" left="2.24%" top="161" right="1.68%" height="575">
+        <Grid id="expTgmGrid" taborder="20" binddataset="dsInpatient" useinputpanel="false" autofittype="col" left="2.24%" top="161" right="1.68%" height="575">
           <Formats>
             <Format id="default">
               <Columns>
@@ -98,7 +98,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findInpatientList</Col>
-            <Col id="URL">his::hdm/patient/findInpatientList.do</Col>
+            <Col id="URL">his::hdm/admission/findInpatientList.do</Col>
             <Col id="outData">dsInpatient=dsInpatient</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
@@ -241,7 +241,7 @@ this.trmtDeptNmCombo_oncloseup = function(obj:Combo, e:nexacro.ComboCloseUpEvent
 
 //재원환자조회
 this.searchJwjBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
-	var patNo = this.patNoEd.value;              
+	var patNo = this.patNoEd.value;
 	var patNm = this.patNmEd.value;              
 	var ward = this.wardCombo.value;             
 	var start = this.hosptlzStartDateCal.value;  
