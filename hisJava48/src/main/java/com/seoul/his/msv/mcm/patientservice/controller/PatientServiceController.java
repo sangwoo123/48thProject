@@ -15,29 +15,31 @@ import com.seoul.his.msv.mcm.patientservice.service.PatientServiceServiceFacade;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
+
 /**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.msv.mcm.patientservice.controller
+ *    |_ PatientServiceController.java
+ * </pre>
  *
- * @LastUpdated 
+ * @date : 2016. 12. 1. 오후 7:47:02
+ * @version :
+ * @author : Minhyeog
  */
 
 @Controller
 public class PatientServiceController {
-	
+
 	@Autowired
-	DataSetBeanMapper dataSetBeanMapper; 
+	DataSetBeanMapper dataSetBeanMapper;
 	@Autowired
 	PatientServiceServiceFacade patientserviceServiceFacade;
-	
+
 	@RequestMapping("msv/mcm/patientservice/findPatientServiceList.do")
 	public void findPatientServiceList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 	    PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData); 
+		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<PatientServiceBean> patientserviceList = patientserviceServiceFacade.findPatientServiceList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, patientserviceList, PatientServiceBean.class);
 	}

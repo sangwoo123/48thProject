@@ -6,14 +6,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalCodeDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.PatientServiceDAO;
+import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
-
-import groovy.ui.SystemOutputInterceptor;
 
 /**
  * @Package com.seoul.his.acc.budget.applicationService
@@ -34,7 +34,6 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	@Autowired
 	AttentionalCodeDAO attentionalCodeDAO;
 
-
 	@Override
 	public List<PatientServiceBean> findPatientServiceList(Map<String, String> argsMap) {
 		List<PatientServiceBean> patientserviceList = patientserviceDAO.selectPatientServiceList(argsMap);
@@ -44,7 +43,8 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	/* 관심환자관리 */
 	@Override
 	public List<AttentionalPatientBean> findAttentionalPatientList(Map<String, String> argsMap) {
-		List<AttentionalPatientBean> attentionalPatientList = attentionalPatientDAO.selectAttentionalPatientList(argsMap);
+		List<AttentionalPatientBean> attentionalPatientList = attentionalPatientDAO
+				.selectAttentionalPatientList(argsMap);
 		return attentionalPatientList;
 	}
 
@@ -54,4 +54,30 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 		List<AttentionalCodeBean> attentionalCodeList = attentionalCodeDAO.selectAttentionalCodeList(argsMap);
 		return attentionalCodeList;
 	}
+
+	@Autowired
+	private AdrDAO adrDAO;
+
+	@Override
+	public List<AdrBean> findAdrList(Map<String, String> argsMap) {
+		return adrDAO.selectAdrList(argsMap);
+	}
+
+	@Override
+	public void batchAdrProcess(List<AdrBean> adrList) {
+		for (AdrBean adrBean : adrList) {
+			String status = adrBean.getStatus();
+			switch (status) {
+			case "inserted":
+			case "updated":
+				adrDAO.upsertAdr(adrBean);
+				break;
+			case "deleted":
+				adrDAO.deleteAdr(adrBean);
+				break;
+			}
+		}
+
+	}
+
 }

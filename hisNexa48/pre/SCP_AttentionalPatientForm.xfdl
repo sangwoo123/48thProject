@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="SCP_AttentionalPatientForm" classname="MA_AdrForm" left="0" top="0" width="1250" height="768" titletext="약물유해반응 관리" onload="SCP_AttentionalPatientForm_onload">
+  <Form id="SCP_AttentionalPatientForm" classname="MA_AdrForm" left="0" top="0" width="1250" height="768" titletext="관심환자관리" onload="SCP_AttentionalPatientForm_onload">
     <Layouts>
       <Layout>
         <Div id="Div01" taborder="0" left="0.16%" top="0" width="1249" height="60" style="background:transparent URL('img::titleBar2.jpg');font:9 돋움;"/>

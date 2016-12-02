@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApplicationService;
+import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
@@ -33,17 +34,28 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 		return patientserviceList;
 	}
 
-	/*  관심환자관리  */
+	/*	 ADR관리	*/
+	@Override
+	public List<AdrBean> findAdrList(Map<String, String> argsMap) {
+		return patientserviceApplicationService.findAdrList(argsMap);
+	}
+	@Override
+	public void batchAdrProcess(List<AdrBean> adrList) {
+		patientserviceApplicationService.batchAdrProcess(adrList);
+	}
+	/* 관심환자관리 */
 	@Override
 	public List<AttentionalPatientBean> findAttentionalPatientList(Map<String, String> argsMap) {
-		List<AttentionalPatientBean> attentionalPatientList = patientserviceApplicationService.findAttentionalPatientList(argsMap);
+		List<AttentionalPatientBean> attentionalPatientList = patientserviceApplicationService
+				.findAttentionalPatientList(argsMap);
 		return attentionalPatientList;
 	}
 
 	/* 관심분류코드관리 */
 	@Override
 	public List<AttentionalCodeBean> findAttentionalCodeList(Map<String, String> argsMap) {
-		List<AttentionalCodeBean> attentionalCodeList = patientserviceApplicationService.findAttentionalCodeList(argsMap);
+		List<AttentionalCodeBean> attentionalCodeList = patientserviceApplicationService
+				.findAttentionalCodeList(argsMap);
 		return attentionalCodeList;
 	}
 }

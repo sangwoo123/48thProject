@@ -32,7 +32,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findAdrList</Col><Col id=\"URL\">his::med/adr/findAdrList.do</Col><Col id=\"callbackFunc\">adrCallback</Col><Col id=\"outData\">dsAdr=dsAdr</Col></Row><Row><Col id=\"serviceID\">batchAdrProcess</Col><Col id=\"URL\">his::med/adr/batchAdrProcess.do</Col><Col id=\"inData\">dsAdr=dsAdr:u</Col><Col id=\"callbackFunc\">adrCallback</Col></Row><Row><Col id=\"serviceID\">findPat</Col><Col id=\"URL\">his::won/outPatMngnt/findPat.do</Col><Col id=\"outData\">dsPat=dsPat</Col><Col id=\"callbackFunc\">patCallback</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findAdrList</Col><Col id=\"URL\">his::msv/mcm/patientservice/findAdrList.do</Col><Col id=\"callbackFunc\">adrCallback</Col><Col id=\"outData\">dsAdr=dsAdr</Col></Row><Row><Col id=\"serviceID\">batchAdrProcess</Col><Col id=\"URL\">his::msv/mcm/patientservice/batchAdrProcess.do</Col><Col id=\"inData\">dsAdr=dsAdr:u</Col><Col id=\"callbackFunc\">adrCallback</Col></Row><Row><Col id=\"serviceID\">findPat</Col><Col id=\"URL\">his::won/outPatMngnt/findPat.do</Col><Col id=\"outData\">dsPat=dsPat</Col><Col id=\"callbackFunc\">patCallback</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsPat", this);
@@ -53,19 +53,21 @@
             obj = new Div("Div01", "absolute", "0.16%", "0", "1249", "60", null, null, this);
             obj.set_taborder("0");
             obj.style.set_background("transparent URL('img::titleBar2.jpg')");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00", "absolute", "4.8%", "-5", null, "60", "71.84%", null, this);
             obj.set_taborder("1");
             obj.set_text("약물유해반응 관리");
             obj.style.set_color("#6c6c6cff");
-            obj.style.set_font("antialias 20 맑은 고딕");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
 
             obj = new Div("adrDiv", "absolute", "1.92%", "66", "381", "104", null, null, this);
             obj.set_taborder("2");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "2.9%", "13", null, "30", "74.41%", null, this.adrDiv);
             obj.set_taborder("20");
@@ -73,7 +75,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "3.17%", "59", null, "30", "74.41%", null, this.adrDiv);
@@ -82,28 +84,32 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv.addChild(obj.name, obj);
             obj = new Calendar("writeDateCal", "absolute", "29.02%", "59", null, "31", "30.08%", null, this.adrDiv);
             this.adrDiv.addChild(obj.name, obj);
             obj.set_taborder("22");
             obj.set_dateformat("yyyy-MM-dd");
+            obj.style.set_font("9 돋움");
             obj = new Edit("trmtDeptEd", "absolute", "66.23%", "13", "115", "30", null, null, this.adrDiv);
             obj.set_taborder("23");
             obj.set_enable("false");
             obj.getSetter("class").set("AreaEdt");
+            obj.style.set_font("9 돋움");
             this.adrDiv.addChild(obj.name, obj);
             obj = new Edit("trmtDoctEd", "absolute", "29.02%", "12", "94", "30", null, null, this.adrDiv);
             obj.set_taborder("24");
             obj.set_enable("false");
             obj.getSetter("class").set("AreaEdt");
+            obj.style.set_font("9 돋움");
             this.adrDiv.addChild(obj.name, obj);
             obj = new Button("DelBtn10", "absolute", "212", "11", "32", "32", null, null, this.adrDiv);
             obj.set_taborder("25");
             obj.set_cssclass("DelBtn");
             obj.style.set_background("@gradation URL('img::miniSearchBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
@@ -112,6 +118,7 @@
             obj.set_taborder("26");
             obj.style.set_background("@gradation URL('img::searchBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("");
@@ -121,6 +128,8 @@
             obj.set_taborder("3");
             obj.style.set_background("@gradation URL('img::miniPlusBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_bordertype("normal 3 3");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("");
@@ -130,6 +139,8 @@
             obj.set_taborder("4");
             obj.style.set_background("@gradation URL('img::miniMinusBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_bordertype("normal 3 3");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("");
@@ -139,6 +150,7 @@
             obj.set_taborder("5");
             obj.set_binddataset("dsAdr");
             obj.set_autofittype("col");
+            obj.style.set_font("9 돋움");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"adrNo\"/><Cell col=\"1\" text=\"patNo\"/><Cell col=\"2\" text=\"prescNo\"/><Cell col=\"3\" text=\"writeDate\"/><Cell col=\"4\" text=\"drugNm\"/></Band><Band id=\"body\"><Cell text=\"bind:adrNo\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:patNo\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:prescNo\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:writeDate\"/><Cell col=\"4\" edittype=\"text\" text=\"bind:drugNm\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
@@ -146,6 +158,7 @@
             obj.set_taborder("6");
             obj.style.set_background("@gradation URL('img::batchBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("");
@@ -156,6 +169,7 @@
             obj.set_cssclass("DelBtn");
             obj.style.set_background("@gradation URL('img::receiptBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
@@ -165,6 +179,7 @@
             obj.set_taborder("9");
             obj.style.set_background("whitesmoke");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "0.62%", "7", null, "30", "88.04%", null, this.writerDiv);
             obj.set_taborder("0");
@@ -172,7 +187,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "27.02%", "7", null, "30", "61.64%", null, this.writerDiv);
@@ -181,7 +196,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "65.5%", "7", null, "30", "23.16%", null, this.writerDiv);
@@ -190,7 +205,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Calendar("writeDateCal", "absolute", "12.7%", "7", null, "30", "74.22%", null, this.writerDiv);
@@ -198,13 +213,16 @@
             obj.set_taborder("3");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("null");
             obj = new Edit("writerNoEdit", "absolute", "38.98%", "7", null, "30", "49.81%", null, this.writerDiv);
             obj.set_taborder("4");
+            obj.style.set_font("9 돋움");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Edit("writerNmEdit", "absolute", "50.93%", "7", null, "30", "35.74%", null, this.writerDiv);
             obj.set_taborder("5");
+            obj.style.set_font("9 돋움");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Radio("writerJobRadio", "absolute", "78.33%", "10", null, "25", "0.75%", null, this.writerDiv);
             this.writerDiv.addChild(obj.name, obj);
@@ -215,6 +233,7 @@
             obj.set_columncount("3");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.style.set_font("9 돋움");
             obj.style.set_align("center middle");
             obj.set_value("doctor");
             obj.set_index("-1");
@@ -223,6 +242,7 @@
             obj.set_taborder("10");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "0.63%", "6", null, "30", "88.1%", null, this.adrDiv02);
             obj.set_taborder("0");
@@ -230,7 +250,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "0.62%", "41", null, "30", "88.04%", null, this.adrDiv02);
@@ -239,7 +259,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "63.26%", "41", null, "30", "25.65%", null, this.adrDiv02);
@@ -248,17 +268,20 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Edit("Edit05", "absolute", "12.58%", "6", null, "30", "0.75%", null, this.adrDiv02);
             obj.set_taborder("3");
+            obj.style.set_font("9 돋움");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Edit("Edit00", "absolute", "12.58%", "41", null, "30", "45.33%", null, this.adrDiv02);
             obj.set_taborder("4");
+            obj.style.set_font("9 돋움");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Edit("Edit01", "absolute", "75.34%", "41", null, "30", "13.45%", null, this.adrDiv02);
             obj.set_taborder("5");
+            obj.style.set_font("9 돋움");
             this.adrDiv02.addChild(obj.name, obj);
             obj = new Combo("Combo00", "absolute", "87.3%", "41", null, "30", "0.75%", null, this.adrDiv02);
             this.adrDiv02.addChild(obj.name, obj);
@@ -269,11 +292,13 @@
             obj.set_text("Combo00");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.style.set_font("9 돋움");
             obj = new Button("DelBtn00", "absolute", "445", "41", "32", "32", null, null, this.adrDiv02);
             obj.set_taborder("7");
             obj.set_cssclass("DelBtn");
             obj.style.set_background("@gradation URL('img::miniSearchBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
@@ -283,6 +308,7 @@
             obj.set_taborder("11");
             obj.style.set_background("whitesmoke");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "0.62%", "7", null, "30", "88.04%", null, this.adrDiv03);
             obj.set_taborder("0");
@@ -290,17 +316,19 @@
             obj.style.set_background("#c4d2daff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv03.addChild(obj.name, obj);
             obj = new TextArea("TextArea00", "absolute", "0.62%", "42", null, "97", "0.62%", null, this.adrDiv03);
             obj.set_taborder("1");
+            obj.style.set_font("9 돋움");
             this.adrDiv03.addChild(obj.name, obj);
 
             obj = new Div("drugDiv", "absolute", "33.92%", "199", "805", "114", null, null, this);
             obj.set_taborder("12");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "0.63%", "5", null, "30", "88.1%", null, this.drugDiv);
             obj.set_taborder("0");
@@ -308,7 +336,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "27.27%", "5", null, "30", "61.52%", null, this.drugDiv);
@@ -317,7 +345,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "73.85%", "5", null, "30", "14.82%", null, this.drugDiv);
@@ -326,7 +354,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc03", "absolute", "46.45%", "41", null, "30", "42.34%", null, this.drugDiv);
@@ -335,7 +363,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc04", "absolute", "73.85%", "41", null, "30", "14.69%", null, this.drugDiv);
@@ -344,7 +372,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc05", "absolute", "0.62%", "41", null, "30", "88.04%", null, this.drugDiv);
@@ -353,7 +381,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc06", "absolute", "0.62%", "77", null, "30", "88.17%", null, this.drugDiv);
@@ -362,7 +390,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Calendar("Calendar01", "absolute", "12.7%", "41", null, "30", "74.22%", null, this.drugDiv);
@@ -370,6 +398,7 @@
             obj.set_taborder("7");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj.set_value("null");
             obj = new Calendar("Calendar00", "absolute", "28.77%", "41", null, "30", "58.16%", null, this.drugDiv);
@@ -377,34 +406,43 @@
             obj.set_taborder("8");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj = new Edit("drugNoEdit", "absolute", "12.7%", "5", null, "30", "74.22%", null, this.drugDiv);
             obj.set_taborder("9");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Edit("drugNmEdit", "absolute", "39.23%", "5", null, "30", "28.27%", null, this.drugDiv);
             obj.set_taborder("10");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Edit("manifactureEdit", "absolute", "85.93%", "5", null, "30", "0.75%", null, this.drugDiv);
             obj.set_taborder("11");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Edit("Edit03", "absolute", "58.41%", "41", null, "30", "28.27%", null, this.drugDiv);
             obj.set_taborder("12");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Edit("Edit04", "absolute", "85.93%", "41", null, "30", "0.75%", null, this.drugDiv);
             obj.set_taborder("13");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Edit("Edit05", "absolute", "12.7%", "77", null, "30", "0.75%", null, this.drugDiv);
             obj.set_taborder("14");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
             obj = new Static("Static00", "absolute", "26.65%", "41", null, "30", "71.36%", null, this.drugDiv);
             obj.set_taborder("15");
             obj.set_text("~");
+            obj.style.set_font("9 돋움");
             this.drugDiv.addChild(obj.name, obj);
 
             obj = new Div("revealDiv", "absolute", "33.92%", "318", "805", "78", null, null, this);
             obj.set_taborder("13");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "30.14%", "5", null, "30", "58.53%", null, this.revealDiv);
             obj.set_taborder("0");
@@ -412,7 +450,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.revealDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "0.62%", "41", null, "30", "84.93%", null, this.revealDiv);
@@ -421,7 +459,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.revealDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "0.62%", "5", null, "30", "88.04%", null, this.revealDiv);
@@ -430,7 +468,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.revealDiv.addChild(obj.name, obj);
             obj = new Calendar("Calendar01", "absolute", "12.58%", "5", null, "30", "74.35%", null, this.revealDiv);
@@ -438,18 +476,21 @@
             obj.set_taborder("3");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj = new Calendar("Calendar00", "absolute", "42.22%", "5", null, "30", "44.71%", null, this.revealDiv);
             this.revealDiv.addChild(obj.name, obj);
             obj.set_taborder("4");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj = new Calendar("Calendar02", "absolute", "58.16%", "5", null, "30", "28.77%", null, this.revealDiv);
             this.revealDiv.addChild(obj.name, obj);
             obj.set_taborder("5");
             obj.set_autoskip("true");
             obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
             obj.set_dateformat("yyyy-MM-dd");
             obj = new Radio("inoutRadio", "absolute", "23.16%", "44", null, "25", "51.31%", null, this.revealDiv);
             this.revealDiv.addChild(obj.name, obj);
@@ -460,22 +501,27 @@
             obj.set_columncount("3");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.style.set_font("9 돋움");
             obj.set_index("0");
             obj = new Edit("Edit03", "absolute", "15.94%", "41", null, "30", "78.46%", null, this.revealDiv);
             obj.set_taborder("7");
+            obj.style.set_font("9 돋움");
             this.revealDiv.addChild(obj.name, obj);
             obj = new Static("Static00", "absolute", "56.16%", "5", null, "30", "41.47%", null, this.revealDiv);
             obj.set_taborder("8");
             obj.set_text("~");
+            obj.style.set_font("9 돋움");
             this.revealDiv.addChild(obj.name, obj);
 
             obj = new Div("patDiv", "absolute", "33.92%", "66", "805", "78", null, null, this);
             obj.set_taborder("14");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Edit("patNoEdit", "absolute", "12.7%", "40", null, "30", "74.22%", null, this.patDiv);
             obj.set_taborder("0");
+            obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "0.62%", "40", null, "30", "88.04%", null, this.patDiv);
             obj.set_taborder("1");
@@ -483,7 +529,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "0.62%", "5", null, "30", "88.04%", null, this.patDiv);
@@ -492,22 +538,25 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
             obj = new Edit("prscNoEdit", "absolute", "12.7%", "5", null, "30", "74.22%", null, this.patDiv);
             obj.set_taborder("3");
+            obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
             obj = new Button("prscSearchBtn", "absolute", "213", "5", "32", "32", null, null, this.patDiv);
             obj.set_taborder("4");
             obj.style.set_background("@gradation URL('img::miniSearchBtn.png') stretch");
             obj.style.set_border("1 none #999999ff");
+            obj.style.set_font("9 돋움");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
             this.patDiv.addChild(obj.name, obj);
             obj = new Edit("patNmEdit", "absolute", "27.02%", "40", null, "30", "54.67%", null, this.patDiv);
             obj.set_taborder("6");
+            obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "47.95%", "40", null, "30", "40.72%", null, this.patDiv);
             obj.set_taborder("7");
@@ -515,7 +564,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
             obj = new Combo("patGenderCombo", "absolute", "60.02%", "40", null, "30", "28.02%", null, this.patDiv);
@@ -526,17 +575,19 @@
             obj.set_taborder("8");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
+            obj.style.set_font("9 돋움");
             obj = new Static("subCodeStc03", "absolute", "73.85%", "40", null, "30", "14.82%", null, this.patDiv);
             obj.set_taborder("9");
             obj.set_text("연령");
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
             obj = new Edit("patAgeEdit", "absolute", "85.93%", "40", null, "30", "0.75%", null, this.patDiv);
             obj.set_taborder("10");
+            obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc04", "absolute", "32.75%", "5", null, "30", "55.92%", null, this.patDiv);
             obj.set_taborder("11");
@@ -544,17 +595,19 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
             obj = new Edit("diseaseNmEdit", "absolute", "44.71%", "5", null, "30", "0.75%", null, this.patDiv);
             obj.set_taborder("12");
+            obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
 
             obj = new Div("adrDiv00", "absolute", "33.92%", "485", "805", "114", null, null, this);
             obj.set_taborder("15");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
+            obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "0.62%", "6", null, "30", "88.04%", null, this.adrDiv00);
             obj.set_taborder("3");
@@ -562,7 +615,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv00.addChild(obj.name, obj);
             obj = new Static("subCodeStc00", "absolute", "0.62%", "42", null, "30", "88.04%", null, this.adrDiv00);
@@ -571,7 +624,7 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv00.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "0.62%", "78", null, "30", "88.17%", null, this.adrDiv00);
@@ -580,17 +633,20 @@
             obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
-            obj.style.set_font("bold 9 돋움");
+            obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.adrDiv00.addChild(obj.name, obj);
             obj = new Edit("Edit05", "absolute", "12.58%", "6", null, "30", "0.75%", null, this.adrDiv00);
             obj.set_taborder("6");
+            obj.style.set_font("9 돋움");
             this.adrDiv00.addChild(obj.name, obj);
             obj = new Edit("Edit00", "absolute", "12.7%", "42", null, "30", "0.75%", null, this.adrDiv00);
             obj.set_taborder("7");
+            obj.style.set_font("9 돋움");
             this.adrDiv00.addChild(obj.name, obj);
             obj = new Edit("Edit01", "absolute", "12.58%", "78", null, "30", "0.75%", null, this.adrDiv00);
             obj.set_taborder("8");
+            obj.style.set_font("9 돋움");
             this.adrDiv00.addChild(obj.name, obj);
 
 
@@ -603,6 +659,7 @@
             		p.set_taborder("2");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -615,6 +672,7 @@
             		p.set_taborder("9");
             		p.style.set_background("whitesmoke");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -627,6 +685,7 @@
             		p.set_taborder("10");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -639,6 +698,7 @@
             		p.set_taborder("11");
             		p.style.set_background("whitesmoke");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -651,6 +711,7 @@
             		p.set_taborder("12");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -663,6 +724,7 @@
             		p.set_taborder("13");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -675,6 +737,7 @@
             		p.set_taborder("14");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -687,6 +750,7 @@
             		p.set_taborder("15");
             		p.style.set_background("#eceff1ff");
             		p.style.set_border("1 solid #808080ff");
+            		p.style.set_font("9 돋움");
 
             	}
             );
@@ -802,6 +866,71 @@
 
         
         // User Script
+        this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::commonScripts.xjs");
+        this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::medScripts.xjs");
+        this.registerScript("SCP_AdrForm.xfdl", function() {
+        //include "scripts::commonScripts.xjs"
+        //include "scripts::medScripts.xjs"
+
+        this.adrDiv_searchAdrBtn_onclick = function(obj,e)
+        {
+        	this.gfnService("findAdrList");
+        }
+
+        
+        this.delBtn_onclick = function(obj,e)
+        {
+        	this.dsAdr.deleteRow(this.dsAdr.rowposition);
+        }
+
+        this.addBtn_onclick = function(obj,e)
+        {
+        	this.dsAdr.addRow();
+        	this.writerDiv.writeDateCal.set_value(this.gfnLocalDate());
+        	this.writerDiv.writerNoEdit.set_value(application.gdsEmp.getColumn(0, "empNo"));
+        	this.writerDiv.writerNmEdit.set_value(application.gdsEmp.getColumn(0, "empNm"));
+        	this.writerDiv.writerJobRadio.set_value(application.gdsEmp.getColumn(0, "jobrk"));
+        }
+
+        this.batchBtn_onclick = function(obj,e)
+        {
+        	this.gfnService("batchAdrProcess");
+        }
+
+        
+        this.patDiv_prscSearchBtn_onclick = function(obj,e)
+        {
+        	this.medOpenDrugPrscDialog();
+        }
+
+        this.setDrugPrscInfo = function(arrRtn) 
+        {
+        	this.patDiv.prscNoEdit.set_value(arrRtn[0]);			// 처방번호 세팅
+        	this.patDiv.diseaseNmEdit.set_value(arrRtn[1]);			// 진단명 세팅
+        	this.patDiv.patNoEdit.set_value(arrRtn[2]);				// 환자번호 세팅
+        	
+        	this.dsPat.clearData();
+        	this.dsService.setColumn(2, 4, "patNo=" + arrRtn[2]);
+        	this.gfnService("findPat");
+        	
+        	this.drugDiv.drugNoEdit.set_value(arrRtn[3]);
+        	
+        	var drugNm = arrRtn[4].slice(1, arrRtn[4].lastIndexOf("("));
+        	var manifacture = arrRtn[4].slice(arrRtn[4].lastIndexOf("(") + 1, arrRtn[4].length - 1);
+        	
+        	this.drugDiv.drugNmEdit.set_value(drugNm);
+        	this.drugDiv.manifactureEdit.set_value(manifacture);
+        }
+
+        this.patCallback = function(svcID,errorCode,errorMsg)
+        {
+        	//trace(this.dsPat.saveXML());
+        	this.patDiv.patNmEdit.set_value(this.dsPat.getColumn(0, "patNm"));
+        	this.patDiv.patAgeEdit.set_value(this.dsPat.getColumn(0, "age"));
+        	this.patDiv.patGenderCombo.set_value(this.dsPat.getColumn(0, "gender"));
+        }
+        });
+
 
         
         // Regist UI Components Event

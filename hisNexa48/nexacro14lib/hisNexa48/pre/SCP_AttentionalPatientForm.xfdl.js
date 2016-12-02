@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("SCP_AttentionalPatientForm");
                 this.set_classname("MA_AdrForm");
-                this.set_titletext("약물유해반응 관리");
+                this.set_titletext("관심환자관리");
                 this._setFormPosition(0,0,1250,768);
             }
 
@@ -427,7 +427,7 @@
             	//-- Layout function
             	function(p) {
             		p.set_classname("MA_AdrForm");
-            		p.set_titletext("약물유해반응 관리");
+            		p.set_titletext("관심환자관리");
 
             	}
             );
