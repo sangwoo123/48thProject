@@ -10,13 +10,13 @@
         <Static id="subCodeStc00" taborder="3" text="입원희망일" onclick="subCodeStc_onclick" left="4.97%" top="115" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc01" taborder="4" text="진료과" onclick="subCodeStc_onclick" left="4.97%" top="158" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Combo id="trmtDeptNmCombo" taborder="5" innerdataset="dsGP080" codecolumn="code" datacolumn="bigValue" oncloseup="trmtDeptNmCombo_oncloseup" left="23.86%" top="159" right="50.1%" height="26" class="AreaCombo"/>
-        <Combo id="wardCombo" taborder="6" innerdataset="dsSC070" codecolumn="code" datacolumn="value" left="24.06%" top="202" right="50.1%" height="26" class="AreaCombo"/>
+        <Combo id="wardCombo" taborder="6" innerdataset="dsSC070" codecolumn="code" datacolumn="bigValue" left="24.06%" top="202" right="50.1%" height="26" class="AreaCombo"/>
         <Static id="subCodeStc03" taborder="7" text="희망병동" onclick="subCodeStc_onclick" left="4.97%" top="201" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc06" taborder="8" text="예상재원일" onclick="subCodeStc_onclick" left="4.97%" top="244" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Edit id="prdtFinanDateEdt" taborder="9" left="23.86%" top="245" right="67%" height="26" class="AreaEdt"/>
-        <Static id="subCodeStc08" taborder="10" text="특기사항" onclick="subCodeStc_onclick" left="4.97%" top="287" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="subCodeStc08" taborder="10" text="특이사항" onclick="subCodeStc_onclick" left="4.97%" top="287" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <TextArea id="TextArea" taborder="11" left="23.86%" top="288" right="20.08%" height="94"/>
-        <Combo id="hroomCombo" taborder="12" innerdataset="dsSC071" codecolumn="code" datacolumn="value" left="75.35%" top="201" right="1.79%" height="26" class=""/>
+        <Combo id="hroomCombo" taborder="12" innerdataset="dsSC071" codecolumn="code" datacolumn="bigValue" left="75.35%" top="201" right="1.79%" height="26" class=""/>
         <Static id="subCodeStc04" taborder="13" text="희망병실" onclick="subCodeStc_onclick" left="56.26%" top="201" right="26.24%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc02" taborder="14" text="담당의사" onclick="subCodeStc_onclick" left="56.26%" top="158" right="26.24%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Combo id="respDoctNmCombo" taborder="15" innerdataset="gdsEmp" codecolumn="empNo" datacolumn="empNm" enable="false" left="75.35%" top="159" right="1.99%" height="26" class=""/>
@@ -58,8 +58,8 @@
           </Row>
           <Row>
             <Col id="serviceID">registerHosptlzRsvt</Col>
-            <Col id="URL">his::won/hosptlzPat/registerHosptlzRsvt.do</Col>
-            <Col id="inData">dsHosptlzRsvt=dsHosptlzRsvt:u </Col>
+            <Col id="URL">his::hdm/admission/registerHospitalizationSchedule.do</Col>
+            <Col id="inData">dsHospitalizationSchedule=dsHospitalizationSchedule:u </Col>
             <Col id="callbackFunc">registerHosptlzRsvtCallbackFunc</Col>
           </Row>
         </Rows>
@@ -148,7 +148,7 @@
           <Column id="bigValue" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsHosptlzRsvt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsHospitalizationSchedule" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="hopeWard" type="STRING" size="256"/>
           <Column id="hosptlzPlnDate" type="STRING" size="256"/>
@@ -205,7 +205,7 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dsHosptlzRsvt.setColumn(row,"hopeWard",this.wardCombo.value);    //희망병동
 	this.dsHosptlzRsvt.setColumn(row,"hopeRoom",this.hroomCombo.value);    //희망병실
 	this.dsHosptlzRsvt.setColumn(row,"prdtFinanDate",this.prdtFinanDateEdt.value);    //예상재원일
-	this.dsHosptlzRsvt.setColumn(row,"uniqueNtc",this.TextArea.value);    //특기사항			
+	this.dsHosptlzRsvt.setColumn(row,"uniqueNtc",this.TextArea.value);    //특이사항			
 
 	this.gfnService("registerHosptlzRsvt","false");
 }

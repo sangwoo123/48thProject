@@ -1,5 +1,7 @@
 package com.seoul.his.hdm.admission.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.hdm.admission.service.AdmissionServiceFacade;
+import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 
@@ -43,5 +46,14 @@ public class HospitalizationScheduleController {
 
 		String hosptlzRsvtNo = admissionServiceFacade.callhosptlzRsvtSeq();
 		dataSetBeanMapper.addVariable(outData, "hosptlzRsvtNo", hosptlzRsvtNo);
+	}
+
+	@RequestMapping("hdm/admission/registerHospitalizationSchedule.do")
+	public void registerHospitalizationSchedule(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		inData = (PlatformData) request.getAttribute("inData");
+
+		List<HospitalizationScheduleBean> hospitalizationScheduleList = dataSetBeanMapper.datasetToBeans(inData, HospitalizationScheduleBean.class);
+		admissionServiceFacade.registerHospitalizationSchedule(hospitalizationScheduleList);
+		System.out.println("===== 병실 =:  "+hospitalizationScheduleList.get(0).getHopeWard());
 	}
 }

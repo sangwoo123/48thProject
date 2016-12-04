@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.seoul.his.hdm.admission.applicationService.HospitalizationScheduleApplicationService;
 import com.seoul.his.hdm.admission.applicationService.InpatientApplicationService;
+import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
 import com.seoul.his.hdm.admission.to.InpatientBean;
 
 
@@ -28,17 +29,23 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	@Autowired
 	HospitalizationScheduleApplicationService hospitalizationScheduleApplicationService;
 
-
+	//입원환자 조회
 	@Override
 		public List<InpatientBean> findInpatientList(Map<String, String> argsMap) {
 		List<InpatientBean> inpatientList = inpatientApplicationService.findInpatientList(argsMap);
 		return inpatientList;
 	}
 
+	//입원예약번호 시퀀스 얻기
 	@Override
 	public String callhosptlzRsvtSeq() {
 		return hospitalizationScheduleApplicationService.callhosptlzRsvtSeq();
 	}
 
+	//입원예약 등록
+	@Override
+	public void registerHospitalizationSchedule(List<HospitalizationScheduleBean> hospitalizationScheduleList) {
+		hospitalizationScheduleApplicationService.registerHospitalizationSchedule(hospitalizationScheduleList);
+	}
 
 }
