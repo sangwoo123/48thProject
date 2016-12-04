@@ -52,7 +52,7 @@
           </Row>
           <Row>
             <Col id="serviceID">callhosptlzRsvtSeq</Col>
-            <Col id="URL">his::won/hosptlzPat/callhosptlzRsvtSeq.do</Col>
+            <Col id="URL">his::hdm/admission/callhosptlzRsvtSeq.do</Col>
             <Col id="outData">hosptlzRsvtNo=hosptlzRsvtNo</Col>
             <Col id="callbackFunc">callhosptlzRsvtSeqCallbackFunc</Col>
           </Row>
@@ -237,20 +237,14 @@ this.callhosptlzRsvtSeqCallbackFunc=function(svcID, errorCode, errorMsg){
 
 this.HA_HospitalizationScheduleForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-		
-	alert(111);
 	this.patNoEd.set_value(this.parent.patNo);  //부모창에 받아온 환자등록번호 바로 셋팅
-	alert(222);
 	this.outpaReceiptNoEdt.set_value(this.parent.outpaReceiptNo);   //부모창에 받아온 외래접수번호 바로 셋팅
-	alert(333);
 	application.setVariable("hosptlzRsvtNo", this.hosptlzRsvtNo);
-	alert(444);
+	alert(111);
 	this.gfnService("callhosptlzRsvtSeq","false");   //입원예약번호 구하기
-	alert(555);
+	alert(222);
 	this.gfnBind();  
-	alert(666);
 	this.gfnService("empInfo","false");
-	alert(777);
 }
 ]]></Script>
   </Form>
