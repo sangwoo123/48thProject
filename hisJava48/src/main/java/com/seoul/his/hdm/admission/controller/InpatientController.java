@@ -15,28 +15,36 @@ import com.seoul.his.hdm.admission.service.AdmissionServiceFacade;
 import com.seoul.his.hdm.admission.to.InpatientBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
+
+
 /**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.hdm.admission.controller
+ *    |_ InpatientController.java
+ * </pre>
  *
- * @LastUpdated
+ * @date : 2016. 12. 4. 오후 2:44:35
+ * @version :
+ * @author : kimmu
  */
 
+
+
+
 @Controller
-public class AdmissionController {
+public class InpatientController {
 
 	@Autowired
 	DataSetBeanMapper dataSetBeanMapper;
 	@Autowired
 	AdmissionServiceFacade admissionServiceFacade;
+	private PlatformData inData;
+	private PlatformData outData;
 
 	@RequestMapping("hdm/admission/findInpatientList.do")
 	public void findInpatientList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData) request.getAttribute("inData");
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
+	    inData = (PlatformData) request.getAttribute("inData");
+		outData = (PlatformData) request.getAttribute("outData");
 		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<InpatientBean> inpatientList = admissionServiceFacade.findInpatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, inpatientList, InpatientBean.class);

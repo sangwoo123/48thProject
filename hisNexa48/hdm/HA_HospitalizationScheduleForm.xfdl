@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="HA_HospitalizationScheduleForm" classname="WH_HosptlzPatSearchForm" left="0" top="0" width="503" height="401" titletext="New Form" onload="WH_HosptlzPatSearchForm_onload">
+  <Form id="HA_HospitalizationScheduleForm" classname="WH_HosptlzPatSearchForm" left="0" top="0" width="503" height="401" titletext="입원예약폼" onload="HA_HospitalizationScheduleForm_onload">
     <Layouts>
       <Layout>
         <Static id="subCodeStc07" taborder="0" text="환자등록번호" onclick="subCodeStc_onclick" left="1.99%" top="72" right="77.53%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -186,11 +186,9 @@ var row;
 //진료과의 선택에 따라 담당의사가 달라진다.
 this.trmtDeptNmCombo_oncloseup = function(obj:Combo, e:nexacro.ComboCloseUpEventInfo)
 {
-	deptCd = this.trmtDeptNmCombo.value;  //진료과
-
+	deptCd = this.trmtDeptNmCombo.value;  //진료과	
     this.gdsEmp.filter("");
     this.gdsEmp.filter("jobrk=='"+'의사'+"' && deptCd=='"+deptCd+"'");  
-    
     this.respDoctNmCombo.set_enable(true);
 }
 
@@ -237,17 +235,22 @@ this.callhosptlzRsvtSeqCallbackFunc=function(svcID, errorCode, errorMsg){
 	}	
 }
 
-this.WH_HosptlzPatSearchForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+this.HA_HospitalizationScheduleForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
 		
-	
+	alert(111);
 	this.patNoEd.set_value(this.parent.patNo);  //부모창에 받아온 환자등록번호 바로 셋팅
+	alert(222);
 	this.outpaReceiptNoEdt.set_value(this.parent.outpaReceiptNo);   //부모창에 받아온 외래접수번호 바로 셋팅
-	application.setVariable("hosptlzRsvtNo", this.hosptlzRsvtNo);			
+	alert(333);
+	application.setVariable("hosptlzRsvtNo", this.hosptlzRsvtNo);
+	alert(444);
 	this.gfnService("callhosptlzRsvtSeq","false");   //입원예약번호 구하기
-	
+	alert(555);
 	this.gfnBind();  
+	alert(666);
 	this.gfnService("empInfo","false");
+	alert(777);
 }
 ]]></Script>
   </Form>

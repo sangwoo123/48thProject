@@ -6,7 +6,7 @@ import java.util.Map;
 import com.seoul.his.hdm.admission.to.InpatientBean;
 
 
-public interface AdmissionApplicationService {
+public interface InpatientApplicationService {
 	List<InpatientBean> findInpatientList(Map<String, String> argsMap);
 
 

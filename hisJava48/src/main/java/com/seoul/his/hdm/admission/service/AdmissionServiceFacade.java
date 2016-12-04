@@ -10,7 +10,7 @@ import com.seoul.his.hdm.admission.to.InpatientBean;
 public interface AdmissionServiceFacade {
 
 	List<InpatientBean> findInpatientList(Map<String, String> argsMap);
-
+	String callhosptlzRsvtSeq();
 
 
 

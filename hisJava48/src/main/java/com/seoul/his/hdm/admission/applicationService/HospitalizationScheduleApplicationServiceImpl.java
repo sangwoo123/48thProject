@@ -7,8 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.seoul.his.hdm.admission.dao.InpatientDAO;
-import com.seoul.his.hdm.admission.to.InpatientBean;
+import com.seoul.his.hdm.admission.dao.HospitalizationScheduleDAO;
 
 /**
  * @Package  com.seoul.his.acc.budget.applicationService
@@ -21,14 +20,13 @@ import com.seoul.his.hdm.admission.to.InpatientBean;
  */
 
 @Component
-public class AdmissionApplicationServiceImpl implements AdmissionApplicationService{
+public class HospitalizationScheduleApplicationServiceImpl implements HospitalizationScheduleApplicationService{
 	@Autowired
-	InpatientDAO inpatientDAO;
+	HospitalizationScheduleDAO hospitalizationScheduleDAO;
 
 	@Override
-	public List<InpatientBean> findInpatientList(Map<String, String> argsMap) {
-		List<InpatientBean> inpatientList = inpatientDAO.selectInpatientList(argsMap);
-		return inpatientList;
+	public String callhosptlzRsvtSeq() {
+		String hosptlzRsvtNo=hospitalizationScheduleDAO.selectHosptlzRsvtSeq();
+		return hosptlzRsvtNo;
 	}
-
 }
