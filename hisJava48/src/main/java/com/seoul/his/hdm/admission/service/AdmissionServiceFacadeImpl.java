@@ -6,10 +6,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.seoul.his.hdm.admission.applicationService.HospitalizationScheduleApplicationService;
-import com.seoul.his.hdm.admission.applicationService.InpatientApplicationService;
-import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
-import com.seoul.his.hdm.admission.to.InpatientBean;
+import com.seoul.his.hdm.admission.applicationService.*;
+import com.seoul.his.hdm.admission.to.*;
 
 
 /**
@@ -28,6 +26,8 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	InpatientApplicationService inpatientApplicationService;
 	@Autowired
 	HospitalizationScheduleApplicationService hospitalizationScheduleApplicationService;
+	@Autowired
+	HospitalizationInfoApplicationService hospitalizationInfoApplicationService;
 
 	//입원환자 조회
 	@Override
@@ -47,5 +47,13 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	public void registerHospitalizationSchedule(List<HospitalizationScheduleBean> hospitalizationScheduleList) {
 		hospitalizationScheduleApplicationService.registerHospitalizationSchedule(hospitalizationScheduleList);
 	}
+
+	//입원정보 조회
+	@Override
+	public List<HospitalizationInfoBean> findHospitalizationInfo(Map<String, String> argsMap) {
+		return hospitalizationInfoApplicationService.findHospitalizationInfo(argsMap);
+	}
+
+
 
 }

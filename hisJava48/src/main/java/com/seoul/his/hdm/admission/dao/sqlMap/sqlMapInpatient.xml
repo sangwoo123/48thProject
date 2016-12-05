@@ -1,54 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seoul.his.hdm.admission.dao.InpatientDAO">
+<mapper namespace="com.seoul.his.hdm.admission.dao.HospitalizationInfoDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
 
-    <select id="selectInpatientList" flushCache="false" useCache="true"
-		resultType="InpatientBean">
-        SELECT DISTINCT o.TRMT_DEPT as trmtDept,
-			   o.TRMT_DOCT as trmtDoct,
-			   o.PAT_NO as patNo,
-			   p.PAT_NM as patNm,
-			   p.AGE as age,
-			   p.ADDR as addr,
-			   p.RRN1 as rrn1,
-			   p.GENDER as gender,
-			   h.DSCG_DATE as dscgDate,
-			   h.HOSPTLZ_DATE as hosptlzDate,
-			   h.WARD as ward,
-			   h.HROOM as hroom
-		FROM WS_OUTPA_RECEIPT o,
-			 WS_PAT p,
-			 WH_HOSPTLZ_RECEIPT h,
-			 (SELECT MAX(OUTPA_RECEIPT_NO) OUTPA_RECEIPT_NO,
-			 	    PAT_NO
-			 FROM WS_OUTPA_RECEIPT
-			 WHERE HOSPTLZ_YB='Y'
-			 GROUP BY PAT_NO
-			 ) maxO
-		WHERE o.OUTPA_RECEIPT_NO = MAXO.OUTPA_RECEIPT_NO
-		AND o.PAT_NO= p.PAT_NO
-		AND h.PAT_NO=o.PAT_NO
-		<if test="patNm != null">
-			AND p.PAT_NM = #{patNm}
-		</if>
-		<if test="patNo != null">
-			AND p.PAT_NO = #{patNo}
-		</if>
-		<if test="start != null and end != null">
-			AND h.HOSPTLZ_DATE BETWEEN #{start} AND #{end}
-		</if>
-		<if test="ward != null">
-			AND h.WARD = #{ward}
-		</if>
-		<if test="deptCd != null">
-			AND o.TRMT_DEPT = #{deptCd}
-		</if>
-		<if test="respDoctNm != null">
-			AND o.TRMT_DOCT =#{respDoctNm}
-		</if>
-    </select>
+	<!-- 입원정보 조회 -->
+	<select id="selectHospitalizationInfo" flushCache="false"
+		useCache="true" resultType="HospitalizationInfoBean">
+		SELECT
+		DSCG_DATE as dscgDate
+		,DSCG_DIV as dscgDiv
+		,GRTOR_ADDR as grtorAddr
+		,GRTOR_NM as grtorNm
+		,GRTOR_RRN as grtorRrn
+		,GRTOR_TEL as grtorTel
+		,HOSPTLZ_DATE as hosptlzDate
+		,HOSPTLZ_RECEIPT_NO as hosptlzReceiptNo
+		,HOSPTLZ_ROUTE as hosptlzRoute
+		,HOSPTLZ_RSVT_YB as hosptlzRsvtYb
+		,HROOM as hroom
+		,OUTPA_RECEIPT_NO as outpaReceiptNo
+		,PAT_NO as patNo
+		,PAT_RSHIP as patRship
+		,PAT_TYPE_CD as patTypeCd
+		,PAT_TYPE_NM as patTypeNm
+		,RESP_DOCT_CD as respDoctCd
+		,RESP_DOCT_NM as respDoctNm
+		,RSHIP as rship
+		,TRMT_DEPT_CD as trmtDeptCd
+		,TRMT_DEPT_NM as trmtDeptNm
+		,WARD as ward
+		FROM WH_HOSPTLZ_RECEIPT
+		WHERE PAT_NO=#{patNo}
+	</select>
 
 
 
