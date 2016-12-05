@@ -7,12 +7,12 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Getter
 @Setter
 @ToString
-@Dataset(name="dsApplyHistory")
-public class ApplyHistoryBean extends BaseBean{
-	private String meddate; //일
+
+@Dataset(name = "dsDaySchedule")
+public class DaySchBean extends BaseBean{
+   private   String medDate,amRsvCnt,amTotCnt,pmRsvCnt,pmTotCnt;
 
 }

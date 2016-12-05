@@ -10,6 +10,7 @@ import com.seoul.his.hdm.foreign.applicationService.DoctorDiagnosisSchdApplicati
 import com.seoul.his.hdm.foreign.applicationService.ForeignApplicationService;
 import com.seoul.his.hdm.foreign.to.ApplyHistoryBean;
 import com.seoul.his.hdm.foreign.to.CalendarBean;
+import com.seoul.his.hdm.foreign.to.DaySchBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
@@ -62,5 +63,11 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
     public List<ApplyHistoryBean> findApplyHistoryList(String empNo) {
         return doctorDiagnosisSchdApplicationService.findApplyHistoryList(empNo);
     }
+    //일별 의사 진료일정
+    @Override
+    public List<DaySchBean> findDayScheduleList(String empNo){
+    	return doctorDiagnosisSchdApplicationService.findDayScheduleList(empNo);
+    }
+    
 
 }

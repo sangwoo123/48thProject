@@ -10,6 +10,7 @@ import com.seoul.his.com.system.to.SystemBean;
 public interface SystemApplicationService {
 
 	List<SystemBean> findSystemList(Map<String, String> argsMap);
-
+	
+	public String findDate(Map<String, String> argsMap);
 
 }

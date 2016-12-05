@@ -9,5 +9,5 @@ public interface SystemDAO {
 
 	List<SystemBean> selectSystemList(Map<String, String> argsMap);
 
-
+	public String selectDate(Map<String, String> argsMap);
 }

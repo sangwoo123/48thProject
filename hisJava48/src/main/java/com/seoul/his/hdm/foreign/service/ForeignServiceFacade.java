@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.seoul.his.hdm.foreign.to.ApplyHistoryBean;
 import com.seoul.his.hdm.foreign.to.CalendarBean;
+import com.seoul.his.hdm.foreign.to.DaySchBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
@@ -29,6 +30,8 @@ public interface ForeignServiceFacade {
     List<TrmtSchdBean> findTrmtSchdList(Map<String, String> argsMap);
 
     List<ApplyHistoryBean> findApplyHistoryList(String empNo);
+    
+    List<DaySchBean> findDayScheduleList(String empNo);
 
 
 	/*CalcuOutpaTrmtCostBean calcuOutpaTrmtCost(Map<String, Object> procedureMap) throws Exception;

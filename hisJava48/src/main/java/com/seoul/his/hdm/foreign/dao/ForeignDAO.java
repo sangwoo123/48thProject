@@ -9,6 +9,5 @@ public interface ForeignDAO {
 
 	public List<PatInfoBean> selectPatList(Map<String, String> argsMap);
 	public PatInfoBean selectPat(Map<String, String> argsMap);
-	public PatInfoBean selectLastPatNo();
 
 }
