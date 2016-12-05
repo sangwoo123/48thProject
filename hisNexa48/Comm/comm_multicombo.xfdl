@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="comm_multicombo" classname="comm_multicombo" left="0" top="0" width="190" height="29" titletext="New Form" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Edit id="edt_combo" taborder="0" left="0" top="0" right="0" bottom="0" readonly="true"/>
+        <PopupDiv id="pdv_combo" left="0" top="31" width="229" height="272" style="background:#ffffffff;border:0 none #bdbdbdff ;" oncloseup="pdv_combo_oncloseup" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <Grid id="grd_list" taborder="7" useinputpanel="false" left="0" top="0" right="0" bottom="50" binddataset="ds_list" scrollbars="autovert" autofittype="col" oncellclick="pdv_combo_grd_list_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="187"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="body">
+                      <Cell displaytype="checkbox" edittype="checkbox"/>
+                      <Cell col="1"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_apply" taborder="6" text="적용" right="5" width="80" height="40" onclick="pdv_combo_btn_apply_onclick" bottom="5"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Button id="btn_combo" taborder="1" top="0" width="26" style="image:URL('theme://img/cmb_WF_Drop.png');bordertype:normal 3 3 ;" right="0" bottom="0" onclick="btn_combo_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_list"/>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/**************************************************************************************************
+ * 01. 업무구분				: 
+ * 02. 화 면 명				: 
+ * 03. 화면설명				:  
+ * 04. 관련 화면 및 서비스	: 
+ * 05. 관련 테이블명			: 
+ * 06. 작 성 자				: 
+ * 07. 작 성 일				: 
+ * 08. 수정이력
+ **************************************************************************************************
+ *    수정일            이름        사유
+ **************************************************************************************************
+ *    
+ *************************************************************************************************/
+
+//-------------------------------------------------------------------------------------------------
+// 1. 공통함수 include
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------
+// Form 전역변수 선언
+//-------------------------------------------------------------------------------------------------
+this.value 	= null;
+this.text 	= null;
+
+this.pThis 	= null;
+this.fCallback 	= null;
+
+//-------------------------------------------------------------------------------------------------
+// 2. Form 함수 정의
+//-------------------------------------------------------------------------------------------------
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	
+}
+
+//-------------------------------------------------------------------------------------------------
+// 3. Transaction 함수 정의
+//-------------------------------------------------------------------------------------------------
+
+//-------------------------------------------------------------------------------------------------
+// 4. User 함수 정의
+//-------------------------------------------------------------------------------------------------
+
+//콜백이 필요한경우 설정필요함
+this.init = function(form, config, fCallback)
+{	
+	this.pThis = form;
+	this.fCallback 	= fCallback;
+	
+	this.innerdataset = config.innerdataset;
+	this.codecolumn = Eco.isEmpty(config.codecolumn) ? Iject.$.COMMCD_CODE : config.codecolumn;
+	this.datacolumn = Eco.isEmpty(config.datacolumn) ? Iject.$.COMMCD_DATA : config.datacolumn;
+	this.checkcolumn = Eco.isEmpty(config.checkcolumn) ? Iject.$.CHK_COL : config.checkcolumn;
+	this.rowcount = Eco.isEmpty(config.rowcount) ? 10 : config.rowcount;
+	this.delimeter = Eco.isEmpty(config.delimeter) ? "," : config.delimeter;
+	
+	//리스트 설정
+	this.ds_list.copyData(this.innerdataset);
+	if(Eco.isEmpty(this.ds_list.colinfos[this.checkcolumn]))
+	{
+		this.ds_list.addColumn(this.checkcolumn, "string");
+	}
+	
+	this.grdObj = this.pdv_combo.grd_list;
+	this.grdObj.setCellProperty("body", 0, "text", "bind:"+this.checkcolumn);
+	this.grdObj.setCellProperty("body", 1, "text", "bind:"+this.datacolumn);
+	
+	var nCnt = this.ds_list.rowcount < this.rowcount ? this.ds_list.rowcount : this.rowcount;
+	var ROW_HEIGHT = 24, offset = 52;
+	var popupheight = nCnt * ROW_HEIGHT + offset;
+	this.pdv_combo.setOffsetHeight(popupheight);
+	
+	this.set_value(config.value);
+	this.set_text(this.value);	
+}
+
+this.clear = function()
+{
+	this.value = null;
+	this.text = null;
+	this.edt_combo.set_value(null);
+	this.clearCheckColumn();
+}
+
+this.set_value = function(val)
+{
+	this.value = val;
+	this.setCheckColumn(val);
+}
+
+this.validate = function()
+{
+	return true;
+}
+
+this.set_enable = function(b)
+{
+	if(b)
+	{
+		this.btn_combo.set_enable(true);
+	}
+	else
+	{
+		this.btn_combo.set_enable(false);
+	}
+}
+
+this.set_cssclass = function(css)
+{
+	
+}
+
+this.set_text = function(val)
+{
+	var sText = null;
+	if(!Eco.isEmpty(val))
+	{
+		var dsObj = this.ds_list, data;
+		var codes = val.split(this.delimeter);
+		var datas = [];
+		for(var i = 0; i < codes.length; i++)
+		{
+			data = dsObj.lookup(this.codecolumn, codes[i], this.datacolumn);
+			if(!Eco.isEmpty(data)) datas.push(data);
+		}
+		sText = datas.join(this.delimeter);
+	}
+	
+	this.text = sText;
+	this.edt_combo.set_value(this.text);
+}
+
+this.getValues = function()
+{
+	var dsObj = this.ds_list;
+	var values = [];
+	var val = null;
+	for(var i = 0; i < dsObj.rowcount; i++)
+	{
+		var chk = dsObj.getColumn(i, this.checkcolumn);
+		if(chk == '1' || chk == 1)
+		{
+			values.push(dsObj.getColumn(i, this.codecolumn));
+		}
+	}	
+	if(values.length > 0) val = values.join(this.delimeter);
+	
+	return val;
+}
+
+this.setCheckColumn = function(val)
+{	
+	this.clearCheckColumn();
+	
+	if(!Eco.isEmpty(val))
+	{
+		var dsObj = this.ds_list;
+		var codes = val.split(this.delimeter);
+		for(var i = 0; i < codes.length; i++)
+		{
+			var nRow = dsObj.findRow(this.codecolumn, codes[i]);
+			if(nRow > -1) dsObj.setColumn(nRow, this.checkcolumn, '1');
+		}
+	}
+}
+
+this.clearCheckColumn = function()
+{
+	var dsObj = this.ds_list;
+	dsObj.set_enableevent(false);
+	for(var i = 0; i < dsObj.rowcount; i++)
+	{
+		dsObj.setColumn(i, this.checkcolumn, '0');
+	}
+	dsObj.set_enableevent(true);
+}
+
+//-------------------------------------------------------------------------------------------------
+// 5. Event 함수 정의
+//------------------------------------------------------------------------------------------------
+
+this.btn_combo_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.pdv_combo.trackPopupByComponent(this.edt_combo, 0, this.edt_combo.getOffsetHeight()+2, this.pdv_combo.width, this.pdv_combo.height);
+	
+	return;
+	
+	if(!Eco.isEmpty(this.fCallback))
+	{
+		this.fCallback.call(this.pThis, this.value, this.text, "dropdown");
+	}
+}
+
+this.pdv_combo_btn_apply_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.pdv_combo.closePopup();
+}
+
+this.pdv_combo_oncloseup = function(obj:PopupDiv, e:nexacro.EventInfo)
+{
+	this.set_value(this.getValues());
+	this.set_text(this.value);
+	
+	if(!Eco.isEmpty(this.fCallback))
+	{
+		this.fCallback.call(this.pThis, this.value, this.text, "onchanged");
+	}
+}
+
+this.pdv_combo_grd_list_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell > 0)
+	{
+		var val = this.ds_list.getColumn(e.row, this.checkcolumn);
+		if(Eco.isEmpty(val)) val = '0';
+		if(val == '0') this.ds_list.setColumn(e.row, this.checkcolumn, '1');
+		else if(val == '1') this.ds_list.setColumn(e.row, this.checkcolumn, '0');
+	}
+}
+]]></Script>
+  </Form>
+</FDL>

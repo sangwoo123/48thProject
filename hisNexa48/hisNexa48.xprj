@@ -5,5 +5,13 @@
   <ADL id="nexa" url="hisNexa48.xadl"/>
   <Services>
     <Service id="img" file_ext="" include_subdir="false"/>
+    <Service id="nexacro14lib" file_ext="" include_subdir="true"/>
+    <Service id="IjectJS" file_ext="" include_subdir="true"/>
+    <Service id="EcoLibrary" file_ext="" include_subdir="true"/>
   </Services>
+  <Themes>
+    <RecentlyUsed>
+      <Theme url="hisNexa48.xtheme" extern="false"/>
+    </RecentlyUsed>
+  </Themes>
 </Project>

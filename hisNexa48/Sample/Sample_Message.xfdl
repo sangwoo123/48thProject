@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample_Message" classname="Sample_Message" left="0" top="0" width="1024" height="768" titletext="Message ( Alert / Confirm )">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="@ Message ( Alert / Confirm )" left="10" top="10" right="10" height="41" style="background:whitesmoke;border:1 solid black ;color:black;padding:0 0 0 20;font:bold 14 Dotum;"/>
+        <Button id="Button00" taborder="1" text="alert" left="14" top="108" width="99" height="34" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="2" text="confirm" left="141" top="108" width="99" height="35" onclick="Button01_onclick"/>
+        <Static id="Static01" taborder="3" text="# 브라우저 기본 Alert / Confirm" left="10" top="73" width="359" height="31" style="font:bold 12 Gulim;"/>
+        <Button id="Button02" taborder="4" text="alertP" left="14" top="196" width="99" height="34" onclick="Button02_onclick"/>
+        <Button id="Button03" taborder="5" text="confirmP" left="141" top="196" width="99" height="35" onclick="Button03_onclick"/>
+        <Static id="Static02" taborder="6" text="# 모달 팝업 Alert / Confirm" left="10" top="161" width="359" height="31" style="font:bold 12 Gulim;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+ * 01. 업무구분 : 샘플
+ * 02. 메뉴명   : 
+ * 03. 메뉴설명 :  
+ * 04. 작성일   : 
+ * 05. 작성자   : 
+ * 06. 수정이력 : 
+ ***********************************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************************
+ *     
+ **********************************************************************************/
+
+
+/***********************************************************************************
+* include 선언부  													               *
+***********************************************************************************/
+
+/***********************************************************************************/
+/* 폼 전역변수 선언부												               */
+/***********************************************************************************/
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+
+/***********************************************************************************
+* Transaction Function
+***********************************************************************************/
+
+/***********************************************************************************
+* 사용자 Function
+***********************************************************************************/
+ 
+/***********************************************************************************
+* Component Event Function
+***********************************************************************************/
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/**
+	 * @param {string} message( 코드 | 사용자문자열)
+	 * @param {string} title caption message
+	 * @param {array}  치환문자배열({0}, {1}.. 문자를 치환)
+	 */
+	Iject.alert("success.select");
+	
+	Iject.alert("에러발생!!", "에러");
+	
+	Iject.alert("fail.common.sql", "", [-900, "invalid query string"]);
+}
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/**
+	 * @param {string} message( 코드 | 사용자문자열)
+	 * @param {string} title caption message
+	 * @param {array}  치환문자배열({0}, {1}.. 문자를 치환)
+	 */
+	Iject.confirm("comm.print.barcode");
+	
+	Iject.confirm("에러발생!!", "에러");
+	
+	Iject.confirm("fail.common.sql", "", [-900, "invalid query string"]);	
+}
+
+this.Button02_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/**
+	 * @param {form} form object
+	 * @param {string} message( 코드 | 사용자문자열)
+	 * @param {string} title caption message
+	 * @param {array}  치환문자배열({0}, {1}.. 문자를 치환)
+	 * @param {function}  callback 함수
+	 */
+	
+	Iject.alertP(this, "success.select", null, null, function(svcid, variant){
+		trace("alertP callback!!!");
+	});
+		
+// 	Iject.alertP(this, "에러발생!!", "에러", null, function(svcid, variant){
+// 		trace("alertP callback!!!");
+// 	});
+// 	
+// 	Iject.alertP(this, "fail.common.sql", "", [-900, "invalid query string"], function(svcid, variant){
+// 		trace("alertP callback!!!");
+// 	});
+
+//test용 삭제필요!!
+// 	var sText = "afeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwefafeawgwaefwefwef";
+// 	var sText = "afefaewfewfewfewfwfwefewfwefwefewfwefewfewefewfwefewewfwefwefwefewfwefewfewanfhijwefhlwehgewufhweufhweiufhweuifhweuifhweuihfewuifhwuf";
+// 	Iject.alertP(this, sText, null, null, function(svcid, variant){
+// 		trace("alertP callback!!!");
+// 	});
+}
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	/**
+	 * @param {form} form object
+	 * @param {string} message( 코드 | 사용자문자열)
+	 * @param {string} title caption message
+	 * @param {array}  치환문자배열({0}, {1}.. 문자를 치환)
+	 * @param {function}  callback 함수
+	 */	 
+	Iject.confirmP(this, "success.select", null, null, function(svcid, variant){
+		trace("confirmP callback!!! = " + variant);
+	});
+	
+// 	Iject.confirmP(this, "에러발생!!", "에러", null, function(svcid, variant){
+// 		trace("confirmP callback!!! = " + variant);
+// 	});
+// 	
+// 	Iject.confirmP(this, "fail.common.sql", "", [-900, "invalid query string"], function(svcid, variant){
+// 		trace("confirmP callback!!! = " + variant);
+// 	});		
+}]]></Script>
+  </Form>
+</FDL>
