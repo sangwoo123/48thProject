@@ -33,12 +33,29 @@ public class PatientController {
 	@Autowired
 	PatientServiceFacade patientServiceFacade;
 
+	private PlatformData outData;
+	private PlatformData inData;
+	private Map<String, String> argsMap;
+
 	@RequestMapping("hdm/patient/findPatientList.do")
 	public void findPatientList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData) request.getAttribute("inData");
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+	    inData = (PlatformData) request.getAttribute("inData");
+		outData = (PlatformData) request.getAttribute("outData");
+		argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<PatientBean> patientList = patientServiceFacade.findPatientList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, patientList, PatientBean.class);
 	}
+
+	// 환자한명조회
+    @RequestMapping("hdm/patient/findPatient.do")
+    public void findPat(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        outData = (PlatformData) request.getAttribute("outData");
+        inData = (PlatformData) request.getAttribute("inData");
+        argsMap = dataSetBeanMapper.variablesToMap(inData);
+        System.out.println("PatController - 환자한명조회");
+        PatientBean patientBean = patientServiceFacade.findPatient(argsMap);
+        System.out.println(patientBean);
+        dataSetBeanMapper.beanToDataset(outData, patientBean, PatientBean.class);
+    }
+
 }

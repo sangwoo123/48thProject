@@ -10,7 +10,7 @@
 	</select>
 
 	<!-- 입원예약등록 -->
-	<insert id="insertHospitalizationSchedule" parameterType="HospitalizationScheduleBean">
+	<update id="insertHospitalizationSchedule" parameterType="HospitalizationScheduleBean">
 			INSERT INTO WH_HOSPTLZ_RSVT(
 				HOSPTLZ_PLN_DATE
 				,HOSPTLZ_RSVT_NO
@@ -35,6 +35,6 @@
 					,#{uniqueNtc}
 					,#{hopeWard}
 			)
-	</insert>
+	</update>
 
 </mapper>

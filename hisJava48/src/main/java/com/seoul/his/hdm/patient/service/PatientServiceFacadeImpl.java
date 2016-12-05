@@ -17,7 +17,7 @@ import com.seoul.his.hdm.patient.to.PatientBean;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Service
@@ -31,7 +31,11 @@ public class PatientServiceFacadeImpl implements PatientServiceFacade{
 		List<PatientBean> patientList = patientApplicationService.findPatientList(argsMap);
 		return patientList;
 	}
-	
-	
-	
+
+	@Override
+    public PatientBean findPatient(Map<String, String> argsMap) {
+        return patientApplicationService.findPatient(argsMap);
+    }
+
+
 }

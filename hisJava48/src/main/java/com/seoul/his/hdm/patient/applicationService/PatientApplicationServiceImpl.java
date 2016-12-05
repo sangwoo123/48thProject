@@ -18,21 +18,23 @@ import com.seoul.his.hdm.patient.to.PatientBean;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Component
 public class PatientApplicationServiceImpl implements PatientApplicationService{
 	@Autowired
 	PatientDAO patientDAO;
-	
-
-
 
 	@Override
 	public List<PatientBean> findPatientList(Map<String, String> argsMap) {
 		List<PatientBean> patientList = patientDAO.selectPatientList(argsMap);
-		return patientList;		
+		return patientList;
 	}
+
+	@Override
+    public PatientBean findPatient(Map<String, String> argsMap) {
+        return patientDAO.selectPatient(argsMap);
+    }
 
 }

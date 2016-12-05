@@ -9,7 +9,7 @@ import com.seoul.his.hdm.patient.to.PatientBean;
 public interface PatientServiceFacade {
 
 	List<PatientBean> findPatientList(Map<String, String> argsMap);
-
+	public PatientBean findPatient(Map<String, String> argsMap);
 
 
 

@@ -77,9 +77,43 @@
 			<if test="rrn1 != '' and rrn1 != null and rrn2 != '' and rrn2 != null">
 				AND p.RRN1=#{rrn1} AND FN_WS_DECRYPT(p.RRN2)=#{rrn2}
 			</if>
-
 		order by
 		pat_no
+	</select>
+
+	<select id="selectPatient" resultType="PatientBean">
+		SELECT
+		PAT_NO ,
+		PAT_NM,
+		RRN1 ,
+		AGE ,
+		TEL ,
+		ADDR ,
+		BARR_ASS ,
+		DTL_ADDR ,
+		ZIP ,
+		DEATH_DATE ,
+		NOTE ,
+		GENDER ,
+		SMS_RECEIVE_YB ,
+		SMS_RECEIVE_NO ,
+		SMS_RECEIVER,
+		(SELECT MAX(RECEIPT_DATE) REC_NW_DATE
+		FROM WS_OUTPA_RECEIPT
+		where pat_no = #{patNo}
+		GROUP BY pat_no) AS REC_NW_DATE,
+		FN_WS_DECRYPT(RRN2) AS RRN2,
+		ESTB_GIHO,
+		CERTFCT_NO,
+		INSU_RRN,
+		INSU_RRN1,
+		INSU_NM,
+		APPLY_START_DATE,
+		APPLY_END_DATE
+		from
+		WS_PAT
+		where
+		PAT_NO= #{patNo}
 	</select>
 
 </mapper>

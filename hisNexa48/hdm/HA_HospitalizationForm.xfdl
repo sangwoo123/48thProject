@@ -163,7 +163,7 @@
           <Column id="bigValue" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsHosptlzRsvt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsHospitalizationSchedule" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="hosptlzPlnDate" type="STRING" size="256"/>
           <Column id="hosptlzRsvtNo" type="STRING" size="256"/>
@@ -268,9 +268,9 @@
             <Col id="callbackFunc">findHosptlzYBCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">findPat</Col>
-            <Col id="URL">his::won/outPatMngnt/findPat.do</Col>
-            <Col id="outData">dsPat=dsPat</Col>
+            <Col id="serviceID">findPatient</Col>
+            <Col id="URL">his::hdm/patient/findPatient.do</Col>
+            <Col id="outData">dsPatient=dsPatient</Col>
           </Row>
           <Row>
             <Col id="serviceID">findReceipt</Col>
@@ -307,9 +307,9 @@
             <Col id="outData"/>
           </Row>
           <Row>
-            <Col id="serviceID">findHosptlzRsvt</Col>
-            <Col id="URL">his::won/hosptlzPat/findHosptlzRsvt.do</Col>
-            <Col id="outData">dsHosptlzRsvt=dsHosptlzRsvt</Col>
+            <Col id="serviceID">findHospitalizationSchedule</Col>
+            <Col id="URL">his::hdm/admission/findHospitalizationSchedule.do</Col>
+            <Col id="outData">dsHospitalizationSchedule=dsHospitalizationSchedule</Col>
             <Col id="callbackFunc">findHosptlzRsvtCallbackFunc</Col>
             <Col id="inData"/>
           </Row>
@@ -408,9 +408,9 @@ this.HA_HospitalizationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	
-	this.dsPat.clear();
+	this.dsPatient.clear();
 	this.dsOutpaReceipt.clear();
-	this.dsHosptlzRsvt.clear();
+	this.dsHospitalizationSchedule.clear();
 	this.outpaReceiptNo.set_visible(false);
 	this.outpaReceiptNoEdt.set_visible(false);	
 	this.saveBtn.set_visible(false);
@@ -428,7 +428,7 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		patNo=this.patNoEd.value;   
 	
 		this.dsService.setColumn(1,"argument",'patNo='+patNo);
-		this.gfnService("findPat","false");
+		this.gfnService("findPatient","false");
 	}
 }
 this.findHosptlzYBCallbackFunc = function(svcID, errorCode, errorMsg)
@@ -695,7 +695,7 @@ this.hosptlzRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	if(this.hosptlzReceiptNoEdt.value != null){
 		alert("이미 입원 등록 된 환자입니다.");
 		
-	}else if(this.dsHosptlzRsvt.rowcount==1){
+	}else if(this.dsHospitalizationSchedule.rowcount==1){
 		alert("이미 입원예약 된 환자입니다.");
 		this.dsService.setColumn(7,"argument",'patNo='+this.patNoEd.value);
 		this.gfnService("findHosptlzRsvt");

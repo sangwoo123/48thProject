@@ -57,7 +57,7 @@
             <Col id="callbackFunc">callhosptlzRsvtSeqCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">registerHosptlzRsvt</Col>
+            <Col id="serviceID">registerHospitalizationSchedule</Col>
             <Col id="URL">his::hdm/admission/registerHospitalizationSchedule.do</Col>
             <Col id="inData">dsHospitalizationSchedule=dsHospitalizationSchedule:u </Col>
             <Col id="callbackFunc">registerHosptlzRsvtCallbackFunc</Col>
@@ -195,19 +195,19 @@ this.trmtDeptNmCombo_oncloseup = function(obj:Combo, e:nexacro.ComboCloseUpEvent
 //확인 Btn
 this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {		
-	row=this.dsHosptlzRsvt.rowposition;
-	this.dsHosptlzRsvt.setColumn(row,"patNo",this.patNoEd.value);   //환자등록번호
-	this.dsHosptlzRsvt.setColumn(row,"outpaReceiptNo",this.outpaReceiptNoEdt.value);   //외래접수번호
-	this.dsHosptlzRsvt.setColumn(row,"hosptlzPlnDate",this.hosptlzHopeDateCal.value);  //입원희망일
-	this.dsHosptlzRsvt.setColumn(row,"hosptlzRsvtNo",this.hosptlzRsvtNo);   //입원예약번호
-	this.dsHosptlzRsvt.setColumn(row,"trmtDeptCd",this.trmtDeptNmCombo.value);  //진료과
-	this.dsHosptlzRsvt.setColumn(row,"respDoctCd",this.respDoctNmCombo.value);    //담당의사
-	this.dsHosptlzRsvt.setColumn(row,"hopeWard",this.wardCombo.value);    //희망병동
-	this.dsHosptlzRsvt.setColumn(row,"hopeRoom",this.hroomCombo.value);    //희망병실
-	this.dsHosptlzRsvt.setColumn(row,"prdtFinanDate",this.prdtFinanDateEdt.value);    //예상재원일
-	this.dsHosptlzRsvt.setColumn(row,"uniqueNtc",this.TextArea.value);    //특이사항			
+	row=this.dsHospitalizationSchedule.rowposition;
+	this.dsHospitalizationSchedule.setColumn(row,"patNo",this.patNoEd.value);   //환자등록번호
+	this.dsHospitalizationSchedule.setColumn(row,"outpaReceiptNo",this.outpaReceiptNoEdt.value);   //외래접수번호
+	this.dsHospitalizationSchedule.setColumn(row,"hosptlzPlnDate",this.hosptlzHopeDateCal.value);  //입원희망일
+	this.dsHospitalizationSchedule.setColumn(row,"hosptlzRsvtNo",this.hosptlzRsvtNo);   //입원예약번호
+	this.dsHospitalizationSchedule.setColumn(row,"trmtDeptCd",this.trmtDeptNmCombo.value);  //진료과
+	this.dsHospitalizationSchedule.setColumn(row,"respDoctCd",this.respDoctNmCombo.value);    //담당의사
+	this.dsHospitalizationSchedule.setColumn(row,"hopeWard",this.wardCombo.value);    //희망병동
+	this.dsHospitalizationSchedule.setColumn(row,"hopeRoom",this.hroomCombo.value);    //희망병실
+	this.dsHospitalizationSchedule.setColumn(row,"prdtFinanDate",this.prdtFinanDateEdt.value);    //예상재원일
+	this.dsHospitalizationSchedule.setColumn(row,"uniqueNtc",this.TextArea.value);    //특이사항			
 
-	this.gfnService("registerHosptlzRsvt","false");
+	this.gfnService("registerHospitalizationSchedule","false");
 }
 
 this.registerHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
@@ -228,7 +228,7 @@ this.registerHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 
 this.callhosptlzRsvtSeqCallbackFunc=function(svcID, errorCode, errorMsg){
 	if(errorCode=="1"){			
-		this.dsHosptlzRsvt.addRow();		
+		this.dsHospitalizationSchedule.addRow();		
 		this.rsvtNoEdt.set_value(this.hosptlzRsvtNo);		
 	}else{
 		alert("입원예약번호 중 오류발생");
@@ -240,9 +240,7 @@ this.HA_HospitalizationScheduleForm_onload = function(obj:Form, e:nexacro.LoadEv
 	this.patNoEd.set_value(this.parent.patNo);  //부모창에 받아온 환자등록번호 바로 셋팅
 	this.outpaReceiptNoEdt.set_value(this.parent.outpaReceiptNo);   //부모창에 받아온 외래접수번호 바로 셋팅
 	application.setVariable("hosptlzRsvtNo", this.hosptlzRsvtNo);
-	alert(111);
 	this.gfnService("callhosptlzRsvtSeq","false");   //입원예약번호 구하기
-	alert(222);
 	this.gfnBind();  
 	this.gfnService("empInfo","false");
 }
