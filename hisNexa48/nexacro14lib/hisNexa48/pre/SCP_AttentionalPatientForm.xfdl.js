@@ -314,7 +314,7 @@
             obj.style.set_bordertype("normal 3 3");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button02", "absolute", "344", "482", "45", "25", null, null, this);
+            obj = new Button("deleteAttFieldBtn", "absolute", "344", "482", "45", "25", null, null, this);
             obj.set_taborder("30");
             obj.set_text("삭제");
             obj.set_cssclass("btn_WF_CRUD");
@@ -543,9 +543,13 @@
         		case this.addAttFieldBtn: 	  // 관심영역 추가
         			this.clickAddAttFieldBtn();
         			break;
+        		case this.deleteAttFieldBtn:  // 관심영역 삭제
+        			this.clickDeleteAttFieldBtn();
+        			break;
         		case this.saveAttFieldBtn:    // 관심영역 저장
         			this.clickSaveAttFieldBtn();
         			break;
+        	
         	}	
         }
 
@@ -581,19 +585,31 @@
         }
 
         /*-------------------------------------------------------------------------------------------------+
-        >>  행추가
+        >>  행 추가,삭제
         +-------------------------------------------------------------------------------------------------*/
         this.clickAddAttFieldBtn = function(obj,e)
         {
+        	var fieldNm=this.regAttDiv.attFieldCombo.value;
         	var attDiv=this.regAttDiv.attDivEd.value;
-        	var fieldNm=this.regAttDiv.attFieldEd.value;
-        	if (fieldNm!=null){
-        	this.dsAttentionalField.addRow();
-        	var rowIdx=this.dsAttentionalField.getRowCount();
-        	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldSeq",rowIdx+1);
-        	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalDiv",attDiv);
-        	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldName",fieldNm);
-        	}
+        	if (fieldNm==null || attDiv ==null ){
+        		if(fieldNm==null && attDiv ==null )
+        			alert("관심영역과 분류명은 필수항목입니다");
+        		else if(fieldNm==null)
+        			alert("관심영역은 필수항목입니다");
+        		else if(attDiv==null)
+        			alert("분류명은 필수항목입니다");
+        	}else{
+        			this.dsAttentionalField.addRow();
+        			var rowIdx=this.dsAttentionalField.getRowCount();
+        			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldSeq",rowIdx+1);
+        			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalDiv",attDiv);
+        			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldName",fieldNm);
+        		}
+        }
+
+        this.clickDeleteAttFieldBtn = function(obj,e)
+        {
+        	this.dsAttentionalField.deleteRow(this.dsAttentionalField.rowposition);
         }
 
         
@@ -615,6 +631,8 @@
         this.clickSaveAttFieldBtn = function ()
         {
         	this.gfnService("batchAttentionalFieldProcess","false");
+        	
+        	this.reload();
         }
 
         /*-------------------------------------------------------------------------------------------------+
@@ -673,6 +691,7 @@
             this.searchAttBtn.addEventHandler("onclick", this.clickBtn, this);
             this.addAttFieldBtn.addEventHandler("onclick", this.clickBtn, this);
             this.saveAttFieldBtn.addEventHandler("onclick", this.clickBtn, this);
+            this.deleteAttFieldBtn.addEventHandler("onclick", this.clickBtn, this);
             this.regAttBtn.addEventHandler("onclick", this.clickBtn, this);
             this.clearRegAttBtn.addEventHandler("onclick", this.clickBtn, this);
             this.searchAttPatBtn.addEventHandler("onclick", this.clickBtn, this);

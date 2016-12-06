@@ -123,7 +123,7 @@
         <Button id="searchAttBtn" taborder="26" text="조회" cssclass="btn_WF_Search" left="827" top="77" width="58" height="23" style="background:#455a64ff;bordertype:normal 3 3 ;font:9 Gulim;" onclick="clickBtn"/>
         <Button id="addAttFieldBtn" taborder="28" text="추가" cssclass="btn_WF_CRUD" left="308" top="552" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
         <Button id="saveAttFieldBtn" taborder="29" text="저장" cssclass="btn_WF_CRUD" left="299" top="482" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
-        <Button id="Button02" taborder="30" text="삭제" cssclass="btn_WF_CRUD" left="344" top="482" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="deleteAttFieldBtn" taborder="30" text="삭제" cssclass="btn_WF_CRUD" left="344" top="482" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
         <Button id="regAttBtn" taborder="32" text="저장" cssclass="btn_WF_CRUD" left="299" top="76" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
         <Button id="clearRegAttBtn" taborder="33" text="초기화" cssclass="btn_WF_CRUD" left="344" top="76" width="45" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="clickBtn"/>
         <Button id="Button04" taborder="34" text="삭제" cssclass="btn_WF_CRUD" left="885" top="76" width="58" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
@@ -291,9 +291,13 @@ this.clickBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
 		case this.addAttFieldBtn: 	  // 관심영역 추가
 			this.clickAddAttFieldBtn();
 			break;
+		case this.deleteAttFieldBtn:  // 관심영역 삭제
+			this.clickDeleteAttFieldBtn();
+			break;
 		case this.saveAttFieldBtn:    // 관심영역 저장
 			this.clickSaveAttFieldBtn();
 			break;
+	
 	}	
 }
 
@@ -329,19 +333,31 @@ this.clickSearchAttBtnForSch = function () {
 }
 
 /*-------------------------------------------------------------------------------------------------+
->>  행추가
+>>  행 추가,삭제
 +-------------------------------------------------------------------------------------------------*/
 this.clickAddAttFieldBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
+	var fieldNm=this.regAttDiv.attFieldCombo.value;
 	var attDiv=this.regAttDiv.attDivEd.value;
-	var fieldNm=this.regAttDiv.attFieldEd.value;
-	if (fieldNm!=null){
-	this.dsAttentionalField.addRow();
-	var rowIdx=this.dsAttentionalField.getRowCount();
-	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldSeq",rowIdx+1);
-	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalDiv",attDiv);
-	this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldName",fieldNm);
-	}
+	if (fieldNm==null || attDiv ==null ){
+		if(fieldNm==null && attDiv ==null )
+			alert("관심영역과 분류명은 필수항목입니다");
+		else if(fieldNm==null)
+			alert("관심영역은 필수항목입니다");
+		else if(attDiv==null)
+			alert("분류명은 필수항목입니다");
+	}else{
+			this.dsAttentionalField.addRow();
+			var rowIdx=this.dsAttentionalField.getRowCount();
+			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldSeq",rowIdx+1);
+			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalDiv",attDiv);
+			this.dsAttentionalField.setColumn(rowIdx-1,"attentionalFieldName",fieldNm);
+		}
+}
+
+this.clickDeleteAttFieldBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsAttentionalField.deleteRow(this.dsAttentionalField.rowposition);
 }
 
 
@@ -363,6 +379,8 @@ this.clickRegAttBtn = function()
 this.clickSaveAttFieldBtn = function ()
 {
 	this.gfnService("batchAttentionalFieldProcess","false");
+	
+	this.reload();
 }
 
 /*-------------------------------------------------------------------------------------------------+
