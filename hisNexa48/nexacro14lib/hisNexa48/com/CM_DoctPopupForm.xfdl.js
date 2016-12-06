@@ -48,17 +48,16 @@
             // UI Components Initialize
             obj = new Div("Div00", "absolute", "0%", "0", null, "60", "1%", null, this);
             obj.set_taborder("0");
-            obj.set_text("      의사검색");
-            obj.style.set_align("left middle");
-            obj.style.set_background("transparent URL('img::titleBar1.jpg')");
-            obj.style.set_color("dodgerblue");
-            obj.style.set_font("bold antialias 20 맑은 고딕");
+            obj.set_text("의사검색");
+            obj.style.set_align("center middle");
+            obj.style.set_color("#37474fff");
+            obj.style.set_font("bold antialias 20 굴림");
             this.addChild(obj.name, obj);
 
             obj = new Static("deptStc", "absolute", "3.25%", "64", null, "27", "75%", null, this);
             obj.set_taborder("1");
             obj.set_text("진료부서코드");
-            obj.style.set_background("dodgerblue");
+            obj.style.set_background("#455a64ff");
             obj.style.set_color("cornsilk");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -84,12 +83,26 @@
             obj.set_binddataset("gdsEmp");
             obj.set_autofittype("col");
             obj.getSetter("class").set("AreaGrid");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"사원번호\"/><Cell col=\"1\" text=\"사원명\"/><Cell col=\"2\" text=\"진료과\"/></Band><Band id=\"body\"><Cell text=\"bind:empNo\"/><Cell col=\"1\" text=\"bind:empNm\"/><Cell col=\"2\" text=\"bind:deptNm\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#455a64ff;color:white;\" text=\"사원번호\"/><Cell col=\"1\" style=\"background:#455a64ff;color:white;\" text=\"사원명\"/><Cell col=\"2\" style=\"background:#455a64ff;color:white;\" text=\"진료과\"/></Band><Band id=\"body\"><Cell text=\"bind:empNo\"/><Cell col=\"1\" text=\"bind:empNm\"/><Cell col=\"2\" text=\"bind:deptNm\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
 
             
             // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 396, 60, this.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.set_text("의사검색");
+            		p.style.set_align("center middle");
+            		p.style.set_color("#37474fff");
+            		p.style.set_font("bold antialias 20 굴림");
+
+            	}
+            );
+            this.Div00.addLayout(obj.name, obj);
+
             //-- Default Layout
             obj = new Layout("default", "", 400, 500, this,
             	//-- Layout function

@@ -50,19 +50,6 @@
 
             
             // UI Components Initialize
-            obj = new Div("Div01", "absolute", "0.16%", "0", "1249", "60", null, null, this);
-            obj.set_taborder("0");
-            obj.style.set_background("transparent URL('img::titleBar2.jpg')");
-            obj.style.set_font("9 돋움");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static00", "absolute", "4.8%", "-5", null, "60", "71.84%", null, this);
-            obj.set_taborder("1");
-            obj.set_text("약물유해반응 관리");
-            obj.style.set_color("#6c6c6cff");
-            obj.style.set_font("9 돋움");
-            this.addChild(obj.name, obj);
-
             obj = new Div("adrDiv", "absolute", "1.92%", "66", "381", "104", null, null, this);
             obj.set_taborder("2");
             obj.style.set_background("#eceff1ff");
@@ -114,37 +101,6 @@
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
             this.adrDiv.addChild(obj.name, obj);
-            obj = new Button("searchAdrBtn", "absolute", "276", "59", "90", "32", null, null, this.adrDiv);
-            obj.set_taborder("26");
-            obj.style.set_background("@gradation URL('img::searchBtn.png') stretch");
-            obj.style.set_border("1 none #999999ff");
-            obj.style.set_font("9 돋움");
-            obj.style.set_cursor("hand");
-            obj.style.set_gradation("none 0,0 white 100,100 black");
-            obj.getSetter("class").set("");
-            this.adrDiv.addChild(obj.name, obj);
-
-            obj = new Button("addBtn", "absolute", "24", "192", "32", "32", null, null, this);
-            obj.set_taborder("3");
-            obj.style.set_background("@gradation URL('img::miniPlusBtn.png') stretch");
-            obj.style.set_border("1 none #999999ff");
-            obj.style.set_bordertype("normal 3 3");
-            obj.style.set_font("9 돋움");
-            obj.style.set_cursor("hand");
-            obj.style.set_gradation("none 0,0 white 100,100 black");
-            obj.getSetter("class").set("");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("delBtn", "absolute", "60", "192", "32", "32", null, null, this);
-            obj.set_taborder("4");
-            obj.style.set_background("@gradation URL('img::miniMinusBtn.png') stretch");
-            obj.style.set_border("1 none #999999ff");
-            obj.style.set_bordertype("normal 3 3");
-            obj.style.set_font("9 돋움");
-            obj.style.set_cursor("hand");
-            obj.style.set_gradation("none 0,0 white 100,100 black");
-            obj.getSetter("class").set("");
-            this.addChild(obj.name, obj);
 
             obj = new Grid("Grid00", "absolute", "1.92%", "232", null, "520", "67.6%", null, this);
             obj.set_taborder("5");
@@ -649,6 +605,57 @@
             obj.style.set_font("9 돋움");
             this.adrDiv00.addChild(obj.name, obj);
 
+            obj = new Static("Static00", "absolute", "1.84%", "7", null, "41", "85.76%", null, this);
+            obj.set_taborder("16");
+            obj.set_text("약물유해반응");
+            obj.style.set_color("#6c6c6cff");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("middle");
+            obj.style.set_font("antialias 16 arial");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("searchAdrBtn", "absolute", "298", "130", "58", "23", null, null, this);
+            obj.set_taborder("17");
+            obj.set_text("조회");
+            obj.set_cssclass("btn_WF_Search");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_bordertype("normal 3 3");
+            obj.style.set_font("9 Gulim");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("addBtn", "absolute", "27", "195", "45", "25", null, null, this);
+            obj.set_taborder("18");
+            obj.set_text("추가");
+            obj.set_cssclass("btn_WF_CRUD");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
+            obj.style.set_bordertype("normal 3 3");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("delBtn", "absolute", "80", "195", "45", "25", null, null, this);
+            obj.set_taborder("19");
+            obj.set_text("삭제");
+            obj.set_cssclass("btn_WF_CRUD");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
+            obj.style.set_bordertype("normal 3 3");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button06", "absolute", "234", "78", "30", "30", null, null, this);
+            obj.set_taborder("20");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button00", "absolute", "642", "72", "30", "30", null, null, this);
+            obj.set_taborder("21");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("Button01", "absolute", "876", "443", "30", "30", null, null, this);
+            obj.set_taborder("22");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            this.addChild(obj.name, obj);
+
 
             
             // Layout Functions
@@ -939,9 +946,6 @@
             this.adrDiv.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.adrDiv.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.adrDiv.DelBtn10.addEventHandler("onclick", this.DelBtn_onclick, this);
-            this.adrDiv.searchAdrBtn.addEventHandler("onclick", this.adrDiv_searchAdrBtn_onclick, this);
-            this.addBtn.addEventHandler("onclick", this.addBtn_onclick, this);
-            this.delBtn.addEventHandler("onclick", this.delBtn_onclick, this);
             this.batchBtn.addEventHandler("onclick", this.batchBtn_onclick, this);
             this.DelBtn26.addEventHandler("onclick", this.DelBtn_onclick, this);
             this.writerDiv.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
@@ -973,6 +977,9 @@
             this.adrDiv00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.adrDiv00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.adrDiv00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.searchAdrBtn.addEventHandler("onclick", this.adrDiv_searchAdrBtn_onclick, this);
+            this.addBtn.addEventHandler("onclick", this.addBtn_onclick, this);
+            this.delBtn.addEventHandler("onclick", this.delBtn_onclick, this);
 
         };
 

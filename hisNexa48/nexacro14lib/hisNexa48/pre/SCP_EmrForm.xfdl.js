@@ -14,7 +14,7 @@
                 this.set_name("SC_EmrForm");
                 this.set_classname("SC_EmrForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,1024,768);
+                this._setFormPosition(0,0,1250,768);
             }
 
             
@@ -22,22 +22,22 @@
 
             
             // UI Components Initialize
-            obj = new Static("Static00", "absolute", "2.34%", "14", null, "46", "84.77%", null, this);
+            obj = new Static("Static00", "absolute", "1.86%", "7", null, "41", "85.74%", null, this);
             obj.set_taborder("0");
             obj.set_text("EMR");
             obj.style.set_color("#6c6c6cff");
             obj.style.set_bordertype("normal 0 0");
             obj.style.set_align("middle");
-            obj.style.set_font("antialias 20 맑은 고딕");
+            obj.style.set_font("antialias 16 맑은 고딕");
             this.addChild(obj.name, obj);
 
-            obj = new Div("trmtDiv", "absolute", "0.49%", "64", "450", "641", null, null, this);
+            obj = new Div("trmtDiv", "absolute", "1.84%", "65", "547", "670", null, null, this);
             obj.set_taborder("13");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_bordertype("normal 0 0");
             this.addChild(obj.name, obj);
-            obj = new Static("subCodeStc01", "absolute", "75.47%", "47", null, "30", "17.69%", null, this.trmtDiv);
+            obj = new Static("subCodeStc01", "absolute", "75.67%", "42", null, "30", "17.41%", null, this.trmtDiv);
             obj.set_taborder("25");
             obj.set_text("과");
             obj.style.set_background("#b0bec5ff");
@@ -47,7 +47,7 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc02", "absolute", "42.45%", "47", null, "30", "43.4%", null, this.trmtDiv);
+            obj = new Static("subCodeStc02", "absolute", "42.63%", "42", null, "30", "43.08%", null, this.trmtDiv);
             obj.set_taborder("26");
             obj.set_text("진료의");
             obj.style.set_background("#b0bec5ff");
@@ -57,7 +57,7 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc00", "absolute", "0.94%", "43", null, "30", "86.08%", null, this.trmtDiv);
+            obj = new Static("subCodeStc00", "absolute", "1.12%", "42", null, "30", "85.94%", null, this.trmtDiv);
             obj.set_taborder("27");
             obj.set_text("진료일");
             obj.style.set_background("#b0bec5ff");
@@ -67,25 +67,25 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Calendar("trmtDateCal", "absolute", "14.62%", "42", null, "31", "58.02%", null, this.trmtDiv);
+            obj = new Calendar("trmtDateCal", "absolute", "14.73%", "42", null, "31", "57.81%", null, this.trmtDiv);
             this.trmtDiv.addChild(obj.name, obj);
             obj.set_taborder("28");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_bordertype("normal 0 0");
-            obj = new Edit("trmtDeptEd", "absolute", "82.78%", "47", "67", "30", null, null, this.trmtDiv);
+            obj = new Edit("trmtDeptEd", "absolute", "83.04%", "42", "67", "30", null, null, this.trmtDiv);
             obj.set_taborder("29");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDoctEd", "absolute", "57.08%", "47", "74", "30", null, null, this.trmtDiv);
+            obj = new Edit("trmtDoctEd", "absolute", "57.37%", "42", "74", "30", null, null, this.trmtDiv);
             obj.set_taborder("30");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.trmtDiv.addChild(obj.name, obj);
 
-            obj = new Static("regAttStc", "absolute", "1.27%", "76", null, "28", "57.13%", null, this);
+            obj = new Static("regAttStc", "absolute", "2.25%", "72", null, "28", "54.79%", null, this);
             obj.set_taborder("14");
             obj.set_text("   진료정보");
             obj.style.set_background("#78909cff");
@@ -95,7 +95,7 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("regAttStc00", "absolute", "1.56%", "148", null, "28", "56.84%", null, this);
+            obj = new Static("regAttStc00", "absolute", "2.34%", "151", null, "28", "54.79%", null, this);
             obj.set_taborder("15");
             obj.set_text("   환자정보");
             obj.style.set_background("#78909cff");
@@ -105,7 +105,7 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc03", "absolute", "1.56%", "190", "60", "30", null, null, this);
+            obj = new Static("subCodeStc03", "absolute", "3.2%", "185", "60", "30", null, null, this);
             obj.set_taborder("16");
             obj.set_text("환자명");
             obj.style.set_background("#b0bec5ff");
@@ -116,14 +116,14 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("searchDeptEd00", "absolute", "7.62%", "190", "78", "30", null, null, this);
+            obj = new Edit("searchDeptEd00", "absolute", "8.64%", "185", "78", "30", null, null, this);
             obj.set_taborder("17");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc04", "absolute", "1.56%", "232", "60", "30", null, null, this);
+            obj = new Static("subCodeStc04", "absolute", "3.2%", "225", "60", "30", null, null, this);
             obj.set_taborder("18");
             obj.set_text("초/재진");
             obj.style.set_background("#b0bec5ff");
@@ -134,14 +134,14 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("searchDeptEd01", "absolute", "7.62%", "233", "78", "30", null, null, this);
+            obj = new Edit("searchDeptEd01", "absolute", "8.64%", "223", "78", "30", null, null, this);
             obj.set_taborder("19");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc00", "absolute", "15.82%", "232", "60", "30", null, null, this);
+            obj = new Static("subCodeStc00", "absolute", "16.7%", "223", "60", "30", null, null, this);
             obj.set_taborder("20");
             obj.set_text("유형");
             obj.style.set_background("#b0bec5ff");
@@ -152,7 +152,7 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc02", "absolute", "15.82%", "190", "60", "30", null, null, this);
+            obj = new Static("subCodeStc02", "absolute", "16.8%", "185", "60", "30", null, null, this);
             obj.set_taborder("21");
             obj.set_text("등록번호");
             obj.style.set_background("#b0bec5ff");
@@ -163,21 +163,21 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("searchDeptEd02", "absolute", "21.97%", "190", "78", "30", null, null, this);
+            obj = new Edit("searchDeptEd02", "absolute", "22.16%", "185", "78", "30", null, null, this);
             obj.set_taborder("22");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("searchDeptEd04", "absolute", "21.97%", "232", "78", "30", null, null, this);
+            obj = new Edit("searchDeptEd04", "absolute", "22.16%", "223", "78", "30", null, null, this);
             obj.set_taborder("23");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc", "absolute", "30.08%", "234", "60", "30", null, null, this);
+            obj = new Static("subCodeStc", "absolute", "30.96%", "223", "60", "30", null, null, this);
             obj.set_taborder("24");
             obj.set_text("입원여부");
             obj.style.set_background("#b0bec5ff");
@@ -188,7 +188,7 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc01", "absolute", "30.08%", "192", "60", "30", null, null, this);
+            obj = new Static("subCodeStc01", "absolute", "30.96%", "185", "60", "30", null, null, this);
             obj.set_taborder("25");
             obj.set_text("진료여부");
             obj.style.set_background("#b0bec5ff");
@@ -199,7 +199,7 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("trmtCombo", "absolute", "36.43%", "190", "70", "29", null, null, this);
+            obj = new Combo("trmtCombo", "absolute", "36.4%", "184", "70", "29", null, null, this);
             this.addChild(obj.name, obj);
             obj.set_taborder("26");
             obj.set_innerdataset("dsYnType");
@@ -207,7 +207,7 @@
             obj.set_datacolumn("ynType");
             obj.style.set_bordertype("normal 0 0");
 
-            obj = new Combo("hosCombo", "absolute", "36.43%", "232", "70", "29", null, null, this);
+            obj = new Combo("hosCombo", "absolute", "36.4%", "223", "70", "29", null, null, this);
             this.addChild(obj.name, obj);
             obj.set_taborder("27");
             obj.set_innerdataset("dsYnType");
@@ -215,7 +215,7 @@
             obj.set_datacolumn("ynType");
             obj.style.set_bordertype("normal 0 0");
 
-            obj = new Radio("inoutRadio", "absolute", "10.94%", "279", null, "25", "75.29%", null, this);
+            obj = new Radio("inoutRadio", "absolute", "14.4%", "268", null, "25", "71.84%", null, this);
             this.addChild(obj.name, obj);
             var inoutRadio_innerdataset = new Dataset("inoutRadio_innerdataset", this.inoutRadio);
             inoutRadio_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\"/><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">입원</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">외래</Col></Row></Rows>");
@@ -227,7 +227,7 @@
             obj.style.set_bordertype("normal 0 0");
             obj.set_index("0");
 
-            obj = new Button("searchAttBtn", "absolute", "259", "280", "58", "23", null, null, this);
+            obj = new Button("searchAttBtn", "absolute", "355", "268", "58", "23", null, null, this);
             obj.set_taborder("30");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -236,7 +236,7 @@
             obj.style.set_font("9 Gulim");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("patGrid", "absolute", "11", "321", "425", "366", null, null, this);
+            obj = new Grid("patGrid", "absolute", "28", "312", "537", "409", null, null, this);
             obj.set_taborder("31");
             obj.set_binddataset("dsOutpaReceipt");
             obj.set_autofittype("col");
@@ -245,14 +245,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/><Row size=\"24\" band=\"summ\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;color:black;\" text=\"NO\"/><Cell col=\"1\" style=\"background:#cfd8dcff;color:black;\" text=\"환자번호\"/><Cell col=\"2\" style=\"background:#cfd8dcff;color:black;\" text=\"환자명\"/><Cell col=\"3\" style=\"background:#cfd8dcff;color:black;\" text=\"환자유형\"/><Cell col=\"4\" style=\"background:#cfd8dcff;color:black;\" text=\"초/재진여부\"/></Band><Band id=\"body\"><Cell expr=\"expr:currow+1\"/><Cell col=\"1\" text=\"bind:patNo\"/><Cell col=\"2\" text=\"bind:patNm\"/><Cell col=\"3\" text=\"bind:patType\"/><Cell col=\"4\" text=\"bind:ntTtYb\"/></Band><Band id=\"summary\"><Cell colspan=\"3\" style=\"background:#cfd8dcff;\" text=\"인원\"/><Cell col=\"3\" colspan=\"2\" style=\"background:#cfd8dcff;\" expr=\"expr:dataset.getRowCount()\" mask=\"##명\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Div("trmtDiv00", "absolute", "45.31%", "64", "542", "645", null, null, this);
-            obj.set_taborder("32");
-            obj.style.set_background("#eceff1ff");
-            obj.style.set_border("1 solid #808080ff");
-            obj.style.set_bordertype("normal 0 0");
-            this.addChild(obj.name, obj);
-
-            obj = new Tab("reportTab", "absolute", "46.09%", "80", null, "607", "3.52%", null, this);
+            obj = new Tab("reportTab", "absolute", "46.88%", "66", null, "669", "1.76%", null, this);
             obj.set_taborder("33");
             obj.set_tabindex("0");
             obj.set_scrollbars("autoboth");
@@ -302,7 +295,7 @@
             
             // Layout Functions
             //-- Default Layout
-            obj = new Layout("default", "", 450, 641, this.trmtDiv,
+            obj = new Layout("default", "", 547, 670, this.trmtDiv,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("13");
@@ -313,19 +306,6 @@
             	}
             );
             this.trmtDiv.addLayout(obj.name, obj);
-
-            //-- Default Layout
-            obj = new Layout("default", "", 542, 645, this.trmtDiv00,
-            	//-- Layout function
-            	function(p) {
-            		p.set_taborder("32");
-            		p.style.set_background("#eceff1ff");
-            		p.style.set_border("1 solid #808080ff");
-            		p.style.set_bordertype("normal 0 0");
-
-            	}
-            );
-            this.trmtDiv00.addLayout(obj.name, obj);
 
             //-- Default Layout
             obj = new Layout("default", "", 430, 208, this.reportTab.med,
@@ -348,7 +328,7 @@
             this.reportTab.chartTp.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 1024, 768, this,
+            obj = new Layout("default", "", 1250, 768, this,
             	//-- Layout function
             	function(p) {
             		p.set_classname("SC_EmrForm");

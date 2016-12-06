@@ -23,7 +23,7 @@
         this.gfnDate = function(format) {
            this.transaction(
               "findDate",
-              "erp47::com/findDate.do",
+              "his::com/findDate.do",
               "",
               "",
               "format=" + format,

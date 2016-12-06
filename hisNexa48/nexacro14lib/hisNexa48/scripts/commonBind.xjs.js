@@ -31,7 +31,7 @@
             
         	this.transaction(
         		"codeBind",
-        		"erp47::com/bindCode.do",
+        		"his::com/bindCode.do",
         		"dsBindCode=dsBindCode",
         		outData,
         		"",

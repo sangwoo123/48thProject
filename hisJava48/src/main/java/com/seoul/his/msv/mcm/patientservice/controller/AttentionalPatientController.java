@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.msv.mcm.patientservice.service.PatientServiceServiceFacade;
-import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 
@@ -23,11 +22,10 @@ import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
  *    |_ AttentionalPatientController.java
  * </pre>
  *
- * @date : 2016. 11. 30. 오후 5:38:19
+ * @date : 2016. 12. 6. 오후 2:26:09
  * @version :
  * @author : Minhyeog
  */
-
 @Controller
 public class AttentionalPatientController {
 
