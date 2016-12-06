@@ -24,7 +24,5 @@ import lombok.ToString;
 
 @Dataset(name = "dsAttentionalPatient")
 public class AttentionalPatientBean extends BaseBean {
-
-	private String attentionalRegNo, patNo, patName, attentionalField, attentionalDiv, startDate, endDate;
-
+	private String attentionalRegNo ,patNo ,patName ,attentionalFieldName, attentionalDiv ,attentionalContent, startDate ,endDate;
 }

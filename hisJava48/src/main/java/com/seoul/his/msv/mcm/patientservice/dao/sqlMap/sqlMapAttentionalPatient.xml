@@ -8,25 +8,46 @@
 		<result property="attentionalRegNo" column="ATTENTIONAL_REG_NO" />
 		<result property="patNo" column="PAT_NO" />
 		<result property="patName" column="PAT_NAME" />
-		<result property="attentionalField" column="ATTENTIONAL_FIELD" />
+		<result property="attentionalFieldName" column="ATTENTIONAL_FIELD_NAME" />
 		<result property="attentionalDiv" column="ATTENTIONAL_DIV" />
+		<result property="attentionalContent" column="ATTENTIONAL_CONTENT" />
 		<result property="startDate" column="START_DATE" />
 		<result property="endDate" column="END_DATE" />
  	</resultMap>
 
  	<select id="selectAttentionalPatientList" flushCache="false"
  			   useCache="true" resultMap="AttentionalPatient" parameterType="Map">
-
 		SELECT    ATTENTIONAL_REG_NO
 				    , PAT_NO
 				    , PAT_NAME
-				    , ATTENTIONAL_FIELD
+				    , ATTENTIONAL_FIELD_NAME
 				    , ATTENTIONAL_DIV
+				    , ATTENTIONAL_CONTENT
 				    , START_DATE
 				    , END_DATE
 	   FROM     MB_ATTENTIONAL_PATIENT
 	   WHERE    PAT_NO = #{attPtNo}
 
  	</select>
-
+	<update id="insertAttentionalPatient" parameterType="AttentionalPatientBean">
+            INSERT INTO MB_ATTENTIONAL_PATIENT (
+                ATTENTIONAL_REG_NO
+              , PAT_NO
+              , PAT_NAME
+              , ATTENTIONAL_FIELD_NAME
+              , ATTENTIONAL_DIV
+              , ATTENTIONAL_CONTENT
+              , START_DATE
+              , END_DATE
+            ) VALUES (
+                ATTENTIONAL_REG_NO_SEQ.NEXTVAL
+             , #{patNo}
+             , #{patName}
+             , #{attentionalFieldName}
+             , #{attentionalDiv}
+             , #{attentionalContent}
+             , #{startDate}
+             , #{endDate}
+            )
+    </update>
 </mapper>

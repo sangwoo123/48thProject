@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApplicationService;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
-import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
+import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
@@ -50,12 +50,20 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 				.findAttentionalPatientList(argsMap);
 		return attentionalPatientList;
 	}
-
-	/* 관심분류코드관리 */
 	@Override
-	public List<AttentionalCodeBean> findAttentionalCodeList(Map<String, String> argsMap) {
-		List<AttentionalCodeBean> attentionalCodeList = patientserviceApplicationService
-				.findAttentionalCodeList(argsMap);
-		return attentionalCodeList;
+	public void registerAttentionalPatient(AttentionalPatientBean attentionalPatient) {
+		patientserviceApplicationService.registerAttentionalPatient(attentionalPatient);
+	}
+
+	/* 관심분류관리 */
+	@Override
+	public List<AttentionalFieldBean> findAttentionalFieldList(Map<String, String> argsMap) {
+		List<AttentionalFieldBean> attentionalFieldList = patientserviceApplicationService
+				.findAttentionalFieldList(argsMap);
+		return attentionalFieldList;
+	}
+	@Override
+	public void batchAttentionalFieldProcess(List<AttentionalFieldBean> attentionalFieldList) {
+		patientserviceApplicationService.batchAttentionalFieldProcess(attentionalFieldList);
 	}
 }

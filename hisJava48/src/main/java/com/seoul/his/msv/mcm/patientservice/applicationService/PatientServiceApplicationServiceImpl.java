@@ -7,22 +7,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
-import com.seoul.his.msv.mcm.patientservice.dao.AttentionalCodeDAO;
+import com.seoul.his.msv.mcm.patientservice.dao.AttentionalFieldDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.PatientServiceDAO;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
-import com.seoul.his.msv.mcm.patientservice.to.AttentionalCodeBean;
+import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
 /**
- * @Package com.seoul.his.acc.budget.applicationService
- * @Class AccBudgetApplicationServiceImpl.java
- * @Create 2016. 6. 27.
- * @Author jeong
- * @Description
+ * <pre>
+ * com.seoul.his.msv.mcm.patientservice.applicationService
+ *    |_ PatientServiceApplicationServiceImpl.java
+ * </pre>
  *
- * @LastUpdated
+ * @date : 2016. 12. 5. 오전 10:09:57
+ * @version :
+ * @author : Minhyeog
  */
 
 @Component
@@ -32,7 +33,9 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	@Autowired
 	AttentionalPatientDAO attentionalPatientDAO;
 	@Autowired
-	AttentionalCodeDAO attentionalCodeDAO;
+	AttentionalFieldDAO attentionalFieldDAO;
+	@Autowired
+	AdrDAO adrDAO;
 
 	@Override
 	public List<PatientServiceBean> findPatientServiceList(Map<String, String> argsMap) {
@@ -47,17 +50,36 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 				.selectAttentionalPatientList(argsMap);
 		return attentionalPatientList;
 	}
+	@Override
+	public void registerAttentionalPatient(AttentionalPatientBean attentionalPatient) {
+		attentionalPatientDAO.insertAttentionalPatient(attentionalPatient);
+	}
 
 	/* 관심분류코드관리 */
 	@Override
-	public List<AttentionalCodeBean> findAttentionalCodeList(Map<String, String> argsMap) {
-		List<AttentionalCodeBean> attentionalCodeList = attentionalCodeDAO.selectAttentionalCodeList(argsMap);
+	public List<AttentionalFieldBean> findAttentionalFieldList(Map<String, String> argsMap) {
+		List<AttentionalFieldBean> attentionalCodeList = attentionalFieldDAO.selectAttentionalFieldList(argsMap);
 		return attentionalCodeList;
 	}
 
-	@Autowired
-	private AdrDAO adrDAO;
-
+	@Override
+	public void batchAttentionalFieldProcess(List<AttentionalFieldBean> attentionalFieldList) {
+		for (AttentionalFieldBean attentionalFieldBean : attentionalFieldList) {
+			String status = attentionalFieldBean.getStatus();
+			switch (status) {
+			case "inserted":
+				attentionalFieldDAO.insertAttentionalField(attentionalFieldBean);
+				break;
+			case "updated":
+				attentionalFieldDAO.updateAttentionalField(attentionalFieldBean);
+				break;
+			case "deleted":
+				attentionalFieldDAO.deleteAttentionalField(attentionalFieldBean);
+				break;
+			}
+		}
+	}
+	/* ADR 관리 */
 	@Override
 	public List<AdrBean> findAdrList(Map<String, String> argsMap) {
 		return adrDAO.selectAdrList(argsMap);
