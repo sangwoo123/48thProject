@@ -8,12 +8,12 @@
         <Div id="trmtDiv" taborder="13" left="1.84%" top="65" width="547" height="670" style="background:#eceff1ff;border:1 solid #808080ff ;bordertype:normal 0 0 ;">
           <Layouts>
             <Layout>
-              <Static id="subCodeStc01" taborder="25" text="과" onclick="subCodeStc_onclick" left="75.67%" top="42" right="17.41%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc02" taborder="26" text="진료의" onclick="subCodeStc_onclick" left="42.63%" top="42" right="43.08%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc00" taborder="27" text="진료일" onclick="subCodeStc_onclick" left="1.12%" top="42" right="85.94%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Calendar id="trmtDateCal" taborder="28" dateformat="yyyy-MM-dd" left="14.73%" top="42" right="57.81%" height="31" style="bordertype:normal 0 0 ;"/>
-              <Edit id="trmtDeptEd" taborder="29" enable="false" left="83.04%" top="42" width="67" height="30" style="bordertype:normal 0 0 ;" class="AreaEdt"/>
-              <Edit id="trmtDoctEd" taborder="30" enable="false" left="57.37%" top="42" width="74" height="30" style="bordertype:normal 0 0 ;" class="AreaEdt"/>
+              <Static id="subCodeStc01" taborder="25" text="과" onclick="subCodeStc_onclick" left="77.61%" top="42" right="15.41%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc02" taborder="26" text="진료의" onclick="subCodeStc_onclick" left="40.92%" top="42" right="44.77%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc00" taborder="27" text="진료일" onclick="subCodeStc_onclick" left="3.12%" top="42" right="83.85%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 0 0 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="trmtDateCal" taborder="28" dateformat="yyyy-MM-dd" left="16.7%" top="41" right="60.55%" height="31" style="bordertype:normal 0 0 ;"/>
+              <Edit id="trmtDeptEd" taborder="29" enable="false" left="85.14%" top="42" width="67" height="30" style="bordertype:normal 0 0 ;" class="AreaEdt"/>
+              <Edit id="trmtDoctEd" taborder="30" enable="false" left="55.96%" top="42" width="74" height="30" style="bordertype:normal 0 0 ;" class="AreaEdt"/>
             </Layout>
           </Layouts>
         </Div>
@@ -54,7 +54,7 @@
           </Dataset>
         </Radio>
         <Button id="searchAttBtn" taborder="30" text="조회" onclick="searchBtn_onclick" cssclass="btn_WF_Search" left="355" top="268" width="58" height="23" style="background:#455a64ff;bordertype:normal 3 3 ;font:9 Gulim;"/>
-        <Grid id="patGrid" taborder="31" binddataset="dsOutpaReceipt" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="28" top="312" width="537" height="409" style="border:2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;bordertype:normal 0 0 ;">
+        <Grid id="patGrid" taborder="31" binddataset="dsOutpaReceipt" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="28" top="322" width="537" height="162" style="border:2 solid #9f8f71ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;bordertype:normal 0 0 ;">
           <Formats>
             <Format id="default">
               <Columns>
@@ -150,6 +150,7 @@
             </Tabpage>
           </Tabpages>
         </Tab>
+        <Button id="searchAttPatBtn" taborder="34" onclick="clickBtn" cssclass="btn_WF_SearchSmall" left="409" top="108" width="30" height="30"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            

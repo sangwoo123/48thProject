@@ -37,7 +37,7 @@
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_bordertype("normal 0 0");
             this.addChild(obj.name, obj);
-            obj = new Static("subCodeStc01", "absolute", "75.67%", "42", null, "30", "17.41%", null, this.trmtDiv);
+            obj = new Static("subCodeStc01", "absolute", "77.61%", "42", null, "30", "15.41%", null, this.trmtDiv);
             obj.set_taborder("25");
             obj.set_text("과");
             obj.style.set_background("#b0bec5ff");
@@ -47,7 +47,7 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc02", "absolute", "42.63%", "42", null, "30", "43.08%", null, this.trmtDiv);
+            obj = new Static("subCodeStc02", "absolute", "40.92%", "42", null, "30", "44.77%", null, this.trmtDiv);
             obj.set_taborder("26");
             obj.set_text("진료의");
             obj.style.set_background("#b0bec5ff");
@@ -57,7 +57,7 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc00", "absolute", "1.12%", "42", null, "30", "85.94%", null, this.trmtDiv);
+            obj = new Static("subCodeStc00", "absolute", "3.12%", "42", null, "30", "83.85%", null, this.trmtDiv);
             obj.set_taborder("27");
             obj.set_text("진료일");
             obj.style.set_background("#b0bec5ff");
@@ -67,18 +67,18 @@
             obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Calendar("trmtDateCal", "absolute", "14.73%", "42", null, "31", "57.81%", null, this.trmtDiv);
+            obj = new Calendar("trmtDateCal", "absolute", "16.7%", "41", null, "31", "60.55%", null, this.trmtDiv);
             this.trmtDiv.addChild(obj.name, obj);
             obj.set_taborder("28");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_bordertype("normal 0 0");
-            obj = new Edit("trmtDeptEd", "absolute", "83.04%", "42", "67", "30", null, null, this.trmtDiv);
+            obj = new Edit("trmtDeptEd", "absolute", "85.14%", "42", "67", "30", null, null, this.trmtDiv);
             obj.set_taborder("29");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.trmtDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDoctEd", "absolute", "57.37%", "42", "74", "30", null, null, this.trmtDiv);
+            obj = new Edit("trmtDoctEd", "absolute", "55.96%", "42", "74", "30", null, null, this.trmtDiv);
             obj.set_taborder("30");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
@@ -236,7 +236,7 @@
             obj.style.set_font("9 Gulim");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("patGrid", "absolute", "28", "312", "537", "409", null, null, this);
+            obj = new Grid("patGrid", "absolute", "28", "322", "537", "162", null, null, this);
             obj.set_taborder("31");
             obj.set_binddataset("dsOutpaReceipt");
             obj.set_autofittype("col");
@@ -290,6 +290,11 @@
             obj.style.set_bordertype("round 5 5");
             obj.set_cssclass("TStc");
             this.reportTab.chartTp.addChild(obj.name, obj);
+
+            obj = new Button("searchAttPatBtn", "absolute", "409", "108", "30", "30", null, null, this);
+            obj.set_taborder("34");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            this.addChild(obj.name, obj);
 
 
             
@@ -695,6 +700,7 @@
             this.inoutRadio.addEventHandler("onitemchanged", this.inoutRadio_onitemchanged, this);
             this.searchAttBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
             this.patGrid.addEventHandler("oncellclick", this.patGrid_oncellclick, this);
+            this.searchAttPatBtn.addEventHandler("onclick", this.clickBtn, this);
 
         };
 
