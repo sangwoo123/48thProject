@@ -10,6 +10,7 @@ import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApp
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
 /**
@@ -32,6 +33,13 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 	public List<PatientServiceBean> findPatientServiceList(Map<String, String> argsMap) {
 		List<PatientServiceBean> patientserviceList = patientserviceApplicationService.findPatientServiceList(argsMap);
 		return patientserviceList;
+	}
+
+
+	/* 	 EMR 관리	*/
+	@Override
+	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
+		return patientserviceApplicationService.findEmrList(argsMap);
 	}
 
 	/*	 ADR관리	*/

@@ -396,7 +396,6 @@ this.adrDiv_searchAdrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 	this.gfnService("findAdrList");
 }
 
-
 this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsAdr.deleteRow(this.dsAdr.rowposition);

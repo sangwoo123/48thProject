@@ -884,7 +884,6 @@
         	this.gfnService("findAdrList");
         }
 
-        
         this.delBtn_onclick = function(obj,e)
         {
         	this.dsAdr.deleteRow(this.dsAdr.rowposition);

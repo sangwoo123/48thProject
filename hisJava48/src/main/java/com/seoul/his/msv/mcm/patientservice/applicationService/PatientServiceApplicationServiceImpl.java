@@ -9,10 +9,12 @@ import org.springframework.stereotype.Component;
 import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalFieldDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
+import com.seoul.his.msv.mcm.patientservice.dao.EmrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.PatientServiceDAO;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
 /**
@@ -36,12 +38,24 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	AttentionalFieldDAO attentionalFieldDAO;
 	@Autowired
 	AdrDAO adrDAO;
+	@Autowired
+	EmrDAO emrDAO;
+
 
 	@Override
 	public List<PatientServiceBean> findPatientServiceList(Map<String, String> argsMap) {
 		List<PatientServiceBean> patientserviceList = patientserviceDAO.selectPatientServiceList(argsMap);
 		return patientserviceList;
 	}
+
+
+	/* 	 EMR 관리	*/
+	@Override
+	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
+		System.out.println(argsMap.get("patNo")+argsMap.get("trmtDate")+argsMap.get("doctNo")+argsMap.get("doctDept")+argsMap.get("inout"));
+		return emrDAO.selectEmrList(argsMap);
+	}
+
 
 	/* 관심환자관리 */
 	@Override

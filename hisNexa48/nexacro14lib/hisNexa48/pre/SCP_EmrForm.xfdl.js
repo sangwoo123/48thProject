@@ -19,7 +19,7 @@
 
             
             // Object(Dataset, ExcelExportObject) Initialize
-            obj = new Dataset("dsBaseExam", this);
+            obj = new Dataset("dsService", this);
             obj.set_firefirstcount("0");
             obj.getSetter("firenextcount").set("0");
             obj.set_useclientlayout("false");
@@ -28,13 +28,17 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"systolicPressure\" type=\"STRING\" size=\"256\"/><Column id=\"diastolicPressure\" type=\"STRING\" size=\"256\"/><Column id=\"pulse\" type=\"STRING\" size=\"256\"/><Column id=\"respirationRate\" type=\"STRING\" size=\"256\"/><Column id=\"bodyTemp\" type=\"STRING\" size=\"256\"/><Column id=\"sopMemo\" type=\"STRING\" size=\"256\"/><Column id=\"patNo\" type=\"STRING\" size=\"256\"/><Column id=\"prescNo\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findEmrList</Col><Col id=\"URL\">his::msv/mcm/patientservice/findEmrList.do</Col><Col id=\"callbackFunc\">findEmrCallback</Col><Col id=\"outData\">dsEmr=dsEmr</Col><Col id=\"inData\"/></Row></Rows>");
+            this.addChild(obj.name, obj);
+
+            obj = new Dataset("dsEmr", this);
+            obj._setContents("<ColumnInfo><Column id=\"adrNo\" type=\"STRING\" size=\"256\"/><Column id=\"patNo\" type=\"STRING\" size=\"256\"/><Column id=\"patNm\" type=\"STRING\" size=\"256\"/><Column id=\"patAge\" type=\"STRING\" size=\"256\"/><Column id=\"patGender\" type=\"STRING\" size=\"256\"/><Column id=\"prescNo\" type=\"STRING\" size=\"256\"/><Column id=\"diseaseNm\" type=\"STRING\" size=\"256\"/><Column id=\"writerNo\" type=\"STRING\" size=\"256\"/><Column id=\"writerNm\" type=\"STRING\" size=\"256\"/><Column id=\"writeDate\" type=\"STRING\" size=\"256\"/><Column id=\"writerJob\" type=\"STRING\" size=\"256\"/><Column id=\"drugNo\" type=\"STRING\" size=\"256\"/><Column id=\"drugNm\" type=\"STRING\" size=\"256\"/><Column id=\"manifacture\" type=\"STRING\" size=\"256\"/><Column id=\"usage\" type=\"STRING\" size=\"256\"/><Column id=\"capct\" type=\"STRING\" size=\"256\"/><Column id=\"injcStartDate\" type=\"STRING\" size=\"256\"/><Column id=\"injcEndDate\" type=\"STRING\" size=\"256\"/><Column id=\"injcPurp\" type=\"STRING\" size=\"256\"/><Column id=\"rvlStartDate\" type=\"STRING\" size=\"256\"/><Column id=\"rvlEndDate\" type=\"STRING\" size=\"256\"/><Column id=\"rvlRecogDate\" type=\"STRING\" size=\"256\"/><Column id=\"afterInjcRvl\" type=\"STRING\" size=\"256\"/><Column id=\"symptom\" type=\"STRING\" size=\"256\"/><Column id=\"prog\" type=\"STRING\" size=\"256\"/><Column id=\"rltnExmntNm\" type=\"STRING\" size=\"256\"/><Column id=\"rltnExmntVal\" type=\"STRING\" size=\"256\"/><Column id=\"action\" type=\"STRING\" size=\"256\"/><Column id=\"reinjcReact\" type=\"STRING\" size=\"256\"/><Column id=\"opinion\" type=\"STRING\" size=\"256\"/><Column id=\"reportYn\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             
             // UI Components Initialize
-            obj = new Tab("emrTab", "absolute", "2.64%", "152", null, "604", "4.08%", null, this);
+            obj = new Tab("emrTab", "absolute", "2.64%", "152", null, "604", "3.52%", null, this);
             obj.set_tooltiptype("hover");
             obj.set_taborder("33");
             obj.set_tabindex("0");
@@ -57,7 +61,7 @@
             obj.set_taborder("60");
             obj.style.set_background("#eceff1ff");
             this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Grid("Grid01", "absolute", "0.52%", "37", "374", "142", null, null, this.emrTab.medTp.Div00);
+            obj = new Grid("Grid01", "absolute", "0.51%", "37", "374", "142", null, null, this.emrTab.medTp.Div00);
             obj.set_taborder("9");
             obj.set_binddataset("dsBaseExam");
             obj.set_scrollbars("none");
@@ -86,7 +90,7 @@
             obj = new TextArea("TextArea01", "absolute", "33.1%", "38", "380", "143", null, null, this.emrTab.medTp.Div00);
             obj.set_taborder("12");
             this.emrTab.medTp.Div00.addChild(obj.name, obj);
-            obj = new Grid("Grid02", "absolute", "0.52%", "224", "1149", "328", null, null, this.emrTab.medTp.Div00);
+            obj = new Grid("Grid02", "absolute", "0.51%", "224", "1154", "328", null, null, this.emrTab.medTp.Div00);
             obj.set_taborder("13");
             obj.set_binddataset("dsBaseExam");
             obj.set_scrollbars("none");
@@ -94,7 +98,7 @@
             obj.set_fillareatype("allrow");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"84\"/><Column size=\"250\"/><Column size=\"77\"/><Column size=\"52\"/><Column size=\"74\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"align:center;background:#cfd8dcff;\" text=\"상병코드\"/><Cell col=\"1\" style=\"align:center;background:#cfd8dcff;\" text=\"상병명\"/><Cell col=\"2\" style=\"align:center;background:#cfd8dcff;\" text=\"수술여부\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"진료과\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"진료일자\"/></Band><Band id=\"body\"><Cell style=\"align:center;font:bold 9 arial;\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:systolicPressure\"/><Cell col=\"2\" style=\"align:center;font:bold 9 arial;\"/><Cell col=\"3\"/><Cell col=\"4\"/></Band></Format></Formats>");
             this.emrTab.medTp.Div00.addChild(obj.name, obj);
-            obj = new Static("regAttStc03", "absolute", "0.52%", "192", "1149", "34", null, null, this.emrTab.medTp.Div00);
+            obj = new Static("regAttStc03", "absolute", "0.51%", "192", "1154", "34", null, null, this.emrTab.medTp.Div00);
             obj.set_taborder("14");
             obj.set_text("   상병내역");
             obj.style.set_background("#90a4aeff");
@@ -103,7 +107,7 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.emrTab.medTp.Div00.addChild(obj.name, obj);
-            obj = new Static("regAttStc00", "absolute", "0.52%", "4", "374", "34", null, null, this.emrTab.medTp.Div00);
+            obj = new Static("regAttStc00", "absolute", "0.51%", "4", "374", "34", null, null, this.emrTab.medTp.Div00);
             obj.set_taborder("15");
             obj.set_text("   기초검사");
             obj.style.set_background("#90a4aeff");
@@ -994,7 +998,7 @@
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc03", "absolute", "0.66%", "41", "60", "30", null, null, this.patInfoDiv);
+            obj = new Static("subCodeStc03", "absolute", "0.43%", "41", "60", "30", null, null, this.patInfoDiv);
             obj.set_taborder("26");
             obj.set_text("환자명");
             obj.style.set_background("#b0bec5ff");
@@ -1004,13 +1008,13 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Edit("patNmEd", "absolute", "6.14%", "41", "78", "30", null, null, this.patInfoDiv);
+            obj = new Edit("patNmEd", "absolute", "5.88%", "41", "78", "30", null, null, this.patInfoDiv);
             obj.set_taborder("29");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc02", "absolute", "16.62%", "41", "60", "30", null, null, this.patInfoDiv);
+            obj = new Static("subCodeStc02", "absolute", "15.77%", "41", "60", "30", null, null, this.patInfoDiv);
             obj.set_taborder("31");
             obj.set_text("환자번호");
             obj.style.set_background("#b0bec5ff");
@@ -1020,13 +1024,13 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Edit("patNoEd", "absolute", "22.17%", "41", "78", "30", null, null, this.patInfoDiv);
+            obj = new Edit("patNoEd", "absolute", "21.23%", "41", "78", "30", null, null, this.patInfoDiv);
             obj.set_taborder("33");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Radio("inoutRadio", "absolute", "77.82%", "44", null, "25", "8.36%", null, this.patInfoDiv);
+            obj = new Radio("inoutRadio", "absolute", "79.88%", "44", null, "25", "6.31%", null, this.patInfoDiv);
             this.patInfoDiv.addChild(obj.name, obj);
             var inoutRadio_innerdataset = new Dataset("inoutRadio_innerdataset", this.patInfoDiv.inoutRadio);
             inoutRadio_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\"/><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">입원</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">외래</Col></Row></Rows>");
@@ -1037,7 +1041,7 @@
             obj.set_datacolumn("datacolumn");
             obj.style.set_bordertype("normal 0 0");
             obj.set_index("0");
-            obj = new Static("subCodeStc07", "absolute", "29.84%", "41", null, "30", "62.57%", null, this.patInfoDiv);
+            obj = new Static("subCodeStc07", "absolute", "28.39%", "41", null, "30", "64.02%", null, this.patInfoDiv);
             obj.set_taborder("40");
             obj.set_text("진료일");
             obj.style.set_background("#b0bec5ff");
@@ -1047,12 +1051,12 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Calendar("trmtDateCal", "absolute", "37.6%", "41", null, "31", "51.92%", null, this.patInfoDiv);
+            obj = new Calendar("trmtDateCal", "absolute", "36.23%", "41", null, "31", "53.28%", null, this.patInfoDiv);
             this.patInfoDiv.addChild(obj.name, obj);
             obj.set_taborder("41");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_bordertype("normal 0 0");
-            obj = new Static("subCodeStc06", "absolute", "48.78%", "41", null, "30", "43.8%", null, this.patInfoDiv);
+            obj = new Static("subCodeStc06", "absolute", "47.23%", "41", null, "30", "45.35%", null, this.patInfoDiv);
             obj.set_taborder("42");
             obj.set_text("진료의");
             obj.style.set_background("#b0bec5ff");
@@ -1062,13 +1066,13 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDoctEd", "absolute", "56.67%", "41", "74", "30", null, null, this.patInfoDiv);
+            obj = new Edit("doctNmEd", "absolute", "54.99%", "41", "74", "30", null, null, this.patInfoDiv);
             obj.set_taborder("43");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc05", "absolute", "68.05%", "42", null, "30", "29.42%", null, this.patInfoDiv);
+            obj = new Static("subCodeStc05", "absolute", "70.76%", "41", null, "30", "26.68%", null, this.patInfoDiv);
             obj.set_taborder("45");
             obj.set_text("과");
             obj.style.set_background("#b0bec5ff");
@@ -1078,7 +1082,7 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDeptEd", "absolute", "71.05%", "41", "67", "30", null, null, this.patInfoDiv);
+            obj = new Edit("doctDeptEd", "absolute", "73.66%", "41", "67", "30", null, null, this.patInfoDiv);
             obj.set_taborder("46");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
@@ -1093,11 +1097,11 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Button("searchAttPatBtn00", "absolute", "154", "41", "30", "30", null, null, this.patInfoDiv);
+            obj = new Button("searchAttPatBtn00", "absolute", "150", "41", "30", "30", null, null, this.patInfoDiv);
             obj.set_taborder("48");
             obj.set_cssclass("btn_WF_SearchSmall");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Button("searchAttBtn", "absolute", "1074", "44", "58", "23", null, null, this.patInfoDiv);
+            obj = new Button("searchEmrBtn", "absolute", "1098", "45", "58", "23", null, null, this.patInfoDiv);
             obj.set_taborder("49");
             obj.set_text("조회");
             obj.set_cssclass("btn_WF_Search");
@@ -1105,9 +1109,15 @@
             obj.style.set_bordertype("normal 3 3");
             obj.style.set_font("9 Gulim");
             this.patInfoDiv.addChild(obj.name, obj);
-            obj = new Button("searchAttPatBtn", "absolute", "747", "41", "30", "30", null, null, this.patInfoDiv);
+            obj = new Button("searchDoctorBtn", "absolute", "722", "41", "30", "30", null, null, this.patInfoDiv);
             obj.set_taborder("50");
             obj.set_cssclass("btn_WF_SearchSmall");
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Edit("doctNoEd", "absolute", "64.28%", "41", "69", "30", null, null, this.patInfoDiv);
+            obj.set_taborder("51");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
             this.patInfoDiv.addChild(obj.name, obj);
 
 
@@ -1337,8 +1347,9 @@
 
         
         /*-------------------------------------------------------------------------------------------------+
-        >>  										Button Click
+        >>  										Button Click, Popup 
         +-------------------------------------------------------------------------------------------------*/
+        // 환자조회
         this.attPatDiv_searchAttPatBtn00_onclick = function(obj,e)
         {
         	this.gfnPatPopup();
@@ -1346,6 +1357,43 @@
         	this.patInfoDiv.patNoEd.set_value(arrRtn[0]);    
         	this.patInfoDiv.patNmEd.set_value(arrRtn[1]);               
         	}
+        }
+
+        // 진료의 조회
+        this.patInfoDiv_searchDoctorBtn_onclick = function(obj,e)
+        {
+        	return application.open(
+        			"CM_DoctPopupForm",
+        			"com::CM_DoctPopupForm.xfdl",
+        			this.parent,
+        			{},
+        			"showtitlebar=true showstatusbar=false",
+        			110, 110,
+        			this
+        	);
+        }
+
+        this.setDoct = function(arrRtn){ 
+        	this.patInfoDiv.doctNoEd.set_value(arrRtn[0]);
+        	this.patInfoDiv.doctNmEd.set_value(arrRtn[1]);    
+        	this.patInfoDiv.doctDeptEd.set_value(arrRtn[2]);               
+        }
+
+        // EMR 조회
+        this.patInfoDiv_searchEmrBtn_onclick = function(obj,e)
+        {
+        	this.dsEmr.clearData();
+        	var patNo=this.patInfoDiv.patNoEd.value;
+        	var trmtDate=this.patInfoDiv.trmtDateCal.value;
+        	var doctNo=this.patInfoDiv.doctNoEd.value;
+        	var doctDept=this.patInfoDiv.doctDeptEd.value;
+        	var inOut=this.patInfoDiv.inoutRadio.text;
+        	alert("dd");
+        	var argument = 'patNo='+patNo+'&&trmtDate'+trmtDate+'&&doctNo'+doctNo+'&&doctDept'+doctDept+'&&inOut'+inOut; 
+        	var serviceRow = this.dsService.findRow("serviceID", "findEmrList");
+        	
+        	this.dsService.setColumn(serviceRow,"argument",argument);
+        	this.gfnService("findEmrList","false");
         }
         
         });
@@ -1416,11 +1464,11 @@
             this.patInfoDiv.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.patInfoDiv.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.patInfoDiv.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.patInfoDiv.trmtDeptEd.addEventHandler("oneditclick", this.trmtDeptEd_oneditclick, this);
+            this.patInfoDiv.doctDeptEd.addEventHandler("oneditclick", this.trmtDeptEd_oneditclick, this);
             this.patInfoDiv.regAttStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.patInfoDiv.searchAttPatBtn00.addEventHandler("onclick", this.attPatDiv_searchAttPatBtn00_onclick, this);
-            this.patInfoDiv.searchAttBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
-            this.patInfoDiv.searchAttPatBtn.addEventHandler("onclick", this.clickBtn, this);
+            this.patInfoDiv.searchEmrBtn.addEventHandler("onclick", this.patInfoDiv_searchEmrBtn_onclick, this);
+            this.patInfoDiv.searchDoctorBtn.addEventHandler("onclick", this.patInfoDiv_searchDoctorBtn_onclick, this);
 
         };
 

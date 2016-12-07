@@ -561,7 +561,7 @@
         this.clickSearchAttBtn = function () {
         	var patNoEd=this.attPatDiv.patNoEd.value;
         	this.dsAttentionalPatient.clearData();
-        	var argument = 'attPtNo='+patNoEd; ;
+        	var argument = 'attPtNo='+patNoEd;
         	var serviceRow = this.dsService.findRow("serviceID", "findAttentionalPatientList");
         	this.dsService.setColumn(serviceRow,"argument",argument);
         	this.gfnService("findAttentionalPatientList","false");
