@@ -35,19 +35,19 @@
                               </Band>
                               <Band id="body">
                                 <Cell style="align:center;font:bold 9 arial;" text="혈압(수축기)"/>
-                                <Cell col="1" style="align:center;" text="bind:systolicPressure"/>
+                                <Cell col="1" style="align:center;"/>
                                 <Cell col="2" style="align:center;font:bold 9 arial;" text="mmHg"/>
                                 <Cell row="1" style="align:center;font:bold 9 arial;" text="혈압(이완기)"/>
-                                <Cell row="1" col="1" style="align:center;" text="bind:diastolicPressure"/>
+                                <Cell row="1" col="1" style="align:center;"/>
                                 <Cell row="1" col="2" style="align:center;font:bold 9 arial;" text="mmHg"/>
                                 <Cell row="2" style="align:center;font:bold 9 arial;" text="맥박"/>
-                                <Cell row="2" col="1" style="align:center;" text="bind:pulse"/>
+                                <Cell row="2" col="1" style="align:center;"/>
                                 <Cell row="2" col="2" style="align:center;font:bold 9 arial;" text="/min"/>
                                 <Cell row="3" style="align:center;font:bold 9 arial;" text="호흡수"/>
-                                <Cell row="3" col="1" style="align:center;" text="bind:respirationRate"/>
+                                <Cell row="3" col="1" style="align:center;"/>
                                 <Cell row="3" col="2" style="align:center;font:bold 9 arial;" text="/min"/>
                                 <Cell row="4" style="align:center;font:bold 9 arial;" text="체온"/>
-                                <Cell row="4" col="1" style="align:center;" text="bind:bodyTemp"/>
+                                <Cell row="4" col="1" style="align:center;"/>
                                 <Cell row="4" col="2" style="align:center;font:bold 9 arial;" text="℃"/>
                               </Band>
                             </Format>
@@ -79,7 +79,7 @@
                               </Band>
                               <Band id="body">
                                 <Cell style="align:center;font:bold 9 arial;"/>
-                                <Cell col="1" style="align:center;" text="bind:systolicPressure"/>
+                                <Cell col="1" style="align:center;"/>
                                 <Cell col="2" style="align:center;font:bold 9 arial;"/>
                                 <Cell col="3"/>
                                 <Cell col="4"/>
@@ -129,7 +129,7 @@
                                 <Cell col="1" style="align:center;font:bold 9 arial;"/>
                                 <Cell col="2"/>
                                 <Cell col="3" style="align:center;font:bold 9 arial;"/>
-                                <Cell col="4" style="align:center;" text="bind:systolicPressure"/>
+                                <Cell col="4" style="align:center;"/>
                               </Band>
                             </Format>
                           </Formats>
@@ -479,7 +479,7 @@ this.patInfoDiv_searchEmrBtn_onclick = function(obj:Button,  e:nexacro.ClickEven
 	var doctDept=this.patInfoDiv.doctDeptEd.value;
 	var inOut=this.patInfoDiv.inoutRadio.text;
 	alert("dd");
-	var argument = 'patNo='+patNo+'&&trmtDate'+trmtDate+'&&doctNo'+doctNo+'&&doctDept'+doctDept+'&&inOut'+inOut; 
+	var argument = 'patNo='+patNo+' trmtDate='+trmtDate+' doctNo='+doctNo+' doctDept='+doctDept+' inOut='+inOut; 
 	var serviceRow = this.dsService.findRow("serviceID", "findEmrList");
 	
 	this.dsService.setColumn(serviceRow,"argument",argument);

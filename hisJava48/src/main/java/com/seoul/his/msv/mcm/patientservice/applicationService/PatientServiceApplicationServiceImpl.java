@@ -52,7 +52,6 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	/* 	 EMR 관리	*/
 	@Override
 	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
-		System.out.println(argsMap.get("patNo")+argsMap.get("trmtDate")+argsMap.get("doctNo")+argsMap.get("doctDept")+argsMap.get("inout"));
 		return emrDAO.selectEmrList(argsMap);
 	}
 
