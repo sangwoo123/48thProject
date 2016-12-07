@@ -19,7 +19,7 @@
         <Static id="outpaReceiptNo" taborder="8" text="외래접수번호" onclick="subCodeStc_onclick" visible="false" left="51.04%" top="59" right="41.04%" height="27" style="color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Edit id="outpaReceiptNoEdt" taborder="9" enable="false" visible="false" left="58.88%" top="59" right="37.04%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Button id="hosptlzSearchBtn" taborder="10" text="입원조회" onclick="hosptlzSearchBtn_onclick" left="75.04%" top="56" right="17.92%" height="30" style="color:black;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Button id="hosptlzRegisterBtn" taborder="11" text="입원등록" onclick="calculationSalBtn_onclick" left="82.64%" top="56" right="10.32%" height="30" style="color:black;font:bold 10 돋움;" class="ProcessBtn"/>
+        <Button id="hosptlzRegisterBtn" taborder="11" text="입원등록" onclick="hosptlzRegisterBtn_onclick" left="82.64%" top="56" right="10.32%" height="30" style="color:black;font:bold 10 돋움;" class="ProcessBtn"/>
         <Button id="hosptlzCancelBtn" taborder="12" text="입원취소" onclick="hosptlzCancelBtn_onclick" left="90.24%" top="56" right="2.72%" height="30" style="color:black;font:bold 10 돋움;" class="ProcessBtn"/>
         <Div id="Div01" taborder="13" left="37.04%" top="100" right="2.64%" height="443" style="border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
           <Layouts>
@@ -262,8 +262,8 @@
         </ColumnInfo>
         <Rows>
           <Row>
-            <Col id="URL">his::won/hosptlzPat/findHosptlzYB.do</Col>
-            <Col id="serviceID">findHosptlzYB</Col>
+            <Col id="URL">his::hdm/admission/findOutpaReceipt.do</Col>
+            <Col id="serviceID">findOutpaReceipt</Col>
             <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
             <Col id="callbackFunc">findHosptlzYBCallbackFunc</Col>
           </Row>
@@ -274,9 +274,9 @@
           </Row>
           <Row>
             <Col id="serviceID">findReceipt</Col>
-            <Col id="URL">his::won/hosptlzPat/findReceipt.do</Col>
+            <Col id="URL">his::hdm/admission/findHospitalizationInfo.do</Col>
             <Col id="inData"/>
-            <Col id="outData">dsHosptlzReceipt=dsHosptlzReceipt</Col>
+            <Col id="outData">dsHospitalizationInfo=dsHospitalizationInfo</Col>
             <Col id="argument"/>
             <Col id="callbackFunc">findReceiptCallbackFunc</Col>
           </Row>
@@ -476,16 +476,14 @@ this.hosptlzSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	
 	this.dsService.setColumn(5,"argument",'patNo='+patNo);
 	this.gfnService("findHospitalizationInfo","false"); 	//	입원접수 확인하기
+
 	
 }
 	
-this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg){
-
-	if(svcID=="findReceipt"){
-	
-			if(errorCode=="1"){	
-		
-			
+this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
+{
+	if(svcID=="findReceipt"){	
+			if(errorCode=="1"){			
 				if(this.dsHospitalizationInfo.rowcount==0){
 					if(this.confirm( "입원등록을 하시겠습니까?", "서울병원 - 입원등록")){
 						this.hosptlzRsvtBtn.set_visible(true);  //입원예약Btn 생성					
@@ -501,21 +499,20 @@ this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg){
 			if(errorCode=="1"){
 				this.hosptlzReceiptNoEdt.set_value(this.hosptlzReceiptNo);
 				this.dsHospitalizationInfo.setColumn(0,"hosptlzReceiptNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
-								
 				this.gfnService("batchProcessHosptlzReceipt","false");  //입원등록	
 			}else{
 				alert("입원등록번호에서 오류 발생");
 			}	
 	}
 }
-this.calculationSalBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+
+this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(patNo==null){
 		alert("환자등록번호를 먼저 입력하세요.");
 	}else{		
-		
 		this.dsService.setColumn(0,"argument",'patNo='+patNo);
-		this.gfnService("findHosptlzYB","false");  //외래접수번호와 입원여부 확인하기. 입원예약 여부 확인
+		this.gfnService("findOutpaReceipt","false");  //외래접수번호와 입원여부 확인하기. 입원예약 여부 확인
 		
 		this.outpaReceiptNo.set_visible(true);
 		this.outpaReceiptNoEdt.set_visible(true);	
@@ -645,7 +642,7 @@ this.setDoct=function(arr){
 //병실조회 Popup
 this.hroomBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	this.openHroomDialog();
+	this.gfnPopup("HA_HospitalRoomAssignmentForm","hdm","");
 }
 
 //입원경로 Popup

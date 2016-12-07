@@ -18,21 +18,18 @@ import com.seoul.his.hdm.basebusiness.to.BaseBusinessBean;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Component
 public class BaseBusinessApplicationServiceImpl implements BaseBusinessApplicationService{
 	@Autowired
 	BaseBusinessDAO basebusinessDAO;
-	
-
-
 
 	@Override
 	public List<BaseBusinessBean> findBaseBusinessList(Map<String, String> argsMap) {
 		List<BaseBusinessBean> basebusinessList = basebusinessDAO.selectBaseBusinessList(argsMap);
-		return basebusinessList;		
+		return basebusinessList;
 	}
 
 }

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.seoul.his.hdm.admission.applicationService.*;
 import com.seoul.his.hdm.admission.to.*;
+import com.seoul.his.hdm.foreign.applicationService.ForeignApplicationService;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 
 
 /**
@@ -28,6 +30,10 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	HospitalizationScheduleApplicationService hospitalizationScheduleApplicationService;
 	@Autowired
 	HospitalizationInfoApplicationService hospitalizationInfoApplicationService;
+	@Autowired
+	ForeignApplicationService foreignApplicationService;
+	@Autowired
+	HospitalRoomAssignmentApplicationService hospitalRoomAssignmentApplicationService;
 
 	//입원환자 조회
 	@Override
@@ -54,6 +60,16 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 		return hospitalizationInfoApplicationService.findHospitalizationInfo(argsMap);
 	}
 
+	//외래정보 조회
+	@Override
+	public List<ReceiptInfoBean> findOutpaReceipt(Map<String, String> argsMap) {
+		return foreignApplicationService.findDiagnosisReceiptList(argsMap);
+	}
 
+    //병실 조회
+    @Override
+    public List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap) {
+        return hospitalRoomAssignmentApplicationService.findHospitalRoomList(argsMap);
+    }
 
 }
