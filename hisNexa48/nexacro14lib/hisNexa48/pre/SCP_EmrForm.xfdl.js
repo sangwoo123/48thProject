@@ -34,7 +34,7 @@
 
             
             // UI Components Initialize
-            obj = new Tab("emrTab", "absolute", "2.64%", "152", null, "598", "3.36%", null, this);
+            obj = new Tab("emrTab", "absolute", "2.64%", "152", null, "604", "4.08%", null, this);
             obj.set_tooltiptype("hover");
             obj.set_taborder("33");
             obj.set_tabindex("0");
@@ -53,88 +53,921 @@
             obj = new Tabpage("medTp", this.emrTab);
             obj.set_text("진단기록");
             this.emrTab.addChild(obj.name, obj);
-            obj = new Grid("Grid00", "absolute", "-304", "19", "266", "147", null, null, this.emrTab.medTp);
-            obj.set_taborder("59");
-            obj.set_binddataset("dsBaseExam");
-            obj.set_scrollbars("none");
-            obj.set_autofittype("col");
-            obj.set_fillareatype("allrow");
-            obj.getSetter("hideendline").set("col");
-            obj.set_useselcolor("false");
-            obj.getSetter("mergeview").set("fullview");
-            obj.style.set_border("1px solid azure");
-            obj.style.set_bordertype("normal 0 0");
-            obj.style.set_font("9 Dotum");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"101\"/><Column size=\"124\"/><Column size=\"42\"/></Columns><Rows><Row size=\"25\" band=\"head\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"color: ;\" text=\"항목\"/><Cell col=\"1\" style=\"color: ;\" text=\"측정치\"/><Cell col=\"2\" text=\"단위\"/></Band><Band id=\"body\"><Cell style=\"background: ;font:bold 9 휴먼고딕;\" text=\"혈압(수축기)\"/><Cell col=\"1\" edittype=\"normal\" style=\"background: ;\" text=\"bind:systolicPressure\"/><Cell col=\"2\" style=\"background: ;font:bold 9 arial;\" text=\"mmHg\"/><Cell row=\"1\" style=\"background: ;font:bold 9 휴먼고딕;\" text=\"혈압(이완기)\"/><Cell row=\"1\" col=\"1\" edittype=\"normal\" style=\"background: ;\" text=\"bind:diastolicPressure\"/><Cell row=\"1\" col=\"2\" style=\"background: ;font:bold 9 arial;\" text=\"mmHg\"/><Cell row=\"2\" style=\"background: ;font:bold 9 휴먼고딕;\" text=\"맥박\"/><Cell row=\"2\" col=\"1\" edittype=\"normal\" style=\"background: ;\" text=\"bind:pulse\"/><Cell row=\"2\" col=\"2\" style=\"background: ;font:bold 9 arial;\" text=\"/min\"/><Cell row=\"3\" style=\"background: ;font:bold 9 휴먼고딕;\" text=\"호흡수\"/><Cell row=\"3\" col=\"1\" edittype=\"normal\" style=\"background: ;\" text=\"bind:respirationRate\"/><Cell row=\"3\" col=\"2\" style=\"background: ;font:bold 9 arial;\" text=\"/min\"/><Cell row=\"4\" style=\"background: ;font:bold 9 휴먼고딕;\" text=\"체온\"/><Cell row=\"4\" col=\"1\" edittype=\"normal\" style=\"background: ;\" text=\"bind:bodyTemp\"/><Cell row=\"4\" col=\"2\" style=\"background: ;font:bold 9 arial;\" text=\"℃\"/></Band></Format></Formats>");
+            obj = new Div("Div00", "absolute", "0.09%", "6", null, "558", "0%", null, this.emrTab.medTp);
+            obj.set_taborder("60");
+            obj.style.set_background("#eceff1ff");
             this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Grid("Grid01", "absolute", "0.17%", "42", "388", "142", null, null, this.emrTab.medTp);
-            obj.set_taborder("61");
-            obj.set_autosizingtype("none");
-            obj.set_autosizebandtype("body");
-            obj.set_autofittype("col");
-            obj.set_scrollbars("none");
-            obj.set_fillareatype("allrow");
+            obj = new Grid("Grid01", "absolute", "0.52%", "37", "374", "142", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("9");
             obj.set_binddataset("dsBaseExam");
+            obj.set_scrollbars("none");
+            obj.set_autofittype("col");
+            obj.set_fillareatype("allrow");
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"85\"/><Column size=\"70\"/><Column size=\"61\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"align:center;background:#cfd8dcff;\" text=\"항목\"/><Cell col=\"1\" style=\"align:center;background:#cfd8dcff;\" text=\"측정치\"/><Cell col=\"2\" style=\"align:center;background:#cfd8dcff;\" text=\"단위\"/></Band><Band id=\"body\"><Cell style=\"align:center;font:bold 9 arial;\" text=\"혈압(수축기)\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:systolicPressure\"/><Cell col=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"mmHg\"/><Cell row=\"1\" style=\"align:center;font:bold 9 arial;\" text=\"혈압(이완기)\"/><Cell row=\"1\" col=\"1\" style=\"align:center;\" text=\"bind:diastolicPressure\"/><Cell row=\"1\" col=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"mmHg\"/><Cell row=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"맥박\"/><Cell row=\"2\" col=\"1\" style=\"align:center;\" text=\"bind:pulse\"/><Cell row=\"2\" col=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"/min\"/><Cell row=\"3\" style=\"align:center;font:bold 9 arial;\" text=\"호흡수\"/><Cell row=\"3\" col=\"1\" style=\"align:center;\" text=\"bind:respirationRate\"/><Cell row=\"3\" col=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"/min\"/><Cell row=\"4\" style=\"align:center;font:bold 9 arial;\" text=\"체온\"/><Cell row=\"4\" col=\"1\" style=\"align:center;\" text=\"bind:bodyTemp\"/><Cell row=\"4\" col=\"2\" style=\"align:center;font:bold 9 arial;\" text=\"℃\"/></Band></Format></Formats>");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Static("regAttStc00", "absolute", "0.17%", "8", "388", "34", null, null, this.emrTab.medTp);
-            obj.set_taborder("62");
-            obj.set_text("   기초검사");
-            obj.style.set_background("#90a4aeff");
-            obj.style.set_color("ivory");
-            obj.style.set_align("left middle");
-            obj.style.set_font("9 돋움");
-            obj.getSetter("class").set("AreaStc");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Static("regAttStc01", "absolute", "33.42%", "8", "388", "34", null, null, this.emrTab.medTp);
-            obj.set_taborder("63");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new Static("regAttStc01", "absolute", "33.1%", "4", "380", "34", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("10");
             obj.set_text("   S/O/P MEMO");
             obj.style.set_background("#90a4aeff");
             obj.style.set_color("ivory");
             obj.style.set_align("left middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new TextArea("TextArea00", "absolute", "33.42%", "42", "388", "143", null, null, this.emrTab.medTp);
-            obj.set_taborder("64");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Static("regAttStc02", "absolute", "66.67%", "8", "388", "34", null, null, this.emrTab.medTp);
-            obj.set_taborder("65");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new Static("regAttStc02", "absolute", "66.12%", "4", "386", "34", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("11");
             obj.set_text("   PACS");
             obj.style.set_background("#90a4aeff");
             obj.style.set_color("ivory");
             obj.style.set_align("left middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new TextArea("TextArea01", "absolute", "66.67%", "42", "388", "143", null, null, this.emrTab.medTp);
-            obj.set_taborder("66");
-            this.emrTab.medTp.addChild(obj.name, obj);
-            obj = new Static("regAttStc03", "absolute", "0.17%", "190", "1168", "34", null, null, this.emrTab.medTp);
-            obj.set_taborder("67");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new TextArea("TextArea01", "absolute", "33.1%", "38", "380", "143", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("12");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new Grid("Grid02", "absolute", "0.52%", "224", "1149", "328", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("13");
+            obj.set_binddataset("dsBaseExam");
+            obj.set_scrollbars("none");
+            obj.set_autofittype("col");
+            obj.set_fillareatype("allrow");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"84\"/><Column size=\"250\"/><Column size=\"77\"/><Column size=\"52\"/><Column size=\"74\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"align:center;background:#cfd8dcff;\" text=\"상병코드\"/><Cell col=\"1\" style=\"align:center;background:#cfd8dcff;\" text=\"상병명\"/><Cell col=\"2\" style=\"align:center;background:#cfd8dcff;\" text=\"수술여부\"/><Cell col=\"3\" style=\"background:#cfd8dcff;\" text=\"진료과\"/><Cell col=\"4\" style=\"background:#cfd8dcff;\" text=\"진료일자\"/></Band><Band id=\"body\"><Cell style=\"align:center;font:bold 9 arial;\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:systolicPressure\"/><Cell col=\"2\" style=\"align:center;font:bold 9 arial;\"/><Cell col=\"3\"/><Cell col=\"4\"/></Band></Format></Formats>");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new Static("regAttStc03", "absolute", "0.52%", "192", "1149", "34", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("14");
             obj.set_text("   상병내역");
             obj.style.set_background("#90a4aeff");
             obj.style.set_color("ivory");
             obj.style.set_align("left middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.emrTab.medTp.addChild(obj.name, obj);
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new Static("regAttStc00", "absolute", "0.52%", "4", "374", "34", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("15");
+            obj.set_text("   기초검사");
+            obj.style.set_background("#90a4aeff");
+            obj.style.set_color("ivory");
+            obj.style.set_align("left middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
+            obj = new TextArea("TextArea00", "absolute", "66.12%", "38", "386", "143", null, null, this.emrTab.medTp.Div00);
+            obj.set_taborder("16");
+            this.emrTab.medTp.Div00.addChild(obj.name, obj);
             obj = new Tabpage("prscTp", this.emrTab);
             obj.set_text("처방기록");
             this.emrTab.addChild(obj.name, obj);
-            obj = new Grid("Grid01", "absolute", "0.84%", "8", null, "511", "0.84%", null, this.emrTab.prscTp);
-            obj.set_taborder("0");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"40\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\"/></Band><Band id=\"body\"><Cell/><Cell col=\"1\"/></Band></Format></Formats>");
+            obj = new Div("Div00", "absolute", "0.09%", "2", null, "556", "0.52%", null, this.emrTab.prscTp);
+            obj.set_taborder("4");
+            obj.style.set_background("#eceff1ff");
             this.emrTab.prscTp.addChild(obj.name, obj);
-            obj = new Tabpage("examTp", this.emrTab);
-            obj.set_text("검사기록");
-            this.emrTab.addChild(obj.name, obj);
-            obj = new Grid("Grid01", "absolute", "0.84%", "8", null, "511", "0.84%", null, this.emrTab.examTp);
+            obj = new Static("regAttStc04", "absolute", "0.35%", "9", "1153", "33", null, null, this.emrTab.prscTp.Div00);
             obj.set_taborder("0");
+            obj.set_text("   처방내역");
+            obj.style.set_background("#90a4aeff");
+            obj.style.set_color("ivory");
+            obj.style.set_align("left middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.addChild(obj.name, obj);
+            obj = new Grid("Grid03", "absolute", "0.35%", "41", "1153", "337", null, null, this.emrTab.prscTp.Div00);
+            obj.set_taborder("1");
+            obj.set_binddataset("dsBaseExam");
+            obj.set_scrollbars("none");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"40\"/><Column size=\"40\"/><Column size=\"40\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell/><Cell col=\"1\"/><Cell col=\"2\"/><Cell col=\"3\"/></Band><Band id=\"body\"><Cell/><Cell col=\"1\"/><Cell col=\"2\"/><Cell col=\"3\"/></Band></Format></Formats>");
-            this.emrTab.examTp.addChild(obj.name, obj);
+            obj.set_fillareatype("allrow");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"99\"/><Column size=\"91\"/><Column size=\"250\"/><Column size=\"94\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;\" text=\"처방일자\"/><Cell col=\"1\" style=\"align:center;background:#cfd8dcff;\" text=\"진료과\"/><Cell col=\"2\" style=\"background:#cfd8dcff;\" text=\"처방항목\"/><Cell col=\"3\" style=\"align:center;background:#cfd8dcff;\" text=\"처방명\"/><Cell col=\"4\" style=\"align:center;background:#cfd8dcff;\" text=\"진료의사명\"/></Band><Band id=\"body\"><Cell/><Cell col=\"1\" style=\"align:center;font:bold 9 arial;\"/><Cell col=\"2\"/><Cell col=\"3\" style=\"align:center;font:bold 9 arial;\"/><Cell col=\"4\" style=\"align:center;\" text=\"bind:systolicPressure\"/></Band></Format></Formats>");
+            this.emrTab.prscTp.Div00.addChild(obj.name, obj);
+            obj = new Static("regAttStc", "absolute", "0.43%", "381", "1152", "33", null, null, this.emrTab.prscTp.Div00);
+            obj.set_taborder("2");
+            obj.set_text("   처방상세");
+            obj.style.set_background("#90a4aeff");
+            obj.style.set_color("ivory");
+            obj.style.set_align("left middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.addChild(obj.name, obj);
+            obj = new Tab("Tab00", "absolute", "0.43%", "414", null, "139", "0%", null, this.emrTab.prscTp.Div00);
+            obj.set_taborder("3");
+            obj.set_tabindex("0");
+            obj.set_scrollbars("autoboth");
+            obj.style.set_buttonbackground("#cfd8dcff");
+            obj.style.set_showextrabutton("false");
+            obj.style.set_background("#eceff1ff");
+            obj.style.set_border("1 solid #607d8bff");
+            obj.style.setStyleValue("buttonbackground", "selected", "#b0bec5ff");
+            this.emrTab.prscTp.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage1", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("투약");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.17%", "2", null, "99", "0.35%", null, this.emrTab.prscTp.Div00.Tab00.tabpage1);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.05%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("0");
+            obj.set_text("용량");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "10.05%", "57", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("1");
+            obj.set_text("복용법");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "15.73%", "57", "224", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("2");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.73%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("3");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "22.9%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("4");
+            obj.set_text("단위");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "28.41%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("5");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "35.66%", "57", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("6");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "35.66%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("7");
+            obj.set_text("횟수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "41.26%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("8");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd03", "absolute", "41.43%", "57", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "48.78%", "57", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("10");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc06", "absolute", "48.78%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("11");
+            obj.set_text("일수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "54.28%", "57", "380", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("12");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd06", "absolute", "54.28%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("13");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc07", "absolute", "61.71%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("14");
+            obj.set_text("PRN");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd07", "absolute", "67.31%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("15");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc05", "absolute", "74.56%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("16");
+            obj.set_text("응급");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd05", "absolute", "80.24%", "15", "83", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00);
+            obj.set_taborder("17");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage2", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("검사");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.17%", "4", null, "97", "0.26%", null, this.emrTab.prscTp.Div00.Tab00.tabpage2);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.04%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("0");
+            obj.set_text("응급");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.72%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("1");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "22.88%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("2");
+            obj.set_text("PRN");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "28.47%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("3");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "35.63%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("4");
+            obj.set_text("야간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "41.31%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("5");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc06", "absolute", "48.73%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("6");
+            obj.set_text("검사일");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd06", "absolute", "54.32%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("7");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc07", "absolute", "61.75%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("8");
+            obj.set_text("횟수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd07", "absolute", "67.34%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc05", "absolute", "74.59%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("10");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd05", "absolute", "80.26%", "15", "83", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("11");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "10.04%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("12");
+            obj.set_text("선택진료");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "15.72%", "55", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("13");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc09", "absolute", "22.88%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("14");
+            obj.set_text("검체보관");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd09", "absolute", "28.47%", "55", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("15");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "35.63%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("16");
+            obj.set_text("항생제");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd03", "absolute", "41.48%", "55", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("17");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "48.73%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("18");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "54.32%", "55", "380", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00);
+            obj.set_taborder("19");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage3", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("처치");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.09%", "2", null, "98", "0.26%", null, this.emrTab.prscTp.Div00.Tab00.tabpage3);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.03%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("0");
+            obj.set_text("응급");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.79%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("1");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "22.86%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("2");
+            obj.set_text("재수술");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "28.45%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("3");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "35.69%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("4");
+            obj.set_text("야간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "41.27%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("5");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc06", "absolute", "48.78%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("6");
+            obj.set_text("횟수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd06", "absolute", "54.28%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("7");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc07", "absolute", "61.69%", "17", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("8");
+            obj.set_text("시작시간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd07", "absolute", "67.36%", "16", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "10.03%", "57", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("10");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "15.79%", "57", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("11");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "22.86%", "56", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("12");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "28.53%", "55", "530", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00);
+            obj.set_taborder("13");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage4", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("재료");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.26%", "4", null, "97", "0.35%", null, this.emrTab.prscTp.Div00.Tab00.tabpage4);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "48.91%", "53", "294", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("0");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "42.87%", "53", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("1");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd03", "absolute", "28.61%", "53", "159", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("2");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "23.1%", "53", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("3");
+            obj.set_text("시행장소");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "15.92%", "53", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("4");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "10.06%", "53", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("5");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.03%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("6");
+            obj.set_text("응급");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.92%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("7");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "23.1%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("8");
+            obj.set_text("재수술");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "28.61%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "35.78%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("10");
+            obj.set_text("야간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "41.47%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("11");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc06", "absolute", "48.91%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("12");
+            obj.set_text("수량");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd06", "absolute", "54.51%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("13");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc07", "absolute", "61.85%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("14");
+            obj.set_text("시작시간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd07", "absolute", "67.45%", "15", "82", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00);
+            obj.set_taborder("15");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage5", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("재활");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.17%", "3", null, "97", "0.35%", null, this.emrTab.prscTp.Div00.Tab00.tabpage5);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "15.82%", "53", "587", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("0");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "10.05%", "53", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("1");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.03%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("2");
+            obj.set_text("재활부위");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.82%", "15", "143", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("3");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "28.5%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("4");
+            obj.set_text("선택진료");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "34.09%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("5");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "41.43%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("6");
+            obj.set_text("재활일수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "47.03%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("7");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "54.11%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("8");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "59.7%", "15", "86", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addChild(obj.name, obj);
+            obj = new Tabpage("tabpage6", this.emrTab.prscTp.Div00.Tab00);
+            obj.set_text("수혈");
+            this.emrTab.prscTp.Div00.Tab00.addChild(obj.name, obj);
+            obj = new Div("Div00", "absolute", "0.17%", "2", null, "101", "0.26%", null, this.emrTab.prscTp.Div00.Tab00.tabpage6);
+            obj.set_taborder("0");
+            obj.style.set_background("#eceff1ff");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "10.03%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("0");
+            obj.set_text("응급");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd02", "absolute", "15.72%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("1");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc00", "absolute", "22.88%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("2");
+            obj.set_text("수량");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd00", "absolute", "28.47%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("3");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc04", "absolute", "35.55%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("4");
+            obj.set_text("헌혈자");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd04", "absolute", "41.31%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("5");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc06", "absolute", "48.73%", "15", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("6");
+            obj.set_text("횟수");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd06", "absolute", "54.32%", "15", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("7");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc07", "absolute", "61.75%", "17", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("8");
+            obj.set_text("시작시간");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd07", "absolute", "67.25%", "16", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("9");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc01", "absolute", "10.04%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("10");
+            obj.set_text("보험");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd01", "absolute", "15.72%", "55", "78", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("11");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "22.88%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("12");
+            obj.set_text("시행장소");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd03", "absolute", "28.47%", "55", "144", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("13");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc05", "absolute", "41.31%", "55", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("14");
+            obj.set_text("사용목적");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd05", "absolute", "46.81%", "55", "165", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("15");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Static("subCodeStc08", "absolute", "61.75%", "54", "60", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("16");
+            obj.set_text("특기사항");
+            obj.style.set_background("#b0bec5ff");
+            obj.style.set_color("black");
+            obj.style.set_bordertype("normal 0 0");
+            obj.style.set_align("center middle");
+            obj.style.set_font("9 돋움");
+            obj.getSetter("class").set("AreaStc");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
+            obj = new Edit("searchDeptEd08", "absolute", "67.34%", "55", "216", "30", null, null, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00);
+            obj.set_taborder("17");
+            obj.set_enable("false");
+            obj.style.set_bordertype("normal 0 0");
+            obj.getSetter("class").set("AreaEdt");
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00", "absolute", "1.68%", "8", null, "41", "85.92%", null, this);
             obj.set_taborder("41");
@@ -145,13 +978,13 @@
             obj.style.set_font("antialias 16 맑은 고딕");
             this.addChild(obj.name, obj);
 
-            obj = new Div("attPatDiv", "absolute", "2.56%", "52", "1175", "92", null, null, this);
+            obj = new Div("patInfoDiv", "absolute", "2.56%", "52", "1175", "92", null, null, this);
             obj.set_taborder("42");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_font("9 돋움");
             this.addChild(obj.name, obj);
-            obj = new Button("DelBtn02", "absolute", "-188", "45", "32", "32", null, null, this.attPatDiv);
+            obj = new Button("DelBtn02", "absolute", "-188", "45", "32", "32", null, null, this.patInfoDiv);
             obj.set_taborder("25");
             obj.set_cssclass("DelBtn");
             obj.style.set_background("@gradation URL('img::ic_search_black_24dp_2x.png') stretch");
@@ -160,8 +993,8 @@
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("DelBtn");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc03", "absolute", "0.66%", "41", "60", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Static("subCodeStc03", "absolute", "0.66%", "41", "60", "30", null, null, this.patInfoDiv);
             obj.set_taborder("26");
             obj.set_text("환자명");
             obj.style.set_background("#b0bec5ff");
@@ -170,14 +1003,14 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Edit("searchDeptEd00", "absolute", "6.86%", "41", "78", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Edit("patNmEd", "absolute", "6.14%", "41", "78", "30", null, null, this.patInfoDiv);
             obj.set_taborder("29");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc02", "absolute", "17.95%", "41", "60", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Static("subCodeStc02", "absolute", "16.62%", "41", "60", "30", null, null, this.patInfoDiv);
             obj.set_taborder("31");
             obj.set_text("환자번호");
             obj.style.set_background("#b0bec5ff");
@@ -186,16 +1019,16 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Edit("searchDeptEd02", "absolute", "24.15%", "41", "78", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Edit("patNoEd", "absolute", "22.17%", "41", "78", "30", null, null, this.patInfoDiv);
             obj.set_taborder("33");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Radio("inoutRadio", "absolute", "77.82%", "44", null, "25", "8.36%", null, this.attPatDiv);
-            this.attPatDiv.addChild(obj.name, obj);
-            var inoutRadio_innerdataset = new Dataset("inoutRadio_innerdataset", this.attPatDiv.inoutRadio);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Radio("inoutRadio", "absolute", "77.82%", "44", null, "25", "8.36%", null, this.patInfoDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            var inoutRadio_innerdataset = new Dataset("inoutRadio_innerdataset", this.patInfoDiv.inoutRadio);
             inoutRadio_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\"/><Col id=\"datacolumn\">전체</Col></Row><Row><Col id=\"codecolumn\">Y</Col><Col id=\"datacolumn\">입원</Col></Row><Row><Col id=\"codecolumn\">N</Col><Col id=\"datacolumn\">외래</Col></Row></Rows>");
             obj.set_innerdataset(inoutRadio_innerdataset);
             obj.set_taborder("38");
@@ -204,15 +1037,7 @@
             obj.set_datacolumn("datacolumn");
             obj.style.set_bordertype("normal 0 0");
             obj.set_index("0");
-            obj = new Button("searchAttBtn", "absolute", "983", "46", "58", "23", null, null, this.attPatDiv);
-            obj.set_taborder("39");
-            obj.set_text("조회");
-            obj.set_cssclass("btn_WF_Search");
-            obj.style.set_background("#455a64ff");
-            obj.style.set_bordertype("normal 3 3");
-            obj.style.set_font("9 Gulim");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc07", "absolute", "31.95%", "41", null, "30", "61.37%", null, this.attPatDiv);
+            obj = new Static("subCodeStc07", "absolute", "29.84%", "41", null, "30", "62.57%", null, this.patInfoDiv);
             obj.set_taborder("40");
             obj.set_text("진료일");
             obj.style.set_background("#b0bec5ff");
@@ -221,13 +1046,13 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Calendar("trmtDateCal", "absolute", "39%", "41", null, "31", "52.44%", null, this.attPatDiv);
-            this.attPatDiv.addChild(obj.name, obj);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Calendar("trmtDateCal", "absolute", "37.6%", "41", null, "31", "51.92%", null, this.patInfoDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
             obj.set_taborder("41");
             obj.set_dateformat("yyyy-MM-dd");
             obj.style.set_bordertype("normal 0 0");
-            obj = new Static("subCodeStc06", "absolute", "48.78%", "41", null, "30", "43.8%", null, this.attPatDiv);
+            obj = new Static("subCodeStc06", "absolute", "48.78%", "41", null, "30", "43.8%", null, this.patInfoDiv);
             obj.set_taborder("42");
             obj.set_text("진료의");
             obj.style.set_background("#b0bec5ff");
@@ -236,18 +1061,14 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDoctEd", "absolute", "56.67%", "41", "74", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Edit("trmtDoctEd", "absolute", "56.67%", "41", "74", "30", null, null, this.patInfoDiv);
             obj.set_taborder("43");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Button("searchAttPatBtn", "absolute", "685", "41", "30", "30", null, null, this.attPatDiv);
-            obj.set_taborder("44");
-            obj.set_cssclass("btn_WF_SearchSmall");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Static("subCodeStc05", "absolute", "68.05%", "42", null, "30", "29.42%", null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Static("subCodeStc05", "absolute", "68.05%", "42", null, "30", "29.42%", null, this.patInfoDiv);
             obj.set_taborder("45");
             obj.set_text("과");
             obj.style.set_background("#b0bec5ff");
@@ -256,14 +1077,14 @@
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Edit("trmtDeptEd", "absolute", "71.05%", "41", "67", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Edit("trmtDeptEd", "absolute", "71.05%", "41", "67", "30", null, null, this.patInfoDiv);
             obj.set_taborder("46");
             obj.set_enable("false");
             obj.style.set_bordertype("normal 0 0");
             obj.getSetter("class").set("AreaEdt");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Static("regAttStc00", "absolute", "0%", "-1", null, "34", "0%", null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Static("regAttStc00", "absolute", "0%", "-1", null, "34", "0%", null, this.patInfoDiv);
             obj.set_taborder("47");
             obj.set_text("   환자정보");
             obj.style.set_background("#78909cff");
@@ -271,15 +1092,38 @@
             obj.style.set_align("left middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.attPatDiv.addChild(obj.name, obj);
-            obj = new Button("searchAttPatBtn00", "absolute", "153", "41", "30", "30", null, null, this.attPatDiv);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Button("searchAttPatBtn00", "absolute", "154", "41", "30", "30", null, null, this.patInfoDiv);
             obj.set_taborder("48");
             obj.set_cssclass("btn_WF_SearchSmall");
-            this.attPatDiv.addChild(obj.name, obj);
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Button("searchAttBtn", "absolute", "1074", "44", "58", "23", null, null, this.patInfoDiv);
+            obj.set_taborder("49");
+            obj.set_text("조회");
+            obj.set_cssclass("btn_WF_Search");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_bordertype("normal 3 3");
+            obj.style.set_font("9 Gulim");
+            this.patInfoDiv.addChild(obj.name, obj);
+            obj = new Button("searchAttPatBtn", "absolute", "747", "41", "30", "30", null, null, this.patInfoDiv);
+            obj.set_taborder("50");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            this.patInfoDiv.addChild(obj.name, obj);
 
 
             
             // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 558, this.emrTab.medTp.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("60");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.medTp.Div00.addLayout(obj.name, obj);
+
             //-- Default Layout
             obj = new Layout("default", "", 430, 208, this.emrTab.medTp,
             	//-- Layout function
@@ -289,6 +1133,143 @@
             	}
             );
             this.emrTab.medTp.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 99, this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage1,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("투약");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 97, this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage2,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("검사");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 98, this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage3,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("처치");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 97, this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage4,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("재료");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 97, this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage5,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("재활");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 101, this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("0");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 0, this.emrTab.prscTp.Div00.Tab00.tabpage6,
+            	//-- Layout function
+            	function(p) {
+            		p.set_text("수혈");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.addLayout(obj.name, obj);
+
+            //-- Default Layout
+            obj = new Layout("default", "", 0, 556, this.emrTab.prscTp.Div00,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("4");
+            		p.style.set_background("#eceff1ff");
+
+            	}
+            );
+            this.emrTab.prscTp.Div00.addLayout(obj.name, obj);
 
             //-- Default Layout
             obj = new Layout("default", "", 0, 0, this.emrTab.prscTp,
@@ -301,17 +1282,7 @@
             this.emrTab.prscTp.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 0, 0, this.emrTab.examTp,
-            	//-- Layout function
-            	function(p) {
-            		p.set_text("검사기록");
-
-            	}
-            );
-            this.emrTab.examTp.addLayout(obj.name, obj);
-
-            //-- Default Layout
-            obj = new Layout("default", "", 1175, 92, this.attPatDiv,
+            obj = new Layout("default", "", 1175, 92, this.patInfoDiv,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("42");
@@ -321,7 +1292,7 @@
 
             	}
             );
-            this.attPatDiv.addLayout(obj.name, obj);
+            this.patInfoDiv.addLayout(obj.name, obj);
 
             //-- Default Layout
             obj = new Layout("default", "", 1250, 768, this,
@@ -348,333 +1319,34 @@
         // User Script
         this.addIncludeScript("SCP_EmrForm.xfdl", "scripts::commonScripts.xjs");
         this.addIncludeScript("SCP_EmrForm.xfdl", "scripts::hrsScripts.xjs");
+        this.addIncludeScript("SCP_EmrForm.xfdl", "scripts::wonScripts.xjs");
         this.registerScript("SCP_EmrForm.xfdl", function() {
         /********************************************************************************                                                                            
         @Path			진료처방 공통(Medication Base)              				   				
         @Description	EMR 관리 화면				
-        @Author	  		임행섭				    			                        								                                            
-        @Create         2016. 6. 13.                             		                    				                                            
+        @Author	  		왕민혁				    			                        								                                            
+        @Create         2016. 12. 07.                             		                    				                                            
         ********************************************************************************/
 
+        /**************************************************************************************************
+        *                                         공통 Script Include                                     *
+        ***************************************************************************************************/
         //include "scripts::commonScripts.xjs";  
         //include "scripts::hrsScripts.xjs";
-
-        var patNo = "";
-        var dept;
-        var empNo;
-        var smCd;
-        var prescDt; 			// 상병내역등록이랑 처방내역 등록때 시퀀스만들때 사용한다 날짜시분초
-        var searchDate = null;
-        var diCode;
-        var diCodeNm;
-        var receiptNo;          // 외래접수번호
-        var prescNo;
-        var sDate = null     			// 오늘날짜      
-                                                                                                                                                        
-                                                                                                                                                            
-        // 화면 로딩시
-        this.MB_EmrForm_onload = function(obj,e)
-        {
-
-        	empNo = application.gdsEmp.getColumn(0, "empNo");
-        	this.trmtDiv.trmtDoctEd.set_value(application.gdsEmp.getColumn(0, "empNm"));
-        	this.trmtDiv.trmtDeptEd.set_value(application.gdsEmp.getColumn(0, "deptNm"));
-
-        	//searchDate = this.gfnLocalDate();
-        	//searchDate = "20160401";
-        	//sDate = searchDate;
-        	//this.trmtDiv.trmtDateCal.set_value(searchDate.replace(/-/g, ""));
-        }
+        //include "scripts::wonScripts.xjs";
 
         
-        // 조회버튼 클릭시 
-        this.searchBtn_onclick = function(obj,e)
+        /*-------------------------------------------------------------------------------------------------+
+        >>  										Button Click
+        +-------------------------------------------------------------------------------------------------*/
+        this.attPatDiv_searchAttPatBtn00_onclick = function(obj,e)
         {
-
-        	searchDate = null;
-        // 	this.dsService.setColumn(1,"argument","trmtDoct=43000 trmtDate="+searchDate+" gubun=N");//n은 입원유무 43000은 현재 차트에 들어온 의사번호를 뜻한다 나중에 로그인의사번호 받아서  넣으면된다
-        	this.dsService.setColumn(1, "argument", "trmtDoct=" + empNo + " trmtDate=" + searchDate);
-        	//var trmtDoct = application.gdsEmp.getColumn(0, "empNo"); //alert(trmtDoct); /*"43000"*/
-         	//this.dsService.setColumn(1, "argument", "trmtDoct=" + trmtDoct + " trmtDate=" + searchDate);  //담당의 번호가 들어간다
-          	this.gfnService("findReceiptList");
-        }
-
-        // 환자그리드 클릭시
-        this.patGrid_oncellclick = function(obj,e)
-        {
-        	prescDt = this.gfnFormatDate("YmdHis");
-        	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
-        	receiptNo=this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "outpaReceiptNo");
-        	
-        	//기초검사정보조회
-        	this.dsService.setColumn(4, "argument","patNo="+patNo);
-        	this.gfnService("findBaseExamList");             
-        	//상병내역조회
-            this.dsService.setColumn(2,"argument","patNo="+patNo);
-            this.gfnService("findPatientDsPrscList"); 
-            
-        	this.medTab.chartTp.chartDiv.patNoEd.set_value(patNo); //pdf파일칸에 미리 선택한 환자번호 넣어두기
-        }
-
-        // 입원/외래 라디오버튼 클릭시 
-        this.inoutRadio_onitemchanged = function(obj,e)
-        {
-        	var radio = this.inoutRadio.value;
-        	if (radio == "") {
-        	    this.dsOutpaReceipt.filter("");    
-            } else {
-                this.dsOutpaReceipt.filter("prescYb=='" + radio + "'");
-            }
-        }
-
-        /****** 진단탭 *****/
-
-        // 진단탭 상병내역 그리드 클릭시   
-        this.medTab_reportTp_diseaseGrid_oncellclick = function(obj,e)
-        {
-        	// 해당 상병에 대한 처방 필터링
-        	var diseaseCode = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "code");   
-        	var prescDate   = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "prescDate");  
-        	var patNo       = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "patNo"); 
-
-        	this.dsPatientPrsc.filter("patNo=='"+patNo+"' && prescDate=='"+prescDate+"' && diseaseCd =='"+diseaseCode+"'");
-        }
-
-        /***** 여기까지 진단 탭 *****/
-
-        
-        /***** 처방 탭 *****/
-
-        
-        // 처방탭 상병내역 그리드 클릭시
-        this.medTab_prscTp_diseaseGrid_oncellclick = function(obj,e)
-        {
-        	if (e.cell == 0) { 
-        		var diseaseType = application.open("상병코드검색",
-        										   "med::MB_DiseasePopupForm.xfdl", 
-        										   this.parent,
-        										   {},
-        										   "showtitlebar=true showstatusbar=false",
-        										   700, 100, 250, 300
-        										  );	
-         
-        		this.setDsCode = function(arrRtn) { 
-        			// 같은 상병코드가 같은 날에 있을때 등록불가 설정
-        			for (var i = 0; i < this.dsPatientDs.getRowCount(); i++) {   
-        				var check = this.dsPatientDs.getColumn(i, "code");  
-        				var sDateCheck = this.dsPatientDs.getColumn(i, "prescDate");
-        				if (arrRtn[0] == check && sDate == sDateCheck) {
-        					alert("기준일에 동일한 상병이 이미 등록되어있습니다");
-        					return;
-        				}
-        			}
-        			this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "code", arrRtn[0]);
-        			this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "codeNm", arrRtn[1]);
-        			
-        			diCode   = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "code");   	  // 상병코드
-        			diCodeNm = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "codeNm");	  // 상병명
-        			patNo    = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "patNo"); 	  // 환자번호
-        			dept 	 = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "dept");	  // 진료과
-        			prescNo  = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "prescNo");	  // 처방번호
-        			var pDate  = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "prescDate"); // 처방일
-        			// 해당 상병에 대한 처방 필터링
-        			this.dsPatientPrsc.filter("patNo=='"+patNo+"' && prescDate=='"+pDate+"' && diseaseCd =='"+diCode+"'");
-        		} 
-        	}	
-        }
-
-        // 처방탭 상병내역등록 버튼 클릭시
-        this.medTab_prscTp_diseaseDiv_diseaseAddBtn_onclick = function(obj,e)
-        {
-        	//여기에서 날짜시분초로 상병 내역등록시 시퀀스만들고 처방내역은 이 시퀀스뒤에 처방내역 만들때 줄번호를 붙여 시퀀스를 만든다
-        	prescDt = this.gfnFormatDate("YmdHis");
-
-        	if (this.gfnIsNull(patNo)) {
-        		alert("환자를 선택해주세요");
-        		return;
-        	} else {
-        		this.dsPatientDs.addRow();        // 상병내역 추가 
-        	   	this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "patNo", patNo);
-        		this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "dept", this.trmtDeptEd.value);
-        		this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "prescDate", prescDt);   
-        		this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "prescNo", prescNo);
+        	this.gfnPatPopup();
+        	this.setPatInfo = function(arrRtn){ 
+        	this.patInfoDiv.patNoEd.set_value(arrRtn[0]);    
+        	this.patInfoDiv.patNmEd.set_value(arrRtn[1]);               
         	}
         }
-
-        // 처방탭 상병내역삭제 버튼 클릭시
-        this.medTab_prscTp_diseaseDiv_diseaseDelBtn_onclick = function(obj,e)
-        {
-        	this.dsPatientDs.deleteRow(this.dsPatientDs.rowposition);
-        }
-
-        // 처방탭 처방내역삭제 버튼 클릭시
-        this.medTab_prscTp_prscDiv_prscDelBtn_onclick = function(obj,e)
-        {
-        	this.dsPatientPrsc.deleteRow(this.dsPatientPrsc.rowposition);
-        }
-         
-        // 처방버튼 클릭시
-        this.medTab_prscTp_prscTypeDiv_prscBtn_onclick = function(obj,e)
-        {
-        	// [투약] [검사] [수혈] [처치] [재료] [재활]
-        	switch (obj.text) {
-        		case "투약" :
-        			smCd = 1;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "투약항목");
-        			this.dsService.setColumn(0, "argument", "smCd=1");
-        			this.gfnService("findFeeCdList");
-        			break;
-        		case "검사" :
-        			smCd = 2;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "검사항목");
-        			this.dsService.setColumn(0, "argument", "smCd=2");
-        			this.gfnService("findFeeCdList");
-        			break;
-        		case "수혈" :
-        			smCd = 3;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "수혈항목");
-        			this.dsService.setColumn(0, "argument", "smCd=3");
-        			this.gfnService("findFeeCdList");
-        			break;
-        		case "처치" :
-        			smCd = 4;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "처치항목");
-        			this.dsService.setColumn(0, "argument", "smCd=4");
-        			this.gfnService("findFeeCdList");
-        			break;
-        		case "재료" :
-        			smCd = 5;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "재료항목");
-        			this.dsService.setColumn(0, "argument", "smCd=5");
-        			this.gfnService("findFeeCdList");
-        			break;
-        		case "재활" :
-        			smCd = 6;
-        			this.medTab.prscTp.presGrid.setCellProperty("head", "0", "text", "재활항목");
-        			this.dsService.setColumn(0, "argument", "smCd=6");
-        			this.gfnService("findFeeCdList");
-        			break;
-        	}
-        }
-
-        // 처방탭 처방그리드 더블클릭시
-        this.medTab_prscTp_presGrid_oncelldblclick = function(obj,e)
-        {	
-            dept = this.trmtDiv.trmtDeptEd.value;
-        	this.dsPatientPrsc.addRow();
-        	
-         	if (this.gfnIsNull(prescDt)) {
-        		// 처방전 시퀀스 생성(처방일-5자리순번)
-         		prescSeqNo = (this.dsPatientPrsc.getRowCount()).toString().padLeft(5, "0");
-        		prescNo = prescDt + "-" + prescSeqNo;
-        		alert(prescNo);
-         	} else {
-        		prescNo = this.dsPatientDs.getColumn(this.dsPatientDs.rowposition, "prescNo");
-         		prescSeqNo = (this.dsPatientPrsc.getRowCount()).toString().padLeft(5,"0");
-        		prescNo = prescDt + "-" + prescSeqNo; 
-        		alert(prescNo);  
-        	}
-        	
-            this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "doctNm", this.trmtDiv.trmtDoctEd.value);  // 진료의명
-            this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "patNo", patNo);                       	// 환자번호
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "prescNo", prescNo);                   	// 처방번호
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "prescDate", sDate);                   	// 처방일(오늘날짜)
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "prescGubun", smCd);                   	// 코드
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "diseaseCd", diCode);                  	// 상병코드
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "diseaseNm", diCodeNm);                	// 상병명
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "dept", this.trmtDiv.trmtDeptEd.value);   	// 진료과
-        	this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, "outpaReceiptNo", receiptNo);          	// 접수번호
-
-        	var arrRtn = new Array();
-        	for (var i = 0; i < this.dsFeeCd.getColCount(); i++) {		
-        		var colName = this.dsFeeCd.getColID(i);   
-        		var colVal = this.dsFeeCd.getColumn(this.dsFeeCd.rowposition, colName);
-        		arrRtn[i] = "\n" + i + " " + colName + " " + colVal;
-        		this.dsPatientPrsc.setColumn(this.dsPatientPrsc.rowposition, colName, colVal);
-        	}  
-        	trace(this.dsPatientPrsc.saveXML());
-        	this.dsPatientPrsc.setColumn(this.medTab.prscTp.patientGrid.currentrow, "uniqueNtc", this.dsBaseExam.getColumn(0, "sopMemo"));
-        }
-
-        
-        /***** 차트탭 *****/
-
-        // 차트탭 조회 클릭시
-        this.medTab_chartTp_chartDiv_reportBtn_onclick = function(obj,e)
-        {
-        	if(this.gfnIsNull(this.medTab.chartTp.chartDiv.patNoEd.value)) { 
-        		alert("환자번호를 선택해주세요");
-        		return;
-        	}
-        	this.medTab.chartTp.emrBrowser.set_url("http://localhost:8282/his/med/base/reportEmr.do?format=pdf&patNo=" + this.medTab.chartTp.chartDiv.patNoEd.value);
-        	this.medTab.chartTp.emrBrowser.reload();
-        	//this.medTab.chartTp.emrBrowser.set_url("http://localhost/erp45/med/mc/findEmrReport.do?patCode="+this.medTab.tabpage4.Div00.emrReport.value);//값에 담긴 환자번호 보낸다
-        	//this.medTab.chartTp.emrBrowser.url = "http://localhost/ERP44/med/mc/findEmrReport.do?format=pdf";
-        	//gfnService("reportEmr");
-        }
-          
-        /***** 여기까지 차트탭 *****/  
-          
-          
-        /***** 화면 하단구역 *****/
-
-        // 닫기버튼 클릭시
-        this.closeBtn_onclick = function(obj,e)
-        {
-        	this.close();
-        }
-
-        // 등록버튼 클릭시
-        this.registerBtn_onclick = function(obj,e)
-        { 
-          	var hosYn = this.patientDiv.hosCombo.value;
-        	var diseaseNm = this.dsPatientDs.getColumn(0, "codeNm");
-        	var trmtDept = this.trmtDiv.trmtDeptEd.value;
-        	for (var i = 0; i < this.dsPatientDs.getRowCount(); i++) {
-        	   this.dsPatientDs.setColumn(i, "gubun", hosYn);  
-        	}
-        	
-        	if (this.dsPatientDs.getRowCount != 0) {
-        		this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition, "trmtYb", "Y");   
-        		this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition, "prescYb", "Y");
-        		this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition, "dgnsNm", diseaseNm);
-        		//this.dsPatientDs.setColumn(this.dsPatientDs.rowposition, "prescNo", prescNo);
-        	} 
-        	
-          	if (confirm("EMR 등록 하시겠습니까?")) {
-        		this.gfnService("batchEmr");			
-        	} 
-        } 
-         	
-        // EMR 트랜잭션 콜백함수
-        this.emrCallback = function(serviceID,errorCode,errorMsg)
-        {
-        	if (errorCode < 0) {
-        		this.gfnErrorPopup(serviceID, errorCode, errorMsg);
-        	} else {
-        		if (serviceID == "findReceiptList") {
-        			patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
-        		    this.patGrid.patGrid_oncellclick;
-        		} else if (serviceID == "findBaseExamList") {
-        			if (this.dsBaseExam.getRowCount()==0) this.dsBaseExam.addRow();
-        			this.dsBaseExam.setColumn(this.dsBaseExam.rowposition, "patNo", patNo);
-        		} else if (serviceID == "batchEmrList") {
-        			alert("EMR이 정상적으로 등록되었습니다.");
-        		}
-        	}
-        }
-
-        
-        // ❖S: patient’s symptoms and complaints
-        // ❖O: patient's height, weight, temperature, pulse, blood pressure, visual acuity, etc.
-        // ❖A: new lab data and results of studies, reports, assessments
-        // ❖P: the current formulation and plan for the patient
-
-        this.trmtDeptEd_oneditclick = function(obj,e)
-        {
-        	
-        }
-
         
         });
 
@@ -683,22 +1355,72 @@
         // Regist UI Components Event
         this.on_initEvent = function()
         {
-            this.emrTab.medTp.regAttStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.emrTab.medTp.regAttStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.emrTab.medTp.regAttStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.emrTab.medTp.regAttStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
-            this.attPatDiv.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.inoutRadio.addEventHandler("onitemchanged", this.inoutRadio_onitemchanged, this);
-            this.attPatDiv.searchAttBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
-            this.attPatDiv.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.searchAttPatBtn.addEventHandler("onclick", this.clickBtn, this);
-            this.attPatDiv.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.trmtDeptEd.addEventHandler("oneditclick", this.trmtDeptEd_oneditclick, this);
-            this.attPatDiv.regAttStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.attPatDiv.searchAttPatBtn00.addEventHandler("onclick", this.clickBtn, this);
+            this.emrTab.medTp.Div00.regAttStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.medTp.Div00.regAttStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.medTp.Div00.regAttStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.medTp.Div00.regAttStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.regAttStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.regAttStc.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage1.Div00.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc09.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage2.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage3.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage4.Div00.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage5.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.emrTab.prscTp.Div00.Tab00.tabpage6.Div00.subCodeStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.DelBtn02.addEventHandler("onclick", this.searchBtn_onclick, this);
+            this.patInfoDiv.subCodeStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.inoutRadio.addEventHandler("onitemchanged", this.inoutRadio_onitemchanged, this);
+            this.patInfoDiv.subCodeStc07.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.subCodeStc06.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.subCodeStc05.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.trmtDeptEd.addEventHandler("oneditclick", this.trmtDeptEd_oneditclick, this);
+            this.patInfoDiv.regAttStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patInfoDiv.searchAttPatBtn00.addEventHandler("onclick", this.attPatDiv_searchAttPatBtn00_onclick, this);
+            this.patInfoDiv.searchAttBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
+            this.patInfoDiv.searchAttPatBtn.addEventHandler("onclick", this.clickBtn, this);
 
         };
 
