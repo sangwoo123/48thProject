@@ -8,5 +8,7 @@ import com.seoul.his.hdm.admission.to.HospitalizationInfoBean;
 public interface HospitalizationInfoApplicationService {
 
 	List<HospitalizationInfoBean> findHospitalizationInfo(Map<String, String> argsMap);
+	void batchHospitalizationProcess(List<HospitalizationInfoBean> hospitalizationInfoList);
+	String callHospitalizationSeq();
 
 }

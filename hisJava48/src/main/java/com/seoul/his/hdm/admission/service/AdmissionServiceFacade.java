@@ -16,4 +16,7 @@ public interface AdmissionServiceFacade {
 	List<HospitalizationInfoBean> findHospitalizationInfo(Map<String, String> argsMap);
 	List<ReceiptInfoBean> findOutpaReceipt(Map<String, String> argsMap);
 	List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap);
+	void batchHospitalizationProcess(List<HospitalizationInfoBean> hosptlzReceipt);
+	String callHospitalizationSeq();
+
 }

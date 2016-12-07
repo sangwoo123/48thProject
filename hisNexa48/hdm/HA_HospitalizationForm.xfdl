@@ -139,7 +139,7 @@
           <Column id="hroom" type="STRING" size="256"/>
           <Column id="hosptlzRsvtYb" type="STRING" size="256"/>
           <Column id="hosptlzRoute" type="STRING" size="256"/>
-          <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
+          <Column id="hospitalizationNo" type="STRING" size="256"/>
           <Column id="hosptlzDate" type="STRING" size="256"/>
           <Column id="grtorTel" type="STRING" size="256"/>
           <Column id="grtorRrn" type="STRING" size="256"/>
@@ -251,7 +251,7 @@
           <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="serviceID" type="STRING" size="256"/>
           <Column id="URL" type="STRING" size="256"/>
@@ -288,9 +288,9 @@
             <Col id="inData">dsHosptlzReceipt=dsHosptlzReceipt:u</Col>
           </Row>
           <Row>
-            <Col id="serviceID">callHosptlzReceiptSeq</Col>
-            <Col id="URL">his::won/hosptlzPat/callHosptlzReceiptSeq.do</Col>
-            <Col id="outData">hosptlzReceiptNo=hosptlzReceiptNo</Col>
+            <Col id="serviceID">callHospitalizationSeq</Col>
+            <Col id="URL">his::hdm/admission/callHospitalizationSeq.do</Col>
+            <Col id="outData">hospitalizationNo=hospitalizationNo</Col>
             <Col id="callbackFunc">findReceiptCallbackFunc</Col>
           </Row>
           <Row>
@@ -300,9 +300,9 @@
             <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">CancelHosptlzReceipt</Col>
-            <Col id="URL">his::won/hosptlzPat/batchProcessHosptlzReceipt.do</Col>
-            <Col id="inData">dsHosptlzReceipt=dsHosptlzReceipt:u</Col>
+            <Col id="serviceID">CancelHospitalization</Col>
+            <Col id="URL">his::hdm/admission/batchHospitalizationProcess.do</Col>
+            <Col id="inData">dsHospitalizationInfo=dsHospitalizationInfo:u</Col>
             <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
             <Col id="outData"/>
           </Row>
@@ -391,7 +391,7 @@ include "scripts::wonScripts.xjs";
 
 
 var patNo; 
-this.hosptlzReceiptNo ="";
+this.hospitalizationNo ="";
 
 this.setPatInfo = function(arr){
 	patNo=arr[0];
@@ -476,8 +476,6 @@ this.hosptlzSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	
 	this.dsService.setColumn(5,"argument",'patNo='+patNo);
 	this.gfnService("findHospitalizationInfo","false"); 	//	입원접수 확인하기
-
-	
 }
 	
 this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
@@ -495,10 +493,10 @@ this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 			}else{
 				alert("입원등록 정보 검색 중 오류발생");
 			}		
-	}else if(svcID="callHosptlzReceiptSeq"){
+	}else if(svcID="callHospitalizationSeq"){
 			if(errorCode=="1"){
-				this.hosptlzReceiptNoEdt.set_value(this.hosptlzReceiptNo);
-				this.dsHospitalizationInfo.setColumn(0,"hosptlzReceiptNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
+				this.hosptlzReceiptNoEdt.set_value(this.hospitalizationNo);
+				this.dsHospitalizationInfo.setColumn(0,"hospitalizationNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
 				this.gfnService("batchProcessHosptlzReceipt","false");  //입원등록	
 			}else{
 				alert("입원등록번호에서 오류 발생");
@@ -523,10 +521,11 @@ this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo
 	}	
 }
 
+//입원 취소
 this.hosptlzCancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsHospitalizationInfo.deleteRow();
-	this.gfnService("CancelHosptlzReceipt","false"); 	
+	this.gfnService("CancelHospitalization","false"); 	
 }
 
 //입원조회, 등록, 취소 Btn callbackFunc
@@ -549,7 +548,7 @@ this.batchProcessHosptlzReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 		}else{
 			alert("입원조회  중 오류발생");
 		}	
-	}else if(svcID=="CancelHosptlzReceipt"){
+	}else if(svcID=="CancelHospitalization"){
 		if(errorCode=="1"){	
 			alert("입원취소 되었습니다.");
 		}else{
@@ -578,8 +577,8 @@ this.registerHosptlzRsvtInfo= function(arr){
 
 this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	application.setVariable("hosptlzReceiptNo", this.hosptlzReceiptNo);	
-	this.gfnService("callHosptlzReceiptSeq","false");   //입원등록번호 구하기.
+	application.setVariable("hospitalizationNo", this.hospitalizationNo);	
+	this.gfnService("callHospitalizationSeq","false");   //입원등록번호 구하기.
 	 
     this.dsHospitalizationInfo.setColumn(0,"patNo",this.patNoEd.value);	                               //환자번호
 	this.dsHospitalizationInfo.setColumn(0,"outpaReceiptNo",this.outpaReceiptNoEdt.value);	   //외래접수번호

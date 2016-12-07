@@ -45,19 +45,36 @@ public class HospitalizationController {
 		outData = (PlatformData) request.getAttribute("outData");
 		inData = (PlatformData) request.getAttribute("inData");
 		argsMap = dataSetBeanMapper.variablesToMap(inData);
-		List<HospitalizationInfoBean> hosptlzReceipt = admissionServiceFacade.findHospitalizationInfo(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, hosptlzReceipt, HospitalizationInfoBean.class);
+		List<HospitalizationInfoBean> hospitalizationInfoList = admissionServiceFacade.findHospitalizationInfo(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, hospitalizationInfoList, HospitalizationInfoBean.class);
 	}
 
-	// 외래접수번호와 입원여부확인
+	//외래접수번호와 입원여부확인
 	@RequestMapping("hdm/admission/findOutpaReceipt.do")
 	public void findOutpaReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		outData = (PlatformData) request.getAttribute("outData");
 		inData = (PlatformData) request.getAttribute("inData");
 		argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<ReceiptInfoBean> receiptInfoList = admissionServiceFacade.findOutpaReceipt(argsMap);
-		System.out.println("!!!!"+receiptInfoList.size());
 		dataSetBeanMapper.beansToDataset(outData, receiptInfoList, ReceiptInfoBean.class);
 	}
+
+	//입원정보 일괄처리
+	@RequestMapping("hdm/admission/batchHospitalizationProcess.do")
+	public void batchHospitalizationProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		inData = (PlatformData) request.getAttribute("inData");
+		List<HospitalizationInfoBean> hospitalizationInfoList = dataSetBeanMapper.datasetToBeans(inData, HospitalizationInfoBean.class);
+		admissionServiceFacade.batchHospitalizationProcess(hospitalizationInfoList);
+	}
+
+	//입원등록번호(시퀀스) 얻기
+	@RequestMapping("hdm/admission/callHospitalizationSeq.do")
+	public void callHospitalizationSeq(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		outData = (PlatformData) request.getAttribute("outData");
+		String hospitalizationNo =admissionServiceFacade.callHospitalizationSeq();
+		dataSetBeanMapper.addVariable(outData, "hospitalizationNo", hospitalizationNo);
+	}
+
+
 
 }

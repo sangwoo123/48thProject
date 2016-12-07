@@ -42,7 +42,7 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 		return inpatientList;
 	}
 
-	//입원예약번호 시퀀스 얻기
+	//입원예약번호(시퀀스) 얻기
 	@Override
 	public String callhosptlzRsvtSeq() {
 		return hospitalizationScheduleApplicationService.callhosptlzRsvtSeq();
@@ -71,5 +71,17 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
     public List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap) {
         return hospitalRoomAssignmentApplicationService.findHospitalRoomList(argsMap);
     }
+
+    //입원정보 일괄처리
+	@Override
+	public void batchHospitalizationProcess(List<HospitalizationInfoBean> hospitalizationInfoList) {
+		hospitalizationInfoApplicationService.batchHospitalizationProcess(hospitalizationInfoList);
+	}
+
+	//입원등록번호(시퀀스) 얻기
+	@Override
+	public String callHospitalizationSeq() {
+		return hospitalizationInfoApplicationService.callHospitalizationSeq();
+	}
 
 }

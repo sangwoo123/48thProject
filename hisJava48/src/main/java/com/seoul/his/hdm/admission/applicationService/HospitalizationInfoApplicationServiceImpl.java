@@ -29,4 +29,26 @@ public class HospitalizationInfoApplicationServiceImpl implements Hospitalizatio
 		return hospitalizationInfoDAO.selectHospitalizationInfo(argsMap);
 	}
 
+	@Override
+	public void batchHospitalizationProcess(List<HospitalizationInfoBean> hospitalizationInfoList) {
+		for (HospitalizationInfoBean hospitalizationInfoBean : hospitalizationInfoList) {
+
+			switch (hospitalizationInfoBean.getStatus()) {
+			case "inserted":
+				hospitalizationInfoDAO.insertHospitalizationInfo(hospitalizationInfoBean);
+				break;
+			case "updated":
+				hospitalizationInfoDAO.updateHospitalizationInfo(hospitalizationInfoBean);
+				break;
+			case "deleted":
+				hospitalizationInfoDAO.deleteHospitalizationInfo(hospitalizationInfoBean);
+			}
+		}
+	}
+
+	@Override
+	public String callHospitalizationSeq() {
+		return hospitalizationInfoDAO.selectHospitalizationSeq();
+	}
+
 }
