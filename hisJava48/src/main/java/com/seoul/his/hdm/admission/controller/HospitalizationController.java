@@ -71,8 +71,8 @@ public class HospitalizationController {
 	@RequestMapping("hdm/admission/callHospitalizationSeq.do")
 	public void callHospitalizationSeq(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		outData = (PlatformData) request.getAttribute("outData");
-		String hospitalizationNo =admissionServiceFacade.callHospitalizationSeq();
-		dataSetBeanMapper.addVariable(outData, "hospitalizationNo", hospitalizationNo);
+		String hosptlzReceiptNo =admissionServiceFacade.callHospitalizationSeq();
+		dataSetBeanMapper.addVariable(outData, "hosptlzReceiptNo", hosptlzReceiptNo);
 	}
 
 

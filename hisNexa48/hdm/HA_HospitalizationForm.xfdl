@@ -31,8 +31,8 @@
             <Layout/>
           </Layouts>
         </Div>
-        <GroupBox id="GroupBox00" text="입원예약정보" taborder="15" left="1.52%" top="551" right="2.24%" height="183" style="border:1 solid lightslategray ;font:10 arial;"/>
-        <Grid id="hosptlzRsvtGrid" taborder="16" binddataset="dsHosptlzRsvt" useinputpanel="false" treeuseline="false" left="2.56%" top="582" right="3.6%" height="98" autofittype="col">
+        <GroupBox id="GroupBox00" text="입원예약정보" taborder="15" left="1.52%" top="551" right="2.24%" height="183" style="border:1 solid lightslategray ;font:10 arial;" onlbuttondown="GroupBox00_onlbuttondown"/>
+        <Grid id="hosptlzRsvtGrid" taborder="16" binddataset="dsHospitalizationSchedule" useinputpanel="false" treeuseline="false" left="2.56%" top="582" right="3.6%" height="98" autofittype="col">
           <Formats>
             <Format id="default">
               <Columns>
@@ -64,9 +64,9 @@
                 <Cell col="1" displaytype="normal" edittype="none" text="bind:hosptlzPlnDate" mask="####/ ##/ ##"/>
                 <Cell col="2" displaytype="normal" edittype="none" text="bind:prdtFinanDate"/>
                 <Cell col="3" displaytype="combo" text="bind:trmtDeptCd" combodataset="dsGP080" combocodecol="code" combodatacol="bigValue"/>
-                <Cell col="4" text="bind:respDoctCd"/>
-                <Cell col="5" displaytype="combo" text="bind:hopeWard" combodataset="dsSC070" combocodecol="code" combodatacol="value"/>
-                <Cell col="6" displaytype="combo" text="bind:hopeRoom" combodataset="dsSC071" combocodecol="code" combodatacol="value"/>
+                <Cell col="4" displaytype="combo" text="bind:respDoctCd" combodataset="gdsEmp" combocodecol="empNo" combodatacol="empNm"/>
+                <Cell col="5" displaytype="combo" text="bind:hopeWard" combodataset="dsSC070" combocodecol="code" combodatacol="bigValue"/>
+                <Cell col="6" displaytype="combo" text="bind:hopeRoom" combodataset="dsSC071" combocodecol="code" combodatacol="bigValue"/>
                 <Cell col="7" text="bind:uniqueNtc"/>
               </Band>
             </Format>
@@ -97,7 +97,7 @@
         <Button id="hosptlzRoutePBtn" taborder="40" onclick="hosptlzRoutePBtn_onclick" enable="false" left="83.2%" top="161" right="14.4%" height="26" style="background:@gradation URL('img::miniSearch.png');" class="AddBtn"/>
         <Edit id="hosptlzRouteNmEdt" taborder="41" enable="false" left="86%" top="161" right="4.48%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Button id="resetBtn" taborder="42" text="Reset" onclick="resetBtn_onclick" visible="false" left="83.84%" top="112" right="11.04%" height="30" style="background:#848484ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Button id="saveBtn" taborder="43" onclick="saveBtn_onclick" visible="false" left="89.28%" top="112" right="3.68%" height="30" class="DelBtn" text="확인"/>
+        <Button id="saveBtn" taborder="43" onclick="saveBtn_onclick" visible="false" left="89.28%" top="112" right="3.68%" height="30" class="DelBtn" text="입원저장"/>
         <Edit id="trmtDeptNmEdt" taborder="44" enable="false" left="60.8%" top="205" right="29.68%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Button id="trmtDeptPBtn" taborder="45" onclick="trmtDeptPBtn_onclick" enable="false" left="57.6%" top="205" right="40%" height="26" style="background:@gradation URL('img::miniSearch.png');" class="AddBtn"/>
         <Edit id="trmtDeptCdEdt" taborder="46" enable="false" left="50.56%" top="205" right="42.72%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
@@ -139,7 +139,7 @@
           <Column id="hroom" type="STRING" size="256"/>
           <Column id="hosptlzRsvtYb" type="STRING" size="256"/>
           <Column id="hosptlzRoute" type="STRING" size="256"/>
-          <Column id="hospitalizationNo" type="STRING" size="256"/>
+          <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
           <Column id="hosptlzDate" type="STRING" size="256"/>
           <Column id="grtorTel" type="STRING" size="256"/>
           <Column id="grtorRrn" type="STRING" size="256"/>
@@ -281,16 +281,16 @@
             <Col id="callbackFunc">findReceiptCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">batchProcessHosptlzReceipt</Col>
-            <Col id="URL">his::won/hosptlzPat/batchProcessHosptlzReceipt.do</Col>
+            <Col id="serviceID">batchHospitalizationProcess</Col>
+            <Col id="URL">his::hdm/admission/batchHospitalizationProcess.do</Col>
             <Col id="outData"/>
             <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
-            <Col id="inData">dsHosptlzReceipt=dsHosptlzReceipt:u</Col>
+            <Col id="inData">dsHospitalizationInfo=dsHospitalizationInfo:u</Col>
           </Row>
           <Row>
             <Col id="serviceID">callHospitalizationSeq</Col>
             <Col id="URL">his::hdm/admission/callHospitalizationSeq.do</Col>
-            <Col id="outData">hospitalizationNo=hospitalizationNo</Col>
+            <Col id="outData">hosptlzReceiptNo=hosptlzReceiptNo</Col>
             <Col id="callbackFunc">findReceiptCallbackFunc</Col>
           </Row>
           <Row>
@@ -300,7 +300,7 @@
             <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">CancelHospitalization</Col>
+            <Col id="serviceID">cancelHospitalization</Col>
             <Col id="URL">his::hdm/admission/batchHospitalizationProcess.do</Col>
             <Col id="inData">dsHospitalizationInfo=dsHospitalizationInfo:u</Col>
             <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
@@ -314,8 +314,8 @@
             <Col id="inData"/>
           </Row>
           <Row>
-            <Col id="serviceID">changeHosptlzRsvtYb</Col>
-            <Col id="URL">his::won/hosptlzPat/changeHosptlzRsvtYb.do</Col>
+            <Col id="serviceID">modifyHospitalizationScheduleInfo</Col>
+            <Col id="URL">his::hdm/admission/modifyHospitalizationScheduleInfo.do</Col>
             <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:u</Col>
           </Row>
         </Rows>
@@ -381,9 +381,9 @@
 *                                                                   			*
 * @Path			입원관리               							 	 		*
 * @Description 	                                                               	*
-* @Author		황태경  						 								*
+* @Author		김민욱 						 								*
 * 									 											*
-* Created on	2016. 6. 5.                           		 					*
+* Created on	2016. 12. 11.                           		 				*
 *									 											*
 ********************************************************************************/
 include "scripts::commonScripts.xjs";
@@ -391,20 +391,20 @@ include "scripts::wonScripts.xjs";
 
 
 var patNo; 
-this.hospitalizationNo ="";
+this.hosptlzReceiptNo ="";
 
 this.setPatInfo = function(arr){
 	patNo=arr[0];
 	this.patNoEd.set_value(arr[0]);
 }
 
-//입원예정자관리 창에서 입원등록 했을때 환자등록번호 받아 옴.
+//입원예정자관리 창에서 입원등록 했을때 환자등록번호 받아 옴 0
 this.HA_HospitalizationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {	
 	this.patNoEd.set_value(this.parent.patNo);
 }
 
-//환자등록번호 얻기
+//환자등록번호 얻기0
 this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsPatient.clear();
@@ -423,7 +423,7 @@ this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	}
 }
 
-//환자등록번호로 환자정보 얻기
+//환자등록번호로 환자정보 얻기0
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(this.patNoEd.value==null){
@@ -437,21 +437,21 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	}
 }
 
+//외래환자 입원 승인정보 얻기 콜백함수 0
 this.findHosptlzYBCallbackFunc = function(svcID, errorCode, errorMsg)
 {
-	
 	if(errorCode=="1") {	
 		
 		var hosptlzYb=this.dsOutpaReceipt.getColumn(0,"hosptlzYb");
 		var hosptlzRsvtYb=this.dsOutpaReceipt.getColumn(0,"hosptlzRsvtYb");
 		
-		if(hosptlzYb=='Y' && hosptlzRsvtYb=='N'){
+		if(hosptlzYb=='Y' && hosptlzRsvtYb=='N'){//입원승인이Y, 입원예약등록이N 이면
 			alert("입원승인 확인 했습니다.");			
 			this.dsService.setColumn(2,"argument",'patNo='+patNo);
 			this.gfnService("findReceipt","false"); 	//	입원접수 확인하기
-		}else if(hosptlzYb=='N'){
+		}else if(hosptlzYb=='N'){//입원승인이 N 이면
 			alert("입원승인 되지 않았습니다.");
-		}else if(hosptlzRsvtYb=='Y'){
+		}else if(hosptlzRsvtYb=='Y'){//입원예약등록이 Y이면
 			alert("입원 예약 등록된 환자입니다.");
 		}
 	}else{
@@ -459,12 +459,13 @@ this.findHosptlzYBCallbackFunc = function(svcID, errorCode, errorMsg)
 	}	
 }
 
+//리셋버튼 클릭 0
 this.resetBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsHospitalizationInfo.clearData();
 }
 
-//환자의 입원정보 얻기
+//환자의 입원정보 얻기0
 this.hosptlzSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.hosptlzDateCal.set_enable(true);
@@ -477,33 +478,36 @@ this.hosptlzSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dsService.setColumn(5,"argument",'patNo='+patNo);
 	this.gfnService("findHospitalizationInfo","false"); 	//	입원접수 확인하기
 }
-	
+
+//입원등록 콜백함수 0
 this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 {
-	if(svcID=="findReceipt"){	
+	if(svcID=="findReceipt"){//입원정보를 조회하여	
 			if(errorCode=="1"){			
-				if(this.dsHospitalizationInfo.rowcount==0){
+				if(this.dsHospitalizationInfo.rowcount==0){//입원정보가 없으면
 					if(this.confirm( "입원등록을 하시겠습니까?", "서울병원 - 입원등록")){
 						this.hosptlzRsvtBtn.set_visible(true);  //입원예약Btn 생성					
 						this.fn_register();   //입원등록 
 					}
-				}else if(this.dsHospitalizationInfo.rowcount==1){
+				}else if(this.dsHospitalizationInfo.rowcount==1){//입원정보가 있으면
 					alert("이미 입원등록 된 환자입니다.");
 				}	
 			}else{
 				alert("입원등록 정보 검색 중 오류발생");
 			}		
-	}else if(svcID="callHospitalizationSeq"){
+	}else if(svcID="callHospitalizationSeq"){//입원등록번호 가져오기
 			if(errorCode=="1"){
-				this.hosptlzReceiptNoEdt.set_value(this.hospitalizationNo);
-				this.dsHospitalizationInfo.setColumn(0,"hospitalizationNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
-				this.gfnService("batchProcessHosptlzReceipt","false");  //입원등록	
+				this.hosptlzReceiptNoEdt.set_value(this.hosptlzReceiptNo);
+				alert(this.hosptlzReceiptNo);
+				this.dsHospitalizationInfo.setColumn(0,"hosptlzReceiptNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
+				this.gfnService("batchHospitalizationProcess","false");  //입원등록			
 			}else{
 				alert("입원등록번호에서 오류 발생");
 			}	
 	}
 }
 
+//입원등록 버튼 이벤트 0
 this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(patNo==null){
@@ -513,7 +517,7 @@ this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo
 		this.gfnService("findOutpaReceipt","false");  //외래접수번호와 입원여부 확인하기. 입원예약 여부 확인
 		
 		this.outpaReceiptNo.set_visible(true);
-		this.outpaReceiptNoEdt.set_visible(true);	
+		this.outpaReceiptNoEdt.set_visible(true);
 		this.saveBtn.set_visible(true);
 		this.HosptlzReceiptNo.set_visible(true);
 		this.hosptlzReceiptNoEdt.set_visible(true);
@@ -521,34 +525,33 @@ this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo
 	}	
 }
 
-//입원 취소
+//입원 취소 0
 this.hosptlzCancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsHospitalizationInfo.deleteRow();
-	this.gfnService("CancelHospitalization","false"); 	
+	this.gfnService("cancelHospitalization","false"); 	
 }
 
-//입원조회, 등록, 취소 Btn callbackFunc
+//입원조회,저장,취소  버튼(입원정보 일괄처리) 콜백함수0
 this.batchProcessHosptlzReceiptCallbackFunc=function(svcID, errorCode, errorMsg){
-	if(svcID=="batchProcessHosptlzReceipt"){
+	if(svcID=="batchHospitalizationProcess"){//입원저장 버튼 클릭 시
 		if(errorCode=="1"){					
 			alert("입원등록 되었습니다.");
 		}else{
 			alert("입원등록 중 오류발생");
 		}	
-	}else if(svcID=="findHosptlzReceipt"){
+	}else if(svcID=="findHospitalizationInfo"){//입원조회 버튼 클릭 시
 		
 		if(errorCode=="1"){	
 			if(this.dsHospitalizationInfo.rowcount==0){
 				alert("입원등록 된 내역이 없습니다.");
 			}
 			this.dsService.setColumn(7,"argument",'patNo='+this.patNoEd.value);
-			this.gfnService("findHosptlzRsvt");
-			
+			this.gfnService("findHospitalizationSchedule");
 		}else{
 			alert("입원조회  중 오류발생");
 		}	
-	}else if(svcID=="CancelHospitalization"){
+	}else if(svcID=="cancelHospitalization"){//입원취소 버튼 클릭 시
 		if(errorCode=="1"){	
 			alert("입원취소 되었습니다.");
 		}else{
@@ -556,13 +559,15 @@ this.batchProcessHosptlzReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 		}	
 	}
 }
+
+//입원예약정보 변경
 this.findHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 		if(errorCode=="1"){				
 			var outpaReceiptNo = this.outpaReceiptNoEdt.value;
 
 			this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition,"hosptlzRsvtYb","");
 			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+outpaReceiptNo+' patNo='+patNo);
-			this.gfnService("changeHosptlzRsvtYb","false");  //입원예약여부 변경 (N->Y)
+			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (Y->N)
 		}else{
 			alert("실패");
 		}	
@@ -572,14 +577,12 @@ this.findHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 this.registerHosptlzRsvtInfo= function(arr){	
 	var rsvtNo = arr[1];
 	this.dsService.setColumn(7,"argument",'rsvtNo='+rsvtNo);
-	this.gfnService("findHosptlzRsvt","false");   //조회	
+	this.gfnService("findHospitalizationSchedule","false");   //조회	
 }
 
+//입원저장 버튼 누르면 0
 this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	application.setVariable("hospitalizationNo", this.hospitalizationNo);	
-	this.gfnService("callHospitalizationSeq","false");   //입원등록번호 구하기.
-	 
     this.dsHospitalizationInfo.setColumn(0,"patNo",this.patNoEd.value);	                               //환자번호
 	this.dsHospitalizationInfo.setColumn(0,"outpaReceiptNo",this.outpaReceiptNoEdt.value);	   //외래접수번호
 	this.dsHospitalizationInfo.setColumn(0,"hosptlzDate",this.hosptlzDateCal.value);	               //입원일시
@@ -600,16 +603,19 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dsHospitalizationInfo.setColumn(0,"grtorTel",this.grtorTelEdt.value);             //보증인연락처
 	this.dsHospitalizationInfo.setColumn(0,"grtorAddr",this.grtorAddrEdt.value);        //보증인주소
 	this.dsHospitalizationInfo.setColumn(0,"patRship",this.patRshipCombo.value);     //환자와의 관계
+	
+	application.setVariable("hosptlzReceiptNo", this.hosptlzReceiptNo);	
+	this.gfnService("callHospitalizationSeq","false");   //입원등록번호 구하기.
 }
 
-//입원등록 
+//입원등록 0
 this.fn_register=function(){
 		this.dsHospitalizationInfo.addRow();   //입력추가
 		this.gfnBind(); 			
 		this.fn_enable();	//사용상태허용 함수
 }
 
- // 사용상태 허용
+ // 사용상태 허용 0
 this.fn_enable = function(){
 	this.hosptlzDateCal.set_enable(true);
 	this.dscgDateCal.set_enable(true);
@@ -633,39 +639,40 @@ this.fn_enable = function(){
 	this.hosptlzRoutePBtn.set_enable(true);
 
 }
+
+//의사 세팅 0
 this.setDoct=function(arr){
 	this.respDoctCdEdt.set_value(arr[0]);
 	this.respDoctNmEdt.set_value(arr[1]);
 }
 
-//병실조회 Popup
+//병실조회 Popup 0
 this.hroomBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnPopup("HA_HospitalRoomAssignmentForm","hdm","");
 }
 
-//입원경로 Popup
+//입원경로 Popup 0
 this.hosptlzRoutePBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	 this.gfnCodePopup("MD020");	
 }
 
-//진료과 Popup
+//진료과 Popup 0
 this.trmtDeptPBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnCodePopup("GP080");	
 }
 
-//환자 유형 Popup
+//환자 유형 Popup 0
 this.patTypePBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnCodePopup("GA043");
 }
 
-//담당의사 Popup
+//담당의사 Popup 0
 this.respDoctPBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	
 	if(this.trmtDeptCdEdt.text==""){
 				alert("진료받을과를 먼저 선택해주세요.");
 	}else{	
@@ -674,14 +681,16 @@ this.respDoctPBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	}
 }
 
+//병동병실 값 세팅 0
 this.setHroomInfo= function(arr){
 	this.wardEdt.set_value(arr[1]);
 	this.hroomEdt.set_value(arr[0]);
 	this.hroomNmEdt.set_value(arr[2]);
 }
+
+//팝업창 정보 받아서 세팅 0
 this.setCode=function(code,arr)
-{ 
-   //부모창에서 셋팅을 완료함.
+{
    if(code == "MD020"){
 		this.hosptlzRouteCdEdt.set_value(arr[0]);
 		this.hosptlzRouteNmEdt.set_value(arr[1]);
@@ -694,6 +703,7 @@ this.setCode=function(code,arr)
    }
 }
 
+//입원예약 버튼 이벤트
 this.hosptlzRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(this.hosptlzReceiptNoEdt.value != null){
@@ -702,13 +712,13 @@ this.hosptlzRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	}else if(this.dsHospitalizationSchedule.rowcount==1){
 		alert("이미 입원예약 된 환자입니다.");
 		this.dsService.setColumn(7,"argument",'patNo='+this.patNoEd.value);
-		this.gfnService("findHosptlzRsvt");
+		this.gfnService("findHospitalizationSchedule");
 	}else{
 		if(this.confirm( "입원예약을 하시겠습니까?", "서울병원 - 입원예약")){
 			var outpaReceiptNo=this.outpaReceiptNoEdt.value;
 			param = {patNo:patNo, outpaReceiptNo:outpaReceiptNo};
 		
-			this.gfnPopup("WH_HosptlzPatSearchForm","won",param);
+			this.gfnPopup("HA_HospitalizationScheduleForm","hdm",param);
 		}	
 	}	
 }
@@ -718,8 +728,8 @@ this.grtorAddrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.gfnPostPopup();
 }
 this.setPost = function(arrRtn){ 
-	this.grtorAddrEdt.set_value(arrRtn[2]+" "+arrRtn[0]+" "+arrRtn[1]); 
-	
-}]]></Script>
+	this.grtorAddrEdt.set_value(arrRtn[1]+" "+arrRtn[2]); 
+}
+]]></Script>
   </Form>
 </FDL>

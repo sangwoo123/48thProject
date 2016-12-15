@@ -15,15 +15,20 @@ import com.seoul.post.service.PostServiceFacade;
 import com.seoul.post.to.PostBean;
 import com.seoul.post.to.PostCondBean;
 
+
 /**
- * @Package  com.seoul.his.com.post.controller
- * @Class    PostController.java
- * @Create   2016. 5. 26.
- * @Author   godseop
- * @Description 주소 컨트롤러
+ * <pre>
+ * com.seoul.post.controller
+ *    |_ PostController.java
+ * </pre>
  *
- * @LastUpdated 
+ * @date : 2016. 12. 13. 오전 9:13:10
+ * @version :
+ * @author : kimmu
  */
+
+
+
 @Controller
 public class PostController {
 
@@ -33,7 +38,7 @@ public class PostController {
     @Autowired
     private DataSetBeanMapper dataSetBeanMapper;
 
-    @RequestMapping("com/post/findSido.do")
+    @RequestMapping("post/findSido.do")
     public void findSidoList(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData outData = (PlatformData) request.getAttribute("outData");
@@ -42,7 +47,7 @@ public class PostController {
         dataSetBeanMapper.beansToDataset(outData, sidoList, "dsPostSi", PostCondBean.class);
     }
 
-    @RequestMapping("com/post/findSigungu.do")
+    @RequestMapping("post/findSigungu.do")
     public void findSigunguList(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
@@ -53,7 +58,7 @@ public class PostController {
         dataSetBeanMapper.beansToDataset(outData, sigunguList, "dsPostSigungu", PostCondBean.class);
     }
 
-    @RequestMapping("com/post/findRoadPost.do")
+    @RequestMapping("post/findRoadPost.do")
     public void findRoadNameList(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
@@ -64,7 +69,7 @@ public class PostController {
         dataSetBeanMapper.beansToDataset(outData, roadPostList, "dsRoadPost", PostBean.class);
     }
 
-    @RequestMapping("com/post/findDongPost.do")
+    @RequestMapping("post/findDongPost.do")
     public void findPostListByDong(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");

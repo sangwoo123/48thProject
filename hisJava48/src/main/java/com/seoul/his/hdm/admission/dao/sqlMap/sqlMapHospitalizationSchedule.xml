@@ -37,4 +37,26 @@
 			)
 	</update>
 
+	<!-- 입원예약자 조회 -->
+	<select id="selectHospitalizationSchedule" resultType="HospitalizationScheduleBean">
+		SELECT *
+		  FROM WH_HOSPTLZ_RSVT
+		  	<where>
+				<if test="rsvtNo != null">
+					HOSPTLZ_RSVT_NO = #{rsvtNo}
+				</if>
+				<if test="patNo != null">
+					PAT_NO = #{patNo}
+				</if>
+			</where>
+	</select>
+
+	<!-- 입원예약 상태 변경(Y->N). -->
+	<update id="updataHosptalizationScheduleInfo">
+	    UPDATE WS_OUTPA_RECEIPT
+		       SET HOSPTLZ_RSVT_YB='N'
+		 WHERE OUTPA_RECEIPT_NO =#{outpaReceiptNo}
+		 AND PAT_NO=#{patNo}
+	</update>
+
 </mapper>

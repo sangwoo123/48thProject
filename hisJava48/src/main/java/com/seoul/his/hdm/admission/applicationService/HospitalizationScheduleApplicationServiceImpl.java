@@ -1,22 +1,30 @@
 package com.seoul.his.hdm.admission.applicationService;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seoul.his.hdm.admission.dao.HospitalizationScheduleDAO;
 import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+
+
 
 /**
- * @Package  com.seoul.his.acc.budget.applicationService
- * @Class    AccBudgetApplicationServiceImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.hdm.admission.applicationService
+ *    |_ HospitalizationScheduleApplicationServiceImpl.java
+ * </pre>
  *
- * @LastUpdated
+ * @date : 2016. 12. 12. 오후 7:37:06
+ * @version :
+ * @author : kimmu
  */
+
+
+
 
 @Component
 public class HospitalizationScheduleApplicationServiceImpl implements HospitalizationScheduleApplicationService{
@@ -38,4 +46,21 @@ public class HospitalizationScheduleApplicationServiceImpl implements Hospitaliz
 			}
 		}
 	}
+
+	@Override
+	public List<HospitalizationScheduleBean> findHospitalizationSchedule(Map<String, String> argsMap) {
+		return hospitalizationScheduleDAO.selectHospitalizationSchedule(argsMap);
+	}
+
+	@Override
+	public void modifyHosptalizationScheduleInfo(List<ReceiptInfoBean> receiptInfoList) {
+		for(ReceiptInfoBean receiptInfoBean :receiptInfoList ){
+			switch(receiptInfoBean.getStatus()){
+			case "updated" :
+				hospitalizationScheduleDAO.updataHosptalizationScheduleInfo(receiptInfoBean);
+			}
+		}
+	}
+
+
 }
