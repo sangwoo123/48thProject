@@ -113,5 +113,16 @@
         WHERE
             CODE = #{code}
     </select>
+    
+    <select id="selectCodeBindList" flushCache="false" useCache="true" resultType="OutCodeBean">
+        SELECT
+            DETAIL_CODE AS code,
+            CODE_NAME AS value,
+            DETAIL_CODE_NAME AS bigValue
+        FROM
+            CM_CODE
+        WHERE
+            CODE = #{code}
+    </select>
 
 </mapper>

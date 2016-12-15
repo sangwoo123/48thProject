@@ -11,7 +11,38 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
+    
+<!-- 
+    Weblogic Datasource Setting
+    <bean id="jndiTemplate" class="org.springframework.jndi.JndiTemplate">
+        <property name="environment">
+            <props>
+                <prop key="java.naming.provider.url">t3://localhost:7001</prop>
+                <prop key="java.naming.factory.initial">weblogic.jndi.WLInitialContextFactory</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="dataSourceSpied" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>oraDs</value>
+        </property> 
+        <property name="jndiTemplate">
+            <ref local="jndiTemplate"/>
+        </property>
+    </bean> 
 
+    Query Log print
+    <bean id="dataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSourceSpied" />
+        <property name="logFormatter">
+            <bean class="net.sf.log4jdbc.tools.Log4JdbcCustomFormatter">
+                <property name="loggingType" value="MULTI_LINE" />
+                <property name="sqlPrefix" value="SQL       : " />
+            </bean>
+        </property>
+    </bean>
+-->
     <bean id="propertyConfigurer" 
         class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" 
         p:location="/WEB-INF/config/jdbc.properties" />

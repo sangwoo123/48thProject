@@ -19,6 +19,5 @@ public interface ForeignApplicationService {
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap);
 
 	public PatInfoBean findPat(Map<String, String> argsMap);
-
-
+	
 }

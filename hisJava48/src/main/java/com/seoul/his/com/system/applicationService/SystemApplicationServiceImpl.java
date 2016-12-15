@@ -25,14 +25,16 @@ import com.seoul.his.com.system.to.SystemBean;
 public class SystemApplicationServiceImpl implements SystemApplicationService{
 	@Autowired
 	SystemDAO systemDAO;
-	
-
-
 
 	@Override
 	public List<SystemBean> findSystemList(Map<String, String> argsMap) {
 		List<SystemBean> systemList = systemDAO.selectSystemList(argsMap);
 		return systemList;		
 	}
+	
+	@Override
+    public String findDate(Map<String, String> argsMap) {
+        return systemDAO.selectDate(argsMap);
+    }
 
 }

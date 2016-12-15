@@ -12,7 +12,6 @@ import lombok.ToString;
 @ToString
 @Dataset(name = "dsPat")
 public class PatInfoBean extends BaseBean{
-
 	private String patNo,			     //환자등록번호
             	   patNm,                //환자이름
             	   rrn1,                 //주민번호앞자리

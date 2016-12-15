@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seoul.his.hdm.foreign.dao.PatInfoDAO">
+<mapper namespace="com.seoul.his.hdm.foreign.dao.ForeignDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
 
     <resultMap type="PatInfoBean" id="resultPat">
@@ -117,104 +117,4 @@
 		PAT_NO= #{patNo}
 
 	</select>
-
-   <!--  <insert id="insertPatNo">
-         insert into WS_PAT (PAT_NO) values (EMPLOY_SEQ.nextval)
-    </insert> -->
- <!-- <select id="selectLastPatNo" resultMap="resultPat">
-        SELECT
-            TO_CHAR(TO_NUMBER(MAX(pat_no))+1, '0000099') as PAT_NO
-         FROM WS_PAT
-    </select> -->
-      <!-- 마지막 환자등록번호 조회 -->
-    <select id="selectLastPatNo" resultMap="resultPat">
-         SELECT EMPLOY_SEQ.nextval as PAT_NO from dual
-    </select>
-
-<insert id="insertPat" parameterType="PatInfoBean">
-        INSERT INTO
-        ws_pat
-            (
-            PAT_NO ,
-            PAT_NM ,
-            RRN1 ,
-            AGE ,
-            TEL ,
-            ADDR ,
-            BARR_ASS ,
-            DTL_ADDR ,
-            ZIP ,
-            DEATH_DATE ,
-            NOTE ,
-            GENDER ,
-            SMS_RECEIVE_YB ,
-            SMS_RECEIVE_NO ,
-            SMS_RECEIVER,
-            REC_NW_DATE,
-            RRN2,
-            ESTB_GIHO,
-            CERTFCT_NO,
-            INSU_RRN,
-            INSU_RRN1,
-            INSU_NM,
-            APPLY_START_DATE,
-            APPLY_END_DATE
-            ) VALUES(
-                #{patNo},
-                #{patNm},
-                #{rrn1},
-                #{age},
-                #{tel},
-                #{addr},
-                #{barrAss},
-                #{dtlAddr},
-                #{zip},
-                #{deathDate},
-                #{note},
-                #{gender},
-                #{smsReceiveYb},
-                #{smsReceiveNo},
-                #{smsReceiver},
-                #{recNwDate},
-                FN_WS_ENCRYPT(#{rrn2}),
-                #{estbGiho},
-                #{certfctNo},
-                #{insuRrn},
-                #{insuRrn1},
-                #{insuNm},
-                #{applyStartDate},
-                #{applyEndDate}
-            )
-    </insert>
-
-
-
-<update id="updatePat" parameterType="PatInfoBean">
-        UPDATE
-            ws_pat
-        SET
-            PAT_NM =#{patNm},
-            AGE =#{age},
-            TEL =#{tel},
-            ADDR =#{addr},
-            BARR_ASS =#{barrAss},
-            DTL_ADDR =#{dtlAddr},
-            ZIP =#{zip},
-            DEATH_DATE =#{deathDate},
-            NOTE =#{note},
-            SMS_RECEIVE_YB =#{smsReceiveYb},
-            SMS_RECEIVE_NO =#{smsReceiveNo},
-            SMS_RECEIVER =#{smsReceiver},
-            REC_NW_DATE =#{recNwDate},
-            ESTB_GIHO =#{estbGiho},
-            CERTFCT_NO =#{certfctNo},
-            INSU_RRN =#{insuRrn},
-            INSU_RRN1 =#{insuRrn1},
-            INSU_NM =#{insuNm},
-            APPLY_START_DATE =#{applyStartDate},
-            APPLY_END_DATE =#{applyEndDate}
-        WHERE
-        PAT_NO =#{patNo}
-    </update>
-
 </mapper>

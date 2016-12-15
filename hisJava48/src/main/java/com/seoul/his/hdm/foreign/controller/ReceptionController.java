@@ -28,7 +28,7 @@ public class ReceptionController {
 	    private PlatformData inData;
 	    private Map<String, String> argsMap;
 
-	    // 접수내역조회
+	   // 접수내역조회
 	    @RequestMapping("hdm/foreign/findDiagnosisReceiptList.do")
 	    public void findDiagnosisReceiptList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	        outData = (PlatformData) request.getAttribute("outData");

@@ -10,8 +10,5 @@ public interface SystemServiceFacade {
 
 	List<SystemBean> findSystemList(Map<String, String> argsMap);
 
-
-
-
-
+	public String findDate(Map<String, String> argsMap);
 }

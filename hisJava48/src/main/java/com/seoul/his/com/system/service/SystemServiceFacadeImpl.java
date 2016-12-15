@@ -10,16 +10,6 @@ import com.seoul.his.com.system.applicationService.SystemApplicationService;
 import com.seoul.his.com.system.to.SystemBean;
 
 
-/**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated 
- */
-
 @Service
 public class SystemServiceFacadeImpl implements SystemServiceFacade{
 	@Autowired
@@ -32,6 +22,10 @@ public class SystemServiceFacadeImpl implements SystemServiceFacade{
 		return systemList;
 	}
 	
+	@Override
+    public String findDate(Map<String, String> argsMap) {
+        return systemApplicationService.findDate(argsMap);
+    }
 	
 	
 }

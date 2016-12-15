@@ -16,5 +16,12 @@
 	select * from hm_emp
 
  	</select>
+ 	
+ 	<select id="selectDate" flushCache="false" useCache="true" resultType="string">
+        SELECT 
+            TO_CHAR(SYSDATE, #{format}) AS sdate
+        FROM
+            DUAL
+    </select>
 
 </mapper>

@@ -16,6 +16,7 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
 @Component
 public class ForeignApplicationServiceImpl implements ForeignApplicationService {	
+	
 	@Autowired
 	ForeignDAO foreignDAO;
 	@Autowired
@@ -46,4 +47,5 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 	public PatInfoBean findPat(Map<String, String> argsMap) {
 		return foreignDAO.selectPat(argsMap);
 	}
+	
 }

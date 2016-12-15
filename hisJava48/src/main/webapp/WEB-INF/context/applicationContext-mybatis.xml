@@ -13,7 +13,6 @@
         p:dataSource-ref="dataSource" 
         p:mapperLocations="classpath:com/seoul/his/**/dao/sqlMap/*.xml"
         p:configLocation="/WEB-INF/config/mybatisConfig.xml" />
-
     
     <bean id="postSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
         p:dataSource-ref="postSource" 
