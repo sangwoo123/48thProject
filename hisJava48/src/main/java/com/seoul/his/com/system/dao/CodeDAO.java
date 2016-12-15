@@ -9,6 +9,13 @@ import com.seoul.his.com.system.to.OutCodeBean;
 
 
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.dao 
+ * @Class : CodeDAO.java
+ * @Create : 2016. 12. 15. 오후 8:23:06 
+ * @Author : 강 현준
+ */
 public interface CodeDAO {
     public List<CodeBean> selectCodeList(Map<String, String> argsMap);
 

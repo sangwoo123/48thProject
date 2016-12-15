@@ -11,6 +11,13 @@ import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
 
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.service 
+ * @Class : ForeignServiceFacade.java
+ * @Create : 2016. 12. 15. 오후 8:20:35 
+ * @Author : 강 현준
+ */
 public interface ForeignServiceFacade {
 
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap);	

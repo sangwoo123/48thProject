@@ -11,16 +11,14 @@ import com.seoul.his.com.hospitalcode.dao.HospitalCodeDAO;
 import com.seoul.his.com.hospitalcode.exception.HospitalCodeException;
 import com.seoul.his.com.hospitalcode.to.HospitalCodeBean;
 
-/**
- * @Package  com.seoul.his.acc.budget.applicationService
- * @Class    AccBudgetApplicationServiceImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
- *
- * @LastUpdated 
- */
 
+/**
+ * 
+ * @Package : com.seoul.his.com.hospitalcode.applicationService 
+ * @Class : HospitalCodeApplicationServiceImpl.java
+ * @Create : 2016. 12. 15. 오후 8:21:53 
+ * @Author : 강 현준
+ */
 @Component
 public class HospitalCodeApplicationServiceImpl implements HospitalCodeApplicationService{
 	@Autowired

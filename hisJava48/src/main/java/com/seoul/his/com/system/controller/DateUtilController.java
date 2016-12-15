@@ -13,6 +13,13 @@ import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.com.system.service.SystemServiceFacade;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.controller 
+ * @Class : DateUtilController.java
+ * @Create : 2016. 12. 15. 오후 8:22:24 
+ * @Author : 강 현준
+ */
 @Controller
 public class DateUtilController {
 

@@ -16,6 +16,14 @@ import com.seoul.his.common.util.NexacroLogger;
 import com.seoul.his.hdm.foreign.service.ForeignServiceFacade;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.controller 
+ * @Class : ReceptionController.java
+ * @Create : 2016. 12. 15. 오후 8:18:49 
+ * @Author : 강 현준
+ */
+
 @Controller
 public class ReceptionController {
 

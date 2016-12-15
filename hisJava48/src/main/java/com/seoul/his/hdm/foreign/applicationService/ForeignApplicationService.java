@@ -8,6 +8,13 @@ import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
 
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.applicationService 
+ * @Class : ForeignApplicationService.java
+ * @Create : 2016. 12. 15. 오후 8:19:19 
+ * @Author : 강 현준
+ */
 public interface ForeignApplicationService {
 
 	List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap);

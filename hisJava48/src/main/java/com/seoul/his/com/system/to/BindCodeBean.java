@@ -7,6 +7,13 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.to 
+ * @Class : BindCodeBean.java
+ * @Create : 2016. 12. 15. 오후 8:23:45 
+ * @Author : 강 현준
+ */
 @Getter
 @Setter
 @ToString

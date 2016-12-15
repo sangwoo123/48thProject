@@ -10,6 +10,13 @@ import com.seoul.his.com.system.applicationService.SystemApplicationService;
 import com.seoul.his.com.system.to.SystemBean;
 
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.service 
+ * @Class : SystemServiceFacadeImpl.java
+ * @Create : 2016. 12. 15. 오후 8:23:35 
+ * @Author : 강 현준
+ */
 @Service
 public class SystemServiceFacadeImpl implements SystemServiceFacade{
 	@Autowired

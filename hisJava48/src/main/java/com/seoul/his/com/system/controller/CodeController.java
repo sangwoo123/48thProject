@@ -18,6 +18,13 @@ import com.seoul.his.common.util.DataSetBeanMapper;
 
 
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.controller 
+ * @Class : CodeController.java
+ * @Create : 2016. 12. 15. 오후 8:22:13 
+ * @Author : 강 현준
+ */
 @Controller
 public class CodeController {
 

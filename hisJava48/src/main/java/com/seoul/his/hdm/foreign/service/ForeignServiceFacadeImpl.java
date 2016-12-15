@@ -15,6 +15,13 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.service 
+ * @Class : ForeignServiceFacadeImpl.java
+ * @Create : 2016. 12. 15. 오후 8:20:40 
+ * @Author : 강 현준
+ */
 @Service
 public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	@Autowired

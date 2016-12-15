@@ -16,6 +16,14 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.controller 
+ * @Class : ForeignController.java
+ * @Create : 2016. 12. 15. 오후 8:18:36 
+ * @Author : 강 현준
+ */
+
 @Controller
 public class ForeignController {
 	

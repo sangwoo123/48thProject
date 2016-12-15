@@ -9,6 +9,13 @@ import lombok.ToString;
 
 
 
+/**
+ * 
+ * @Package : com.seoul.his.hdm.foreign.to 
+ * @Class : CalendarBean.java
+ * @Create : 2016. 12. 15. 오후 8:20:49 
+ * @Author : 강 현준
+ */
 @Getter
 @Setter
 @ToString

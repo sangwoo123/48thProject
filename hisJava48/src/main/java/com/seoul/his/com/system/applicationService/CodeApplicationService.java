@@ -8,6 +8,13 @@ import com.seoul.his.com.system.to.CodeBean;
 import com.seoul.his.com.system.to.CodeNmBean;
 import com.seoul.his.com.system.to.OutCodeBean;
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.applicationService 
+ * @Class : CodeApplicationService.java
+ * @Create : 2016. 12. 15. 오후 8:22:40 
+ * @Author : 강 현준
+ */
 public interface CodeApplicationService {
     public List<CodeBean> findCodeList(Map<String, String> argsMap);
 

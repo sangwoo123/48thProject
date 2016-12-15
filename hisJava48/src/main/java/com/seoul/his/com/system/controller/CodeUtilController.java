@@ -17,6 +17,13 @@ import com.seoul.his.com.system.to.OutCodeBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.controller 
+ * @Class : CodeUtilController.java
+ * @Create : 2016. 12. 15. 오후 8:22:19 
+ * @Author : 강 현준
+ */
 @Controller
 public class CodeUtilController {
 

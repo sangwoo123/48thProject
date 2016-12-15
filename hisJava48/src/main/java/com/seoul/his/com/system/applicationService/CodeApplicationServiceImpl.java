@@ -13,6 +13,13 @@ import com.seoul.his.com.system.to.CodeBean;
 import com.seoul.his.com.system.to.CodeNmBean;
 import com.seoul.his.com.system.to.OutCodeBean;
 
+/**
+ * 
+ * @Package : com.seoul.his.com.system.applicationService 
+ * @Class : CodeApplicationServiceImpl.java
+ * @Create : 2016. 12. 15. 오후 8:22:43 
+ * @Author : 강 현준
+ */
 @Component
 public class CodeApplicationServiceImpl implements CodeApplicationService {
 
