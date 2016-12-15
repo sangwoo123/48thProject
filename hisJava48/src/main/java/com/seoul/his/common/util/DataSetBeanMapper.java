@@ -18,6 +18,7 @@ import com.nexacro.xapi.data.DataTypes;
 import com.nexacro.xapi.data.PlatformData;
 import com.nexacro.xapi.data.Variable;
 import com.nexacro.xapi.data.VariableList;
+import com.seoul.his.com.system.to.BindCodeBean;
 import com.seoul.his.common.annotation.Column;
 import com.seoul.his.common.annotation.Dataset;
 import com.seoul.his.common.annotation.Remove;
@@ -78,7 +79,7 @@ public class DataSetBeanMapper {
         datasetList.add(dataset);
 
         Method[] methods = classType.getDeclaredMethods();
-        for (Method method : methods) 
+        for (Method method : methods)
             setColumnName(dataset, nameMap, method);
         for (T bean : beanList)
             setColumnValue(dataset, nameMap, bean);

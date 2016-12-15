@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalFieldDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
-import com.seoul.his.msv.mcm.patientservice.dao.PatientServiceDAO;
+import com.seoul.his.msv.mcm.patientservice.dao.EmrDAO;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
-import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 
 /**
  * <pre>
@@ -28,20 +28,22 @@ import com.seoul.his.msv.mcm.patientservice.to.PatientServiceBean;
 
 @Component
 public class PatientServiceApplicationServiceImpl implements PatientServiceApplicationService {
-	@Autowired
-	PatientServiceDAO patientserviceDAO;
+
 	@Autowired
 	AttentionalPatientDAO attentionalPatientDAO;
 	@Autowired
 	AttentionalFieldDAO attentionalFieldDAO;
 	@Autowired
 	AdrDAO adrDAO;
+	@Autowired
+	EmrDAO emrDAO;
 
+	/* 	 EMR 관리	*/
 	@Override
-	public List<PatientServiceBean> findPatientServiceList(Map<String, String> argsMap) {
-		List<PatientServiceBean> patientserviceList = patientserviceDAO.selectPatientServiceList(argsMap);
-		return patientserviceList;
+	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
+		return emrDAO.selectEmrList(argsMap);
 	}
+
 
 	/* 관심환자관리 */
 	@Override
@@ -53,6 +55,24 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	@Override
 	public void registerAttentionalPatient(AttentionalPatientBean attentionalPatient) {
 		attentionalPatientDAO.insertAttentionalPatient(attentionalPatient);
+	}
+
+	@Override
+	public void  batchAttentionalPatientProcess(List<AttentionalPatientBean> attentionalPatientList ){
+		for (AttentionalPatientBean attentionalPatientBean : attentionalPatientList) {
+			String status = attentionalPatientBean.getStatus();
+			switch (status) {
+			case "inserted":
+				attentionalPatientDAO.insertAttentionalPatient(attentionalPatientBean);
+				break;
+			case "updated":
+				attentionalPatientDAO.updateAttentionalPatient(attentionalPatientBean);
+				break;
+			case "deleted":
+				attentionalPatientDAO.deleteAttentionalPatient(attentionalPatientBean);
+				break;
+			}
+		}
 	}
 
 	/* 관심분류코드관리 */

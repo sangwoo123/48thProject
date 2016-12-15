@@ -11,9 +11,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONArray;
+/*import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
+import org.json.simple.JSONValue;*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,7 +62,7 @@ public class PatientController {
 	}
 
 	
-	
+	/*
 	
 	@RequestMapping("hdm/patient/findDustList.do")
 	public void findDustList(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -93,5 +93,6 @@ public class PatientController {
 			dustList.add(dustBean);
 		}
 		dataSetBeanMapper.beansToDataset(outData, dustList, DustBean.class);
-	}
+	}*/
+	
 }

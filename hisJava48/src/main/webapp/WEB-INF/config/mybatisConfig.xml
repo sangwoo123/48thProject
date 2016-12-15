@@ -13,6 +13,7 @@
       <setting value="true" name="mapUnderscoreToCamelCase" />
    </settings>
 
+
    <typeAliases>
 
       <!-- 시스템공통 -->
@@ -22,9 +23,6 @@
 
       <package name="com.seoul.his.com.hospitalcode.to" />
       <package name="com.seoul.his.com.system.to" />
-      
-      
-      
 
       <package name="com.seoul.his.hdm.admission.to" />
       <package name="com.seoul.his.hdm.basebusiness.to" />
@@ -32,7 +30,6 @@
       <package name="com.seoul.his.hdm.foreign.to" />
       <package name="com.seoul.his.hdm.outstandingamount.to" />
       <package name="com.seoul.his.hdm.patient.to" />
-      
       <package name="com.seoul.his.msv.mcm.patientservice.to" />
 
       <package name="com.seoul.his.msv.pre.nursingmanagement.to" />

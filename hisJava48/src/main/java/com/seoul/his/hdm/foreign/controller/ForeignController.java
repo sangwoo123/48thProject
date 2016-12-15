@@ -34,7 +34,8 @@ public class ForeignController {
 		outData = (PlatformData) request.getAttribute("outData");
 		argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-		List<PatInfoBean> list= foreignServiceFacade.findPatList(argsMap);
+		List<PatInfoBean> list
+		= foreignServiceFacade.findPatList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, list, PatInfoBean.class);
 	}
 
@@ -49,5 +50,6 @@ public class ForeignController {
         PatInfoBean patInfoBean = foreignServiceFacade.findPat(argsMap);
         System.out.println(patInfoBean);
         dataSetBeanMapper.beanToDataset(outData, patInfoBean, PatInfoBean.class);
-    }
+    }   
+    
 }
