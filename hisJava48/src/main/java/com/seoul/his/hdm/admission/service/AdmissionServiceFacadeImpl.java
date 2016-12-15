@@ -6,32 +6,93 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.seoul.his.hdm.admission.applicationService.AdmissionApplicationService;
-import com.seoul.his.hdm.admission.to.AdmissionBean;
+import com.seoul.his.hdm.admission.applicationService.*;
+import com.seoul.his.hdm.admission.to.*;
+import com.seoul.his.hdm.foreign.applicationService.ForeignApplicationService;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+import com.seoul.his.hdm.patient.applicationService.PatientApplicationService;
+
+
 
 
 /**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.hdm.admission.service
+ *    |_ AdmissionServiceFacadeImpl.java
+ * </pre>
  *
- * @LastUpdated 
+ * @date : 2016. 12. 12. 오후 7:38:50
+ * @version :
+ * @author : kimmu
  */
+
+
+
 
 @Service
 public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	@Autowired
-	AdmissionApplicationService admissionApplicationService;
-
+	InpatientApplicationService inpatientApplicationService;
+	@Autowired
+	HospitalizationScheduleApplicationService hospitalizationScheduleApplicationService;
+	@Autowired
+	HospitalizationInfoApplicationService hospitalizationInfoApplicationService;
+	@Autowired
+	ForeignApplicationService foreignApplicationService;
+	@Autowired
+	HospitalRoomAssignmentApplicationService hospitalRoomAssignmentApplicationService;
+	@Autowired
+	PatientApplicationService patientApplicationService;
 
 	@Override
-		public List<AdmissionBean> findAdmissionList(Map<String, String> argsMap) {
-		List<AdmissionBean> admissionList = admissionApplicationService.findAdmissionList(argsMap);
-		return admissionList;
+		public List<InpatientBean> findInpatientList(Map<String, String> argsMap) {
+		List<InpatientBean> inpatientList = inpatientApplicationService.findInpatientList(argsMap);
+		return inpatientList;
 	}
-	
-	
-	
+
+	@Override
+	public String callhosptlzRsvtSeq() {
+		return hospitalizationScheduleApplicationService.callhosptlzRsvtSeq();
+	}
+
+	@Override
+	public void registerHospitalizationSchedule(List<HospitalizationScheduleBean> hospitalizationScheduleList) {
+		hospitalizationScheduleApplicationService.registerHospitalizationSchedule(hospitalizationScheduleList);
+	}
+
+	@Override
+	public List<HospitalizationInfoBean> findHospitalizationInfo(Map<String, String> argsMap) {
+		return hospitalizationInfoApplicationService.findHospitalizationInfo(argsMap);
+	}
+
+	@Override
+	public List<ReceiptInfoBean> findOutpaReceipt(Map<String, String> argsMap) {
+		return foreignApplicationService.findDiagnosisReceiptList(argsMap);
+	}
+
+    @Override
+    public List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap) {
+        return hospitalRoomAssignmentApplicationService.findHospitalRoomList(argsMap);
+    }
+
+	@Override
+	public void batchHospitalizationProcess(List<HospitalizationInfoBean> hospitalizationInfoList) {
+		hospitalizationInfoApplicationService.batchHospitalizationProcess(hospitalizationInfoList);
+	}
+
+	@Override
+	public String callHospitalizationSeq() {
+		return hospitalizationInfoApplicationService.callHospitalizationSeq();
+	}
+
+	@Override
+	public List<HospitalizationScheduleBean> findHospitalizationSchedule(Map<String, String> argsMap) {
+		return hospitalizationScheduleApplicationService.findHospitalizationSchedule(argsMap);
+	}
+
+	@Override
+	public void modifyHosptalizationScheduleInfo(List<ReceiptInfoBean> receiptInfoList) {
+		hospitalizationScheduleApplicationService.modifyHosptalizationScheduleInfo(receiptInfoList);
+	}
+
 }
