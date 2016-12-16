@@ -15,5 +15,5 @@ public class PostBean extends BaseBean {
     
     private String zipCode,     // 우편번호
                    baseAddr;    // 기본주소
-    
+    //테스트 태스트 브랜치 테스트 
 }
