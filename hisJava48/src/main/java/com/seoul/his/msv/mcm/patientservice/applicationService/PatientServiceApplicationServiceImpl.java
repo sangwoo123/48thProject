@@ -10,10 +10,12 @@ import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalFieldDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.EmrDAO;
+import com.seoul.his.msv.mcm.patientservice.dao.MedicalConsultationRequestDAO;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
+import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 
 /**
  * <pre>
@@ -37,7 +39,8 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	AdrDAO adrDAO;
 	@Autowired
 	EmrDAO emrDAO;
-
+	@Autowired
+	MedicalConsultationRequestDAO medicalConsultationRequestDAO;
 	/* 	 EMR 관리	*/
 	@Override
 	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
@@ -121,5 +124,29 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 		}
 
 	}
+	@Override
+	public List<MedicalConsultationRequestBean> findMedicalConsultationRequestList(Map<String, String> argsMap) {
+		return medicalConsultationRequestDAO.findMedicalConsultationRequestList(argsMap);
+	}
 
+	@Override
+	public void batchMedicalConsultationRequestProcess(
+			List<MedicalConsultationRequestBean> medicalConsultationRequestList) {
+		for (MedicalConsultationRequestBean medicalConsultationRequest : medicalConsultationRequestList) {
+			switch (medicalConsultationRequest.getStatus()) {
+			case "inserted":
+				medicalConsultationRequestDAO.insertMedicalConsultationRequest(medicalConsultationRequest);
+				break;
+			case "updated":
+				medicalConsultationRequestDAO.updateMedicalConsultationRequest(medicalConsultationRequest);
+				break;
+			case "deleted":
+				medicalConsultationRequestDAO
+						.deleteMedicalConsultationRequest(medicalConsultationRequest.getCfrnTrmtNo());
+				break;
+
+			}
+
+		}
+	}
 }
