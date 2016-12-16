@@ -11,8 +11,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @Dataset(name="dsPost")
-public class PostBean3 extends BaseBean {
-
+public class CopyOfPostBean extends BaseBean {
+    
     private String zipCode,     // 우편번호
-                   baseAddr,
-       baseAddr45, baseAddr34;
+                   baseAddr;    // 기본주소
+    //테스트 태스트 브랜치 테스트 
+}
