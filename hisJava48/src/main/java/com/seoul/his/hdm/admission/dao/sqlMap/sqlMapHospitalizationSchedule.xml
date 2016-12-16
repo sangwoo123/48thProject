@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seoul.his.hdm.admission.dao.HospitalizationScheduleDAO">
+	<cache flushInterval="86400000" eviction="LRU" />
+
+	<!-- 입원예약자 번호 구하기 -->
+	<select id="selectHosptlzRsvtSeq" flushCache="false" useCache="true" resultType="java.lang.String">
+		SELECT HOSPTLZ_RSVT_SEQ.NEXTVAL
+		FROM DUAL
+	</select>
+
+	<!-- 입원예약등록 -->
+	<update id="insertHospitalizationSchedule" parameterType="HospitalizationScheduleBean">
+			INSERT INTO WH_HOSPTLZ_RSVT(
+				HOSPTLZ_PLN_DATE
+				,HOSPTLZ_RSVT_NO
+				,HOPE_ROOM
+				,OUTPA_RECEIPT_NO
+				,PAT_NO
+				,PRDT_FINAN_DATE
+				,RESP_DOCT_CD
+				,TRMT_DEPT_CD
+				,UNIQUE_NTC
+				,HOPE_WARD
+			)
+			VALUES(
+					#{hosptlzPlnDate}
+					,#{hosptlzRsvtNo}
+					,#{hopeRoom}
+					,#{outpaReceiptNo}
+					,#{patNo}
+					,#{prdtFinanDate}
+					,#{respDoctCd}
+					,#{trmtDeptCd}
+					,#{uniqueNtc}
+					,#{hopeWard}
+			)
+	</update>
+
+	<!-- 입원예약자 조회 -->
+	<select id="selectHospitalizationSchedule" resultType="HospitalizationScheduleBean">
+		SELECT *
+		  FROM WH_HOSPTLZ_RSVT
+		  	<where>
+				<if test="rsvtNo != null">
+					HOSPTLZ_RSVT_NO = #{rsvtNo}
+				</if>
+				<if test="patNo != null">
+					PAT_NO = #{patNo}
+				</if>
+			</where>
+	</select>
+
+	<!-- 입원예약 상태 변경(Y->N). -->
+	<update id="updataHosptalizationScheduleInfo">
+	    UPDATE WS_OUTPA_RECEIPT
+		       SET HOSPTLZ_RSVT_YB='N'
+		 WHERE OUTPA_RECEIPT_NO =#{outpaReceiptNo}
+		 AND PAT_NO=#{patNo}
+	</update>
+
+</mapper>
