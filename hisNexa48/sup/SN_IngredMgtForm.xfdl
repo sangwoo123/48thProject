@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SN_IngredMgtForm" classname="SN_IngredMgtForm" left="0" top="0" width="1024" height="768" titletext="New Form" onload="SN_IngredMgtForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div05" taborder="0" left="1.37%" top="440" right="1.17%" height="322" style="background:#eceff1ff;border:1 solid gainsboro ;font:9 돋움;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="Div00" taborder="1" left="33.4%" top="75" right="1.17%" height="356" style="background:#eceff1ff;border:1 solid gainsboro ;font:9 돋움;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="식재료코드" left="16.32%" top="7" right="72.31%" height="27" style="font:bold 10 돋움;"/>
+              <Static id="Static01" taborder="1" text="식재료명" left="46.26%" top="7" right="44.76%" height="27" style="font:bold 10 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="2" left="1.46%" top="75" right="67.38%" height="357" style="background:#eceff1ff;border:1 solid gainsboro ;font:9 돋움;"/>
+        <Grid id="codeGrid" taborder="3" binddataset="dsCode" useinputpanel="false" autofittype="col" left="2.25%" top="115" right="67.97%" height="303" style="border:2 solid #808080ff,0 none #808080ff,0 none #808080ff,0 none #808080ff;font:9 돋움;" oncellclick="codeGrid_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="51"/>
+                <Column size="97"/>
+                <Column size="80"/>
+                <Column size="143"/>
+              </Columns>
+              <Rows>
+                <Row size="27" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="2" style="background:#cfd8dcff;" text="중분류"/>
+                <Cell col="2" style="background:#cfd8dcff;" text="세분류"/>
+                <Cell col="3" style="background:#cfd8dcff;" text="분류명"/>
+              </Band>
+              <Band id="body">
+                <Cell style="background:white;background2:white;" text="bind:smallCode1" suppress="1"/>
+                <Cell col="1" style="background:white;background2:white;" text="bind:fullName1" suppress="1"/>
+                <Cell col="2" style="background:white;background2:white;" text="bind:smallCode2"/>
+                <Cell col="3" style="background:white;background2:white;" text="bind:smallCode"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="IngredGrid" taborder="4" binddataset="dsIngred" useinputpanel="false" autofittype="col" left="34.38%" top="115" right="2.05%" height="303" style="font:9 돋움;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="129"/>
+                <Column size="212"/>
+                <Column size="124"/>
+                <Column size="132"/>
+                <Column size="111"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="27" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#cfd8dcff;" text="식품코드"/>
+                <Cell col="1" style="background:#cfd8dcff;" text="식품명"/>
+                <Cell col="2" style="background:#cfd8dcff;" text="계약단가"/>
+                <Cell col="3" style="background:#cfd8dcff;" text="품목코드"/>
+                <Cell col="4" style="background:#cfd8dcff;" text="재고단위"/>
+                <Cell col="5" style="background:#cfd8dcff;" text="구매단위"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:ingredCd"/>
+                <Cell col="1" edittype="normal" text="bind:ingredNm"/>
+                <Cell col="2" edittype="normal" text="bind:ctrtPrice"/>
+                <Cell col="3" edittype="normal" text="bind:gdsCd"/>
+                <Cell col="4" edittype="normal" text="bind:subulUnit"/>
+                <Cell col="5" edittype="normal" text="bind:ordUnit"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Edit id="ingredCdEd" taborder="5" left="52.44%" top="80" right="37.5%" height="30" style="font:9 돋움;"/>
+        <Div id="Div02" taborder="6" text="식품코드" left="34.67%" top="80" right="56.84%" height="30" style="background:#78909cff;color:black;bordertype:normal 5 5 ;font:9 돋움; :disabled {font:9 돋움 bold;}"/>
+        <Edit id="ingredNmEd" taborder="7" left="70.12%" top="80" right="14.94%" height="30" style="font:9 돋움;"/>
+        <Button id="searchBtn" taborder="8" onclick="searchBtn_onclick" left="90.72%" top="78" right="2.05%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="saveBtn" taborder="9" onclick="saveBtn_onclick" left="90.43%" top="728" right="2.34%" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;"/>
+        <Button id="modBtn" taborder="10" onclick="modBtn_onclick" left="82.52%" top="728" right="10.25%" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;"/>
+        <Static id="subCodeStc00" taborder="11" text="  식품분류" onclick="subCodeStc_onclick" left="2.25%" top="80" right="67.97%" height="30" style="background:#78909cff;color:black;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent; :disabled {font:9 돋움 bold;}"/>
+        <Div id="compBox" taborder="12" left="2.34%" top="448" right="2.05%" height="273" style="background:white;border:1 solid gainsboro ;font:9 돋움;" enable="false">
+          <Layouts>
+            <Layout width="1192" height="273">
+              <Static id="subCodeStc10" taborder="246" text="  음식 상세정보" onclick="subCodeStc_onclick" left="0%" top="0" right="0%" height="30" style="background:#78909cff;color:black;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent; :disabled {font:9 돋움 bold;}"/>
+              <Div id="Div01" taborder="247" text="식품분류" left="1.33%" top="42" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="ingredGrpCdEd" taborder="248" enable="false" left="9.11%" top="42" right="78.92%" height="30" style="font:9 돋움;"/>
+              <Edit id="unitEd" taborder="249" left="30.19%" top="42" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div03" taborder="250" text="단위" left="22.31%" top="42" right="70.42%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div00" taborder="251" text="식품코드" left="1.33%" top="79" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="ingredCdEd" taborder="252" enable="false" left="9.11%" top="79" right="78.92%" height="30" style="font:9 돋움;"/>
+              <Edit id="minOrdQtyEd" taborder="253" left="30.19%" top="79" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div02" taborder="254" text="최소발주량" left="22.31%" top="79" right="70.42%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div05" taborder="255" text="식품명" left="1.33%" top="116" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="ingredNmEd" taborder="256" left="9.11%" top="116" right="78.92%" height="30" style="font:9 돋움;"/>
+              <Edit id="chngQty3Ed" taborder="257" left="30.19%" top="116" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div07" taborder="258" text="영양환산량" left="22.31%" top="116" right="70.42%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div09" taborder="259" text="견적구분" left="1.33%" top="153" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="chngQtyEd" taborder="260" left="30.19%" top="153" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div10" taborder="261" text="구매환산량" left="22.31%" top="153" right="70.42%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div12" taborder="262" text="규격" left="1.33%" top="190" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="specEd" taborder="263" left="9.11%" top="190" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div15" taborder="264" text="반올림" left="1.33%" top="227" right="91.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="rateEd" taborder="265" left="30.19%" top="227" right="58.03%" height="30" style="font:9 돋움;"/>
+              <Div id="Div13" taborder="266" text="단가" left="22.31%" top="227" right="70.42%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div04" taborder="267" text="에너지" left="43.81%" top="79" right="48.82%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div06" taborder="268" text="비타민E" left="43.81%" top="116" right="48.82%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div08" taborder="269" text="당질" left="43.81%" top="153" right="48.82%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div11" taborder="270" text="비타민B1" left="43.81%" top="190" right="48.82%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div14" taborder="271" text="칼슘" left="43.81%" top="227" right="48.82%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="nutrit7Ed" taborder="272" left="52.1%" top="227" right="41.35%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit16Ed" taborder="273" left="52.1%" top="190" right="41.35%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit4Ed" taborder="274" left="52.1%" top="153" right="41.35%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit22Ed" taborder="275" left="52.1%" top="116" right="41.35%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit1Ed" taborder="276" left="52.1%" top="79" right="41.35%" height="30" style="font:9 돋움;"/>
+              <Div id="Div16" taborder="277" text="단백질" left="62.64%" top="79" right="30.09%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div17" taborder="278" text="철" left="62.64%" top="116" right="30.09%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div18" taborder="279" text="칼륨" left="62.64%" top="153" right="30.09%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div19" taborder="280" text="비타민B2" left="62.64%" top="190" right="30.09%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div20" taborder="281" text="콜레스테롤" left="62.64%" top="227" right="30.09%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="nutrit23Ed" taborder="282" left="70.62%" top="227" right="22.82%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit17Ed" taborder="283" left="70.62%" top="190" right="22.82%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit11Ed" taborder="284" left="70.62%" top="153" right="22.82%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit9Ed" taborder="285" left="70.62%" top="116" right="22.82%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit2Ed" taborder="286" left="70.62%" top="79" right="22.82%" height="30" style="font:9 돋움;"/>
+              <Div id="Div21" taborder="287" text="인" left="80.86%" top="79" right="11.77%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div22" taborder="288" text="지질" left="80.86%" top="116" right="11.77%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div23" taborder="289" text="식이섬유" left="80.86%" top="153" right="11.77%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div24" taborder="290" text="비타민B6" left="80.86%" top="190" right="11.77%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Div id="Div25" taborder="291" text="총지방산" left="80.86%" top="227" right="11.77%" height="30" style="background:burlywood;color:black;bordertype:round 5 5 ;font:9 돋움; :disabled {background:#546e7aff;bordertype:normal 5 5 ;}"/>
+              <Edit id="nutrit25Ed" taborder="292" left="88.74%" top="227" right="4.61%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit18Ed" taborder="293" left="88.74%" top="190" right="4.61%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit5Ed" taborder="294" left="88.74%" top="153" right="4.61%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit3Ed" taborder="295" left="88.74%" top="116" right="4.61%" height="30" style="font:9 돋움;"/>
+              <Edit id="nutrit8Ed" taborder="296" left="88.74%" top="79" right="4.61%" height="30" style="font:9 돋움;"/>
+              <Static id="subCodeStc00" taborder="297" text="음식 영양소 정보" onclick="subCodeStc_onclick" left="43.19%" top="42" right="1.64%" height="30" style="background:#78909cff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent; :disabled {font:9 돋움 bold;}"/>
+              <Static id="Static00" taborder="298" text="Kcal" left="59.06%" top="79" right="38.69%" height="30" style="font:9 돋움;"/>
+              <Static id="Static01" taborder="299" text="mg" left="59.06%" top="116" right="38.69%" height="30" style="font:9 돋움;"/>
+              <Static id="Static02" taborder="300" text="g" left="59.06%" top="153" right="38.69%" height="30" style="font:9 돋움;"/>
+              <Static id="Static03" taborder="301" text="mg" left="59.06%" top="190" right="38.69%" height="30" style="font:9 돋움;"/>
+              <Static id="Static04" taborder="302" text="mg" left="59.06%" top="227" right="38.69%" height="30" style="font:9 돋움;"/>
+              <Static id="Static05" taborder="303" text="g" left="77.58%" top="79" right="20.16%" height="30" style="font:9 돋움;"/>
+              <Static id="Static06" taborder="304" text="mg" left="77.58%" top="116" right="20.16%" height="30" style="font:9 돋움;"/>
+              <Static id="Static07" taborder="305" text="mg" left="77.58%" top="153" right="20.16%" height="30" style="font:9 돋움;"/>
+              <Static id="Static08" taborder="306" text="mg" left="77.58%" top="190" right="20.16%" height="30" style="font:9 돋움;"/>
+              <Static id="Static09" taborder="307" text="mg" left="77.58%" top="227" right="20.16%" height="30" style="font:9 돋움;"/>
+              <Static id="Static10" taborder="308" text="mg" left="95.7%" top="80" right="2.05%" height="30" style="font:9 돋움;"/>
+              <Static id="Static11" taborder="309" text="g" left="95.7%" top="117" right="2.05%" height="30" style="font:9 돋움;"/>
+              <Static id="Static12" taborder="310" text="g" left="95.7%" top="154" right="2.05%" height="30" style="font:9 돋움;"/>
+              <Static id="Static13" taborder="311" text="mg" left="95.7%" top="191" right="2.05%" height="30" style="font:9 돋움;"/>
+              <Static id="Static14" taborder="312" left="95.7%" top="228" right="2.05%" height="30" style="font:9 돋움;"/>
+              <Edit id="roundFlagEd" taborder="313" left="9.11%" top="227" right="78.92%" height="30" style="font:9 돋움;"/>
+              <Edit id="ingredFlagEd" taborder="314" left="9.11%" top="153" right="78.92%" height="30" style="font:9 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="13" left="0.1%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar5.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="식재료 관리" left="4.16%" top="0" right="80.75%" height="60" style="color:#263238ff;font:bold 20 돋움;" onclick="Div03_Static00_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="addBtn" taborder="14" onclick="addBtn_onclick" left="66.8%" top="728" right="26.07%" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;"/>
+        <Button id="delBtn" taborder="15" onclick="delBtn_onclick" left="74.71%" top="728" right="18.07%" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;font:9 돋움;cursor:hand;gradation:none 0,0 white 100,100 black;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findCodeList</Col>
+            <Col id="URL">his::msv/sup/hosptaldiet/findCodeList.do</Col>
+            <Col id="outData">dsCode=dsCode</Col>
+            <Col id="callbackFunc">callBackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findIngredList</Col>
+            <Col id="URL">his::msv/sup/hosptaldiet/findIngredList.do</Col>
+            <Col id="outData">dsIngred=dsIngred</Col>
+            <Col id="callbackFunc">callBackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchIngredProcess</Col>
+            <Col id="URL">his::msv/sup/hosptaldiet/batchIngredProcess.do</Col>
+            <Col id="inData">dsIngred=dsIngred:U</Col>
+            <Col id="callbackFunc">callBackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsIngred" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="dsIngred_canrowposchange">
+        <ColumnInfo>
+          <Column id="ingredGrpCd" type="STRING" size="256"/>
+          <Column id="ingredCd" type="STRING" size="256"/>
+          <Column id="ingredNm" type="STRING" size="256"/>
+          <Column id="spec" type="STRING" size="256"/>
+          <Column id="unit" type="STRING" size="256"/>
+          <Column id="chngQty" type="STRING" size="256"/>
+          <Column id="chngQty2" type="STRING" size="256"/>
+          <Column id="chngQty3" type="STRING" size="256"/>
+          <Column id="ingredFlag" type="STRING" size="256"/>
+          <Column id="minOrdQty" type="STRING" size="256"/>
+          <Column id="saftyStkQty" type="STRING" size="256"/>
+          <Column id="itemMclasCd" type="STRING" size="256"/>
+          <Column id="autoOrderYn" type="STRING" size="256"/>
+          <Column id="autoOutYn" type="STRING" size="256"/>
+          <Column id="stockYn" type="STRING" size="256"/>
+          <Column id="addYn" type="STRING" size="256"/>
+          <Column id="meatYn" type="STRING" size="256"/>
+          <Column id="useYn" type="STRING" size="256"/>
+          <Column id="rate" type="STRING" size="256"/>
+          <Column id="roundFlag" type="STRING" size="256"/>
+          <Column id="roundDec" type="STRING" size="256"/>
+          <Column id="roundNum" type="STRING" size="256"/>
+          <Column id="notes" type="STRING" size="256"/>
+          <Column id="nutrit1" type="STRING" size="256"/>
+          <Column id="nutrit2" type="STRING" size="256"/>
+          <Column id="nutrit3" type="STRING" size="256"/>
+          <Column id="nutrit4" type="STRING" size="256"/>
+          <Column id="nutrit5" type="STRING" size="256"/>
+          <Column id="nutrit7" type="STRING" size="256"/>
+          <Column id="nutrit8" type="STRING" size="256"/>
+          <Column id="nutrit9" type="STRING" size="256"/>
+          <Column id="nutrit11" type="STRING" size="256"/>
+          <Column id="nutrit16" type="STRING" size="256"/>
+          <Column id="nutrit17" type="STRING" size="256"/>
+          <Column id="nutrit18" type="STRING" size="256"/>
+          <Column id="nutrit22" type="STRING" size="256"/>
+          <Column id="nutrit23" type="STRING" size="256"/>
+          <Column id="nutrit25" type="STRING" size="256"/>
+          <Column id="spliesDiv" type="STRING" size="256"/>
+          <Column id="ctrtPrice" type="STRING" size="256"/>
+          <Column id="gdsCd" type="STRING" size="256"/>
+          <Column id="subulUnit" type="STRING" size="256"/>
+          <Column id="ordUnit" type="STRING" size="256"/>
+          <Column id="hospcls" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" onrowposchanged="dsCode_onrowposchanged">
+        <ColumnInfo>
+          <Column id="smallCode1" type="STRING" size="256"/>
+          <Column id="fullName1" type="STRING" size="256"/>
+          <Column id="smallCode2" type="STRING" size="256"/>
+          <Column id="fullName2" type="STRING" size="256"/>
+          <Column id="smallCode" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="codeGrid" propid="binddataset" datasetid="dsIngred"/>
+      <BindItem id="item1" compid="compBox.ingredGrpCdEd" propid="value" datasetid="dsIngred" columnid="ingredGrpCd"/>
+      <BindItem id="item2" compid="compBox.ingredCdEd" propid="value" datasetid="dsIngred" columnid="ingredCd"/>
+      <BindItem id="item3" compid="compBox.ingredNmEd" propid="value" datasetid="dsIngred" columnid="ingredNm"/>
+      <BindItem id="item4" compid="compBox.ingredFlagEd" propid="value" datasetid="dsIngred" columnid="spec"/>
+      <BindItem id="item5" compid="compBox.specEd" propid="value" datasetid="dsIngred" columnid="spec"/>
+      <BindItem id="item6" compid="compBox.roundFlagEd" propid="value" datasetid="dsIngred" columnid="roundFlag"/>
+      <BindItem id="item7" compid="compBox.unitEd" propid="value" datasetid="dsIngred" columnid="unit"/>
+      <BindItem id="item8" compid="compBox.minOrdQtyEd" propid="value" datasetid="dsIngred" columnid="minOrdQty"/>
+      <BindItem id="item9" compid="compBox.chngQty3Ed" propid="value" datasetid="dsIngred" columnid="chngQty3"/>
+      <BindItem id="item10" compid="compBox.chngQtyEd" propid="value" datasetid="dsIngred" columnid="chngQty"/>
+      <BindItem id="item11" compid="compBox.rateEd" propid="value" datasetid="dsIngred" columnid="rate"/>
+      <BindItem id="item12" compid="compBox.nutrit1Ed" propid="value" datasetid="dsIngred" columnid="nutrit1"/>
+      <BindItem id="item13" compid="compBox.nutrit22Ed" propid="value" datasetid="dsIngred" columnid="nutrit22"/>
+      <BindItem id="item14" compid="compBox.nutrit4Ed" propid="value" datasetid="dsIngred" columnid="nutrit4"/>
+      <BindItem id="item15" compid="compBox.nutrit16Ed" propid="value" datasetid="dsIngred" columnid="nutrit16"/>
+      <BindItem id="item16" compid="compBox.nutrit7Ed" propid="value" datasetid="dsIngred" columnid="nutrit7"/>
+      <BindItem id="item17" compid="compBox.nutrit2Ed" propid="value" datasetid="dsIngred" columnid="nutrit2"/>
+      <BindItem id="item18" compid="compBox.nutrit9Ed" propid="value" datasetid="dsIngred" columnid="nutrit9"/>
+      <BindItem id="item19" compid="compBox.nutrit11Ed" propid="value" datasetid="dsIngred" columnid="nutrit11"/>
+      <BindItem id="item20" compid="compBox.nutrit17Ed" propid="value" datasetid="dsIngred" columnid="nutrit17"/>
+      <BindItem id="item21" compid="compBox.nutrit23Ed" propid="value" datasetid="dsIngred" columnid="nutrit23"/>
+      <BindItem id="item22" compid="compBox.nutrit8Ed" propid="value" datasetid="dsIngred" columnid="nutrit8"/>
+      <BindItem id="item23" compid="compBox.nutrit3Ed" propid="value" datasetid="dsIngred" columnid="nutrit3"/>
+      <BindItem id="item24" compid="compBox.nutrit5Ed" propid="value" datasetid="dsIngred" columnid="nutrit5"/>
+      <BindItem id="item25" compid="compBox.nutrit18Ed" propid="value" datasetid="dsIngred" columnid="nutrit18"/>
+      <BindItem id="item26" compid="compBox.nutrit25Ed" propid="value" datasetid="dsIngred" columnid="nutrit25"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[include "scripts::commonTransaction.xjs";
+
+var ingredGrpCd;
+
+//화면로드
+this.SN_IngredMgtForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	var argument = "formDiv="+"ingred";
+	var row = this.dsService.findRow("serviceID","findCodeList");
+	this.dsService.setColumn(row,"argument",argument);
+	this.gfnService("findCodeList",false);
+}
+
+
+//코드선택시 식재료 조회
+this.dsCode_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	ingredGrpCd = obj.getColumn(e.newrow,"smallCode");
+    var argument = "ingredGrpCd="+ingredGrpCd;
+	var row = this.dsService.findRow("serviceID", "findIngredList");
+	this.dsService.setColumn(row, "argument", argument);
+	this.gfnService("findIngredList", false);
+}
+
+
+
+//조회버튼클릭 시 식재료 조회
+this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.compBox.set_enable(false);
+
+	var ingredCd = this.ingredCdEd.value;
+	var ingredNm = this.ingredNmEd.value;
+
+	var argument = "ingredCd="+ingredCd+" ingredNm="+ingredNm;
+	var row = this.dsService.findRow("serviceID", "findIngredList");
+	this.dsService.setColumn(row, "argument", argument);
+	
+	this.gfnService("findIngredList", false);
+	
+	alert("조회 되었습니다.");
+}
+
+//식재료 수정
+this.modBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.compBox.set_enable(true);
+}
+
+//식재료배치
+this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchIngredProcess");
+    alert("저장되었습니다.");
+    this.compBox.set_enable(false);
+}
+
+//식재료추가
+this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsIngred.addRow();
+	var preingredCd=this.dsIngred.getColumn(this.dsIngred.rowposition-1,"ingredCd");
+
+	var addingredNm=nexacro.toNumber(preingredCd.substring(3,7))+1;
+	var addingredNm=addingredNm.toString().padLeft(4, "0");
+	this.dsIngred.setColumn(this.dsIngred.rowposition,"ingredGrpCd",ingredGrpCd);
+	this.dsIngred.setColumn(this.dsIngred.rowposition,"gdsCd",ingredGrpCd+addingredNm);
+	this.dsIngred.setColumn(this.dsIngred.rowposition,"ingredCd",ingredGrpCd+addingredNm);
+	this.compBox.set_enable(true);
+}
+
+//식재료삭제
+this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	this.dsIngred.deleteRow(this.dsIngred.rowposition);
+}
+]]></Script>
+  </Form>
+</FDL>

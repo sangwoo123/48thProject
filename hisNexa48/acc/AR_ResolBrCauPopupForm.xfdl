@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="AR_ResolBrCauPopupForm" classname="AR_ResolBrCauPopupForm" left="0" top="0" width="631" height="143" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="-1.9%" top="-4" right="3.65%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="결의서 반려 사유" left="8.11%" top="-4" right="54.06%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="1" left="1.9%" top="45" right="1.11%" height="83" style="background:#edececff;">
+          <Layouts>
+            <Layout>
+              <Edit id="resolBrEd" taborder="0" left="18.95%" top="6" right="3.59%" height="37"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="subCodeStc" taborder="2" text="반려사유" onclick="subCodeStc_onclick" left="3.17%" top="51" right="82.09%" height="37" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Button id="resolBrBtn" taborder="3" onclick="resolBrBtn_onclick" left="70.52%" top="94" right="17.59%" height="26" style="background:@gradation URL('img::returnBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="closedBtn" taborder="4" onclick="closedBtn_onclick" left="85.9%" top="94" right="3.65%" height="26" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
