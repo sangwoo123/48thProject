@@ -11,27 +11,32 @@ import com.seoul.his.msv.sup.bookingexam.to.BookingExamBean;
 
 
 /**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
+ * @Package  com.seoul.his.msv.sup.bookingexam.service
+ * @Class    BookingExamServiceFacadeImpl.java
+ * @Create   2016. 12. 16.
+ * @Author   oss
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Service
 public class BookingExamServiceFacadeImpl implements BookingExamServiceFacade{
+
 	@Autowired
 	BookingExamApplicationService bookingexamApplicationService;
 
-
+	// 검사예약조회
 	@Override
-		public List<BookingExamBean> findBookingExamList(Map<String, String> argsMap) {
-		List<BookingExamBean> bookingexamList = bookingexamApplicationService.findBookingExamList(argsMap);
-		return bookingexamList;
+	public List<BookingExamBean> findBookingExamList(Map<String, String> argsMap) {
+		List<BookingExamBean> bookingExamList = bookingexamApplicationService.findBookingExamList(argsMap);
+		return bookingExamList;
 	}
-	
-	
-	
+
+	// 검사예약 일괄처리
+	@Override
+	public void batchBookingExamProcess(BookingExamBean bookingExamBean) {
+		bookingexamApplicationService.batchBookingExamProcess(bookingExamBean);
+	}
+
 }
