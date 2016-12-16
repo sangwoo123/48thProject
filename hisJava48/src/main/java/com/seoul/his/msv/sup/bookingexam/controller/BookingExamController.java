@@ -16,29 +16,38 @@ import com.seoul.his.msv.sup.bookingexam.to.BookingExamBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 /**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
+ * @Package  com.seoul.his.msv.sup.bookingexam.controller
+ * @Class    BookingExamController.java
+ * @Create   2016. 12. 16.
+ * @Author   oss
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Controller
 public class BookingExamController {
-	
+
 	@Autowired
-	DataSetBeanMapper dataSetBeanMapper; 
+	DataSetBeanMapper dataSetBeanMapper;
 	@Autowired
 	BookingExamServiceFacade bookingexamServiceFacade;
-	
-	@RequestMapping("msv/sup/bookingexam/findBookingExamList.do")
+
+	// 검사예약조회
+	@RequestMapping("sup/bookingexam/findBookingExamList.do")
 	public void findBookingExamList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 	    PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData); 
-		List<BookingExamBean> bookingexamList = bookingexamServiceFacade.findBookingExamList(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, bookingexamList, BookingExamBean.class);
+		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+		List<BookingExamBean> bookingExamList = bookingexamServiceFacade.findBookingExamList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, bookingExamList, BookingExamBean.class);
+	}
+
+	// 검사예약 일괄처리
+	@RequestMapping("sup/bookingexam/batchBookingExamProcess.do")
+	public void batchBookingExamProcess(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		PlatformData inData = (PlatformData) request.getAttribute("inData");
+		BookingExamBean bookingExamBean = dataSetBeanMapper.datasetToBean(inData, BookingExamBean.class);
+		bookingexamServiceFacade.batchBookingExamProcess(bookingExamBean);
 	}
 }
