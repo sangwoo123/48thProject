@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seoul.his.msv.mcm.patientservice.dao.EmrDAO">
+
+    <select id="selectEmrList" parameterType="map" resultType="EmrBean">
+        SELECT
+            *
+        FROM
+            MC_ADR
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="writeDate != null">
+                AND WRITE_DATE = #{writeDate}
+            </if>
+            <if test="writerNo != null">
+                AND WRITER_NO  = #{writerNo}
+            </if>
+        </trim>
+        ORDER BY
+            ADR_NO
+    </select>
+</mapper>
