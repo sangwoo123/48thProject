@@ -4,9 +4,9 @@
   <Form id="CM_LoginForm" classname="CM_LoginForm" left="0" top="0" width="635" height="350" titletext="LoginForm" style="background:URL('img::main.jpg') stretch;">
     <Layouts>
       <Layout>
-        <Edit id="idNmEd" taborder="8" readonly="true" oneditclick="id_oneditclick" left="80%" top="200" right="2.2%" height="30" style="align:center middle; :readonly {background:white;border:1 solid darkgray ;}" value="박영하"/>
+        <Edit id="idNmEd" taborder="8" readonly="true" oneditclick="id_oneditclick" left="80%" top="200" right="2.2%" height="30" style="align:center middle; :readonly {background:white;border:1 solid darkgray ;}" value="강현준"/>
         <Edit id="pwEd" taborder="9" password="true" left="61.57%" top="242" right="2.2%" height="30" style="align:center middle;" value="1"/>
-        <Edit id="idCdEd" taborder="10" readonly="true" oneditclick="id_oneditclick" left="61.57%" top="200" right="20.63%" height="30" style="background:white;border:1 solid darkgray ;align:center middle;" value="45027"/>
+        <Edit id="idCdEd" taborder="10" readonly="true" oneditclick="id_oneditclick" left="61.57%" top="200" right="20.63%" height="30" style="background:white;border:1 solid darkgray ;align:center middle;" value="45026"/>
         <Div id="Div00" taborder="11" text="ID" left="51.34%" top="200" height="30" style="background:black;color:white;bordertype:round 5 5 ;font:bold 10 새굴림;" width="60"/>
         <Div id="Div03" taborder="12" text="PW" left="51.34%" top="242" height="30" style="background:black;color:white;bordertype:round 5 5 ;font:bold 10 새굴림;" width="60"/>
         <Button id="loginBtn00" taborder="13" onclick="loginBtn_onclick" left="61.26%" top="291" right="20.79%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
