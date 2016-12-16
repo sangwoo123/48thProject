@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TypeDefinition version="1.2">
+  <Modules>
+    <Module url="CompBase.json"/>
+    <Module url="ComComp.json"/>
+    <Module url="Grid.json"/>
+    <Module url="DeviceAPI.json"/>
+    <Module url="EcoLibrary.json"/>
+    <Module url="IjectJS.json"/>
+    <Module url="ExtComp.json"/>
+  </Modules>
+  <Components>
+    <Component type="JavaScript" id="Div" classname="nexacro.Div"/>
+    <Component type="JavaScript" id="Button" classname="nexacro.Button"/>
+    <Component type="JavaScript" id="PopupDiv" classname="nexacro.PopupDiv"/>
+    <Component type="JavaScript" id="Combo" classname="nexacro.Combo"/>
+    <Component type="JavaScript" id="CheckBox" classname="nexacro.CheckBox"/>
+    <Component type="JavaScript" id="ListBox" classname="nexacro.ListBox"/>
+    <Component type="JavaScript" id="Edit" classname="nexacro.Edit"/>
+    <Component type="JavaScript" id="MaskEdit" classname="nexacro.MaskEdit"/>
+    <Component type="JavaScript" id="TextArea" classname="nexacro.TextArea"/>
+    <Component type="JavaScript" id="Menu" classname="nexacro.Menu"/>
+    <Component type="JavaScript" id="Tab" classname="nexacro.Tab"/>
+    <Component type="JavaScript" id="ImageViewer" classname="nexacro.ImageViewer"/>
+    <Component type="JavaScript" id="Radio" classname="nexacro.Radio"/>
+    <Component type="JavaScript" id="Calendar" classname="nexacro.Calendar"/>
+    <Component type="JavaScript" id="Static" classname="nexacro.Static"/>
+    <Component type="JavaScript" id="Grid" classname="nexacro.Grid"/>
+    <Component type="JavaScript" id="Spin" classname="nexacro.Spin"/>
+    <Component type="JavaScript" id="PopupMenu" classname="nexacro.PopupMenu"/>
+    <Component type="JavaScript" id="GroupBox" classname="nexacro.GroupBox"/>
+    <Component type="JavaScript" id="ProgressBar" classname="nexacro.ProgressBar"/>
+    <Component type="JavaScript" id="Plugin" classname="nexacro.Plugin"/>
+    <Component type="JavaScript" id="Dataset" classname="nexacro.NormalDataset"/>
+  </Components>
+  <Services>
+    <Service prefixid="hdm" type="form" url="./hdm/" version="0" communicationversion="0"/>
+    <Service prefixid="img" type="file" url="./img/" version="0" communicationversion="0"/>
+    <Service prefixid="scripts" type="js" url="./scripts/" version="0" communicationversion="0"/>
+    <Service prefixid="com" type="form" url="./com/" version="0" communicationversion="0"/>
+    <Service prefixid="frame" type="form" url="./frame/" version="0" communicationversion="0"/>
+    <Service prefixid="his" type="JSP" url="http://localhost:8282/his/" version="0" communicationversion="0"/>
+    <Service prefixid="pic" type="JSP" url="http://localhost/his/images/" version="0" communicationversion="0"/>
+    <Service prefixid="acc" type="form" url="./acc/" version="0" communicationversion="0"/>
+    <Service prefixid="hrs" type="form" url="./hrs/" version="0" communicationversion="0"/>
+    <Service prefixid="log" type="form" url="./log/" version="0" communicationversion="0"/>
+    <Service prefixid="mcm" type="form" url="./mcm/" version="0" communicationversion="0"/>
+    <Service prefixid="pre" type="form" url="./pre/" version="0" communicationversion="0"/>
+    <Service prefixid="sup" type="form" url="./sup/" version="0" communicationversion="0"/>
+    <Service prefixid="nexacro14lib" type="file" url="./nexacro14lib/" version="0" communicationversion="0"/>
+    <Service prefixid="IjectJS" type="file" url="./nexacro14lib/component/IjectJS/" version="0" communicationversion="0"/>
+    <Service prefixid="EcoLibrary" type="file" url="./nexacro14lib/component/EcoLibrary/" version="0" communicationversion="0"/>
+    <Service prefixid="Lib" type="js" url="./Lib/" version="0" communicationversion="0"/>
+    <Service prefixid="Guide" type="form" url="./Guide/" version="0" communicationversion="0"/>
+    <Service prefixid="Template" type="form" url="./Template/" version="0" communicationversion="0"/>
+    <Service prefixid="Sample" type="form" url="./Sample/" version="0" communicationversion="0"/>
+    <Service prefixid="Comm" type="form" url="./Comm/" version="0" communicationversion="0"/>
+  </Services>
+  <Update/>
+  <Protocols/>
+</TypeDefinition>

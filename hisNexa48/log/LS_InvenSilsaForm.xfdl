@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LS_InvenSilsaForm" classname="LM_invenSilsaForm" left="0" top="0" width="1250" height="768" titletext="중앙공급실재고실사관리" onload="LS_InvenSilsaMngntForm_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="공급실 SET 구성품 관리" left="4.79%" top="-4" right="62.21%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+        <Div id="Div00" taborder="1" left="0.1%" top="0" right="0.2%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="재고실사" left="4.8%" top="-4" right="62.19%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="Div01" taborder="2" left="0.68%" top="58" right="1.07%" height="45" style="background:#edececff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="Div03" taborder="3" left="0.72%" top="107" right="0.8%" height="660" style="background:#edececff;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="ctrtDateSelStc00" taborder="6" text="창고" onclick="subCodeStc_onclick" left="2.08%" top="62" right="91.28%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Combo id="whCombo" taborder="7" innerdataset="@dsWh" codecolumn="code" datacolumn="value" left="9.36%" top="62" right="79.12%" height="30"/>
+        <Static id="ctrtDateSelStc01" taborder="8" text="청구일자" onclick="subCodeStc_onclick" left="24.08%" top="64" right="68.96%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Calendar id="startSilsaDateCal" taborder="9" autoskip="true" left="31.36%" top="65" right="56.56%" height="27" style="padding:0 0 0 0;"/>
+        <Static id="ctrtDateSelStc03" taborder="10" text="~" onclick="subCodeStc_onclick" left="44.48%" top="64" right="52.4%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Calendar id="endSilsaDateCal" taborder="11" autoskip="true" left="48.48%" top="65" right="39.36%" height="27" style="padding:0 0 0 0;"/>
+        <Static id="ctrtDateSelStc02" taborder="12" text="재고반영" onclick="subCodeStc_onclick" left="64.24%" top="62" right="29.12%" height="30" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Combo id="invenRfltCombo" taborder="13" innerdataset="@invenRfltYb" codecolumn="code" datacolumn="value" left="71.44%" top="62" right="16.96%" height="30"/>
+        <Button id="invenSilsaSearchBtn" taborder="14" onclick="button_onclick" left="91.2%" top="65" right="1.52%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="SearchBtn"/>
+        <Grid id="invenSilsaGrid" taborder="15" binddataset="dsInvenSilsa" useinputpanel="false" autofittype="col" left="1.2%" top="174" right="55.68%" height="533" oncellclick="invenSilsaGrid_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="150"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="27" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="no"/>
+                <Cell col="1" text="창고코드"/>
+                <Cell col="2" text="창고명"/>
+                <Cell col="3" text="실사일자"/>
+                <Cell col="4" text="재고반영"/>
+              </Band>
+              <Band id="body">
+                <Cell expr="currow+1"/>
+                <Cell col="1" text="bind:whCd"/>
+                <Cell col="2" text="bind:whNm"/>
+                <Cell col="3" edittype="normal" text="bind:silsaDate" mask="####-##-##"/>
+                <Cell col="4" displaytype="combo" edittype="combo" text="bind:invenRflt" combodataset="invenRfltYb" combocodecol="code" combodatacol="value" combodisplay="edit"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="invenSilsaDtlGrid" taborder="16" binddataset="dsInvenSilsaDtlInfo" useinputpanel="false" autofittype="col" left="46.88%" top="174" right="0.72%" height="535" oncellclick="invenSilsaDtlGrid_oncellclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="107"/>
+                <Column size="96"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="60"/>
+                <Column size="60"/>
+              </Columns>
+              <Rows>
+                <Row size="27" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="물품코드"/>
+                <Cell col="1" text="물품명"/>
+                <Cell col="2" text="전산수량"/>
+                <Cell col="3" text="실사수량"/>
+                <Cell col="4" text="차이수량"/>
+                <Cell col="5" text="수불단위"/>
+                <Cell col="6" text="계약단가"/>
+                <Cell col="7" text="금액"/>
+                <Cell col="8" text="마감여부"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:gdsCd"/>
+                <Cell col="1" displaytype="combo" edittype="combo" text="bind:gdsCd" combodataset="dsGds" combocodecol="gdsCd" combodatacol="gdsNm" combodisplay="edit" calendardisplay="edit"/>
+                <Cell col="2" text="bind:dproQnt"/>
+                <Cell col="3" text="bind:silsaQnt"/>
+                <Cell col="4" text="bind:diffQnt" expr="expr:nexacro.toNumber(dproQnt,0)-nexacro.toNumber(silsaQnt,0)"/>
+                <Cell col="5" text="bind:subulUnit"/>
+                <Cell col="6" text="bind:priceCtrt"/>
+                <Cell col="7" text="bind:amt" expr="expr:nexacro.toNumber(dproQnt,0)*nexacro.toNumber(priceCtrt,0)"/>
+                <Cell col="8" displaytype="checkbox" edittype="checkbox" text="bind:invenDlineYb"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="invenRfltBtn" taborder="17" text="재고반영" onclick="button_onclick" left="72.32%" top="130" right="22.88%" height="30" style="background:#848484ff;color:white;font:bold 9 돋움;" class="ProcessBtn"/>
+        <Button id="RfltCancelBtn" taborder="18" text="반영취소" onclick="button_onclick" left="77.76%" top="132" right="17.44%" height="30" style="background:#848484ff;color:white;font:bold 9 돋움;" class="ProcessBtn"/>
+        <Button id="modifyBtn" taborder="19" onclick="button_onclick" left="84%" top="130" right="8.72%" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="ModiBtn"/>
+        <Button id="insertBtn" taborder="20" onclick="button_onclick" left="91.92%" top="130" right="0.72%" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="AddBtn"/>
+        <Button id="delInvenSilsaDtlInfoBtn" taborder="21" onclick="button_onclick" left="96.72%" top="721" right="0.72%" height="32" style="background:@gradation URL('img::miniMinusBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DrBtn"/>
+        <Button id="addInvenSilsaDtlInfoBtn" taborder="22" onclick="button_onclick" left="93.84%" top="721" right="3.68%" height="32" style="background:@gradation URL('img::miniPlusBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="ArBtn"/>
+        <Button id="addInvenSilsaBtn" taborder="23" onclick="button_onclick" left="38.8%" top="713" right="58.72%" height="32" style="background:@gradation URL('img::miniPlusBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="ArBtn"/>
+        <Button id="delInvenSilsaBtn" taborder="24" onclick="button_onclick" left="41.68%" top="713" right="55.76%" height="32" style="background:@gradation URL('img::miniMinusBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DrBtn"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsInvenDline" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="value">전체</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">반영</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">미반영</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBindCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="dsName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">GD041</Col>
+            <Col id="dsName">dsWh</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsWh" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="invenRfltYb" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">0</Col>
+            <Col id="value">전체</Col>
+          </Row>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">반영</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">미반영</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsInvenSilsa" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="whCd" type="STRING" size="256"/>
+          <Column id="whNm" type="STRING" size="256"/>
+          <Column id="invenRflt" type="STRING" size="256"/>
+          <Column id="ioCfmtCd" type="STRING" size="256"/>
+          <Column id="ioTypeCd" type="STRING" size="256"/>
+          <Column id="silsaDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsInvenSilsaDtlInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="whCd" type="STRING" size="256"/>
+          <Column id="diffQnt" type="STRING" size="256"/>
+          <Column id="midGrpCd" type="STRING" size="256"/>
+          <Column id="dproQnt" type="STRING" size="256"/>
+          <Column id="invenRflt" type="STRING" size="256"/>
+          <Column id="invenDlineYb" type="STRING" size="256"/>
+          <Column id="silsaQnt" type="STRING" size="256"/>
+          <Column id="subulUnit" type="STRING" size="256"/>
+          <Column id="smGrpCd" type="STRING" size="256"/>
+          <Column id="gdsCd" type="STRING" size="256"/>
+          <Column id="bigGrpCd" type="STRING" size="256"/>
+          <Column id="priceCtrt" type="STRING" size="256"/>
+          <Column id="price" type="STRING" size="256"/>
+          <Column id="amt" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsPstInven" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="whCd" type="STRING" size="256"/>
+          <Column id="smGrpCd" type="STRING" size="256"/>
+          <Column id="midGrpCd" type="STRING" size="256"/>
+          <Column id="bigGrpCd" type="STRING" size="256"/>
+          <Column id="pstInvenQnt" type="STRING" size="256"/>
+          <Column id="ioTypeCd" type="STRING" size="256"/>
+          <Column id="gdsCd" type="STRING" size="256"/>
+          <Column id="ioCfmtCd" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="whCd">0</Col>
+            <Col id="smGrpCd">1</Col>
+            <Col id="midGrpCd">2</Col>
+            <Col id="bigGrpCd">3</Col>
+            <Col id="pstInvenQnt">4</Col>
+            <Col id="ioTypeCd">5</Col>
+            <Col id="gdsCd">6</Col>
+            <Col id="ioCfmtCd">7</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBindLogCd" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="cdDiv" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="cdNm" type="STRING" size="256"/>
+          <Column id="dsLogName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="cdDiv">wh</Col>
+            <Col id="dsLogName">dsWh</Col>
+            <Col id="code"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findInvenSilsaList</Col>
+            <Col id="URL">his::log/inven/findInvenSilsaList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsInvenSilsa=dsInvenSilsa dsInvenSilsaDtlInfo=dsInvenSilsaDtlInfo</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchInvenSilsaListProcess</Col>
+            <Col id="URL">his::log/inven/batchInvenSilsaListProcess.do</Col>
+            <Col id="inData">dsInvenSilsa=dsInvenSilsa:u dsInvenSilsaDtlInfo=dsInvenSilsaDtlInfo:u</Col>
+            <Col id="outData">dsInvenSilsa=dsInvenSilsa dsInvenSilsaDtlInfo=dsInvenSilsaDtlInfo</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findPstInvenList</Col>
+            <Col id="URL">his::log/inven/findPstInvenList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsPstInven=dsPstInven</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">findGdsList</Col>
+            <Col id="URL">his::log/base/findGdsList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsGds=dsGds</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc">collbackLogBind</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsGds" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="gdsCd" type="STRING" size="256"/>
+          <Column id="gdsNm" type="STRING" size="256"/>
+          <Column id="ediCd" type="STRING" size="256"/>
+          <Column id="vmiYb" type="STRING" size="256"/>
+          <Column id="useDept" type="STRING" size="256"/>
+          <Column id="stand" type="STRING" size="256"/>
+          <Column id="ordUnit" type="STRING" size="256"/>
+          <Column id="subulUnit" type="STRING" size="256"/>
+          <Column id="cngQnt" type="STRING" size="256"/>
+          <Column id="cust" type="STRING" size="256"/>
+          <Column id="ctrtPrice" type="STRING" size="256"/>
+          <Column id="ctrtStartDate" type="STRING" size="256"/>
+          <Column id="ctrtEndDate" type="STRING" size="256"/>
+          <Column id="spliesDiv" type="STRING" size="256"/>
+          <Column id="wh" type="STRING" size="256"/>
+          <Column id="rackNo" type="STRING" size="256"/>
+          <Column id="insurDiv" type="STRING" size="256"/>
+          <Column id="disuseDate" type="STRING" size="256"/>
+          <Column id="disuseDiv" type="STRING" size="256"/>
+          <Column id="picLoc" type="STRING" size="256"/>
+          <Column id="note" type="STRING" size="256"/>
+          <Column id="regWorkerId" type="STRING" size="256"/>
+          <Column id="regWorkerIp" type="STRING" size="256"/>
+          <Column id="regDate" type="STRING" size="256"/>
+          <Column id="modWorkerId" type="STRING" size="256"/>
+          <Column id="modWorkerIp" type="STRING" size="256"/>
+          <Column id="modDate" type="STRING" size="256"/>
+          <Column id="midGrpCd" type="STRING" size="256"/>
+          <Column id="smGrpCd" type="STRING" size="256"/>
+          <Column id="bigGrpCd" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+*                                                                               *
+* 재고실사 등록																*
+*                                                                               *
+* @Path		    log-LS_InvenSilsaForm											*
+*                                                                               *
+* @Description 	재고실사내역 등록                                             *
+*			     																*
+* @Author	    oss 						                                	*
+* 									                                            *
+* Created on                              		                                *
+*									                                            *
+********************************************************************************/
+
+
+/***************************************************************************************************
+*                                      공통 Script Include                                         *
+***************************************************************************************************/
+include "scripts::commonScripts.xjs";
+include "scripts::commonUtil.xjs";
+include "scripts::logScripts.xjs";
+include "scripts::commonBind.xjs";
+include "scripts::commonPopup.xjs";
+
+
+
+
+/***************************************************************************************************
+*                                      화면 변수 선언부                                          *
+***************************************************************************************************/
+var dateCal;
+var code;
+var value;
+/***************************************************************************************************
+*                                      폼 EVENT START                                        	   *
+/*-------------------------------------------------------------------------------------------------+
+>>  onload 이벤트
++-------------------------------------------------------------------------------------------------*/
+this.LS_InvenSilsaMngntForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+
+
+	//this.logBindCd();
+	//dateCal = this.gfnDate("yyyymmdd");
+	//this.offEnableBtn();
+	//this.findInvenSilsaList();
+	this.gfnBind(); 
+	this.gfnService("findGdsList");
+	 
+
+}
+
+/*-------------------------------------------------------------------------------------------------+
+*                                      폼 EVENT END                                               *
+***************************************************************************************************/
+
+
+
+/***************************************************************************************************
+*                                      버튼 EVENT START                                            *
+/*-------------------------------------------------------------------------------------------------+
+>>  Button 이벤트
++-------------------------------------------------------------------------------------------------*/
+
+this.button_onclick = function (obj:Button,  e:ClickEventInfo)
+{
+	var btnName=obj.name;
+	
+	switch(obj){	
+		
+		case this.invenSilsaSearchBtn :
+			this.findInvenSilsaList();   				// 재고실사 조회버튼
+		break;
+		
+		case this.addInvenSilsaBtn : 					// 재고실사 Grid Row 추가
+			this.addInvenSilsa();
+		break;
+		
+		case this.delInvenSilsaBtn : 					// 재고실사 Grid Row 삭제
+			 this.delInvenSilsa();
+		break;		
+				
+		case this.addInvenSilsaDtlInfoBtn : 				// 재고실사상세 Grid Row 추가
+			this.addInvenSilsaDtlInfo();
+		break;
+		
+		case this.delInvenSilsaDtlInfoBtn : 				// 재고실사상세 Grid Row 삭제
+			 this.delInvenSilsaDtlInfo();
+		break;
+		
+		case this.invenRfltBtn : 						// 재고반영 버튼
+			  this.invenRflt();			 
+		break;
+		
+		case this.RfltCancelBtn : 						// 반영취소 버튼
+		 	  this.RfltCancel();
+		break;
+		
+		case this.insertBtn : 							// 재고실사 등록버튼
+			  this.batchInvenSilsaListProcess();
+		break;
+		
+		case this.modifyBtn : 							// 재고실사 수정버튼
+			  this.batchInvenSilsaListProcess();
+		break;
+			
+		case this.closeBtn : 							// 재고실사 종료버튼
+			  this.close();
+		break;
+	}
+}	
+
+
+/*-------------------------------------------------------------------------------------------------+
+>>  조회 버튼 이벤트
++-------------------------------------------------------------------------------------------------*/
+
+
+this.findInvenSilsaList = function ()
+{
+	alert("조회버튼누름");
+	
+	//var bigGrpCd=this.bigGrpCdEd.value;
+	//var bigGrpNm=this.bigGrpCdNmEd.value;	
+	//var argument = 'bigGrpCd='+bigGrpCd+' bigGrpNm='+bigGrpNm;
+	//this.dsService.setColumn(0,"argument",argument);
+	//this.gfnService("findGrpList","true");
+	
+
+	var whCd=this.whCombo.value;
+	alert(whCd);
+	var startSilsaDate=this.startSilsaDateCal.value;
+	var endSilsaDate=this.endSilsaDateCal.value;
+	var invenRflt=this.invenRfltCombo.value;
+	var argument = 'whCd='+whCd+' startSilsaDate='+startSilsaDate+' endSilsaDate='+endSilsaDate+' invenRflt='+invenRflt;
+	//var row = this.dsService.findRow('serviceID',"findInvenSilsaList");
+	//this.dsService.setColumn(row,"argument",argument);
+	//this.gfnService("findInvenSilsaList","true");
+	this.dsService.setColumn(0,"argument",argument);
+	this.gfnService("findInvenSilsaList",false);
+	this.oncell();
+
+//조회 후 해당 버튼 활성화
+	this.onEnableBtn();	
+}
+
+//조회 전 비활성화 하고자 하는 버튼
+this.offEnableBtn = function (){
+	this.invenRfltBtn.set_enable(false);
+	this.RfltCancelBtn.set_enable(false);
+	this.insertBtn.set_enable(false);
+	this.modifyBtn.set_enable(false);	
+	this.addInvenSilsaDtlInfoBtn.set_enable(false);
+	this.delInvenSilsaDtlInfoBtn.set_enable(false);	
+}
+
+//조회 후 비활성화 된 버튼 활성화
+this.onEnableBtn = function (){
+	this.invenRfltBtn.set_enable(true);	
+	this.modifyBtn.set_enable(true);	
+	this.addInvenSilsaDtlInfoBtn.set_enable(true);	
+	this.delInvenSilsaDtlInfoBtn.set_enable(true);		
+}
+
+/***************************************************************************************************
+*                                 	트랜젝션 실행 후 콜백함수 START                            *
+*-------------------------------------------------------------------------------------------------*/
+this.CallbackFunc = function (trid,errcd,errmsg)
+{
+	if(trid=="findInvenSilsaList"){
+		if(errcd<0){
+			alert(errmsg+"재고실사 정보를 불러오는데 실패했습니다");
+			return;
+		}
+	}else if(trid=="batchInvenSilsaListProcess"){
+		if(errcd<0){
+			//alert(errmsg+"재고실사 정보 일괄처리를 실패했습니다");
+		}else{
+			this.findInvenSilsaList();
+		}
+	}
+}
+/*-------------------------------------------------------------------------------------------------+
+*                         	  	 트랜젝션 실행 후 콜백함수 END                        	   *
+***************************************************************************************************/
+
+
+/*-------------------------------------------------------------------------------------------------+
+>>  그리드 행 버튼 이벤트
++-------------------------------------------------------------------------------------------------*/
+
+// 재고실사 행 추가
+this.addInvenSilsa = function (obj:Button,  e:ClickEventInfo)
+{
+	var dsCnt=this.dsInvenSilsa.getRowCount();
+	/*if(dsCnt>4){
+		alert("모든 창고가 실사 대상에 등록 되었습니다");
+		return;
+	}*/
+	
+	this.dsInvenSilsa.addRow();
+	this.insertBtn.set_enable(true);
+	this.addInvenSilsaDtlInfoBtn.set_enable(true);
+	this.delInvenSilsaDtlInfoBtn.set_enable(true);
+	this.logOpenCdDialog("wh");
+}
+
+// 재고실사 행 삭제
+this.delInvenSilsa = function (obj:Button,  e:ClickEventInfo)
+{	
+	this.dsInvenSilsa.deleteRow(this.dsInvenSilsa.rowposition);
+}
+
+
+// 상세 그리드 행 추가
+this.addInvenSilsaDtlInfo = function (obj:Button,  e:ClickEventInfo)
+{
+	this.insertBtn.set_enable(true);
+
+	
+		this.logOpenGdsDialog("gds");
+
+	
+}
+
+this.delInvenSilsaDtlInfo = function (obj:Button,  e:ClickEventInfo)
+{	
+	this.dsInvenSilsaDtlInfo.deleteRow(this.dsInvenSilsaDtlInfo.rowposition);
+}
+
+
+/***************************************************************************************************
+*                                   그리드 EVENT START                                    	       *
+/*-------------------------------------------------------------------------------------------------+
+>>  oncellclick 이벤트
++-------------------------------------------------------------------------------------------------*/
+
+this.invenSilsaGrid_oncellclick = function (obj:Grid, e:GridClickEventInfo)
+{	
+	//if(e.col==1)
+	//this.openLogCdDialog('wh');	
+	var whCd=this.dsInvenSilsa.getColumn(e.row,"whCd");
+	this.dsInvenSilsaDtlInfo.filter("whCd=='"+whCd+"'");
+	trace(this.dsInvenSilsa.saveXML());
+
+}
+
+this.setLogCodeArray = function(divCode,logCode,secCode,thrCode,logCdArray){
+	switch(divCode){
+		case "wh":
+			this.dsInvenSilsa.setColumn(this.dsInvenSilsa.rowposition, "whCd", logCdArray[0]);
+			this.dsInvenSilsa.setColumn(this.dsInvenSilsa.rowposition, "whNm", logCdArray[1]);		
+			this.dsInvenSilsa.setColumn(this.dsInvenSilsa.rowposition, "silsaDate", dateCal); // 오늘날짜
+			this.dsInvenSilsa.setColumn(this.dsInvenSilsa.rowposition, "invenRflt", 2);	 //미반영	
+			this.oncell();
+			break;
+		case "gds":
+			this.dsInvenSilsaDtlInfo.addRow();
+			var row=this.dsInvenSilsaDtlInfo.rowposition;
+			alert(logCdArray);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "gdsCd", logCdArray[0]);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "bigGrpCd", logCdArray[2]);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "midGrpCd", logCdArray[3]);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "smGrpCd", logCdArray[4]);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "subulUnit", logCdArray[7]);
+			this.dsInvenSilsaDtlInfo.setColumn(row, "priceCtrt", logCdArray[14]);
+			
+			var rand=Math.ceil(Math.random()*123);					//입고에서 현재고 테이블에 재고량을 반영해 주지 않아 랜덤사용
+			//this.dsInvenSilsaDtlInfo.setColumn(row, "dproQnt", rand);
+			var whCd=this.dsInvenSilsa.getColumn(this.dsInvenSilsa.rowposition,"whCd");
+			this.dsInvenSilsaDtlInfo.setColumn(this.dsInvenSilsaDtlInfo.rowposition,"whCd",whCd);
+			this.dsInvenSilsaDtlInfo.setColumn(this.dsInvenSilsaDtlInfo.rowposition,"invenDlineYb",0);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+}
+
+this.oncell = function (){
+	var whCd = this.dsInvenSilsa.getColumn(this.dsInvenSilsa.rowposition, "whCd");	 
+	//this.dsInvenSilsaDtlInfo.filter("whCd=='"+whCd+"'");
+	this.gridReload();
+}
+
+this.invenSilsaDtlGrid_ontextchange = function (obj:Grid, e:GridEditTextChangeEventInfo)
+{
+	var currow=this.dsInvenSilsaDtlInfo.rowposition;	
+		if(e.col == 5){      
+	       var dproQnt=this.dsInvenSilsaDtlInfo.getColumn(currow,"dproQnt");
+		   this.dsInvenSilsaDtlInfo.setColumn(currow,"diffQnt",(e.posttext-dproQnt));
+	}
+}
+
+
+this.invenSilsaDtlGrid_oncellclick = function (obj:Grid, e:GridClickEventInfo)
+{
+	var checkYb=this.dsInvenSilsaDtlInfo.getColumn(this.dsInvenSilsaDtlInfo.rowposition,"invenDlineYb");	
+	if(e.col==11&&checkYb==1){
+		alert("마감된 정보는 수정이 불가능합니다!");		
+	}else if(e.col==11&&checkYb==0){
+		alert("미반영 자료는 마감처리를 할 수 없습니다");		
+	}
+}
+
+
+/*-------------------------------------------------------------------------------------------------+
+*                                   그리드 EVENT END                                    	       *
+***************************************************************************************************/
+
+
+
+
+
+// 등록, 수정, 삭제 처리
+this.batchInvenSilsaListProcess = function (){
+		var whCd=this.dsInvenSilsa.getColumn(this.dsInvenSilsa.rowposition,"whCd");
+		if(this.gfnIsNull(whCd)){
+			alert("창고코드를 입력해 주세요");
+		}else{
+			this.gfnService("batchInvenSilsaListProcess");
+		}
+		this.gridReload();			
+}
+
+
+// 재고반영
+this.invenRflt = function ()				
+{							
+		//미반영 상태에서 재고반영을 눌렀는지 검사
+	var currow=this.dsInvenSilsa.rowposition;
+	var invenRflt=this.dsInvenSilsa.getColumn(currow,"invenRflt");
+	if(invenRflt!=1){
+		this.dsInvenSilsa.setColumn(currow,"invenRflt",1);
+	}
+	this.gridReload();	
+}
+
+// 반영취소
+this.RfltCancel = function ()				
+{							
+	var currow=this.dsInvenSilsa.rowposition;
+	var invenRflt=this.dsInvenSilsa.getColumn(currow,"invenRflt");
+	if(invenRflt==1){
+		this.dsInvenSilsa.setColumn(currow,"invenRflt",2);
+	}
+	this.gridReload();
+}
+
+this.gridReload = function (){
+	var invenRflt=this.dsInvenSilsa.getColumn(this.dsInvenSilsa.rowposition,"invenRflt");
+	var invenDlineYb=this.dsInvenSilsaDtlInfo.getColumn(0,"invenDlineYb");
+			
+		if(invenRflt == 1){                               									// ******재고반영******	
+			if(invenDlineYb != 1){
+			var onarr = new Array(this.RfltCancelBtn);               							// 반영취소 가능
+			this.on(onarr,1);                                      													// 재고반영 불가능  
+			var offarr = new Array(this.invenRfltBtn,this.addInvenSilsaDtlInfoBtn,this.delInvenSilsaDtlInfoBtn);	// 행추가,삭제 불가능
+			this.on(offarr,0);			
+			}else{
+			var onarr = new Array();               																					// 반영취소 가능
+			this.on(onarr,1);                                      																	// 재고반영 불가능  
+			var offarr = new Array(this.invenRfltBtn,this.RfltCancelBtn,this.addInvenSilsaDtlInfoBtn,this.delInvenSilsaDtlInfoBtn);	// 행추가,삭제 불가능
+			this.on(offarr,0);
+			}																				// 자식 테이블 수정 불가능			
+			for(var i=0; i<this.invenSilsaDtlGrid.getCellCount("Body"); i++){
+				if(invenDlineYb != 1&&i==11){
+					this.invenSilsaDtlGrid.setCellProperty("Body",11,"edittype","checkbox");
+				}else{	
+					this.invenSilsaDtlGrid.setCellProperty("Body",i,"edittype","none");
+				}
+			}
+		}				
+		if(invenRflt == 2){      
+																						// ******반영취소******
+		var onarr = new Array(this.invenRfltBtn,this.addInvenSilsaDtlInfoBtn,this.delInvenSilsaDtlInfoBtn);	// 재고반영 가능
+        this.on(onarr,1);                                      								// 반영취소 불가능  
+ 		var offarr = new Array(this.RfltCancelBtn);     										// 행추가,삭제 가능
+        this.on(offarr,0);							          								// 자식 테이블 수정 가능
+			for(var i=0; i<this.invenSilsaDtlGrid.getCellCount("Body"); i++){
+				if(invenDlineYb != 1&&i==11){
+					this.invenSilsaDtlGrid.setCellProperty("Body",11,"edittype","none");
+				}else{
+					this.invenSilsaDtlGrid.setCellProperty("Body",i,"edittype","text");
+				}
+			}
+		}
+	
+}
+
+/*-------------------------------------------------------------------------------------------------+
+*                                         버튼 Event End                                          *
+***************************************************************************************************/
+
+
+//*****************************************************
+// 컴포넌트 활성/비활성화
+//*****************************************************
+this.on = function (onlist,flag){
+	var flagValue=new Array(false," dimgray ");
+	if(flag==1){
+		flagValue=new Array(true," blue ");
+	}
+	for(var i=0; i<onlist.length; i++){
+		onlist[i].set_enable(flagValue[0]);
+		//onlist[i].style.background.set_color(flagValue[1]); 
+		onlist[i].style.set_color(flagValue[1]); 
+	}
+}
+
+
+
+
+this.invenSilsaGrid_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	var whCd = this.dsInvenSilsa.getColumn(this.dsInvenSilsa.rowposition, "whCd");	 
+	this.dsInvenSilsaDtlInfo.filter("whCd=='"+whCd+"'");
+}
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

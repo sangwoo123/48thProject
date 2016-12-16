@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SSR_ExaminationMngForm" classname="SSP_ExaminationMngForm" left="0" top="0" width="1261" height="779" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0.48%" top="8" width="1670" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="검사예약관리" left="4.79%" top="-4" right="81.68%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static00" taborder="1" text="환자등록번호" left="1.98%" top="81" right="89.85%" height="32" style="background:#cfd8dcff;border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:10 Dotum;"/>
+        <Edit id="patNoEd" taborder="2" left="136" top="81" right="1024" height="32" oneditclick="patNoEd_oneditclick"/>
+        <Static id="Static01" taborder="3" text="환자이름" left="20.38%" top="81" right="73.67%" height="32" style="background:#cfd8dcff;border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:10 Dotum;"/>
+        <Edit id="patNmEd" taborder="4" left="27.04%" top="81" right="65.03%" height="32" enable="false"/>
+        <Static id="Static02" taborder="5" text="내원구분" left="36.88%" top="81" right="57.18%" height="32" style="background:#cfd8dcff;border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:10 Dotum;"/>
+        <Static id="Static03" taborder="9" text="검사종류" left="60.35%" top="81" right="33.7%" height="32" style="background:#cfd8dcff;border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:10 Dotum;"/>
+        <Button id="searchExamBtn" taborder="10" text=" 예약조회 " left="75.42%" top="128" right="18.16%" height="32" style="font:10 Dotum;" onclick="searchExamBtn_onclick"/>
+        <Calendar id="reservationDateCal" taborder="15" left="136" top="130" right="973" height="32" style="align:center middle;"/>
+        <Static id="Static04" taborder="16" text="예약일자" left="1.98%" top="129" right="89.85%" height="32" style="background:#cfd8dcff;border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:10 Dotum;"/>
+        <Button id="registBtn" taborder="17" text=" 예약등록 " left="89.37%" top="128" right="4.2%" height="32" style="font:10 Dotum;" onclick="registBtn_onclick"/>
+        <Radio id="newonGubunRadio" taborder="19" left="44.09%" top="81" right="40.36%" height="32" innerdataset="@dsNewonGubun" codecolumn="code" datacolumn="value" columncount="3"/>
+        <Radio id="examTypeRadio" taborder="20" left="67.57%" top="81" right="9.91%" height="32" innerdataset="@dsExamType" codecolumn="code" datacolumn="value" columncount="3"/>
+        <Grid id="examReservationGrid" taborder="21" useinputpanel="false" left="24" top="176" right="52" height="568" autoenter="select" autofittype="col" binddataset="dsBookingExam">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="환자등록번호"/>
+                <Cell col="1" text="환자명"/>
+                <Cell col="2" text="내원구분"/>
+                <Cell col="3" text="검사종류"/>
+                <Cell col="4" text="예약일자"/>
+                <Cell col="5" text="예약시간"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:center;" text="bind:patNo"/>
+                <Cell col="1" style="align:center;" text="bind:patNm"/>
+                <Cell col="2" displaytype="combo" edittype="combo" style="align:center;" text="bind:newonGubun" combodataset="dsNewonGubun" combocodecol="code" combodatacol="value"/>
+                <Cell col="3" displaytype="combo" edittype="combo" style="align:center;" text="bind:examType" combodataset="dsExamType" combocodecol="code" combodatacol="value"/>
+                <Cell col="4" displaytype="date" style="align:center;" text="bind:reservationDate"/>
+                <Cell col="5" displaytype="text" style="align:center;" text="bind:reservationTime" mask="## : ##"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static05" taborder="23" left="2.62%" top="593" right="89.21%" height="32" style="border:0 solid #808080ff ;bordertype:round 5 5 ;align:center middle;font:11 Dotum;"/>
+        <Button id="modifyExamBtn" taborder="24" text=" 예약수정" left="82.39%" top="128" right="11.18%" height="32" style="font:10 Dotum;" onclick="modifyExamBtn_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="dsNewonGubun">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">전체</Col>
+            <Col id="code">A</Col>
+          </Row>
+          <Row>
+            <Col id="value">외래</Col>
+            <Col id="code">F</Col>
+          </Row>
+          <Row>
+            <Col id="value">입원</Col>
+            <Col id="code">H</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsExamType">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+          <Column id="code" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">내시경</Col>
+            <Col id="code">endoscope</Col>
+          </Row>
+          <Row>
+            <Col id="value">영상의학</Col>
+            <Col id="code">radiology</Col>
+          </Row>
+          <Row>
+            <Col id="value">진단검사의학</Col>
+            <Col id="code">diagnosis</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findBookingExamList</Col>
+            <Col id="URL">his::sup/bookingexam/findBookingExamList.do</Col>
+            <Col id="outData">dsBookingExam=dsBookingExam</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchBookingExamProcess</Col>
+            <Col id="URL">his::sup/bookingexam/batchBookingExamProcess.do</Col>
+            <Col id="inData">dsBookingExam=dsBookingExam:u</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBookingExam">
+        <ColumnInfo>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="newonGubun" type="STRING" size="256"/>
+          <Column id="examType" type="STRING" size="256"/>
+          <Column id="reservationDate" type="STRING" size="256"/>
+          <Column id="reservationTime" type="STRING" size="256"/>
+          <Column id="memo" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+*                                                                               *
+* 검사예약관리     															*
+*                                                                               *
+* @Path		    검사예약 - 검사예약관리 										*
+*																				*
+* @Description 	감사를 하기 위해 검사예약을 관리한다                    	*
+*               																*
+* @Author	    oss    		     				                                *
+* 									                                            *
+* Created on 2016. 12. 16.                            		                    *
+*									                                            *
+********************************************************************************/
+
+/**************************************************************************************************
+*                                         공통 Script Include                                     *
+***************************************************************************************************/
+
+include "scripts::commonTransaction.xjs";
+include "scripts::commonScripts.xjs";
+
+/***************************************************************************************************
+* 환자번호 검색을 위한 팝업창 오픈                                                                   
+***************************************************************************************************/
+this.patNoEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
+{
+	this.gfnPopup("WS_PatPopupForm","hdm","","");
+	this.setPatInfo = function(arrRtn){ 
+		this.patNoEd.set_value(arrRtn[0]);  
+		this.patNmEd.set_value(arrRtn[1]);  									
+	}
+}
+
+/***************************************************************************************************
+* 검사예약조회                                                                   
+***************************************************************************************************/
+this.searchExamBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var patNo = this.patNoEd.value;
+	var patNm = this.patNmEd.value;
+	var newonGubun = this.newonGubunRadio.value;
+	var examType = this.examTypeRadio.value;
+	var reservationDate = this.reservationDateCal.value;
+	
+	if(patNo == null){
+		alert("환자등록번호를 선택해 주십시요");
+	}else{
+		var argument = "patNo='"+patNo+"' patNm='"+patNm+"' newonGubun='"+newonGubun+"' examType='"+examType
+						+"' reservationDate='"+reservationDate+"'";
+		var row = this.dsService.findRow('serviceID' , "findBookingExamList");
+		this.dsService.setColumn(row, "argument", argument);
+		this.gfnService("findBookingExamList", false); 
+	}
+}
+
+/***************************************************************************************************
+* 검사예약등록 팝업창 오픈                                                                 
+***************************************************************************************************/
+this.registBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnPopup("SSP_ExaminationRegisterForm","sup","","");
+}
+
+/***************************************************************************************************
+* 검사예약수정                                                                 
+***************************************************************************************************/
+this.modifyExamBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchBookingExamProcess", false);
+}
+]]></Script>
+  </Form>
+</FDL>

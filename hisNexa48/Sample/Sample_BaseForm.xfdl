@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample_BaseForm" classname="Sample_BaseForm" left="0" top="0" width="1024" height="768" titletext="기본화면" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_search" taborder="0" text="div_search" left="0" top="0" height="113" right="0" style="border:1 solid #808080ff ;">
+          <Layouts>
+            <Layout>
+              <Button id="btn_search" taborder="0" text="조회" top="15" width="104" height="42" right="124" onclick="div_search_btn_search_onclick" visible="false"/>
+              <Static id="Static00" taborder="1" text="사번" left="24" top="20" width="40" height="29"/>
+              <Edit id="edt_sabun" taborder="2" left="65" top="20" width="103" height="29"/>
+              <Combo id="Combo00" taborder="3" text="Combo00" left="267" top="20" width="118" height="29"/>
+              <Div id="xdiv_period" taborder="4" url="Comm::comm_period.xfdl" text="Div00" left="66" top="67" width="316" height="29" scrollbars="none"/>
+              <Div id="xdiv_month" taborder="5" url="Comm::comm_month.xfdl" text="Div00" left="464" top="64" width="137" height="29" scrollbars="none"/>
+              <Div id="xdiv_combo" taborder="6" url="Comm::comm_multicombo.xfdl" text="xdiv_combo" left="464" top="20" width="200" height="29" applystyletype="apply"/>
+              <Static id="Static01" taborder="7" text="기간" left="24" top="63" width="43" height="36"/>
+              <Static id="Static02" taborder="8" text="유형" left="200" top="20" width="56" height="29"/>
+              <Static id="Static03" taborder="9" text="유형2" left="400" top="20" width="56" height="29"/>
+              <Static id="Static04" taborder="10" text="년월" left="400" top="64" width="56" height="29"/>
+              <Button id="btn_save" taborder="11" text="저장" top="15" right="12" width="104" height="42" onclick="div_search_btn_save_onclick" visible="false"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_body" taborder="1" text="div_body" left="0" top="122" right="0" bottom="0">
+          <Layouts>
+            <Layout width="1024" height="646">
+              <Grid id="grd_list" taborder="0" binddataset="ds_list" useinputpanel="false" cellsizingtype="col" autofittype="col" nodatatext="데이타를 찾을 수 없습니다." left="0" top="42" right="0" bottom="0" oncellclick="div_body_grd_list_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="83"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="75"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="SABUN"/>
+                      <Cell col="1" text="NAME"/>
+                      <Cell col="2" text="DEPT"/>
+                      <Cell col="3" text="JIKGUP"/>
+                      <Cell col="4" text="IPSA_DATE"/>
+                      <Cell col="5" text="SALARY"/>
+                      <Cell col="6"/>
+                      <Cell col="7"/>
+                      <Cell col="8"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell edittype="normal" text="bind:SABUN"/>
+                      <Cell col="1" edittype="normal" text="bind:NAME"/>
+                      <Cell col="2" edittype="normal" text="bind:DEPT" expandshow="hide"/>
+                      <Cell col="3" edittype="normal" text="bind:JIKGUP"/>
+                      <Cell col="4" edittype="normal" text="bind:IPSA_DATE"/>
+                      <Cell col="5" edittype="normal" text="bind:SALARY"/>
+                      <Cell col="6" displaytype="button" edittype="button" text="팝업"/>
+                      <Cell col="7" displaytype="button" edittype="button" text="링크"/>
+                      <Cell col="8" displaytype="image" style="background:EXPR(comp.parent.parent.get_image(currow));background2:EXPR(comp.parent.parent.get_image(currow));"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_ExcelExport" taborder="1" text="엑셀Export" onclick="btn_ExcelExport_onclick" top="11" right="84" width="76" height="23"/>
+              <Button id="btn_ExcelImport" taborder="2" text="엑셀Import" onclick="btn_ExcelImport_onclick" top="10" right="1" height="23" width="74"/>
+              <Button id="btn_grd_add" taborder="3" text="행추가" onclick="btn_grd_add_onclick" cssclass="btn_WF_Add" top="15" width="66" height="12" right="230"/>
+              <Button id="btn_grd_del" taborder="4" text="행삭제" onclick="btn_grd_del_onclick" cssclass="btn_WF_Delete" top="15" width="67" height="12" right="167"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_search" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="in_val1" type="STRING" size="100"/>
+          <Column id="in_val2" type="STRING" size="100"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="in_val2"/>
+            <Col id="in_val1"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_list" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SABUN" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="DEPT" type="STRING" size="256"/>
+          <Column id="JIKGUP" type="STRING" size="256"/>
+          <Column id="IPSA_DATE" type="STRING" size="256"/>
+          <Column id="SALARY" type="BIGDECIMAL" size="256"/>
+          <Column id="IMG" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="IMG">http://localhost:9503/nexa/img/icecream.png</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_detail" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="SABUN" type="STRING" size="256"/>
+          <Column id="NAME" type="STRING" size="256"/>
+          <Column id="DEPT" type="STRING" size="256"/>
+          <Column id="JIKGUP" type="STRING" size="256"/>
+          <Column id="IPSA_DATE" type="STRING" size="256"/>
+          <Column id="SALARY" type="BIGDECIMAL" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+ * 01. 업무구분 : 샘플
+ * 02. 메뉴명   : 
+ * 03. 메뉴설명 :  
+ * 04. 작성일   : 
+ * 05. 작성자   : 
+ * 06. 수정이력 : 
+ ***********************************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************************
+ *     
+ **********************************************************************************/
+
+
+/***********************************************************************************
+* include 선언부  													               *
+***********************************************************************************/
+
+
+/***********************************************************************************/
+/* 폼 전역변수 선언부												               */
+/***********************************************************************************/
+
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+/**
+ * form onload 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//기본 공통  함수 초기화
+	Iject.formOnload(obj);
+	
+	//오픈 시 전달된 파라미터 받기
+	//팝업이 아닌 경우
+	if(Iject.Util.isForm(obj) == "M")
+	{
+		var args = Iject.Mdi.get_argument(obj);
+	}
+	//팝업인경우
+	else
+	{
+		trace(" this.parent.args : " +this.parent.args);
+	}
+	this.fn_init();
+}
+
+/**
+ * form 초기화 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_init = function()
+{
+	//공통코드 설정
+    var config = [
+		{group:"TYPE", dataset:"ds_type00", component:this.div_search.Combo00, selecttype:"A"}
+		,{group:"UNIT", dataset:"ds_unit"}
+    ];
+    
+	Iject.Form.setCommCode(this, config);
+	
+	//기간달력 초기화
+	config = {viewradio:false, fromdate:"20160101", todate:Iject.Util.today()};
+	this.div_search.xdiv_period.init(this, config, function(fromdate, todate, type){
+		
+	});
+	
+	//월달력 초기화
+	config = {yyyymm:"20160101"};
+	this.div_search.xdiv_month.init(this, config, function(yyyymm, type){
+		
+	});
+	
+	//멀티콤보 초기화
+	config = {innerdataset:this.ds_unit, value:"1,4,5"};
+	this.div_search.xdiv_combo.init(this, config, function(value, data, type){
+		
+	});	
+	
+	//그리드 기능 설정
+	config = { copypaste:true, checkall:true, sorting:true };
+	Iject.Grid.init(this, this.div_body.grd_list, config);
+}
+
+/**
+ * form redraw - 이미 오픈된 경우, 메뉴 재선택 시 호출되는 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_redraw = function()
+{
+	trace("work form redraw > " + Iject.Mdi.get_argument(this).param);
+}
+
+/**
+ * 공통영역에서 호출하는 함수
+ * @param {string} type - 구분자 ( 조회, 저장, 삭제 등등)
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_call = function(type)
+{
+	switch(type)
+	{
+		case "search" : 
+				this.fn_clear();
+				this.fn_search("search_test");
+			break;
+		
+		case "save" : 
+				this.fn_save("save_test");
+			break;
+		
+		default :
+			break;
+	}
+}
+
+/**
+ * 조회 전 컴포넌트 초기화(그리드 Sort, Dataset 등)
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_clear = function()
+{
+	//그리드 소팅 초기화
+	Iject.Grid.clearAllSort(this.div_body.grd_list);
+}
+
+/**
+ * 화면 닫기 전 호출
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_close = function()
+{
+	//true or false
+	return Iject.Util.isNotUpdated(this.ds_list);
+	
+	//변경사항 체크 이외의 메시지인 경우, 메세지 내용 직접입력!!
+	return "리턴메세지입력시!!";
+}
+/***********************************************************************************
+* Transaction Function
+***********************************************************************************/
+
+/**
+ * transaction function 
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_search = function(svcid)
+{
+	switch(svcid)
+	{
+		case "search_test" :
+			//to-do : validation check
+			var valid = 	
+				[
+					{component:this.div_search.Combo00, title:this.div_search.Static02}
+				];		
+			if (!Iject.Util.validate(this, valid)) return false;
+
+			// 조회조건
+			this.ds_search.clear();
+			this.ds_search.addColumn("sabun", "string");
+			this.ds_search.addRow();
+			this.ds_search.setColumn(0, "sabun", this.div_search.edt_sabun.value);
+			
+			//조회
+			var oConfig =  {
+						svcid : svcid,				
+						svcurl : application.services["svcpms"].url, //동일한 시스템인 경우 생략가능
+						controller : "test.do",			 
+						inds :["ds_Search=ds_search"],
+						outds :["ds_list=ds_Master"],			     
+						args  : ["in_var1=test11111"],
+						async : true    // 비동기여부 (true : async  false: sync)	  
+					}; 
+			
+			Iject.transaction(this, oConfig, function(svcid, errorcode, errormsg){  		
+				if(errorcode < 0) return;				
+			});
+			break;
+	}
+}
+
+/**
+ * transaction function 
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.fn_save = function(svcid)
+{
+	switch(svcid)
+	{
+		case "save_test" :
+			//to-do : validation check
+			var valid = 	
+				[
+					{component:this.div_body.grd_list, bindcolumn:"SABUN"}
+				];
+				
+			if (!Iject.Util.validate(this, valid)) return false;
+			
+			//저장 전 확인
+			Iject.confirmP(this, "저장하시겠습니까?", null, null, function(svcid, variant){
+				if(variant)
+				{
+					//저장
+					var oConfig =  {
+								svcid : svcid,
+								controller : "testsave.do",			 
+								inds :["ds_Master=ds_list:U"],
+								outds :["ds_list=ds_Master"],			     
+								args  : [""],
+								async : true    // 비동기여부 (true : async  false: sync)	  
+							}; 
+					
+					Iject.transaction(this, oConfig, function(svcid, errorcode, errormsg){
+						if(errorcode < 0) return;	
+					});
+				}
+			});	
+			break;
+			
+		default : 
+			break;
+	}
+}
+
+/***********************************************************************************
+* 사용자 Function
+***********************************************************************************/
+
+/**
+ * 그리드 이미지 처리
+ * ※ 셀에 이미지는 stretch 처리를 지원하지않아서 background 로 처리한다.
+ * @memberOf this
+ */
+this.get_image = function(row)
+{
+	var url = this.ds_list.getColumn(row, "IMG");
+	if(Eco.isEmpty(url)) return "";
+	return "URL('"+url+"') stretch";
+}
+
+/***********************************************************************************
+* Component Event Function
+***********************************************************************************/
+
+/**
+ * 조회 버튼 클릭 이벤트
+ * @memberOf this
+ */
+this.div_search_btn_search_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_call("search");
+}
+/**
+ * 저장 버튼 클릭 이벤트
+ * @memberOf this
+ */
+this.div_search_btn_save_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_call("save");
+}
+/**
+ * 행추가
+ * @memberOf this
+ */
+this.btn_grd_add_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_list.addRow();
+}
+
+/**
+ * 행삭제
+ * @memberOf this
+ */
+this.btn_grd_del_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.confirmP(this, "삭제하시겠습니까?", null, null, function(svcid, variant){
+		if(variant) 
+			this.ds_list.deleteRow(this.ds_list.rowposition);
+	});	
+}
+
+/**
+ * 엑셀다운로드
+ * @memberOf this
+ */
+this.btn_ExcelExport_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.exportExcel(this, this.div_body.grd_list);
+}
+
+/**
+ * 엑셀업로드
+ * @memberOf this
+ */
+this.btn_ExcelImport_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sSheet = "body=sheet1!A2;";
+	var ds = this.ds_list;
+	Iject.importExcel(this, sSheet, ds);
+}
+
+/**
+ * 팝업
+ * @memberOf this
+ */
+this.div_body_grd_list_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(e.cell == 6)
+	{
+		var oData ={
+			id  : "popup_sample",             //callback id
+			url : "Sample::Sample_Popup_P.xfdl",   //url
+			showtitlebar : true,     //title bar
+			autosize  : true,       //autosize
+			resizable    : false,       //resize
+			showtatusbar : false,     //statusbar
+			openalign    : "center middle",  //align
+			args :  {arg1:'1111111111111111111', arg2:'2222222222222222222222222'}    
+		};
+		
+		//Modal Popup 오픈			//callback
+		Iject.showModal(this, oData, function(svcid, variant){
+		});
+	}
+	//업무화면 내에서 다른 화면 호출 시
+	else if(e.cell == 7)
+	{
+		var menuurl = "Sample::Sample_BaseScript.xfdl";
+		var menutitle = "기본스크립트";
+		var args = {param : "test_"+e.row};
+		Iject.Mdi.link(menuurl, menutitle, args);
+	}
+}
+]]></Script>
+  </Form>
+</FDL>
