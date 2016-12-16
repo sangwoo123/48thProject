@@ -6,8 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.seoul.his.msv.pre.prescriptionmanagement.applicationService.PrescriptionManagementApplicationService;
-import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescriptionManagementBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.applicationService.DiseaseApplicationService;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.DiseaseBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientDsBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientPrscBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescDtlBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescValueBean;
 
 
 /**
@@ -17,21 +21,53 @@ import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescriptionManagementBea
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Service
 public class PrescriptionManagementServiceFacadeImpl implements PrescriptionManagementServiceFacade{
 	@Autowired
-	PrescriptionManagementApplicationService prescriptionmanagementApplicationService;
+	DiseaseApplicationService diseaseApplicationService;
+
+
 
 
 	@Override
-		public List<PrescriptionManagementBean> findPrescriptionManagementList(Map<String, String> argsMap) {
-		List<PrescriptionManagementBean> prescriptionmanagementList = prescriptionmanagementApplicationService.findPrescriptionManagementList(argsMap);
-		return prescriptionmanagementList;
+		public List<DiseaseBean> findDiseaseList(Map<String, String> argsMap) {
+		List<DiseaseBean> diseaseList = diseaseApplicationService.findDiseaseList(argsMap);
+		return diseaseList;
 	}
-	
-	
-	
+
+	 @Override
+	    public List<PatientDsBean> findPatientDsList(Map<String, String> argsMap) {
+	        return diseaseApplicationService.findPatientDsList(argsMap);
+	    }
+
+
+	@Override
+	public List<PatientPrscBean> findPatientPrscList(Map<String, String> argsMap) {
+	List<PatientPrscBean> patientPrscList = diseaseApplicationService.findPatientPrscList(argsMap);
+	return patientPrscList;
+}
+
+	@Override
+	public List<PrescValueBean> findPrescValueList(Map<String, String> argsMap) {
+	List<PrescValueBean> prescValueList = diseaseApplicationService.findPrescValueList(argsMap);
+	return prescValueList;
+}
+
+	@Override
+	public List<PrescDtlBean> findPrescDtlList(Map<String, String> argsMap) {
+		List<PrescDtlBean> prescDtlList = diseaseApplicationService.findPrescDtlList(argsMap);
+		return prescDtlList;
+	}
+
+	@Override
+		public void batchDisePrescProcess(Map<String, Object> disePrescMap){
+		diseaseApplicationService.batchDisePrescProcess(disePrescMap);
+	}
+
+
+
+
 }
