@@ -2,7 +2,6 @@ package com.seoul.his.log.inpt.to;
 
 import com.seoul.his.common.to.BaseBean;
 
-
 public class BuyDemdBean extends BaseBean{
     private String buyDemdDate,  //구매요구일자
     receiptNo;          //구매요구번호

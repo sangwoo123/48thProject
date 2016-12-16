@@ -8,20 +8,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoul.his.log.inpt.to
- * @Class    CtrtInfoDetailBean.java
- * @Create   2016. 7. 6.
- * @Author   Bohyun
+ * @Package  	com.seoul.his.log.inpt.to
+ * @Class    	CtrtInfoDetailBean.java
+ * @Create   	2016. 12. 16.
+ * @Author   	oss
  * @Description 계약상세 빈
  *
- * @LastUpdated 
+ * @LastUpdated
  */
+
 @Getter
 @Setter
 @ToString
+
 @Dataset(name = "dsCtrtInfoDetail")
 public class CtrtInfoDetailBean extends BaseBean{
-    private String 
+    private String
     accYear         //회계년도
     ,acntSeq        //계정순번
     ,asstSubCd      //계정과목코드
@@ -45,5 +47,5 @@ public class CtrtInfoDetailBean extends BaseBean{
     ,respoWorker    //요구담당자
     ,subul;         //수불
 
-    
+
 }
