@@ -14,7 +14,9 @@ import lombok.ToString;
 public class PostBean3 extends BaseBean {
 
     private String zipCode,     // 우편번호
-                   baseAddr;    // 기본주소
+                   baseAddr,
+    baseAddr2;    // 기본주소
     //테스트 태스트 브랜치 테스트
-    // gggg
+    // g
+   
 }
