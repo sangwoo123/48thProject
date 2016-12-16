@@ -90,7 +90,7 @@
         <Static id="Static01" taborder="129" text="-" left="81.05%" top="492" right="17.87%" height="26" style="align:center middle;"/>
         <Static id="Static02" taborder="130" text="-" left="81.05%" top="524" right="17.87%" height="26" style="align:center middle;"/>
         <Button id="addPatBtn00" taborder="131" text="삭제" onclick="clickBtn" left="89.36%" top="711" right="3.03%" height="28" style="background:#37474fff;border:1 solid #263238ff ;color:white;bordertype:normal 0 0 ;font:bold 10 돋움;"/>
-        <Button id="Button05" taborder="133" text="조회" cssclass="btn_WF_Search" left="843" top="170" width="58" height="28"/>
+        <Button id="Button05" taborder="133" text="조회" cssclass="btn_WF_Search" left="934" top="170" width="58" height="28"/>
         <Static id="Static03" taborder="134" text="문자알림 수신허용" left="84.38%" top="267" right="5.27%" height="27" onclick="Static03_onclick"/>
         <Button id="Button03" taborder="135" text="추가" cssclass="btn_WF_CRUD" left="487" top="74" width="45" height="28" onclick="Button03_onclick"/>
         <Button id="Button00" taborder="136" text="검색" cssclass="btn_WF_CRUD" left="385" top="74" width="45" height="28" onclick="Button00_onclick"/>
