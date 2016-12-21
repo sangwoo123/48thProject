@@ -9,11 +9,11 @@
         FROM
             MC_ADR
         <trim prefix="WHERE" prefixOverrides="AND">
-            <if test="writeDate != null">
-                AND WRITE_DATE = #{writeDate}
+            <if test="doctNoEd != null">
+                AND WRITER_NO = #{doctNoEd}
             </if>
-            <if test="writerNo != null">
-                AND WRITER_NO  = #{writerNo}
+            <if test="writeDateCal != null">
+                AND WRITE_DATE  = #{writeDateCal}
             </if>
         </trim>
         ORDER BY
