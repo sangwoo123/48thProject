@@ -269,7 +269,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findPatient</Col>
-            <Col id="URL">his::hdm/patient/findPatient.do</Col>
+            <Col id="URL">his::hdm/patient/findPatientList.do</Col>
             <Col id="outData">dsPatient=dsPatient</Col>
           </Row>
           <Row>
