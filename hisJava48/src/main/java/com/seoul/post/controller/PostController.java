@@ -24,7 +24,7 @@ import com.seoul.post.to.PostCondBean;
  *
  * @date : 2016. 12. 21. 오전 8:57:13
  * @version :
- * @author : kimmu
+ * @author : 김민욱
  */
 
 
