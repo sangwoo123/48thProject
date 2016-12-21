@@ -370,10 +370,10 @@
       <BindItem id="item19" compid="patTypeCdEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="patTypeCd"/>
       <BindItem id="item20" compid="patTypeNmEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="patTypeNm"/>
       <BindItem id="item21" compid="grtorNmEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorNm"/>
-      <BindItem id="item25" compid="patRshipCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="rship"/>
       <BindItem id="item22" compid="grtorRrnEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorRrn"/>
       <BindItem id="item23" compid="grtorTelEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorTel"/>
       <BindItem id="item24" compid="grtorAddrEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorAddr"/>
+      <BindItem id="item4" compid="patRshipCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="rship"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
 *                                               			                    *
