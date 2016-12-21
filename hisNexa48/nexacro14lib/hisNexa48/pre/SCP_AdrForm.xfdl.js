@@ -97,7 +97,7 @@
             obj.set_binddataset("dsAdr");
             obj.set_autofittype("col");
             obj.style.set_font("9 돋움");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#eceff1ff;\" text=\"adrNo\"/><Cell col=\"1\" style=\"background:#eceff1ff;\" text=\"patNo\"/><Cell col=\"2\" style=\"background:#eceff1ff;\" text=\"prescNo\"/><Cell col=\"3\" style=\"background:#eceff1ff;\" text=\"writeDate\"/><Cell col=\"4\" style=\"background:#eceff1ff;\" text=\"drugNm\"/></Band><Band id=\"body\"><Cell text=\"bind:adrNo\"/><Cell col=\"1\" edittype=\"text\" text=\"bind:patNo\"/><Cell col=\"2\" edittype=\"text\" text=\"bind:prescNo\"/><Cell col=\"3\" edittype=\"text\" text=\"bind:writeDate\"/><Cell col=\"4\" edittype=\"text\" text=\"bind:drugNm\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"58\"/><Column size=\"63\"/><Column size=\"76\"/><Column size=\"70\"/><Column size=\"115\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#eceff1ff;\" text=\"ADR번호\"/><Cell col=\"1\" style=\"background:#eceff1ff;\" text=\"환자번호\"/><Cell col=\"2\" style=\"background:#eceff1ff;\" text=\"작성자번호\"/><Cell col=\"3\" style=\"background:#eceff1ff;\" text=\"작성일자\"/><Cell col=\"4\" style=\"background:#eceff1ff;\" text=\"약품명\"/></Band><Band id=\"body\"><Cell style=\"align:center;\" text=\"bind:adrNo\"/><Cell col=\"1\" edittype=\"text\" style=\"align:center;\" text=\"bind:patNo\"/><Cell col=\"2\" style=\"align:center;\" text=\"bind:writerNo\"/><Cell col=\"3\" edittype=\"text\" style=\"align:center;\" text=\"bind:writeDate\"/><Cell col=\"4\" edittype=\"text\" style=\"align:center;\" text=\"bind:drugNm\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Div("writerDiv", "absolute", "33.92%", "149", "805", "45", null, null, this);
@@ -133,21 +133,15 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.writerDiv.addChild(obj.name, obj);
-            obj = new Calendar("writeDateCal", "absolute", "12.7%", "7", "110", "30", null, null, this.writerDiv);
-            this.writerDiv.addChild(obj.name, obj);
-            obj.set_taborder("3");
-            obj.set_autoskip("true");
-            obj.style.set_padding("0 0 0 0");
-            obj.style.set_font("9 돋움");
-            obj.set_dateformat("yyyy-MM-dd");
-            obj.set_value("null");
             obj = new Edit("writerNoEdit", "absolute", "38.98%", "7", null, "30", "49.81%", null, this.writerDiv);
             obj.set_taborder("4");
             obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Edit("writerNmEdit", "absolute", "50.93%", "7", null, "30", "35.74%", null, this.writerDiv);
             obj.set_taborder("5");
             obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.writerDiv.addChild(obj.name, obj);
             obj = new Radio("writerJobRadio", "absolute", "78.33%", "10", null, "25", "0.75%", null, this.writerDiv);
             this.writerDiv.addChild(obj.name, obj);
@@ -162,6 +156,13 @@
             obj.style.set_align("center middle");
             obj.set_value("doctor");
             obj.set_index("-1");
+            obj = new Calendar("writeDateCal", "absolute", "12.7%", "7", "110", "30", null, null, this.writerDiv);
+            this.writerDiv.addChild(obj.name, obj);
+            obj.set_taborder("7");
+            obj.set_autoskip("true");
+            obj.set_dateformat("yyyy-MM-dd");
+            obj.style.set_padding("0 0 0 0");
+            obj.style.set_font("9 돋움");
 
             obj = new Div("adrDiv02", "absolute", "33.92%", "401", "805", "80", null, null, this);
             obj.set_taborder("10");
@@ -228,7 +229,7 @@
             obj = new Static("subCodeStc00", "absolute", "0.62%", "7", null, "30", "88.04%", null, this.adrDiv03);
             obj.set_taborder("0");
             obj.set_text("종합소견");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#b0bec5ff");
             obj.style.set_color("black");
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
@@ -437,6 +438,7 @@
             obj = new Edit("patNoEdit", "absolute", "12.7%", "40", null, "30", "74.22%", null, this.patDiv);
             obj.set_taborder("0");
             obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc02", "absolute", "0.62%", "40", null, "30", "88.04%", null, this.patDiv);
             obj.set_taborder("1");
@@ -460,9 +462,10 @@
             obj.set_taborder("3");
             obj.style.set_font("9 돋움");
             this.patDiv.addChild(obj.name, obj);
-            obj = new Edit("patNmEdit", "absolute", "27.02%", "40", null, "30", "54.67%", null, this.patDiv);
+            obj = new Edit("patNmEdit", "absolute", "26.15%", "40", null, "30", "57.66%", null, this.patDiv);
             obj.set_taborder("6");
             obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc01", "absolute", "47.95%", "40", null, "30", "40.72%", null, this.patDiv);
             obj.set_taborder("7");
@@ -473,15 +476,6 @@
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.patDiv.addChild(obj.name, obj);
-            obj = new Combo("patGenderCombo", "absolute", "60.02%", "40", null, "30", "28.02%", null, this.patDiv);
-            this.patDiv.addChild(obj.name, obj);
-            var patGenderCombo_innerdataset = new Dataset("patGenderCombo_innerdataset", this.patDiv.patGenderCombo);
-            patGenderCombo_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">남</Col><Col id=\"datacolumn\">남성</Col></Row><Row><Col id=\"codecolumn\">여</Col><Col id=\"datacolumn\">여성</Col></Row></Rows>");
-            obj.set_innerdataset(patGenderCombo_innerdataset);
-            obj.set_taborder("8");
-            obj.set_codecolumn("codecolumn");
-            obj.set_datacolumn("datacolumn");
-            obj.style.set_font("9 돋움");
             obj = new Static("subCodeStc03", "absolute", "73.85%", "40", null, "30", "14.82%", null, this.patDiv);
             obj.set_taborder("9");
             obj.set_text("연령");
@@ -494,6 +488,7 @@
             obj = new Edit("patAgeEdit", "absolute", "85.93%", "40", null, "30", "0.75%", null, this.patDiv);
             obj.set_taborder("10");
             obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.patDiv.addChild(obj.name, obj);
             obj = new Static("subCodeStc04", "absolute", "32.75%", "5", null, "30", "55.92%", null, this.patDiv);
             obj.set_taborder("11");
@@ -507,6 +502,11 @@
             obj = new Edit("diseaseNmEdit", "absolute", "44.71%", "5", null, "30", "0.75%", null, this.patDiv);
             obj.set_taborder("12");
             obj.style.set_font("9 돋움");
+            this.patDiv.addChild(obj.name, obj);
+            obj = new Edit("patGenderEdit", "absolute", "59.78%", "40", null, "30", "27.15%", null, this.patDiv);
+            obj.set_taborder("13");
+            obj.style.set_font("9 돋움");
+            obj.set_enable("false");
             this.patDiv.addChild(obj.name, obj);
 
             obj = new Div("adrDiv00", "absolute", "33.92%", "485", "805", "114", null, null, this);
@@ -599,11 +599,13 @@
             obj = new Button("prscSearchBtn", "absolute", "642", "72", "30", "30", null, null, this);
             obj.set_taborder("21");
             obj.set_cssclass("btn_WF_SearchSmall");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("Button01", "absolute", "876", "443", "30", "30", null, null, this);
             obj.set_taborder("22");
             obj.set_cssclass("btn_WF_SearchSmall");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
             obj = new Button("batchBtn", "absolute", "343", "199", "62", "25", null, null, this);
@@ -613,6 +615,12 @@
             obj.style.set_background("#455a64ff");
             obj.style.set_color("#ffffffff");
             obj.style.set_bordertype("normal 3 3");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("patSearchBtn", "absolute", "770", "107", "30", "30", null, null, this);
+            obj.set_taborder("24");
+            obj.set_cssclass("btn_WF_SearchSmall");
+            obj.set_enable("false");
             this.addChild(obj.name, obj);
 
 
@@ -736,19 +744,16 @@
 
             
             // BindItem Information
+            obj = new BindItem("item4","writerDiv.writeDateCal","value","dsAdr","writeDate");
+            this.addChild(obj.name, obj);
+            obj.bind();
             obj = new BindItem("item0","patDiv.prscNoEdit","value","dsAdr","prescNo");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item1","patDiv.diseaseNmEdit","value","dsAdr","diseaseNm");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item2","patDiv.patGenderCombo","value","dsAdr","patGender");
-            this.addChild(obj.name, obj);
-            obj.bind();
             obj = new BindItem("item3","patDiv.patAgeEdit","value","dsAdr","patAge");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item4","writerDiv.writeDateCal","value","dsAdr","writeDate");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item5","patDiv.patNoEdit","value","dsAdr","patNo");
@@ -782,9 +787,6 @@
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item15","drugDiv.drugNoEdit","value","dsAdr","drugNo");
-            this.addChild(obj.name, obj);
-            obj.bind();
-            obj = new BindItem("item16","drugDiv.Calendar01","value","dsAdr","injcStartDate");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item17","drugDiv.Edit05","value","dsAdr","injcPurp");
@@ -823,6 +825,12 @@
             obj = new BindItem("item28","adrDiv03.TextArea00","value","dsAdr","opinion");
             this.addChild(obj.name, obj);
             obj.bind();
+            obj = new BindItem("item29","patDiv.patGenderEdit","value","dsAdr","patGender");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item2","drugDiv.Calendar01","value","dsAdr","injcStartDate");
+            this.addChild(obj.name, obj);
+            obj.bind();
 
             
             // Remove Reference
@@ -834,12 +842,22 @@
         // User Script
         this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::commonScripts.xjs");
         this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::medScripts.xjs");
+        this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::wonScripts.xjs");
+        this.addIncludeScript("SCP_AdrForm.xfdl", "scripts::commonUtil.xjs");
         this.registerScript("SCP_AdrForm.xfdl", function() {
         //include "scripts::commonScripts.xjs"
         //include "scripts::medScripts.xjs"
+        //include "scripts::wonScripts.xjs"
+        //include "scripts::commonUtil.xjs"
 
+        
         this.adrDiv_searchAdrBtn_onclick = function(obj,e)
         {
+        	var doctNoEd=this.adrDiv.doctNoEd.value;
+        	var writeDateCal=this.adrDiv.writeDateCal.value;
+        	var argument = 'doctNoEd='+doctNoEd+' writeDateCal='+writeDateCal;
+        	var serviceRow = this.dsService.findRow("serviceID", "findAdrList");
+        	this.dsService.setColumn(serviceRow,"argument",argument);
         	this.gfnService("findAdrList");
         }
 
@@ -850,13 +868,30 @@
 
         this.addBtn_onclick = function(obj,e)
         {
+
+        	if (this.adrDiv.doctNoEd.value == null){
+        		alert("작성자를 선택해 주십시오");
+        		return;
+        	}
         	this.dsAdr.addRow();
-        	this.writerDiv.writeDateCal.set_value(this.gfnLocalDate());
-        	this.writerDiv.writerNoEdit.set_value(application.gdsEmp.getColumn(0, "empNo"));
-        	this.writerDiv.writerNmEdit.set_value(application.gdsEmp.getColumn(0, "empNm"));
-        	this.writerDiv.writerJobRadio.set_value(application.gdsEmp.getColumn(0, "jobrk"));
+        	this.writerDiv.writeDateCal.set_value(this.localDate());
+        	this.writerDiv.writerNoEdit.set_value(this.adrDiv.doctNoEd.value);
+        	this.writerDiv.writerNmEdit.set_value(this.adrDiv.doctNmEd.value);
+        	this.prscSearchBtn.set_enable("true");
+        	this.patSearchBtn.set_enable("true");
+        	this.Button01.set_enable("true");
+        //	this.writerDiv.writerJobRadio.set_value(application.gdsEmp.getColumn(0, "jobrk"));
         }
 
+        this.localDate = function() {
+           var date = new Date();   
+            var sRtn = date.getFullYear()                        
+                    + (date.getMonth()+1).toString().padLeft(2, "0")  
+                       + date.getDate().toString().padLeft(2, "0");
+           return sRtn;
+        }
+
+        
         this.batchBtn_onclick = function(obj,e)
         {
         	this.gfnService("batchAdrProcess");
@@ -912,6 +947,35 @@
         	this.adrDiv.doctNoEd.set_value(arrRtn[0]);
         	this.adrDiv.doctNmEd.set_value(arrRtn[1]);                
         }
+
+        
+        this.patSearchBtn_onclick = function(obj,e)
+        {
+        		this.gfnPatPopup();
+        	this.setPatInfo = function(arrRtn){ 
+        	this.patDiv.patNmEdit.set_value(arrRtn[1]);   
+            this.patDiv.patNoEdit.set_value(arrRtn[0]);
+            if (arrRtn[3].substring(0,1)=='1' || arrRtn[3].substring(0,1)=='2' ){
+        	var currYear=nexacro.toNumber(this.localDate().substring(0,4));
+            var birthYear=nexacro.toNumber(19+arrRtn[2].substring(0,2));
+            var age=currYear-birthYear+1;
+            this.patDiv.patAgeEdit.set_value(age);
+            } else if (arrRtn[3].substring(0,1)=='3' || arrRtn[3].substring(0,1)=='4'){
+            var currYear=nexacro.toNumber(this.localDate().substring(0,4));
+            var birthYear=nexacro.toNumber(20+arrRtn[2].substring(0,2));
+            var age=currYear-birthYear+1;
+            this.patDiv.patAgeEdit.set_value(age);
+            }
+            switch (arrRtn[3].substring(0,1)){
+        		case '1':
+        			this.patDiv.patGenderEdit.set_value("남자");
+        			break;
+        		case '2':
+        			this.patDiv.patGenderEdit.set_value("여자");
+        			break;
+        		}
+        	}
+        }
         
         });
 
@@ -956,6 +1020,7 @@
             this.prscSearchBtn.addEventHandler("onclick", this.patDiv_prscSearchBtn_onclick, this);
             this.Button01.addEventHandler("onclick", this.DelBtn_onclick, this);
             this.batchBtn.addEventHandler("onclick", this.batchBtn_onclick, this);
+            this.patSearchBtn.addEventHandler("onclick", this.patSearchBtn_onclick, this);
 
         };
 
