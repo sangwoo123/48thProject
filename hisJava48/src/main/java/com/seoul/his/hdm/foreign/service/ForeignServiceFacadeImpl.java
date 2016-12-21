@@ -14,6 +14,7 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
 import com.seoul.his.msv.mcm.patientservice.to.DaySchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientInfoBean;
 
 @Service
 public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
@@ -36,6 +37,12 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	@Override
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
 		return foreignApplicationService.findDiagnosisReceiptList(argsMap);
+	}
+
+	//전원환자 환자 기본 정보
+	@Override
+	public List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap) {
+		return foreignApplicationService.findTransferPatientInfoList(argsMap);
 	}
 
 	@Override
