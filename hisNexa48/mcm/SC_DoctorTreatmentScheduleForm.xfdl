@@ -1,0 +1,1265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SC_DoctorTreatmentScheduleForm" classname="SC_DoctorTreatmentScheduleForm" left="0" top="0" width="1200" height="768" titletext="의사진료일정관리" onload="SC_DoctorTreatmentScheduleForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="Div06" taborder="0" left="1.56%" top="16" right="62.5%" height="60" style="background:transparent URL('img::miniTitleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static01" taborder="0" text="의사진료일정" left="14.4%" top="5" right="15.22%" height="46" style="color:#6c6c6cff;font:bold 20 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="SearchDiv" taborder="1" left="16" top="88" right="18" height="43" style="background:#90a4aeff;" cssclass="div_WF_SearchBg">
+          <Layouts>
+            <Layout width="1152" height="43">
+              <Combo id="MedDrCombo" taborder="34" innerdataset="dsMedDr" codecolumn="empNo" datacolumn="empNm" left="371" top="10" width="152" height="21"/>
+              <Static id="Static01" taborder="35" text="진료과" cssclass="sta_WF_SearchLabel" left="19" top="10" width="85" height="21" style="font:9 돋움;"/>
+              <Static id="Static02" taborder="36" text="진료의" cssclass="sta_WF_SearchLabel" left="286" top="10" width="85" height="21" style="font:9 돋움;"/>
+              <Button id="searchSchTypeListBtn" taborder="38" text="조회" cssclass="btn_WF_Search" top="8" right="11" width="60" height="25" style="background:#37474fff;" onclick="SearchDiv_searchSchTypeListBtn_onclick"/>
+              <Combo id="MedDeptCombo" taborder="39" innerdataset="@dsMedDept" codecolumn="deptNm" datacolumn="deptNm" left="91" top="10" width="152" height="21" oncloseup="SearchDiv_MedDeptCombo_oncloseup"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="SchTypeDiv" taborder="2" left="1.17%" top="140" right="76.67%" height="560" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Grid id="SchTypeGrid" taborder="0" useinputpanel="false" left="4.15%" top="7" right="3.73%" height="465" autofittype="col" binddataset="dsTypeList">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="214"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;font:9 돋움;" text="등록된 Type명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:typeName"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <TextArea id="CommentArea" taborder="1" left="4.56%" top="476" right="4.15%" height="72"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="SchTypeDtlDiv" taborder="3" left="23.83%" top="140" right="20.33%" height="558" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="진료가능인원" left="1.05%" top="10" right="73.57%" height="23" style="background:#90a4aeff;align:center middle;"/>
+              <Div id="MedCntDiv" taborder="1" left="0.9%" top="36" right="1.64%" height="71" style="background:#b0bec5ff;border:1 solid #90a4aeff ;">
+                <Layouts>
+                  <Layout>
+                    <Div id="MedAmDiv" taborder="0" left="1.23%" top="3" right="21.2%" height="29" style="background:aliceblue;">
+                      <Layouts>
+                        <Layout>
+                          <CheckBox id="AmCheck" taborder="0" text="오전" left="6" top="6" width="71" height="20" truevalue="true" falsevalue="false" style="padding:0 0 0 0;" onclick="SchTypeDtlDiv_MedCntDiv_MedAmDiv_AmCheck_onclick"/>
+                          <Static id="Static00" taborder="1" text="시간" cssclass="sta_WF_DetailLabel01" left="64" top="1" width="55" height="25"/>
+                          <MaskEdit id="AmStTmMaskEd" taborder="2" left="122" top="3" width="51" height="21" type="string" mask="##:##" enable="false"/>
+                          <MaskEdit id="AmEdTmMaskEd" taborder="3" type="string" mask="##:##" left="194" top="3" width="51" height="21" enable="false"/>
+                          <Static id="Static01" taborder="4" text="간격" cssclass="sta_WF_DetailLabel01" left="256" top="1" width="55" height="25"/>
+                          <Edit id="AmTermEd" taborder="5" left="315" top="3" width="46" height="21" enable="false"/>
+                          <Static id="Static02" taborder="6" text="총원" cssclass="sta_WF_DetailLabel01" left="392" top="1" width="55" height="25"/>
+                          <Edit id="AmTotCntEd" taborder="7" left="451" top="3" width="46" height="21" enable="false"/>
+                          <Static id="Static03" taborder="8" text="~" left="34.19%" top="4" right="61.86%" height="18" style="align:center middle;"/>
+                          <Static id="Static04" taborder="9" text="분" left="71.15%" top="5" right="24.9%" height="18" style="align:center middle;"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <Div id="MedPmDiv" taborder="1" left="1.23%" top="35" right="21.2%" height="29" style="background:aliceblue;">
+                      <Layouts>
+                        <Layout>
+                          <CheckBox id="PmCheck" taborder="20" text="오후" truevalue="true" falsevalue="false" left="6" top="6" width="71" height="20" onclick="SchTypeDtlDiv_MedCntDiv_MedPmDiv_PmCheck_onclick"/>
+                          <Static id="Static00" taborder="21" text="시간" cssclass="sta_WF_DetailLabel01" left="64" top="1" width="55" height="25"/>
+                          <MaskEdit id="PmStTmMaskEd" taborder="22" type="string" mask="##:##" left="122" top="3" width="51" height="21" enable="false"/>
+                          <MaskEdit id="PmEdTmMaskEd" taborder="23" type="string" mask="##:##" left="194" top="3" width="51" height="21" enable="false"/>
+                          <Static id="Static01" taborder="24" text="간격" cssclass="sta_WF_DetailLabel01" left="256" top="1" width="55" height="25"/>
+                          <Edit id="PmTermEd" taborder="25" left="315" top="3" width="46" height="21" enable="false"/>
+                          <Static id="Static02" taborder="26" text="총원" cssclass="sta_WF_DetailLabel01" left="392" top="1" width="55" height="25"/>
+                          <Edit id="PmTotCntEd" taborder="27" left="451" top="3" width="46" height="21" enable="false"/>
+                          <Static id="Static03" taborder="28" text="~" left="34.19%" top="4" right="62.03%" height="18" style="align:center middle;"/>
+                          <Static id="Static04" taborder="29" text="분" left="71.17%" top="5" right="25.05%" height="18" style="align:center middle;"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <CheckBox id="RsvYnCheck" taborder="2" text="타과예약가능" value="N" truevalue="Y" falsevalue="N" left="531" top="6" width="109" height="58" style="background:aliceblue;padding:5 5 5 7;align:left middle;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static01" taborder="3" text="적용할 요일" left="1.05%" top="122" right="73.57%" height="23" style="background:#90a4aeff;align:center middle;"/>
+              <Div id="ApplyDowDiv" taborder="4" left="0.9%" top="148" right="21.02%" height="71" style="background:#b0bec5ff;border:1 solid #90a4aeff ;">
+                <Layouts>
+                  <Layout>
+                    <Div id="DowDiv" taborder="2" left="17.57%" top="4" right="1.54%" height="60" style="background:aliceblue;">
+                      <Layouts>
+                        <Layout>
+                          <CheckBox id="D1Check" taborder="0" text="일" left="1.67%" top="7" right="86.4%" height="45" style="background:#cfd8dcff;color:crimson;padding:0 0 0 5;align:left middle; :pushed {background:#cfd8dcff;}"/>
+                          <CheckBox id="D2Check" taborder="1" text="월" left="15.75%" top="7" right="72.32%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                          <CheckBox id="D3Check" taborder="2" text="화" left="29.83%" top="7" right="58.23%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                          <CheckBox id="D4Check" taborder="3" text="수" left="43.91%" top="7" right="44.15%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                          <CheckBox id="D5Check" taborder="4" text="목" left="57.76%" top="7" right="30.31%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                          <CheckBox id="D6Check" taborder="5" text="금" left="72.08%" top="7" right="15.99%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                          <CheckBox id="D7Check" taborder="6" text="토" left="85.68%" top="7" right="2.39%" height="45" style="background:#cfd8dcff;padding:0 0 0 5;align:left middle;"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                    <CheckBox id="DAllCheck" taborder="3" text="전체" left="2.32%" top="7" right="83.98%" height="53" style="background:#cfd8dcff;color:blue;padding:0 0 0 5;align:left middle;" onclick="SchTypeDtlDiv_ApplyDowDiv_DAllCheck_onclick"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Button id="createDtlBaseBtn" taborder="5" text="상세기준생성" cssclass="btn_WF_Download" top="157" right="16" width="108" height="21" onclick="SchTypeDtlDiv_createDtlBaseBtn_onclick"/>
+              <Button id="clearBtn" taborder="6" text="CLEAR" cssclass="btn_WF_Upload" top="188" right="16" width="108" height="21" onclick="SchTypeDtlDiv_clearBtn_onclick"/>
+              <Static id="Static02" taborder="7" text="진료일정 상세기준" left="1.05%" top="232" right="73.57%" height="23" style="background:#90a4aeff;align:center middle;"/>
+              <Grid id="DtlDowGrid" taborder="8" useinputpanel="false" left="1.5%" top="262" right="69.07%" height="282" autofittype="col" binddataset="dsDtlDow" oncellclick="SchTypeDtlDiv_DtlDowGrid_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                      <Column size="40"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;font:9 돋움;" text="요일"/>
+                      <Cell col="1" style="background:#cfd8dcff;font:9 돋움;" text="A"/>
+                      <Cell col="2" style="background:#cfd8dcff;font:9 돋움;" text="P"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="combo" text="bind:dow" combodataset="dsDow" combocodecol="dow" combodatacol="dowName"/>
+                      <Cell col="1" text="bind:amCnt"/>
+                      <Cell col="2" text="bind:pmCnt"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="DtlAmGrid" taborder="9" useinputpanel="false" left="31.98%" top="262" right="35.29%" height="282" autofittype="col" binddataset="dsDtlAm" onheadclick="SchTypeDtlDiv_DtlAmGrid_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="79"/>
+                      <Column size="49"/>
+                      <Column size="20"/>
+                      <Column size="67"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;font:9 돋움;" text="오전시간"/>
+                      <Cell col="1" style="background:#cfd8dcff;font:9 돋움;" text="총원"/>
+                      <Cell col="2" colspan="2" displaytype="normal" edittype="none" style="background:#cfd8dcff;">
+                        <Cell displaytype="checkbox" edittype="checkbox" style="align:right;background:#cfd8dcff;font:9 돋움;"/>
+                        <Cell col="1" style="align:left;background:#cfd8dcff;font:9 돋움;" text="타과예약"/>
+                      </Cell>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:examTm" mask="##:##"/>
+                      <Cell col="1" text="bind:totCnt"/>
+                      <Cell col="2" colspan="2" displaytype="checkbox" edittype="none" style="align:center;" text="bind:rsvYn"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="background:#cfd8dcff;" text="오전합계"/>
+                      <Cell col="1" displaytype="text" style="background:#cfd8dcff;" text="expr:dataset.getSum(&quot;parseInt(totCnt)&quot;)"/>
+                      <Cell col="2" colspan="2" style="background:#cfd8dcff;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="DtlPmGrid" taborder="10" useinputpanel="false" autofittype="col" left="65.62%" top="262" right="1.65%" height="282" binddataset="dsDtlPm" onheadclick="SchTypeDtlDiv_DtlPmGrid_onheadclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="79"/>
+                      <Column size="49"/>
+                      <Column size="20"/>
+                      <Column size="67"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;font:9 돋움;" text="오후시간"/>
+                      <Cell col="1" style="background:#cfd8dcff;font:9 돋움;" text="총원"/>
+                      <Cell col="2" colspan="2" displaytype="normal" edittype="none" style="background:#cfd8dcff;">
+                        <Cell displaytype="checkbox" edittype="checkbox" style="align:right;background:#cfd8dcff;font:9 돋움;"/>
+                        <Cell col="1" style="align:left;background:#cfd8dcff;font:9 돋움;" text="타과예약"/>
+                      </Cell>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:examTm" mask="##:##"/>
+                      <Cell col="1" text="bind:totCnt"/>
+                      <Cell col="2" colspan="2" displaytype="checkbox" edittype="none" style="align:center;" text="bind:rsvYn"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="background:#cfd8dcff;font: ;" text="오후합계"/>
+                      <Cell col="1" style="background:#cfd8dcff;font: ;" text="expr:dataset.getSum(&quot;parseInt(totCnt)&quot;)"/>
+                      <Cell col="2" colspan="2" style="background:#cfd8dcff;font: ;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="Button13" taborder="11" text="행추가" cssclass="btn_WF_Add" top="-744" right="254" width="65" height="12"/>
+              <Button id="Button14" taborder="12" text="행삭제" cssclass="btn_WF_Delete" top="-744" right="189" width="65" height="12"/>
+              <Button id="addDtlAmBtn" taborder="13" text="추가" cssclass="btn_WF_Add" top="240" right="290" width="50" height="12" onclick="SchTypeDtlDiv_addDtlAmBtn_onclick"/>
+              <Button id="delDtlAmBtn" taborder="14" text="삭제" cssclass="btn_WF_Delete" top="240" right="243" width="44" height="12" onclick="SchTypeDtlDiv_delDtlAmBtn_onclick"/>
+              <Button id="addDtlPmBtn" taborder="15" text="추가" cssclass="btn_WF_Add" top="240" right="66" width="50" height="12" onclick="SchTypeDtlDiv_addDtlPmBtn_onclick"/>
+              <Button id="delDtlPmBtn" taborder="16" text="삭제" cssclass="btn_WF_Delete" top="240" right="19" width="44" height="12" onclick="SchTypeDtlDiv_delDtlPmBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static06" taborder="4" text="Edit" cssclass="sta_WF_DetailLabel01" left="928" top="-287" width="107" height="29"/>
+        <Edit id="Edit00" taborder="5" displaynulltext="Enabled" left="1038" top="-283" width="141" height="21"/>
+        <Div id="LastSchDiv" taborder="6" left="80%" top="140" right="1.33%" height="556" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout width="224" height="556">
+              <Static id="Static02" taborder="0" text="요일별 최종등록일자" left="2.23%" top="254" right="2.23%" height="23" style="background:#90a4aeff;align:center middle;"/>
+              <Grid id="LastDowGrid" taborder="1" binddataset="dsDrDow" useinputpanel="false" autofittype="col" left="2.23%" top="284" right="2.68%" height="204">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="77"/>
+                      <Column size="133"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;font:9 돋움;" text="요일"/>
+                      <Cell col="1" style="background:#cfd8dcff;font:9 돋움;" text="진료일자"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="combo" style="align:center;" text="bind:dow" combodataset="dsDow" combocodecol="dow" combodatacol="dowName"/>
+                      <Cell col="1" displaytype="date" text="bind:lastDate" calendardisplay="edit" calendardisplaynulltype="none"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="ButtonDiv" taborder="7" left="1.17%" top="705" right="1.33%" height="46" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Button id="registerTypeBtn" taborder="0" text="새 Type으로 저장" left="17.01%" top="9" right="72.48%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_registerTypeBtn_onclick"/>
+              <Button id="removeTypeBtn" taborder="1" text="Type 삭제" left="27.95%" top="9" right="64.27%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_removeTypeBtn_onclick"/>
+              <Button id="modifyTypeBtn" taborder="2" text="저장" left="36.15%" top="9" right="58.29%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_modifyTypeBtn_onclick"/>
+              <Button id="regiDrSchBtn" taborder="3" text="일정등록" left="59.83%" top="9" right="33.42%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_regiDrSchBtn_onclick"/>
+              <Button id="delDrSchBtn" taborder="4" text="일정삭제" left="67.18%" top="9" right="26.07%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_delDrSchBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsMedDept" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="deptNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsMedDr" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="256"/>
+          <Column id="empNm" type="STRING" size="256"/>
+          <Column id="deptNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTypeList" onrowposchanged="dsTypeList_onrowposchanged">
+        <ColumnInfo>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="typeName" type="STRING" size="256"/>
+          <Column id="amStTm" type="STRING" size="256"/>
+          <Column id="amEdTm" type="STRING" size="256"/>
+          <Column id="amTerm" type="STRING" size="256"/>
+          <Column id="amTotCnt" type="STRING" size="256"/>
+          <Column id="pmStTm" type="STRING" size="256"/>
+          <Column id="pmEdTm" type="STRING" size="256"/>
+          <Column id="pmTerm" type="STRING" size="256"/>
+          <Column id="pmTotCnt" type="STRING" size="256"/>
+          <Column id="rsvYn" type="STRING" size="256"/>
+          <Column id="comments" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDrDow">
+        <ColumnInfo>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="dowName" type="STRING" size="256"/>
+          <Column id="lastDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDtlDow" onrowposchanged="dsDtlDow_onrowposchanged" onload="dsDtlDow_onload">
+        <ColumnInfo>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="amCnt" type="STRING" size="256"/>
+          <Column id="pmCnt" type="STRING" size="256"/>
+          <Column id="RsvYn" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDtlOrg">
+        <ColumnInfo>
+          <Column id="medDept" type="STRING" size="256"/>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="examTm" type="STRING" size="256"/>
+          <Column id="totCnt" type="STRING" size="256"/>
+          <Column id="amPmFlag" type="STRING" size="256"/>
+          <Column id="rsvYn" type="STRING" size="256"/>
+          <Column id="findKey" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDtlAm">
+        <ColumnInfo>
+          <Column id="medDept" type="STRING" size="256"/>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="examTm" type="STRING" size="256"/>
+          <Column id="totCnt" type="STRING" size="256"/>
+          <Column id="amPmFlag" type="STRING" size="256"/>
+          <Column id="rsvYn" type="STRING" size="256"/>
+          <Column id="findKey" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDtlPm">
+        <ColumnInfo>
+          <Column id="medDept" type="STRING" size="256"/>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="examTm" type="STRING" size="256"/>
+          <Column id="totCnt" type="STRING" size="256"/>
+          <Column id="amPmFlag" type="STRING" size="256"/>
+          <Column id="rsvYn" type="STRING" size="256"/>
+          <Column id="findKey" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDow">
+        <ColumnInfo>
+          <Column id="dow" type="STRING" size="256"/>
+          <Column id="dowName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="dow">1</Col>
+            <Col id="dowName">일</Col>
+          </Row>
+          <Row>
+            <Col id="dow">2</Col>
+            <Col id="dowName">월</Col>
+          </Row>
+          <Row>
+            <Col id="dow">3</Col>
+            <Col id="dowName">화</Col>
+          </Row>
+          <Row>
+            <Col id="dow">4</Col>
+            <Col id="dowName">수</Col>
+          </Row>
+          <Row>
+            <Col id="dow">5</Col>
+            <Col id="dowName">목</Col>
+          </Row>
+          <Row>
+            <Col id="dow">6</Col>
+            <Col id="dowName">금</Col>
+          </Row>
+          <Row>
+            <Col id="dow">7</Col>
+            <Col id="dowName">토</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findMedDrList</Col>
+            <Col id="URL">his::hrs/emp/findEmpList.do</Col>
+            <Col id="inData"/>
+            <Col id="argument"/>
+            <Col id="callbackFunc">callbackFunc</Col>
+            <Col id="outData">dsMedDr=gdsEmp</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findScheduleTypeList</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/findScheduleTypeList.do</Col>
+            <Col id="outData">dsTypeList=dsTypeList dsDtlDow=dsDtlDow</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findLastDateList</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/findLastDateList.do</Col>
+            <Col id="outData">dsDrDow=dsDrDow</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findScheduleDetailList</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/findScheduleDetailList.do</Col>
+            <Col id="inData"/>
+            <Col id="callbackFunc">callbackFunc</Col>
+            <Col id="outData">dsDtlOrg=dsDtlOrg</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">registerScheduleType</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/registerScheduleType.do</Col>
+            <Col id="inData">dsTypeList=dsTypeInput:N dsDtlOrg=dsDtlOrg:N</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">modifyScheduleType</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/modifyScheduleType.do</Col>
+            <Col id="inData">dsTypeList=dsTypeInput:N dsDtlOrg=dsDtlOrg:N</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">removeScheduleType</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/removeScheduleType.do</Col>
+            <Col id="inData">dsTypeList=dsTypeInput:N</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">registerDoctorSchedule</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/registerDoctorSchedule.do</Col>
+            <Col id="inData">dsDrSchRegiInfo=dsDrSchRegiInfo:u</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">removeDoctorSchedule</Col>
+            <Col id="URL">his::msv/mcm/doctorschedule/removeDoctorSchedule.do</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTypeInput">
+        <ColumnInfo>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="typeName" type="STRING" size="256"/>
+          <Column id="amStTm" type="STRING" size="256"/>
+          <Column id="amEdTm" type="STRING" size="256"/>
+          <Column id="amTerm" type="STRING" size="256"/>
+          <Column id="amTotCnt" type="STRING" size="256"/>
+          <Column id="pmStTm" type="STRING" size="256"/>
+          <Column id="pmEdTm" type="STRING" size="256"/>
+          <Column id="pmTerm" type="STRING" size="256"/>
+          <Column id="pmTotCnt" type="STRING" size="256"/>
+          <Column id="rsvYn" type="STRING" size="256"/>
+          <Column id="comments" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDrSchRegiInfo">
+        <ColumnInfo>
+          <Column id="medDr" type="STRING" size="256"/>
+          <Column id="tpSeqNo" type="STRING" size="256"/>
+          <Column id="fromDate" type="STRING" size="256"/>
+          <Column id="toDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="SchTypeDiv.CommentArea" propid="value" datasetid="dsTypeList" columnid="comments"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+ 공통스크립트 include
+********************************************************************************/
+include "scripts::commonScripts.xjs";
+include "scripts::commonBind.xjs";
+
+/*************************************************************************************/
+
+
+this.SC_DoctorTreatmentScheduleForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+		var nRow=this.dsService.findRow("serviceID","findMedDrList");
+		this.dsService.setColumn(nRow,"argument","jobrk=의사");
+		this.gfnService("findMedDrList");
+}    
+
+	//적용할 요일Div
+	var applyDowDiv=this.SchTypeDtlDiv.ApplyDowDiv; 
+	//전체 checkBox Object;
+	var dAllCheck=applyDowDiv.DAllCheck;
+//전체checkBox 클릭시 
+this.SchTypeDtlDiv_ApplyDowDiv_DAllCheck_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	var checkVal=dAllCheck.value;
+	for(var i=0;i<7;i++)
+	{
+		var chx=applyDowDiv.DowDiv.lookup("D"+(i+1)+"Check"); //checkBox Object   
+		chx.set_value(checkVal);
+	}
+}
+	
+	//오전진료정보 Div
+	var medAmDiv=this.SchTypeDtlDiv.MedCntDiv.MedAmDiv;
+	var amCheck=medAmDiv.AmCheck;             //오전CheckBox Object
+	var amStTmMaskEd=medAmDiv.AmStTmMaskEd;   //오전진료시작시각 MaskEdit Object
+	var amEdTmMaskEd=medAmDiv.AmEdTmMaskEd;   //오전진료종료시각 MaskEdit Object
+	var amTermEd=medAmDiv.AmTermEd;           //오전진료시각간격 Edit Obect
+	var amTotCntEd=medAmDiv.AmTotCntEd;       //오전진료총원 Edit Object
+	
+	//오후진료정보 Div
+	var medPmDiv=this.SchTypeDtlDiv.MedCntDiv.MedPmDiv;
+	var pmCheck=medPmDiv.PmCheck;             //오후CheckBox Object
+	var pmStTmMaskEd=medPmDiv.PmStTmMaskEd;   //오전진료시작시각 MaskEdit Object
+	var pmEdTmMaskEd=medPmDiv.PmEdTmMaskEd;   //오전진료종료시각 MaskEdit Object
+	var pmTermEd=medPmDiv.PmTermEd;           //오전진료시각간격 Edit Obect
+	var pmTotCntEd=medPmDiv.PmTotCntEd;       //오전진료총원 Edit Object
+	
+	//타과예약가능 CheckBox Object
+	var rsvYnCheck=this.SchTypeDtlDiv.MedCntDiv.RsvYnCheck;
+	
+	var d1Check=applyDowDiv.DowDiv.D1Check;//월요일 CheckBox Object
+	var d2Check=applyDowDiv.DowDiv.D2Check;//화요일 CheckBox Object
+	var d3Check=applyDowDiv.DowDiv.D3Check;//수요일 CheckBox Object
+	var d4Check=applyDowDiv.DowDiv.D4Check;//목요일 CheckBox Object
+	var d5Check=applyDowDiv.DowDiv.D5Check;//금요일 CheckBox Object
+	var d6Check=applyDowDiv.DowDiv.D6Check;//토요일 CheckBox Object
+	var d7Check=applyDowDiv.DowDiv.D7Check;//일요일 CheckBox Object
+	
+//상세기준생성버튼 클릭시
+this.SchTypeDtlDiv_createDtlBaseBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if (!amCheck.isChecked()&&!pmCheck.isChecked()) 
+	{
+        alert("오전이나 오후를 선택하십시요."); 
+        return;
+	}
+	
+	//오전 입력값 확인
+	if (amCheck.isChecked()) {
+        if (this.fn_chktime(amStTmMaskEd, "A") == false) {
+            alert("오전진료시작시각을 형식에 맞게 입력해주세요");
+            return;
+        }
+	
+        if (this.fn_chktime(amEdTmMaskEd, "A") == false) {
+			alert("오전진료종료시각을 형식에 맞게 입력해주세요");
+            return;
+        }
+        
+        if (parseInt(amTermEd.text) <= 0) {
+            alert("오전 진료시간 간격을 입력해주세요");
+            return;
+        }
+        
+        if (parseInt(amTotCntEd.text) <= 0) {
+            alert("오전 진료시간별 총원을 입력해주세요");
+            return;
+        }
+	}
+    
+    //오후 입력값 확인
+	if (pmCheck.isChecked()) {
+        if (this.fn_chktime(pmStTmMaskEd, "P") == false) {
+            alert("오후진료시작시각을 형식에 맞게 입력해주세요");
+            return;
+        }
+	
+        if (this.fn_chktime(pmEdTmMaskEd, "P") == false) {
+            alert("오후진료종료시각을 형식에 맞게 입력해주세요");
+            return;
+        }
+        
+        if (parseInt(pmTermEd.text) <= 0) {
+            alert("오후 진료시간 간격을 입력해주세요");
+            return;
+        }
+        
+        if (parseInt(pmTotCntEd.text) <= 0) {
+            alert("오후 진료시간별 총원을 입력해주세요");
+            return;
+        }
+	}
+	//요일 선택여부 확인
+	var isChecked=false;
+	for(var i=0;i<7;i++)
+	{
+		var chx=applyDowDiv.DowDiv.lookup("D"+(i+1)+"Check"); //checkBox Object   
+		if(chx.isChecked())
+		{
+			isChecked=true;
+		}
+	}
+	if(!isChecked){
+		alert("Please, check at least one Checkbox!");
+		return;
+	}
+	
+	var arrDow = Array(7);
+	arrDow[0] = d1Check.isChecked();
+	arrDow[1] = d2Check.isChecked();
+	arrDow[2] = d3Check.isChecked();
+	arrDow[3] = d4Check.isChecked();
+	arrDow[4] = d5Check.isChecked();
+	arrDow[5] = d6Check.isChecked();
+	arrDow[6] = d7Check.isChecked();
+
+    //선택한 요일별로 일정상세 적용
+    var sDow;
+    for(var k=0; k<7; k++) {
+        if (!arrDow[k]) {
+			continue; 
+		}
+        
+        //1:일,2:월,3:화,4:수,5:목,6:금,7:토
+        sDow = (k+1).toString();
+        
+        //상세정보 생성
+        this.fn_applyData(sDow); 
+    }
+    
+    //데이터 로드후 grid refresh
+    this.fn_refreshGrid();
+}
+//그리드화면 frefresh
+this.fn_refreshGrid = function()
+{
+    //요일을 선택하면 해당요일의 상세일정 조회
+    var sDow = this.dsDtlDow.getColumn(this.dsDtlDow.rowposition, "dow");
+    this.dsDtlOrg.filter("dow=='"+sDow+"'&&amPmFlag=='A'");
+    this.dsDtlAm.deleteAll();
+    this.dsDtlAm.copyData(this.dsDtlOrg,true);
+    this.dsDtlOrg.filter("dow=='"+sDow+"'&&amPmFlag=='P'");
+    this.dsDtlPm.deleteAll();
+    this.dsDtlPm.copyData(this.dsDtlOrg,true);
+	this.dsDtlOrg.filter("");
+	this.dsDtlAm.updateSortGroup("S:+examTm");
+	this.dsDtlPm.updateSortGroup("S:+examTm");
+}
+
+this.fn_applyData = function(sDow)
+{
+	var sExamTm = "";
+    var idx;
+    var iAMcnt=0, iPMcnt=0;
+        
+    //해당요일의 상세정보를 삭제  
+     
+    for(var i=this.dsDtlOrg.getRowCount(); i>=0; i--) {
+        if (this.dsDtlOrg.getColumn(i,"dow") == sDow) {
+			this.dsDtlOrg.deleteRow(i);
+        }       
+    }
+      
+    //오전시간 상세 생성
+    if (amCheck.isChecked()) {        
+        //시작,종료시간을 분으로 환산
+        var iStTm = parseInt(amStTmMaskEd.text.substr(0,2))*60 + parseInt(amStTmMaskEd.text.substr(3,2)) ;
+        var iEdTm = parseInt(amEdTmMaskEd.text.substr(0,2))*60 + parseInt((amEdTmMaskEd.text).substr(3,2)) ;
+        var iTerm = parseInt(amTermEd.text);
+        //간격만틈 더하면서 시간 계산
+        for(var t=iStTm; t<=iEdTm; t=t+iTerm) {
+            iAMcnt++;
+            sExamTm = Math.floor(t/60).toString().padLeft(2,"0") + (t%60).toString().padLeft(2,"0") ;
+            idx = this.dsDtlOrg.addRow();
+            this.dsDtlOrg.setColumn(idx,"dow",sDow);
+            this.dsDtlOrg.setColumn(idx,"examTm",sExamTm);
+            this.dsDtlOrg.setColumn(idx,"totCnt",amTotCntEd.text);
+            this.dsDtlOrg.setColumn(idx,"amPmFlag","A");
+            this.dsDtlOrg.setColumn(idx,"rsvYn",rsvYnCheck.isChecked());
+        }
+    }
+    
+    //오후시간 상세 생성
+    if (pmCheck.isChecked()) {        
+        //시작,종료시간을 분으로 환산
+        var iStTm = parseInt(pmStTmMaskEd.text.substr(0,2))*60 + parseInt((pmStTmMaskEd.text).substr(3,2)) ;
+        var iEdTm = parseInt(pmEdTmMaskEd.text.substr(0,2))*60 + parseInt((pmEdTmMaskEd.text).substr(3,2)) ;
+        var iTerm = parseInt(pmTermEd.text);
+        //간격만틈 더하면서 시간 계산
+        
+        
+        for(var t=iStTm; t<=iEdTm; t=t+iTerm) {
+            iPMcnt++;
+            sExamTm = Math.floor(t/60).toString().padLeft(2,"0") + (t%60).toString().padLeft(2,"0") ;
+            idx = this.dsDtlOrg.addRow();
+			this.dsDtlOrg.setColumn(idx,"dow"   ,sDow);
+            this.dsDtlOrg.setColumn(idx,"examTm",sExamTm);       
+            this.dsDtlOrg.setColumn(idx,"totCnt",pmTotCntEd.text);
+            this.dsDtlOrg.setColumn(idx,"amPmFlag","P");
+            this.dsDtlOrg.setColumn(idx,"rsvYn",rsvYnCheck.isChecked());
+        }
+    }
+    
+    //생성된 요일 표시.
+    idx = this.dsDtlDow.findRow("dow",sDow);
+    if (idx>-1) 
+        this.dsDtlDow.deleteRow(idx);
+        
+    idx = this.dsDtlDow.addRow();
+    this.dsDtlDow.setColumn(idx,"dow"  ,sDow);
+    this.dsDtlDow.setColumn(idx,"amCnt",iAMcnt);
+    this.dsDtlDow.setColumn(idx,"pmCnt",iPMcnt);
+    this.dsDtlDow.set_keystring("S:dow");
+
+}
+
+//MaskEdit 입력값이 시간이 맞는지 체크. hh24:mi
+this.fn_chktime = function(medMaskEditObj, sAMPM)
+{  
+    var sTime = medMaskEditObj.text;
+    
+    if (sTime.indexOf("_") >= 0) {        
+        return false;
+	}
+	
+	var hh = parseInt(sTime.substr(0,2));
+	var mi = parseInt(sTime.substr(3,2));
+	
+	if (hh<0 || hh>23) {
+        return false;
+	}
+	if (mi<0 || mi>59) {
+        return false;
+	}
+	
+	//오후는 24시간제로 변경
+	if (sAMPM == "P") {
+        if (hh < 12)
+            medMaskEditObj.set_value( (hh+12).toString() + (mi.toString()).padLeft(2,"0") );
+	}
+	
+	return true;
+}
+
+
+this.SchTypeDtlDiv_clearBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//요일 선택여부 확인
+	var isChecked=false;
+	for(var i=0;i<7;i++)
+	{
+		var chx=applyDowDiv.DowDiv.lookup("D"+(i+1)+"Check"); //checkBox Object   
+		if(chx.isChecked())
+		{
+			isChecked=true;
+		}
+	}
+	if(!isChecked){
+		alert("Please, check at least one Checkbox!");
+		return;
+	}
+	
+	var arrDow = Array(7);
+	arrDow[0] = d1Check.isChecked();
+	arrDow[1] = d2Check.isChecked();
+	arrDow[2] = d3Check.isChecked();
+	arrDow[3] = d4Check.isChecked();
+	arrDow[4] = d5Check.isChecked();
+	arrDow[5] = d6Check.isChecked();
+	arrDow[6] = d7Check.isChecked();
+
+    //선택한 요일별로 일정상세 적용
+    var sDow;
+    for(var k=0; k<7; k++) {
+        if (!arrDow[k]) {
+			continue; 
+		}
+        
+        //1:일,2:월,3:화,4:수,5:목,6:금,7:토
+        sDow = (k+1).toString();
+        
+      
+        //요일표시 삭제
+		idx = this.dsDtlDow.findRow("dow",sDow);
+		if (idx>-1) 
+        this.dsDtlDow.deleteRow(idx);
+        //상세정보 삭제
+        for(var i=this.dsDtlOrg.getRowCount(); i>=0; i--) {
+			if (this.dsDtlOrg.getColumn(i,"dow") == sDow) {
+				this.dsDtlOrg.deleteRow(i);
+			}       
+		}
+    }
+}
+
+var gv_IsDtlAmGridCheckAll = 0;
+this.SchTypeDtlDiv_DtlAmGrid_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	if(e.col==2){
+	gv_IsDtlAmGridCheckAll = (gv_IsDtlAmGridCheckAll ? 0 : 1);
+	for (var i=0; i<this.dsDtlAm.getRowCount(); i++) {
+		this.dsDtlAm.setColumn(i, "rsvYn", gv_IsDtlAmGridCheckAll);
+	}
+	//dsDtlOrg에도 반영하기
+	var sDow=this.dsDtlAm.getColumn(this.dsDtlAm.rowposition,"dow");
+	this.dsDtlOrg.filter("dow=='"+sDow+"'&&amPmFlag=='A'");
+	for (var i=0; i<this.dsDtlOrg.getRowCount(); i++) {
+		this.dsDtlOrg.setColumn(i, "rsvYn", gv_IsDtlAmGridCheckAll);
+	}
+	this.dsDtlOrg.filter("");
+	obj.setSubCellProperty("Head",e.col,0,"expr",gv_IsDtlAmGridCheckAll);
+	}
+}
+
+var gv_IsDtlPmGridCheckAll = 0;
+this.SchTypeDtlDiv_DtlPmGrid_onheadclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{	if(e.col==2){
+	gv_IsDtlPmGridCheckAll = (gv_IsDtlPmGridCheckAll ? 0 : 1);
+	for (var i=0; i<this.dsDtlAm.getRowCount(); i++) {
+		this.dsDtlPm.setColumn(i, "rsvYn", gv_IsDtlPmGridCheckAll);
+	}
+	//dsDtlOrg에도 반영하기
+	var sDow=this.dsDtlPm.getColumn(this.dsDtlPm.rowposition,"dow");
+	this.dsDtlOrg.filter("dow=='"+sDow+"'&&amPmFlag=='P'");
+	for (var i=0; i<this.dsDtlOrg.getRowCount(); i++) {
+		this.dsDtlOrg.setColumn(i, "rsvYn", gv_IsDtlPmGridCheckAll);
+	}
+	this.dsDtlOrg.filter("");
+	obj.setSubCellProperty("Head",e.col,0,"expr",gv_IsDtlPmGridCheckAll);
+	}
+}
+
+this.callbackFunc = function(svcID, ErrorCode, ErrorMsg){
+   if (ErrorCode < 1) {
+      trace("[" + svcID + "] 에러코드 : " + ErrorCode + "\n" + ErrorMsg);
+   } else {
+      // 트랜잭션 완료
+       trace("===== " + svcID + " 트랜잭션 성공 =====\n");
+      if(svcID=="findMedDrList"){
+		this.dsMedDr.set_keystring("deptNm"); 
+		var rowCnt=this.dsMedDr.getRowCount();
+		var deptNm="";
+		for(var i=0;i<rowCnt;i++){
+			if(deptNm!=this.dsMedDr.getColumn(i,"deptNm")){
+				deptNm=this.dsMedDr.getColumn(i,"deptNm");
+				var nRow=this.dsMedDept.addRow();
+				this.dsMedDept.setColumn(nRow,"deptNm",deptNm);
+			}
+		}
+		this.dsMedDr.set_keystring("");  
+      }else if(svcID=="findScheduleTypeList"){
+		this.fn_SelectSchdrLastDateDow();
+      }else if(svcID=="findScheduleDetailList"){
+		this.dsDtlDow.set_rowposition(0);
+	  }else if(svcID=="registerScheduleType"){
+		this.fn_Search(null);
+	  }else if(svcID=="modifyScheduleType"){
+		this.fn_Search(null);
+	  }else if(svcID=="removeScheduleType"){
+		this.fn_Search(null);
+	  }else if(svcID=="registerDoctorSchedule"){
+		this.fn_SelectSchdrLastDateDow();
+	  }else if(svcID=="removeDoctorSchedule"){
+		this.fn_SelectSchdrLastDateDow();
+	  }
+
+   }
+   
+}
+
+this.SearchDiv_MedDeptCombo_oncloseup = function(obj:Combo, e:nexacro.ComboCloseUpEventInfo)
+{
+	this.dsMedDr.filter("deptNm=='"+obj.value+"'");
+}
+//조회버튼클릭시 
+this.SearchDiv_searchSchTypeListBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_Search(obj);
+	
+}
+this.fn_Search=function(obj)  //조회
+{
+    this.dsTypeList.clearData();
+    //CSH.20100118 - 요일별최종등록일자 정보 추가
+    this.dsDrDow.clearData(); 
+    this.dsDtlDow.clearData();
+    
+    //CSH.20100222
+    if (obj != null) {
+		F_TPSEQNO = "";
+	}
+    
+    var empNo=this.SearchDiv.MedDrCombo.value;
+	var argument="empNo="+empNo;
+	var nRow=this.dsService.findRow("serviceID","findScheduleTypeList");
+	this.dsService.setColumn(nRow,"argument",argument);
+	this.gfnService("findScheduleTypeList");
+}
+
+this.fn_SelectSchdrLastDateDow=function() 
+{
+    this.dsDrDow.clearData(); 
+   
+    var empNo=this.SearchDiv.MedDrCombo.value;
+	var argument="empNo="+empNo;
+	var nRow=this.dsService.findRow("serviceID","findLastDateList");
+	this.dsService.setColumn(nRow,"argument",argument);
+	this.gfnService("findLastDateList");
+}
+
+
+//오전 checkBox 체크시 오전진료정보입력창 활성화
+this.SchTypeDtlDiv_MedCntDiv_MedAmDiv_AmCheck_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	var val=obj.isChecked();
+	amStTmMaskEd.set_enable(val);
+	amEdTmMaskEd.set_enable(val);
+	amTermEd.set_enable(val);
+	amTotCntEd.set_enable(val);
+}
+//오후  checkBox 체크시 오후 진료정보입력창 활성화
+this.SchTypeDtlDiv_MedCntDiv_MedPmDiv_PmCheck_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	var val=obj.isChecked();
+	pmStTmMaskEd.set_enable(val);
+	pmEdTmMaskEd.set_enable(val);
+	pmTermEd.set_enable(val);
+	pmTotCntEd.set_enable(val);
+}
+
+this.dsTypeList_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.fn_DisplayTypeList();
+	
+}
+
+this.fn_DisplayTypeList= function()
+{
+    this.ButtonDiv.modifyTypeBtn.set_enable(false);
+    this.ButtonDiv.removeTypeBtn.set_enable(false);
+    
+    var nRow=this.dsTypeList.getRowCount();
+    if (nRow < 0)  return;
+   
+    
+    //조회된 Type이 있으면 저장,삭제 버튼 활성화.
+    this.ButtonDiv.modifyTypeBtn.set_enable(true);
+    this.ButtonDiv.removeTypeBtn.set_enable(true);
+ 	var idx=this.dsTypeList.rowposition;
+	amStTmMaskEd.set_value(this.dsTypeList.getColumn(idx,"amStTm"));
+	amEdTmMaskEd.set_value(this.dsTypeList.getColumn(idx,"amEdTm"))
+ 	amTermEd.set_value(this.dsTypeList.getColumn(idx,"amTerm"));
+ 	amTotCntEd.set_value(this.dsTypeList.getColumn(idx,"amTotCnt"));
+ 	pmStTmMaskEd.set_value(this.dsTypeList.getColumn(idx,"pmStTm"));
+	pmEdTmMaskEd.set_value(this.dsTypeList.getColumn(idx,"pmEdTm"))
+	pmTermEd.set_value(this.dsTypeList.getColumn(idx,"pmTerm"));
+	pmTotCntEd.set_value(this.dsTypeList.getColumn(idx,"pmTotCnt"));
+   //if (this.dsTypeList.getColumn(idx, "rsvYn") == "Y") {
+   //alert("aa");
+       rsvYnCheck.set_value(this.dsTypeList.getColumn(idx, "rsvYn"));
+  //} else {
+  //      rsvYnCheck.set_value("false");
+  //  }
+        
+	var tpSeqNo=this.dsTypeList.getColumn(idx,"tpSeqNo");
+	var empNo=this.SearchDiv.MedDrCombo.value;
+	this.dsDtlDow.filter("tpSeqNo=='"+tpSeqNo+"'");
+	this.dsDtlDow.set_keystring("S:dow");
+	var argument="tpSeqNo="+tpSeqNo+" empNo="+empNo;
+	var nRow=this.dsService.findRow("serviceID","findScheduleDetailList");
+	this.dsService.setColumn(nRow,"argument",argument);
+	this.gfnService("findScheduleDetailList");
+	
+}
+//새 Type으로 저장 버튼 클릭시
+this.ButtonDiv_registerTypeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	 if (this.SearchDiv.MedDrCombo.value == null) {
+        alert("의사를 먼저 선택하십시오");    
+        return;
+    }
+    
+    if (this.dsDtlOrg.getRowCount() < 1) {
+        alert("상세기준 생성후 저장하십시오");          //MSG_MZ_0001 = "$1하십시요."; 
+        return;
+    }
+    var objNew = new ChildFrame();
+	objNew.init("btn1", "absolute", 10, 10, 100, 100 , null, null, "mcm::newTypeInsertedPopupForm.xfdl");
+	objNew.showModal("insertTypeName",  this, {}, this, this.registerScheduleType);//다이얼로그가 close되고 나서 호출될 함수 this.registerScheduleType
+}
+	
+
+this.registerScheduleType = function(strID, variant){//close() 호출시 전달받은 매개변수는 variant로 전달받는다
+	var varRet=variant.split("blank");
+	var typeName=varRet[0];
+	var comments=varRet[1];
+	if(varRet.length==2){
+		//dsTypeInput : mzschbmt 저장,삭제를 위한 dataset
+        this.dsTypeInput.clearData();
+        var idx  = this.dsTypeInput.addRow(); 
+		this.dsTypeInput.setColumn(idx,"tpSeqNo",this.getTySeqNo());
+        this.dsTypeInput.setColumn(idx, "medDr",this.SearchDiv.MedDrCombo.value);
+        this.dsTypeInput.setColumn(idx, "typeName", typeName);
+        this.dsTypeInput.setColumn(idx, "comments", comments);
+        if(amCheck.isChecked()){
+        this.dsTypeInput.setColumn(idx, "amStTm",  amStTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "amEdTm",  amEdTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "amTerm",  amTermEd.value);
+        this.dsTypeInput.setColumn(idx, "amTotCnt", amTotCntEd.value);
+        }
+        if(pmCheck.isChecked()){
+        this.dsTypeInput.setColumn(idx, "pmStTm",  pmStTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "pmEdTm",  pmEdTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "pmTerm",  pmTermEd.value);
+        this.dsTypeInput.setColumn(idx, "pmTotCnt", pmTotCntEd.value);
+        }
+        if(rsvYnCheck.isChecked()){ 
+            this.dsTypeInput.setColumn(idx, "rsvYn",  "Y");
+        } else {
+            this.dsTypeInput.setColumn(idx, "rsvYn",  "N");
+        }
+		this.gfnService("registerScheduleType");
+	}
+}
+this.getTySeqNo = function(){
+	//TySeqNo  현재날짜+empNo+dsTypeList.rowcount
+	var dateObj=new Date();
+    var sYear=dateObj.getFullYear().toString();
+    var sMonth=(dateObj.getMonth()+1).toString().padLeft(2,"0");
+    var sDate=(dateObj.getDate()).toString().padLeft(2,"0");
+    var today=sYear+sMonth+sDate;
+    var tySeqNo=today+this.SearchDiv.MedDrCombo.value+this.dsTypeList.rowcount;
+    return tySeqNo;
+}
+this.dsDtlDow_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
+{
+	this.fn_refreshGrid();
+}
+
+this.dsDtlDow_onload = function(obj:Dataset, e:nexacro.DSLoadEventInfo)
+{
+	this.fn_refreshGrid();
+}
+
+this.ButtonDiv_modifyTypeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.dsTypeInput.clearData();
+        var idx  = this.dsTypeInput.addRow(); 
+		this.dsTypeInput.setColumn(idx,"tpSeqNo",this.dsTypeList.getColumn(this.dsTypeList.rowposition,"tpSeqNo"));
+        this.dsTypeInput.setColumn(idx, "medDr",this.SearchDiv.MedDrCombo.value);
+        this.dsTypeInput.setColumn(idx, "typeName", this.dsTypeList.getColumn(this.dsTypeList.rowposition,"typeName"));
+        this.dsTypeInput.setColumn(idx, "comments", this.dsTypeList.getColumn(this.dsTypeList.rowposition,"comments"));
+       
+        this.dsTypeInput.setColumn(idx, "amStTm",  amStTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "amEdTm",  amEdTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "amTerm",  amTermEd.value);
+        this.dsTypeInput.setColumn(idx, "amTotCnt", amTotCntEd.value);
+        
+        
+        this.dsTypeInput.setColumn(idx, "pmStTm",  pmStTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "pmEdTm",  pmEdTmMaskEd.value);
+        this.dsTypeInput.setColumn(idx, "pmTerm",  pmTermEd.value);
+        this.dsTypeInput.setColumn(idx, "pmTotCnt", pmTotCntEd.value);
+        
+        if(rsvYnCheck.isChecked()){ 
+            this.dsTypeInput.setColumn(idx, "rsvYn",  "Y");
+        } else {
+            this.dsTypeInput.setColumn(idx, "rsvYn",  "N");
+        }
+		this.gfnService("modifyScheduleType");
+}
+
+this.ButtonDiv_removeTypeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		this.dsTypeInput.clearData();
+        var idx  = this.dsTypeInput.addRow(); 
+		this.dsTypeInput.setColumn(idx,"tpSeqNo",this.dsTypeList.getColumn(this.dsTypeList.rowposition,"tpSeqNo"));
+        this.dsTypeInput.setColumn(idx, "medDr",this.dsTypeList.getColumn(this.dsTypeList.rowposition,"medDr"));
+        this.dsTypeList.deleteRow(this.dsTypeList.rowposition);
+        this.gfnService("removScheduleType");
+        
+}
+
+this.ButtonDiv_regiDrSchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+		if (this.dsDtlOrg.getRowCount() == 0) {
+        alert("등록할 진료일정 상세기준이 없습니다");  
+        return;
+		}
+	
+		var rowType=1; //Dataset.ROWTYPE_NORMAL
+		for(var i=0;i<this.dsDtlOrg.getRowCount();i++){
+			rowType=this.dsDtlOrg.getRowType();
+			if(rowType!=1){
+				alert("진료일정 상세기준이 수정 후 저장되지 않았습니다.\n\n저장 후 진료일정을 생성하십시요");       
+				return;
+				break;
+			}
+		}
+		
+		 var objNew = new ChildFrame();
+		objNew.init("btn1", "absolute", 400, 400, 100, 100 , null, null, "mcm::RegiSceduleDateInsertedPopupForm.xfdl");
+		objNew.showModal("RegiSceduleDateInsertedPopupForm",  this, {}, this, this.registerDoctorSchedule);//다이얼로그가 close되고 나서 호출될 함수 this.registerScheduleType
+
+}
+this.registerDoctorSchedule=function(strID, variant)
+{	if(variant=="cancle")return;
+	var varRet=variant.split("blank");
+	//varRet []: fromdate, todate
+	var sFromDate=varRet[0];
+	var sToDate=varRet[1];
+	if(varRet.length==2){
+		this.dsDrSchRegiInfo.deleteAll();
+		var idx=this.dsDrSchRegiInfo.addRow();
+		this.dsDrSchRegiInfo.setColumn(idx,"medDr",this.dsTypeList.getColumn(this.dsTypeList.rowposition,"medDr"));
+		this.dsDrSchRegiInfo.setColumn(idx,"tpSeqNo",this.dsTypeList.getColumn(this.dsTypeList.rowposition,"tpSeqNo"));
+		this.dsDrSchRegiInfo.setColumn(idx,"fromDate",sFromDate);
+		this.dsDrSchRegiInfo.setColumn(idx,"toDate",sToDate);
+		this.gfnService("registerDoctorSchedule"); 
+	}
+
+}
+this.ButtonDiv_delDrSchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	if (this.SearchDiv.MedDrCombo.value == null) {
+        alert("의사를 먼저 선택하십시오");    
+        return;
+    }
+    
+	 var objNew = new ChildFrame();
+		objNew.init("btn1", "absolute", 400, 400, 100, 100 , null, null, "mcm::DelSceduleDateInsertedPopupForm.xfdl");
+		objNew.showModal("RegiSceduleDateInsertedPopupForm",  this, {}, this,this.removeDoctorSchedule);//다이얼로그가 close되고 나서 호출될 함수 this.removeDoctorSchedule
+}
+
+this.removeDoctorSchedule=function(strID, variant)
+{	
+	if(variant=="cancle")return;
+	var varRet=variant.split("blank");
+	//varRet []: 시작일자,종료일자,적용할요일,오전오후구분
+	var sFromDate=varRet[0];
+	var sToDate=varRet[1];
+	var sDow=varRet[2];
+	var sAmPmFlag=varRet[3];
+	if(varRet.length==4){
+		var argument=new Array();
+		argument.push("medDr="+this.SearchDiv.MedDrCombo.value);
+		argument.push("fromDate="+sFromDate);
+		argument.push("toDate="+sToDate);
+		argument.push("dow="+sDow);
+		argument.push("amPmFlag="+sAmPmFlag);
+		var nRow=this.dsService.findRow("serviceID","removeDoctorSchedule");
+		this.dsService.setColumn(nRow,"argument",argument.join(" "));
+		this.gfnService("removeDoctorSchedule"); 
+	}
+
+}
+
+this.fn_TimeAdd=function(sObjID, sAMPMFLAG)
+{	
+	var sParam;
+	var sRsvyn = false;
+	
+	if (sAMPMFLAG == "P") {	    
+	    var idx = this.dsDtlPm.findRow("rsvYn","true");
+	    if (idx>-1) {
+			sRsvyn = true;
+		}
+	    
+	    sParam = {P_MPARA1:this.dsDtlPm.getColumn(this.dsDtlPm.rowposition,"examTm"),
+	           P_MPARA2:this.dsDtlPm.getColumn(this.dsDtlPm.rowposition,"totCnt"),
+	           P_MPARA3:sAMPMFLAG, 
+	           P_MPARA4:sRsvyn};
+	}
+	else {
+	    var idx = this.dsDtlAm.findRow("rsvYn","true");
+	    if (idx>-1) {
+			sRsvyn = true;
+		}
+	    
+	     sParam = {P_MPARA1:this.dsDtlAm.getColumn(this.dsDtlAm.rowposition,"examTm"),
+	           P_MPARA2:this.dsDtlAm.getColumn(this.dsDtlAm.rowposition,"totCnt"),
+	           P_MPARA3:sAMPMFLAG, 
+	           P_MPARA4:sRsvyn};
+	}
+	        
+		 var objNew = new ChildFrame();
+		objNew.init("btn1", "absolute", 400, 400, 100, 100 , null, null, "mcm::AddDetailSchedulePopupForm.xfdl");
+		objNew.showModal("AddDetailSchedulePopupForm",  this, sParam, this,this.addTimeRow);//다이얼로그가 close되고 나서 호출될 함수 this.removeDoctorSchedule
+    
+    
+}
+this.addTimeRow=function(strID, variant)
+{
+	if(variant=="cancle")return;
+	var sRtn=variant.split("blank");
+	//sRtn []: examTm, totCnt, amPmFlag, rsvYn
+	if (sRtn.length >= 4) {
+        //시간대 추가.
+        var sFindstr = this.dsDtlDow.getColumn(this.dsDtlDow.rowposition,"dow")+sRtn[0];
+        alert(sFindstr);
+        var idx = this.dsDtlOrg.findRow("findKey",sFindstr);
+
+        //이미 시간대가 있으면 skip;
+        if (idx > -1) {
+            alert( "이미 존재하는 일정입니다."); 
+            return;
+        }
+                
+        idx = this.dsDtlOrg.addRow();
+        this.dsDtlOrg.setColumn(idx,"dow",this.dsDtlDow.getColumn(this.dsDtlDow.rowposition,"dow"));
+        this.dsDtlOrg.setColumn(idx,"amPmFlag",sRtn[2]);
+        this.dsDtlOrg.setColumn(idx,"examTm",sRtn[0]);
+        this.dsDtlOrg.setColumn(idx,"totCnt",sRtn[1]);
+        this.dsDtlOrg.setColumn(idx,"rsvYn",sRtn[3]);
+        this.dsDtlOrg.setColumn(idx,"findkey",sFindstr);
+   
+        this.dsDtlOrg.set_keystring("S:+dow+examTm");//시간대별로 sort
+        this.fn_refreshGrid();
+    }
+}
+this.SchTypeDtlDiv_addDtlAmBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_TimeAdd(obj.id, "A");
+}
+
+this.SchTypeDtlDiv_addDtlPmBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_TimeAdd(obj.id, "P");
+}
+
+this.SchTypeDtlDiv_delDtlAmBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sExamTm = this.dsDtlAm.getColumn(this.dsDtlAm.rowposition,"examTm");
+	var sDow=this.dsDtlDow.getColumn(this.dsDtlDow.rowposition,"dow");
+	var idx = this.dsDtlOrg.findRowExpr("examTm== '"+sExamTm+"'&&dow=='"+sDow+"'");
+
+	if (idx > -1) {
+        this.dsDtlOrg.deleteRow(idx);
+    }
+    
+    this.fn_refreshGrid();
+
+}
+
+this.SchTypeDtlDiv_delDtlPmBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var sExamTm = this.dsDtlPm.getColumn(this.dsDtlPm.rowposition,"examTm");
+	var sDow=this.dsDtlDow.getColumn(this.dsDtlDow.rowposition,"dow");
+	var idx = this.dsDtlOrg.findRowExpr("examTm== '"+sExamTm+"'&&dow=='"+sDow+"'");
+
+	if (idx > -1) {
+        this.dsDtlOrg.deleteRow(idx);
+    }
+    
+    this.fn_refreshGrid();
+}
+
+this.SchTypeDtlDiv_DtlDowGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	this.fn_refreshGrid();
+}
+
+]]></Script>
+  </Form>
+</FDL>
