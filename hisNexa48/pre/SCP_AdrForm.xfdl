@@ -4,18 +4,18 @@
   <Form id="SCP_AdrForm" classname="MA_AdrForm" left="0" top="0" width="1250" height="768" titletext="약물유해반응 관리">
     <Layouts>
       <Layout>
-        <Div id="adrDiv" taborder="2" left="1.92%" top="66" width="381" height="104" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="adrDiv" taborder="2" left="1.92%" top="90" width="381" height="104" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc02" taborder="20" text="작성자" onclick="subCodeStc_onclick" left="2.9%" top="17" right="74.41%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc00" taborder="21" text="작성일" onclick="subCodeStc_onclick" left="3.17%" top="57" right="74.41%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Calendar id="writeDateCal" taborder="22" dateformat="yyyy-MM-dd" left="28.23%" top="57" right="30.87%" height="31" style="font:9 돋움;"/>
-              <Edit id="doctNmEd" taborder="23" enable="false" left="67.02%" top="18" width="115" height="30" class="AreaEdt" style="font:9 돋움;"/>
-              <Edit id="doctNoEd" taborder="24" enable="false" left="28.23%" top="17" width="100" height="30" class="AreaEdt" style="font:9 돋움;"/>
+              <Edit id="searchEmpNmEd" taborder="23" enable="false" left="67.02%" top="18" width="115" height="30" class="AreaEdt" style="font:9 돋움;"/>
+              <Edit id="searchEmpNoEd" taborder="24" enable="false" left="28.23%" top="17" width="100" height="30" class="AreaEdt" style="font:9 돋움;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="Grid00" taborder="5" useinputpanel="false" left="1.92%" top="232" right="67.6%" height="520" binddataset="dsAdr" autofittype="col" style="font:9 돋움;">
+        <Grid id="adrGrid" taborder="5" useinputpanel="false" left="1.92%" top="232" right="67.6%" height="520" binddataset="dsAdr" autofittype="col" style="font:9 돋움;" oncellclick="adrGrid_oncellclick">
           <Formats>
             <Format id="default">
               <Columns>
@@ -30,11 +30,11 @@
                 <Row size="24"/>
               </Rows>
               <Band id="head">
-                <Cell style="background:#eceff1ff;" text="ADR번호"/>
-                <Cell col="1" style="background:#eceff1ff;" text="환자번호"/>
-                <Cell col="2" style="background:#eceff1ff;" text="작성자번호"/>
-                <Cell col="3" style="background:#eceff1ff;" text="작성일자"/>
-                <Cell col="4" style="background:#eceff1ff;" text="약품명"/>
+                <Cell style="background:#cfd8dcff;" text="ADR번호"/>
+                <Cell col="1" style="background:#cfd8dcff;" text="환자번호"/>
+                <Cell col="2" style="background:#cfd8dcff;" text="작성자번호"/>
+                <Cell col="3" style="background:#cfd8dcff;" text="작성일자"/>
+                <Cell col="4" style="background:#cfd8dcff;" text="약품명"/>
               </Band>
               <Band id="body">
                 <Cell style="align:center;" text="bind:adrNo"/>
@@ -46,7 +46,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Div id="writerDiv" taborder="9" left="33.92%" top="149" width="805" height="45" style="background:whitesmoke;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="writerDiv" taborder="9" left="33.92%" top="173" width="805" height="45" style="background:whitesmoke;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc02" taborder="0" text="작성일" onclick="subCodeStc_onclick" left="0.62%" top="7" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -54,7 +54,7 @@
               <Static id="subCodeStc01" taborder="2" text="자격" onclick="subCodeStc_onclick" left="65.5%" top="7" right="23.16%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="writerNoEdit" taborder="4" left="38.98%" top="7" right="49.81%" height="30" style="font:9 돋움;" enable="false"/>
               <Edit id="writerNmEdit" taborder="5" left="50.93%" top="7" right="35.74%" height="30" style="font:9 돋움;" enable="false"/>
-              <Radio id="writerJobRadio" taborder="6" columncount="3" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" left="78.33%" top="10" right="0.75%" height="25" onitemclick="adrDiv01_inoutRadio_onitemclick" style="font:9 돋움;align:center middle;" value="doctor">
+              <Radio id="writerJobRadio" taborder="6" columncount="3" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" left="78.33%" top="10" right="0.75%" height="25" onitemclick="adrDiv01_inoutRadio_onitemclick" style="font:9 돋움;align:center middle;" value="doctor" enable="true" readonly="true">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -76,20 +76,20 @@
                   </Rows>
                 </Dataset>
               </Radio>
-              <Calendar id="writeDateCal" taborder="7" autoskip="true" dateformat="yyyy-MM-dd" left="12.7%" top="7" width="110" height="30" style="padding:0 0 0 0;font:9 돋움;"/>
+              <Calendar id="writeDateCal" taborder="7" autoskip="true" dateformat="yyyy-MM-dd" left="12.7%" top="7" width="110" height="30" style="padding:0 0 0 0;font:9 돋움;" readonly="true"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="adrDiv02" taborder="10" left="33.92%" top="401" width="805" height="80" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="adrDiv02" taborder="10" left="33.92%" top="425" width="805" height="80" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc01" taborder="0" text="주증상" onclick="subCodeStc_onclick" left="0.63%" top="6" right="88.1%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc00" taborder="1" text="관련검사명" onclick="subCodeStc_onclick" left="0.62%" top="41" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc02" taborder="2" text="관련검사 수치" onclick="subCodeStc_onclick" left="63.26%" top="41" right="25.65%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc02" taborder="2" text="관련검사 수치" onclick="subCodeStc_onclick" left="56.04%" top="41" right="32.88%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="Edit05" taborder="3" left="12.58%" top="6" right="0.75%" height="30" style="font:9 돋움;"/>
               <Edit id="Edit00" taborder="4" left="12.58%" top="41" right="45.33%" height="30" style="font:9 돋움;"/>
-              <Edit id="Edit01" taborder="5" left="75.34%" top="41" right="13.45%" height="30" style="font:9 돋움;"/>
-              <Combo id="Combo00" taborder="6" text="Combo00" left="87.3%" top="41" right="0.75%" height="30" codecolumn="codecolumn" datacolumn="datacolumn" style="font:9 돋움;">
+              <Edit id="Edit01" taborder="5" left="68.12%" top="41" right="20.67%" height="30" style="font:9 돋움;"/>
+              <Combo id="Combo00" taborder="6" text="Combo00" left="80.07%" top="41" right="7.97%" height="30" codecolumn="codecolumn" datacolumn="datacolumn" style="font:9 돋움;">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -134,29 +134,27 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="adrDiv03" taborder="11" left="33.92%" top="604" width="805" height="148" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="adrDiv03" taborder="11" left="33.92%" top="628" width="805" height="124" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc00" taborder="0" text="종합소견" onclick="subCodeStc_onclick" left="0.62%" top="7" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <TextArea id="TextArea00" taborder="1" left="0.62%" top="42" right="0.62%" height="97" style="font:9 돋움;"/>
+              <TextArea id="TextArea00" taborder="1" left="0.62%" top="42" right="0.62%" height="72" style="font:9 돋움;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="drugDiv" taborder="12" left="33.92%" top="199" width="805" height="114" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="drugDiv" taborder="12" left="33.92%" top="223" width="805" height="114" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc02" taborder="0" text="약물코드" onclick="subCodeStc_onclick" left="0.63%" top="5" right="88.1%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc00" taborder="1" text="약물명" onclick="subCodeStc_onclick" left="27.27%" top="5" right="61.52%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc01" taborder="2" text="제조사" onclick="subCodeStc_onclick" left="73.85%" top="5" right="14.82%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc00" taborder="1" text="약물명" onclick="subCodeStc_onclick" left="31.26%" top="5" right="57.53%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc03" taborder="3" text="용법" onclick="subCodeStc_onclick" left="46.45%" top="41" right="42.34%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc04" taborder="4" text="용량" onclick="subCodeStc_onclick" left="73.85%" top="41" right="14.69%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc05" taborder="5" text="투약기간" onclick="subCodeStc_onclick" left="0.62%" top="41" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc06" taborder="6" text="투약목적" onclick="subCodeStc_onclick" left="0.62%" top="77" right="88.17%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Calendar id="Calendar01" taborder="7" autoskip="true" left="12.7%" top="41" height="30" style="padding:0 0 0 0;font:9 돋움;" dateformat="yyyy-MM-dd" value="null" width="110"/>
-              <Calendar id="Calendar00" taborder="8" autoskip="true" left="29.51%" top="41" height="30" style="padding:0 0 0 0;font:9 돋움;" dateformat="yyyy-MM-dd" width="110"/>
-              <Edit id="drugNoEdit" taborder="9" left="12.7%" top="5" right="74.22%" height="30" style="font:9 돋움;"/>
-              <Edit id="drugNmEdit" taborder="10" left="39.23%" top="5" right="28.27%" height="30" style="font:9 돋움;"/>
-              <Edit id="manifactureEdit" taborder="11" left="85.93%" top="5" right="0.75%" height="30" style="font:9 돋움;"/>
+              <Calendar id="medStartDate" taborder="7" autoskip="true" left="12.7%" top="41" height="30" style="padding:0 0 0 0;font:9 돋움;" dateformat="yyyy-MM-dd" value="null" width="110" readonly="true"/>
+              <Calendar id="medEndDate" taborder="8" autoskip="true" left="29.51%" top="41" height="30" style="padding:0 0 0 0;font:9 돋움;" dateformat="yyyy-MM-dd" width="110" readonly="true"/>
+              <Edit id="drugNoEdit" taborder="9" left="12.7%" top="5" right="74.22%" height="30" style="font:9 돋움;" enable="false"/>
+              <Edit id="drugNmEdit" taborder="10" left="42.71%" top="5" right="18.31%" height="30" style="font:9 돋움;" enable="false"/>
               <Edit id="Edit03" taborder="12" left="58.41%" top="41" right="28.27%" height="30" style="font:9 돋움;"/>
               <Edit id="Edit04" taborder="13" left="85.93%" top="41" right="0.75%" height="30" style="font:9 돋움;"/>
               <Edit id="Edit05" taborder="14" left="12.7%" top="77" right="0.75%" height="30" style="font:9 돋움;"/>
@@ -164,7 +162,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="revealDiv" taborder="13" left="33.92%" top="318" width="805" height="78" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="revealDiv" taborder="13" left="33.92%" top="342" width="805" height="78" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc02" taborder="0" text="발현기간" onclick="subCodeStc_onclick" left="30.14%" top="5" right="58.53%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -200,24 +198,24 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="patDiv" taborder="14" left="33.92%" top="66" width="805" height="78" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="patDiv" taborder="14" left="33.92%" top="90" width="805" height="78" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
-              <Edit id="patNoEdit" taborder="0" left="12.7%" top="40" right="74.22%" height="30" style="font:9 돋움;" enable="false"/>
-              <Static id="subCodeStc02" taborder="1" text="환자번호" onclick="subCodeStc_onclick" left="0.62%" top="40" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc00" taborder="2" text="처방번호" onclick="subCodeStc_onclick" left="0.62%" top="5" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="prscNoEdit" taborder="3" left="12.7%" top="5" right="74.22%" height="30" style="font:9 돋움;"/>
-              <Edit id="patNmEdit" taborder="6" left="26.15%" top="40" right="57.66%" height="30" style="font:9 돋움;" enable="false"/>
-              <Static id="subCodeStc01" taborder="7" text="성별" onclick="subCodeStc_onclick" left="47.95%" top="40" right="40.72%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Static id="subCodeStc03" taborder="9" text="연령" onclick="subCodeStc_onclick" left="73.85%" top="40" right="14.82%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="patAgeEdit" taborder="10" left="85.93%" top="40" right="0.75%" height="30" style="font:9 돋움;" enable="false"/>
-              <Static id="subCodeStc04" taborder="11" text="진단명" onclick="subCodeStc_onclick" left="32.75%" top="5" right="55.92%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="diseaseNmEdit" taborder="12" left="44.71%" top="5" right="0.75%" height="30" style="font:9 돋움;"/>
-              <Edit id="patGenderEdit" taborder="13" left="59.78%" top="40" right="27.15%" height="30" style="font:9 돋움;" enable="false"/>
+              <Edit id="patNoEdit" taborder="0" left="12.7%" top="6" right="74.22%" height="30" style="font:9 돋움;" enable="false"/>
+              <Static id="subCodeStc02" taborder="1" text="환자번호" onclick="subCodeStc_onclick" left="0.62%" top="6" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc00" taborder="2" text="처방번호" onclick="subCodeStc_onclick" left="0.62%" top="39" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="prscNoEdit" taborder="3" left="12.7%" top="39" right="74.22%" height="30" style="font:9 돋움;" enable="false"/>
+              <Edit id="patNmEdit" taborder="6" left="26.15%" top="6" right="57.66%" height="30" style="font:9 돋움;" enable="false"/>
+              <Static id="subCodeStc01" taborder="7" text="성별" onclick="subCodeStc_onclick" left="47.95%" top="6" right="40.72%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc03" taborder="9" text="연령" onclick="subCodeStc_onclick" left="73.85%" top="6" right="14.82%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="patAgeEdit" taborder="10" left="85.93%" top="6" right="0.75%" height="30" style="font:9 돋움;" enable="false"/>
+              <Static id="subCodeStc04" taborder="11" text="진단명" onclick="subCodeStc_onclick" left="32.75%" top="39" right="55.92%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="diseaseNmEdit" taborder="12" left="44.71%" top="39" right="0.75%" height="30" style="font:9 돋움;" enable="false"/>
+              <Edit id="patGenderEdit" taborder="13" left="59.78%" top="6" right="27.15%" height="30" style="font:9 돋움;" enable="false"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="adrDiv00" taborder="15" left="33.92%" top="485" width="805" height="114" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
+        <Div id="adrDiv00" taborder="15" left="33.92%" top="509" width="805" height="114" style="background:#eceff1ff;border:1 solid #808080ff ;font:9 돋움;">
           <Layouts>
             <Layout>
               <Static id="subCodeStc01" taborder="3" text="경과내용" onclick="subCodeStc_onclick" left="0.62%" top="6" right="88.04%" height="30" style="background:#b0bec5ff;color:black;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -230,14 +228,17 @@
           </Layouts>
         </Div>
         <Static id="Static00" taborder="16" text="약물유해반응" left="1.84%" top="7" right="85.76%" height="41" style="color:#6c6c6cff;bordertype:normal 0 0 ;align:middle;font:antialias 16 arial;"/>
-        <Button id="searchAdrBtn" taborder="17" text="조회" onclick="adrDiv_searchAdrBtn_onclick" cssclass="btn_WF_Search" left="294" top="128" width="58" height="23" style="background:#455a64ff;bordertype:normal 3 3 ;font:9 Gulim;"/>
-        <Button id="addBtn" taborder="18" text="추가" onclick="addBtn_onclick" cssclass="btn_WF_CRUD" left="219" top="199" width="62" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
-        <Button id="delBtn" taborder="19" text="삭제" cssclass="btn_WF_CRUD" left="281" top="199" width="62" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="delBtn_onclick"/>
-        <Button id="findWriterBtn" taborder="20" cssclass="btn_WF_SearchSmall" left="239" top="85" width="30" height="30" onclick="findWriterBtn_onclick"/>
-        <Button id="prscSearchBtn" taborder="21" cssclass="btn_WF_SearchSmall" left="642" top="72" width="30" height="30" onclick="patDiv_prscSearchBtn_onclick" enable="false"/>
-        <Button id="Button01" taborder="22" cssclass="btn_WF_SearchSmall" left="876" top="443" width="30" height="30" onclick="DelBtn_onclick" enable="false"/>
-        <Button id="batchBtn" taborder="23" text="저장" cssclass="btn_WF_CRUD" left="343" top="199" width="62" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;" onclick="batchBtn_onclick"/>
-        <Button id="patSearchBtn" taborder="24" cssclass="btn_WF_SearchSmall" left="770" top="107" width="30" height="30" onclick="patSearchBtn_onclick" enable="false"/>
+        <Button id="searchAdrBtn" taborder="17" text="조회" onclick="adrDiv_searchAdrBtn_onclick" cssclass="btn_WF_Search" left="291" top="152" width="58" height="23" style="background:#455a64ff;bordertype:normal 3 3 ;font:9 Gulim;"/>
+        <Button id="findWriterBtn" taborder="20" cssclass="btn_WF_SearchSmall" left="236" top="108" width="30" height="30" onclick="findWriterBtn_onclick"/>
+        <Button id="prscSearchBtn" taborder="21" cssclass="btn_WF_SearchSmall" left="635" top="130" width="30" height="30" onclick="patDiv_prscSearchBtn_onclick" enable="false"/>
+        <Button id="patSearchBtn" taborder="24" cssclass="btn_WF_SearchSmall" left="769" top="97" width="30" height="30" onclick="patSearchBtn_onclick" enable="false"/>
+        <Static id="regAttStc00" taborder="25" text="   ADR목록" onclick="subCodeStc_onclick" left="1.92%" top="198" right="67.6%" height="34" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Button id="addBtn" taborder="26" text="추가" onclick="addBtn_onclick" cssclass="btn_WF_CRUD" left="221" top="203" width="59" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="delBtn" taborder="27" text="삭제" onclick="delBtn_onclick" cssclass="btn_WF_CRUD" left="279" top="203" width="59" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Button id="batchBtn" taborder="28" text="저장" onclick="batchBtn_onclick" cssclass="btn_WF_CRUD" left="337" top="203" width="59" height="25" style="background:#455a64ff;color:#ffffffff;bordertype:normal 3 3 ;"/>
+        <Static id="regAttStc01" taborder="29" text="   작성자정보" onclick="subCodeStc_onclick" left="1.92%" top="56" right="67.68%" height="34" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Static id="regAttStc02" taborder="30" text="   ADR상세정보" onclick="subCodeStc_onclick" left="33.92%" top="56" right="1.68%" height="34" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Button id="searchMediBtn" taborder="31" cssclass="btn_WF_SearchSmall" enable="false" left="635" top="229" width="30" height="30" onclick="searchMediBtn_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -250,11 +251,10 @@
       <BindItem id="item7" compid="writerDiv.writerNoEdit" propid="value" datasetid="dsAdr" columnid="writerNo"/>
       <BindItem id="item8" compid="writerDiv.writerNmEdit" propid="value" datasetid="dsAdr" columnid="writerNm"/>
       <BindItem id="item9" compid="writerDiv.writerJobRadio" propid="value" datasetid="dsAdr" columnid="writerJob"/>
-      <BindItem id="item10" compid="drugDiv.manifactureEdit" propid="value" datasetid="dsAdr" columnid="manifacture"/>
       <BindItem id="item11" compid="drugDiv.Edit04" propid="value" datasetid="dsAdr" columnid="capct"/>
       <BindItem id="item12" compid="drugDiv.Edit03" propid="value" datasetid="dsAdr" columnid="usage"/>
       <BindItem id="item13" compid="drugDiv.drugNmEdit" propid="value" datasetid="dsAdr" columnid="drugNm"/>
-      <BindItem id="item14" compid="drugDiv.Calendar00" propid="value" datasetid="dsAdr" columnid="injcEndDate"/>
+      <BindItem id="item14" compid="drugDiv.medEndDate" propid="value" datasetid="dsAdr" columnid="injcEndDate"/>
       <BindItem id="item15" compid="drugDiv.drugNoEdit" propid="value" datasetid="dsAdr" columnid="drugNo"/>
       <BindItem id="item17" compid="drugDiv.Edit05" propid="value" datasetid="dsAdr" columnid="injcPurp"/>
       <BindItem id="item18" compid="revealDiv.Calendar01" propid="value" datasetid="dsAdr" columnid="rvlRecogDate"/>
@@ -269,7 +269,7 @@
       <BindItem id="item27" compid="adrDiv00.Edit01" propid="value" datasetid="dsAdr" columnid="reinjcReact"/>
       <BindItem id="item28" compid="adrDiv03.TextArea00" propid="value" datasetid="dsAdr" columnid="opinion"/>
       <BindItem id="item29" compid="patDiv.patGenderEdit" propid="value" datasetid="dsAdr" columnid="patGender"/>
-      <BindItem id="item2" compid="drugDiv.Calendar01" propid="value" datasetid="dsAdr" columnid="injcStartDate"/>
+      <BindItem id="item2" compid="drugDiv.medStartDate" propid="value" datasetid="dsAdr" columnid="injcStartDate"/>
     </Bind>
     <InitValue/>
     <Objects>
@@ -332,7 +332,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findPat</Col>
-            <Col id="URL">his::won/outPatMngnt/findPat.do</Col>
+            <Col id="URL">his::hdm/patient/findPatientList.do</Col>
             <Col id="outData">dsPat=dsPat</Col>
             <Col id="callbackFunc">patCallback</Col>
           </Row>
@@ -368,15 +368,55 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[include "scripts::commonScripts.xjs"
-include "scripts::medScripts.xjs"
-include "scripts::wonScripts.xjs"
-include "scripts::commonUtil.xjs"
+    <Script type="xscript5.0"><![CDATA[/********************************************************************
+*                                                                   *
+* 처방공통 ADR 관리                               	   	        *
+*                                                                   *
+* @Path		    ADR 관리    	            						*
+* @Description  ADR 관리       										*
+* @Author		왕민혁  					                        *
+* 								                                    *
+* Created on 2016. 12.  20.                             		    *
+*								                                    *
+********************************************************************/
+/**************************************************************************************************
+*                                         공통 Script Include                                     *
+***************************************************************************************************/
+include "scripts::commonScripts.xjs";
+include "scripts::wonScripts.xjs";
+include "scripts::commonUtil.xjs";
 
+var writer; 
+/*-------------------------------------------------------------------------------------------------+
+>>  										작성자 Search하기
++-------------------------------------------------------------------------------------------------*/
+this.findWriterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnEmpPopup();
+	this.setEmpInfo = function(arrRtn){//set_value 해야 들어감
+		if(arrRtn[3].indexOf("의사")!=-1 || arrRtn[3].indexOf("간호사")!=-1 || arrRtn[3].indexOf("약사")!=-1){
+		this.adrDiv.searchEmpNoEd.set_value(arrRtn[0]);
+		this.adrDiv.searchEmpNmEd.set_value(arrRtn[1]);
+			if (arrRtn[3].indexOf("의사")>=0)
+				 writer="의사";
+			if (arrRtn[3].indexOf("간호사")>=0)
+				 writer="간호사";
+			if (arrRtn[3].indexOf("약사")>=0)
+				 writer="약사";	 
+		}else{
+		alert("작성권한이 없습니다");
+		return;
+		}
+	}
+}
+
+/*-------------------------------------------------------------------------------------------------+
+>>  								작성자, 작성일자에 해당하는 ADR 검색
++-------------------------------------------------------------------------------------------------*/
 
 this.adrDiv_searchAdrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	var doctNoEd=this.adrDiv.doctNoEd.value;
+	var doctNoEd=this.adrDiv.searchEmpNoEd.value;
 	var writeDateCal=this.adrDiv.writeDateCal.value;
 	var argument = 'doctNoEd='+doctNoEd+' writeDateCal='+writeDateCal;
 	var serviceRow = this.dsService.findRow("serviceID", "findAdrList");
@@ -384,29 +424,28 @@ this.adrDiv_searchAdrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 	this.gfnService("findAdrList");
 }
 
-this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.dsAdr.deleteRow(this.dsAdr.rowposition);
-}
+/*-------------------------------------------------------------------------------------------------+
+>>  								ADR 행추가, 삭제 및 저장
++-------------------------------------------------------------------------------------------------*/
 
 this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 
-	if (this.adrDiv.doctNoEd.value == null){
+	if (this.adrDiv.searchEmpNoEd.value == null){
 		alert("작성자를 선택해 주십시오");
 		return;
 	}
-	this.dsAdr.addRow();
+	var index=this.dsAdr.addRow();
 	this.writerDiv.writeDateCal.set_value(this.localDate());
-	this.writerDiv.writerNoEdit.set_value(this.adrDiv.doctNoEd.value);
-	this.writerDiv.writerNmEdit.set_value(this.adrDiv.doctNmEd.value);
+	this.writerDiv.writerNoEdit.set_value(this.adrDiv.searchEmpNoEd.value);
+	this.writerDiv.writerNmEdit.set_value(this.adrDiv.searchEmpNmEd.value);
 	this.prscSearchBtn.set_enable("true");
 	this.patSearchBtn.set_enable("true");
-	this.Button01.set_enable("true");
-//	this.writerDiv.writerJobRadio.set_value(application.gdsEmp.getColumn(0, "jobrk"));
+	this.searchMediBtn.set_enable("true");
+	this.writerDiv.writerJobRadio.set_value(writer);
 }
 
-this.localDate = function() {
+this.localDate = function() { // 행추가 시 작성일자 자동 Setting
    var date = new Date();   
     var sRtn = date.getFullYear()                        
             + (date.getMonth()+1).toString().padLeft(2, "0")  
@@ -414,67 +453,69 @@ this.localDate = function() {
    return sRtn;
 }
 
+this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsAdr.deleteRow(this.dsAdr.rowposition);
+}
 
 this.batchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnService("batchAdrProcess");
+	this.reload();
 }
 
+/*-------------------------------------------------------------------------------------------------+
+>>  Grid cell_onclick - > 셀 선택 시 수정불가능 항목 비활성화 // 새로 추가되는 행은 활성화
++-------------------------------------------------------------------------------------------------*/
+
+this.adrGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	if(this.dsAdr.getColumn(this.dsAdr.rowposition,"adrNo")==null){
+	this.prscSearchBtn.set_enable("true");
+	this.patSearchBtn.set_enable("true");
+	this.searchMediBtn.set_enable("true");
+	}else{
+	this.prscSearchBtn.set_enable("false");
+	this.patSearchBtn.set_enable("false");
+	this.searchMediBtn.set_enable("false");
+	}
+}
+
+/*-------------------------------------------------------------------------------------------------+
+>>  처방검색 팝업 창
++-------------------------------------------------------------------------------------------------*/
 
 this.patDiv_prscSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	this.medOpenDrugPrscDialog();
+	var patNo=this.patDiv.patNoEdit.value;
+	if (patNo==null){
+		alert("환자를 선택해주세요");
+		return;
+	}
+	return application.open(
+         "SCP_PresPopupForm",
+         "pre::SCP_PresPopupForm.xfdl",
+         this.parent,
+         {patNo:patNo},
+         "showtitlebar=true showstatusbar=false",
+         110, 110,
+         this
+   );
 }
 
-this.setDrugPrscInfo = function(arrRtn) 
+this.setPrscInfo = function(arrRtn) 
 {
 	this.patDiv.prscNoEdit.set_value(arrRtn[0]);			// 처방번호 세팅
 	this.patDiv.diseaseNmEdit.set_value(arrRtn[1]);			// 진단명 세팅
-	this.patDiv.patNoEdit.set_value(arrRtn[2]);				// 환자번호 세팅
-	
-	this.dsPat.clearData();
-	this.dsService.setColumn(2, 4, "patNo=" + arrRtn[2]);
-	this.gfnService("findPat");
-	
-	this.drugDiv.drugNoEdit.set_value(arrRtn[3]);
-	
-	var drugNm = arrRtn[4].slice(1, arrRtn[4].lastIndexOf("("));
-	var manifacture = arrRtn[4].slice(arrRtn[4].lastIndexOf("(") + 1, arrRtn[4].length - 1);
-	
-	this.drugDiv.drugNmEdit.set_value(drugNm);
-	this.drugDiv.manifactureEdit.set_value(manifacture);
 }
 
-this.patCallback = function(svcID, errorCode, errorMsg)
-{
-	//trace(this.dsPat.saveXML());
-	this.patDiv.patNmEdit.set_value(this.dsPat.getColumn(0, "patNm"));
-	this.patDiv.patAgeEdit.set_value(this.dsPat.getColumn(0, "age"));
-	this.patDiv.patGenderCombo.set_value(this.dsPat.getColumn(0, "gender"));
-}
-
-this.findWriterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-		return application.open(
-			"CM_DoctPopupForm",
-			"com::CM_DoctPopupForm.xfdl",
-			this.parent,
-			{},
-			"showtitlebar=true showstatusbar=false",
-			110, 110,
-			this
-	);
-}
-
-this.setDoct = function(arrRtn){ 
-	this.adrDiv.doctNoEd.set_value(arrRtn[0]);
-	this.adrDiv.doctNmEd.set_value(arrRtn[1]);                
-}
-
+/*-------------------------------------------------------------------------------------------------+
+>>  환자검색 팝업 창(Setting 시 환자번호, 환자명, 성별, 연령 자동 Setting)
++-------------------------------------------------------------------------------------------------*/
 
 this.patSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-		this.gfnPatPopup();
+	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){ 
 	this.patDiv.patNmEdit.set_value(arrRtn[1]);   
     this.patDiv.patNoEdit.set_value(arrRtn[0]);
@@ -499,6 +540,56 @@ this.patSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		}
 	}
 }
+
+/*-------------------------------------------------------------------------------------------------+
+>>  약물코드 약물명 팝업 창
++-------------------------------------------------------------------------------------------------*/
+
+this.searchMediBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var patNo=this.patDiv.patNoEdit.value;
+	var prescNo=this.patDiv.prscNoEdit.value;
+	if (patNo==null){
+		alert("환자를 선택해주세요");
+		return;
+	}
+	if (prescNo==null){
+		alert("처방을 선택해주세요");
+		return;
+	}
+	return application.open(
+         "SCP_PresPopupForm",
+         "pre::SCP_MedicinePopupForm.xfdl",
+         this.parent,
+         {patNo:patNo, prescNo:prescNo},
+         "showtitlebar=true showstatusbar=false",
+         110, 110,
+         this
+   );
+}
+
+this.setMediInfo = function(arrRtn) 
+{
+	this.drugDiv.drugNoEdit.set_value(arrRtn[0]);			// 약물번호 세팅
+	this.drugDiv.drugNmEdit.set_value(arrRtn[1]);			// 약물명 세팅
+	this.drugDiv.medStartDate.set_value(arrRtn[2]);	
+	var startDate=arrRtn[2];
+	var duration=arrRtn[3];
+	var year=startDate.substring(0,4);
+	var month=startDate.substring(4,6);
+	var date=startDate.substring(6,8);
+	var objDate = new Date();
+	objDate.setFullYear(parseInt(year),parseInt(month-1),parseInt(date));
+	objDate.addDate(parseInt(duration));
+	endDate=(objDate.getFullYear()).toString()
+			+(objDate.getMonth()+1).toString().padLeft(2, "0")
+			+(objDate.getDate()).toString();
+	alert(endDate);
+	this.drugDiv.medEndDate.set_value(endDate);	
+// 처방시작일 arrRtn[2] 
+// 복용일 arrRtn[3]
+}
+
 ]]></Script>
   </Form>
 </FDL>

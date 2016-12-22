@@ -42,7 +42,7 @@
             obj.set_autofittype("col");
             obj.set_binddataset("dsHmEmp");
             obj.style.set_font("9 돋움");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"177\"/><Column size=\"132\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;font:9 돋움;\" text=\"사원번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;font:9 돋움;\" text=\"사원명\"/></Band><Band id=\"body\"><Cell text=\"bind:empNo\"/><Cell col=\"1\" text=\"bind:empNm\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"98\"/><Column size=\"84\"/><Column size=\"74\"/><Column size=\"75\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#cfd8dcff;font:9 돋움;\" text=\"사원번호\"/><Cell col=\"1\" style=\"background:#cfd8dcff;font:9 돋움;\" text=\"사원명\"/><Cell col=\"2\" style=\"background:#cfd8dcff;font:9 돋움;\" text=\"부서명\"/><Cell col=\"3\" style=\"background:#cfd8dcff;font:9 돋움;\" text=\"직종\"/></Band><Band id=\"body\"><Cell style=\"align:center;\" text=\"bind:empNo\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:empNm\"/><Cell col=\"2\" style=\"align:center;\" text=\"bind:deptNm\"/><Cell col=\"3\" style=\"align:center;\" text=\"bind:jobrk\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Edit("searchEd", "absolute", "9.31%", "65", null, "23", "28.64%", null, this);
@@ -151,9 +151,8 @@
         	var i=0;
         	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"empNo");	// 사번
         	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"empNm");	// 사원명
-        	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"deptCd");	// 부서코드
         	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"deptNm");	// 부서명
-        	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"jobrk");	// 직급
+        	arrRtn[i++] = this.dsHmEmp.getColumn(e.row,"jobrk");	// 직종
         	//this.parent.idEd.set_value(arrRtn);
         	//선택값의empNo empNm deptCd deptNm jobrk를 담는다 
         	//43001,      나이팅게일,  80000,      인사팀,    매니져1급간호사
