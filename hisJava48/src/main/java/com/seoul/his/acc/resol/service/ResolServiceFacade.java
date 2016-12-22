@@ -26,6 +26,8 @@ public interface ResolServiceFacade {
 
 	List<AccountBean> findAccount(Map<String, String> argsMap);
 
+	ResolLetBean findResolLetDetail(Map<String, String> argsMap);
+
 }
 
 
