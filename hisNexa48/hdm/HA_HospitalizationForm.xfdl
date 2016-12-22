@@ -22,7 +22,7 @@
         <Button id="hosptlzSearchBtn" taborder="10" text="입원조회" onclick="hosptlzSearchBtn_onclick" left="75.04%" top="62" right="17.92%" height="30" style="background:#455a64ff;color:#ffffffff;font:bold 10 돋움;" class="ProcessBtn"/>
         <Button id="hosptlzRegisterBtn" taborder="11" text="입원등록" onclick="hosptlzRegisterBtn_onclick" left="82.64%" top="62" right="10.32%" height="30" style="background:#455a64ff;color:#ffffffff;font:bold 10 돋움;" class="ProcessBtn"/>
         <Button id="hosptlzCancelBtn" taborder="12" text="입원취소" onclick="hosptlzCancelBtn_onclick" left="90.24%" top="62" right="2.72%" height="30" style="background:#455a64ff;color:#ffffffff;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Div id="Div01" taborder="13" left="37.04%" top="100" right="2.64%" height="443" style="background:#cfd8dcff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
+        <Div id="Div01" taborder="13" left="37.04%" top="101" right="2.64%" height="442" style="background:#cfd8dcff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
           <Layouts>
             <Layout>
               <Static id="병동" taborder="0" text="병동" left="27.66%" top="188" right="65.69%" height="24"/>
@@ -34,7 +34,7 @@
             <Layout/>
           </Layouts>
         </Div>
-        <GroupBox id="GroupBox00" text="입원예약정보" taborder="15" left="2%" top="543" right="2.56%" height="191" style="background:#cfd8dcff;border:1 solid lightslategray ;font:bold 10 arial;" onlbuttondown="GroupBox00_onlbuttondown"/>
+        <GroupBox id="GroupBox00" text="입원예약정보" taborder="15" left="2%" top="543" right="2.56%" height="191" style="background:#cfd8dcff;border:1 solid lightslategray ;bordertype:round 3 3 ;font:bold 10 arial;" onlbuttondown="GroupBox00_onlbuttondown"/>
         <Grid id="hosptlzRsvtGrid" taborder="16" binddataset="dsHospitalizationSchedule" useinputpanel="false" treeuseline="false" left="2.8%" top="582" right="3.36%" height="98" autofittype="col">
           <Formats>
             <Format id="default">
@@ -95,10 +95,7 @@
         <Calendar id="hosptlzDateCal" taborder="35" enable="false" left="50.56%" top="121" right="39.6%" height="25"/>
         <Calendar id="dscgDateCal" taborder="36" enable="false" left="50.56%" top="163" right="39.6%" height="25"/>
         <Static id="subCodeStc11" taborder="37" text="퇴원일시" onclick="subCodeStc_onclick" left="40%" top="163" right="52.96%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="subCodeStc02" taborder="38" text="입원경로" onclick="subCodeStc_onclick" left="68.08%" top="161" right="24.88%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="hosptlzRouteCdEdt" taborder="39" enable="false" left="76.24%" top="161" right="17.04%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
-        <Button id="hosptlzRoutePBtn" taborder="40" onclick="hosptlzRoutePBtn_onclick" enable="false" left="83.2%" top="161" right="14.4%" height="26" style="background:#455a64ff; :disabled {image:URL('theme://img/btn_WF_Search.png');}" class="AddBtn"/>
-        <Edit id="hosptlzRouteNmEdt" taborder="41" enable="false" left="86%" top="161" right="4.48%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
+        <Static id="subCodeStc02" taborder="38" text="입원경로" onclick="subCodeStc_onclick" left="71.44%" top="163" right="19.6%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Button id="resetBtn" taborder="42" text="Reset" onclick="resetBtn_onclick" visible="false" left="83.84%" top="112" right="11.04%" height="30" style="background:#848484ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
         <Button id="saveBtn" taborder="43" onclick="saveBtn_onclick" visible="false" left="89.44%" top="112" right="3.52%" height="30" class="DelBtn" text="입원저장" style="background:#455a64ff;color:#ffffffff;font:bold 9 Gulim;"/>
         <Edit id="trmtDeptNmEdt" taborder="44" enable="false" left="60.8%" top="205" right="29.68%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
@@ -121,7 +118,7 @@
         <Static id="ctrtDateSelStc08" taborder="62" text="보증인성명" onclick="subCodeStc_onclick" left="40%" top="373" right="52.96%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Edit id="grtorNmEdt" taborder="63" enable="false" left="50.56%" top="373" right="39.92%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Static id="ctrtDateSelStc03" taborder="64" text="환자와의관계" onclick="subCodeStc_onclick" left="71.44%" top="373" right="19.6%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Combo id="patRshipCombo" taborder="65" innerdataset="@dsGS007" codecolumn="code" datacolumn="value" enable="false" left="81.28%" top="373" right="4.96%" height="26" class="AreaCombo"/>
+        <Combo id="patRshipCombo" taborder="65" innerdataset="@dsGS007" codecolumn="code" datacolumn="value" enable="false" left="81.28%" top="373" right="4.96%" height="26" class="AreaCombo" index="-1" onitemchanged="patRshipCombo_onitemchanged"/>
         <MaskEdit id="grtorRrnEdt" taborder="66" type="string" mask=" ###### - #######" enable="false" left="50.56%" top="414" right="33.84%" height="28" style=":disabled {align:left middle;}"/>
         <Static id="ctrtDateSelStc09" taborder="67" text="보증인주민번호" onclick="subCodeStc_onclick" left="40%" top="415" right="50.72%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="ctrtDateSelStc04" taborder="68" text="보증인연락처" onclick="subCodeStc_onclick" left="40%" top="457" right="51.52%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -130,6 +127,7 @@
         <Edit id="grtorAddrEdt" taborder="71" enable="false" left="50.56%" top="499" right="18.64%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
         <Button id="grtorAddrBtn" taborder="72" enable="false" left="82.08%" top="499" right="15.52%" height="26" style="background:#455a64ff; :disabled {image:URL('theme://img/btn_WF_Search.png');}" class="AddBtn" onclick="grtorAddrBtn_onclick"/>
         <Button id="hosptlzRsvtBtn" taborder="73" text="입원예약" onclick="hosptlzRsvtBtn_onclick" visible="false" left="89.36%" top="690" right="3.6%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
+        <Combo id="hosptlzRouteCombo" taborder="74" innerdataset="@dsMD020" codecolumn="code" datacolumn="bigValue" onitemchanged="patRshipCombo_onitemchanged" enable="false" left="81.28%" top="164" right="4.96%" height="26" class="AreaCombo"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -201,6 +199,10 @@
           <Row>
             <Col id="dsName">dsGS007</Col>
             <Col id="code">GS007</Col>
+          </Row>
+          <Row>
+            <Col id="code">MD020</Col>
+            <Col id="dsName">dsMD020</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -349,6 +351,13 @@
           <Column id="patNm" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsMD020">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+          <Column id="bigValue" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Bind>
       <BindItem id="item11" compid="hosptlzReceiptNoEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzReceiptNo"/>
@@ -363,7 +372,6 @@
       <BindItem id="item8" compid="memoTextArea" propid="value" datasetid="dsPatient" columnid="note"/>
       <BindItem id="item10" compid="hosptlzDateCal" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzDate"/>
       <BindItem id="item12" compid="dscgDateCal" propid="value" datasetid="dsHospitalizationInfo" columnid="dscgDate"/>
-      <BindItem id="item26" compid="hosptlzRouteCdEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzRoute"/>
       <BindItem id="item14" compid="trmtDeptNmEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="trmtDeptNm"/>
       <BindItem id="item13" compid="trmtDeptCdEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="trmtDeptCd"/>
       <BindItem id="item15" compid="respDoctCdEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="respDoctCd"/>
@@ -376,7 +384,8 @@
       <BindItem id="item22" compid="grtorRrnEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorRrn"/>
       <BindItem id="item23" compid="grtorTelEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorTel"/>
       <BindItem id="item24" compid="grtorAddrEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorAddr"/>
-      <BindItem id="item4" compid="patRshipCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="rship"/>
+      <BindItem id="item4" compid="patRshipCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="patRship"/>
+      <BindItem id="item25" compid="hosptlzRouteCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzRoute"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
 *                                               			                    *
@@ -404,6 +413,7 @@ this.setPatInfo = function(arr){
 //입원예정자관리 창에서 입원등록 했을때 환자등록번호 받아 옴 0
 this.HA_HospitalizationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {	
+	this.gfnBind(); 
 	this.patNoEd.set_value(this.parent.patNo);
 }
 
@@ -419,7 +429,6 @@ this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.HosptlzReceiptNo.set_visible(false);
 	this.hosptlzReceiptNoEdt.set_visible(false);
 	
-	//this.gfnPopup("HA_HospitalizationScheduleForm","hdm","");
 	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){ 
 		this.patNoEd.set_value(arrRtn[0]);   									
@@ -591,7 +600,7 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dsHospitalizationInfo.setColumn(0,"outpaReceiptNo",this.outpaReceiptNoEdt.value);	   //외래접수번호
 	this.dsHospitalizationInfo.setColumn(0,"hosptlzDate",this.hosptlzDateCal.value);	               //입원일시
 	this.dsHospitalizationInfo.setColumn(0,"dscgDate",this.dscgDateCal.value);	                   //퇴원일시
-	this.dsHospitalizationInfo.setColumn(0,"hosptlzRoute",this.hosptlzRouteCdEdt.value);	       //입원경로
+	this.dsHospitalizationInfo.setColumn(0,"hosptlzRoute",this.hosptlzRouteCombo.value);	       //입원경로
 	this.dsHospitalizationInfo.setColumn(0,"ward",this.wardEdt.value);	                               //병동
 	this.dsHospitalizationInfo.setColumn(0,"hroom",this.hroomEdt.value);                               //병실
 	
@@ -614,8 +623,7 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 
 //입원등록 0
 this.fn_register=function(){
-		this.dsHospitalizationInfo.addRow();   //입력추가
-		this.gfnBind(); 			
+		this.dsHospitalizationInfo.addRow();   //입력추가		
 		this.fn_enable();	//사용상태허용 함수
 }
 
@@ -630,11 +638,11 @@ this.fn_enable = function(){
 	this.grtorNmEdt.set_enable(true);			
 	this.grtorRrnEdt.set_enable(true);
 	this.grtorAddrEdt.set_enable(true);	
+	this.hosptlzRouteCombo.set_enable(true);
 	this.patRshipCombo.set_enable(true);
 	this.grtorTelEdt.set_enable(true);
-	
+
 	this.hosptlzCancelBtn.set_enable(true);
-	this.hosptlzCancelBtn.style.set_image("theme://img/btn_WF_Search.png");
 	this.respDoctPBtn.set_enable(true);
 	this.respDoctPBtn.style.set_image("theme://img/btn_WF_Search.png");
 	this.trmtDeptPBtn.set_enable(true);	
@@ -646,8 +654,6 @@ this.fn_enable = function(){
 	
 	this.grtorAddrBtn.set_enable(true);
 	this.grtorAddrBtn.style.set_image("theme://img/btn_WF_Search.png");
-	this.hosptlzRoutePBtn.set_enable(true);
-	this.hosptlzRoutePBtn.style.set_image("theme://img/btn_WF_Search.png");
 
 }
 
@@ -661,12 +667,6 @@ this.setDoct=function(arr){
 this.hroomBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnPopup("HA_HospitalRoomAssignmentForm","hdm","");
-}
-
-//입원경로 Popup 0
-this.hosptlzRoutePBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	 this.gfnCodePopup("MD020");	
 }
 
 //진료과 Popup 0
@@ -702,10 +702,7 @@ this.setHroomInfo= function(arr){
 //팝업창 정보 받아서 세팅 0
 this.setCode=function(code,arr)
 {
-   if(code == "MD020"){
-		this.hosptlzRouteCdEdt.set_value(arr[0]);
-		this.hosptlzRouteNmEdt.set_value(arr[1]);
-   }else if(code == "GP080"){
+   if(code == "GP080"){
 		this.trmtDeptCdEdt.set_value(arr[0]);
 		this.trmtDeptNmEdt.set_value(arr[1]);
    }else if(code == "GA043"){
@@ -742,10 +739,6 @@ this.setPost = function(arrRtn){
 	this.grtorAddrEdt.set_value(arrRtn[1]+" "+arrRtn[2]); 
 }
 
-this.Div06_Static00_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
-{
-	
-}
 ]]></Script>
   </Form>
 </FDL>
