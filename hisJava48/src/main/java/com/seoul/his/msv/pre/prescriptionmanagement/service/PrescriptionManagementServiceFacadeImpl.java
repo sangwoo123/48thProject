@@ -11,6 +11,7 @@ import com.seoul.his.msv.pre.prescriptionmanagement.to.DiseaseBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientDsBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientPrscBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescDtlBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescMediBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescValueBean;
 
 
@@ -67,6 +68,11 @@ public class PrescriptionManagementServiceFacadeImpl implements PrescriptionMana
 		diseaseApplicationService.batchDisePrescProcess(disePrescMap);
 	}
 
+	@Override
+	public List<PrescMediBean> findMedPrescList(Map<String, String> argsMap) {
+	List<PrescMediBean> prescValueList = diseaseApplicationService.findMedPrescList(argsMap);
+	return prescValueList;
+}
 
 
 
