@@ -17,6 +17,7 @@ import com.seoul.his.msv.pre.prescriptionmanagement.to.DiseaseBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientDsBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientPrscBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescDtlBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescMediBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescValueBean;
 
 /**
@@ -72,6 +73,12 @@ public class DiseaseApplicationServiceImpl implements DiseaseApplicationService{
 	public List<PrescValueBean> findPrescValueList(Map<String, String> argsMap){
 		return prescValueDAO.selectPrescValueList(argsMap);
 	}
+
+	@Override
+	public List<PrescMediBean> findMedPrescList(Map<String, String> argsMap){
+		return prescValueDAO.selectMedPrescList(argsMap);
+	}
+
 
 	@Override
 	public List<PrescDtlBean> findPrescDtlList(Map<String, String> argsMap){
