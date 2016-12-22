@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.seoul.his.hdm.patient.dao.PatientDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
-	
+
 	<resultMap type="PatientBean" id="Patient">
 
         <result property="patNo"           column="PAT_NO" />                    <!--환자등록번호   -->
@@ -70,9 +70,12 @@
                          FROM WS_OUTPA_RECEIPT
                GROUP BY pat_no) o, (SELECT hosptlz_receipt_no, pat_no FROM WH_HOSPTLZ_RECEIPT) h
 		 WHERE p.pat_no = o.pat_no(+)
-	  
+
 	   AND
 	  	 o.pat_no = h.pat_no(+)
+	  	 	<if test="patNo != '' and patNo != null">
+				AND p.PAT_NO = #{patNo}
+			</if>
 			<if test="patNm != '' and patNm != null">
 				AND p.PAT_NM LIKE '%'||#{patNm}||'%'
 			</if>
@@ -82,16 +85,16 @@
 			<if test="rrn1 != '' and rrn1 != null and rrn2 != '' and rrn2 != null">
 				AND p.RRN1=#{rrn1} AND FN_WS_DECRYPT(p.RRN2)=#{rrn2}
 			</if>
-		
+
 		order by
 		pat_no
-		
+
 
  	</select>
- 	
- 	
- 	
- 	
+
+
+
+
 <update id="insertPatient">
         INSERT INTO
         ws_pat
@@ -179,9 +182,9 @@
         WHERE
         PAT_NO =#{patNo}
     </update>
- 	
- 	
- 	
- 	
+
+
+
+
 
 </mapper>
