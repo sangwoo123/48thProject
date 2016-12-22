@@ -7,6 +7,7 @@ import com.seoul.his.msv.pre.prescriptionmanagement.to.DiseaseBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientDsBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientPrscBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescDtlBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescMediBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescValueBean;
 
 
@@ -24,5 +25,6 @@ public interface DiseaseApplicationService {
 
 	 void batchDisePrescProcess(Map<String, Object> disePrescMap);
 
+	 List<PrescMediBean> findMedPrescList(Map<String, String> argsMap);
 
 }
