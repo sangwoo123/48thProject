@@ -26,13 +26,24 @@
 
  	</resultMap>
 
- <select id="selectTransferPatientList" resultMap="TransferPatient">
+<select id="selectTransferPatientList" resultType="TransferPatientBean">
         SELECT
             *
         FROM
             MC_TRANSFER_PATIENT
-        WHERE
-            PAT_NO = #{patNo}
+
+         <trim prefix="WHERE" prefixOverrides="AND">
+           <if test="patNo != null">
+                AND PAT_NO      = #{patNo}
+            </if>
+            <if test="adviceResult != null">
+                AND ADVICE_RESULT = #{adviceResult}
+            </if>
+            <if test="transStartDate != null and transEndDate != null">
+                AND TRANSFER_DATE BETWEEN = #{transStartDate} AND #{transEndDate}
+            </if>
+        </trim>
+
  </select>
 
  <update id="insertTransferPatient">

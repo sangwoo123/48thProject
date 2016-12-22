@@ -52,7 +52,8 @@ public class TransferPatientController {
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
 		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 		List<TransferPatientBean> transferPatientList = patientserviceServiceFacade.findTransferPatientList(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, transferPatientList, TransferPatientBean.class);
+			System.out.println("transferPatientList -----------> " + transferPatientList);
+			dataSetBeanMapper.beansToDataset(outData, transferPatientList, TransferPatientBean.class);
 	}
 
 

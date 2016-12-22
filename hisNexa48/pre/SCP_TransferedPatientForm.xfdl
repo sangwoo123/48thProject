@@ -423,10 +423,12 @@ this.transferPatGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventIn
 this.transferDetailDiv_makeTransferPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	transferNo = this.dsTransferPatient.getColumn(this.dsTransferPatient.rowposition, "transferNo");
+	prescSeqNo = (this.dsTransferPatient.getRowCount()).toString().padLeft(2,"0");
 	if(transferNo != null ){
 		alert("이미 생성된 전원환자 번호가 있습니다.");
 	}else{
-		transferNo = todayDate + "-" + patNo;
+	
+		transferNo = todayDate + "-" + patNo + "-" +  prescSeqNo;
 
 		if(confirm("환자번호 : "+transferNo+" 로 생성하시겠습니까?")){
 			this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "transferNo", transferNo);

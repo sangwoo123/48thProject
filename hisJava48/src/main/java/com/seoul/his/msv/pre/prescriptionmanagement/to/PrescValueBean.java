@@ -28,8 +28,8 @@ import lombok.ToString;
 public class PrescValueBean extends BaseBean{
 	private String patNo,
 					prescNo,
-					codeNo,
-					codeValue;
+					codeNo,			//처방코드
+					codeValue;		//처방명
 
 	 List<PrescDtlBean> prescDtlList;		//처방
 
