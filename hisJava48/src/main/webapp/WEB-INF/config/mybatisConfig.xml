@@ -67,6 +67,13 @@
        <package name="com.seoul.his.acc.slip.to" />				<!-- 전표 -->
 
 
+ <!-- 경영통계-->
+      <package name="com.seoul.his.bst.patientStatus.dailyPatient.to" />            <!-- 일일환자현황 -->
+      <package name="com.seoul.his.bst.patientStatus.monthlyPatient.to" />            <!-- 일일환자현황 -->
+      <package name="com.seoul.his.bst.patientStatus.patientByDept.to" />            <!-- 일일환자현황 -->
+      <package name="com.seoul.his.bst.patientStatus.selectDailyPatient.to" />            <!-- 일일환자현황 -->
+     
+
    </typeAliases>
 
 </configuration>

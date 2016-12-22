@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BBP_SelectDailyPatientForm" classname="BBP_SelectDailyPatientForm" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar5.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="titleStc" taborder="0" text="경영통계-환자현황" onclick="titleDiv_titleStc_onclick" left="4.79%" top="-4" right="64.75%" height="60" style="color:#6c6c6cff;font:bold 20 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="SearchPatient" taborder="1" position="fixed" left="26.95%" top="64" right="1.56%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
+          <Layouts>
+            <Layout>
+              <Combo id="searchWardCombo" taborder="7" displaynulltext="선택" innerdataset="dsWardCd" codecolumn="code" datacolumn="data" left="17.81%" top="11" width="140" height="28" style="background:white;"/>
+              <Edit id="Edit00" taborder="8" displaynulltext="입력" left="276" top="11" width="262" height="28"/>
+              <Button id="Button00" taborder="9" text="검색" onclick="Button00_onclick" cssclass="btn_WF_CRUD" left="546" top="11" width="80" height="28"/>
+              <Button id="Button01" taborder="10" text="재설정" onclick="Button01_onclick" cssclass="btn_WF_CRUD" left="632" top="11" width="80" height="28"/>
+              <Grid id="PatientGrid" taborder="12" binddataset="dsSelectDailyPatient" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="2.19%" top="51" right="2.19%" height="612" suppresslevel="sameskip">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="286"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="환자번호"/>
+                      <Cell col="1" text="성함"/>
+                      <Cell col="2" text="날짜"/>
+                      <Cell col="3" text="진료과"/>
+                      <Cell col="4" text="현황"/>
+                      <Cell col="5" text="병명"/>
+                    </Band>
+                    <Band id="body" style="border:1 solid #888888ff,0 none #888888ff,0 none #888888ff,1 solid #888888ff;selectcolor:#000000ff;cellline:1 solid #888888ff ;cellfont:9 나눔바른고딕;cellcolor:#000000ff;cellcolor2:#000000ff;">
+                      <Cell style="align:center middle;background:#cfd8dcff;background2:#cfd8dcff;color:black;color2:black;" text="bind:patNo" suppress="1" suppressalign="middle,over"/>
+                      <Cell col="1" style="align:center middle;" text="bind:patNm" suppress="2" suppressalign="middle,over"/>
+                      <Cell col="2" style="align:center middle;" text="bind:prescDate" mask="@@@@-@@-@@ " suppress="3" suppressalign="middle,over"/>
+                      <Cell col="3" style="align:center middle;" text="bind:dept" suppress="4" suppressalign="middle,over"/>
+                      <Cell col="4" style="align:center middle;" text="bind:ibwon" wordwrap="none" suppress="5" suppressalign="middle,over"/>
+                      <Cell col="5" style="align:left middle;color:black;color2:black;" text="bind:diseaseNm" suppress="6" suppressalign="middle,over"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4"/>
+                      <Cell col="5"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="Static51" taborder="13" text="진료정보 검색" cssclass="sta_WF_SubTitle1" left="16" top="15" width="104" height="21" style="font:bold 9 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="SearchPatient00" taborder="45" position="fixed" left="2.05%" top="64" right="73.83%" height="209" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static51" taborder="0" text="환자 현황 선택" cssclass="sta_WF_SubTitle1" left="12" top="6" width="142" height="21" style="font:bold 9 돋움;"/>
+              <Button id="Button04" taborder="1" text="종합 현황" onclick="Button04_onclick" cssclass="btn_WF_CRUD" left="6" top="33" width="233" height="28" style="border:1 solid #6477adff,1 solid #6477adff,0 none #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;"/>
+              <Button id="Button05" taborder="2" text="입원 환자" onclick="Button05_onclick" cssclass="btn_WF_CRUD" left="6" top="61" width="233" height="28" style="border:1 dashed #eeeeeeff,1 solid #6477adff,0 solid #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;shadow:outer 0,1 1 #00000019;"/>
+              <Button id="Button06" taborder="3" text="외진 환자" onclick="Button06_onclick" cssclass="btn_WF_CRUD" left="6" top="89" width="233" height="28" style="border:1 dashed #eeeeeeff,1 solid #6477adff,0 solid #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;"/>
+              <Button id="Button09" taborder="4" text="재진 환자" onclick="Button09_onclick" cssclass="btn_WF_CRUD" left="6" top="173" width="233" height="28" style="border:1 dashed #eeeeeeff,1 solid #6477adff,1 solid #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;"/>
+              <Button id="Button08" taborder="6" text="초진 환자" onclick="Button08_onclick" cssclass="btn_WF_CRUD" left="6" top="145" width="233" height="28" style="border:1 dashed #eeeeeeff,1 solid #6477adff,0 solid #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;"/>
+              <Button id="Button07" taborder="7" text="퇴원 환자" onclick="Button07_onclick" cssclass="btn_WF_CRUD" left="6" top="117" width="233" height="28" style="border:1 dashed #eeeeeeff,1 solid #6477adff,0 solid #6477adff,1 solid #6477adff;bordertype:normal 0 0 ;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Calendar id="Calendar00" taborder="46" left="1.95%" top="309" right="73.83%" height="310" type="monthonly" style="daysize:40 40;trailingdaycolor:darkgray;displaynulltextcolor:transparent;border:1 solid black ;" ondayclick="Calendar00_ondayclick" dateformat="yyyy-MM-dd ddd" tooltiptype="default" onlbuttondown="Calendar00_onlbuttondown" value="null"/>
+        <Static id="Static00" taborder="48" onclick="Static00_onclick" left="1.95%" top="277" right="73.83%" height="29" style="background:#f5f5f5ff;border:0 solid #6477adff,2 solid #aaaaaaff,2 solid #999999ff,0 solid #999999ff;font:9 돋움;"/>
+        <Static id="Static51" taborder="49" text="일자별 환자현황" cssclass="sta_WF_SubTitle1" left="34" top="280" width="180" height="21" style="background:URL('theme://img/img_WF_Subtitle1.png') left middle;font:bold 9 돋움;"/>
+        <Button id="Button11" taborder="51" text="월간 그래프 보기" left="1.95%" top="628" right="73.83%" height="122" onclick="Button11_onclick"/>
+      </Layout>
+    </Layouts>
+    <Bind/>
+    <Objects>
+      <Dataset id="dsSelectDailyPatient" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="prescDate" type="STRING" size="256"/>
+          <Column id="dept" type="STRING" size="256"/>
+          <Column id="diseaseNm" type="STRING" size="256"/>
+          <Column id="ibwon" type="STRING" size="256"/>
+          <Column id="rk" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findSelectDailyPatientList</Col>
+            <Col id="URL">his::bst/selectDailyPatient/findSelectDailyPatientList.do</Col>
+            <Col id="outData">dsSelectDailyPatient=dsSelectDailyPatient</Col>
+            <Col id="inData"/>
+            <Col id="callbackFunc">SelectDailyPatient_CallbackFunc</Col>
+            <Col id="argument"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsWardCd">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="data" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">patNo</Col>
+            <Col id="data">환자번호</Col>
+          </Row>
+          <Row>
+            <Col id="code">patNm</Col>
+            <Col id="data">성함</Col>
+          </Row>
+          <Row>
+            <Col id="code">age</Col>
+            <Col id="data">나이</Col>
+          </Row>
+          <Row>
+            <Col id="code">gender</Col>
+            <Col id="data">성별</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="Dataset00"/>
+      <Dataset id="dsSelectDailyPatientCopy" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="prescDate" type="STRING" size="256"/>
+          <Column id="dept" type="STRING" size="256"/>
+          <Column id="diseaseNm" type="STRING" size="256"/>
+          <Column id="ibwon" type="STRING" size="256"/>
+          <Column id="rk" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+*                                               			                    *
+* 외래환자관리 및 외래진료접수관리                             		        *
+*                                                                   			*
+* @Path			원무 - 환자정보등록									 		*
+* @Description 	환자정보를 등록한다					*
+* @Author		최민하						 								*
+* 									 											*
+* Created on	2015. 6. 16.                           		 					*
+*									 											*
+********************************************************************************/
+
+/**************************************************************************************************
+*                                         공통 Script Include                                     *
+***************************************************************************************************/
+
+include "scripts::commonScripts.xjs";
+
+
+
+/***************************************************************************************************
+*                                          dsService 호출                                       *
+/*-------------------------------------------------------------------------------------------------+
+>>  this.gfnService(" ",false);   
++-------------------------------------------------------------------------------------------------*/
+
+
+this.gfnService("findSelectDailyPatientList",false);
+
+
+/**************************************************************************************************
+*                                         화면 변수 선언부                                      *
+***************************************************************************************************/
+
+
+
+
+
+/***************************************************************************************************
+*                                         조회조건 EVENT START                                    *
+/*-------------------------------------------------------------------------------------------------+
+>>  onkeyDown EVENT
++-------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+/***************************************************************************************************
+*                                          버튼 EVENT START                                       *
+/*-------------------------------------------------------------------------------------------------+
+>>  click EVENT
++-------------------------------------------------------------------------------------------------*/
+
+this.clickBtn = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchPatientProcess",false);
+}
+
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var swc=this.Div00.searchWardCombo.value;
+	var edit00=this.Edit00.value
+	this.dsPatient.filter("");
+	this.dsPatient.filter(swc+"=="+edit00);  
+}
+
+
+this.Button01_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsPatient.filter("");
+}
+
+
+this.Button03_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{		
+	var rowCount = this.dsPatient.getRowCount();
+	var patNo=this.dsPatient.getColumn(rowCount-1,"patNo");
+	this.dsPatient.addRow();
+	this.dsPatient.setColumn(rowCount,"patNo",parseInt(patNo)+1);
+}
+
+
+
+/***************************************************************************************************
+*                                          그리드 클릭 EVENT START                                       *
+/*-------------------------------------------------------------------------------------------------+
+>>  click EVENT
++-------------------------------------------------------------------------------------------------*/
+
+
+
+/***************************************************************************************************
+*                                          콜백 EVENT START                                       *
+/*-------------------------------------------------------------------------------------------------+
+>>  click EVENT
++-------------------------------------------------------------------------------------------------*/
+
+
+
+
+this.SelectDailyPatient_CallbackFunc = function(svcID, ErrorCode, ErrorMsg){
+
+   if (ErrorCode < 1) {
+      alert(svcID + "가 처리되지 않았습니다");
+   } else {
+      alert(svcID + "의 처리가 완료되었습니다");
+   }
+}
+
+
+
+
+this.Calendar00_ondayclick = function(obj:Calendar, e:nexacro.CalendarDayClickEventInfo)
+{
+
+	
+if(obj.value==null){obj.value=this.dsSelectDailyPatient.getColumn(this.dsSelectDailyPatient.getRowCount()-1,'prescDate');}
+var day1=obj.value;
+this.dsSelectDailyPatient.filter("");
+this.dsSelectDailyPatient.filter("prescDate=='"+day1+"'");  
+
+}
+
+this.Button04_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsSelectDailyPatient.filter("");
+}
+
+this.Button05_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+this.dsSelectDailyPatient.filter("");
+this.dsSelectDailyPatient.filter("ibwon=='입원'");  
+}
+
+this.Button06_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+this.dsSelectDailyPatient.filter("");
+this.dsSelectDailyPatient.filter("ibwon=='외진'");	
+	
+}
+
+
+this.Button07_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+this.dsSelectDailyPatient.filter("");
+this.dsSelectDailyPatient.filter("ibwon=='퇴원'");
+	
+}
+
+
+
+this.Button08_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsSelectDailyPatient.filter("");
+this.dsSelectDailyPatient.filter("rk=='1'");
+}
+
+this.Button09_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+this.dsSelectDailyPatient.filter("rk>'1'");	
+}
+
+
+
+
+this.Button11_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	application.open("modeless", "bst::BBP_highChart.xfdl", this.getOwnerFrame(), {mode:'modeless'}, "", 400, 200);
+}
+]]></Script>
+  </Form>
+</FDL>
