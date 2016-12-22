@@ -11,10 +11,15 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="Div00" taborder="43" left="1.95%" top="64" right="46.68%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;" applystyletype="cascade,keep" visible="true" position="fixed">
+        <Div id="SearchPatient" taborder="43" left="1.95%" top="64" right="46.68%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;" applystyletype="cascade,keep" visible="true" position="fixed">
           <Layouts>
             <Layout>
-              <Grid id="Grid00" taborder="0" binddataset="dsPatient" useinputpanel="false" left="2.48%" top="47" right="2.48%" height="628" autofittype="col" oncellclick="patGrid_oncellclick">
+              <Combo id="searchWardCombo" taborder="1" innerdataset="@dsWardCd" codecolumn="code" datacolumn="data" left="23.09%" top="9" height="28" style="background:white;" displaynulltext="선택" width="100"/>
+              <Edit id="Edit00" taborder="2" displaynulltext="입력" left="224" top="10" width="131" height="28"/>
+              <Button id="Button00" taborder="3" text="검색" onclick="Button00_onclick" cssclass="btn_WF_CRUD" left="361" top="10" width="45" height="28"/>
+              <Button id="Button01" taborder="4" text="재설정" onclick="Button01_onclick" cssclass="btn_WF_CRUD" left="412" top="10" width="45" height="28"/>
+              <Button id="Button03" taborder="5" text="추가" onclick="Button03_onclick" cssclass="btn_WF_CRUD" left="463" top="10" width="45" height="28"/>
+              <Grid id="PatientGrid" taborder="6" binddataset="dsPatient" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="2.1%" top="45" right="2.86%" height="628">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -42,11 +47,10 @@
                   </Format>
                 </Formats>
               </Grid>
-              <Combo id="searchWardCombo" taborder="1" innerdataset="@dsWardCd" codecolumn="code" datacolumn="data" left="23.09%" top="9" height="28" style="background:white;" displaynulltext="선택" width="100"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="Div01" taborder="87" left="54.3%" top="64" right="1.76%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;">
+        <Div id="EditPatient" taborder="87" left="54.3%" top="64" right="1.76%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;">
           <Layouts>
             <Layout/>
           </Layouts>
@@ -92,11 +96,7 @@
         <Button id="addPatBtn00" taborder="131" text="삭제" onclick="clickBtn" left="89.36%" top="711" right="3.03%" height="28" style="background:#37474fff;border:1 solid #263238ff ;color:white;bordertype:normal 0 0 ;font:bold 10 돋움;"/>
         <Button id="Button05" taborder="133" text="조회" cssclass="btn_WF_Search" left="934" top="170" width="58" height="28"/>
         <Static id="Static03" taborder="134" text="문자알림 수신허용" left="84.38%" top="267" right="5.27%" height="27" onclick="Static03_onclick"/>
-        <Button id="Button03" taborder="135" text="추가" cssclass="btn_WF_CRUD" left="487" top="74" width="45" height="28" onclick="Button03_onclick"/>
-        <Button id="Button00" taborder="136" text="검색" cssclass="btn_WF_CRUD" left="385" top="74" width="45" height="28" onclick="Button00_onclick"/>
-        <Edit id="Edit00" taborder="137" left="248" top="74" width="131" height="28" displaynulltext="입력"/>
         <Static id="Static51" taborder="138" text="환자정보 검색" cssclass="sta_WF_SubTitle1" left="35" top="79" width="94" height="21" style="font:bold 9 돋움;"/>
-        <Button id="Button01" taborder="139" text="재설정" onclick="Button01_onclick" cssclass="btn_WF_CRUD" left="436" top="74" width="45" height="28"/>
         <Static id="patNmStc00" taborder="140" text="환자번호" left="55.37%" top="74" right="34.67%" height="28" style="background:#78909cff;color:ivory;align:center middle;font:bold 9 arial;" onclick="patNmStc00_onclick"/>
         <Edit id="patNmEd00" taborder="141" left="65.72%" top="74" width="151" height="28" enable="false"/>
       </Layout>

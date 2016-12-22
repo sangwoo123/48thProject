@@ -8,20 +8,22 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoul.his.log.inpt.to
- * @Class    GdsInptBean.java
- * @Create   2016. 7. 6.
- * @Author   Bohyun
- * @Description 물푸검수 빈
+ * @Package  	com.seoul.his.log.inpt.to
+ * @Class    	GdsInptBean.java
+ * @Create   	2016. 12. 16.
+ * @Author   	oss
+ * @Description 물품검수 빈
  *
- * @LastUpdated 
+ * @LastUpdated
  */
+
 @Getter
 @Setter
 @ToString
+
 @Dataset(name = "dsGdsInpt")
 public class GdsInptBean extends BaseBean{
-    private String 
+    private String
     amt             //계약금액
     ,ctrtNo         //계약번호
     ,delayDays      //지체일
@@ -32,5 +34,4 @@ public class GdsInptBean extends BaseBean{
     ,gdsInptNo      //물품검수번호
     ,inptDate;      //검수일
 
-    
 }

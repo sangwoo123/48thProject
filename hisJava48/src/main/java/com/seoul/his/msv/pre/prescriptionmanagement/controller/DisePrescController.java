@@ -21,6 +21,7 @@ import com.seoul.his.msv.pre.prescriptionmanagement.to.DiseaseBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientDsBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PatientPrscBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescDtlBean;
+import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescMediBean;
 import com.seoul.his.msv.pre.prescriptionmanagement.to.PrescValueBean;
 
 /**
@@ -75,13 +76,19 @@ public class DisePrescController {
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
 	    PlatformData outData = (PlatformData) request.getAttribute("outData");
 	    Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-	    	System.out.println("argsMap 처방-------------->"   + argsMap);
+	    System.out.println("argsMap 처방-------------->"   + argsMap);
 	    List<PrescValueBean> prescValueList = prescriptionmanagementServiceFacade.findPrescValueList(argsMap);
+	    dataSetBeanMapper.beansToDataset(outData, prescValueList, PrescValueBean.class);
+	}
 
-
-	        dataSetBeanMapper.beansToDataset(outData, prescValueList, PrescValueBean.class);
-
-
+	@RequestMapping("msv/pre/prescriptionmanagement/findMedPrescList.do")
+	public void findMedPrescList(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		PlatformData inData = (PlatformData) request.getAttribute("inData");
+	    PlatformData outData = (PlatformData) request.getAttribute("outData");
+	    Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+	    System.out.println("argsMap 처방-------------->"   + argsMap);
+	    List<PrescMediBean> prescValueList = prescriptionmanagementServiceFacade.findMedPrescList(argsMap);
+	    dataSetBeanMapper.beansToDataset(outData, prescValueList, PrescMediBean.class);
 	}
 
 	@RequestMapping("msv/pre/prescriptionmanagement/findPrescDtlList.do")

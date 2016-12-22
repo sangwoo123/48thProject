@@ -2300,6 +2300,7 @@ this.Div02_Button_PDF_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	application.open("사원정보","hrs::HM_ReportForm.xfdl",this.parent,{selectEmp:searchEmpNo},"showtitlebar=true showstatusbar=false", 700, 100, 250, 300);	
 }
 
+
 ]]></Script>
   </Form>
 </FDL>
