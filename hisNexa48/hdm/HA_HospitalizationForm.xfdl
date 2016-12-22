@@ -128,6 +128,7 @@
         <Button id="grtorAddrBtn" taborder="72" enable="false" left="82.08%" top="499" right="15.52%" height="26" style="background:#455a64ff; :disabled {image:URL('theme://img/btn_WF_Search.png');}" class="AddBtn" onclick="grtorAddrBtn_onclick"/>
         <Button id="hosptlzRsvtBtn" taborder="73" text="입원예약" onclick="hosptlzRsvtBtn_onclick" visible="false" left="89.36%" top="690" right="3.6%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
         <Combo id="hosptlzRouteCombo" taborder="74" innerdataset="@dsMD020" codecolumn="code" datacolumn="bigValue" onitemchanged="patRshipCombo_onitemchanged" enable="false" left="81.28%" top="164" right="4.96%" height="26" class="AreaCombo"/>
+        <Edit id="genderEdt" taborder="75" enable="false" left="28.88%" top="283" right="65.12%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -386,6 +387,7 @@
       <BindItem id="item24" compid="grtorAddrEdt" propid="value" datasetid="dsHospitalizationInfo" columnid="grtorAddr"/>
       <BindItem id="item4" compid="patRshipCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="patRship"/>
       <BindItem id="item25" compid="hosptlzRouteCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzRoute"/>
+      <BindItem id="item26" compid="genderEdt" propid="value" datasetid="dsPatient" columnid="gender"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
 *                                               			                    *
@@ -580,7 +582,7 @@ this.findHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 
 			this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition,"hosptlzRsvtYb","");
 			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+outpaReceiptNo+' patNo='+patNo);
-			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (Y->N)
+			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (N->Y)
 		}else{
 			alert("실패");
 		}	

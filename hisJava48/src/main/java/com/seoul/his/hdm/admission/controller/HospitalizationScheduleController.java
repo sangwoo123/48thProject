@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.hdm.admission.service.AdmissionServiceFacade;
 import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
+import com.seoul.his.hdm.admission.to.HospitalizationScheduleManageBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
+import com.seoul.his.common.util.NexacroLogger;
 
 
 /**
@@ -80,5 +82,36 @@ public class HospitalizationScheduleController {
 		List<ReceiptInfoBean> receiptInfoList = dataSetBeanMapper.datasetToBeans(inData, ReceiptInfoBean.class);
 		admissionServiceFacade.modifyHosptalizationScheduleInfo(receiptInfoList);
 	}
+
+	//입원예정자 조회
+	@RequestMapping("hdm/admission/hospitalizationScheduleList.do")
+	public void findHosptlzPrdstorList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		outData = (PlatformData) request.getAttribute("outData");
+		inData = (PlatformData) request.getAttribute("inData");
+
+		argsMap = dataSetBeanMapper.variablesToMap(inData);
+		List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList = admissionServiceFacade.findHospitalizationScheduleManageList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, hospitalizationScheduleManageList, HospitalizationScheduleManageBean.class);
+	}
+
+	//입원예약상태 변경(Y->N)
+	@RequestMapping("hdm/admission/changeHospitalizationScheduleYb.do")
+	public void changeHospitalizationScheduleYb(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		inData = (PlatformData) request.getAttribute("inData");
+
+		List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList = dataSetBeanMapper.datasetToBeans(inData, HospitalizationScheduleManageBean.class);
+		admissionServiceFacade.changeHospitalizationScheduleYb(hospitalizationScheduleManageList);
+	}
+
+	//입원예정자 입원일 변경.
+	@RequestMapping("hdm/admission/batchHospitalizationScheduleProcess.do")
+	public void batchProcessHosptlzRsvt(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		inData = (PlatformData) request.getAttribute("inData");
+		System.out.println("batchProcessHosptlzRsvt : 입원예약일및 예약병동병실 수정");
+		   NexacroLogger.debug(inData.getDataSetList());//받은데이터 내역보기
+		List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList = dataSetBeanMapper.datasetToBeans(inData, HospitalizationScheduleManageBean.class);
+		admissionServiceFacade.batchHospitalizationScheduleManageProcess(hospitalizationScheduleManageList);
+	}
+
 
 }
