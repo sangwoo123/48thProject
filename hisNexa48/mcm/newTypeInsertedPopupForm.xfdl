@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="newTypeInsertedPopupForm" classname="newTypeInsertedPopupForm" left="0" top="0" width="677" height="163" titletext="새 Type 입력창">
+    <Layouts>
+      <Layout>
+        <Div id="ButtonDiv" taborder="0" left="1.18%" top="104" right="1.33%" height="46" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Button id="saveBtn" taborder="9" text="저장" left="67.88%" top="8" right="18.33%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_saveBtn_onclick"/>
+              <Button id="cancleBtn" taborder="10" text="취소" left="82.88%" top="8" right="3.33%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="ButtonDiv_cancleBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="BorderDiv" taborder="1" left="1.62%" top="10" right="1.48%" height="84" style="border:2 solid #90a4aeff ;">
+          <Layouts>
+            <Layout>
+              <Div id="MainDiv" taborder="0" left="1.23%" top="7" right="1.23%" height="67" style="background:#eceff1ff;">
+                <Layouts>
+                  <Layout>
+                    <Static id="Static01" taborder="0" text="Type명" cssclass="sta_WF_DetailLabel01" left="8" top="4" width="99" height="25" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+                    <Static id="Static00" taborder="2" text="Comments" cssclass="sta_WF_DetailLabel01" left="8" top="36" width="99" height="25" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+                    <Edit id="CommentsEd" taborder="3" left="117" top="36" width="508" height="25"/>
+                    <Edit id="TypeNameEd" taborder="4" left="117" top="4" width="508" height="25"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+//저장버튼 클릭시
+this.ButtonDiv_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var typeName=this.BorderDiv.MainDiv.TypeNameEd.value;
+	var comments=this.BorderDiv.MainDiv.CommentsEd.value;
+	var rRtn=new Array(2);
+	rRtn[0]=typeName;
+	rRtn[1]=comments;
+	this.close(rRtn.join("blank"));  
+}
+//취소버튼 클릭시
+this.ButtonDiv_cancleBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close("cancle");
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -95,4 +95,20 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 		hospitalizationScheduleApplicationService.modifyHosptalizationScheduleInfo(receiptInfoList);
 	}
 
+	@Override
+	public List<HospitalizationScheduleManageBean> findHospitalizationScheduleManageList(Map<String, String> argsMap) {
+		return hospitalizationScheduleApplicationService.findHospitalizationScheduleManageList(argsMap);
+	}
+
+	@Override
+	public void changeHospitalizationScheduleYb(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList) {
+		hospitalizationScheduleApplicationService.changeHospitalizationScheduleYb(hospitalizationScheduleManageList);
+	}
+
+	@Override
+	public void batchHospitalizationScheduleManageProcess(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList) {
+		hospitalizationScheduleApplicationService.batchHospitalizationScheduleManageProcess(hospitalizationScheduleManageList);
+	}
+
+
 }

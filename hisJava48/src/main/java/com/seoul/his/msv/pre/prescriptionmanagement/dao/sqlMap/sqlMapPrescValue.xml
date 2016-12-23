@@ -39,9 +39,61 @@
 
     </select>
 
-
-
-
+ <select id="selectMedPrescList" resultType="PrescMediBean">
+ 	 SELECT  A.PAT_NO
+				 , A.PRESC_NO
+				 , CODE_NO
+				 , CODE_VALUE
+         		 , NVL(IN_NUMBER,0) AS IN_NUMBER
+         		 , PRESC_DATE
+	  FROM 	(SELECT    PAT_NO
+				 			, C.PRESC_NO
+						    , CODE_NO
+				 			, CODE_VALUE
+         					, IN_NUMBER
+	  			  FROM   MC_IN_PAIENT_DETAIL C
+	  			  			,MP_PRESC_DTL D
+     			 WHERE   C.PRESC_NO = D.PRESC_NO ) A
+				,(SELECT   FEE_CD
+  				  FROM    WB_FEE
+				 WHERE    SM_GRP='약제' ) B
+  			   , MC_DISEASE C
+  	 WHERE A.CODE_NO = B. FEE_CD
+  	    AND A.PRESC_NO = C.PRESC_NO
+   	 <if test="patNo != null">
+        AND A.PAT_NO = #{patNo}
+      </if>
+      <if test="prescNo != null">
+        AND  A.PRESC_NO      = #{prescNo}
+     </if>
+  	 UNION
+  	SELECT  	 A.PAT_NO
+			    , A.PRESC_NO
+				, CODE_NO
+				, CODE_VALUE
+         		, NVL(IN_NUMBER,0) AS IN_NUMBER
+         		, PRESC_DATE
+	 FROM 	(SELECT 	 PAT_NO
+				 		   , C.PRESC_NO
+				 		   , CODE_NO
+				 		   , CODE_VALUE
+         				   , IN_NUMBER
+	  			  FROM   MC_OUT_PAIENT_DETAIL C
+	  			  			,MP_PRESC_DTL D
+    			WHERE  C.PRESC_NO = D.PRESC_NO ) A
+				,(SELECT   FEE_CD
+  				  FROM   WB_FEE
+				 WHERE  SM_GRP='약제' ) B
+  				, MC_DISEASE C
+  	WHERE 	A.CODE_NO = B. FEE_CD
+  	AND 		A.PRESC_NO = C.PRESC_NO
+	<if test="patNo != null">
+     AND 	A.PAT_NO = #{patNo}
+    </if>
+     <if test="prescNo != null">
+        AND  A.PRESC_NO      = #{prescNo}
+     </if>
+</select>
 <update id="insertPrescDtl" >
         INSERT INTO
             MP_PRESC_DTL (

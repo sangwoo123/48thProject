@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.seoul.his.hdm.admission.dao.HospitalizationScheduleDAO;
 import com.seoul.his.hdm.admission.to.HospitalizationScheduleBean;
+import com.seoul.his.hdm.admission.to.HospitalizationScheduleManageBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 
 
@@ -58,6 +59,35 @@ public class HospitalizationScheduleApplicationServiceImpl implements Hospitaliz
 			switch(receiptInfoBean.getStatus()){
 			case "updated" :
 				hospitalizationScheduleDAO.updataHosptalizationScheduleInfo(receiptInfoBean);
+			}
+		}
+	}
+
+	@Override
+	public List<HospitalizationScheduleManageBean> findHospitalizationScheduleManageList(Map<String, String> argsMap) {
+		return hospitalizationScheduleDAO.selectHospitalizationScheduleManageList(argsMap);
+	}
+
+	@Override
+	public void changeHospitalizationScheduleYb(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList) {
+		for(HospitalizationScheduleManageBean hospitalizationScheduleManageBean :hospitalizationScheduleManageList ){
+			switch(hospitalizationScheduleManageBean.getStatus()){
+			case "updated" :
+				hospitalizationScheduleDAO.updateHospitalizationScheduleYb(hospitalizationScheduleManageBean);
+			}
+		}
+	}
+
+	@Override
+	public void batchHospitalizationScheduleManageProcess(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList) {
+		for(HospitalizationScheduleManageBean hospitalizationScheduleManageBean :hospitalizationScheduleManageList ){
+			switch(hospitalizationScheduleManageBean.getStatus()){
+			case "updated" :
+				hospitalizationScheduleDAO.updateHospitalizationScheduleManage(hospitalizationScheduleManageBean);
+				break;
+			case "deleted":
+				hospitalizationScheduleDAO.deleteHospitalizationScheduleManage(hospitalizationScheduleManageBean);
+			    break;
 			}
 		}
 	}
