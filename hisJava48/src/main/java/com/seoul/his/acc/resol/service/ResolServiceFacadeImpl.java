@@ -6,8 +6,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.acc.resol.applicationService.AppendFileApplicationService;
+import com.seoul.his.acc.resol.applicationService.JourApplicationService;
+import com.seoul.his.acc.resol.applicationService.PayRecApplicationService;
 import com.seoul.his.acc.resol.applicationService.ResolApplicationService;
 import com.seoul.his.acc.resol.to.AccountBean;
+import com.seoul.his.acc.resol.to.AppendFileBean;
+import com.seoul.his.acc.resol.to.JourBean;
+import com.seoul.his.acc.resol.to.PayRecBean;
 import com.seoul.his.acc.resol.to.ResolLetBean;
 
 /**
@@ -25,6 +31,12 @@ import com.seoul.his.acc.resol.to.ResolLetBean;
 public class ResolServiceFacadeImpl implements ResolServiceFacade {
 	@Autowired
 	ResolApplicationService resolApplicationService;
+	@Autowired
+	AppendFileApplicationService appendFileApplicationService;
+	@Autowired
+	JourApplicationService jourApplicationService;
+	@Autowired
+	PayRecApplicationService payRecApplicationService;
 
 	@Override
 	public List<ResolLetBean> findResolLetList(Map<String, String> argsMap) {
@@ -34,7 +46,19 @@ public class ResolServiceFacadeImpl implements ResolServiceFacade {
 
 	@Override
 	public List<AccountBean> findAccount(Map<String, String> argsMap) {
-		List<AccountBean> findAccountList = resolApplicationService.findAccount(argsMap);
-		return findAccountList;
+		List<AccountBean> accountList = resolApplicationService.findAccount(argsMap);
+		return accountList;
+	}
+
+	@Override
+	public ResolLetBean findResolLetDetail(Map<String, String> argsMap) {
+		  ResolLetBean resolLetBean = new ResolLetBean();
+	        List<JourBean> jourList = jourApplicationService.findJourRecDetail(argsMap);
+	        List<PayRecBean> payRecList = payRecApplicationService.findPayRecDetail(argsMap);
+	        List<AppendFileBean> appendFileList = appendFileApplicationService.findAppendFileDetail(argsMap);
+	        resolLetBean.setJourList(jourList);
+	        resolLetBean.setPayRecList(payRecList);
+	        resolLetBean.setAppendFileList(appendFileList);
+	        return resolLetBean;
 	}
 }
