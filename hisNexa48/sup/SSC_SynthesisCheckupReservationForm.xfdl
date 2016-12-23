@@ -192,7 +192,7 @@
         </Div>
         <Button id="addRsvtBtn" taborder="13" text="예약" left="45.28%" top="714" right="47.68%" height="24" style="background:#cfd8dcff;color:black;" onclick="addRsvtBtn_onclick"/>
         <Button id="saveBtn" taborder="15" text="저장" left="91.68%" top="714" right="1.28%" height="24" style="background:#cfd8dcff;color:black;" onclick="saveBtn_onclick"/>
-        <Button id="Button07" taborder="16" text="예약취소" left="52.72%" top="714" right="40.24%" height="24" style="background:#cfd8dcff;color:black;"/>
+        <Button id="cancelBtn" taborder="16" text="예약취소" left="52.72%" top="714" right="40.24%" height="24" style="background:#cfd8dcff;color:black;" onclick="cancelBtn_onclick"/>
         <Button id="modBtn" taborder="17" text="수정" left="84.24%" top="714" right="8.72%" height="24" style="background:#cfd8dcff;color:black;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" onclick="modBtn_onclick"/>
       </Layout>
     </Layouts>
@@ -276,8 +276,8 @@
             <Col id="callbackFunc">callBackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">cancelRsvt</Col>
-            <Col id="URL">his::sup/comprehensiveexam/cancelRsvt.do</Col>
+            <Col id="serviceID">cancelCheckupReservation</Col>
+            <Col id="URL">his::sup/comprehensiveexam/cancelCheckupReservation.do</Col>
             <Col id="callbackFunc">callBackFunc</Col>
             <Col id="outData"/>
           </Row>
@@ -522,17 +522,18 @@ this.newRsvtNo=function()
 }
 
 /* 예약 취소 */
-this.btnBox2_cancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.cancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(confirm("예약을 취소하겠습니까?")){
 		var argument = 'rsvtNo='+rsvtNo+' cancelYn=Y';
-		var row = this.dsService.findRow('serviceID' , "cancelRsvt");
+		var row = this.dsService.findRow('serviceID' , "cancelCheckupReservation");
 		this.dsService.setColumn(row, "argument", argument);
 							
-		this.gfnService("cancelRsvt",false);
+		this.gfnService("cancelCheckupReservation",false);
 		this.searchBtn_onclick(null,null);
 	}
 }
+
 
 /* 등록번호 팝업 */
 this.compBox_patPopupBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
@@ -658,31 +659,7 @@ this.dsRsvt_canrowposchange=function(obj:Dataset, e:nexacro.DSRowPosChangeEventI
 
 
 
-/* 수납 */
-this.btnBox2_receBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.dsRece.clearData();
-	this.dsRece.addRow();
-	this.dsRece.setColumn(0, "rsvtNo", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtNo"));
-	this.dsRece.setColumn(0, "rsvtDate", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtDate"));
-	this.dsRece.setColumn(0, "inspDate", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "inspPlnDate"));
-	this.dsRece.setColumn(0, "basicInspAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "basicInspAmt"));
-	this.dsRece.setColumn(0, "reducAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "reducAmt"));
-	this.dsRece.setColumn(0, "rsvtAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtAmt"));
-	this.dsRece.setColumn(0, "choInspAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "choInspAmt"));
-	this.dsRece.setColumn(0, "inspSumAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "inspSumAmt"));
 
-	var param = {dsRece:this.dsRece};
-	this.gfnPopup("SC_RecePopForm","sup",param,"");	
-}
-
-this.payCo=function(retVal)
-{
-	if(retVal == 1)
-	{	
-			alert("수납이 완료되었습니다.");
-	}
-}
 
 /* 수정 */
 this.modBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
@@ -795,6 +772,8 @@ this.callBackFunc = function(svcID, errorCode, errorMsg){
 
  	}
 }
+
+
 
 
 
