@@ -19,8 +19,5 @@ public interface ForeignApplicationService {
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap);
 
 	public PatInfoBean findPat(Map<String, String> argsMap);
-
-	 //전원환자 환자 기본 정보
-	 List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap);
 	
 }
