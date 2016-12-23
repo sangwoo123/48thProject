@@ -86,7 +86,7 @@
           , #{diseaseCd}
           , #{diseaseNm}
           , #{dept}
-          , #{hosptlzReceiptNo}
+          , #{hosptizReceiptNo}
           , #{feeCd}
           , #{feeNm}
           , #{bigGrp}
@@ -111,7 +111,7 @@
           , DISEASE_CD         = #{diseaseCd}
           , DISEASE_NM         = #{diseaseNm}
           , DEPT               = #{dept}
-          , HOSPTLZ_RECEIPT_NO = #{hosptlzReceiptNo}
+          , HOSPTLZ_RECEIPT_NO = #{hosptizReceiptNo}
           , FEE_CD             = #{feeCd}
           , FEE_NM             = #{feeNm}
           , BIG_GRP            = #{bigGrp}

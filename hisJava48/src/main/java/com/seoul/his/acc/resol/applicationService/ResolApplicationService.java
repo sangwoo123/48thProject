@@ -23,6 +23,8 @@ public interface ResolApplicationService {
 
 	List<AccountBean> findAccount(Map<String, String> argsMap);
 
+	ResolLetBean findResolLetDetail(Map<String, String> argsMap);
+
 }
 
 
