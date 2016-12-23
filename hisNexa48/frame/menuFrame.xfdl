@@ -76,6 +76,7 @@ this.menu_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
 {
 	//alert("권한 : "+application.dsHmEmp.getColumn(0,"pms"));	
 	//this.dsService.setColumn(0, 4, "authCode=" + application.gdsEmp.getColumn(0,"pms") + " menuCode=" + e.id);
+	//this.dsData.addRow();
 	this.dsData.setColumn(0, 0, e.id);
 	this.dsData.setColumn(0, 1, e.userdata);
 	//alert(e.userdata);

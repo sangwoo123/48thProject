@@ -212,7 +212,7 @@
                       </Format>
                     </Formats>
                   </Grid>
-                  <Grid id="patientPrescGrid" taborder="8" binddataset="dsPrescValue" useinputpanel="false" autofittype="col" left="356" top="214" width="420" height="181" style="font:9 arial;" oncellclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick">
+                  <Grid id="patientPrescGrid" taborder="8" binddataset="dsPrescValue" useinputpanel="false" autofittype="col" left="356" top="214" width="420" height="181" style="font:9 arial;" oncellclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick" oncelldblclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick">
                     <Formats>
                       <Format id="default">
                         <Columns>
@@ -532,7 +532,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findReceiptList</Col>
-            <Col id="URL">his::msv/pre/prescriptionmanagement/findReceiptList.do</Col>
+            <Col id="URL">his::hdm/foreign/findDiagnosisReceiptList.do</Col>
             <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
@@ -1127,6 +1127,7 @@ this.disePrescriptTab_prescriptionTabpage_presGrid_oncelldblclick = function(obj
 //처방상세 조회위해 처방셀 클릭 시 
 this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
+/*
 	alert(111);
 	 this.dsPrescDtl.addRow();
 	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
@@ -1140,7 +1141,7 @@ this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick = functio
 	
 	 dsPrescDtl.set_loadfiltermode("keep");
 	
-
+*/
 
 
 
@@ -1170,6 +1171,25 @@ this.disePrescriptTab_prescriptionTabpage_prescDelBtn_onclick = function(obj:But
 
 
 
+
+this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	alert(111);
+	 this.dsPrescDtl.addRow();
+	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
+	 prescNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "prescNo");
+	 var codeNo= this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "codeNo");
+	  
+	 alert(patNo);
+	 alert(prescNo);
+	 	this.dsService.setColumn(5, 'argument','prescCd='+codeNo+' prescNo='+prescNo);
+	this.gfnService("findPatientPrscDtlList", false);
+	
+	 dsPrescDtl.set_loadfiltermode("keep");
+	
+
+
+}
 ]]></Script>
   </Form>
 </FDL>
