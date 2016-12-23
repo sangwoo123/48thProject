@@ -9,7 +9,11 @@
           <Frames>
             <ChildFrame id="MenuFrame" formurl="frame::menuFrame.xfdl" showtitlebar="false"/>
             <ChildFrame id="tabFrame" formurl="frame::tabFrame.xfdl" showtitlebar="false"/>
-            <FrameSet id="mainFrame"/>
+            <FrameSet id="mainFrame">
+              <Frames>
+                <ChildFrame id="ChildFrame0" formurl="com::CM_MainForm.xfdl" showcascadetitletext="false" showcascadestatustext="false" resizable="false" showtitlebar="false" showtitleicon="false"/>
+              </Frames>
+            </FrameSet>
             <ChildFrame id="BottomFrame" formurl="frame::bottomFrame.xfdl" showtitlebar="false"/>
           </Frames>
         </VFrameSet>
