@@ -64,7 +64,8 @@
 		<!-- 회계 -->
 		<package name="com.seoul.his.acc.elementary.to" />         <!-- 기본 -->
 		<package name="com.seoul.his.acc.resol.to" />				<!-- 결의서 -->
-		<package name="com.seoul.his.acc.slip.to" />				<!-- 전표 -->
+		<package name="com.seoul.his.acc.slip.to" />
+		<package name="com.seoul.his.acc.vat.to" />			<!-- 전표 -->
 
 
 
