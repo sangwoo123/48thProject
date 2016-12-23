@@ -67,11 +67,8 @@
      </update>
      
      <update id="insertSynthesisCheckupReservation" >
-         MERGE INTO SC_RSVT
-         USING DUAL
-            ON (RSVT_NO = #{rsvtNo})
-          WHEN NOT MATCHED THEN
-        INSERT (PAT_NO,
+         
+        INSERT INTO SC_RSVT(PAT_NO,
                 RSVT_NO,
                 RSVT_DATE,
                 RSVT_AMT,

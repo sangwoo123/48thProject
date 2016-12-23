@@ -112,7 +112,7 @@
           </InitValue>
         </Div>
         <Button id="addBtn" taborder="7" text="+" left="93.52%" top="614" height="30" style="font:16 arial;" width="30" onclick="addBtn_onclick"/>
-        <Button id="Button02" taborder="8" text="-" left="96.32%" top="614" height="30" style="font:16 arial;" width="30"/>
+        <Button id="delBrn" taborder="8" text="-" left="96.32%" top="614" height="30" style="font:16 arial;" width="30" onclick="delBrn_onclick"/>
         <Grid id="inspGrid" taborder="9" binddataset="dsScct" useinputpanel="false" autofittype="col" left="34.56%" top="441" right="45.28%" height="200">
           <Formats>
             <Format id="default">
@@ -191,9 +191,9 @@
           </Layouts>
         </Div>
         <Button id="addRsvtBtn" taborder="13" text="예약" left="45.28%" top="714" right="47.68%" height="24" style="background:#cfd8dcff;color:black;" onclick="addRsvtBtn_onclick"/>
-        <Button id="Button06" taborder="15" text="저장" left="91.68%" top="714" right="1.28%" height="24" style="background:#cfd8dcff;color:black;"/>
+        <Button id="saveBtn" taborder="15" text="저장" left="91.68%" top="714" right="1.28%" height="24" style="background:#cfd8dcff;color:black;" onclick="saveBtn_onclick"/>
         <Button id="Button07" taborder="16" text="예약취소" left="52.72%" top="714" right="40.24%" height="24" style="background:#cfd8dcff;color:black;"/>
-        <Button id="Button08" taborder="17" text="수정" left="84.24%" top="714" right="8.72%" height="24" style="background:#cfd8dcff;color:black;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;"/>
+        <Button id="modBtn" taborder="17" text="수정" left="84.24%" top="714" right="8.72%" height="24" style="background:#cfd8dcff;color:black;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" onclick="modBtn_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -261,8 +261,8 @@
             <Col id="callbackFunc">callBackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">batchRsvtProcess</Col>
-            <Col id="URL">his::sup/comprehensiveexam/batchRsvtProcess.do</Col>
+            <Col id="serviceID">batchSynthesisCheckupReservation</Col>
+            <Col id="URL">his::sup/comprehensiveexam/batchSynthesisCheckupReservation.do</Col>
             <Col id="inData">dsRsvt=dsRsvt:U dsChoInsp=dsChoInsp:U</Col>
             <Col id="outData"/>
             <Col id="argument"/>
@@ -277,7 +277,7 @@
           </Row>
           <Row>
             <Col id="serviceID">cancelRsvt</Col>
-            <Col id="URL">his::sup/checkup/cancelRsvt.do</Col>
+            <Col id="URL">his::sup/comprehensiveexam/cancelRsvt.do</Col>
             <Col id="callbackFunc">callBackFunc</Col>
             <Col id="outData"/>
           </Row>
@@ -584,12 +584,14 @@ this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	var param = {param:rsvtNo};
 	this.gfnPopup("SSC_PackgeScctPopupForm","sup",param,"");
 }
+
 /* 선택검사 삭제 */
-this.btnBox_delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.delBrn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsChoInsp.deleteRow(this.dsChoInsp.rowposition);
 	this.pCode(1);
 }
+
 
 this.pCode=function(retVal)
 {
@@ -683,7 +685,7 @@ this.payCo=function(retVal)
 }
 
 /* 수정 */
-this.btnBox2_modiBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.modBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var disArr = ['patNmEd', 'rsvtDateEd','rsvtTimeMask','rsvtNoEd', 'rsvtRespEd',
 				 'regNo1Ed', 'regNo2Ed', 'smsEd', 'ageEd', 'basicInspAmtEd',
@@ -695,8 +697,9 @@ this.btnBox2_modiBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	editFlag = true;
 }
 
+
 /* 저장 */
-this.btnBox2_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(this.supCheckMdData(this.compBox))
 	{
@@ -711,10 +714,11 @@ this.btnBox2_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		
 		trace(this.dsRsvt.saveXML());
 		
-		this.gfnService("batchRsvtProcess",false);
+		this.gfnService("batchSynthesisCheckupReservation",false);
 		this.searchBtn_onclick(null,null);
 	}
 }
+
 
 
 this.pckCode=function(retVal)
@@ -791,6 +795,10 @@ this.callBackFunc = function(svcID, errorCode, errorMsg){
 
  	}
 }
+
+
+
+
 
 
 
