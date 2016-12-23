@@ -15,15 +15,21 @@ import com.seoul.post.service.PostServiceFacade;
 import com.seoul.post.to.PostBean;
 import com.seoul.post.to.PostCondBean;
 
+
 /**
- * @Package  com.seoul.his.com.post.controller
- * @Class    PostController.java
- * @Create   2016. 5. 26.
- * @Author   godseop
- * @Description 주소 컨트롤러
+ * <pre>
+ * com.seoul.post.controller
+ *    |_ PostController.java
+ * </pre>
  *
- * @LastUpdated 
+ * @date : 2016. 12. 21. 오전 8:57:13
+ * @version :
+ * @author : 김민욱
  */
+
+
+
+
 @Controller
 public class PostController {
 
