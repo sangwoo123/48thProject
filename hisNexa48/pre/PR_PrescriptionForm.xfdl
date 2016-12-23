@@ -532,7 +532,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findReceiptList</Col>
-            <Col id="URL">his::msv/pre/prescriptionmanagement/findReceiptList.do</Col>
+            <Col id="URL">his::hdm/foreign/findDiagnosisReceiptList.do</Col>
             <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
