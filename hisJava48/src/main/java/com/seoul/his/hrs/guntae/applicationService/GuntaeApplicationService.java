@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 
 /**
  * <pre>
@@ -21,8 +22,17 @@ public interface GuntaeApplicationService {
 	//출퇴근시간 조회
     List<InoutWorkTimeBean> findInoutWorkTimeList(Map<String, String> argsMap);
 
-  //출퇴근시간 일괄처리
+   //출퇴근시간 일괄처리
     void batchInoutWorkTimeProcess(List<InoutWorkTimeBean> list);
+
+    //시간외근무 조회
+    List<OverTimeWorkBean> findOverTimeWorkList(Map<String, String> argsMap);
+
+    //관리자 시간외근무 조회
+    List<OverTimeWorkBean> findApproverOverTimeWorkList();
+
+    //시간외근무 일괄처리
+    void batchOverTimeWorkProcess(List<OverTimeWorkBean> list);
 }
 
 
