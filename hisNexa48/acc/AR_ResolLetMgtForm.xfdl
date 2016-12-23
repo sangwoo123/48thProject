@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="AR_ResolLetMgtForm" classname="AR_ResolLetMgtForm" left="0" top="0" width="1024" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="결의서 관리" left="4.79%" top="-4" right="81.64%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+        <Button id="DelBtn02" taborder="1" onclick="DelBtn_onclick" cssclass="DelBtn" left="1132" top="728" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="DelBtn15" taborder="2" onclick="DelBtn_onclick" cssclass="DelBtn" left="939" top="728" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="DelBtn00" taborder="3" onclick="DelBtn_onclick" cssclass="DelBtn" left="1034" top="728" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Div id="resolMngmt" taborder="4" left="1.95%" top="58" right="1.17%" height="702" scrollbars="none" style="background:#edececff;">
+          <Layouts>
+            <Layout>
+              <Static id="subCodeStc01" taborder="277" text="결의서 상세정보" onclick="subCodeStc_onclick" left="33.77%" top="7" right="1.11%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc" taborder="278" text="결의구분" onclick="subCodeStc_onclick" left="0.2%" top="39" right="92.74%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc00" taborder="279" text="회계기수" onclick="subCodeStc_onclick" left="16.23%" top="39" right="76.71%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc02" taborder="280" text="결의부서" onclick="subCodeStc_onclick" left="0.2%" top="134" right="92.74%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc03" taborder="281" text="결의번호" onclick="subCodeStc_onclick" left="0.2%" top="104" right="92.74%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc04" taborder="282" text="결의일자" onclick="subCodeStc_onclick" left="0.2%" top="71" right="92.74%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc07" taborder="283" text="결의번호" onclick="subCodeStc_onclick" left="33.77%" top="36" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc05" taborder="284" text="결의일자" onclick="subCodeStc_onclick" left="33.77%" top="63" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc06" taborder="285" text="거래처" onclick="subCodeStc_onclick" left="33.77%" top="91" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc08" taborder="286" text="결의금액" onclick="subCodeStc_onclick" left="50.1%" top="63" right="42.94%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc09" taborder="287" text="결의구분" onclick="subCodeStc_onclick" left="50.1%" top="36" right="42.94%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc10" taborder="288" text="진행상태" onclick="subCodeStc_onclick" left="33.77%" top="119" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc11" taborder="289" text="요구부서" onclick="subCodeStc_onclick" left="66.43%" top="36" right="26.61%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc12" taborder="290" text="사업자번호" onclick="subCodeStc_onclick" left="50.1%" top="91" right="42.94%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc13" taborder="291" text="결의부서" onclick="subCodeStc_onclick" left="82.76%" top="36" right="10.28%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc14" taborder="292" text="결의부서전화" onclick="subCodeStc_onclick" left="82.76%" top="90" right="10.28%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc15" taborder="293" text="원인번호" onclick="subCodeStc_onclick" left="82.76%" top="117" right="10.28%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc16" taborder="294" text="결의자" onclick="subCodeStc_onclick" left="82.76%" top="63" right="10.28%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc17" taborder="295" text="결의서 목록" onclick="subCodeStc_onclick" left="0.2%" top="7" right="68.15%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc18" taborder="296" text="계약번호" onclick="subCodeStc_onclick" left="66.43%" top="63" right="26.61%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc19" taborder="297" text="접수번호" onclick="subCodeStc_onclick" left="66.43%" top="90" right="26.61%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Combo id="resolDivCombo" taborder="298" innerdataset="dsResolDiv" codecolumn="code" datacolumn="value" onitemchanged="resolMngmt_resolDivCombo_onitemchanged" left="7.56%" top="37" right="84.07%" height="30" class="AreaCombo"/>
+              <Combo id="accPridCombo" taborder="299" innerdataset="dsAccPrid" codecolumn="accPrid" datacolumn="accPrid" left="23.69%" top="36" right="67.94%" height="30" class="AreaCombo"/>
+              <Edit id="endResolNoEd" taborder="300" left="22.08%" top="104" right="67.94%" height="30" class="AreaEdt"/>
+              <Edit id="startResolNoEd" taborder="301" left="7.66%" top="104" right="82.36%" height="30" class="AreaEdt"/>
+              <Edit id="resolDeptCdEd" taborder="302" left="7.66%" top="136" right="84.58%" height="30" class="AreaEdt"/>
+              <Edit id="resolNoEd" taborder="303" enable="false" left="41.13%" top="35" right="50.1%" height="25" class="AreaEdt"/>
+              <Edit id="resolDate" taborder="304" enable="false" left="41.13%" top="62" right="50.1%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt09" taborder="305" enable="false" left="57.46%" top="90" right="33.77%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt10" taborder="306" enable="false" left="57.46%" top="63" right="33.77%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt12" taborder="307" enable="false" left="73.69%" top="90" right="17.54%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt13" taborder="308" enable="false" left="73.69%" top="63" right="17.54%" height="25" class="AreaEdt"/>
+              <Edit id="resolerCdEd" taborder="309" enable="false" left="90.22%" top="63" right="1.11%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt17" taborder="310" enable="false" left="90.22%" top="90" right="1.11%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt18" taborder="311" enable="false" left="90.22%" top="117" right="1.11%" height="25" class="AreaEdt"/>
+              <Static id="subCodeStc20" taborder="312" text="~" onclick="subCodeStc_onclick" left="18.35%" top="104" right="78.83%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc21" taborder="313" text="~" onclick="subCodeStc_onclick" left="18.35%" top="71" right="78.83%" height="27" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="resolStartDateCal" taborder="314" left="7.66%" top="71" right="82.46%" height="30"/>
+              <Calendar id="resolEndDateCal" taborder="315" left="22.08%" top="71" right="68.15%" height="30"/>
+              <Grid id="resolListGrid" taborder="316" binddataset="dsResolLet" useinputpanel="false" autofittype="col" oncellclick="fn_cellClickResolLiGrid" left="0.6%" top="172" right="68.15%" height="494" class="AreaGrid">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;" text="결의번호"/>
+                      <Cell col="1" style="background:#cfd8dcff;" text="결의구분"/>
+                      <Cell col="2" style="background:#cfd8dcff;" text="결의부서"/>
+                      <Cell col="3" style="background:#cfd8dcff;" text="진행상태"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:resolNo"/>
+                      <Cell col="1" displaytype="combo" edittype="none" style="align:right;" text="bind:resolDiv" maskchar=" " combodataset="dsResolDiv" combocodecol="code" combodatacol="value"/>
+                      <Cell col="2" displaytype="combo" text="bind:resolDeptCd" combodataset="dsDept" combocodecol="code" combodatacol="bigValue"/>
+                      <Cell col="3" displaytype="combo" text="bind:progStatDiv" combodataset="dsProgDiv" combocodecol="code" combodatacol="value"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="Grid00" taborder="317" binddataset="dsRunBudg" useinputpanel="false" autofittype="col" left="33.77%" top="201" right="1.11%" height="50">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="50"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="19" band="head"/>
+                      <Row size="20"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell colspan="2" style="background:#cfd8dcff;" text="비목명"/>
+                      <Cell col="2" style="background:#cfd8dcff;" text="배정예산금액"/>
+                      <Cell col="3" style="background:#cfd8dcff;" text="예산금액"/>
+                      <Cell col="4" style="background:#cfd8dcff;" text="결의가능금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:bimokCd"/>
+                      <Cell col="1" text="bind:bimokNm"/>
+                      <Cell col="2" text="bind:allotPlanAmount"/>
+                      <Cell col="3" text="bind:budgAmount"/>
+                      <Cell col="4" text="bind:budgBal"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Grid id="taxInvGrid" taborder="318" binddataset="dsTaxInv" useinputpanel="false" autofittype="col" left="33.77%" top="503" right="1.11%" height="162">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="21" band="head"/>
+                      <Row size="21" band="head"/>
+                      <Row size="19" band="head"/>
+                      <Row size="19"/>
+                      <Row size="18"/>
+                      <Row size="20"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="3" style="background:#cfd8dcff;" text="순번"/>
+                      <Cell col="1" style="background:#cfd8dcff;" text="발행일"/>
+                      <Cell col="2" style="background:#cfd8dcff;" text="계산서구분"/>
+                      <Cell col="3" style="background:#cfd8dcff;" text="매입/매출"/>
+                      <Cell col="4" colspan="2" style="background:#cfd8dcff;" text="금액"/>
+                      <Cell col="6" style="background:#cfd8dcff;" text="공금가액"/>
+                      <Cell col="7" style="background:#cfd8dcff;" text="세액"/>
+                      <Cell row="1" col="1" style="background:#cfd8dcff;" text="거래처"/>
+                      <Cell row="1" col="2" style="background:#cfd8dcff;" text="거래처명"/>
+                      <Cell row="1" col="3" style="background:#cfd8dcff;" text="사업자번호"/>
+                      <Cell row="1" col="4" style="background:#cfd8dcff;" text="대표자"/>
+                      <Cell row="1" col="5" style="background:#cfd8dcff;" text="업태"/>
+                      <Cell row="1" col="6" colspan="2" style="background:#cfd8dcff;" text="종목"/>
+                      <Cell row="2" col="1" colspan="7" style="background:#cfd8dcff;" text="품목"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell rowspan="3" celltype="head"/>
+                      <Cell col="1"/>
+                      <Cell col="2"/>
+                      <Cell col="3"/>
+                      <Cell col="4" colspan="2"/>
+                      <Cell col="6"/>
+                      <Cell col="7"/>
+                      <Cell row="1" col="1"/>
+                      <Cell row="1" col="2"/>
+                      <Cell row="1" col="3"/>
+                      <Cell row="1" col="4"/>
+                      <Cell row="1" col="5"/>
+                      <Cell row="1" col="6" colspan="2"/>
+                      <Cell row="2" col="1" colspan="7"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="background:#37474fff;"/>
+                      <Cell col="1" colspan="3" style="background:#37474fff;" text="합계"/>
+                      <Cell col="4" colspan="2" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;sumPrice*1&quot;)"/>
+                      <Cell col="6" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;splyPrice*1&quot;)"/>
+                      <Cell col="7" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;taxAmt*1&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Static id="subCodeStc22" taborder="319" text="출력양식" onclick="subCodeStc_onclick" left="33.77%" top="147" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc23" taborder="320" text="계정과목" onclick="subCodeStc_onclick" left="50.1%" top="119" right="42.94%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc24" taborder="321" text="보조과목" onclick="subCodeStc_onclick" left="50.1%" top="147" right="42.94%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc25" taborder="322" text="적요" onclick="subCodeStc_onclick" left="33.77%" top="175" right="59.38%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="subCodeStc26" taborder="323" text="반려사유" onclick="subCodeStc_onclick" left="66.43%" top="145" right="26.61%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="AuthEdt05" taborder="324" enable="false" left="73.69%" top="145" right="1.11%" height="25" class="AreaEdt"/>
+              <Edit id="assiSubNmEd" taborder="325" enable="false" left="57.46%" top="146" right="33.77%" height="25" class="AreaEdt"/>
+              <Edit id="AuthEdt20" taborder="326" enable="false" left="57.46%" top="118" right="33.77%" height="25" class="AreaEdt"/>
+              <Edit id="resolNoEd09" taborder="327" enable="false" left="41.13%" top="145" right="50.1%" height="25" class="AreaEdt"/>
+              <Edit id="acntNmEd" taborder="328" enable="false" left="66.43%" top="118" right="17.54%" height="25" class="AreaEdt"/>
+              <Grid id="JourGrid" taborder="329" binddataset="dsJour" useinputpanel="false" autofittype="col" left="33.77%" top="253" right="1.11%" height="90">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="100"/>
+                      <Column size="92"/>
+                      <Column size="18"/>
+                      <Column size="100"/>
+                      <Column size="102"/>
+                      <Column size="19"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="16" band="head"/>
+                      <Row size="18"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#cfd8dcff;" text="순번"/>
+                      <Cell col="1" style="background:#cfd8dcff;" text="차대구분"/>
+                      <Cell col="2" colspan="2" style="background:#cfd8dcff;" text="계정코드"/>
+                      <Cell col="4" style="background:#cfd8dcff;" text="계정코드명"/>
+                      <Cell col="5" colspan="2" style="background:#cfd8dcff;" text="보조과목코드"/>
+                      <Cell col="7" style="background:#cfd8dcff;" text="보조과목명"/>
+                      <Cell col="8" style="background:#cfd8dcff;" text="차변금액"/>
+                      <Cell col="9" style="background:#cfd8dcff;" text="대변금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell celltype="none" text="bind:seq"/>
+                      <Cell col="1" displaytype="combo" edittype="expr:getRowType(currow)==1?&quot;none&quot;:&quot;combo&quot;" text="bind:creDebDiv" combodataset="dsCreDebDiv" combocodecol="code" combodatacol="value"/>
+                      <Cell col="2" text="bind:acntCd"/>
+                      <Cell col="3" displaytype="button" edittype="expr:getRowType(currow)==1?&quot;none&quot;:&quot;button&quot;" style="color:black;color2:black;selectcolor:black;" text="+"/>
+                      <Cell col="4" text="bind:acntNm"/>
+                      <Cell col="5" text="bind:assiSubCd"/>
+                      <Cell col="6" displaytype="button" edittype="button" style="color:black;color2:black;selectcolor:black;" text="+"/>
+                      <Cell col="7" text="bind:assiSubNm"/>
+                      <Cell col="8" displaytype="number" edittype="expr:getRowType(currow)==1?&quot;none&quot;:&quot;normal&quot;" text="bind:debAmt"/>
+                      <Cell col="9" displaytype="number" edittype="expr:getRowType(currow)==1?&quot;none&quot;:&quot;normal&quot;" text="bind:creAmt"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="background:#37474fff;"/>
+                      <Cell col="1" colspan="7" style="background:#37474fff;" text="합계"/>
+                      <Cell col="8" displaytype="number" style="align:right;padding:0 10 0 0;background:#37474fff;" expr="expr:getSum(!isNaN(debAmt)== true? debAmt: &quot;0&quot;')"/>
+                      <Cell col="9" displaytype="number" style="align:right;padding:0 10 0 0;background:#37474fff;" expr="expr:getSum('!isNaN(creAmt)== true? creAmt: &quot;0&quot;')"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <TextArea id="abs" taborder="330" enable="false" left="41.13%" top="174" right="1.11%" height="25"/>
+              <Combo id="progStatDiv" taborder="331" innerdataset="dsProgDiv" codecolumn="code" datacolumn="value" enable="false" left="41.13%" top="117" right="50.1%" height="25" class="AreaCombo"/>
+              <Combo id="resolDivCombo01" taborder="332" innerdataset="dsResolDiv" codecolumn="code" datacolumn="value" enable="false" left="57.46%" top="37" right="33.77%" height="25" class="AreaCombo"/>
+              <Combo id="resolDivCombo02" taborder="333" innerdataset="dsCust" codecolumn="code" datacolumn="bigValue" enable="false" left="41.13%" top="89" right="50.1%" height="25" class="AreaCombo"/>
+              <Combo id="resolDivCombo03" taborder="334" innerdataset="dsDept" codecolumn="code" datacolumn="bigValue" enable="false" left="73.69%" top="36" right="17.54%" height="25" class="AreaCombo"/>
+              <Combo id="resolDeptCdCombo" taborder="335" innerdataset="dsDept" codecolumn="code" datacolumn="bigValue" enable="false" left="90.22%" top="36" right="1.11%" height="25" class="AreaCombo"/>
+              <Edit id="resolDeptNameEd" taborder="336" enable="false" left="18.35%" top="136" right="73.29%" height="30" class="AreaEdt"/>
+              <Grid id="payGrid" taborder="337" binddataset="dsPayRec" useinputpanel="false" autofittype="col" left="33.77%" top="345" right="1.11%" height="157">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="40"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                      <Column size="70"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="20" band="head"/>
+                      <Row size="20" band="head"/>
+                      <Row size="21" band="head"/>
+                      <Row size="18"/>
+                      <Row size="19"/>
+                      <Row size="19"/>
+                      <Row size="24" band="summ"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell rowspan="3" style="background:#cfd8dcff;" text="순번"/>
+                      <Cell col="1" style="background:#cfd8dcff;" text="지불구분"/>
+                      <Cell col="2" colspan="2" style="background:#cfd8dcff;" text="연구과제"/>
+                      <Cell col="4" style="background:#cfd8dcff;" text="연구비목"/>
+                      <Cell col="5" style="background:#cfd8dcff;" text="카드번호"/>
+                      <Cell col="6" style="background:#cfd8dcff;" text="카드사용일"/>
+                      <Cell col="7" style="background:#cfd8dcff;" text="승인번호"/>
+                      <Cell col="8" style="background:#cfd8dcff;" text="거래처명"/>
+                      <Cell col="9" colspan="2" style="background:#cfd8dcff;" text="사업자번호"/>
+                      <Cell col="11" style="background:#cfd8dcff;" text="주소"/>
+                      <Cell row="1" col="1" style="background:#cfd8dcff;" text="예금주"/>
+                      <Cell row="1" col="2" style="background:#cfd8dcff;" text="이체일"/>
+                      <Cell row="1" col="3" style="background:#cfd8dcff;" text="이체은행"/>
+                      <Cell row="1" col="4" style="background:#cfd8dcff;" text="계좌번호"/>
+                      <Cell row="1" col="5" colspan="6" style="background:#cfd8dcff;" text="집행목적"/>
+                      <Cell row="1" col="11" style="background:#cfd8dcff;" text="금액"/>
+                      <Cell row="2" col="1" style="background:#cfd8dcff;" text="사용자"/>
+                      <Cell row="2" col="2" style="background:#cfd8dcff;" text="참석인원"/>
+                      <Cell row="2" col="3" colspan="6" style="background:#cfd8dcff;" text="참석자"/>
+                      <Cell row="2" col="9" style="background:#cfd8dcff;" text="식비"/>
+                      <Cell row="2" col="10" style="background:#cfd8dcff;" text="계산서"/>
+                      <Cell row="2" col="11" style="background:#cfd8dcff;" text="사유/비고"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell rowspan="3" celltype="none" text="bind:seq"/>
+                      <Cell col="1" displaytype="combo" edittype="combo" text="bind:payDiv" combodataset="dsJibulDiv" combocodecol="code" combodatacol="value"/>
+                      <Cell col="2" colspan="2" text="bind:stdTask"/>
+                      <Cell col="4" text="bind:stdBimok"/>
+                      <Cell col="5" edittype="expand" text="bind:cardNo"/>
+                      <Cell col="6" text="bind:cardUseDate"/>
+                      <Cell col="7" text="bind:aprvNo"/>
+                      <Cell col="8" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="custnm"/>
+                      <Cell col="9" colspan="2" edittype="normal" text="bind:operNo"/>
+                      <Cell col="11" edittype="normal" text="bind:addr"/>
+                      <Cell row="1" col="1" text="bind:depoOwner"/>
+                      <Cell row="1" col="2" edittype="date" text="bind:transDate"/>
+                      <Cell row="1" col="3" displaytype="combo" text="bind:transBank" combodataset="dsBank" combocodecol="code" combodatacol="value"/>
+                      <Cell row="1" col="4" text="bind:accountNo"/>
+                      <Cell row="1" col="5" colspan="6" edittype="normal" text="bind:exePurp"/>
+                      <Cell row="1" col="11" displaytype="number" edittype="normal" text="bind:price"/>
+                      <Cell row="2" col="1" displaytype="combo" edittype="expand" text="bind:users" combodataset="dsHmEmp" combocodecol="empNo" combodatacol="empNm"/>
+                      <Cell row="2" col="2" edittype="normal" text="bind:cttInwon"/>
+                      <Cell row="2" col="3" colspan="6" text="bind:att"/>
+                      <Cell row="2" col="9" displaytype="checkbox" edittype="checkbox" text="bind:foodCostYb"/>
+                      <Cell row="2" col="10" displaytype="checkbox" edittype="checkbox" text="bind:taxinvYb"/>
+                      <Cell row="2" col="11" edittype="normal" text="bind:note"/>
+                    </Band>
+                    <Band id="summary">
+                      <Cell style="background:#37474fff;"/>
+                      <Cell col="1" colspan="10" style="background:#37474fff;" text="합계"/>
+                      <Cell col="11" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;price*1&quot;)"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="searchDeptBtn" taborder="338" onclick="resolMngmt_searchDeptBtn_onclick" left="156" top="137" width="28" height="29" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+              <Button id="searchResolBtn" taborder="339" onclick="resolMngmt_searchResolBtn_onclick" left="268" top="134" width="53" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="modiBtn" taborder="5" onclick="modiBtn_onclick" left="1132" top="731" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="addBtn" taborder="6" onclick="addBtn_onclick" left="944" top="731" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+        <Button id="deleteBtn" taborder="7" onclick="deleteBtn_onclick" left="1037" top="731" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Div id="Div00" taborder="8" left="0%" top="0" width="1023" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="결의서 관리" left="4.79%" top="-4" right="75.27%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
