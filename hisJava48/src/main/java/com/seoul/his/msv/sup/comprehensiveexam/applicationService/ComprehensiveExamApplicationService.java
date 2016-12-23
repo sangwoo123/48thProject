@@ -9,7 +9,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.DetailsCheckupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.PackgeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
-import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
+
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
 
 
@@ -72,22 +72,22 @@ public interface ComprehensiveExamApplicationService {
     public List<SynthesisCheckupCheckTypeBean> findExPckInspList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 접수, 예약조회 */
-    public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap);
+   // public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 예약검사 조회 */
-    public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap);
+    //public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 접수 등록 */
-    public void registerReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
+    //public void registerReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
     
     /* 종합검진 접수 - 접수 취소 */
-    public void cancelReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
+    //public void cancelReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
     
     /* 종합검진 접수 - 접수 저장 */
-    public void batchReceiptProcess(Map<String, Object> map);
+    //public void batchReceiptProcess(Map<String, Object> map);
     
     /* 종합검진 접수 - 선택검사 일괄처리 */
-    public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList);
+    //public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList);
 
   /*
 
