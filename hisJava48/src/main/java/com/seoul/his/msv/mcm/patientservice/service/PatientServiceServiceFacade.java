@@ -11,6 +11,7 @@ import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 import com.seoul.his.msv.mcm.patientservice.to.RsvPatBean;
 import com.seoul.his.msv.mcm.patientservice.to.TimeSchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientBean;
 
 /**
  * <pre>
@@ -37,4 +38,8 @@ public interface PatientServiceServiceFacade {
 	List<MedicalConsultationRequestBean> findMedicalConsultationRequestList(Map<String, String> argsMap);
 	void batchMedicalConsultationRequestProcess(List<MedicalConsultationRequestBean> medicalConsultationRequestList);
 	List<RsvPatBean> findRsvByPatList(Map<String, String> argsMap);
+	List<TransferPatientBean> findTransferPatientList(Map<String, String> argsMap);
+	void registerTransferPatient(TransferPatientBean transferPatientBean);
+	void modifyTransferPatient(TransferPatientBean transferPatientBean);
+	void removeTransferPatient(TransferPatientBean transferPatientBean);
 }
