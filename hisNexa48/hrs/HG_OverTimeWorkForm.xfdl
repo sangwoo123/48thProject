@@ -18,22 +18,21 @@
               <Calendar id="startCal" taborder="14" left="6.79%" top="8" right="83.73%" height="30"/>
               <Static id="Static04" taborder="15" text="   ~" left="15.13%" top="10" right="82.26%" height="32" style="color:aliceblue;align:center middle;font:bold 12 arial;"/>
               <Calendar id="endCal" taborder="16" left="17.66%" top="8" right="72.85%" height="30"/>
-              <Static id="subCodeStc01" taborder="17" text="부서" onclick="subCodeStc_onclick" left="28.21%" top="8" right="65.25%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="deptnoEd" taborder="18" left="34.91%" top="8" right="57.97%" height="30"/>
-              <Edit id="deptnmEd" taborder="19" left="44.64%" top="8" right="48.24%" height="30"/>
-              <Static id="subCodeStc02" taborder="20" text="사원" onclick="subCodeStc_onclick" left="52.58%" top="8" right="40.88%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="empnoEd" taborder="21" left="59.28%" top="8" right="33.61%" height="30"/>
-              <Edit id="empnmEd" taborder="22" left="69.01%" top="8" right="23.88%" height="30"/>
-              <Button id="saveBtn" taborder="23" onclick="inoutInfoDiv_saveBtn_onclick" cssclass="DelBtn" enable="false" left="77.02%" top="6" right="15.62%" height="32" style="background:@gradation URL('img::permitBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Static id="subCodeStc02" taborder="20" text="사원" onclick="subCodeStc_onclick" left="29.68%" top="8" right="63.78%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="empnoEd" taborder="21" left="36.39%" top="8" right="56.5%" height="30"/>
+              <Edit id="empnmEd" taborder="22" left="46.12%" top="8" right="46.77%" height="30"/>
               <Button id="searchInoutTimeBtn" taborder="24" onclick="inoutInfoDiv_searchInoutTimeBtn_onclick" cssclass="SearchBtn" left="92.4%" top="7" right="0.33%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="addInoutTimeBtn" taborder="25" onclick="inoutInfoDiv_addInoutTimeBtn_onclick" cssclass="DelBtn" enable="false" left="84.63%" top="6" right="8.09%" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="addInoutTimeBtn" taborder="25" onclick="inoutInfoDiv_addInoutTimeBtn_onclick" cssclass="DelBtn" enable="false" left="75.8%" top="6" right="16.93%" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="apBtn" taborder="26" text="결재" onclick="mainDiv_apBtn_onclick" enable="false" left="61.08%" top="7" right="33.93%" height="30" style="background:#848484ff;color:white;font:bold 10 돋움; :disabled {background:#b0bec5ff;color:navy;bordertype:normal 3 3 ;}" class="ProcessBtn"/>
+              <Button id="saveBtn00" taborder="27" onclick="mainDiv_saveBtn_onclick" cssclass="DelBtn" left="66.56%" top="6" right="24.04%" height="32" style="background:@gradation URL('img::batchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Button id="delOverTimeBtn" taborder="28" onclick="mainDiv_delOverTimeBtn_onclick" cssclass="DelBtn" enable="false" left="83.16%" top="7" right="9.16%" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
             </Layout>
           </Layouts>
         </Div>
         <Div id="inoutTimeDiv" taborder="2" left="1.36%" top="125" right="0.8%" height="627" style="background:#eceff1ff;">
           <Layouts>
             <Layout>
-              <Grid id="transferPatGrid" taborder="0" binddataset="dsInoutWorkTime" useinputpanel="false" autofittype="col" oncellclick="transferPatGrid_oncellclick" left="13" top="19" width="1202" height="592">
+              <Grid id="transferPatGrid" taborder="0" binddataset="dsOverTimeWork" useinputpanel="false" autofittype="col" oncellclick="transferPatGrid_oncellclick" left="13" top="19" width="1202" height="592">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -41,10 +40,14 @@
                       <Column size="84"/>
                       <Column size="68"/>
                       <Column size="57"/>
-                      <Column size="95"/>
-                      <Column size="90"/>
-                      <Column size="94"/>
-                      <Column size="189"/>
+                      <Column size="85"/>
+                      <Column size="78"/>
+                      <Column size="79"/>
+                      <Column size="71"/>
+                      <Column size="73"/>
+                      <Column size="75"/>
+                      <Column size="174"/>
+                      <Column size="54"/>
                     </Columns>
                     <Rows>
                       <Row size="24" band="head"/>
@@ -54,20 +57,26 @@
                       <Cell style="background:#b0bec5ff;" text="NO"/>
                       <Cell col="1" style="background:#b0bec5ff;font:bold 9 돋움;" text="사번"/>
                       <Cell col="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="사원명"/>
-                      <Cell col="3" style="background:#b0bec5ff;font:bold 9 돋움;" text="출/퇴근"/>
-                      <Cell col="4" colspan="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="출입시간"/>
-                      <Cell col="6" style="background:#b0bec5ff;font:bold 9 돋움;" text="시간외근무시간" autosizecol="default"/>
-                      <Cell col="7" style="background:#b0bec5ff;" text="사유"/>
+                      <Cell col="3" style="background:#b0bec5ff;font:bold 9 돋움;" text="부서번호"/>
+                      <Cell col="4" style="background:#b0bec5ff;font:bold 9 돋움;" text="부서명"/>
+                      <Cell col="5" colspan="4" style="background:#b0bec5ff;font:bold 9 돋움;" text="시간외근무시간"/>
+                      <Cell col="9" style="background:#b0bec5ff;font:bold 9 돋움;" text="총근무시간"/>
+                      <Cell col="10" style="background:#b0bec5ff;" text="사유"/>
+                      <Cell col="11" style="background:#b0bec5ff;font:bold 9 돋움;" text="결재"/>
                     </Band>
                     <Band id="body">
                       <Cell style="align:center middle;font:10 돋움;" expr="expr:currow+1"/>
                       <Cell col="1" style="align:center middle;font:10 돋움;" text="bind:empNo"/>
                       <Cell col="2" style="align:center middle;font:10 돋움;" text="bind:empNm"/>
                       <Cell col="3" displaytype="combo" edittype="combo" style="align:center middle;font:10 돋움;" text="bind:inoutGubun" combodataset="dsInoutGubun" combocodecol="code" combodatacol="value"/>
-                      <Cell col="4" displaytype="date" edittype="date" style="align:center middle;font:10 돋움;" text="bind:belongDay"/>
-                      <Cell col="5" edittype="text" style="align:center middle;font:10 돋움;" text="bind:inOutTime" mask="##:##"/>
-                      <Cell col="6" style="align:center middle;font:10 돋움;" text="bind:overTime" mask="#시간"/>
-                      <Cell col="7" edittype="text" text="bind:reason"/>
+                      <Cell col="4" style="align:center middle;font:10 돋움;"/>
+                      <Cell col="5" displaytype="date" edittype="date" style="align:center middle;font:10 돋움;"/>
+                      <Cell col="6" style="align:center middle;font:10 돋움;" mask="##:00"/>
+                      <Cell col="7" displaytype="date" edittype="date" style="align:center middle;font:10 돋움;"/>
+                      <Cell col="8" style="align:center middle;font:10 돋움;" mask="##:00"/>
+                      <Cell col="9" style="align:center middle;font:10 돋움;" mask="##시간"/>
+                      <Cell col="10" edittype="text" style="align:center middle;font:10 돋움;" text="bind:reason"/>
+                      <Cell col="11" style="align:center middle;font:10 돋움;"/>
                     </Band>
                   </Format>
                 </Formats>
@@ -75,9 +84,58 @@
             </Layout>
           </Layouts>
         </Div>
-        <Button id="findDeptBtn" taborder="3" onclick="findDeptBtn_onclick" cssclass="btn_WF_SearchSmall" left="532" top="78" width="30" height="30"/>
-        <Button id="findEmpBtn" taborder="4" onclick="findEmpBtn_onclick" cssclass="btn_WF_SearchSmall" left="830" top="78" width="30" height="30"/>
+        <Button id="findEmpBtn" taborder="4" onclick="findEmpBtn_onclick" cssclass="btn_WF_SearchSmall" left="550" top="78" width="30" height="30"/>
       </Layout>
     </Layouts>
+    <Objects>
+      <Dataset id="dsOverTimeWork">
+        <ColumnInfo>
+          <Column id="startOvertime" type="STRING" size="256"/>
+          <Column id="endOvertime" type="STRING" size="256"/>
+          <Column id="totalOvertime" type="STRING" size="256"/>
+          <Column id="overStatus" type="STRING" size="256"/>
+          <Column id="reason" type="STRING" size="256"/>
+          <Column id="approvalReason" type="STRING" size="256"/>
+          <Column id="overtimeNo" type="STRING" size="256"/>
+          <Column id="empNo" type="STRING" size="256"/>
+          <Column id="empNm" type="STRING" size="256"/>
+          <Column id="deptCd" type="STRING" size="256"/>
+          <Column id="deptNm" type="STRING" size="256"/>
+          <Column id="startOvertimeDate" type="STRING" size="256"/>
+          <Column id="endOvertimeDate" type="STRING" size="256"/>
+          <Column id="beforeOvertimeNo" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">searchOverTimeList</Col>
+            <Col id="URL">his::/hrs/overtime/findOverTimeWorkList.do</Col>
+            <Col id="outData">dsOverTimeWork=dsOverTimeWork</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">searchApproverOverTimeList</Col>
+            <Col id="URL">his::/hrs/overtime/findApproverOverTimeWorkList.do</Col>
+            <Col id="outData">dsOverTimeWork=dsOverTimeWork</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchOverTimeProcess</Col>
+            <Col id="URL">his::/hrs/overtime/batchOverTimeWorkProcess.do</Col>
+            <Col id="inData">dsOverTimeWork=dsOverTimeWork:u</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
   </Form>
 </FDL>
