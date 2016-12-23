@@ -24,18 +24,17 @@
           </Layouts>
         </Div>
         <Static id="dd00" taborder="4" text="환자검색" left="0.72%" top="75" right="60.32%" height="29" style="background:#607d8bff;color:#eceff1ff;align:center middle;font:bold 10 돋움;"/>
-        <Grid id="transferPatGrid" taborder="5" binddataset="dsOutpaReceipt" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="16" top="212" width="472" height="508">
+        <Grid id="transferPatGrid" taborder="5" binddataset="dsTransferPatientInfo" useinputpanel="false" autofittype="col" left="16" top="212" width="472" height="508" oncellclick="transferPatGrid_oncellclick" oncelldblclick="transferPatGrid_oncelldblclick">
           <Formats>
             <Format id="default">
               <Columns>
                 <Column size="28"/>
-                <Column size="71"/>
-                <Column size="83"/>
-                <Column size="74"/>
-                <Column size="90"/>
-                <Column size="80"/>
-                <Column size="103"/>
-                <Column size="41"/>
+                <Column size="69"/>
+                <Column size="69"/>
+                <Column size="36"/>
+                <Column size="43"/>
+                <Column size="89"/>
+                <Column size="141"/>
               </Columns>
               <Rows>
                 <Row size="24" band="head"/>
@@ -44,38 +43,36 @@
               </Rows>
               <Band id="head">
                 <Cell style="background:#cfd8dcff;" text="NO"/>
-                <Cell col="1" style="background:#cfd8dcff;font:bold 9 돋움;" text="접수일자"/>
-                <Cell col="2" style="background:#cfd8dcff;font:bold 9 돋움;" text="등록번호"/>
-                <Cell col="3" style="background:#cfd8dcff;font:bold 9 돋움;" text="환자명"/>
-                <Cell col="4" style="background:#cfd8dcff;font:bold 9 돋움;" text="진료과"/>
-                <Cell col="5" style="background:#cfd8dcff;font:bold 9 돋움;" text="진료의"/>
-                <Cell col="6" style="background:#cfd8dcff;font:bold 9 돋움;" text="상담결과"/>
-                <Cell col="7" style="background:#cfd8dcff;font:bold 9 돋움;" text="작성" autosizecol="default"/>
+                <Cell col="1" style="background:#cfd8dcff;font:bold 9 돋움;" text="환자번호"/>
+                <Cell col="2" style="background:#cfd8dcff;font:bold 9 돋움;" text="성명"/>
+                <Cell col="3" style="background:#cfd8dcff;font:bold 9 돋움;" text="성별"/>
+                <Cell col="4" style="background:#cfd8dcff;font:bold 9 돋움;" text="나이"/>
+                <Cell col="5" style="background:#cfd8dcff;font:bold 9 돋움;" text="진료일자"/>
+                <Cell col="6" style="background:#cfd8dcff;font:bold 9 돋움;" text="진단명" autosizecol="default"/>
               </Band>
               <Band id="body">
-                <Cell style="font:10 돋움;" expr="expr:currow+1"/>
-                <Cell col="1" style="font:10 돋움;"/>
-                <Cell col="2" style="font:10 돋움;"/>
-                <Cell col="3" style="font:10 돋움;"/>
-                <Cell col="4" style="font:10 돋움;" text="bind:patNo"/>
-                <Cell col="5" style="font:10 돋움;" text="bind:patNm"/>
-                <Cell col="6" style="font:10 돋움;" text="bind:patType"/>
-                <Cell col="7" style="font:10 돋움;" text="bind:ntTtYb"/>
+                <Cell style="align:center middle;font:10 돋움;" expr="expr:currow+1"/>
+                <Cell col="1" style="align:center middle;font:10 돋움;" text="bind:patNo"/>
+                <Cell col="2" style="align:center middle;font:10 돋움;" text="bind:patNm"/>
+                <Cell col="3" style="align:center middle;font:10 돋움;" text="bind:gender"/>
+                <Cell col="4" style="align:center middle;font:10 돋움;" text="bind:age"/>
+                <Cell col="5" style="align:center middle;font:10 돋움;" text="bind:trmtDate"/>
+                <Cell col="6" style="align:center middle;font:10 돋움;" text="bind:dgnsNm"/>
               </Band>
               <Band id="summary">
                 <Cell colspan="6" style="background:#cfd8dcff;" text="인원"/>
-                <Cell col="6" colspan="2" style="background:#cfd8dcff;" expr="expr:dataset.getRowCount()" mask="##명"/>
+                <Cell col="6" style="background:#cfd8dcff;" expr="expr:dataset.getRowCount()" mask="##명"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Div id="Div00" taborder="6" left="40.64%" top="70" right="2.48%" height="658" style="background:#eceff1ff;">
+        <Div id="transferDetailDiv" taborder="6" left="40.64%" top="70" right="2.48%" height="658" style="background:#eceff1ff;">
           <Layouts>
             <Layout width="711" height="658">
               <Static id="transferDateStc" taborder="0" text="접수일자" onclick="subCodeStc_onclick" left="2.81%" top="46" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Calendar id="receiptDateCal" taborder="1" dateformat="yyyyMMdd" editformat="yyyyMMdd" left="20.82%" top="46" right="51.9%" height="31"/>
               <Static id="transferDateStc00" taborder="2" text="기록일자" onclick="subCodeStc_onclick" left="2.81%" top="86" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Calendar id="recodeDateCal" taborder="3" dateformat="yyyyMMdd" editformat="yyyyMMdd" left="20.82%" top="86" right="51.9%" height="31"/>
+              <Calendar id="recodeDateCal" taborder="3" dateformat="yyyyMMdd" editformat="yyyyMMdd" left="20.82%" top="86" right="51.9%" height="31" value="null" type="normal"/>
               <Static id="transferDateStc01" taborder="4" text="환자번호" onclick="subCodeStc_onclick" left="2.81%" top="163" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="patNoEd" taborder="5" enable="false" left="20.82%" top="163" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc02" taborder="6" text="주민번호" onclick="subCodeStc_onclick" left="2.81%" top="203" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -114,23 +111,23 @@
               <Edit id="trmtDeptEd" taborder="22" enable="false" left="20.82%" top="355" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc10" taborder="23" text="진료의" onclick="subCodeStc_onclick" left="52.32%" top="355" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="trmtDoctEd" taborder="24" enable="false" left="70.32%" top="355" width="194" height="30" class="AreaEdt"/>
-              <Edit id="dgnsNm" taborder="26" enable="false" left="20.82%" top="395" width="544" height="30" class="AreaEdt"/>
+              <Edit id="dgnsNmEd" taborder="26" enable="false" left="20.82%" top="395" width="544" height="30" class="AreaEdt"/>
               <Static id="transferDateStc14" taborder="31" text="전원일자" onclick="subCodeStc_onclick" left="2.81%" top="435" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Calendar id="transferDateCal" taborder="32" dateformat="yyyyMMdd" editformat="yyyyMMdd" left="20.82%" top="435" right="51.9%" height="31"/>
               <Static id="transferDateStc15" taborder="33" text="퇴원일자" onclick="subCodeStc_onclick" left="52.6%" top="435" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Calendar id="dischargeDateCal" taborder="34" dateformat="yyyyMMdd" editformat="yyyyMMdd" left="70.6%" top="435" right="2.11%" height="31"/>
               <Static id="transferDateStc16" taborder="35" text="전원기관명" onclick="subCodeStc_onclick" left="2.81%" top="475" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="transferHosNmEd" taborder="36" enable="false" left="20.82%" top="475" width="194" height="30" class="AreaEdt"/>
+              <Edit id="transferHosNmEd" taborder="36" enable="true" left="20.82%" top="475" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc17" taborder="37" text="전원진료과" onclick="subCodeStc_onclick" left="52.6%" top="475" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="transferHosDeptEd" taborder="38" enable="false" left="70.6%" top="475" width="194" height="30" class="AreaEdt"/>
+              <Edit id="transferHosDeptEd" taborder="38" enable="true" left="70.6%" top="475" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc18" taborder="39" text="전원기관진료의" onclick="subCodeStc_onclick" left="2.81%" top="514" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="transferHosDoctEd" taborder="40" enable="false" left="20.82%" top="514" width="194" height="30" class="AreaEdt"/>
+              <Edit id="transferHosDoctEd" taborder="40" enable="true" left="20.82%" top="514" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc19" taborder="41" text="전원기관연락처" onclick="subCodeStc_onclick" left="52.6%" top="514" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="transferHosTelEd" taborder="42" enable="false" left="70.6%" top="514" width="194" height="30" class="AreaEdt"/>
+              <Edit id="transferHosTelEd" taborder="42" enable="true" left="70.6%" top="514" width="194" height="30" class="AreaEdt"/>
               <Static id="transferDateStc20" taborder="43" text="전원사유" onclick="subCodeStc_onclick" left="2.81%" top="554" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Combo id="transferReasonCombo" taborder="44" left="20.82%" top="554" height="30" width="194" value="null"/>
+              <Combo id="transferReasonCombo" taborder="44" left="20.82%" top="554" height="30" width="194" value="null" innerdataset="@dsTransferReasonType" datacolumn="reason" codecolumn="reason"/>
               <Static id="transferDateStc21" taborder="45" text="의료정보제공" onclick="subCodeStc_onclick" left="2.81%" top="593" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Radio id="providingMedInfoChk" taborder="46" columncount="2" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" onitemclick="inoutRadio_onitemclick" onitemchanged="inoutRadio_onitemchanged" left="21.8%" top="596" right="50.77%" height="57" style="textpadding:0 0 0 3;color:#263238ff;font:9 돋움;itempadding:0 3 10 0;" direction="vertical">
+              <Radio id="providingMedInfoChk" taborder="46" columncount="2" index="-1" codecolumn="codecolumn" datacolumn="datacolumn" left="21.8%" top="596" right="50.77%" height="57" style="textpadding:0 0 0 3;color:#263238ff;font:9 돋움;itempadding:0 3 10 0;" direction="vertical" value="Y">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -138,19 +135,19 @@
                   </ColumnInfo>
                   <Rows>
                     <Row>
-                      <Col id="codecolumn">1</Col>
+                      <Col id="codecolumn">진료소견서</Col>
                       <Col id="datacolumn">진료소견서</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn">2</Col>
+                      <Col id="codecolumn">검사소견</Col>
                       <Col id="datacolumn">검사소견</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn">3</Col>
+                      <Col id="codecolumn">영상자료포함</Col>
                       <Col id="datacolumn">영상자료포함</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn">4</Col>
+                      <Col id="codecolumn">무</Col>
                       <Col id="datacolumn">무</Col>
                     </Row>
                   </Rows>
@@ -160,7 +157,7 @@
               <TextArea id="noteArea" taborder="48" left="70.6%" top="553" height="96" width="194"/>
               <Static id="transferDateStc11" taborder="49" text="진단명" onclick="subCodeStc_onclick" left="2.81%" top="395" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="transferDateStc12" taborder="50" text="상담결과" onclick="subCodeStc_onclick" left="2.81%" top="124" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Radio id="adviceResult" taborder="51" columncount="4" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" onitemclick="inoutRadio_onitemclick" onitemchanged="inoutRadio_onitemchanged" left="21.94%" top="127" right="12.8%" height="25" style="textpadding:0 0 0 3;color:#263238ff;font:9 돋움;itempadding:0 3 0 0;">
+              <Radio id="adviceResultRadio" taborder="51" columncount="4" index="0" codecolumn="codecolumn" datacolumn="datacolumn" value="Y" onitemclick="inoutRadio_onitemclick" onitemchanged="inoutRadio_onitemchanged" left="21.94%" top="127" right="12.8%" height="25" style="textpadding:0 0 0 3;color:#263238ff;font:9 돋움;itempadding:0 3 0 0;">
                 <Dataset id="innerdataset">
                   <ColumnInfo>
                     <Column id="codecolumn" size="256"/>
@@ -168,19 +165,19 @@
                   </ColumnInfo>
                   <Rows>
                     <Row>
-                      <Col id="codecolumn">Y</Col>
+                      <Col id="codecolumn">전원결정</Col>
                       <Col id="datacolumn">전원결정</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn">RY</Col>
+                      <Col id="codecolumn">퇴원 후 전원</Col>
                       <Col id="datacolumn">퇴원 후 전원</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn">N</Col>
+                      <Col id="codecolumn">전원 미 결정</Col>
                       <Col id="datacolumn">전원 미 결정</Col>
                     </Row>
                     <Row>
-                      <Col id="codecolumn"/>
+                      <Col id="codecolumn">전체</Col>
                       <Col id="datacolumn">전체</Col>
                     </Row>
                   </Rows>
@@ -188,14 +185,16 @@
               </Radio>
               <Static id="transferDateStc13" taborder="52" text="전원환자번호" onclick="subCodeStc_onclick" left="52.18%" top="46" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="transferNoEd" taborder="53" enable="false" left="70.18%" top="46" width="194" height="30" class="AreaEdt"/>
+              <Static id="transferDateStc23" taborder="54" text="환자 연락처" onclick="subCodeStc_onclick" left="52.32%" top="279" width="127" height="30" style="background:#90a4aeff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="patTelEd" taborder="55" enable="false" left="70.32%" top="279" width="194" height="30" class="AreaEdt"/>
+              <Button id="makeTransferPatNoBtn" taborder="56" text="전원환자번호생성" cssclass="btn_WF_Add" left="572" top="82" width="126" height="12" style="color:crimson;font:bold 9 돋움;" onclick="transferDetailDiv_makeTransferPatNoBtn_onclick"/>
             </Layout>
           </Layouts>
         </Div>
-        <Button id="registerBtn" taborder="7" onclick="registerBtn_onclick" left="730" top="732" width="90" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="closeBtn" taborder="8" onclick="closeBtn_onclick" left="1133" top="732" width="90" height="32" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="deleteBtn" taborder="9" onclick="registerBtn_onclick" left="922" top="732" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="updateBtn" taborder="10" onclick="registerBtn_onclick" left="826" top="731" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="saveBtn" taborder="11" onclick="registerBtn_onclick" left="1018" top="731" width="90" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="registerBtn" taborder="7" left="810" top="732" width="90" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="registerBtn_onclick"/>
+        <Button id="closeBtn" taborder="8" left="1133" top="732" width="90" height="32" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="closeBtn_onclick"/>
+        <Button id="deleteBtn" taborder="9" left="1002" top="732" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="deleteBtn_onclick"/>
+        <Button id="updateBtn" taborder="10" left="906" top="731" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="updateBtn_onclick"/>
         <Static id="dd01" taborder="12" text="전원환자상세정보" left="41.04%" top="75" right="2.88%" height="29" style="background:#607d8bff;color:#eceff1ff;align:center middle;font:bold 10 돋움;"/>
         <Button id="searchBtn" taborder="13" left="398" top="168" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="searchBtn_onclick"/>
       </Layout>
@@ -210,27 +209,268 @@
           <Column id="argument" type="STRING" size="256"/>
           <Column id="callbackFunc" type="STRING" size="256"/>
         </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="URL">his::msv/mcm/patientservice/findTransferPatientInfoList.do</Col>
+            <Col id="serviceID">findTransferPatientInfoList</Col>
+            <Col id="outData">dsTransferPatientInfo=dsTransferPatientInfo</Col>
+            <Col id="callbackFunc">gfnCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">registerTransferPatient</Col>
+            <Col id="URL">his::msv/mcm/patientservice/registerTransferPatient.do</Col>
+            <Col id="outData"/>
+            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">modifyTransferPatient</Col>
+            <Col id="URL">his::msv/mcm/patientservice/modifyTransferPatient.do</Col>
+            <Col id="outData"/>
+            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">removeTransferPatient</Col>
+            <Col id="URL">his::msv/mcm/patientservice/removeTransferPatient.do</Col>
+            <Col id="outData"/>
+            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findTransferPatientList</Col>
+            <Col id="URL">his::msv/mcm/patientservice/findTransferPatientList.do</Col>
+            <Col id="outData">dsTransferPatient=dsTransferPatient</Col>
+            <Col id="callbackFunc">gfnCallbackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsTransferPatientInfo">
+        <ColumnInfo>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="trmtDept" type="STRING" size="256"/>
+          <Column id="trmtDoct" type="STRING" size="256"/>
+          <Column id="receiptDate" type="STRING" size="256"/>
+          <Column id="dgnsNm" type="STRING" size="256"/>
+          <Column id="hosptlzDate" type="STRING" size="256"/>
+          <Column id="hosptlzYb" type="STRING" size="256"/>
+          <Column id="rrn1" type="STRING" size="256"/>
+          <Column id="rrn2" type="STRING" size="256"/>
+          <Column id="gender" type="STRING" size="256"/>
+          <Column id="age" type="STRING" size="256"/>
+          <Column id="tel" type="STRING" size="256"/>
+          <Column id="zip" type="STRING" size="256"/>
+          <Column id="addr" type="STRING" size="256"/>
+          <Column id="dtlAddr" type="STRING" size="256"/>
+          <Column id="trmtDeptNm" type="STRING" size="256"/>
+          <Column id="trmtDoctNm" type="STRING" size="256"/>
+          <Column id="trmtDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTransferPatient">
+        <ColumnInfo>
+          <Column id="transferNo" type="STRING" size="256"/>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="receiptDate" type="STRING" size="256"/>
+          <Column id="recodeDate" type="STRING" size="256"/>
+          <Column id="transferDate" type="STRING" size="256"/>
+          <Column id="trmtDept" type="STRING" size="256"/>
+          <Column id="trmtDoct" type="STRING" size="256"/>
+          <Column id="dgnsNm" type="STRING" size="256"/>
+          <Column id="dischargeDate" type="STRING" size="256"/>
+          <Column id="transferHosNm" type="STRING" size="256"/>
+          <Column id="transferHosDept" type="STRING" size="256"/>
+          <Column id="transferHosDoct" type="STRING" size="256"/>
+          <Column id="transferHosTel" type="STRING" size="256"/>
+          <Column id="transferReason" type="STRING" size="256"/>
+          <Column id="providingMedInfo" type="STRING" size="256"/>
+          <Column id="recodeYn" type="STRING" size="256"/>
+          <Column id="adviceResult" type="STRING" size="256"/>
+          <Column id="note" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTransferReasonType">
+        <ColumnInfo>
+          <Column id="reason" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="reason">보조치료</Col>
+          </Row>
+          <Row>
+            <Col id="reason">타기관에서 진료</Col>
+          </Row>
+          <Row>
+            <Col id="reason">요양목적</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsInfoType">
+        <ColumnInfo>
+          <Column id="Column0" type="STRING" size="256"/>
+          <Column id="Column1" type="STRING" size="256"/>
+        </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.0"><![CDATA[
+    <Bind>
+      <BindItem id="item0" compid="transferDetailDiv.patNoEd" propid="" datasetid="dsTransferPatient" columnid="patNo"/>
+      <BindItem id="item1" compid="transferDetailDiv.patNmEd" propid="" datasetid="dsTransferPatientInfo" columnid="patNm"/>
+      <BindItem id="item2" compid="transferDetailDiv.receiptDateCal" propid="" datasetid="dsTransferPatient" columnid="receiptDate"/>
+      <BindItem id="item3" compid="transferDetailDiv.transferNoEd" propid="" datasetid="dsTransferPatient" columnid="transferNo"/>
+      <BindItem id="item4" compid="transferDetailDiv.recodeDateCal" propid="" datasetid="dsTransferPatient" columnid="recodeDate"/>
+      <BindItem id="item5" compid="transferDetailDiv.adviceResultRadio" propid="" datasetid="dsTransferPatient" columnid="adviceResult"/>
+      <BindItem id="item6" compid="transferDetailDiv.rrnEd" propid="" datasetid="dsTransferPatientInfo" columnid="rrn1"/>
+      <BindItem id="item7" compid="transferDetailDiv.patNoEd" propid="value" datasetid="dsTransferPatient" columnid="patNo"/>
+      <BindItem id="item8" compid="transferDetailDiv.receiptDateCal" propid="value" datasetid="dsTransferPatient" columnid="receiptDate"/>
+      <BindItem id="item9" compid="transferDetailDiv.transferNoEd" propid="value" datasetid="dsTransferPatient" columnid="transferNo"/>
+      <BindItem id="item10" compid="transferDetailDiv.recodeDateCal" propid="value" datasetid="dsTransferPatient" columnid="recodeDate"/>
+      <BindItem id="item11" compid="transferDetailDiv.adviceResultRadio" propid="value" datasetid="dsTransferPatient" columnid="adviceResult"/>
+      <BindItem id="item12" compid="transferDetailDiv.patNmEd" propid="value" datasetid="dsTransferPatientInfo" columnid="patNm"/>
+      <BindItem id="item13" compid="transferDetailDiv.zipcodeEd" propid="value" datasetid="dsTransferPatientInfo" columnid="zip"/>
+      <BindItem id="item14" compid="transferDetailDiv.inoutRadio" propid="value" datasetid="dsTransferPatientInfo" columnid="hosptlzYb"/>
+      <BindItem id="item15" compid="transferDetailDiv.patTelEd" propid="value" datasetid="dsTransferPatientInfo" columnid="tel"/>
+      <BindItem id="item16" compid="transferDetailDiv.outReceiptDateCal" propid="value" datasetid="dsTransferPatientInfo" columnid="receiptDate"/>
+      <BindItem id="item17" compid="transferDetailDiv.inReceiptDateCal" propid="value" datasetid="dsTransferPatientInfo" columnid="hosptlzDate"/>
+      <BindItem id="item18" compid="transferDetailDiv.trmtDeptEd" propid="value" datasetid="dsTransferPatient" columnid="trmtDept"/>
+      <BindItem id="item19" compid="transferDetailDiv.trmtDoctEd" propid="value" datasetid="dsTransferPatient" columnid="trmtDoct"/>
+      <BindItem id="item20" compid="transferDetailDiv.dgnsNmEd" propid="value" datasetid="dsTransferPatient" columnid="dgnsNm"/>
+      <BindItem id="item21" compid="transferDetailDiv.transferDateCal" propid="value" datasetid="dsTransferPatient" columnid="transferDate"/>
+      <BindItem id="item22" compid="transferDetailDiv.dischargeDateCal" propid="value" datasetid="dsTransferPatient" columnid="dischargeDate"/>
+      <BindItem id="item23" compid="transferDetailDiv.transferHosNmEd" propid="value" datasetid="dsTransferPatient" columnid="transferHosNm"/>
+      <BindItem id="item24" compid="transferDetailDiv.transferHosDeptEd" propid="value" datasetid="dsTransferPatient" columnid="transferHosDept"/>
+      <BindItem id="item25" compid="transferDetailDiv.transferHosDoctEd" propid="value" datasetid="dsTransferPatient" columnid="transferHosDoct"/>
+      <BindItem id="item26" compid="transferDetailDiv.transferHosTelEd" propid="value" datasetid="dsTransferPatient" columnid="transferHosTel"/>
+      <BindItem id="item27" compid="transferDetailDiv.transferReasonCombo" propid="value" datasetid="dsTransferPatient" columnid="transferReason"/>
+      <BindItem id="item28" compid="transferDetailDiv.noteArea" propid="value" datasetid="dsTransferPatient" columnid="note"/>
+      <BindItem id="item29" compid="transferDetailDiv.providingMedInfoChk" propid="value" datasetid="dsTransferPatient" columnid="providingMedInfo"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
+@Path			진료처방              				   				
+@Description	전원환자 관리 화면 			
+@Author	  		백송은			    			                        								                                            
+@Create         2016.12.                      		                    				                                            
+********************************************************************************/
+
+include "scripts::commonScripts.xjs";
+
+var searchDate;
+var todayDate;
+var transferNo;
+var patNo;
+
 this.SCP_TransferedPatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
+	todayDate = this.gfnFormatDate("Ymd");
+	
 	empNo = application.gdsEmp.getColumn(0, "empNo");
 	empNm = application.gdsEmp.getColumn(0, "empNm");
 	
 	this.patientDiv.diagnDoctEd.set_value(application.gdsEmp.getColumn(0, "empNm"));
 	this.patientDiv.diagnDeptEd.set_value(application.gdsEmp.getColumn(0, "deptNm"));
+
+	this.transferDetailDiv.recodeDateCal.set_value(todayDate);
 }
 
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	searchDate = this.diagnDiv.diagnDateCal.text
+	searchDate = this.patientDiv.diagnDateCal.text;
+	this.dsService.setColumn(0, "argument", "trmtDoct=" + empNo + " trmtDate=" + searchDate);
 	
-	this.dsService.setColumn(1, "argument", "trmtDoct=" + empNo + " trmtDate=" + searchDate);
-	
-		this.gfnService("findReceiptList",false);
+		this.gfnService("findTransferPatientInfoList",false);
 		
 }
+
+
+
+this.transferPatGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+
+ 
+	this.dsTransferPatient.addRow();
+	
+	
+	//칼럼get / set 
+	 patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
+	var rrn1 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn1");
+	var rrn2 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn2");
+	var gender = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "gender");
+	var age = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "age");
+	var addr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "addr");
+	var dtlAddr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dtlAddr");
+	var trmtDeptNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDeptNm");
+	var trmtDoct = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDoct");
+	var dgnsNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dgnsNm");
+	
+	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "patNo", patNo);
+	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDept", trmtDeptNm);
+	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDoct", trmtDoct);
+	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "dgnsNm", dgnsNm);
+	
+	this.transferDetailDiv.rrnEd.set_value(rrn1+" - "+ rrn2);
+	this.transferDetailDiv.genderAgeEd.set_value(gender+" / "+ age);
+	if(dtlAddr == null ){
+		dtlAddr = " ";
+		this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
+	}else{
+		this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
+	}
+	
+
+
+}
+
+this.transferDetailDiv_makeTransferPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	transferNo = this.dsTransferPatient.getColumn(this.dsTransferPatient.rowposition, "transferNo");
+	prescSeqNo = (this.dsTransferPatient.getRowCount()).toString().padLeft(2,"0");
+	if(transferNo != null ){
+		alert("이미 생성된 전원환자 번호가 있습니다.");
+	}else{
+	
+		transferNo = todayDate + "-" + patNo + "-" +  prescSeqNo;
+
+		if(confirm("환자번호 : "+transferNo+" 로 생성하시겠습니까?")){
+			this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "transferNo", transferNo);
+			this.transferDetailDiv.transferNoEd.set_value(transferNo);
+		}
+	}
+}
+
+this.registerBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(confirm("입력한 전원환자정보를 등록하시겠습니까?")){
+			this.gfnService("registerTransferPatient",false);
+	}
+}
+
+this.closeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+this.updateBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(confirm("전원환자정보를 수정하시겠습니까?")){
+			this.gfnService("modifyTransferPatient",false);
+	}
+}
+
+this.deleteBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(confirm("전원환자정보를 삭제하시겠습니까?")){
+			this.gfnService("removeTransferPatient",false);
+	}
+}
+
+this.transferPatGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
+	this.dsService.setColumn(4,'argument','patNo='+patNo);
+	this.gfnService("findTransferPatientList",false);
+}
+
+
 ]]></Script>
   </Form>
 </FDL>
