@@ -48,11 +48,4 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 		return foreignDAO.selectPat(argsMap);
 	}
 	
-		//전원환자 환자 기본 정보
-	@Override
-	public List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap) {
-		return transferPatientInfoDAO.selectTransferPatInfoList(argsMap);
-	}
-
-
 }

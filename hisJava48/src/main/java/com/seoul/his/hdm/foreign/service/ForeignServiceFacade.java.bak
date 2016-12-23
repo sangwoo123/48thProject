@@ -33,9 +33,6 @@ public interface ForeignServiceFacade {
 
     List<DaySchBean> findDayScheduleList(String empNo);
 
-	//전원환자 환자 기본 정보
-    List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap);
-
 
 	/*CalcuOutpaTrmtCostBean calcuOutpaTrmtCost(Map<String, Object> procedureMap) throws Exception;
 

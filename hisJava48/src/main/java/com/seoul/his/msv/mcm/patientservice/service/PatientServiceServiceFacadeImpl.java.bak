@@ -103,26 +103,4 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 	public List<RsvPatBean> findRsvByPatList(Map<String, String> argsMap) {
 		return treatmentReservationAppService.findRsvByPatList(argsMap);
 	}
-
-	// -------- 전원환자 등록 / 수정 / 삭제 / 조회 --------
-
-	@Override
-	public List<TransferPatientBean> findTransferPatientList(Map<String, String> argsMap){
-		return transferPatientApplicationService.findTransferPatientList(argsMap);
-	}
-
-	@Override
-	public void registerTransferPatient(TransferPatientBean transferPatientBean){
-		transferPatientApplicationService.registerTransferPatient(transferPatientBean);
-	}
-
-	@Override
-	public void modifyTransferPatient(TransferPatientBean transferPatientBean){
-		transferPatientApplicationService.modifyTransferPatient(transferPatientBean);
-	}
-
-	@Override
-	public void removeTransferPatient(TransferPatientBean transferPatientBean){
-		transferPatientApplicationService.removeTransferPatient(transferPatientBean);
-	}
 }

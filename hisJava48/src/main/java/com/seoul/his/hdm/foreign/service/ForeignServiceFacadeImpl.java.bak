@@ -69,10 +69,5 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
     	return doctorDiagnosisSchdApplicationService.findDayScheduleList(empNo);
     }
 
-//전원환자 환자 기본 정보
-	@Override
-	public List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap) {
-		return foreignApplicationService.findTransferPatientInfoList(argsMap);
-	}
 
 }
