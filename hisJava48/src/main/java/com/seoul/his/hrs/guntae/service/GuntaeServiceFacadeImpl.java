@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.seoul.his.hrs.guntae.applicationService.GuntaeApplicationService;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 
 /**
  * <pre>
@@ -37,6 +38,24 @@ public class GuntaeServiceFacadeImpl implements GuntaeServiceFacade{
     public void batchInoutWorkTimeProcess(List<InoutWorkTimeBean> list) {
     	guntaeApplicationService.batchInoutWorkTimeProcess(list);
 
+    }
+
+    //개인 시간외근무 조회
+    @Override
+    public List<OverTimeWorkBean> findOverTimeWorkList(Map<String, String> argsMap) {
+        return guntaeApplicationService.findOverTimeWorkList(argsMap);
+    }
+
+    //관리자 시간외근무 조회
+    @Override
+    public List<OverTimeWorkBean> findApproverOverTimeWorkList() {
+        return guntaeApplicationService.findApproverOverTimeWorkList();
+    }
+
+    //시간외근무 일괄처리
+    @Override
+    public void batchOverTimeWorkProcess(List<OverTimeWorkBean> list) {
+    	guntaeApplicationService.batchOverTimeWorkProcess(list);
     }
 }
 
