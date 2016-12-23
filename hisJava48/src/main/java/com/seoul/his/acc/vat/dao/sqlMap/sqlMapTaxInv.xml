@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.seoul.his.acc.vat.dao.TaxInvDAO">
+	<cache flushInterval="86400000" eviction="LRU" />
+
+    <select id="selectTaxInvoiceList" flushCache="false"  useCache="true" resultType="ResolLetBean">
+ SELECT
+            PUB_NO,				<!-- 발행번호 -->
+            PUB_DATE,			<!-- 발행일자 -->
+            PUB_DIV,			<!-- 발행구분 -->
+            SLIP_NO,			<!-- 전표번호 -->
+            BILL_DIV,			<!-- 계산서구분 -->
+            PURCH_SALES_DIV,	<!-- 매입/매출구분 -->
+            ANSP_DIV,			<!-- 청구구분 -->
+            CUST_CD,			<!-- 거래처코드 -->
+            ABS,				<!-- 적요 -->
+            SPLY_PRICE,			<!-- 공급가액 -->
+            TAX_AMT,			<!-- 세액 -->
+            SUM_PRICE,			<!-- 금액 -->
+            GIPYO_DATE,			<!-- 기표일자 -->
+            RESOL_NO			<!-- 결의번호 -->
+        FROM
+           AT_TAXINV
+        WHERE  1 = 1
+        <if test="startPubDate != null">
+           AND  PUB_DATE BETWEEN #{startPubDate} AND #{endPubDate}
+        </if>
+        <if test="startGipyoDate != null">
+           AND  GIPYO_DATE BETWEEN #{startGipyoDate} AND #{endGipyoDate}
+        </if>
+        <if test="custCd != null">
+           AND  CUST_CD = #{custCd}
+        </if>
+         <if test="resolNo != null">
+           AND  RESOL_NO = #{resolNo}
+        </if>
+        <if test="pubDiv != null">
+            <if test="pubDiv == 4">
+                AND PUB_DIV IN ('1','2')
+            </if>
+            <if test="pubDiv != 4">
+                AND PUB_DIV = #{pubDiv}
+            </if>
+        </if>
+        <if test="purchSalesDiv != null">
+           AND  PURCH_SALES_DIV = #{purchSalesDiv}
+        </if>
+        <if test="billDiv != null">
+           AND  BILL_DIV = #{billDiv}
+
+        </if>
+		</select>
+
+  <select id="selectDetailTaxInvList" flushCache="false"  useCache="true" resultType="DetailTaxInvBean">
+        SELECT
+            NO 			AS no,			<!-- 순번 -->
+            PUB_DATE 	AS pubDate,		<!-- 발행일자 -->
+            FM 			AS fm,			<!-- 품목 -->
+            STAND 		AS stand,		<!-- 규격 -->
+            QNT 		AS qnt,			<!-- 수량 -->
+            PRICE 		AS price,		<!-- 단가 -->
+            TAX_AMT 	AS taxAmt,		<!-- 세액 -->
+            SPLY_PRICE 	AS splyPrice,	<!-- 공급가액 -->
+            PUB_NO 		AS pubNo,		<!-- 발행번호 -->
+            DED_yn 		AS dedYN		<!-- 공제여부 -->
+         FROM
+             AT_DETAIL_TAXINV
+         WHERE
+             PUB_NO = #{pubNo}
+     </select>
+
+</mapper>

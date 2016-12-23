@@ -55,6 +55,7 @@
     <Service prefixid="Template" type="form" url="./Template/" version="0" communicationversion="0"/>
     <Service prefixid="Sample" type="form" url="./Sample/" version="0" communicationversion="0"/>
     <Service prefixid="Comm" type="form" url="./Comm/" version="0" communicationversion="0"/>
+    <Service prefixid="bst" type="form" url="./bst/" version="0" communicationversion="0"/>
   </Services>
   <Update/>
   <Protocols/>

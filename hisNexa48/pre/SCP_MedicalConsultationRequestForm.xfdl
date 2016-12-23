@@ -278,11 +278,6 @@
 include "scripts::commonScripts.xjs";
 include "scripts::commonBind.xjs";
 
-this.MC_CfrcTrmtAskingForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
-{
-
-}
-
 //조회
 this.topDiv_searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
