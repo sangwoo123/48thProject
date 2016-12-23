@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApplicationService;
+import com.seoul.his.msv.mcm.patientservice.applicationService.TransferPatientApplicationService;
 import com.seoul.his.msv.mcm.patientservice.applicationService.TreatmentReservationApplicationService;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
@@ -16,6 +17,7 @@ import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 import com.seoul.his.msv.mcm.patientservice.to.RsvPatBean;
 import com.seoul.his.msv.mcm.patientservice.to.TimeSchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientBean;
 
 /**
  * <pre>
@@ -34,6 +36,8 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 	PatientServiceApplicationService patientserviceApplicationService;
 	@Autowired
 	TreatmentReservationApplicationService treatmentReservationAppService;
+	@Autowired
+	TransferPatientApplicationService transferPatientApplicationService;
 	/* 	 EMR 관리	*/
 	@Override
 	public List<EmrBean> findEmrList(Map<String, String> argsMap) {

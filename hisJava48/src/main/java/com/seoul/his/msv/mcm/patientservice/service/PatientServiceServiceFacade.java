@@ -11,6 +11,7 @@ import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 import com.seoul.his.msv.mcm.patientservice.to.RsvPatBean;
 import com.seoul.his.msv.mcm.patientservice.to.TimeSchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientBean;
 
 /**
  * <pre>

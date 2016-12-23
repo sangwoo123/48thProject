@@ -1,6 +1,5 @@
 package com.seoul.his.hdm.foreign.applicationService;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,18 +8,21 @@ import org.springframework.stereotype.Component;
 
 import com.seoul.his.hdm.foreign.dao.ForeignDAO;
 import com.seoul.his.hdm.foreign.dao.ReceiptInfoDAO;
-import com.seoul.his.hdm.foreign.exception.ForeignException;
-import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.PatInfoBean;
+import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
+import com.seoul.his.msv.mcm.patientservice.dao.TransferPatientInfoDAO;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientInfoBean;
 
 
 @Component
-public class ForeignApplicationServiceImpl implements ForeignApplicationService {	
-	
+public class ForeignApplicationServiceImpl implements ForeignApplicationService {
+
 	@Autowired
 	ForeignDAO foreignDAO;
 	@Autowired
 	ReceiptInfoDAO receiptInfoDAO;
+	@Autowired
+	TransferPatientInfoDAO transferPatientInfoDAO;
 
 	@Override
 	public List<ReceiptInfoBean> findDiagnosisReceiptList(Map<String, String> argsMap) {
@@ -47,8 +49,8 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 	public PatInfoBean findPat(Map<String, String> argsMap) {
 		return foreignDAO.selectPat(argsMap);
 	}
-	
-		//¿¸ø¯»Ø¿⁄ »Ø¿⁄ ±‚∫ª ¡§∫∏
+
+		//Ï†ÑÏõêÌôòÏûê
 	@Override
 	public List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap) {
 		return transferPatientInfoDAO.selectTransferPatInfoList(argsMap);
