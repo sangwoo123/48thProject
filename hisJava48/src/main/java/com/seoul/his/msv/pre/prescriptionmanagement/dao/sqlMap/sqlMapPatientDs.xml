@@ -65,7 +65,7 @@
               , DISEASE_CD
               , DISEASE_NM
               , DEPT
-              , HOSPTIZ_RECEIPT_NO
+              , HOSPTLZ_RECEIPT_NO
               , FEE_CD
               , FEE_NM
               , BIG_GRP
