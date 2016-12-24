@@ -28,7 +28,7 @@ public interface SynthesisCheckupCheckTypeDAO {
     /* 종합검진 검사관리 - 선택 검사목록외 조회*/
     List<SynthesisCheckupCheckTypeBean> selectExChoInspList(Map<String, String> argsMap);
 
-    //void insertChoInsp(ChoiceCheckBean choInsp);
-    //void deleteChoInsp(ChoiceCheckBean choInsp);
-    //void updateChoInsp(ChoiceCheckBean choInsp);
+  void insertChoInsp(ChoiceCheckBean choInsp);
+  void deleteChoInsp(ChoiceCheckBean choInsp);
+  void updateChoInsp(ChoiceCheckBean choInsp);
 }
