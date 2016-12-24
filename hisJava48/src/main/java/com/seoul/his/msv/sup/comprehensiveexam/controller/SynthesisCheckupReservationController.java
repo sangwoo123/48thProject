@@ -82,7 +82,9 @@ public class SynthesisCheckupReservationController {
         }
         
         if(choiceCheckList.size() > 0){
+        	
             map.put("choiceCheckList", choiceCheckList);
+            System.out.println(1123);
         }
         
         comprehensiveExamServiceFacade.batchSynthesisCheckupReservation(map);
