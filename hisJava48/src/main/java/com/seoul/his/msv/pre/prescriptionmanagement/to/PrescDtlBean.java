@@ -25,9 +25,9 @@ import lombok.ToString;
 @Dataset(name="dsPrescDtl")
 public class PrescDtlBean extends BaseBean{
 
-	private String prescNo, prescCd, emgYn, prnYn, antiYn, holdingYn, mtrlYn, mtrlNm, mtrlBodyPart, examWishDate;
-	private String times, insurance, selectCareYn, clncStudyYn, patType, remark, irradiYn, amount, purpose, trfuLoc;
-	private String ast, bloodDonor, volume, unit, takeWay, days, prescDtlNm, prescType, nightYn, inCapacity;
+	private String prescNo, prescCd, inEmgYn, inPrnYn, exAntiYn, holdingYn, exMtrlYn, mtrlNm, mtrlBodyPart, exExamWishDate;
+	private String inTimes, inInsurance, exSelectCareYn, clncStudyYn, patType, inRemark, irradiYn, mtAmount, tfPurpose, tfTrfuLoc;
+	private String ast, tfBloodDonor, volume, inUnit, rbTakeWay, rbDays, prescDtlNm, prescType, exNightYn, inCapacity;
 	private String inNumber, inMethod, exEmgYn, exPrnYn, exTimes, exInsurance, exRemark, hdEmgYn, hdReoperYn, hdNightYn;
 	private String hdTimes, hdStarttime, hdInsurance, hdRemark, mtEmgYn, mtReoperYn, mtNightYn, mtStarttime, mtInsurance, mtMaterLoc;
 	private String mtRemark, rbSelectCareIn, rbInsurance, rbRemark, tfEmgYn, tfAmount, tfTimes, tfStarttime, tfInsurance, tfRemark;
