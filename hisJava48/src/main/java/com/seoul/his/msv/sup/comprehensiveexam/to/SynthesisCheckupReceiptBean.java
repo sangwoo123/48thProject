@@ -1,9 +1,11 @@
 package com.seoul.his.msv.sup.comprehensiveexam.to;
 
+
+
 import java.util.List;
 
-import com.seoulit.erp47.common.annotation.Dataset;
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.common.annotation.Dataset;
+import com.seoul.his.common.to.BaseBean;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -58,6 +60,6 @@ public class SynthesisCheckupReceiptBean extends BaseBean{
                     userId,             // 사용자ID
                     userIp;             // 사용자IP
 
-  private List<InspBean> pckInspList;
-  private List<ChoInspBean> choInspList;
+  private List<SynthesisCheckupCheckTypeBean> pckInspList;
+  private List<ChoiceCheckBean> choInspList;
 }
