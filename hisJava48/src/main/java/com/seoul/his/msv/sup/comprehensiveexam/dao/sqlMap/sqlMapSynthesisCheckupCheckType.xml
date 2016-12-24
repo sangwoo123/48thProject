@@ -122,67 +122,18 @@
                     #{userIp},
                     TO_CHAR(SYSDATE,'YYYY-MM-DD'))
     </update>
+    
+    <!-- 종합검진 검사관리 - 수정, 등록, 저장 -->
+	<update id="insertChoInsp"> 
+		MERGE INTO SC_CHO_INSP USING DUAL ON (RSVT_NO = #{rsvtNo} AND INSP_CD = #{inspCd}) WHEN NOT MATCHED THEN INSERT ( RSVT_NO, INSP_CD, QNT, AMT, INSP_PLN_DATE ) VALUES ( #{rsvtNo}, #{inspCd}, #{qnt}, #{amt}, #{inspPlnDate} ) 
+	</update>
 
-   <!--   종합검진 세부검사관리 - 검사조회
-    <select id="selectSimpleInspList" flushCache="false" useCache="true" resultType="InspBean">
-        SELECT
-            INSP_CD,
-            INSP_NM,
-            RSLT_DEPT_CD
-        FROM
-            SC_INSP
-        <trim prefix="WHERE" prefixOverrides="AND">
-            <if test="inspCd != null">
-                AND INSP_CD LIKE '%'||#{inspCd}||'%'
-            </if>
-            <if test="inspNm != null">
-                AND INSP_NM LIKE '%'||#{inspNm}||'%'
-            </if>
-        </trim>
-        ORDER BY
-            INSP_CD
-    </select>
+	<delete id="deleteChoInsp"> 
+		DELETE FROM SC_CHO_INSP WHERE RSVT_NO =#{rsvtNo} AND INSP_CD =#{inspCd} 
+	</delete>
 
-    <update id="insertChoInsp" >
-        MERGE INTO SC_CHO_INSP
-        USING DUAL
-        ON (RSVT_NO = #{rsvtNo} AND INSP_CD = #{inspCd})
-        WHEN NOT MATCHED THEN
+	<update id="updateChoInsp"> 
+		UPDATE SC_CHO_INSP SET QNT =#{qnt}, AMT =#{amt}, INSP_PLN_DATE = #{inspPlnDate} WHERE RSVT_NO = #{rsvtNo} AND INSP_CD = #{inspCd} 
+	</update>
 
-            INSERT
-            (
-               RSVT_NO,
-               INSP_CD,
-               QNT,
-               AMT,
-               INSP_PLN_DATE
-            )
-            VALUES
-            (
-               #{rsvtNo},
-               #{inspCd},
-               #{qnt},
-               #{amt},
-               #{inspPlnDate}
-            )
-
-    </update>
-
-    <delete id="deleteChoInsp">
-            DELETE FROM SC_CHO_INSP
-             WHERE RSVT_NO      =#{rsvtNo}
-               AND INSP_CD      =#{inspCd}
-    </delete>
-
-    <update id="updateChoInsp">
-    UPDATE SC_CHO_INSP
-        SET
-            QNT =#{qnt},
-            AMT =#{amt},
-            INSP_PLN_DATE = #{inspPlnDate}
-        WHERE
-            RSVT_NO = #{rsvtNo}
-        AND
-            INSP_CD = #{inspCd}
-     </update> -->
 </mapper>
