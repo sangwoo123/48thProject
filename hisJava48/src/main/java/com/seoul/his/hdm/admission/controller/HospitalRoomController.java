@@ -30,7 +30,7 @@ import com.seoul.his.hdm.admission.to.HospitalRoomBean;
  */
 
 @Controller
-public class HospitalRoomAssignmentController {
+public class HospitalRoomController {
 
 	@Autowired
 	private DataSetBeanMapper dataSetBeanMapper;

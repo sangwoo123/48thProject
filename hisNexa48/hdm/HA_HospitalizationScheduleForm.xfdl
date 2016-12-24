@@ -5,26 +5,26 @@
     <Layouts>
       <Layout>
         <Static id="subCodeStc07" taborder="0" text="환자등록번호" onclick="subCodeStc_onclick" left="4.97%" top="72" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="patNoEd" taborder="1" enable="false" left="23.86%" top="72" right="50.1%" height="26" class="AreaEdt"/>
-        <Calendar id="hosptlzHopeDateCal" taborder="2" left="23.86%" top="116" right="45.92%" height="25"/>
+        <Edit id="patNoEd" taborder="1" enable="false" left="23.86%" top="72" right="50.1%" height="26" class="AreaEdt" style="bordertype:round 5 5 ;"/>
+        <Calendar id="hosptlzHopeDateCal" taborder="2" left="23.86%" top="116" right="45.92%" height="25" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc00" taborder="3" text="입원희망일" onclick="subCodeStc_onclick" left="4.97%" top="115" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc01" taborder="4" text="진료과" onclick="subCodeStc_onclick" left="4.97%" top="158" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Combo id="trmtDeptNmCombo" taborder="5" innerdataset="dsGP080" codecolumn="code" datacolumn="bigValue" oncloseup="trmtDeptNmCombo_oncloseup" left="23.86%" top="159" right="50.1%" height="26" class="AreaCombo"/>
-        <Combo id="wardCombo" taborder="6" innerdataset="dsSC070" codecolumn="code" datacolumn="bigValue" left="24.06%" top="202" right="50.1%" height="26" class="AreaCombo"/>
+        <Combo id="trmtDeptNmCombo" taborder="5" innerdataset="dsGP080" codecolumn="code" datacolumn="bigValue" oncloseup="trmtDeptNmCombo_oncloseup" left="23.86%" top="159" right="50.1%" height="26" class="AreaCombo" style="bordertype:round 5 5 ;"/>
+        <Combo id="wardCombo" taborder="6" innerdataset="dsSC070" codecolumn="code" datacolumn="bigValue" left="24.06%" top="202" right="50.1%" height="26" class="AreaCombo" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc03" taborder="7" text="희망병동" onclick="subCodeStc_onclick" left="4.97%" top="201" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc06" taborder="8" text="예상재원일" onclick="subCodeStc_onclick" left="4.97%" top="244" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="prdtFinanDateEdt" taborder="9" left="23.86%" top="245" right="67%" height="26" class="AreaEdt"/>
+        <Edit id="prdtFinanDateEdt" taborder="9" left="23.86%" top="245" right="67%" height="26" class="AreaEdt" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc08" taborder="10" text="특이사항" onclick="subCodeStc_onclick" left="4.97%" top="287" right="77.53%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <TextArea id="TextArea" taborder="11" left="23.86%" top="288" right="20.08%" height="94"/>
-        <Combo id="hroomCombo" taborder="12" innerdataset="dsSC071" codecolumn="code" datacolumn="bigValue" left="75.35%" top="201" right="1.79%" height="26" class=""/>
+        <TextArea id="TextArea" taborder="11" left="23.86%" top="288" right="20.08%" height="94" style="bordertype:round 5 5 ;"/>
+        <Combo id="hroomCombo" taborder="12" innerdataset="dsSC071" codecolumn="code" datacolumn="bigValue" left="75.35%" top="201" right="1.79%" height="26" class="" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc04" taborder="13" text="희망병실" onclick="subCodeStc_onclick" left="56.26%" top="201" right="26.24%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc02" taborder="14" text="담당의사" onclick="subCodeStc_onclick" left="56.26%" top="158" right="26.24%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Combo id="respDoctNmCombo" taborder="15" innerdataset="gdsEmp" codecolumn="empNo" datacolumn="empNm" enable="false" left="75.35%" top="159" right="1.99%" height="26" class=""/>
-        <Edit id="rsvtNoEdt" taborder="16" enable="false" left="78.53%" top="116" right="12.33%" height="26" class="AreaEdt"/>
+        <Combo id="respDoctNmCombo" taborder="15" innerdataset="gdsEmp" codecolumn="empNo" datacolumn="empNm" enable="false" left="75.35%" top="159" right="1.99%" height="26" class="" style="bordertype:round 5 5 ;"/>
+        <Edit id="rsvtNoEdt" taborder="16" enable="false" left="78.53%" top="116" right="12.33%" height="26" class="AreaEdt" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc09" taborder="17" text="입원예약번호" onclick="subCodeStc_onclick" left="56.26%" top="115" right="23.26%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc05" taborder="18" text="외래접수번호" onclick="subCodeStc_onclick" left="56.26%" top="72" right="23.26%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="outpaReceiptNoEdt" taborder="19" enable="false" left="78.53%" top="73" right="12.33%" height="26" class="AreaEdt"/>
-        <Button id="saveBtn" taborder="20" onclick="saveBtn_onclick" left="82.31%" top="352" right="2.78%" height="30" class="DelBtn" text="확인" style="background:#455a64ff;color:#ffffffff;"/>
+        <Edit id="outpaReceiptNoEdt" taborder="19" enable="false" left="78.53%" top="73" right="12.33%" height="26" class="AreaEdt" style="bordertype:round 5 5 ;"/>
+        <Button id="saveBtn" taborder="20" onclick="saveBtn_onclick" left="82.31%" top="352" right="2.78%" height="30" class="DelBtn" text="확인" style="background:#455a64ff;color:#ffffffff;bordertype:round 5 5 ;"/>
         <Div id="Div06" taborder="21" left="0%" top="4" width="500" height="60" style="align:left middle;background:transparent URL('img::titleBar5.jpg');">
           <Layouts>
             <Layout>
