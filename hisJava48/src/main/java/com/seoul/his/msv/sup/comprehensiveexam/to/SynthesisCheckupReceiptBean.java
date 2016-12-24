@@ -1,4 +1,4 @@
-package com.seoulit.erp47.sup.checkup.to;
+package com.seoul.his.msv.sup.comprehensiveexam.to;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Dataset(name = "dsReceipt")
-public class ReceiptBean extends BaseBean{
+public class SynthesisCheckupReceiptBean extends BaseBean{
     private String 
                     rsvtNo,             // 예약번호
                     patNo,              // 환자등록번호

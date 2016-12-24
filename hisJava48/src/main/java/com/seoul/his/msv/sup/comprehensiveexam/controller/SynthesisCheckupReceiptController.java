@@ -1,4 +1,4 @@
-package com.seoulit.erp47.sup.checkup.controller;
+package com.seoul.his.msv.sup.comprehensiveexam.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ import com.seoulit.erp47.sup.checkup.to.RsvtBean;
  */
 
 @Controller
-public class ReceiptController {
+public class SynthesisCheckupReceiptController {
     @Autowired
     DataSetBeanMapper dataSetBeanMapper;
     
@@ -52,9 +52,9 @@ public class ReceiptController {
         Map<String, Object> map = supCheckupServiceFacade.findRsvtReceiptList(argsMap);
         
         List<RsvtBean> rsvtList = (List<RsvtBean>) map.get("rsvtList");
-        List<ReceiptBean> receiptList = (List<ReceiptBean>) map.get("receiptList");
+        List<SynthesisCheckupReceiptBean> receiptList = (List<SynthesisCheckupReceiptBean>) map.get("receiptList");
 
-        dataSetBeanMapper.beansToDataset(outData, receiptList, ReceiptBean.class);
+        dataSetBeanMapper.beansToDataset(outData, receiptList, SynthesisCheckupReceiptBean.class);
         dataSetBeanMapper.beansToDataset(outData, rsvtList, RsvtBean.class);
     }
      
@@ -102,7 +102,7 @@ public class ReceiptController {
     public void registerReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	PlatformData inData = (PlatformData) request.getAttribute("inData");
         
-        ReceiptBean receiptBean= dataSetBeanMapper.datasetToBean(inData, ReceiptBean.class);
+        SynthesisCheckupReceiptBean receiptBean= dataSetBeanMapper.datasetToBean(inData, SynthesisCheckupReceiptBean.class);
         supCheckupServiceFacade.registerReceipt(receiptBean);
     }
     
@@ -111,7 +111,7 @@ public class ReceiptController {
     public void cancelReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         PlatformData inData = (PlatformData) request.getAttribute("inData");
-        ReceiptBean receiptBean = dataSetBeanMapper.datasetToBean(inData, ReceiptBean.class);
+        SynthesisCheckupReceiptBean receiptBean = dataSetBeanMapper.datasetToBean(inData, SynthesisCheckupReceiptBean.class);
 
         supCheckupServiceFacade.cancelReceipt(receiptBean);
     }

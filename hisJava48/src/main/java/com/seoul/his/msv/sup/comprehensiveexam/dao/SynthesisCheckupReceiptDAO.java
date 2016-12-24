@@ -1,4 +1,4 @@
-package com.seoulit.erp47.sup.checkup.dao;
+package com.seoul.his.msv.sup.comprehensiveexam.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -8,10 +8,10 @@ import com.seoulit.erp47.sup.checkup.to.ReceiptBean;
 import com.seoulit.erp47.sup.checkup.to.ReducBean;
 import com.seoulit.erp47.sup.checkup.to.RsvtBean;
 
-public interface ReceiptDAO {
+public interface SynthesisCheckupReceiptDAO {
     
     /* 종합검진 접수 - 접수조회 */
-    List<ReceiptBean> selectReceiptList(Map<String, String> argsMap);
+    List<SynthesisCheckupReceiptBean> selectReceiptList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 예약조회 */
     List<RsvtBean> selectRsvtList(Map<String, String> argsMap);
@@ -32,13 +32,13 @@ public interface ReceiptDAO {
     void deletePckInsp(InspBean inspBean);
 
     /* 종합검진 접수 - 접수 등록 */
-    int insertReceipt(ReceiptBean receiptBean);
+    int insertReceipt(SynthesisCheckupReceiptBean receiptBean);
     
     /* 종합검진 접수 - 접수 취소 여부 */
-    void updateCancelYN(ReceiptBean receiptBean);
+    void updateCancelYN(SynthesisCheckupReceiptBean receiptBean);
 
     /* 종합검진 접수 - 저장 */
-    void updateReceipt(ReceiptBean receiptBean);
+    void updateReceipt(SynthesisCheckupReceiptBean receiptBean);
 
     
 }
