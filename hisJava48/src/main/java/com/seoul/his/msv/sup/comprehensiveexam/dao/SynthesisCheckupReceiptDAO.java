@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
 
 
 
@@ -14,22 +16,19 @@ public interface SynthesisCheckupReceiptDAO {
     List<SynthesisCheckupReceiptBean> selectReceiptList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 예약조회 */
-    List<RsvtBean> selectRsvtList(Map<String, String> argsMap);
-    
-    /* 종합검진 접수 - 감면조회 */
-    List<ReducBean> selectReducList(Map<String, String> argsMap);
+    List<SynthesisCheckupReservationBean> selectRsvtList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 예약검사 조회 */
-    RsvtBean selectRsvtInspList(Map<String, String> argsMap);
+    SynthesisCheckupReservationBean selectRsvtInspList(Map<String, String> argsMap);
 
     /* 종합검진 접수 - 선택검사 조회 */
-    List<InspBean> selectExChoInspList(Map<String, String> argsMap);
+    List<SynthesisCheckupCheckTypeBean> selectExChoInspList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 선택검사 일괄처리 추가 */
-    void insertPckInsp(InspBean inspBean);
+    void insertPckInsp(SynthesisCheckupCheckTypeBean synthesisCheckupCheckTypeBean);
     
     /* 종합검진 접수 - 선택검사 일괄처리 삭제 */
-    void deletePckInsp(InspBean inspBean);
+    void deletePckInsp(SynthesisCheckupCheckTypeBean synthesisCheckupCheckTypeBean);
 
     /* 종합검진 접수 - 접수 등록 */
     int insertReceipt(SynthesisCheckupReceiptBean receiptBean);

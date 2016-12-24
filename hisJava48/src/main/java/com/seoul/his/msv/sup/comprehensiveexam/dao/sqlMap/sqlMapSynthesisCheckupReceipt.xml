@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.seoulit.erp47.sup.checkup.dao.ReceiptDAO">
+<mapper namespace="com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReceiptDAO">
     <cache flushInterval="86400000" eviction="LRU" />
 	<resultMap id="rsvtRresult" type="RsvtBean">
 		<result column="RSVT_NO" property="rsvtNo"/>
@@ -12,7 +12,7 @@
 	
 	
 	<!-- 종합검진 접수 - 접수조회 -->
-	<select resultType="ReceiptBean" flushCache="false" id="selectReceiptList" useCache="true">
+	<select resultType="SynthesisCheckupReceiptBean" flushCache="false" id="selectReceiptList" useCache="true">
 		SELECT R.RSVT_NO, R.PAT_NO, P.PAT_NM, P.RRN1, FN_WS_DECRYPT(P.RRN2) AS RRN2, P.AGE, P.GENDER, P.SMS_RECEIVE_NO AS SMS, R.RSVT_DATE, TO_CHAR(TO_DATE(R.INSP_PLN_DATE,'YYYY-MM-DD'),'YYYYMMDD') AS INSP_PLN_DATE, R.INSP_PLN_TIME, R.APL_MAN, R.APL_MAN_TEL, R.RSHIP, R.PCK_CD, PCK.PCK_NM, R.BASIC_INSP_AMT, R.REDUC_CD, RD.REDUC_NM, R.REDUC_AMT, R.RSVT_AMT, R.BASIC_INSP_SUM_AMT, R.PAY_MAN, R.RSVT_RESP, R.MEMO, R.CHO_INSP_AMT, R.INSP_SUM_AMT, RD.REDUC_NM, RC.APL_DATE, RC.APL_TIME, NVL(RC.CANCEL_YN,'N') AS CANCEL_YN 
 		FROM SC_RSVT R, SC_REDUC RD, SC_PCK PCK, WS_PAT P, SC_RECEIPT RC 
 		WHERE NVL(RC.CANCEL_YN,'N') = 'N' AND R.PAT_NO = P.PAT_NO AND R.REDUC_CD = RD.REDUC_CD(+) AND R.PCK_CD = PCK.PCK_CD(+) AND RC.RSVT_NO = R.RSVT_NO 
@@ -25,7 +25,7 @@
 	</select>
 	
 	<!-- 종합검진 접수 - 예약조회 -->
-	<select resultType="RsvtBean" flushCache="false" id="selectRsvtList" useCache="true">
+	<select resultType="SynthesisCheckupReservationBean" flushCache="false" id="selectRsvtList" useCache="true">
 		SELECT R.RSVT_NO, R.PAT_NO, P.PAT_NM, P.RRN1, FN_WS_DECRYPT(P.RRN2) AS RRN2, P.AGE, P.GENDER, P.SMS_RECEIVE_NO AS SMS, R.RSVT_DATE, R.RSVT_TIME, TO_CHAR(TO_DATE(R.INSP_PLN_DATE,'YYYY-MM-DD'),'YYYYMMDD') AS INSP_PLN_DATE, R.INSP_PLN_TIME, R.APL_MAN, R.APL_MAN_TEL, R.RSHIP, R.PCK_CD, PCK.PCK_NM, R.BASIC_INSP_AMT, R.REDUC_CD, RD.REDUC_NM, R.REDUC_AMT, R.RSVT_AMT, R.BASIC_INSP_SUM_AMT, R.PAY_MAN, R.MEMO, NVL(R.CANCEL_YN,'N') AS CANCEL_YN, R.CHO_INSP_AMT, R.INSP_SUM_AMT 
 		FROM SC_RSVT R, SC_REDUC RD, SC_PCK PCK, WS_PAT P 
 		<if test="receiptFlag != Y">
@@ -40,13 +40,7 @@
 		</if>
 	</select>
 	
-    <!-- 종합검진 접수 - 감면조회 -->
-	<select id="selectReducList" resultType="ReducBean" useCache="true" flushCache="false">
-		SELECT REDUC_CD, REDUC_NM, REDUC_AMT, RATE_AMT_DIV_CD, USE_YN FROM SC_REDUC 
-		<if test="reducCd != null"> 
-		WHERE REDUC_CD = #{reducCd} 
-		</if>
-	</select>
+    
 	
 	<!-- 종합검진 접수 - 예약검사 조회 -->
 	<select flushCache="false" id="selectRsvtInspList" resultMap="rsvtRresult"> 
@@ -54,7 +48,7 @@
 	</select>
 	
 	<!-- 종합검진 접수 - 선택검사 조회 -->
-	<select id="selectChoInspList" resultType="ChoInspBean" flushCache="false"> 
+	<select id="selectChoInspList" resultType="ChoiceCheckBean" flushCache="false"> 
 		SELECT RSVT_NO, CHO.INSP_CD, INSP_NM, QNT, CHO.AMT, INSP_PLN_DATE 
 		FROM SC_CHO_INSP CHO, SC_INSP I 
 		WHERE RSVT_NO = #{rsvtNo} AND CHO.INSP_CD = I.INSP_CD 
