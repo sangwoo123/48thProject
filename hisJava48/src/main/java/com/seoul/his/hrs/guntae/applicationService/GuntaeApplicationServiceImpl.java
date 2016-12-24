@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.hrs.guntae.dao.InoutWorkTimeDAO;
+import com.seoul.his.hrs.guntae.dao.OverTimeWorkDAO;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 
 /**
  * <pre>
@@ -24,6 +26,8 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
 
 	@Autowired
     InoutWorkTimeDAO inoutWorkTimeDAO;
+	@Autowired
+	OverTimeWorkDAO overTimeWorkDAO;
 
 	 //출퇴근시간 조회
     @Override
@@ -41,6 +45,38 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
 
             case "inserted" : inoutWorkTimeDAO.insertInoutWorkTime(inoutWorkTimeBean);break;
             case "updated" : inoutWorkTimeDAO.updateInoutWorkTime(inoutWorkTimeBean);break;
+
+            }
+
+        }
+    }
+
+    //개인 시간외근무 조회
+    @Override
+    public List<OverTimeWorkBean> findOverTimeWorkList(Map<String, String> argsMap) {
+        return overTimeWorkDAO.selectOverTimeWorkList(argsMap);
+    }
+
+    //관리자 시간외근무 조회
+    @Override
+    public List<OverTimeWorkBean> findApproverOverTimeWorkList() {
+        return overTimeWorkDAO.selectApproverOverTimeWorkList();
+    }
+
+    //시간외근무 일괄처리
+    @Override
+    public void batchOverTimeWorkProcess(List<OverTimeWorkBean> list) {
+        System.out.println("시간외근무 일괄처리 AS");
+        for(OverTimeWorkBean overTimeWorkbean : list){
+
+            switch(overTimeWorkbean.getStatus()){
+
+            case "inserted" : overTimeWorkDAO.insertOverTimeWork(overTimeWorkbean);break;
+            case "updated" : overTimeWorkDAO.updateOverTimeWork(overTimeWorkbean);
+                            if(overTimeWorkbean.getBeforeOvertimeNo() != null || overTimeWorkbean.getBeforeOvertimeNo() != ""){
+                                overTimeWorkDAO.deleteBeforeOverTimeWork(overTimeWorkbean);
+                            }break;
+            case "deleted" : overTimeWorkDAO.deleteOverTimeWork(overTimeWorkbean);break;
 
             }
 
