@@ -77,9 +77,9 @@
             <Col id="callbackFunc">hroomCallbackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">batchHroomProcess</Col>
-            <Col id="URL">his::won/base/batchHroomProcess.do</Col>
-            <Col id="inData">dsHroom=dsHroom:u</Col>
+            <Col id="serviceID">batchHospitalroomProcess</Col>
+            <Col id="URL">his::hdm/admission/batchHospitalroomProcess.do</Col>
+            <Col id="inData">dsHospitalRoom=dsHospitalRoom:u</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
         </Rows>
