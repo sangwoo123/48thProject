@@ -13,22 +13,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoulit.erp47.common.util.DataSetBeanMapper;
-import com.seoulit.erp47.sup.checkup.service.SupCheckupServiceFacade;
-import com.seoulit.erp47.sup.checkup.to.ChoInspBean;
-import com.seoulit.erp47.sup.checkup.to.InspBean;
-import com.seoulit.erp47.sup.checkup.to.ReceiptBean;
-import com.seoulit.erp47.sup.checkup.to.ReducBean;
-import com.seoulit.erp47.sup.checkup.to.RsvtBean;
+import com.seoul.his.common.util.DataSetBeanMapper;
+import com.seoul.his.msv.sup.comprehensiveexam.service.ComprehensiveExamServiceFacade;
+import com.seoul.his.msv.sup.comprehensiveexam.to.ChoiceCheckBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+
 
 /**
- * @Package  com.seoul.his.sup.checkup.controller
- * @Class    ReceiptController.java
- * @Create   2016. 09. 11.
- * @Author   김진환
- * @Description   접수관리 컨트롤러
+ * @Package  com.seoul.his.msv.sup.comprehensiveexam.controller
+ * @Class    SynthesisCheckupReceiptController.java
+ * @Create   2016. 12. 11.
+ * @Author   박상우
+ * @Description   종합검진 접수관리 컨트롤러
  *
- * @LastUpdated   2016. 09. 11. 
+ * @LastUpdated   2016. 12. 11. 
  */
 
 @Controller
@@ -37,11 +37,11 @@ public class SynthesisCheckupReceiptController {
     DataSetBeanMapper dataSetBeanMapper;
     
     @Autowired
-    SupCheckupServiceFacade supCheckupServiceFacade;
+    ComprehensiveExamServiceFacade comprehensiveExamServiceFacade;
     
     /* 종합검진 접수 - 접수, 예약조회 */
     @SuppressWarnings("unchecked")
-    @RequestMapping("sup/checkup/findRsvtReceiptList.do")
+    @RequestMapping("sup/comprehensiveexam/findRsvtReceiptList.do")
     public void findRsvtReceiptList(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
@@ -49,31 +49,19 @@ public class SynthesisCheckupReceiptController {
 
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
         
-        Map<String, Object> map = supCheckupServiceFacade.findRsvtReceiptList(argsMap);
+        Map<String, Object> map = comprehensiveExamServiceFacade.findRsvtReceiptList(argsMap);
         
-        List<RsvtBean> rsvtList = (List<RsvtBean>) map.get("rsvtList");
+        List<SynthesisCheckupReservationBean> rsvtList = (List<SynthesisCheckupReservationBean>) map.get("rsvtList");
         List<SynthesisCheckupReceiptBean> receiptList = (List<SynthesisCheckupReceiptBean>) map.get("receiptList");
 
         dataSetBeanMapper.beansToDataset(outData, receiptList, SynthesisCheckupReceiptBean.class);
-        dataSetBeanMapper.beansToDataset(outData, rsvtList, RsvtBean.class);
+        dataSetBeanMapper.beansToDataset(outData, rsvtList, SynthesisCheckupReservationBean.class);
     }
      
-    /* 종합검진 접수 - 감면조회 */
-    @RequestMapping("sup/checkup/findReducList.do")
-    public void findReducList(HttpServletRequest request, HttpServletResponse response)throws Exception {
-
-        PlatformData inData = (PlatformData) request.getAttribute("inData");
-        PlatformData outData = (PlatformData) request.getAttribute("outData");
-        
-        Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-        
-        List<ReducBean> reducList = supCheckupServiceFacade.findReducList(argsMap);
-        
-        dataSetBeanMapper.beansToDataset(outData, reducList, ReducBean.class);
-    }
+   
     
     /* 종합검진 접수 - 예약검사 조회 */
-    @RequestMapping("sup/checkup/findRsvtInspList.do")
+    @RequestMapping("sup/comprehensiveexam/findRsvtInspList.do")
     public void findRsvtInspList(HttpServletRequest request, HttpServletResponse response)throws Exception {
         
         PlatformData inData = (PlatformData) request.getAttribute("inData");
@@ -81,50 +69,50 @@ public class SynthesisCheckupReceiptController {
         
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
         
-        List<InspBean> pckInspList = new ArrayList<InspBean>();
-        List<ChoInspBean> choInspList = new ArrayList<ChoInspBean>();
+        List<SynthesisCheckupCheckTypeBean> pckInspList = new ArrayList<SynthesisCheckupCheckTypeBean>();
+        List<ChoiceCheckBean> choInspList = new ArrayList<ChoiceCheckBean>();
 
-        RsvtBean rsvtBean = supCheckupServiceFacade.findRsvtInspList(argsMap);
+        SynthesisCheckupReservationBean rsvtBean = comprehensiveExamServiceFacade.findRsvtInspList(argsMap);
         
         if (rsvtBean == null) {
-            rsvtBean = new RsvtBean();
+            rsvtBean = new SynthesisCheckupReservationBean();
         } else {
             pckInspList = rsvtBean.getPckInspList();
             choInspList = rsvtBean.getChoInspList();
         }
         
-        dataSetBeanMapper.beansToDataset(outData, pckInspList, InspBean.class);
-        dataSetBeanMapper.beansToDataset(outData, choInspList, ChoInspBean.class);
+        dataSetBeanMapper.beansToDataset(outData, pckInspList, SynthesisCheckupCheckTypeBean.class);
+        dataSetBeanMapper.beansToDataset(outData, choInspList, ChoiceCheckBean.class);
     }
     
     /* 종합검진 접수 - 접수 등록 */
-    @RequestMapping("sup/checkup/registerReceipt.do")
+    @RequestMapping("sup/comprehensiveexam/registerReceipt.do")
     public void registerReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	PlatformData inData = (PlatformData) request.getAttribute("inData");
         
         SynthesisCheckupReceiptBean receiptBean= dataSetBeanMapper.datasetToBean(inData, SynthesisCheckupReceiptBean.class);
-        supCheckupServiceFacade.registerReceipt(receiptBean);
+        comprehensiveExamServiceFacade.registerReceipt(receiptBean);
     }
     
     /* 종합검진 접수 - 접수 취소 */
-    @RequestMapping("sup/checkup/cancelReceipt.do")
+    @RequestMapping("sup/comprehensiveexam/cancelReceipt.do")
     public void cancelReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         PlatformData inData = (PlatformData) request.getAttribute("inData");
         SynthesisCheckupReceiptBean receiptBean = dataSetBeanMapper.datasetToBean(inData, SynthesisCheckupReceiptBean.class);
 
-        supCheckupServiceFacade.cancelReceipt(receiptBean);
+        comprehensiveExamServiceFacade.cancelReceipt(receiptBean);
     }
     
     /* 종합검진 접수 - 접수 저장 */
-    @RequestMapping("sup/checkup/batchReceiptProcess.do")
+    @RequestMapping("sup/comprehensiveexam/batchReceiptProcess.do")
     public void batchReceiptProcess(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
         PlatformData inData = (PlatformData) request.getAttribute("inData");
-        RsvtBean rsvtBean = dataSetBeanMapper.datasetToBean(inData, RsvtBean.class);
+        SynthesisCheckupReservationBean rsvtBean = dataSetBeanMapper.datasetToBean(inData, SynthesisCheckupReservationBean.class);
         
-        List<ChoInspBean> choInspList= dataSetBeanMapper.datasetToBeans(inData, ChoInspBean.class);
+        List<ChoiceCheckBean> choInspList= dataSetBeanMapper.datasetToBeans(inData, ChoiceCheckBean.class);
 
         Map<String, Object> map = new HashMap<>();
 
@@ -136,15 +124,15 @@ public class SynthesisCheckupReceiptController {
             map.put("choInspList", choInspList);
         }
         
-        supCheckupServiceFacade.batchReceiptProcess(map);
+        comprehensiveExamServiceFacade.batchReceiptProcess(map);
     }
     
     /* 종합검진 접수 - 선택한 검사 일괄처리 */
-    @RequestMapping("sup/checkup/batchPckInspProcess.do")
+    @RequestMapping("sup/comprehensiveexam/batchPckInspProcess.do")
     public void batchPckInspProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
-        List<InspBean> pckInspList = dataSetBeanMapper.datasetToBeans(inData, InspBean.class);
-        supCheckupServiceFacade.batchPckInspProcess(pckInspList);
+        List<SynthesisCheckupCheckTypeBean> pckInspList = dataSetBeanMapper.datasetToBeans(inData, SynthesisCheckupCheckTypeBean.class);
+        comprehensiveExamServiceFacade.batchPckInspProcess(pckInspList);
     }
 }
 

@@ -3,10 +3,10 @@ package com.seoul.his.msv.sup.comprehensiveexam.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.seoulit.erp47.sup.checkup.to.InspBean;
-import com.seoulit.erp47.sup.checkup.to.ReceiptBean;
-import com.seoulit.erp47.sup.checkup.to.ReducBean;
-import com.seoulit.erp47.sup.checkup.to.RsvtBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
+
+
 
 public interface SynthesisCheckupReceiptDAO {
     
