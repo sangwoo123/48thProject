@@ -3,7 +3,7 @@
 
 <mapper namespace="com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReceiptDAO">
     <cache flushInterval="86400000" eviction="LRU" />
-	<resultMap id="rsvtRresult" type="RsvtBean">
+	<resultMap id="rsvtRresult" type="SynthesisCheckupReservationBean">
 		<result column="RSVT_NO" property="rsvtNo"/>
 		<result column="PCK_CD" property="pckCd"/>
 		<collection column="PCK_CD" property="pckInspList" javaType="list" select="com.seoul.his.msv.sup.comprehensiveexam.dao.PackgeDAO.selectPckInspList"/>
