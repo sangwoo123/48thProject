@@ -6,8 +6,8 @@
 	<resultMap id="rsvtRresult" type="RsvtBean">
 		<result column="RSVT_NO" property="rsvtNo"/>
 		<result column="PCK_CD" property="pckCd"/>
-		<collection column="PCK_CD" property="pckInspList" javaType="list" select="com.seoulit.erp47.sup.checkup.dao.PckDAO.selectPckInspList"/>
-		<collection column="RSVT_NO" property="choInspList" javaType="list" select="com.seoulit.erp47.sup.checkup.dao.ReceiptDAO.selectChoInspList"/>
+		<collection column="PCK_CD" property="pckInspList" javaType="list" select="com.seoul.his.msv.sup.comprehensiveexam.dao.PackgeDAO.selectPckInspList"/>
+		<collection column="RSVT_NO" property="choInspList" javaType="list" select="com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReceiptDAO.selectChoInspList"/>
 	</resultMap>
 	
 	
