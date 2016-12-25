@@ -310,7 +310,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
 	 /*종합검진 접수 - 접수 저장*/ 
 	@Override                 
     public void batchReceiptProcess(Map<String, Object> map) {
-		SynthesisCheckupReceiptBean rsvtBean = (SynthesisCheckupReceiptBean) map.get("rsvtBean");
+		SynthesisCheckupReservationBean rsvtBean = (SynthesisCheckupReservationBean) map.get("rsvtBean");
         
         List<ChoiceCheckBean> choInspList = (List<ChoiceCheckBean>) map.get("choInspList");
         
@@ -320,7 +320,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
             
             rsvtBean.setChoInspAmt(choInspAmt2);
             
-            synthesisCheckupReceiptDAO.updateReceipt(rsvtBean);
+            synthesisCheckupReservationDAO.updateSynthesisCheckupReservation(rsvtBean);
         }
         
         if(choInspList!=null){
