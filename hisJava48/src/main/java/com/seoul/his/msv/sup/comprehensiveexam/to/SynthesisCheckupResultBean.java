@@ -1,27 +1,29 @@
-package com.seoulit.erp47.sup.checkup.to;
+package com.seoul.his.msv.sup.comprehensiveexam.to;
 
-import com.seoulit.erp47.common.annotation.Dataset;
-import com.seoulit.erp47.common.to.BaseBean;
+
+
+import com.seoul.his.common.annotation.Dataset;
+import com.seoul.his.common.to.BaseBean;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoulit.erp47.sup.checkup.to
- * @Class    RsltBean.java
- * @Create   2016. 09. 19.
- * @Author   김진환
- * @Description   결과 Bean
+ * @Package  com.seoul.his.msv.sup.comprehensiveexam.to
+ * @Class    SynthesisCheckupResultBean.java
+ * @Create   2016. 12. 11.
+ * @Author   박상우
+ * @Description   종합검진 검사결과 Bean
  *
- * @LastUpdated   2016. 09. 19. 
+ * @LastUpdated   2016. 12. 11. 
  */
 
 @Getter
 @Setter
 @ToString
 @Dataset(name = "dsRslt")
-public class RsltBean extends BaseBean {
+public class SynthesisCheckupResultBean extends BaseBean {
     private String 
                 rsvtNo,        // 예약번호
                 inspCd,        // 검사코드

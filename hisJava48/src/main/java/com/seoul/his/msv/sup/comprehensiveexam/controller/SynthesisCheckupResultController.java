@@ -1,4 +1,4 @@
-package com.seoulit.erp47.sup.checkup.controller;
+package com.seoul.his.msv.sup.comprehensiveexam.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +27,7 @@ import com.seoulit.erp47.sup.checkup.to.RsltBean;
  */
 
 @Controller
-public class RsltController {
+public class SynthesisCheckupResultController {
     @Autowired
     DataSetBeanMapper dataSetBeanMapper;
     
@@ -55,9 +55,9 @@ public class RsltController {
 
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-        List<RsltBean> rsltList = supCheckupServiceFacade.findRsltList(argsMap);
+        List<SynthesisCheckupResultBean> rsltList = supCheckupServiceFacade.findRsltList(argsMap);
 
-        dataSetBeanMapper.beansToDataset(outData, rsltList, RsltBean.class);
+        dataSetBeanMapper.beansToDataset(outData, rsltList, SynthesisCheckupResultBean.class);
 
     }
     
@@ -65,7 +65,7 @@ public class RsltController {
     @RequestMapping("sup/checkup/registerRslt.do")
     public void registerReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
-        List<RsltBean> rsltList= dataSetBeanMapper.datasetToBeans(inData, RsltBean.class);
+        List<SynthesisCheckupResultBean> rsltList= dataSetBeanMapper.datasetToBeans(inData, SynthesisCheckupResultBean.class);
 
         supCheckupServiceFacade.registerRslt(rsltList);
     }
