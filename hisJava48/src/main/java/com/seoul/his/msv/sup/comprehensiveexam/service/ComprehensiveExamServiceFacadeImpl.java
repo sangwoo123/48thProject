@@ -15,6 +15,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
 
 
 
@@ -182,27 +183,22 @@ public class ComprehensiveExamServiceFacadeImpl implements ComprehensiveExamServ
     public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList) {
     	comprehensiveExamApplicationService.batchPckInspProcess(pckInspList);
     }
-
-/*
-
-
-    @Override                 종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap) {
-        List<ReceiptBean> receiptList = supCheckupApplicationService.findReceiptList(argsMap);
+    
+    @Override                 /*종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap) {
+        List<SynthesisCheckupReceiptBean> receiptList = comprehensiveExamApplicationService.findReceiptList(argsMap);
         return receiptList;
     }
 
-    @Override                 종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap) {
-        List<RsltBean> rsltList = supCheckupApplicationService.findRsltList(argsMap);
+    @Override                 /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap) {
+        List<SynthesisCheckupResultBean> rsltList = comprehensiveExamApplicationService.findRsltList(argsMap);
         return rsltList;
     }
 
-    @Override                 종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList) {
-        supCheckupApplicationService.registerRslt(rsltList);
+    @Override                 /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList) {
+    	comprehensiveExamApplicationService.registerRslt(rsltList);
     }
-*/
-
 
 }

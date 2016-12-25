@@ -11,6 +11,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
 
 
 
@@ -89,16 +90,13 @@ public interface ComprehensiveExamApplicationService {
     /* 종합검진 접수 - 선택검사 일괄처리 */
     public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList);
 
-  /*
+    /* 종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap);
 
-     종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap);
+     /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap);
 
-     종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap);
-
-     종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList);
-*/
+     /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList);
 
 }

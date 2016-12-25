@@ -12,13 +12,13 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoul.his.sup.checkup.to
- * @Class    ReceiptBean.java
- * @Create   2016. 09. 11.
- * @Author   김진환
- * @Description   접수 Bean
+ * @Package  com.seoul.his.msv.sup.comprehensiveexam.to
+ * @Class    SynthesisCheckupReceiptBean.java
+ * @Create   2016. 12. 11.
+ * @Author   박상우
+ * @Description   종합검진 접수 Bean
  *
- * @LastUpdated   2016. 7. 4. 
+ * @LastUpdated   2016. 12. 11. 
  */
 
 @Getter

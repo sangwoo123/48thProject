@@ -11,19 +11,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoulit.erp47.common.util.DataSetBeanMapper;
-import com.seoulit.erp47.sup.checkup.service.SupCheckupServiceFacade;
-import com.seoulit.erp47.sup.checkup.to.ReceiptBean;
-import com.seoulit.erp47.sup.checkup.to.RsltBean;
+import com.seoul.his.common.util.DataSetBeanMapper;
+import com.seoul.his.msv.sup.comprehensiveexam.service.ComprehensiveExamServiceFacade;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
+
 
 /**
- * @Package  com.seoulit.erp47.sup.checkup.controller
- * @Class    RsltController.java
- * @Create   2016. 09. 19.
- * @Author   김진환
- * @Description   결과관리 컨트롤러
+ * @Package  com.seoul.his.msv.sup.comprehensiveexam.controller
+ * @Class    SynthesisCheckupResultController.java
+ * @Create   2016. 12. 11.
+ * @Author   박상우
+ * @Description  종합검진 결과관리 컨트롤러
  *
- * @LastUpdated   2016. 09. 19. 
+ * @LastUpdated   2016. 12. 11. 
  */
 
 @Controller
@@ -32,41 +33,41 @@ public class SynthesisCheckupResultController {
     DataSetBeanMapper dataSetBeanMapper;
     
     @Autowired
-        SupCheckupServiceFacade supCheckupServiceFacade;
+    ComprehensiveExamServiceFacade comprehensiveExamServiceFacade;
     
     /* 종합검진 결과관리 - 검진자조회 */
-    @RequestMapping("sup/checkup/findReceiptList.do")
+    @RequestMapping("sup/comprehensiveexam/findReceiptList.do")
     public void findReceiptList(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
         PlatformData outData = (PlatformData) request.getAttribute("outData");
 
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
         
-        List<ReceiptBean> receiptList = supCheckupServiceFacade.findReceiptList(argsMap);
+        List<SynthesisCheckupReceiptBean> receiptList = comprehensiveExamServiceFacade.findReceiptList(argsMap);
 
-        dataSetBeanMapper.beansToDataset(outData, receiptList, ReceiptBean.class);
+        dataSetBeanMapper.beansToDataset(outData, receiptList, SynthesisCheckupReceiptBean.class);
     }
     
     /* 종합검진 결과관리 - 결과조회 */
-    @RequestMapping("sup/checkup/findRsltList.do")
+    @RequestMapping("sup/comprehensiveexam/findRsltList.do")
     public void findRsltList(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
         PlatformData outData = (PlatformData) request.getAttribute("outData");
 
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-        List<SynthesisCheckupResultBean> rsltList = supCheckupServiceFacade.findRsltList(argsMap);
+        List<SynthesisCheckupResultBean> rsltList = comprehensiveExamServiceFacade.findRsltList(argsMap);
 
         dataSetBeanMapper.beansToDataset(outData, rsltList, SynthesisCheckupResultBean.class);
 
     }
     
     /* 종합검진 결과관리 - 저장 */
-    @RequestMapping("sup/checkup/registerRslt.do")
+    @RequestMapping("sup/comprehensiveexam/registerRslt.do")
     public void registerReceipt(HttpServletRequest request, HttpServletResponse response) throws Exception {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
         List<SynthesisCheckupResultBean> rsltList= dataSetBeanMapper.datasetToBeans(inData, SynthesisCheckupResultBean.class);
 
-        supCheckupServiceFacade.registerRslt(rsltList);
+        comprehensiveExamServiceFacade.registerRslt(rsltList);
     }
 }
