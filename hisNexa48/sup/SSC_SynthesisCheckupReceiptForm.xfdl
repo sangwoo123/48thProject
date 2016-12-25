@@ -166,7 +166,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Grid id="choInspGrid" taborder="8" binddataset="dsChoInsp" useinputpanel="false" autofittype="col" oncelldblclick="choInspGrid_oncelldblclick" onenterdown="choInspGrid_onenterdown" left="54.4%" top="448" right="1.92%" height="166">
+        <Grid id="choInspGrid" taborder="8" binddataset="dsChoInsp" useinputpanel="false" autofittype="col" oncelldblclick="choInspGrid_oncelldblclick" onenterdown="choInspGrid_onenterdown" left="54.4%" top="448" right="1.92%" height="199">
           <Formats>
             <Format id="default">
               <Columns>
@@ -207,8 +207,6 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="addBtn" taborder="9" text="+" left="92.88%" top="620" width="30" height="30" style="font:16 arial;" onclick="addBtn_onclick"/>
-        <Button id="delBtn" taborder="10" text="-" left="95.68%" top="620" width="30" height="30" style="font:16 arial;" onclick="delBtn_onclick"/>
         <Div id="Div06" taborder="11" left="44.64%" top="657" right="1.92%" height="42" style="background:#eceff1ff;border:1 solid gainsboro ;">
           <Layouts>
             <Layout>
@@ -603,19 +601,7 @@ this.findRsvtInspList=function(rsvtNo)
 	}
 }
 
-//   추가버튼
-this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-		var param = {};
-	this.gfnPopup("SSC_PackgeScctPopupForm","sup",param,"");
-}
 
-//  삭제 버튼
-this.delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-		this.dsChoInsp.deleteRow(this.dsChoInsp.rowposition);
-	this.autoCalChoInspAmt();	
-}
 
 
 this.pCode=function(retVal)
