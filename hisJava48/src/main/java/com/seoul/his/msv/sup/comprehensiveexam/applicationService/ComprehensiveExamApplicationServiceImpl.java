@@ -13,6 +13,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.dao.PackgeDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupCheckTypeDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReceiptDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReservationDAO;
+import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupResultDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ChoiceCheckBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.CodePopupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.DetailsCheckupBean;
@@ -21,6 +22,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
 
 
 
@@ -54,10 +56,8 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
     @Autowired
    private SynthesisCheckupReceiptDAO synthesisCheckupReceiptDAO;
 
-    /*
-  
     @Autowired
-    private RsltDAO rsltDAO;*/
+    private SynthesisCheckupResultDAO synthesisCheckupResultDAO;
 
     @Override                 /* 종합검진 검사종류관리 - 조회 */
     public List<SynthesisCheckupCheckTypeBean> findSynthesisCheckupCheckTypeList(Map<String, String> argsMap) {
@@ -344,26 +344,26 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
     }
 
 
-    /*
-    @Override                  종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap) {
-        List<ReceiptBean> receiptList = receiptDAO.selectReceiptList(argsMap);
+    
+    @Override                 /* 종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap) {
+        List<SynthesisCheckupReceiptBean> receiptList = synthesisCheckupReceiptDAO.selectReceiptList(argsMap);
         return receiptList;
     }
 
-    @Override                 종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap) {
-        List<RsltBean> rsltList = rsltDAO.selectRsltList(argsMap);
+    @Override                 /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap) {
+        List<SynthesisCheckupResultBean> rsltList = synthesisCheckupResultDAO.selectRsltList(argsMap);
         return rsltList;
     }
 
-    @Override                 종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList) {
-        for(RsltBean rsltBean : rsltList){
-            rsltDAO.updateRslt(rsltBean);
+    @Override                 /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList) {
+        for(SynthesisCheckupResultBean rsltBean : rsltList){
+        	synthesisCheckupResultDAO.updateRslt(rsltBean);
         }
     }
-*/
+
 
 
 }

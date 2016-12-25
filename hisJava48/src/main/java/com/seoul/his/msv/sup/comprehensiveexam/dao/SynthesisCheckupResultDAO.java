@@ -3,7 +3,9 @@ package com.seoul.his.msv.sup.comprehensiveexam.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.seoulit.erp47.sup.checkup.to.RsltBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
+
+
 
 public interface SynthesisCheckupResultDAO {
     
