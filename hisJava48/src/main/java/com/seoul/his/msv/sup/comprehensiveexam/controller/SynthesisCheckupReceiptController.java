@@ -48,7 +48,7 @@ public class SynthesisCheckupReceiptController {
         PlatformData outData = (PlatformData) request.getAttribute("outData");
 
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-        
+        System.out.println("con");
         Map<String, Object> map = comprehensiveExamServiceFacade.findRsvtReceiptList(argsMap);
         
         List<SynthesisCheckupReservationBean> rsvtList = (List<SynthesisCheckupReservationBean>) map.get("rsvtList");

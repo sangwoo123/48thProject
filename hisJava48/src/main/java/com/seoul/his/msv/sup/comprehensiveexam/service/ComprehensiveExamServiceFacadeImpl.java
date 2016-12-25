@@ -147,6 +147,7 @@ public class ComprehensiveExamServiceFacadeImpl implements ComprehensiveExamServ
     /*종합검진 접수 - 접수, 예약조회 */
     @Override               
     public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap) {
+    	System.out.println("service");
         Map<String, Object> map = comprehensiveExamApplicationService.findRsvtReceiptList(argsMap);
         return map;
     }

@@ -51,7 +51,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
     @Autowired
     private PackgeDAO packgeDAO;
     
-    //@Autowired
+    @Autowired
    private SynthesisCheckupReceiptDAO synthesisCheckupReceiptDAO;
 
     /*
@@ -269,6 +269,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
 	    System.out.println("!!!!!!!!!!!!!!!!!"+argsMap);
 	        
 	    Map<String, Object> map = new HashMap<>();
+	    System.out.println("!!!!!!!!!!!!!!!!!"+map);
 	    map.put("rsvtList", rsvtList);
 	    map.put("receiptList", receiptList);
 
