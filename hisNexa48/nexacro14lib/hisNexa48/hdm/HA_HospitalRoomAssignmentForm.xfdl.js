@@ -60,7 +60,7 @@
             // UI Components Initialize
             obj = new Div("Div03", "absolute", "0%", "0", "760", "60", null, null, this);
             obj.set_taborder("0");
-            obj.style.set_background("transparent URL('img::titleBar4.jpg')");
+            obj.style.set_background("transparent URL('img::titleBar5.jpg')");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00", "absolute", "6.88%", "-4", null, "60", "72.99%", null, this);
@@ -72,7 +72,7 @@
 
             obj = new Div("baseDiv", "absolute", "2.21%", "69", null, "51", "1.69%", null, this);
             obj.set_taborder("10");
-            obj.style.set_background("#edececff");
+            obj.style.set_background("#cfd8dcff");
             obj.style.set_border("1 solid lightsteelblue");
             obj.style.set_bordertype("round 5 5");
             this.addChild(obj.name, obj);
@@ -80,7 +80,7 @@
             obj = new Static("wardStc", "absolute", "3.51%", "80", null, "28", "90%", null, this);
             obj.set_taborder("11");
             obj.set_text("병동");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -91,12 +91,12 @@
             obj.set_innerdataset("dsWardCd");
             obj.set_codecolumn("code");
             obj.set_datacolumn("data");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#ffffffff");
 
-            obj = new Static("hroomStc", "absolute", "22.34%", "80", null, "28", "71.17%", null, this);
+            obj = new Static("hroomStc", "absolute", "23.38%", "80", null, "28", "70.13%", null, this);
             obj.set_taborder("13");
             obj.set_text("병실");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -107,12 +107,12 @@
             obj.set_innerdataset("dsHroomCd");
             obj.set_codecolumn("code");
             obj.set_datacolumn("data");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#ffffffff");
 
             obj = new Static("genderStc", "absolute", "46.36%", "80", null, "28", "47.14%", null, this);
             obj.set_taborder("15");
             obj.set_text("성별");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -173,7 +173,7 @@
             obj.set_taborder("22");
             obj.set_binddataset("dsHospitalRoom");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"100\"/><Column size=\"80\"/></Columns><Rows><Row size=\"27\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"병실일련번호\"/><Cell col=\"1\" text=\"병동\"/><Cell col=\"2\" text=\"병실\"/><Cell col=\"3\" text=\"병상수\"/><Cell col=\"4\" text=\"허가병상\"/><Cell col=\"5\" text=\"성별\"/><Cell col=\"6\" text=\"병상전화번호\"/><Cell col=\"7\" text=\"재원자수\"/></Band><Band id=\"body\"><Cell text=\"bind:hroomNo\"/><Cell col=\"1\" displaytype=\"combo\" edittype=\"none\" text=\"bind:ward\" combodataset=\"dsWardCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"2\" displaytype=\"combo\" edittype=\"none\" text=\"bind:hroom\" combodataset=\"dsHroomCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"3\" edittype=\"none\" text=\"bind:sibdCnt\"/><Cell col=\"4\" edittype=\"none\" text=\"bind:pmsnSibd\"/><Cell col=\"5\" displaytype=\"combo\" edittype=\"none\" text=\"bind:gender\" combodataset=\"dsGenderCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"6\" edittype=\"none\" text=\"bind:sibdTel\"/><Cell col=\"7\" edittype=\"none\" text=\"bind:finanCnt\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"100\"/><Column size=\"80\"/></Columns><Rows><Row size=\"27\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#90a4aeff;\" text=\"병실일련번호\"/><Cell col=\"1\" style=\"background:#90a4aeff;\" text=\"병동\"/><Cell col=\"2\" style=\"background:#90a4aeff;\" text=\"병실\"/><Cell col=\"3\" style=\"background:#90a4aeff;\" text=\"병상수\"/><Cell col=\"4\" style=\"background:#90a4aeff;\" text=\"허가병상\"/><Cell col=\"5\" style=\"background:#90a4aeff;\" text=\"성별\"/><Cell col=\"6\" style=\"background:#90a4aeff;\" text=\"병상전화번호\"/><Cell col=\"7\" style=\"background:#90a4aeff;\" text=\"재원자수\"/></Band><Band id=\"body\"><Cell text=\"bind:hroomNo\"/><Cell col=\"1\" displaytype=\"combo\" edittype=\"none\" text=\"bind:ward\" combodataset=\"dsWardCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"2\" displaytype=\"combo\" edittype=\"none\" text=\"bind:hroom\" combodataset=\"dsHroomCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"3\" edittype=\"none\" text=\"bind:sibdCnt\"/><Cell col=\"4\" edittype=\"none\" text=\"bind:pmsnSibd\"/><Cell col=\"5\" displaytype=\"combo\" edittype=\"none\" text=\"bind:gender\" combodataset=\"dsGenderCd\" combocodecol=\"code\" combodatacol=\"data\"/><Cell col=\"6\" edittype=\"none\" text=\"bind:sibdTel\"/><Cell col=\"7\" edittype=\"none\" text=\"bind:finanCnt\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
 

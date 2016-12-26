@@ -170,7 +170,7 @@
                 <Cell col="1" edittype="none" text="bind:rsvCnt"/>
                 <Cell col="2" expr="expr:parseInt(totCnt)-parseInt(rsvCnt)"/>
                 <Cell col="3" text="bind:amPmFlag"/>
-                <Cell col="4"/>
+                <Cell col="4" text="bind:rsvPosYn"/>
               </Band>
             </Format>
           </Formats>
@@ -234,9 +234,8 @@
             </Rows>
           </Dataset>
         </Combo>
-        <Button id="DelBtn30" taborder="39" onclick="DelBtn_onclick" cssclass="DelBtn" left="1064" top="723" width="110" height="32" style="background:@gradation URL('img::reserveXBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="DelBtn02" taborder="40" onclick="DelBtn_onclick" cssclass="DelBtn" left="964" top="723" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="DelBtn23" taborder="41" onclick="DelBtn_onclick" cssclass="DelBtn" left="867" top="723" width="90" height="32" style="background:@gradation URL('img::reserveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="removeRsvBtn" taborder="39" cssclass="DelBtn" left="1048" top="723" width="110" height="32" style="background:@gradation URL('img::reserveXBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="removeRsvBtn_onclick"/>
+        <Button id="RegiRsvBtn" taborder="41" cssclass="DelBtn" left="947" top="723" width="90" height="32" style="background:@gradation URL('img::reserveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="RegiRsvBtn_onclick"/>
         <Static id="subCodeStc03" taborder="42" text="  월간 예약현황" onclick="subCodeStc_onclick" left="2.25%" top="146" right="55.25%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc00" taborder="43" text="  개인 예약현황" onclick="subCodeStc_onclick" left="48.33%" top="146" right="2.17%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc01" taborder="44" text="  일별 예약현황" onclick="subCodeStc_onclick" left="48%" top="307" right="36.08%" height="30" style="background:#78909cff;color:ivory;align:left middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -251,8 +250,9 @@
               <Static id="Static02" taborder="27" text="진료의" cssclass="sta_WF_SearchLabel" left="286" top="10" width="85" height="21" style="font:9 돋움;"/>
               <Static id="Static04" taborder="28" text="환자등록번호" cssclass="sta_WF_SearchLabel" left="553" top="10" width="85" height="21" style="font:9 돋움;"/>
               <Button id="searchTrmtSchBtn" taborder="29" text="조회" cssclass="btn_WF_Search" top="8" right="11" width="60" height="25" style="background:#37474fff;" onclick="div_Search_searchTrmtSchBtn_onclick"/>
-              <Edit id="patNoEd" taborder="30" cssclass="edt_WF_Search" left="648" top="10" width="132" height="21"/>
+              <Edit id="patNoEd" taborder="30" cssclass="edt_WF_Search" left="648" top="10" width="132" height="21" enable="false"/>
               <Button id="searchPatBtn" taborder="31" cssclass="btn_WF_SearchSmall" left="779" top="10" width="21" height="21" onclick="div_Search_searchPatBtn_onclick"/>
+              <Edit id="patNameEd" taborder="32" cssclass="edt_WF_Search" left="800" top="10" width="132" height="21" enable="false"/>
             </Layout>
           </Layouts>
         </Div>
@@ -336,6 +336,22 @@
             <Col id="outData">dsPatRsvInfo=dsRsvPat</Col>
             <Col id="callbackFunc">callbackFunc</Col>
           </Row>
+          <Row>
+            <Col id="serviceID">registerReceipt</Col>
+            <Col id="URL">his::hdm/foreign/registerDiagnosisReceipt.do</Col>
+            <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
+            <Col id="outData"></Col>
+            <Col id="argument"></Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">removeReceipt</Col>
+            <Col id="URL">his::hdm/foreign/removeDiagnosisReceipt.do</Col>
+            <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
+            <Col id="outData"></Col>
+            <Col id="argument"></Col>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
         </Rows>
       </Dataset>
       <Dataset id="dsTimeSchedule" onrowposchanged="dsTimeSchedule_onrowposchanged">
@@ -346,6 +362,7 @@
           <Column id="rsvCnt" type="STRING" size="256"/>
           <Column id="totCnt" type="STRING" size="256"/>
           <Column id="amPmFlag" type="STRING" size="256"/>
+          <Column id="rsvPosYn" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsMedDr" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
@@ -405,6 +422,33 @@
           <Column id="empNo" type="STRING" size="256"/>
           <Column id="empNm" type="STRING" size="256"/>
           <Column id="deptNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsOutpaReceipt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="outpaReceiptNo" type="STRING" size="256"/>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="trmtDate" type="STRING" size="256"/>
+          <Column id="trmtDept" type="STRING" size="256"/>
+          <Column id="trmtDeptNm" type="STRING" size="256"/>
+          <Column id="trmtDoct" type="STRING" size="256"/>
+          <Column id="trmtDoctNm" type="STRING" size="256"/>
+          <Column id="hosptlzYb" type="STRING" size="256"/>
+          <Column id="hosptlzRsvtYb" type="STRING" size="256"/>
+          <Column id="patType" type="STRING" size="256"/>
+          <Column id="trmtCostCalcuYb" type="STRING" size="256"/>
+          <Column id="trmtYb" type="STRING" size="256"/>
+          <Column id="prescYb" type="STRING" size="256"/>
+          <Column id="regDept" type="STRING" size="256"/>
+          <Column id="cngDept" type="STRING" size="256"/>
+          <Column id="receiptDate" type="STRING" size="256"/>
+          <Column id="dgnsNm" type="STRING" size="256"/>
+          <Column id="ntTtYb" type="STRING" size="256"/>
+          <Column id="expCd" type="STRING" size="256"/>
+          <Column id="expNm" type="STRING" size="256"/>
+          <Column id="nwDiv" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="trmtTime" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
     </Objects>
@@ -468,9 +512,12 @@ this.lfn_GetSysDate = function(sFormatYn)   //현재날짜를 리턴하는 함�
    }
 	return sSysDate;
 }
-
+var patNo=this.parent.patNo;
+var patNm=this.parent.patNm;
+var medDeptCd;//타과예약가능여부시 사용
 this.SCP_RetreatmentReservationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
-{	var sDate=this.lfn_GetSysDate();
+{	medDeptCd=application.gdsEmp.getColumn(application.gdsEmp.rowposition,"deptCd");
+	var sDate=this.lfn_GetSysDate();
 	this.fn_MakeCalendar(sDate);
 	this.gfnService("findMedDrList");
 	
@@ -660,8 +707,20 @@ this.callbackFunc = function(svcID, ErrorCode, ErrorMsg){
 		
       }else if(svcID=="findMedDrList"){
 		this.dsMedDrGridComboData.copyData(this.dsMedDr);
+		this.div_Search.medDeptEd.set_value(application.gdsEmp.getColumn(application.gdsEmp.rowposition,"deptNm"));
+		this.dsMedDr.filter("deptNm=='"+application.gdsEmp.getColumn(application.gdsEmp.rowposition,"deptNm")+"'");
+		this.div_Search.MedDrCombo.set_value(application.gdsEmp.getColumn(application.gdsEmp.rowposition,"empNo"));
+		this.div_Search.patNoEd.set_value(patNo);
+		this.div_Search.patNameEd.set_value(patNm);
+		this.fn_Search();
       }else if(svcID=="findTimeScheduleList"){
       }else if(svcID=="findRsvByPatList"){
+      }else if(svcID=="registerReceipt"){
+		alert("왜래재진예약 완료되었습니다");
+		this.fn_Search();
+      }else if(svcID=="removeReceipt"){
+		alert("왜래재진예약 취소되었습니다");
+		this.fn_Search();
       }
    }
 }
@@ -688,21 +747,35 @@ this.div_Search_searchMedDrBtn_onclick = function(obj:Button,  e:nexacro.ClickEv
 {
 	application.open("CM_DoctPopupForm","com::CM_DoctPopupForm.xfdl",this.parent,{},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
 }
-
+//환자찾기버튼 click
 this.div_Search_searchPatBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	application.open("WS_PatPopupForm","hdm::WS_PatPopupForm.xfdl",this.parent,{},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
 }
-
+//환자입력 
+this.setPatInfo = function(arrRtn){ 
+	this.div_Search.patNoEd.set_value(arrRtn[0]);
+	this.div_Search.patNameEd.set_value(arrRtn[1]);    
+	         
+	}
 this.setDoct = function(arr)
-{
+{	
+// 	arr[i++] = this.gdsEmp.getColumn(e.row,"empNo"); 
+// 	arr[i++] = this.gdsEmp.getColumn(e.row,"empNm");
+// 	arr[i++] = this.gdsEmp.getColumn(e.row,"deptNm");
+// 	arr[i++] = this.gdsEmp.getColumn(e.row,"deptCd");
 	this.div_Search.medDeptEd.set_value(arr[2]);
 	this.dsMedDr.filter("deptNm=='"+arr[2]+"'");
 	this.div_Search.MedDrCombo.set_value(arr[0]);
+	medDeptCd=arr[3];
 	
 }
+//조회버튼클릭시
 this.div_Search_searchTrmtSchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {	
+		this.fn_Search();
+}
+this.fn_Search=function(){
 	var empNo=this.div_Search.MedDrCombo.value;
 	var patNo=this.div_Search.patNoEd.value;
 	var argument="empNo="+empNo+" patNo="+patNo;
@@ -711,16 +784,91 @@ this.div_Search_searchTrmtSchBtn_onclick = function(obj:Button,  e:nexacro.Click
 	nRow=this.dsService.findRow("serviceID","findRsvByPatList");
 	this.dsService.setColumn(nRow,"argument",argument);
 	this.gfnService("findDayScheduleList",false);
-	
-	
 }
-
 this.dsTimeSchedule_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
 {
 	var examTm=obj.getColumn(obj.rowposition,"examTm");
 	this.dsRsvPat.filter("examTm=='"+examTm+"'");
 }
 
+
+this.RegiRsvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	//타과예약접수 가능한지 여부확인
+	var rsvYn=this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"rsvPosYn");
+	if(rsvYn!="Y"){
+		var SearchEmpNo=medDeptCd;//진료일정을 조회한 의사
+		var LoginEmpNo=application.gdsEmp.getColumn(application.gdsEmp.rowposition,"deptCd"); //현재로그인한 의사
+		if(SearchEmpNo!=LoginEmpNo){
+			alert("다른 진료과는 예약 불가합니다");
+			return;
+		}
+	}
+	//예약인원 잔여확인
+	var rsvCnt=this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"rsvCnt");
+	var totCnt=this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"totCnt");
+	if(parseInt(totCnt)-parseInt(rsvCnt)<=0){
+		alert("더 이상 예약할 수 없는 시간입니다");
+		return;
+	}
+	
+	//등록할 환자정보확인
+	if(this.div_Search.patNoEd.value==null){
+		alert("등록할 환자를 선택해주세요");
+		return;
+	}
+	var sParam={patNo:this.div_Search.patNoEd.value,patNm:this.div_Search.patNameEd.value,
+	medDeptNm:this.div_Search.medDeptEd.value,medDrNm:this.div_Search.MedDrCombo.text,
+	medDate:this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"medDate"),
+	examTm:this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"examTm")};
+	
+	 var objNew = new ChildFrame();
+	objNew.init("btn1", "absolute", 400, 400, 100, 100 , null, null, "pre::SCP_RegiRetreatmentPopupForm.xfdl");
+	objNew.showModal("AddDetailSchedulePopupForm",  this, sParam, this,this.fn_registerRetreatment);//다이얼로그가 close되고 나서 호출될 함수 this.fn_registerRetreatment
+}
+this.fn_registerRetreatment=function(strID, variant){
+	if(variant=="cancle")return;
+	var patType=variant;
+	this.dsOutpaReceipt.clearData();
+	var idx = this.dsOutpaReceipt.addRow();
+	this.dsOutpaReceipt.setColumn(idx,"patNo",this.div_Search.patNoEd.value);
+	this.dsOutpaReceipt.setColumn(idx,"receiptDate",this.lfn_GetSysDate());
+	this.dsOutpaReceipt.setColumn(idx,"trmtDept",medDeptCd);
+	this.dsOutpaReceipt.setColumn(idx,"trmtDoct",this.div_Search.MedDrCombo.value);
+	//this.dsOutpaReceipt.setColumn(idx,"expCd",this.WS_OutPatReceiptMngnDiv.expCdEd.value);
+	this.dsOutpaReceipt.setColumn(idx,"ntTtYb","재진");
+	this.dsOutpaReceipt.setColumn(idx,"nwDiv","진료과");
+	this.dsOutpaReceipt.setColumn(idx,"trmtDate",this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"medDate"));
+	this.dsOutpaReceipt.setColumn(idx,"patType",variant);	
+	this.dsOutpaReceipt.setColumn(idx,"trmtTime",this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"examTm"));
+	this.dsOutpaReceipt.setColumn(idx,"trmtYb",'N');
+	
+	this.gfnService("registerReceipt");
+	
+}
+
+
+this.removeRsvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var trmtDoct=this.dsPatRsvInfo.getColumn(this.dsPatRsvInfo.rowposition,"trmtDoct");
+	//현재 로그인한 의사일정에 등록된 예약정보인지 확인
+	if(trmtDoct==this.div_Search.MedDrCombo.value){
+		alert("다른 의사의 예약정보는 취소할 수 없습니다");
+		return;
+	}
+	//재진인지 확인
+	if(this.dsPatRsvInfo.getColumn(this.dsPatRsvInfo.rowposition,"ntTtYb")!="재진"){
+		alert(this.dsPatRsvInfo.getColumn(this.dsPatRsvInfo.rowposition,"ntTtYb"));
+		alert("재진예약만 취소가능합니다");
+		return;
+	}
+	this.dsOutpaReceipt.clearData();
+	var outpaReceiptNo=this.dsPatRsvInfo.getColumn(this.dsPatRsvInfo.rowposition,"outpaReceiptNo");
+	var idx = this.dsOutpaReceipt.addRow();
+	this.dsOutpaReceipt.setColumn(idx,"outpaReceiptNo",outpaReceiptNo);
+	this.gfnService("removeReceipt");
+
+}
 ]]></Script>
   </Form>
 </FDL>

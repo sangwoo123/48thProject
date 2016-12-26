@@ -5,11 +5,15 @@
   <Application id="nexa" codepage="utf-8" language="Korean" loginformurl="" loginformstyle="" windowopeneffect="" windowcloseeffect="" version="" tracemode="" themeid="hisNexa48.xtheme" onload="application_onload">
     <Layout>
       <MainFrame id="mainframe" title="maintitle" defaultfont="" resizable="false" showtitlebar="true" showstatusbar="false" left="0" top="0" width="1255" height="965" titletext="서울병원정보시스템" showcascadestatustext="false" showcascadetitletext="false">
-        <VFrameSet id="frameSet" separatesize="85,40,*,40">
+        <VFrameSet id="frameSet" separatesize="103,40,*,20">
           <Frames>
             <ChildFrame id="MenuFrame" formurl="frame::menuFrame.xfdl" showtitlebar="false"/>
             <ChildFrame id="tabFrame" formurl="frame::tabFrame.xfdl" showtitlebar="false"/>
-            <FrameSet id="mainFrame"/>
+            <FrameSet id="mainFrame">
+              <Frames>
+                <ChildFrame id="ChildFrame0" formurl="com::CM_MainForm.xfdl" showcascadetitletext="false" showcascadestatustext="false" resizable="false" showtitlebar="false" showtitleicon="false"/>
+              </Frames>
+            </FrameSet>
             <ChildFrame id="BottomFrame" formurl="frame::bottomFrame.xfdl" showtitlebar="false"/>
           </Frames>
         </VFrameSet>
