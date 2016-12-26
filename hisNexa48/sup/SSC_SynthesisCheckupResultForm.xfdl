@@ -55,7 +55,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="Button00" taborder="9" text="조회" left="25.92%" top="120" right="66.72%" height="25" style="background:@gradation;"/>
+        <Button id="searchBtn" taborder="9" text="조회" left="25.92%" top="120" right="66.72%" height="25" style="background:@gradation;" onclick="searchBtn_onclick"/>
         <Div id="Div02" taborder="11" text="검사결과목록" left="38.72%" top="76" right="1.44%" height="25" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:bold 10 돋움;"/>
         <Tab id="rsltTab" taborder="12" left="38.72%" top="112" right="1.44%" height="626" onchanged="rsltTab_onchanged" tabindex="13" scrollbars="autoboth" style="buttonbackground:@gradation;buttonborder:1 solid gray ;background:transparent;color:black;">
           <Tabpages>
@@ -751,8 +751,7 @@ this.setPatInfo=function(arry)
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var inspDate = this.inspPlnDateCal.value;
-	if (!this.gfnIsNull(inspDate))
-	{
+	
 		var patNo = this.patNoEd.value;
 		var argument = 'inspPlnDate='+inspDate+' patNo='+patNo;
 		var row = this.dsService.findRow('serviceID' , "findReceiptList");
@@ -762,9 +761,7 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		
 		editFlag = false;
 		addFlag = false;
-	}else{
-		alert("검진자와 검진일을 입력해 주세요.");
-	}
+	
 }
 
 // 결과 조회
@@ -777,7 +774,7 @@ this.receiptGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 	
 	this.gfnService("findRsltList", false);
 	
-	this.rsltGrid.setCellProperty("Body", 2, "edittype", "none");
+	this.rsltTab.tpgDRG.rsltGrid.setCellProperty("Body", 2, "edittype", "none");
 	
 	this.setBaseInspRslt();
 }
@@ -804,7 +801,8 @@ this.rsltTab_onchanged=function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
 // 등록, 수정
 this.rsltGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
-	this.rsltGrid.setCellProperty("Body", 2, "edittype", "normal");
+    alert("11");
+	this.rsltTab.tpgDRG.rsltGrid.setCellProperty("Body", 2, "edittype", "normal");
 }
 
 this.rsltGrid_onenterdown = function(obj:Grid, e:nexacro.GridEditEventInfo)
@@ -825,6 +823,12 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	alert(this.MSG_SUP_SAVE);
 }
 
+
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.rsltGrid.setCellProperty("Body", 2, "edittype", "normal");
+}
 ]]></Script>
   </Form>
 </FDL>
