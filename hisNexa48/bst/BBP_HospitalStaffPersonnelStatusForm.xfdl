@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BBP_HospitalStaffPersonnelStatusForm" classname="BBP_HospitalStaffPersonnelStatusForm" left="0" top="0" width="1250" height="768" titletext="원내직원 인원현황폼">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" right="0.32%" height="53" style="background:transparent URL('img::titleBar5.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="경영통계 - 원내직원 인원현황" left="4.57%" top="6" right="68.46%" height="45" style="color:#263238ff;font:bold italic 16 Consolas;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Grid id="empGrid" taborder="1" binddataset="dsEmp" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="6.56%" height="463">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="87"/>
+                <Column size="85"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="64"/>
+                <Column size="62"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+                <Column size="40"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사원번호"/>
+                <Cell col="1" text="사원명"/>
+                <Cell col="2" text="직종"/>
+                <Cell col="3" text="직위"/>
+                <Cell col="4" text="직급"/>
+                <Cell col="5" text="성별"/>
+                <Cell col="6" text="주소"/>
+                <Cell col="7" text="상세주소"/>
+                <Cell col="8" text="우편변호"/>
+                <Cell col="9" text="국적"/>
+                <Cell col="10" text="부서명"/>
+                <Cell col="11" text="입사일"/>
+                <Cell col="12" text="근속년수"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:empNo"/>
+                <Cell col="1" text="bind:empNm"/>
+                <Cell col="2" text="bind:jobcl"/>
+                <Cell col="3" text="bind:jobtt"/>
+                <Cell col="4" text="bind:jobrk"/>
+                <Cell col="5" text="bind:gender"/>
+                <Cell col="6" text="bind:addr"/>
+                <Cell col="7" text="bind:detailAddr"/>
+                <Cell col="8" text="bind:zipCd"/>
+                <Cell col="9" text="bind:natnt"/>
+                <Cell col="10" text="bind:deptNm"/>
+                <Cell col="11" text="bind:hireDate"/>
+                <Cell col="12" text="bind:workPeriod"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="empGrid" propid="binddataset" datasetid="dsHmEmp" columnid=""/>
+    </Bind>
+    <Objects>
+      <Dataset id="dsEmp">
+        <ColumnInfo>
+          <Column id="empNo" type="STRING" size="256"/>
+          <Column id="empNm" type="STRING" size="256"/>
+          <Column id="jobcl" type="STRING" size="256"/>
+          <Column id="jobtt" type="STRING" size="256"/>
+          <Column id="jobrk" type="STRING" size="256"/>
+          <Column id="gender" type="STRING" size="256"/>
+          <Column id="addr" type="STRING" size="256"/>
+          <Column id="detailAddr" type="STRING" size="256"/>
+          <Column id="zipCd" type="STRING" size="256"/>
+          <Column id="natnt" type="STRING" size="256"/>
+          <Column id="deptCd" type="STRING" size="256"/>
+          <Column id="hireDate" type="STRING" size="256"/>
+          <Column id="workPeriod" type="STRING" size="256"/>
+          <Column id="deptNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>
