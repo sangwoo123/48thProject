@@ -66,6 +66,7 @@
             </Format>
           </Formats>
         </Grid>
+        <Button id="searchBtn" taborder="2" text="조회" onclick="searchBtn_onclick" cssclass="btn_WF_Search" left="747" top="72" width="58" height="25" style="background:#90a4aeff;"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -90,6 +91,46 @@
           <Column id="deptNm" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findPersonnelStatusList</Col>
+            <Col id="URL">his::bst/hospitalStaffPersonnelStatus/findPersonnelStatusList.do</Col>
+            <Col id="inData"></Col>
+            <Col id="outData">dsHsps=dsHsps</Col>
+          </Row>
+        </Rows>
+      </Dataset>
     </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+*                                               			                    *
+* 원내 직원 인원통계                             		                        *
+*                                                                   			*
+* @Path			경영통계 - 원내직원 인원 통계								*
+* @Description  원내직원의 인원을 통계					                    *
+* @Author		박상우						 							        *
+* 									 											*
+* Created on	2016. 12. 24.                           		 				*
+*									 											*
+********************************************************************************/
+
+include "scripts::commonTransaction.xjs"; //골통 트랜잭션
+
+
+this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+    var argument;
+	this.dsService.setColumn(0,"argument",argument);
+	this.gfnService("findPersonnelStatusList",true);
+}
+]]></Script>
   </Form>
 </FDL>

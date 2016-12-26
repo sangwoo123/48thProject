@@ -1,59 +1,41 @@
 package com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService;
 
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.seoul.his.bst.patientStatus.dailyPatient.dao.DailyPatientDAO;
-import com.seoul.his.bst.patientStatus.dailyPatient.exception.DailyPatientException;
-import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.HospitalStaffPersonnelStatusDAO;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
+
+
 
 /**
- * @Package  com.seoul.his.acc.budget.applicationService
- * @Class    AccBudgetApplicationServiceImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService
+ * @Class    HospitalStaffPersonnelStatusApplicationServiceImpl.java
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Component
 public class HospitalStaffPersonnelStatusApplicationServiceImpl implements HospitalStaffPersonnelStatusApplicationService{
 	@Autowired
-	DailyPatientDAO dailyPatientDAO;
-	
-
-
-
-	@Override
-	public List<DailyPatientBean> findDailyPatientList(Map<String, String> argsMap) {
-		List<DailyPatientBean> dailyPatientList = dailyPatientDAO.selectDailyPatientList(argsMap);
-		return dailyPatientList;		
-	}
+	HospitalStaffPersonnelStatusDAO hospitalStaffPersonnelStatusDAO;
 
 
 
 
 	@Override
-	public void batchDailyPatientProcess(List<DailyPatientBean> dailyPatientBeanList) {
-	        for (DailyPatientBean dailyPatientBean : dailyPatientBeanList) {
-	            if (dailyPatientBean.getStatus().equals("inserted")) {
-	            	dailyPatientDAO.insertDailyPatient(dailyPatientBean);
-	            } else if (dailyPatientBean.getStatus().equals("updated")) {
-	            	System.out.println("11111여기까지");
-	            	dailyPatientDAO.updateDailyPatient(dailyPatientBean);
-	            } else if (dailyPatientBean.getStatus().equals("deleted")) {
-	            	dailyPatientDAO.deleteEmp(dailyPatientBean);
-	            }
-	        }
-	    
+	public List<HospitalStaffPersonnelStatusBean> findPersonnelStatusList(Map<String, String> argsMap) {
+		return hospitalStaffPersonnelStatusDAO.selectPersonnelStatusList(argsMap);
 	}
 
-	
-	
+
+
 
 }
