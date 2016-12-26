@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="BBP_HospitalStaffPersonnelStatusForm" classname="BBP_HospitalStaffPersonnelStatusForm" left="0" top="0" width="1250" height="768" titletext="원내직원 인원현황폼">
+  <Form id="BBP_HospitalStaffPersonnelStatusForm" classname="BBP_HospitalStaffPersonnelStatusForm" left="0" top="0" width="1250" height="768" titletext="원내직원 인원현황폼" onload="BBP_HospitalStaffPersonnelStatusForm_onload">
     <Layouts>
       <Layout>
         <Div id="Div00" taborder="0" left="0%" top="0" right="0.32%" height="53" style="background:transparent URL('img::titleBar5.jpg');">
@@ -66,12 +66,22 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="searchBtn" taborder="2" text="조회" onclick="searchBtn_onclick" cssclass="btn_WF_Search" left="747" top="72" width="58" height="25" style="background:#90a4aeff;"/>
+        <Button id="searchBtn" taborder="2" text="조회" onclick="searchBtn_onclick" cssclass="btn_WF_Search" left="968" top="64" width="58" height="28" style="background:#90a4aeff;"/>
         <CheckBox id="CheckBox00" taborder="3" left="14.56%" top="65" right="83.84%" height="25" onclick="CheckBox00_onclick"/>
         <Combo id="com1" taborder="4" left="16.56%" top="64" right="76%" height="27" innerdataset="@dsjikjong" datacolumn="value" codecolumn="value" style="itemfont:bold 9 돋움;font:bold 9 돋움;" enable="false"/>
         <Static id="Static00" taborder="5" text="조회조건 :" left="2.24%" top="64" right="91.2%" height="28" style="background:#90a4aeff;color:white;align:center middle;font:bold 11 맑은 고딕;"/>
         <Static id="Static01" taborder="6" text="직종" left="10.4%" top="64" right="85.84%" height="28" style="background:#cfd8dcff;color:black;align:center middle;font:11 Consolas;"/>
-        <Combo id="com00" taborder="7" innerdataset="@dsDept" codecolumn="deptCd" datacolumn="deptNm" enable="false" left="26.24%" top="69" right="66.32%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
+        <Combo id="com2" taborder="7" innerdataset="@dsDept" codecolumn="deptCd" datacolumn="deptNm" enable="false" left="31.76%" top="64" right="57.76%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
+        <Static id="Static02" taborder="8" text="부서" left="25.6%" top="64" right="70.64%" height="28" style="background:#cfd8dcff;color:black;align:center middle;font:11 Consolas;"/>
+        <CheckBox id="CheckBox01" taborder="9" onclick="CheckBox01_onclick" left="29.76%" top="65" right="68.64%" height="25"/>
+        <Static id="Static03" taborder="10" text="직위" left="43.84%" top="63" right="52.4%" height="28" style="background:#cfd8dcff;color:black;align:center middle;font:11 Consolas;"/>
+        <CheckBox id="CheckBox02" taborder="11" left="48%" top="65" right="50.4%" height="25" onclick="CheckBox02_onclick"/>
+        <Combo id="com3" taborder="12" innerdataset="@dsPosition" codecolumn="value" datacolumn="value" enable="false" left="50%" top="64" right="42.56%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
+        <Static id="Static04" taborder="13" text="성별" left="59.52%" top="63" right="36.72%" height="28" style="background:#cfd8dcff;color:black;align:center middle;font:11 Consolas;"/>
+        <CheckBox id="CheckBox03" taborder="14" left="63.68%" top="65" right="34.72%" height="25" onclick="CheckBox03_onclick"/>
+        <Combo id="com4" taborder="15" innerdataset="@dsGender" codecolumn="code" datacolumn="value" enable="false" left="65.68%" top="64" right="24.64%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
+        <Edit id="Edit04" taborder="16" value="전체검색" cssclass="edt_WF_Search" left="1126" top="64" width="82" height="28" enable="false"/>
+        <Button id="allSearchBtn" taborder="17" cssclass="btn_WF_SearchSmall" left="1207" top="64" width="21" height="28" onclick="allSearchBtn_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -112,6 +122,12 @@
             <Col id="inData">dsHsps=dsHsps</Col>
             <Col id="outData">dsHsps=dsHsps</Col>
           </Row>
+          <Row>
+            <Col id="serviceID">findDeptList</Col>
+            <Col id="URL">his::bst/hospitalStaffPersonnelStatus/findDeptList.do</Col>
+            <Col id="inData"></Col>
+            <Col id="outData">dsDept=dsDept</Col>
+          </Row>
         </Rows>
       </Dataset>
       <Dataset id="dsjikjong">
@@ -143,6 +159,56 @@
           <Column id="sectionManagerNm" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsPosition">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">원장</Col>
+          </Row>
+          <Row>
+            <Col id="value">과장</Col>
+          </Row>
+          <Row>
+            <Col id="value">실장</Col>
+          </Row>
+          <Row>
+            <Col id="value">부장</Col>
+          </Row>
+          <Row>
+            <Col id="value">팀장</Col>
+          </Row>
+          <Row>
+            <Col id="value">센터장</Col>
+          </Row>
+          <Row>
+            <Col id="value">주임과장</Col>
+          </Row>
+          <Row>
+            <Col id="value">레지던트</Col>
+          </Row>
+          <Row>
+            <Col id="value">인턴</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsGender">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">M</Col>
+            <Col id="value">남자직원</Col>
+          </Row>
+          <Row>
+            <Col id="code">W</Col>
+            <Col id="value">여자직원</Col>
+          </Row>
+        </Rows>
+      </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
 *                                               			                    *
@@ -157,7 +223,7 @@
 ********************************************************************************/
 
 include "scripts::commonTransaction.xjs"; //골통 트랜잭션
-
+var checkP;
 
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
@@ -169,11 +235,85 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.gfnService("findPersonnelStatusList",true);
 	}
 	
+	if(this.com2.value != undefined){
+		var argument;
+		argument="deptCd="+this.com2.value;
+		this.dsService.setColumn(0,"argument",argument);
+		this.gfnService("findPersonnelStatusList",true);
+		
+		
+	}
+	
+	if(this.com3.value != undefined){
+		var argument;
+		argument="jobtt="+this.com3.value;
+		this.dsService.setColumn(0,"argument",argument);
+		this.gfnService("findPersonnelStatusList",true);
+		
+		
+	}
+	
+		if(this.com4.value != undefined){
+		var argument;
+		argument="gender="+this.com4.value;
+		this.dsService.setColumn(0,"argument",argument);
+		this.gfnService("findPersonnelStatusList",true);
+		
+		
+	}
+	
 }
 
 this.CheckBox00_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
 {
-	this.com1.set_enable(true);
+	if(obj.value == true){
+	this.com1.set_enable(true);}
+	else{this.com1.set_enable(false);}
+	
+}
+
+this.BBP_HospitalStaffPersonnelStatusForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+    
+	this.gfnService("findDeptList",true);
+}
+
+
+
+this.CheckBox01_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+    if(obj.value == true){
+	this.com2.set_enable(true);
+	}else{
+	this.com2.set_enable(false);
+	}
+	
+}
+
+this.CheckBox02_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	  if(obj.value == true){
+	this.com3.set_enable(true);
+	}else{
+	this.com3.set_enable(false);
+	}
+}
+
+this.CheckBox03_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	  if(obj.value == true){
+	this.com4.set_enable(true);
+	}else{
+	this.com4.set_enable(false);
+	}
+}
+
+this.allSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var argument;
+		
+		this.dsService.setColumn(0,"argument",argument);
+		this.gfnService("findPersonnelStatusList",true);
 }
 ]]></Script>
   </Form>
