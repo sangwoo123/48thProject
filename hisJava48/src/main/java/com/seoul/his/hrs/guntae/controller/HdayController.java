@@ -13,53 +13,62 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.hrs.guntae.service.GuntaeServiceFacade;
-import com.seoul.his.hrs.guntae.to.DayGuntaeBean;
+import com.seoul.his.hrs.guntae.to.HdayBean;
 
 /**
  * <pre>
  * com.seoul.his.hrs.guntae.controller
- *    |_ GuntaeController.java
+ *    |_ HdayController.java
  *
  * </pre>
- * @date : 2016. 12. 22. 오후 7:47:07
+ * @date : 2016. 12. 26. 오후 7:51:49
  * @version :
  * @author : User
  */
-@RequestMapping("hrs/guntae")
 @Controller
-public class GuntaeController {
+@RequestMapping("hrs/hday")
+public class HdayController {
 
 	 @Autowired
 	    GuntaeServiceFacade guntaeServiceFacade;
 	    @Autowired
 	    DataSetBeanMapper dataSetBeanMapper;
 
-	  //일근태 생성
-	    @RequestMapping("/callDayGuntae.do")
-	    public void createDayGuntae(HttpServletRequest request,
+
+	    //휴일 조회
+	    @RequestMapping("/findHday.do")
+	    public void findHday(HttpServletRequest request,
 	            HttpServletResponse response) throws Exception{
-	        PlatformData outData = (PlatformData)request.getAttribute("outData");
+
 	        PlatformData inData = (PlatformData)request.getAttribute("inData");
+	        PlatformData outData = (PlatformData)request.getAttribute("outData");
+
 	        Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-	        List<DayGuntaeBean> list = guntaeServiceFacade.createDayGuntae(argsMap);
+	        List<HdayBean> list = guntaeServiceFacade.findHdayList(argsMap);
 
-	        dataSetBeanMapper.beansToDataset(outData, list, DayGuntaeBean.class);
+	        dataSetBeanMapper.beansToDataset(outData, list, HdayBean.class);
+
 
 	    }
 
-	    //일근태 조회
-	    @RequestMapping("/findDayGuntaeList.do")
-	    public void findDayGuntaeList(HttpServletRequest request,
+	  //휴일 일괄처리
+	    @RequestMapping("/batchHdayProcess.do")
+	    public void batchHdayProcess(HttpServletRequest request,
 	            HttpServletResponse response) throws Exception{
-	        PlatformData outData = (PlatformData)request.getAttribute("outData");
-	        PlatformData inData = (PlatformData)request.getAttribute("inData");
-	        Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-	        List<DayGuntaeBean> list = guntaeServiceFacade.findDayGuntaeList(argsMap);
-	        dataSetBeanMapper.beansToDataset(outData, list, DayGuntaeBean.class);
+	        PlatformData inData = (PlatformData)request.getAttribute("inData");
+	        PlatformData outData = (PlatformData)request.getAttribute("outData");
+
+	        List<HdayBean> list;
+
+	        list = dataSetBeanMapper.datasetToBeans(inData, HdayBean.class);
+
+	        guntaeServiceFacade.batchHdayProcess(list);
 
 	    }
+
+
 
 }
 
