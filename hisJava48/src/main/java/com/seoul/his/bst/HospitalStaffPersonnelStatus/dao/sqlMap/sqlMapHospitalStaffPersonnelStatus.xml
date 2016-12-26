@@ -26,7 +26,7 @@
  	</resultMap>
 
 
-	<select id="selectPersonnelStatusList" resultMap="resultEmp" parameterType="HashMap">
+	<select id="selectPersonnelStatusList" resultMap="resultHospitalStaffPersonnelStatus" parameterType="HashMap">
 		select
 	         *
 		from hm_emp e
