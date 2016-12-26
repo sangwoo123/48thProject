@@ -20,4 +20,6 @@ public interface ServiceDAO {
     public List<ServiceBean> selectService(Map<String, String> argsMap);
 
     public void insertError(ServiceBean service) throws DataAccessException;
+
+
 }
