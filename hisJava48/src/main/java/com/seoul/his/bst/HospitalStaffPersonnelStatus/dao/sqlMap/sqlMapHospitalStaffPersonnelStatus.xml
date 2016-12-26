@@ -30,7 +30,10 @@
 		select
 	         *
 		from hm_emp e
-
+		where
+		<if test="jobcl != null">
+		 JOBCL = #{jobcl}
+		</if>
 		order by emp_no
 	</select>
 
