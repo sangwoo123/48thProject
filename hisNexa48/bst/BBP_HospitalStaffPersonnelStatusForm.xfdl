@@ -11,7 +11,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="empGrid" taborder="1" binddataset="dsEmp" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="6.56%" height="463">
+        <Grid id="empGrid" taborder="1" binddataset="dsHsps" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="6.56%" height="463">
           <Formats>
             <Format id="default">
               <Columns>
@@ -72,7 +72,7 @@
       <BindItem id="item0" compid="empGrid" propid="binddataset" datasetid="dsHmEmp" columnid=""/>
     </Bind>
     <Objects>
-      <Dataset id="dsEmp">
+      <Dataset id="dsHsps">
         <ColumnInfo>
           <Column id="empNo" type="STRING" size="256"/>
           <Column id="empNm" type="STRING" size="256"/>

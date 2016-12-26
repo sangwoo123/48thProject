@@ -1,4 +1,4 @@
-package com.seoul.his.bst.patientStatus.dailyPatient.service;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.service;
 
 import java.util.List;
 import java.util.Map;
@@ -22,7 +22,7 @@ import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
  */
 
 @Service
-public class DailyPatientServiceFacadeImpl implements DailyPatientServiceFacade{
+public class HospitalStaffPersonnelStatusServiceFacadeImpl implements HospitalStaffPersonnelStatusServiceFacade{
 
 	@Autowired
 	DailyPatientApplicationService dailyPatientApplicationService;

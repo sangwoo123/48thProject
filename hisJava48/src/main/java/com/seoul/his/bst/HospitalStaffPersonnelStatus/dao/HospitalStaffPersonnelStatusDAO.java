@@ -1,11 +1,11 @@
-package com.seoul.his.bst.patientStatus.dailyPatient.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
 
 import java.util.List;
 import java.util.Map;
 
 import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
 
-public interface DailyPatientDAO {
+public interface HospitalStaffPersonnelStatusDAO {
 
 	List<DailyPatientBean> selectDailyPatientList(Map<String, String> argsMap);
 

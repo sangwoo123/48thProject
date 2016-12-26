@@ -1,4 +1,4 @@
-package com.seoul.his.bst.patientStatus.dailyPatient.applicationService;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +22,7 @@ import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
  */
 
 @Component
-public class DailyPatientApplicationServiceImpl implements DailyPatientApplicationService{
+public class HospitalStaffPersonnelStatusApplicationServiceImpl implements HospitalStaffPersonnelStatusApplicationService{
 	@Autowired
 	DailyPatientDAO dailyPatientDAO;
 	

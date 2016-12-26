@@ -1,4 +1,4 @@
-package com.seoul.his.bst.patientStatus.dailyPatient.controller;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.controller;
 
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -34,7 +34,7 @@ import com.seoul.his.common.util.DataSetBeanMapper;
  */
 
 @Controller
-public class DailyPatientController {
+public class HospitalStaffPersonnelStatusController {
 	
 	@Autowired
 	DataSetBeanMapper dataSetBeanMapper; 

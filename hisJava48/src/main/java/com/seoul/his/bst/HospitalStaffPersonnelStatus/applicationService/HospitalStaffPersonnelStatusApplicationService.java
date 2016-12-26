@@ -1,4 +1,4 @@
-package com.seoul.his.bst.patientStatus.dailyPatient.applicationService;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import com.seoul.his.bst.patientStatus.dailyPatient.exception.DailyPatientExcept
 import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
 
 
-public interface DailyPatientApplicationService {
+public interface HospitalStaffPersonnelStatusApplicationService {
 
 	List<DailyPatientBean> findDailyPatientList(Map<String, String> argsMap);
 
