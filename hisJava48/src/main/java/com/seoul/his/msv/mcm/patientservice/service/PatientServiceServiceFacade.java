@@ -7,7 +7,7 @@ import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.DaySchBean;
-import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrPrescBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 import com.seoul.his.msv.mcm.patientservice.to.RsvPatBean;
 import com.seoul.his.msv.mcm.patientservice.to.TimeSchBean;
@@ -28,7 +28,7 @@ public interface PatientServiceServiceFacade {
 	List<AttentionalPatientBean> findAttentionalPatientList(Map<String, String> argsMap);
 	List<AttentionalFieldBean> findAttentionalFieldList(Map<String, String> argsMap);
 	List<AdrBean> findAdrList(Map<String, String> argsMap);
-	List<EmrBean> findEmrList(Map<String, String> argsMap);
+	List<EmrPrescBean> findEmrPrescList(Map<String, String> argsMap);
 	void batchAdrProcess(List<AdrBean> adrList);
 	void batchAttentionalFieldProcess(List<AttentionalFieldBean> attentionalFieldList) ;
 	void registerAttentionalPatient(AttentionalPatientBean attentionalPatient);
