@@ -23,6 +23,35 @@
 		<result property="deptNm" column="DEPT_NM" />
 
 
+		<collection property="careerList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.CareerDAO.findCareerList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="disabilityList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.DisabilityDAO.findDisabilityList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="educationBeanList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.EducationDAO.findEducationList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="familyList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.FamilyDAO.findFamilyList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="licenseList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.LicenseDAO.findLicenseList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="militaryList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.MilitaryDAO.findMilitaryList"
+			column="EMP_NO" javaType="list" />
+
+		<collection property="perconaldateList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.PerconaldateDAO.findPerconaldateList"
+			column="EMP_NO" javaType="list" />
+
+
  	</resultMap>
 
 
