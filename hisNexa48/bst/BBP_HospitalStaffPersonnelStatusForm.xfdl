@@ -11,7 +11,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="empGrid" taborder="1" binddataset="dsHsps" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="1.76%" height="463">
+        <Grid id="empGrid" taborder="1" binddataset="dsHsps" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="2.24%" top="113" right="1.76%" height="353">
           <Formats>
             <Format id="default">
               <Columns>
@@ -82,6 +82,34 @@
         <Combo id="com4" taborder="15" innerdataset="@dsGender" codecolumn="code" datacolumn="value" enable="false" left="65.68%" top="64" right="24.64%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
         <Edit id="Edit04" taborder="16" value="전체검색" cssclass="edt_WF_Search" left="1126" top="64" width="82" height="28" enable="false"/>
         <Button id="allSearchBtn" taborder="17" cssclass="btn_WF_SearchSmall" left="1207" top="64" width="21" height="28" onclick="allSearchBtn_onclick"/>
+        <Grid id="Grid00" taborder="18" binddataset="dsHmLicense" useinputpanel="false" autofittype="col" left="1.28%" top="504" right="51.28%" height="187">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="color: ;" text="자격번호"/>
+                <Cell col="1" style="color: ;" text="자격명"/>
+                <Cell col="2" style="color: ;" text="취득일자"/>
+                <Cell col="3" style="color: ;" text="발행처"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:licenseNo"/>
+                <Cell col="1" displaytype="text" edittype="combo" text="bind:licenseType" combodataset="dsLicenseType" combodatacol="licenseType"/>
+                <Cell col="2" displaytype="date" edittype="date" text="bind:acqDay"/>
+                <Cell col="3" edittype="normal" text="bind:issue"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
       </Layout>
     </Layouts>
     <Bind>
@@ -127,6 +155,11 @@
             <Col id="URL">his::bst/hospitalStaffPersonnelStatus/findDeptList.do</Col>
             <Col id="inData"></Col>
             <Col id="outData">dsDept=dsDept</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findAllPersonnelStatusList</Col>
+            <Col id="URL">his::bst/hospitalStaffPersonnelStatus/findAllPersonnelStatusList.do</Col>
+            <Col id="outData">dsHsps=dsHsps</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -223,7 +256,7 @@
 ********************************************************************************/
 
 include "scripts::commonTransaction.xjs"; //골통 트랜잭션
-var checkP;
+
 
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
@@ -235,7 +268,7 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.gfnService("findPersonnelStatusList",true);
 	}
 	
-	if(this.com2.value != undefined){
+	else if(this.com2.value != undefined){
 		var argument;
 		argument="deptCd="+this.com2.value;
 		this.dsService.setColumn(0,"argument",argument);
@@ -244,7 +277,7 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		
 	}
 	
-	if(this.com3.value != undefined){
+	else if(this.com3.value != undefined){
 		var argument;
 		argument="jobtt="+this.com3.value;
 		this.dsService.setColumn(0,"argument",argument);
@@ -253,14 +286,14 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		
 	}
 	
-		if(this.com4.value != undefined){
+		else if(this.com4.value != undefined){
 		var argument;
 		argument="gender="+this.com4.value;
 		this.dsService.setColumn(0,"argument",argument);
 		this.gfnService("findPersonnelStatusList",true);
 		
 		
-	}
+	}else{alert("조건을 선택해주세요");}
 	
 }
 
@@ -313,7 +346,8 @@ this.allSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	var argument;
 		
 		this.dsService.setColumn(0,"argument",argument);
-		this.gfnService("findPersonnelStatusList",true);
+		this.gfnService("findAllPersonnelStatusList",true);
+		
 }
 ]]></Script>
   </Form>

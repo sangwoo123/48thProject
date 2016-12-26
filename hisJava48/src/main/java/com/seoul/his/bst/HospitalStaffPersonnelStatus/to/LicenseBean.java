@@ -1,18 +1,20 @@
-package com.seoulit.erp47.hrs.emp.to;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.to;
 
-import com.seoulit.erp47.common.annotation.Dataset;
-import com.seoulit.erp47.common.to.BaseBean;
+
+
+import com.seoul.his.common.annotation.Dataset;
+import com.seoul.his.common.to.BaseBean;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.to
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.to
  * @Class    LicenseBean.java
  * @Create   2016. 9. 07.
- * @Author   김봉진
+ * @Author   박상우
  * @Description
  *		자격정보 빈
  * @LastUpdated
@@ -30,5 +32,5 @@ public class LicenseBean extends BaseBean{
 				,licenseType //종별
 				,licenseNo   //자격면허번호
 				,issue;		 //발령청
-	 
+
 }

@@ -1,18 +1,21 @@
-package com.seoulit.erp47.hrs.emp.to;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.to;
 
-import com.seoulit.erp47.common.annotation.Dataset;
-import com.seoulit.erp47.common.to.BaseBean;
+
+
+
+import com.seoul.his.common.annotation.Dataset;
+import com.seoul.his.common.to.BaseBean;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.to
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.to
  * @Class    DisabilityBean.java
- * @Create   2016. 9. 07.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *		장애상태 빈
  * @LastUpdated
@@ -32,5 +35,5 @@ public class DisabilityBean extends BaseBean{
 			,disabilityGrade  //장애등급
 			,intensiveYn      //중증여부
 			,note;            //비고
-	 
+
 }

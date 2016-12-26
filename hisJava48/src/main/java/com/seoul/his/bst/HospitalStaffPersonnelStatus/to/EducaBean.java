@@ -1,18 +1,19 @@
-package com.seoulit.erp47.hrs.emp.to;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.to;
 
-import com.seoulit.erp47.common.annotation.Dataset;
-import com.seoulit.erp47.common.to.BaseBean;
+
+import com.seoul.his.common.annotation.Dataset;
+import com.seoul.his.common.to.BaseBean;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.to
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.to
  * @Class    EducaBean.java
- * @Create   2016. 9. 09.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *		학력정보 빈
  * @LastUpdated
@@ -32,5 +33,5 @@ public class EducaBean extends BaseBean{
 			,degree			//학위
 			,finYn			//최종여부
 			,educationSeq;  //학력시퀀스
-	 
+
 }
