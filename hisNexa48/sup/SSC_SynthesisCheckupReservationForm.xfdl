@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="SSC_SynthesisCheckupReservationForm" classname="SSC_SynthesisCheckupReservationForm" left="0" top="0" width="1250" height="768" titletext="종합검진 예약관리 화면">
+  <Form id="SSC_SynthesisCheckupReservationForm" classname="SSC_SynthesisCheckupReservationForm" left="0" top="0" width="1250" height="768" titletext="종합검진 예약관리 화면" onload="SSC_SynthesisCheckupReservationForm_onload">
     <Layouts>
       <Layout>
         <Div id="Div00" taborder="0" left="0%" top="0" right="0.32%" height="53" style="background:transparent URL('img::titleBar5.jpg');">
@@ -49,15 +49,15 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="Button00" taborder="5" text="조회" left="25.44%" top="74" right="67.2%" height="25" style="background:@gradation;"/>
-        <Div id="compBox" taborder="6" left="34.56%" top="74" right="1.28%" height="352" style="background:@gradation;border:0 solid #9f9f9fb3 ; :disabled {background:#eceff1ff;}" enable="false">
+        <Button id="searchBtn" taborder="5" text="조회" left="25.44%" top="74" right="67.2%" height="25" style="background:@gradation;" onclick="searchBtn_onclick"/>
+        <Div id="compBox" taborder="6" left="34.56%" top="74" right="1.28%" height="352" style="background:#eceff1ff;border:0 solid #9f9f9fb3 ; :disabled {background:#eceff1ff;}" enable="false">
           <Layouts>
             <Layout width="768" height="339">
               <Edit id="rsvtDateEd" taborder="289" readonly="true" left="13.93%" top="15" right="68.88%" height="30" style="border:1 solid #d5d5d5ff ; :disabled {align:center middle;}" compCheck="EsEd"/>
               <Edit id="regNo1Ed" taborder="290" readonly="true" left="13.93%" top="123" right="73.31%" height="30" style="border:1 solid #d5d5d5ff ;"/>
               <Edit id="patNmEd" taborder="291" left="13.93%" top="87" right="73.31%" height="30" compCheck="EsEd"/>
               <Edit id="patNoEd" taborder="292" readonly="true" left="13.93%" top="51" right="68.88%" height="30" style="border:1 solid #d5d5d5ff ;" compCheck="EsEd"/>
-              <Edit id="ageEd" taborder="293" left="35.81%" top="87" right="56.38%" height="30"/>
+              <Edit id="ageEd" taborder="293" left="38.9%" top="87" right="56.36%" height="30"/>
               <Edit id="pckCdEd" taborder="294" readonly="true" left="56.9%" top="123" right="31.12%" height="30" style="border:1 solid #d5d5d5ff ;" compCheck="EsEd"/>
               <Edit id="reducCdEd" taborder="295" readonly="true" left="56.9%" top="159" right="31.12%" height="30" style="border:1 solid #d5d5d5ff ;"/>
               <Edit id="reducNmEd" taborder="296" readonly="true" left="69.53%" top="159" right="6.77%" height="30" style="border:1 solid #d5d5d5ff ;"/>
@@ -72,48 +72,48 @@
               <TextArea id="memoArea" taborder="305" left="13.93%" top="269" right="56.25%" height="64"/>
               <Edit id="regNo2Ed" taborder="306" readonly="true" left="30.86%" top="123" right="56.38%" height="30" style="border:1 solid #d5d5d5ff ;"/>
               <Static id="Static01" taborder="307" text="-" left="27.08%" top="123" right="69.92%" height="28" style="background:transparent;border:0px solid transparent transparent;align:center middle;"/>
-              <Combo id="genderCombo" taborder="308" innerdataset="dsGenderCd" codecolumn="code" datacolumn="value" left="27.73%" top="87" right="65.1%" height="30" class="AreaCombo"/>
+              <Combo id="genderCombo" taborder="308" innerdataset="dsGenderCd" codecolumn="code" datacolumn="value" left="27.68%" top="87" right="62.34%" height="30" class="AreaCombo"/>
               <MaskEdit id="basicInspAmtEd" taborder="309" mask="###,###" left="56.9%" top="195" right="27.47%" height="30" style="padding:0 5 0 0;align:right;"/>
               <MaskEdit id="reducAmtEd" taborder="310" mask="###,###" left="56.9%" top="231" right="27.47%" height="30" style="padding:0 5 0 0;align:right;"/>
               <MaskEdit id="basicInspSumAmtEd" taborder="311" mask="###,###" left="56.9%" top="303" right="23.44%" height="30" style="padding:0 5 0 0;align:right;"/>
-              <Div id="Div07" taborder="312" text="신청인" left="2.73%" top="195" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div00" taborder="313" text="연락처" left="2.73%" top="231" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div01" taborder="314" text="주민번호" left="2.73%" top="123" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div02" taborder="315" text="검진자명*" left="2.73%" top="87" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div03" taborder="316" text="등록번호*" left="2.73%" top="51" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div05" taborder="317" text="예약일자*" left="2.73%" top="15" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div06" taborder="318" text="예약번호*" left="45.7%" top="15" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div08" taborder="319" text="예약담당" left="45.7%" top="51" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div09" taborder="320" text="검진일시*" left="45.7%" top="87" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div10" taborder="321" text="패키지*" left="45.7%" top="123" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div11" taborder="322" text="입금자" left="73.7%" top="195" right="16.41%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div12" taborder="323" text="감면구분" left="45.7%" top="159" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div13" taborder="324" text="기본금액" left="45.7%" top="195" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div14" taborder="325" text="감면금액" left="45.7%" top="231" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div16" taborder="326" text="총기본금액" left="45.7%" top="303" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div17" taborder="327" text="SMS" left="2.73%" top="159" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div18" taborder="328" text="메모" left="2.73%" top="267" right="87.37%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
-              <Div id="Div19" taborder="329" text="관계" left="24.35%" top="195" right="65.76%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div07" taborder="312" text="신청인" left="2.73%" top="195" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div00" taborder="313" text="연락처" left="2.73%" top="231" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div01" taborder="314" text="주민번호" left="2.73%" top="123" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div02" taborder="315" text="검진자명*" left="2.73%" top="87" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div03" taborder="316" text="등록번호*" left="2.73%" top="51" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div05" taborder="317" text="예약일자*" left="2.73%" top="15" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div06" taborder="318" text="예약번호*" left="45.7%" top="15" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div08" taborder="319" text="예약담당" left="45.7%" top="51" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div09" taborder="320" text="검진일시*" left="45.7%" top="87" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div10" taborder="321" text="패키지*" left="45.7%" top="123" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div11" taborder="322" text="입금자" left="73.7%" top="195" right="16.41%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div12" taborder="323" text="감면구분" left="45.7%" top="159" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div13" taborder="324" text="기본금액" left="45.7%" top="195" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div14" taborder="325" text="감면금액" left="45.7%" top="231" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div16" taborder="326" text="총기본금액" left="45.7%" top="303" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div17" taborder="327" text="SMS" left="2.73%" top="159" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div18" taborder="328" text="메모" left="2.73%" top="267" right="87.37%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div19" taborder="329" text="관계" left="24.35%" top="195" right="65.76%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
               <Button id="pckPopBtn" taborder="330" onclick="compBox_pckPopBtn_onclick" left="93.75%" top="123" right="2.08%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black; :disabled {background:@gradation URL('img::miniSearchBtn.png') stretch;}"/>
               <Button id="reducPopBtn" taborder="331" onclick="compBox_reducPopBtn_onclick" left="93.75%" top="159" right="2.08%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black; :disabled {background:@gradation URL('img::miniSearchBtn.png') stretch;}"/>
               <Button id="patPopupBtn" taborder="332" onclick="compBox_patPopupBtn_onclick" left="31.9%" top="50" right="63.93%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black; :disabled {background:@gradation URL('img::miniSearchBtn.png') stretch;}"/>
-              <Div id="Div04" taborder="333" text="취소여부" left="73.7%" top="231" right="16.41%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div04" taborder="333" text="취소여부" left="73.7%" top="231" right="16.41%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
               <Edit id="cancelEd" taborder="334" left="84.51%" top="231" right="2.34%" height="30"/>
-              <CheckBox id="cancelYnChk" taborder="335" value="N" truevalue="Y" falsevalue="N" readonly="true" left="90.1%" top="229" right="7.03%" height="32"/>
               <MaskEdit id="rsvtAmtEd" taborder="336" mask="###,###" left="56.9%" top="267" right="23.44%" height="30" style="padding:0 5 0 0;align:right;"/>
-              <Div id="Div15" taborder="337" text="예약금액" left="45.7%" top="267" right="44.4%" height="30" style="background:tan;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
+              <Div id="Div15" taborder="337" text="예약금액" left="45.7%" top="267" right="44.4%" height="30" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;font:10 다음_Regular; :disabled {background:#cfd8dcff;font:9 돋움;}"/>
               <MaskEdit id="MaskEdit00" taborder="338" readonly="true" type="string" mask="##:##" left="32.03%" top="15" right="56.25%" height="30" style=":disabled {align:center middle;}"/>
               <MaskEdit id="inspTimeMask" taborder="339" readonly="true" type="string" mask="##:##" left="76.82%" top="86" right="11.46%" height="32" style=":disabled {align:center middle;}"/>
               <Calendar id="inspDateCal" taborder="340" left="57.16%" top="89" right="24.35%" height="27"/>
+              <CheckBox id="cancelYnChk" taborder="341" left="89.53%" top="234" right="8.23%" height="25" truevalue="Y" falsevalue="N"/>
             </Layout>
           </Layouts>
           <InitValue>
             <Combo id="genderCombo" class="AreaCombo"/>
           </InitValue>
         </Div>
-        <Button id="Button01" taborder="7" text="+" left="93.52%" top="614" height="30" style="font:16 arial;" width="30"/>
-        <Button id="Button02" taborder="8" text="-" left="96.32%" top="614" height="30" style="font:16 arial;" width="30"/>
-        <Grid id="inspGrid" taborder="9" binddataset="dsInsp" useinputpanel="false" autofittype="col" left="34.56%" top="441" right="45.28%" height="200">
+        <Button id="addBtn" taborder="7" text="+" left="93.52%" top="614" height="30" style="font:16 arial;" width="30" onclick="addBtn_onclick"/>
+        <Button id="delBrn" taborder="8" text="-" left="96.32%" top="614" height="30" style="font:16 arial;" width="30" onclick="delBrn_onclick"/>
+        <Grid id="inspGrid" taborder="9" binddataset="dsScct" useinputpanel="false" autofittype="col" left="34.56%" top="441" right="45.28%" height="200">
           <Formats>
             <Format id="default">
               <Columns>
@@ -131,7 +131,7 @@
                 <Cell row="1" col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검사명"/>
               </Band>
               <Band id="body">
-                <Cell text="bind:inspCd"/>
+                <Cell style="align:center;" text="bind:inspCd"/>
                 <Cell col="1" text="bind:inspNm"/>
               </Band>
             </Format>
@@ -162,11 +162,11 @@
                 <Cell row="1" col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검사예정일"/>
               </Band>
               <Band id="body">
-                <Cell text="bind:inspCd"/>
-                <Cell col="1" text="bind:inspNm"/>
-                <Cell col="2" displaytype="number" edittype="none" text="bind:qnt"/>
+                <Cell style="align:center;" text="bind:inspCd"/>
+                <Cell col="1" style="align:center;" text="bind:inspNm"/>
+                <Cell col="2" displaytype="number" edittype="none" style="align:center;" text="bind:qnt"/>
                 <Cell col="3" displaytype="number" style="align:right;padding:0 3 0 0;" text="bind:sumAmt" expr="expr:qnt*amt"/>
-                <Cell col="4" edittype="none" text="bind:inspPlnDate" mask="####-##-##"/>
+                <Cell col="4" edittype="none" style="align:center;" text="bind:inspPlnDate" mask="####-##-##"/>
               </Band>
               <Band id="summary">
                 <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;"/>
@@ -190,17 +190,43 @@
             </Layout>
           </Layouts>
         </Div>
-        <Button id="Button04" taborder="13" text="예약" left="45.28%" top="714" right="47.68%" height="24" style="background:#cfd8dcff;color:black;"/>
-        <Button id="Button05" taborder="14" text="수납" left="76.8%" top="714" right="16.16%" height="24" style="background:#cfd8dcff;color:black;"/>
-        <Button id="Button06" taborder="15" text="저장" left="91.68%" top="714" right="1.28%" height="24" style="background:#cfd8dcff;color:black;"/>
-        <Button id="Button07" taborder="16" text="예약취소" left="52.72%" top="714" right="40.24%" height="24" style="background:#cfd8dcff;color:black;"/>
-        <Button id="Button08" taborder="17" text="수정" left="84.24%" top="714" right="8.72%" height="24" style="background:#cfd8dcff;color:black;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;"/>
+        <Button id="addRsvtBtn" taborder="13" text="예약" left="45.28%" top="714" right="47.68%" height="24" style="background:#cfd8dcff;color:black;" onclick="addRsvtBtn_onclick"/>
+        <Button id="saveBtn" taborder="15" text="저장" left="91.68%" top="714" right="1.28%" height="24" style="background:#cfd8dcff;color:black;" onclick="saveBtn_onclick"/>
+        <Button id="cancelBtn" taborder="16" text="예약취소" left="52.72%" top="714" right="40.24%" height="24" style="background:#cfd8dcff;color:black;" onclick="cancelBtn_onclick"/>
+        <Button id="modBtn" taborder="17" text="수정" left="84.24%" top="714" right="8.72%" height="24" style="background:#cfd8dcff;color:black;gradation:linear 0,0 #fefefeff 0,100 #ecece5ff;" onclick="modBtn_onclick"/>
       </Layout>
     </Layouts>
     <Bind>
       <BindItem id="item30" compid="Div06.basicInspSumAmtEd" propid="value" datasetid="dsRsvt" columnid="basicInspSumAmt"/>
       <BindItem id="item32" compid="Div06.choInspAmtEd" propid="value" datasetid="dsRsvt" columnid="choInspAmt"/>
       <BindItem id="item31" compid="Div06.inspSumAmtEd" propid="value" datasetid="dsRsvt" columnid="inspSumAmt"/>
+      <BindItem id="item0" compid="compBox.rsvtNoEd" propid="value" datasetid="dsRsvt" columnid="rsvtNo"/>
+      <BindItem id="item1" compid="compBox.rsvtRespEd" propid="value" datasetid="dsRsvt" columnid="rsvtResp"/>
+      <BindItem id="item2" compid="compBox.inspDateCal" propid="value" datasetid="dsRsvt" columnid="inspPlnDate"/>
+      <BindItem id="item3" compid="compBox.inspTimeMask" propid="value" datasetid="dsRsvt" columnid="inspPlnTime"/>
+      <BindItem id="item4" compid="compBox.pckNmEd" propid="value" datasetid="dsRsvt" columnid="pckNm"/>
+      <BindItem id="item5" compid="compBox.pckCdEd" propid="value" datasetid="dsRsvt" columnid="pckCd"/>
+      <BindItem id="item6" compid="compBox.reducCdEd" propid="value" datasetid="dsRsvt" columnid="reducCd"/>
+      <BindItem id="item7" compid="compBox.reducNmEd" propid="value" datasetid="dsRsvt" columnid="reducNm"/>
+      <BindItem id="item8" compid="compBox.payManEd" propid="value" datasetid="dsRsvt" columnid="payMan"/>
+      <BindItem id="item10" compid="compBox.basicInspAmtEd" propid="value" datasetid="dsRsvt" columnid="basicInspAmt"/>
+      <BindItem id="item11" compid="compBox.reducAmtEd" propid="value" datasetid="dsRsvt" columnid="reducAmt"/>
+      <BindItem id="item12" compid="compBox.rsvtAmtEd" propid="value" datasetid="dsRsvt" columnid="rsvtAmt"/>
+      <BindItem id="item13" compid="compBox.basicInspSumAmtEd" propid="value" datasetid="dsRsvt" columnid="basicInspSumAmt"/>
+      <BindItem id="item14" compid="compBox.memoArea" propid="value" datasetid="dsRsvt" columnid="memo"/>
+      <BindItem id="item15" compid="compBox.phoneEd" propid="value" datasetid="dsRsvt" columnid="aplManTel"/>
+      <BindItem id="item16" compid="compBox.rlEd" propid="value" datasetid="dsRsvt" columnid="rship"/>
+      <BindItem id="item17" compid="compBox.aplMan" propid="value" datasetid="dsRsvt" columnid="aplMan"/>
+      <BindItem id="item18" compid="compBox.smsEd" propid="value" datasetid="dsRsvt" columnid="sms"/>
+      <BindItem id="item19" compid="compBox.regNo1Ed" propid="value" datasetid="dsRsvt" columnid="rrn1"/>
+      <BindItem id="item20" compid="compBox.regNo2Ed" propid="value" datasetid="dsRsvt" columnid="rrn2"/>
+      <BindItem id="item21" compid="compBox.genderCombo" propid="value" datasetid="dsRsvt" columnid="gender"/>
+      <BindItem id="item22" compid="compBox.patNmEd" propid="value" datasetid="dsRsvt" columnid="patNm"/>
+      <BindItem id="item23" compid="compBox.ageEd" propid="value" datasetid="dsRsvt" columnid="age"/>
+      <BindItem id="item24" compid="compBox.MaskEdit00" propid="value" datasetid="dsRsvt" columnid="rsvtTime"/>
+      <BindItem id="item25" compid="compBox.rsvtDateEd" propid="value" datasetid="dsRsvt" columnid="rsvtDate"/>
+      <BindItem id="item26" compid="compBox.patNoEd" propid="value" datasetid="dsRsvt" columnid="patNo"/>
+      <BindItem id="item27" compid="compBox.cancelYnChk" propid="value" datasetid="dsRsvt" columnid="cancelYn"/>
     </Bind>
     <Objects>
       <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
@@ -223,20 +249,20 @@
           </Row>
           <Row>
             <Col id="serviceID">findChoInspList</Col>
-            <Col id="URL">his::sup/checkup/findChoInspList.do</Col>
-            <Col id="outData">dsInsp=dsInsp dsChoInsp=dsChoInsp</Col>
+            <Col id="URL">his::sup/comprehensiveexam/findChoInspList.do</Col>
+            <Col id="outData">dsScct=dsScct dsChoInsp=dsChoInsp</Col>
             <Col id="callbackFunc">callBackFunc</Col>
             <Col id="inData"/>
           </Row>
           <Row>
             <Col id="serviceID">findPckInspList</Col>
-            <Col id="URL">his::sup/checkup/findPckInspList.do</Col>
-            <Col id="outData">dsInsp=dsInsp</Col>
+            <Col id="URL">his::sup/comprehensiveexam/findPckInspList.do</Col>
+            <Col id="outData">dsScct=dsScct</Col>
             <Col id="callbackFunc">callBackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">batchRsvtProcess</Col>
-            <Col id="URL">his::sup/checkup/batchRsvtProcess.do</Col>
+            <Col id="serviceID">batchSynthesisCheckupReservation</Col>
+            <Col id="URL">his::sup/comprehensiveexam/batchSynthesisCheckupReservation.do</Col>
             <Col id="inData">dsRsvt=dsRsvt:U dsChoInsp=dsChoInsp:U</Col>
             <Col id="outData"/>
             <Col id="argument"/>
@@ -250,8 +276,8 @@
             <Col id="callbackFunc">callBackFunc</Col>
           </Row>
           <Row>
-            <Col id="serviceID">cancelRsvt</Col>
-            <Col id="URL">his::sup/checkup/cancelRsvt.do</Col>
+            <Col id="serviceID">cancelCheckupReservation</Col>
+            <Col id="URL">his::sup/comprehensiveexam/cancelCheckupReservation.do</Col>
             <Col id="callbackFunc">callBackFunc</Col>
             <Col id="outData"/>
           </Row>
@@ -292,7 +318,7 @@
           <Column id="userIp" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsInsp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+      <Dataset id="dsScct" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="inspCd" type="STRING" size="256"/>
           <Column id="inspNm" type="STRING" size="256"/>
@@ -396,7 +422,8 @@ var	addFlag = false;
 var inspDate;
 
 /* 화면 로드 */
-this.SC_RsvtMgtForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+
+this.SSC_SynthesisCheckupReservationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
 	var objDate = new Date();
 	var month = objDate.getMonth()+1;
@@ -407,6 +434,7 @@ this.SC_RsvtMgtForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 	
 	this.inspPlnDateCal.set_value(today);
 }
+
 
 
 /* 조회버튼 */
@@ -457,6 +485,56 @@ this.dsRsvt_onrowposchanged = function(obj:Dataset, e:nexacro.DSRowPosChangeEven
 	}
 }
 
+//예약
+this.addRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.dsRsvt_canrowposchange(null,null))
+	{
+		this.dsRsvt.addRow();	
+		this.newRsvtNo();
+	}
+}
+
+//  새예약시 데이터 초기화
+this.newRsvtNo=function()
+{
+	var row = this.dsRsvt.rowposition;
+	var sysDate = this.gfnDate('yyyy-MM-dd/HHMi',false);
+
+	var date = sysDate.split("/");
+	
+	this.dsRsvt.setColumn(row, "rsvtDate", date[0]);
+	this.dsRsvt.setColumn(row, "rsvtTime", date[1]);
+	this.dsRsvt.setColumn(row, "rsvtNo", application.rsvtNo);	
+
+	this.dsScct.clearData();
+	this.dsChoInsp.clearData();
+
+	var disArr = ['patNmEd', 'rsvtDateEd','rsvtTimeMask','rsvtNoEd', 'rsvtRespEd',
+				 'regNo1Ed', 'regNo2Ed', 'smsEd', 'ageEd', 'basicInspAmtEd',
+				  'reducAmtEd', 'rsvtAmtEd', 'basicInspSumAmtEd','cancelEd'];
+				  
+	this.compBox.set_enable(true);
+	
+	this.choInspGrid.setCellProperty("Body", 2, "edittype", "normal"); 
+	
+	addFlag = true;
+}
+
+/* 예약 취소 */
+this.cancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(confirm("예약을 취소하겠습니까?")){
+		var argument = 'rsvtNo='+rsvtNo+' cancelYn=Y';
+		var row = this.dsService.findRow('serviceID' , "cancelCheckupReservation");
+		this.dsService.setColumn(row, "argument", argument);
+							
+		this.gfnService("cancelCheckupReservation",false);
+		this.searchBtn_onclick(null,null);
+	}
+}
+
+
 /* 등록번호 팝업 */
 this.compBox_patPopupBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
@@ -465,8 +543,8 @@ this.compBox_patPopupBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 
 this.setPatInfo=function(arry)
 {
-	var patNo = arry[0];
-	var argument = 'patNo='+patNo;
+	var patNm = arry[1];
+	var argument = 'patNm='+patNm;
 	var row = this.dsService.findRow('serviceID' , "findPat");
 	this.dsService.setColumn(row, "argument", argument);
 						
@@ -485,20 +563,36 @@ this.settingPatInfo=function()
 	this.dsRsvt.setColumn(this.dsRsvt.rowposition, "sms", this.dsPat.getColumn(0, "tel"));
 }
 
-/* 선택검사 추가 */
-this.btnBox_addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+/*패키지팝업*/
+this.compBox_pckPopBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
+	var param = {};
+	this.gfnPopup("SSC_PackgePopupForm","sup",param,"");
+}
+
+/* 감면코드 선택 */
+this.compBox_reducPopBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var param = {};
+	this.gfnPopup("SSC_ReducPopupForm","sup",param,"");
 	
+}
+
+
+/* 선택검사 추가 */
+this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
 	var param = {param:rsvtNo};
-	this.gfnPopup("SC_PckInspPopForm","sup",param,"");
+	this.gfnPopup("SSC_PackgeScctPopupForm","sup",param,"");
 }
 
 /* 선택검사 삭제 */
-this.btnBox_delBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.delBrn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsChoInsp.deleteRow(this.dsChoInsp.rowposition);
 	this.pCode(1);
 }
+
 
 this.pCode=function(retVal)
 {
@@ -532,14 +626,7 @@ this.autoCalChoInspAmt=function()
 }
 
 
-this.btnBox2_addRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	if(this.dsRsvt_canrowposchange(null,null))
-	{
-		this.dsRsvt.addRow();	
-		this.newRsvtNo();
-	}
-}
+
 
 this.dsRsvt_canrowposchange=function(obj:Dataset, e:nexacro.DSRowPosChangeEventInfo)
 {
@@ -570,73 +657,12 @@ this.dsRsvt_canrowposchange=function(obj:Dataset, e:nexacro.DSRowPosChangeEventI
 	return true;
 }
 
-//  새예약시 데이터 초기화
-this.newRsvtNo=function()
-{
-	var row = this.dsRsvt.rowposition;
-	var sysDate = this.gfnDate('yyyy-MM-dd/HHMi',false);
 
-	var date = sysDate.split("/");
-	
-	this.dsRsvt.setColumn(row, "rsvtDate", date[0]);
-	this.dsRsvt.setColumn(row, "rsvtTime", date[1]);
-	this.dsRsvt.setColumn(row, "rsvtNo", application.rsvtNo);	
 
-	this.dsInsp.clearData();
-	this.dsChoInsp.clearData();
 
-	var disArr = ['patNmEd', 'rsvtDateEd','rsvtTimeMask','rsvtNoEd', 'rsvtRespEd',
-				 'regNo1Ed', 'regNo2Ed', 'smsEd', 'ageEd', 'basicInspAmtEd',
-				  'reducAmtEd', 'rsvtAmtEd', 'basicInspSumAmtEd','cancelEd'];
-				  
-	this.compBox.set_enable(true);
-	
-	this.choInspGrid.setCellProperty("Body", 2, "edittype", "normal"); 
-	
-	addFlag = true;
-}
-
-/* 예약 취소 */
-this.btnBox2_cancelBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	if(confirm("예약을 취소하겠습니까?")){
-		var argument = 'rsvtNo='+rsvtNo+' cancelYn=Y';
-		var row = this.dsService.findRow('serviceID' , "cancelRsvt");
-		this.dsService.setColumn(row, "argument", argument);
-							
-		this.gfnService("cancelRsvt",false);
-		this.searchBtn_onclick(null,null);
-	}
-}
-
-/* 수납 */
-this.btnBox2_receBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	this.dsRece.clearData();
-	this.dsRece.addRow();
-	this.dsRece.setColumn(0, "rsvtNo", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtNo"));
-	this.dsRece.setColumn(0, "rsvtDate", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtDate"));
-	this.dsRece.setColumn(0, "inspDate", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "inspPlnDate"));
-	this.dsRece.setColumn(0, "basicInspAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "basicInspAmt"));
-	this.dsRece.setColumn(0, "reducAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "reducAmt"));
-	this.dsRece.setColumn(0, "rsvtAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtAmt"));
-	this.dsRece.setColumn(0, "choInspAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "choInspAmt"));
-	this.dsRece.setColumn(0, "inspSumAmt", this.dsRsvt.getColumn(this.dsRsvt.rowposition, "inspSumAmt"));
-
-	var param = {dsRece:this.dsRece};
-	this.gfnPopup("SC_RecePopForm","sup",param,"");	
-}
-
-this.payCo=function(retVal)
-{
-	if(retVal == 1)
-	{	
-			alert("수납이 완료되었습니다.");
-	}
-}
 
 /* 수정 */
-this.btnBox2_modiBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.modBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var disArr = ['patNmEd', 'rsvtDateEd','rsvtTimeMask','rsvtNoEd', 'rsvtRespEd',
 				 'regNo1Ed', 'regNo2Ed', 'smsEd', 'ageEd', 'basicInspAmtEd',
@@ -648,8 +674,9 @@ this.btnBox2_modiBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	editFlag = true;
 }
 
+
 /* 저장 */
-this.btnBox2_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	if(this.supCheckMdData(this.compBox))
 	{
@@ -664,17 +691,12 @@ this.btnBox2_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		
 		trace(this.dsRsvt.saveXML());
 		
-		this.gfnService("batchRsvtProcess",false);
+		this.gfnService("batchSynthesisCheckupReservation",false);
 		this.searchBtn_onclick(null,null);
 	}
 }
 
-/*패키지팝업\*/
-this.compBox_pckPopBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	var param = {};
-	this.gfnPopup("SC_PckPopForm","sup",param,"");
-}
+
 
 this.pckCode=function(retVal)
 {
@@ -725,13 +747,7 @@ this.autoCalInspAmt=function()
 	this.dsRsvt.setColumn(this.dsRsvt.rowposition, "inspSumAmt", inspSumAmt);		
 }
 
-/* 감면코드 선택 */
-this.compBox_reducPopBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
-	var param = {};
-	this.gfnPopup("SC_ReducPopForm","sup",param,"");
-	
-}
+
 
 // 팝업 셋팅
 this.setCode=function(code, arrRtn)
@@ -756,6 +772,16 @@ this.callBackFunc = function(svcID, errorCode, errorMsg){
 
  	}
 }
+
+
+
+
+
+
+
+
+
+
 
 
 ]]></Script>

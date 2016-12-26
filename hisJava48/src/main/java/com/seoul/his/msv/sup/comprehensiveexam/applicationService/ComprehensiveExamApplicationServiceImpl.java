@@ -26,6 +26,7 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBea
 
 
 
+
 /**
  * @Package  com.seoul.his.msv.sup.comprehensiveexam.applicationService
  * @Class    ComprehensiveExamApplicationServiceImpl.java
@@ -162,9 +163,23 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
             }
         }
 
-        /*if(choiceCheckList!=null){
+        if(choiceCheckList!=null){
             batchChoInspProcess(choiceCheckList);
-        }*/
+        }
+    }
+    
+    /* 종합검진 예약관리 - 선택검사 수정, 추가, 삭제 */
+    private void batchChoInspProcess(List<ChoiceCheckBean> choInspList) {
+        for(ChoiceCheckBean choInsp: choInspList){
+            String status = choInsp.getStatus();
+            if(status.equals("inserted")){
+            	synthesisCheckupCheckTypeDAO.insertChoInsp(choInsp);
+            }else if(status.equals("deleted")){
+            	synthesisCheckupCheckTypeDAO.deleteChoInsp(choInsp);
+            }else if(status.equals("updated")){         
+            	synthesisCheckupCheckTypeDAO.updateChoInsp(choInsp);
+            }
+        }
     }
 
     @Override                  /*종합검진 예약관리 - 예약취소*/

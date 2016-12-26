@@ -10,6 +10,7 @@
 		<result property="examTm" column="EXAMTM" />
 		<result property="rsvCnt" column="RSVCNT" />
 		<result property="totCnt" column="TOTCNT" />
+		<result property="rsvPosYn" column="RSVYN" />
 		<result property="amPmFlag" column="AMPMFLAG" />
 		<collection property="rsvPatList"
 			column="{medDate=MEDDATE,medDr=EMP_NO,examTm=EXAMTM}"
@@ -63,12 +64,12 @@
 	<select id="selectTimeScheduleList" flushCache="false" useCache="true"
 		resultMap="TimeScheduleResultMap">
 		SELECT EMP_NO, MEDDATE , EXAMTM, RSVCNT,
-		TOTCNT, AMPMFLAG
+		TOTCNT, AMPMFLAG,RSVYN
 		FROM
 		(SELECT M.EMP_NO AS EMP_NO ,M.MEDDATE AS MEDDATE, M.AMPMFLAG AS
 		AMPMFLAG,
 		M.EXAMTM AS EXAMTM, COUNT(W.PAT_NO) AS RSVCNT, MAX(M.TOTCNT)
-		AS TOTCNT
+		AS TOTCNT,M.RSV_YN AS RSVYN
 		FROM MC_TRMT_SCHD_MAN M, WS_OUTPA_RECEIPT W
 		WHERE
 		M.EMP_NO=W.TRMT_DOCT(+)
@@ -77,7 +78,7 @@
 		M.EXAMTM=W.TRMT_TIME(+)
 		AND M.EMP_NO=#{empNo}
 		AND M.MEDDATE=#{date}
-		GROUP BY MEDDATE, EMP_NO,AMPMFLAG,EXAMTM)
+		GROUP BY MEDDATE, EMP_NO,AMPMFLAG,EXAMTM,RSV_YN)
 		ORDER BY MEDDATE,EXAMTM
 	</select>
 	<select id="selectRsvPatByTimeList" flushCache="false" useCache="true"
