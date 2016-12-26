@@ -1,10 +1,6 @@
 package com.seoul.his.bst.HospitalStaffPersonnelStatus.controller;
 
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
+
 import java.util.List;
 import java.util.Map;
 
@@ -19,44 +15,39 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
-import com.seoul.his.bst.patientStatus.dailyPatient.service.DailyPatientServiceFacade;
-import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.service.HospitalStaffPersonnelStatusServiceFacade;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
+
 import com.seoul.his.common.util.DataSetBeanMapper;
+
 
 /**
  * @Package  com.seoul.his.acc.budget.controller
  * @Class    BudgBimokController.java
- * @Create   2016. 6. 10.
- * @Author   jeong
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Controller
 public class HospitalStaffPersonnelStatusController {
-	
+
 	@Autowired
-	DataSetBeanMapper dataSetBeanMapper; 
+	DataSetBeanMapper dataSetBeanMapper;
 	@Autowired
-	DailyPatientServiceFacade dailyPatientServiceFacade;
-	
-	@RequestMapping("bst/dailyPatient/findDailyPatientList.do")
-	public void findDailyPatientList(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
+	HospitalStaffPersonnelStatusServiceFacade hospitalStaffPersonnelStatusServiceFacade;
+
+	@RequestMapping("bst/hospitalStaffPersonnelStatus/findPersonnelStatusList.do")
+	public void findPersonnelStatusList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
-		Map<String,String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		List<DailyPatientBean> list = dailyPatientServiceFacade.findDailyPatientList(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, list, DailyPatientBean.class);
-	}
-	
-	
-	
-	@RequestMapping("bst/dailyPatient/batchDailyPatientProcess.do") //xxx.do로 넥사크로에서 요청하는 패키지구조와 xxx.do를 기입
-	public void batchDailyPatientProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
-	PlatformData inData = (PlatformData) request.getAttribute("inData");
-	List<DailyPatientBean> dailyPatientBeanList = dataSetBeanMapper.datasetToBeans(inData, DailyPatientBean.class);
-	dailyPatientServiceFacade.batchDailyPatientProcess(dailyPatientBeanList);
+		PlatformData outData = (PlatformData) request.getAttribute("outData");
+
+		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+
+		List<HospitalStaffPersonnelStatusBean> empList = hospitalStaffPersonnelStatusServiceFacade.findPersonnelStatusList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, empList, HospitalStaffPersonnelStatusBean.class);
 	}
 
 }

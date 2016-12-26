@@ -6,37 +6,34 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService.HospitalStaffPersonnelStatusApplicationService;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
 
-import com.seoul.his.bst.patientStatus.dailyPatient.applicationService.DailyPatientApplicationService;
-import com.seoul.his.bst.patientStatus.dailyPatient.to.DailyPatientBean;
+
 
 
 /**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.service
+ * @Class    HospitalStaffPersonnelStatusServiceFacadeImpl.java
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Service
 public class HospitalStaffPersonnelStatusServiceFacadeImpl implements HospitalStaffPersonnelStatusServiceFacade{
 
 	@Autowired
-	DailyPatientApplicationService dailyPatientApplicationService;
+	HospitalStaffPersonnelStatusApplicationService hospitalStaffPersonnelStatusApplicationService;
+
 
 	@Override
-		public List<DailyPatientBean> findDailyPatientList(Map<String, String> argsMap) {
-		List<DailyPatientBean> dailyPatientList = dailyPatientApplicationService.findDailyPatientList(argsMap);
-		return dailyPatientList;
+	public List<HospitalStaffPersonnelStatusBean> findPersonnelStatusList(Map<String, String> argsMap) {
+		return hospitalStaffPersonnelStatusApplicationService.findPersonnelStatusList(argsMap);
 	}
-	
-	
-	@Override
-    public void batchDailyPatientProcess(List<DailyPatientBean> dailyPatientBeanList) {
-		dailyPatientApplicationService.batchDailyPatientProcess(dailyPatientBeanList);
-    }
-	
+
+
+
 }
