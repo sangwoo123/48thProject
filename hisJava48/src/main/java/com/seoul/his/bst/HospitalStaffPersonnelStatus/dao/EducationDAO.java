@@ -1,28 +1,26 @@
-package com.seoulit.erp47.hrs.emp.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
+
+
 
 import java.util.List;
 
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.hrs.emp.to.EducaBean;
+
+
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.dao
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
  * @Class    EducationDAO.java
- * @Create   2016. 9. 20.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
  * @LastUpdated
  */
 
 public interface EducationDAO {
-	List<BaseBean> findEducationList(String empNo);
+	List<EducaBean> findEducationList(String empNo);
 
-	void insertEducation(BaseBean educationBean);
 
-	void updateEducation(BaseBean educationBean);
-
-	void deleteEducation(BaseBean educationBean);
-
-	void destroyEducation(String empNo);
 }

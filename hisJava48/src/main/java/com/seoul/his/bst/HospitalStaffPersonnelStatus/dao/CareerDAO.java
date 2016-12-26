@@ -4,6 +4,8 @@ package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
 
 import java.util.List;
 
+import com.seoul.his.hrs.emp.to.CareerBean;
+
 
 
 /**
@@ -19,7 +21,7 @@ import java.util.List;
 
 public interface CareerDAO {
 
-	List<BaseBean> findCareerList(String empNo);
+	List<CareerBean> findCareerList(String empNo);
 
 
 }

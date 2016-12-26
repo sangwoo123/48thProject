@@ -1,30 +1,27 @@
-package com.seoulit.erp47.hrs.emp.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
+
+
 
 import java.util.List;
 
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.hrs.emp.to.LicenseBean;
+
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.dao
+ *
+ * @Package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
  * @Class    LicenseDAO.java
- * @Create   2016. 9. 20.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
  * @LastUpdated
  */
 
 public interface LicenseDAO {
-	List<BaseBean> findLicenseList(String empNo);
+	List<LicenseBean> findLicenseList(String empNo);
 
-	void insertLicense(BaseBean licenseBean);
 
-	void updateLicense(BaseBean licenseBean);
-
-	void deleteLicense(BaseBean licenseBean);
-
-	void destroyLicense(String empNo);
 
 
 }

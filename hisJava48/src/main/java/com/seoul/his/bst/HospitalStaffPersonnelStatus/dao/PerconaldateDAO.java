@@ -1,28 +1,26 @@
-package com.seoulit.erp47.hrs.emp.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
+
+
 
 import java.util.List;
 
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.hrs.emp.to.PerconaldateBean;
+
+
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.dao
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
  * @Class    PerconaldateDAO.java
- * @Create   2016. 9. 20.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
  * @LastUpdated
  */
 
 public interface PerconaldateDAO {
-	List<BaseBean> findPerconaldateList(String empNo);
+	List<PerconaldateBean> findPerconaldateList(String empNo);
 
-	void insertPerconaldate(BaseBean perconaldateBean);
 
-	void updatePerconaldate(BaseBean perconaldateBean);
-
-	void deletePerconaldate(BaseBean perconaldateBean);
-
-	void destroyPerconaldate(String empNo);
 }

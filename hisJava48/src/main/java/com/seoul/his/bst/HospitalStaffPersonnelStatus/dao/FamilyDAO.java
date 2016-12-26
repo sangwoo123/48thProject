@@ -1,15 +1,19 @@
-package com.seoulit.erp47.hrs.emp.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
+
+
 
 import java.util.List;
 
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.hrs.emp.to.FamilyBean;
+
+
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.dao
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
  * @Class    FamilyDAO.java
- * @Create   2016. 9. 20.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
  * @LastUpdated
@@ -17,13 +21,7 @@ import com.seoulit.erp47.common.to.BaseBean;
 
 public interface FamilyDAO {
 
-	List<BaseBean> findFamilyList(String empNo);
+	List<FamilyBean> findFamilyList(String empNo);
 
-	void insertFamily(BaseBean familyBean);
 
-	void updateFamily(BaseBean familyBean);
-
-	void deleteFamily(BaseBean familyBean);
-
-	void destroyFamily(String empNo);
 }

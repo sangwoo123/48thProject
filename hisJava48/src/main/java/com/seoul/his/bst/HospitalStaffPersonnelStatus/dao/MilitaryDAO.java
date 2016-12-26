@@ -1,28 +1,26 @@
-package com.seoulit.erp47.hrs.emp.dao;
+package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
+
+
 
 import java.util.List;
 
-import com.seoulit.erp47.common.to.BaseBean;
+import com.seoul.his.hrs.emp.to.MilitaryBean;
+
+
 
 /**
- * 
- * @Package  com.seoulit.erp47.hrs.emp.dao
+ *
+ * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
  * @Class    MilitaryDAO.java
- * @Create   2016. 9. 20.
- * @Author   김봉진
+ * @Create   2016. 12. 24.
+ * @Author   박상우
  * @Description
  *
  * @LastUpdated
  */
 
 public interface MilitaryDAO {
-	List<BaseBean> findMilitaryList(String empNo);
+	List<MilitaryBean> findMilitaryList(String empNo);
 
-	void insertMilitary(BaseBean militaryBean);
 
-	void updateMilitary(BaseBean militaryBean);
-
-	void deleteMilitary(BaseBean militaryBean);
-
-	void destroyMilitary(String empNo);
 }
