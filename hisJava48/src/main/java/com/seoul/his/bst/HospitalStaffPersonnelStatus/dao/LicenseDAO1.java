@@ -18,7 +18,7 @@ import com.seoul.his.hrs.emp.to.LicenseBean;
  * @LastUpdated
  */
 
-public interface LicenseDAO {
+public interface LicenseDAO1 {
 	List<LicenseBean> findLicenseList(String empNo);
 
 

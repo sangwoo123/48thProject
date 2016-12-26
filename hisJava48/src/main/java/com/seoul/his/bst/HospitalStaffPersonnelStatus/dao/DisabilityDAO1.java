@@ -19,7 +19,7 @@ import com.seoul.his.hrs.emp.to.DisabilityBean;
  * @LastUpdated
  */
 
-public interface DisabilityDAO {
+public interface DisabilityDAO1 {
 	List<DisabilityBean> findDisabilityList(String empNo);
 
 

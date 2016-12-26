@@ -4,14 +4,14 @@ package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
 
 import java.util.List;
 
-import com.seoul.his.hrs.emp.to.CareerBean;
+import com.seoul.his.hrs.emp.to.PerconaldateBean;
 
 
 
 /**
  *
  * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
- * @Class    CareerDAO.java
+ * @Class    PerconaldateDAO.java
  * @Create   2016. 12. 24.
  * @Author   박상우
  * @Description
@@ -19,9 +19,8 @@ import com.seoul.his.hrs.emp.to.CareerBean;
  * @LastUpdated
  */
 
-public interface CareerDAO {
-
-	List<CareerBean> findCareerList(String empNo);
+public interface PerconaldateDAO1 {
+	List<PerconaldateBean> findPerconaldateList(String empNo);
 
 
 }

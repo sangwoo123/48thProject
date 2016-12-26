@@ -24,31 +24,31 @@
 
 
 		<collection property="careerList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.CareerDAO.findCareerList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.CareerDAO1.findCareerList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="disabilityList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.DisabilityDAO.findDisabilityList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.DisabilityDAO1.findDisabilityList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="educationBeanList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.EducationDAO.findEducationList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.EducationDAO1.findEducationList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="familyList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.FamilyDAO.findFamilyList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.FamilyDAO1.findFamilyList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="licenseList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.LicenseDAO.findLicenseList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.LicenseDAO1.findLicenseList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="militaryList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.MilitaryDAO.findMilitaryList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.MilitaryDAO1.findMilitaryList"
 			column="EMP_NO" javaType="list" />
 
 		<collection property="perconaldateList"
-			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.PerconaldateDAO.findPerconaldateList"
+			select="com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.PerconaldateDAO1.findPerconaldateList"
 			column="EMP_NO" javaType="list" />
 
 

@@ -4,14 +4,14 @@ package com.seoul.his.bst.HospitalStaffPersonnelStatus.dao;
 
 import java.util.List;
 
-import com.seoul.his.hrs.emp.to.MilitaryBean;
+import com.seoul.his.hrs.emp.to.CareerBean;
 
 
 
 /**
  *
  * @Package  com.seoul.his.bst.HospitalStaffPersonnelStatus.dao
- * @Class    MilitaryDAO.java
+ * @Class    CareerDAO.java
  * @Create   2016. 12. 24.
  * @Author   박상우
  * @Description
@@ -19,8 +19,9 @@ import com.seoul.his.hrs.emp.to.MilitaryBean;
  * @LastUpdated
  */
 
-public interface MilitaryDAO {
-	List<MilitaryBean> findMilitaryList(String empNo);
+public interface CareerDAO1 {
+
+	List<CareerBean> findCareerList(String empNo);
 
 
 }
