@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.service.HospitalStaffPersonnelStatusServiceFacade;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.bstDeptBean;
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
 
 import com.seoul.his.common.util.DataSetBeanMapper;
@@ -48,6 +49,14 @@ public class HospitalStaffPersonnelStatusController {
 
 		List<HospitalStaffPersonnelStatusBean> empList = hospitalStaffPersonnelStatusServiceFacade.findPersonnelStatusList(argsMap);
 		dataSetBeanMapper.beansToDataset(outData, empList, HospitalStaffPersonnelStatusBean.class);
+	}
+
+	@RequestMapping("bst/hospitalStaffPersonnelStatus/findDeptList.do")
+	public void findDeptList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		PlatformData outData = (PlatformData) request.getAttribute("outData");
+
+		List<bstDeptBean> deptList = hospitalStaffPersonnelStatusServiceFacade.findDeptList();
+		dataSetBeanMapper.beansToDataset(outData, deptList, bstDeptBean.class);
 	}
 
 }

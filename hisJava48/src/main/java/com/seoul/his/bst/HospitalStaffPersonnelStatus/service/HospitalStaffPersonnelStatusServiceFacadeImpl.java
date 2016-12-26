@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.applicationService.HospitalStaffPersonnelStatusApplicationService;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.bstDeptBean;
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
 
 
@@ -34,6 +35,10 @@ public class HospitalStaffPersonnelStatusServiceFacadeImpl implements HospitalSt
 		return hospitalStaffPersonnelStatusApplicationService.findPersonnelStatusList(argsMap);
 	}
 
+	@Override
+	public List<bstDeptBean> findDeptList() {
+		return hospitalStaffPersonnelStatusApplicationService.findDeptList();
+	}
 
 
 }

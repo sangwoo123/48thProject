@@ -21,7 +21,7 @@ import lombok.ToString;
 @ToString
 
 @Dataset(name = "dsDept")
-public class DeptBean extends BaseBean{
+public class bstDeptBean extends BaseBean{
 
 	private String deptCd, //.부서코드
 						deptNm, //부서명

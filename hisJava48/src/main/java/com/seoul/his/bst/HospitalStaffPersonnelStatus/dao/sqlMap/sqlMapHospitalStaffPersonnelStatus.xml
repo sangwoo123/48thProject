@@ -37,8 +37,10 @@
 		order by emp_no
 	</select>
 
-
-
+<!-- 부서조회 -->
+<select id="selectDeptList" flushCache="false" useCache="true"  resultType="DeptBean">
+       SELECT * FROM HM_DEPT
+    </select>
 
 
 

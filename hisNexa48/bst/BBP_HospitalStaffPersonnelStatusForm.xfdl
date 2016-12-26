@@ -11,23 +11,23 @@
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="empGrid" taborder="1" binddataset="dsHsps" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="6.56%" height="463">
+        <Grid id="empGrid" taborder="1" binddataset="dsHsps" useinputpanel="false" autofittype="col" oncelldblclick="empGrid_oncelldblclick" left="7.76%" top="113" right="1.76%" height="463">
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="87"/>
+                <Column size="71"/>
                 <Column size="85"/>
+                <Column size="51"/>
+                <Column size="141"/>
+                <Column size="113"/>
                 <Column size="40"/>
-                <Column size="40"/>
-                <Column size="40"/>
-                <Column size="40"/>
-                <Column size="40"/>
-                <Column size="64"/>
+                <Column size="205"/>
+                <Column size="68"/>
                 <Column size="62"/>
-                <Column size="40"/>
-                <Column size="40"/>
-                <Column size="40"/>
-                <Column size="40"/>
+                <Column size="73"/>
+                <Column size="75"/>
+                <Column size="108"/>
+                <Column size="67"/>
               </Columns>
               <Rows>
                 <Row size="24" band="head"/>
@@ -49,24 +49,29 @@
                 <Cell col="12" text="근속년수"/>
               </Band>
               <Band id="body">
-                <Cell text="bind:empNo"/>
-                <Cell col="1" text="bind:empNm"/>
-                <Cell col="2" text="bind:jobcl"/>
-                <Cell col="3" text="bind:jobtt"/>
-                <Cell col="4" text="bind:jobrk"/>
-                <Cell col="5" text="bind:gender"/>
-                <Cell col="6" text="bind:addr"/>
-                <Cell col="7" text="bind:detailAddr"/>
-                <Cell col="8" text="bind:zipCd"/>
-                <Cell col="9" text="bind:natnt"/>
-                <Cell col="10" text="bind:deptNm"/>
-                <Cell col="11" text="bind:hireDate"/>
-                <Cell col="12" text="bind:workPeriod"/>
+                <Cell style="align:center;" text="bind:empNo"/>
+                <Cell col="1" style="align:center;" text="bind:empNm"/>
+                <Cell col="2" style="align:center;" text="bind:jobcl"/>
+                <Cell col="3" style="align:center;" text="bind:jobtt"/>
+                <Cell col="4" style="align:center;" text="bind:jobrk"/>
+                <Cell col="5" style="align:center;" text="bind:gender"/>
+                <Cell col="6" style="align:center;" text="bind:addr"/>
+                <Cell col="7" style="align:center;" text="bind:detailAddr"/>
+                <Cell col="8" style="align:center;" text="bind:zipCd"/>
+                <Cell col="9" style="align:center;" text="bind:natnt"/>
+                <Cell col="10" style="align:center;" text="bind:deptNm"/>
+                <Cell col="11" style="align:center;" text="bind:hireDate" mask="####-##-##"/>
+                <Cell col="12" style="align:center;" text="bind:workPeriod"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
         <Button id="searchBtn" taborder="2" text="조회" onclick="searchBtn_onclick" cssclass="btn_WF_Search" left="747" top="72" width="58" height="25" style="background:#90a4aeff;"/>
+        <CheckBox id="CheckBox00" taborder="3" left="14.56%" top="65" right="83.84%" height="25" onclick="CheckBox00_onclick"/>
+        <Combo id="com1" taborder="4" left="16.56%" top="64" right="76%" height="27" innerdataset="@dsjikjong" datacolumn="value" codecolumn="value" style="itemfont:bold 9 돋움;font:bold 9 돋움;" enable="false"/>
+        <Static id="Static00" taborder="5" text="조회조건 :" left="2.24%" top="64" right="91.2%" height="28" style="background:#90a4aeff;color:white;align:center middle;font:bold 11 맑은 고딕;"/>
+        <Static id="Static01" taborder="6" text="직종" left="10.4%" top="64" right="85.84%" height="28" style="background:#cfd8dcff;color:black;align:center middle;font:11 Consolas;"/>
+        <Combo id="com00" taborder="7" innerdataset="@dsDept" codecolumn="deptCd" datacolumn="deptNm" enable="false" left="26.24%" top="69" right="66.32%" height="27" style="itemfont:bold 9 돋움;font:bold 9 돋움;"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -104,10 +109,39 @@
           <Row>
             <Col id="serviceID">findPersonnelStatusList</Col>
             <Col id="URL">his::bst/hospitalStaffPersonnelStatus/findPersonnelStatusList.do</Col>
-            <Col id="inData"></Col>
+            <Col id="inData">dsHsps=dsHsps</Col>
             <Col id="outData">dsHsps=dsHsps</Col>
           </Row>
         </Rows>
+      </Dataset>
+      <Dataset id="dsjikjong">
+        <ColumnInfo>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="value">기관장</Col>
+          </Row>
+          <Row>
+            <Col id="value">의무직</Col>
+          </Row>
+          <Row>
+            <Col id="value">약무직</Col>
+          </Row>
+          <Row>
+            <Col id="value">행정직</Col>
+          </Row>
+          <Row>
+            <Col id="value">별정직</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsDept">
+        <ColumnInfo>
+          <Column id="deptCd" type="STRING" size="256"/>
+          <Column id="deptNm" type="STRING" size="256"/>
+          <Column id="sectionManagerNm" type="STRING" size="256"/>
+        </ColumnInfo>
       </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************
@@ -127,9 +161,19 @@ include "scripts::commonTransaction.xjs"; //골통 트랜잭션
 
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-    var argument;
-	this.dsService.setColumn(0,"argument",argument);
-	this.gfnService("findPersonnelStatusList",true);
+
+	if(this.com1.value != undefined){
+		var argument;
+		argument="jobcl="+this.com1.value;
+		this.dsService.setColumn(0,"argument",argument);
+		this.gfnService("findPersonnelStatusList",true);
+	}
+	
+}
+
+this.CheckBox00_onclick = function(obj:CheckBox,  e:nexacro.ClickEventInfo)
+{
+	this.com1.set_enable(true);
 }
 ]]></Script>
   </Form>

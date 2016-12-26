@@ -3,6 +3,7 @@ package com.seoul.his.bst.HospitalStaffPersonnelStatus.service;
 import java.util.List;
 import java.util.Map;
 
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.bstDeptBean;
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
 
 
@@ -22,6 +23,6 @@ public interface HospitalStaffPersonnelStatusServiceFacade {
 
 	List<HospitalStaffPersonnelStatusBean> findPersonnelStatusList(Map<String, String> argsMap);
 
-
+	List<bstDeptBean> findDeptList();
 
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.dao.HospitalStaffPersonnelStatusDAO;
+import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.bstDeptBean;
 import com.seoul.his.bst.HospitalStaffPersonnelStatus.to.HospitalStaffPersonnelStatusBean;
 
 
@@ -35,7 +36,10 @@ public class HospitalStaffPersonnelStatusApplicationServiceImpl implements Hospi
 		return hospitalStaffPersonnelStatusDAO.selectPersonnelStatusList(argsMap);
 	}
 
-
+	@Override
+	public List<bstDeptBean> findDeptList() {
+		return hospitalStaffPersonnelStatusDAO.selectDeptList();
+	}
 
 
 }
