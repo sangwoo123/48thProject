@@ -36,6 +36,11 @@ public class HospitalStaffPersonnelStatusServiceFacadeImpl implements HospitalSt
 	}
 
 	@Override
+	public List<HospitalStaffPersonnelStatusBean> findAllPersonnelStatusList() {
+		return hospitalStaffPersonnelStatusApplicationService.findAllPersonnelStatusList();
+	}
+
+	@Override
 	public List<bstDeptBean> findDeptList() {
 		return hospitalStaffPersonnelStatusApplicationService.findDeptList();
 	}

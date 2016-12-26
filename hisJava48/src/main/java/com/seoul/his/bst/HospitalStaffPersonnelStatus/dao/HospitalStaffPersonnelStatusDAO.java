@@ -12,6 +12,8 @@ public interface HospitalStaffPersonnelStatusDAO {
 
 	List<HospitalStaffPersonnelStatusBean> selectPersonnelStatusList(Map<String, String> argsMap);
 
+	List<HospitalStaffPersonnelStatusBean> selectAllPersonnelStatusList();
+
 	List<bstDeptBean> selectDeptList();
 
 }

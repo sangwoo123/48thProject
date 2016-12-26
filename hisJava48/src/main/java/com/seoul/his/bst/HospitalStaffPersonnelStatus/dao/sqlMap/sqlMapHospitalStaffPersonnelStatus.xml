@@ -34,14 +34,26 @@
 		<if test="jobcl != null">
 		 JOBCL = #{jobcl}
 		</if>
+		<if test="deptCd != null">
+		 DEPT_CD = #{deptCd}
+		</if>
+		<if test="jobtt != null">
+		 JOBTT = #{jobtt}
+		</if>
+		<if test="gender != null">
+		 GENDER = #{gender}
+		</if>
 		order by emp_no
 	</select>
 
 <!-- 부서조회 -->
-<select id="selectDeptList" flushCache="false" useCache="true"  resultType="DeptBean">
+<select id="selectDeptList" flushCache="false" useCache="true"  resultType="bstDeptBean">
        SELECT * FROM HM_DEPT
     </select>
 
+<select id="selectAllPersonnelStatusList" flushCache="false" useCache="true"  resultMap="resultHospitalStaffPersonnelStatus">
+       SELECT * FROM hm_emp
+    </select>
 
 
 </mapper>

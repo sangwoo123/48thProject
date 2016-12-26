@@ -13,6 +13,8 @@ public interface HospitalStaffPersonnelStatusApplicationService {
 
 	List<HospitalStaffPersonnelStatusBean> findPersonnelStatusList(Map<String, String> argsMap);
 
+	List<HospitalStaffPersonnelStatusBean> findAllPersonnelStatusList();
+
 	List<bstDeptBean> findDeptList();
 
 

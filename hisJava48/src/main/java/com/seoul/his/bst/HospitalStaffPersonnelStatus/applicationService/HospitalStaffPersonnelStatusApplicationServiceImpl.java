@@ -37,6 +37,11 @@ public class HospitalStaffPersonnelStatusApplicationServiceImpl implements Hospi
 	}
 
 	@Override
+	public List<HospitalStaffPersonnelStatusBean> findAllPersonnelStatusList() {
+		return hospitalStaffPersonnelStatusDAO.selectAllPersonnelStatusList();
+	}
+
+	@Override
 	public List<bstDeptBean> findDeptList() {
 		return hospitalStaffPersonnelStatusDAO.selectDeptList();
 	}

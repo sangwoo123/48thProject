@@ -51,6 +51,15 @@ public class HospitalStaffPersonnelStatusController {
 		dataSetBeanMapper.beansToDataset(outData, empList, HospitalStaffPersonnelStatusBean.class);
 	}
 
+	@RequestMapping("bst/hospitalStaffPersonnelStatus/findAllPersonnelStatusList.do")
+	public void findAllPersonnelStatusList(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		PlatformData outData = (PlatformData) request.getAttribute("outData");
+
+		List<HospitalStaffPersonnelStatusBean> empList = hospitalStaffPersonnelStatusServiceFacade.findAllPersonnelStatusList();
+		dataSetBeanMapper.beansToDataset(outData, empList, HospitalStaffPersonnelStatusBean.class);
+	}
+
 	@RequestMapping("bst/hospitalStaffPersonnelStatus/findDeptList.do")
 	public void findDeptList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		PlatformData outData = (PlatformData) request.getAttribute("outData");
