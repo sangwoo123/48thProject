@@ -5,7 +5,13 @@ import java.util.List;
 import com.seoul.his.common.annotation.Dataset;
 import com.seoul.his.common.annotation.Remove;
 import com.seoul.his.common.to.BaseBean;
-
+import com.seoul.his.hrs.emp.to.CareerBean;
+import com.seoul.his.hrs.emp.to.DisabilityBean;
+import com.seoul.his.hrs.emp.to.EducaBean;
+import com.seoul.his.hrs.emp.to.FamilyBean;
+import com.seoul.his.hrs.emp.to.LicenseBean;
+import com.seoul.his.hrs.emp.to.MilitaryBean;
+import com.seoul.his.hrs.emp.to.PerconaldateBean;
 
 import lombok.Getter;
 import lombok.Setter;
