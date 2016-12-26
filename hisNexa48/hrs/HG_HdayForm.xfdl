@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="HG_HdayForm" classname="HG_HdayForm" left="0" top="0" width="1250" height="768" titletext="휴일관리" onload="HG_HdayForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="titleStc" taborder="0" text="휴일관리" left="4.8%" top="-4" right="81.68%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="hdayInfoDiv" taborder="1" left="1.44%" top="69" right="0.72%" height="48" style="background:#546e7aff;">
+          <Layouts>
+            <Layout>
+              <Static id="subCodeStc00" taborder="54" text="기간" onclick="subCodeStc_onclick" left="1.14%" top="8" right="93.38%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="startCal" taborder="55" left="6.79%" top="8" right="82.91%" height="30"/>
+              <Static id="Static04" taborder="56" text="   ~" left="16.43%" top="8" right="80.95%" height="32" style="color:aliceblue;align:center middle;font:bold 12 arial;"/>
+              <Calendar id="endCal" taborder="57" left="19.22%" top="8" right="70.48%" height="30"/>
+              <Button id="serchHdayBtn" taborder="58" cssclass="SearchBtn" left="71.38%" top="8" right="22.24%" height="28" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="hdayInfoDiv_serchHdayBtn_onclick"/>
+              <Button id="addHdayBtn" taborder="59" cssclass="DelBtn" enable="false" left="78.25%" top="8" right="15.45%" height="28" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="hdayInfoDiv_addHdayBtn_onclick"/>
+              <Button id="delHdayBtn" taborder="60" cssclass="DelBtn" enable="false" left="85.12%" top="8" right="8.59%" height="28" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="hdayInfoDiv_delHdayBtn_onclick"/>
+              <Button id="saveBtn" taborder="61" cssclass="DelBtn" enable="false" left="92.07%" top="8" right="2.29%" height="28" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="hdayInfoDiv_saveBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="hdayDiv" taborder="2" left="1.36%" top="125" right="0.8%" height="627" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Grid id="hdayGrid" taborder="0" binddataset="dsHday" useinputpanel="false" autofittype="col" oncellclick="transferPatGrid_oncellclick" left="5" top="19" width="1202" height="592">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="28"/>
+                      <Column size="72"/>
+                      <Column size="103"/>
+                      <Column size="113"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#b0bec5ff;" text="NO"/>
+                      <Cell col="1" style="background:#b0bec5ff;font:bold 9 돋움;" text="날짜"/>
+                      <Cell col="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="휴일명"/>
+                      <Cell col="3" style="background:#b0bec5ff;font:bold 9 돋움;" text="공휴일명"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center middle;font:10 돋움;" expr="expr:currow+1"/>
+                      <Cell col="1" displaytype="date" edittype="date" style="align:center middle;font:10 돋움;" text="bind:hdayDate"/>
+                      <Cell col="2" edittype="text" style="align:center middle;font:10 돋움;" text="bind:hdayNm"/>
+                      <Cell col="3" displaytype="normal" edittype="text" style="align:center middle;font:10 돋움;" text="bind:hdayNm2" combodataset="dsInoutGubun" combocodecol="code" combodatacol="value"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">searchHdayList</Col>
+            <Col id="URL">his::hrs/hday/findHday.do</Col>
+            <Col id="outData">dsHday=dsHday</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchHday</Col>
+            <Col id="URL">his::hrs/hday/batchHdayProcess.do</Col>
+            <Col id="inData">dsHday=dsHday:u</Col>
+            <Col id="outData">dsHday=dsHday</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsHday">
+        <ColumnInfo>
+          <Column id="hdayDate" type="STRING" size="256"/>
+          <Column id="hdayNm" type="STRING" size="256"/>
+          <Column id="hdayNm2" type="STRING" size="256"/>
+          <Column id="sDate" type="STRING" size="256"/>
+          <Column id="eDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************
+*                                                                   *
+* 휴일관리                                                  		*
+*                                                                   *
+* @Path		    휴일관리        	                        		*
+* @Description  휴일정보 조회,등록,수정,삭제 화면          		*
+* @Author	    백송은   					                        *
+* 								                                    *
+* Created on 2016. 5. 30.                             		        *
+*								                                    *
+********************************************************************/
+
+/***************************************************************************************************
+*                                         공통 Script Include                                      *
+***************************************************************************************************/
+include "scripts::commonScripts.xjs";
+include "scripts::hrsScripts.xjs";
+
+
+/***************************************************************************************************
+*                                         화면 변수 선언부                                         *
+***************************************************************************************************/
+var startDate;//시작일자
+var endDate;//마지막일자
+var pms;
+var deptNm;
+
+
+/***************************************************************************************************
+*                                         콜백 함수 셋팅                                           *
+***************************************************************************************************/
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		
+		this.gfn_errorPopup(svcID, errorMsg);
+		return;
+	
+	}else{
+		
+		
+		if(svcID=="searchHdayList")
+		{
+			
+			var rowCount = this.dsHday.getRowCount();
+			
+			if(rowCount== 0)
+			{
+			
+				alert("조회 내용이 없습니다.");
+				return;
+		
+			}else
+			{
+			
+				alert("조회성공");
+			
+			}
+		
+		
+		}
+		if(svcID=="batchHday")
+		{
+		
+			alert("정상 처리되었습니다.");
+		
+		}
+	
+	}
+	
+}
+
+
+/***************************************************************************************************
+*                                         현재 날짜 셋팅 FUNCTION                          	   	   *
+***************************************************************************************************/
+this.fn_Today = function()
+{
+	var objDate = new Date();
+	var sToday  = objDate.getFullYear().toString();
+	    sToday += (objDate.getMonth()+1).toString().padLeft(2, "0");
+	    sToday += objDate.getDate().toString().padLeft(2, "0"); 
+
+	return sToday;
+}
+
+
+
+/***************************************************************************************************
+*                                         onload Event                                      	   *
+***************************************************************************************************/
+
+this.HG_HdayForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.hdayInfoDiv.startCal.set_value(this.fn_Today());
+	this.hdayInfoDiv.endCal.set_value(this.fn_Today());
+	pms = application.gdsEmp.getColumn(0,"pms");
+	deptNm = application.gdsEmp.getColumn(0,"deptNm");
+	
+	if(pms == 'admin' && deptNm == '인사팀'){
+		
+		this.hdayInfoDiv.addHdayBtn.set_enable(true);
+		this.hdayInfoDiv.delHdayBtn.set_enable(true);
+		this.hdayInfoDiv.saveBtn.set_enable(true);
+	
+	}	
+}
+
+
+/***************************************************************************************************
+*                                         조회 버튼 클릭 Event                                 	   *
+***************************************************************************************************/
+
+this.hdayInfoDiv_serchHdayBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	startDate = this.hdayInfoDiv.startCal.value;
+	endDate = this.hdayInfoDiv.endCal.value;
+	
+	var argument = 'sDate='+startDate+' eDate='+endDate;
+	this.dsService.setColumn(0,"argument",argument);
+	
+	this.gfnService("searchHdayList");
+	
+	this.hdayInfoDiv.hdayGrid.setCellProperty("body","edittype","none");
+}
+
+
+/***************************************************************************************************
+*                                         추가 버튼 클릭 Event                                 	   *
+***************************************************************************************************/
+
+this.hdayInfoDiv_addHdayBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsHday.addRow();
+	this.dsHday.setColumn(this.dsHday.rowcount-1,"hdayDate",this.fn_Today());
+	this.hdayInfoDiv.hdayGrid.setCellProperty("body","edittype","normal");
+}
+
+
+/***************************************************************************************************
+*                                         삭제 버튼 클릭 Event                                 	   *
+***************************************************************************************************/
+
+this.hdayInfoDiv_delHdayBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsHday.deleteRow(this.dsHday.rowposition);
+}
+
+/***************************************************************************************************
+*                                         일괄처리 버튼 클릭 Event                                 *
+***************************************************************************************************/
+
+this.hdayInfoDiv_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchHday");
+}
+]]></Script>
+  </Form>
+</FDL>
