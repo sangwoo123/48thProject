@@ -50,6 +50,24 @@ public class HospitalRoomController {
         dataSetBeanMapper.beansToDataset(outData, hospitalRoomList, HospitalRoomBean.class);
     }
 
+  //병실번호 시퀀스 얻기
+    @RequestMapping("hdm/admission/getHospitalRoomSeq.do")
+    public void getHospitalRoomSeq(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        PlatformData outData = (PlatformData) request.getAttribute("outData");
+        String hospitalRoomSeq = admissionServiceFacade.getHospitalRoomSeq();
+        dataSetBeanMapper.addVariable(outData, "hospitalRoomSeq", hospitalRoomSeq);
+    }
+
+    //병실정보 일괄처리
+    @RequestMapping("hdm/admission/batchHospitalroomProcess.do")
+    public void batchHospitalRoomProcess(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        PlatformData inData = (PlatformData) request.getAttribute("inData");
+        PlatformData outData = (PlatformData) request.getAttribute("outData");
+        List<HospitalRoomBean> hospitalRoomBeanList = dataSetBeanMapper.datasetToBeans(inData, HospitalRoomBean.class);
+        admissionServiceFacade.batchHospitalRoomProcess(hospitalRoomBeanList);
+        dataSetBeanMapper.beanToDataset(outData, new HospitalRoomBean(), HospitalRoomBean.class);
+    }
+
 }
 
 
