@@ -40,4 +40,9 @@ public class HospitalRoomApplicationServiceImpl implements HospitalRoomApplicati
         }
     }
 
+    @Override
+    public String getHospitalRoomSeq() {
+    	return hospitalRoomDAO.selectHospitalRoomSeq();
+    }
+
 }

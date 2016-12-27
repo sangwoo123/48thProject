@@ -24,5 +24,6 @@ public interface AdmissionServiceFacade {
 	void changeHospitalizationScheduleYb(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList);
 	void batchHospitalizationScheduleManageProcess(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList);
 	void batchHospitalRoomProcess(List<HospitalRoomBean> hospitalRoomBeanList);
+	String getHospitalRoomSeq();
 
 }

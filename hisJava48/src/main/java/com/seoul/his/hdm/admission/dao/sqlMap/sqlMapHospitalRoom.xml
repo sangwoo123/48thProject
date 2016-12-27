@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.seoul.his.hdm.admission.dao.HospitalRoomAssignmentDAO">
+<mapper namespace="com.seoul.his.hdm.admission.dao.HospitalRoomDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
 
 	<select id="selectHospitalRoomList" flushCache="false" useCache="true"
@@ -64,5 +64,13 @@
 		DELETE FROM WB_HROOM
 		WHERE HROOM_NO=#{hroomNo}
 	</update>
+
+
+	<!-- 입원등록번호 구하기 -->
+	<select id="selectHospitalRoomSeq" flushCache="false"
+		useCache="true" resultType="java.lang.String">
+		SELECT ERP48.HOSPITAL_ROOM_SEQ.NEXTVAL
+		FROM DUAL
+	</select>
 
 </mapper>

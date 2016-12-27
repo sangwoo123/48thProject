@@ -11,6 +11,7 @@ public interface HospitalRoomDAO {
 	public void insertHospitalRoom(HospitalRoomBean hospitalRoomBean);
 	public void deleteHospitalRoom(HospitalRoomBean hospitalRoomBean);
 	public void updateHospitalRoom(HospitalRoomBean hospitalRoomBean);
+	public String selectHospitalRoomSeq();
 
 
 }

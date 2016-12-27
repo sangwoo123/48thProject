@@ -291,14 +291,14 @@ this.searchHroomBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo){
 	var hroomCombo = this.searchHroomCombo.value;
 	var genderRadio = this.genderRadio.value;
 	
-	if(wardCombo == null){
-		alert("병동 선택 후 조회하십시오.");
-	}else{
+	//if(wardCombo == null){
+	//	alert("병동 선택 후 조회하십시오.");
+	//}else{
 		var argument = "ward ='"+wardCombo+"' hroom='"+hroomCombo+"' gender='"+genderRadio+"'"; 	
 		var row = this.dsService.findRow('serviceID' , "findHospitalRoomList");
 		this.dsService.setColumn(row, "argument", argument);
 		this.gfnService("findHospitalRoomList");
-	}
+	//}
 }
 
 //확인

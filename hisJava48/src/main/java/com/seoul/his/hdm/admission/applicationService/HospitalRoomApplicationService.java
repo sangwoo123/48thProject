@@ -9,4 +9,5 @@ public interface HospitalRoomApplicationService {
 
 	List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap);
 	void batchHospitalRoomProcess(List<HospitalRoomBean> hospitalRoomBeanList);
+	String getHospitalRoomSeq();
 }

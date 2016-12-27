@@ -115,5 +115,10 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
     	hospitalRoomApplicationService.batchHospitalRoomProcess(hospitalRoomBeanList);
     }
 
+    @Override
+    public String getHospitalRoomSeq() {
+    	return hospitalRoomApplicationService.getHospitalRoomSeq();
+    }
+
 
 }
