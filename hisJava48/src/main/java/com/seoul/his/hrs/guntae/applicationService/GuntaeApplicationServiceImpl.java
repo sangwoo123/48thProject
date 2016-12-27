@@ -16,6 +16,8 @@ import com.seoul.his.hrs.guntae.to.DayGuntaeBean;
 import com.seoul.his.hrs.guntae.to.HdayBean;
 import com.seoul.his.hrs.guntae.to.HolidayBean;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeCloseBean;
 import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
@@ -195,6 +197,44 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
     }
 
 
+    //월근태 조회
+    @Override
+    public List<MonGuntaeBean> findMonGuntaeList(Map<String, String> argsMap) {
+        return guntaeDAO.selectMonGuntaeList(argsMap);
+    }
+
+    //월근태 생성
+    @Override
+    public List<MonGuntaeBean> createMonGuntae(Map<String, String> argsMap) {
+
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<MonGuntaeBean> callMonGuntae = guntaeDAO.callMonGuntae(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }if(argsMap.get("errorCode").equals("1")){
+            System.out.println(argsMap.get("errorMsg"));
+        }
+        return callMonGuntae;
+    }
+
+    //월근태 마감
+    @Override
+    public List<MonGuntaeCloseBean> closeMonGuntae(Map<String, String> argsMap) {
+
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<MonGuntaeBean> callCloseMonGuntae = guntaeDAO.callCloseMonGuntae(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }if(argsMap.get("errorCode").equals("1")){
+            System.out.println(argsMap.get("errorMsg"));
+        }
+
+        List<MonGuntaeCloseBean> monGuntaeCloseList = guntaeDAO.selectMonGuntaeCloseList(argsMap);
+
+        return monGuntaeCloseList;
+    }
 
 }
 
