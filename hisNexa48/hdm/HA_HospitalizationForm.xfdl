@@ -389,7 +389,9 @@
       <BindItem id="item25" compid="hosptlzRouteCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="hosptlzRoute"/>
       <BindItem id="item26" compid="genderEdt" propid="value" datasetid="dsPatient" columnid="gender"/>
     </Bind>
-    <Script type="xscript5.0"><![CDATA[/********************************************************************************
+    <Script type="xscript5.0"><![CDATA[
+
+/********************************************************************************
 *                                               			                    *
 * 환자 등록 번호  팝업  			                               		        *
 *                                                                   			*
@@ -406,7 +408,6 @@ include "scripts::wonScripts.xjs";
 
 var patNo; 
 this.hosptlzReceiptNo ="";
-var outpaReceiptNo="";
 
 this.setPatInfo = function(arr){
 	patNo=arr[0];
@@ -418,9 +419,6 @@ this.HA_HospitalizationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {	
 	this.gfnBind(); 
 	this.patNoEd.set_value(this.parent.patNo);
-	
-	this.patNoEd.set_value(this.parent.patNo);  //부모창에 받아온 환자등록번호 바로 셋팅
-	this.outpaReceiptNoEdt.set_value(this.parent.outpaReceiptNo);
 }
 
 //환자등록번호 얻기0
@@ -429,11 +427,11 @@ this.patNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dsPatient.clear();
 	this.dsOutpaReceipt.clear();
 	this.dsHospitalizationSchedule.clear();
-	/*this.outpaReceiptNo.set_visible(false);
+	this.outpaReceiptNo.set_visible(false);
 	this.outpaReceiptNoEdt.set_visible(false);	
 	this.saveBtn.set_visible(false);
 	this.HosptlzReceiptNo.set_visible(false);
-	this.hosptlzReceiptNoEdt.set_visible(false);*/
+	this.hosptlzReceiptNoEdt.set_visible(false);
 	
 	this.gfnPatPopup();
 	this.setPatInfo = function(arrRtn){ 
@@ -459,9 +457,10 @@ this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 this.findHosptlzYBCallbackFunc = function(svcID, errorCode, errorMsg)
 {
 	if(errorCode=="1") {	
+		
 		var hosptlzYb=this.dsOutpaReceipt.getColumn(0,"hosptlzYb");
 		var hosptlzRsvtYb=this.dsOutpaReceipt.getColumn(0,"hosptlzRsvtYb");
-		this.outpaReceiptNo = this.outpaReceiptNoEdt.value;
+		
 		if(hosptlzYb=='Y' && hosptlzRsvtYb=='N'){//입원승인이Y, 입원예약등록이N 이면
 			alert("입원승인 확인 했습니다.");			
 			this.dsService.setColumn(2,"argument",'patNo='+patNo);
@@ -489,10 +488,9 @@ this.hosptlzSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.dscgDateCal.set_enable(true);
 	this.hroomBtn.set_enable(true);
 	this.hroomBtn.style.set_image("theme://img/btn_WF_Search.png");
-
-	/*this.HosptlzReceiptNo.set_visible(true);
+	this.HosptlzReceiptNo.set_visible(true);
 	this.hosptlzReceiptNoEdt.set_visible(true);
-	this.saveBtn.set_visible(true);*/
+	this.saveBtn.set_visible(true);
 	
 	this.dsService.setColumn(5,"argument",'patNo='+patNo);
 	this.gfnService("findHospitalizationInfo","false"); 	//	입원접수 확인하기
@@ -505,8 +503,7 @@ this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 			if(errorCode=="1"){			
 				if(this.dsHospitalizationInfo.rowcount==0){//입원정보가 없으면
 					if(this.confirm( "입원등록을 하시겠습니까?", "서울병원 - 입원등록")){
-
-						//this.hosptlzRsvtBtn.set_visible(true);  //입원예약Btn 생성					
+						this.hosptlzRsvtBtn.set_visible(true);  //입원예약Btn 생성					
 						this.fn_register();   //입원등록 
 					}
 				}else if(this.dsHospitalizationInfo.rowcount==1){//입원정보가 있으면
@@ -518,8 +515,9 @@ this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 	}else if(svcID="callHospitalizationSeq"){//입원등록번호 가져오기
 			if(errorCode=="1"){
 				this.hosptlzReceiptNoEdt.set_value(this.hosptlzReceiptNo);
+				alert(this.hosptlzReceiptNo);
 				this.dsHospitalizationInfo.setColumn(0,"hosptlzReceiptNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
-			
+				this.gfnService("batchHospitalizationProcess","false");  //입원등록			
 			}else{
 				alert("입원등록번호에서 오류 발생");
 			}	
@@ -533,14 +531,14 @@ this.hosptlzRegisterBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo
 		alert("환자등록번호를 먼저 입력하세요.");
 	}else{		
 		this.dsService.setColumn(0,"argument",'patNo='+patNo);
-		this.gfnService("findOutpaReceipt");  //외래접수번호와 입원여부 확인하기. 입원예약 여부 확인
-
-		/*this.outpaReceiptNo.set_visible(true);
+		this.gfnService("findOutpaReceipt","false");  //외래접수번호와 입원여부 확인하기. 입원예약 여부 확인
+		
+		this.outpaReceiptNo.set_visible(true);
 		this.outpaReceiptNoEdt.set_visible(true);
 		this.saveBtn.set_visible(true);
 		this.HosptlzReceiptNo.set_visible(true);
 		this.hosptlzReceiptNoEdt.set_visible(true);
-		this.resetBtn.set_visible(true);*/
+		this.resetBtn.set_visible(true);
 	}	
 }
 
@@ -582,9 +580,11 @@ this.batchProcessHosptlzReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 //입원예약정보 변경
 this.findHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 		if(errorCode=="1"){				
+			var outpaReceiptNo = this.outpaReceiptNoEdt.value;
+
 			this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition,"hosptlzRsvtYb","");
-			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+this.outpaReceiptNo+' patNo='+patNo);
-			this.gfnService("modifyHospitalizationScheduleInfo");  //입원예약여부 변경 (N->Y)
+			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+outpaReceiptNo+' patNo='+patNo);
+			//this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (N->Y)
 		}else{
 			alert("실패");
 		}	
@@ -727,6 +727,11 @@ this.hosptlzRsvtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		this.gfnService("findHospitalizationSchedule");
 	}else{
 		if(this.confirm( "입원예약을 하시겠습니까?", "서울병원 - 입원예약")){
+		
+			///
+			this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition,"hosptlzRsvtYb","");
+			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+outpaReceiptNo+' patNo='+patNo);
+			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (N->Y)
 			var outpaReceiptNo=this.outpaReceiptNoEdt.value;
 			param = {patNo:patNo, outpaReceiptNo:outpaReceiptNo};
 		
