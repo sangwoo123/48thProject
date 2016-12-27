@@ -98,10 +98,10 @@
 
             
             // UI Components Initialize
-            obj = new Static("subCodeStc07", "absolute", "1.99%", "72", null, "27", "77.53%", null, this);
+            obj = new Static("subCodeStc07", "absolute", "4.97%", "72", null, "27", "77.53%", null, this);
             obj.set_taborder("0");
             obj.set_text("환자등록번호");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -122,7 +122,7 @@
             obj = new Static("subCodeStc00", "absolute", "4.97%", "115", null, "27", "77.53%", null, this);
             obj.set_taborder("3");
             obj.set_text("입원희망일");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -133,7 +133,7 @@
             obj = new Static("subCodeStc01", "absolute", "4.97%", "158", null, "27", "77.53%", null, this);
             obj.set_taborder("4");
             obj.set_text("진료과");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -160,7 +160,7 @@
             obj = new Static("subCodeStc03", "absolute", "4.97%", "201", null, "27", "77.53%", null, this);
             obj.set_taborder("7");
             obj.set_text("희망병동");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -171,7 +171,7 @@
             obj = new Static("subCodeStc06", "absolute", "4.97%", "244", null, "27", "77.53%", null, this);
             obj.set_taborder("8");
             obj.set_text("예상재원일");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -187,7 +187,7 @@
             obj = new Static("subCodeStc08", "absolute", "4.97%", "287", null, "27", "77.53%", null, this);
             obj.set_taborder("10");
             obj.set_text("특이사항");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -210,7 +210,7 @@
             obj = new Static("subCodeStc04", "absolute", "56.26%", "201", null, "27", "26.24%", null, this);
             obj.set_taborder("13");
             obj.set_text("희망병실");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -221,7 +221,7 @@
             obj = new Static("subCodeStc02", "absolute", "56.26%", "158", null, "27", "26.24%", null, this);
             obj.set_taborder("14");
             obj.set_text("담당의사");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -247,7 +247,7 @@
             obj = new Static("subCodeStc09", "absolute", "56.26%", "115", null, "27", "23.26%", null, this);
             obj.set_taborder("17");
             obj.set_text("입원예약번호");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -258,7 +258,7 @@
             obj = new Static("subCodeStc05", "absolute", "56.26%", "72", null, "27", "23.26%", null, this);
             obj.set_taborder("18");
             obj.set_text("외래접수번호");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -276,18 +276,37 @@
             obj.set_taborder("20");
             obj.getSetter("class").set("DelBtn");
             obj.set_text("확인");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div06", "absolute", "0%", "4", "500", "60", null, null, this);
             obj.set_taborder("21");
-            obj.set_text("           입원예약관리");
             obj.style.set_align("left middle");
-            obj.style.set_background("transparent URL('img::titleBar7.jpg')");
+            obj.style.set_background("transparent URL('img::titleBar5.jpg')");
             this.addChild(obj.name, obj);
+            obj = new Static("Static00", "absolute", "11.6%", "-4", null, "60", "50.4%", null, this.Div06);
+            obj.set_taborder("0");
+            obj.set_text("입원예약등록");
+            obj.style.set_color("#6c6c6cff");
+            obj.style.set_font("bold 20 다음_Regular");
+            this.Div06.addChild(obj.name, obj);
 
 
             
             // Layout Functions
+            //-- Default Layout
+            obj = new Layout("default", "", 500, 60, this.Div06,
+            	//-- Layout function
+            	function(p) {
+            		p.set_taborder("21");
+            		p.style.set_align("left middle");
+            		p.style.set_background("transparent URL('img::titleBar5.jpg')");
+
+            	}
+            );
+            this.Div06.addLayout(obj.name, obj);
+
             //-- Default Layout
             obj = new Layout("default", "", 503, 401, this,
             	//-- Layout function

@@ -29,6 +29,7 @@
             this._addService("default_typedef.xml", "Template", "form", "./Template/", "", null, "", "0", "0");
             this._addService("default_typedef.xml", "Sample", "form", "./Sample/", "", null, "", "0", "0");
             this._addService("default_typedef.xml", "Comm", "form", "./Comm/", "", null, "", "0", "0");
+            this._addService("default_typedef.xml", "bst", "form", "./bst/", "", null, "", "0", "0");
 
             this._component_uri = (this._arg_compurl ? this._arg_compurl : "./nexacro14lib/component/");
             // load components
@@ -120,7 +121,7 @@
             var frame0 = new VFrameSet("frameSet", "absolute", null, null, null, null, null, null, this);
             this.addChild(frame0.name, frame0);
             this.frame = frame0;
-            frame0.set_separatesize("85,40,*,40");
+            frame0.set_separatesize("103,40,*,20");
 
             
             var frame1 = new ChildFrame("MenuFrame", "absolute", null, null, null, null, null, null, "frame::menuFrame.xfdl", frame0);
@@ -136,10 +137,19 @@
             frame0.addChild(frame3.name, frame3);
 
             
-            var frame4 = new ChildFrame("BottomFrame", "absolute", null, null, null, null, null, null, "frame::bottomFrame.xfdl", frame0);
-            frame0.addChild(frame4.name, frame4);
-            frame4.set_formurl("frame::bottomFrame.xfdl");
+            var frame4 = new ChildFrame("ChildFrame0", "absolute", null, null, null, null, null, null, "com::CM_MainForm.xfdl", frame3);
+            frame3.addChild(frame4.name, frame4);
+            frame4.set_formurl("com::CM_MainForm.xfdl");
+            frame4.set_showcascadetitletext("false");
+            frame4.set_showcascadestatustext("false");
+            frame4.set_resizable("false");
             frame4.set_showtitlebar("false");
+            frame4.set_showtitleicon("false");
+
+            var frame5 = new ChildFrame("BottomFrame", "absolute", null, null, null, null, null, null, "frame::bottomFrame.xfdl", frame0);
+            frame0.addChild(frame5.name, frame5);
+            frame5.set_formurl("frame::bottomFrame.xfdl");
+            frame5.set_showtitlebar("false");
 
         };
         

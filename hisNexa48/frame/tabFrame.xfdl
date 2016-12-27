@@ -1,16 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="tabFrame" classname="tabFrame" left="0" top="0" width="1250" height="41" titletext="tabFrame" oninit="tabFrame_onload">
+  <Form id="tabFrame" classname="tabFrame" left="0" top="0" width="1250" height="37" titletext="tabFrame" oninit="tabFrame_onload" style="background:#eeeeeeff;border:1px solid #999999ff ;">
     <Layouts>
       <Layout>
-        <Tab id="topTab" taborder="0" left="0.64%" top="5" right="2.64%" height="33" onextrabuttonclick="topTab_onextrabuttonclick" tabindex="0" scrollbars="autoboth" style="buttonbackground:#4682b466;buttongradation:liner 0,0 #feffffff 0,100 aliceblue [60% #f2f2efff][70% #ecece9ff];buttonborder:2 solid transparent ;buttonpadding:8 16 8 16;background:transparent;border:0 solid transparent ;bordertype:round 3 3 ;font:12 antialias 맑은 고딕;" onchanged="topTab_onchanged">
+        <Tab id="topTab" taborder="0" left="0.64%" top="5" right="2.64%" height="33" onextrabuttonclick="topTab_onextrabuttonclick" tabindex="0" scrollbars="autoboth" style="buttonbackground:#4682b466;buttongradation:liner 0,0 #feffffff 0,100 aliceblue [60% #f2f2efff][70% #ecece9ff];buttonborder:1 solid slategray ;buttonbordertype:normal 0 0 ;buttonpadding:8 16 8 16;background:transparent;border:0 none #ffffffff ;bordertype:round 3 3 ;font:antialias 10 맑은 고딕 Semilight;" onchanged="topTab_onchanged">
           <Tabpages>
-            <Tabpage id="tabpage" text="tabpage1" style="background:whitesmoke;" dragscrolltype="none"/>
+            <Tabpage id="tabpage" style="background:slategray;" dragscrolltype="none" text="MENU">
+              <Layouts>
+                <Layout width="1207" height="2"/>
+              </Layouts>
+            </Tabpage>
             <Tabpage id="tabpage2" text="tabpage2"/>
           </Tabpages>
         </Tab>
-        <Button id="allCloseBtn" taborder="1" text="X" onclick="allCloseBtn_onclick" left="97.68%" top="5" right="0.16%" height="29" style="background:gainsboro;color:orangered;font:bold 13 antialias 맑은 고딕;"/>
+        <Button id="allCloseBtn" taborder="1" text="닫기" onclick="allCloseBtn_onclick" left="96%" top="4" right="0.56%" height="29" style="background:gainsboro;color:#555555ff;font:bold antialias 8 맑은 고딕;cursor:default;"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
@@ -50,7 +54,7 @@ this.fn_addTabpage = function(menuURL, menuNM)
 // 모든 창 닫기
 this.allCloseBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-  /* if (confirm("모든 창을 닫으시겠습니까?")) {
+  /*if (confirm("모든 창을 닫으시겠습니까?")) {
       var tabCnt = this.topTab.tabpages.length;
       for (var i = (this.topTab.tabpages.length-1); i >= 0; i--) {
          var childName = this.topTab.tabpages[i].url;
