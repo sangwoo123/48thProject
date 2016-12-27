@@ -57,7 +57,7 @@
         </Grid>
         <Button id="searchBtn" taborder="9" text="조회" left="25.92%" top="120" right="66.72%" height="25" style="background:@gradation;" onclick="searchBtn_onclick"/>
         <Div id="Div02" taborder="11" text="검사결과목록" left="38.72%" top="76" right="1.44%" height="25" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:bold 10 돋움;"/>
-        <Tab id="rsltTab" taborder="12" left="38.72%" top="112" right="1.44%" height="626" onchanged="rsltTab_onchanged" tabindex="13" scrollbars="autoboth" style="buttonbackground:@gradation;buttonborder:1 solid gray ;background:transparent;color:black;">
+        <Tab id="rsltTab" taborder="12" left="38.72%" top="112" right="1.44%" height="626" onchanged="rsltTab_onchanged" tabindex="0" scrollbars="autoboth" style="buttonbackground:@gradation;buttonborder:1 solid gray ;background:transparent;color:black;">
           <Tabpages>
             <Tabpage id="tpgHOM" text="기본검사" style="background:#eceff1ff;">
               <Layouts>
