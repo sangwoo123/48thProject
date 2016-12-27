@@ -17,7 +17,7 @@
 		</if>
 			WHERE R.PAT_NO = P.PAT_NO AND R.RSVT_RESP = E.EMP_NO(+) AND R.REDUC_CD = RD.REDUC_CD(+) AND R.PCK_CD = PCK.PCK_CD(+) 
 		<if test="inspPlnDate != null"> 
-			AND TO_DATE(INSP_PLN_DATE,'YYYY-MM-DD') >= TO_DATE(#{inspPlnDate},'YYYY-MM-DD') 
+			AND TO_DATE(INSP_PLN_DATE,'YYYY-MM-DD') = TO_DATE(#{inspPlnDate},'YYYY-MM-DD') 
 		</if>
 		<if test="receiptFlag != Y"> 
 			AND NVL(R.CANCEL_YN,'N') = 'N' AND RC.RSVT_NO(+) = R.RSVT_NO AND (RC.CANCEL_YN = 'Y' OR APL_DATE IS NULL) 
@@ -67,11 +67,8 @@
      </update>
      
      <update id="insertSynthesisCheckupReservation" >
-         MERGE INTO SC_RSVT
-         USING DUAL
-            ON (RSVT_NO = #{rsvtNo})
-          WHEN NOT MATCHED THEN
-        INSERT (PAT_NO,
+         
+        INSERT INTO SC_RSVT(PAT_NO,
                 RSVT_NO,
                 RSVT_DATE,
                 RSVT_AMT,

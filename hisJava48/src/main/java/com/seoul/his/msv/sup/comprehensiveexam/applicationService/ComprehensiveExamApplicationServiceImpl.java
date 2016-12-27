@@ -11,16 +11,19 @@ import org.springframework.stereotype.Service;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.DetailsCheckupDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.PackgeDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupCheckTypeDAO;
-
+import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReceiptDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupReservationDAO;
+import com.seoul.his.msv.sup.comprehensiveexam.dao.SynthesisCheckupResultDAO;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ChoiceCheckBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.CodePopupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.DetailsCheckupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.PackgeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
-
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
+
 
 
 
@@ -50,13 +53,11 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
     @Autowired
     private PackgeDAO packgeDAO;
     
-    //@Autowired
-    //private SynthesisCheckupReceiptDAO synthesisCheckupReceiptDAO;
-
-    /*
-  
     @Autowired
-    private RsltDAO rsltDAO;*/
+   private SynthesisCheckupReceiptDAO synthesisCheckupReceiptDAO;
+
+    @Autowired
+    private SynthesisCheckupResultDAO synthesisCheckupResultDAO;
 
     @Override                 /* 종합검진 검사종류관리 - 조회 */
     public List<SynthesisCheckupCheckTypeBean> findSynthesisCheckupCheckTypeList(Map<String, String> argsMap) {
@@ -162,9 +163,23 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
             }
         }
 
-        /*if(choiceCheckList!=null){
+        if(choiceCheckList!=null){
             batchChoInspProcess(choiceCheckList);
-        }*/
+        }
+    }
+    
+    /* 종합검진 예약관리 - 선택검사 수정, 추가, 삭제 */
+    private void batchChoInspProcess(List<ChoiceCheckBean> choInspList) {
+        for(ChoiceCheckBean choInsp: choInspList){
+            String status = choInsp.getStatus();
+            if(status.equals("inserted")){
+            	synthesisCheckupCheckTypeDAO.insertChoInsp(choInsp);
+            }else if(status.equals("deleted")){
+            	synthesisCheckupCheckTypeDAO.deleteChoInsp(choInsp);
+            }else if(status.equals("updated")){         
+            	synthesisCheckupCheckTypeDAO.updateChoInsp(choInsp);
+            }
+        }
     }
 
     @Override                  /*종합검진 예약관리 - 예약취소*/
@@ -246,7 +261,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
         return pckInspList;
     }
     
-   /*  종합검진 접수 - 접수, 예약조회 
+    /*종합검진 접수 - 접수, 예약조회 */
 	@Override                 
 	public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap) {
 	    List<SynthesisCheckupReservationBean> rsvtList = synthesisCheckupReceiptDAO.selectRsvtList(argsMap);
@@ -254,20 +269,21 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
 	    System.out.println("!!!!!!!!!!!!!!!!!"+argsMap);
 	        
 	    Map<String, Object> map = new HashMap<>();
+	    System.out.println("!!!!!!!!!!!!!!!!!"+map);
 	    map.put("rsvtList", rsvtList);
 	    map.put("receiptList", receiptList);
 
 	    return map;
 	}
 
-	 종합검진 접수 - 예약검사 조회 
+	 /*종합검진 접수 - 예약검사 조회 */
 	@Override                 
 	public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap) {
 		SynthesisCheckupReservationBean rsvtBean = synthesisCheckupReceiptDAO.selectRsvtInspList(argsMap);
 	    return rsvtBean;
 	}
 	
-	 종합검진 접수 - 접수 등록 
+	 /*종합검진 접수 - 접수 등록 */
 	@Override                 
     public void registerReceipt(SynthesisCheckupReceiptBean receiptBean) {
         if(receiptBean!=null){
@@ -285,16 +301,16 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
         }
     }
 	
-	 종합검진 접수 - 접수 취소 
+	 /*종합검진 접수 - 접수 취소 */
 	@Override
 	public void cancelReceipt(SynthesisCheckupReceiptBean receiptBean) {
 		synthesisCheckupReceiptDAO.updateCancelYN(receiptBean);
 	}
 
-	 종합검진 접수 - 접수 저장 
+	 /*종합검진 접수 - 접수 저장*/ 
 	@Override                 
     public void batchReceiptProcess(Map<String, Object> map) {
-		SynthesisCheckupReceiptBean rsvtBean = (SynthesisCheckupReceiptBean) map.get("rsvtBean");
+		SynthesisCheckupReservationBean rsvtBean = (SynthesisCheckupReservationBean) map.get("rsvtBean");
         
         List<ChoiceCheckBean> choInspList = (List<ChoiceCheckBean>) map.get("choInspList");
         
@@ -304,7 +320,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
             
             rsvtBean.setChoInspAmt(choInspAmt2);
             
-            synthesisCheckupReceiptDAO.updateReceipt(rsvtBean);
+            synthesisCheckupReservationDAO.updateSynthesisCheckupReservation(rsvtBean);
         }
         
         if(choInspList!=null){
@@ -312,7 +328,7 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
         }
     }
 	
-	 종합검진 접수 - 선택검사 일괄처리 
+	 /*종합검진 접수 - 선택검사 일괄처리 */
 	@Override                 
     public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList) {
         for(SynthesisCheckupCheckTypeBean inspBean: pckInspList){
@@ -326,29 +342,28 @@ public class ComprehensiveExamApplicationServiceImpl implements ComprehensiveExa
             }
         }
     }
-*/
 
-    /*
 
-    @Override                  종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap) {
-        List<ReceiptBean> receiptList = receiptDAO.selectReceiptList(argsMap);
+    
+    @Override                 /* 종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap) {
+        List<SynthesisCheckupReceiptBean> receiptList = synthesisCheckupReceiptDAO.selectReceiptList(argsMap);
         return receiptList;
     }
 
-    @Override                 종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap) {
-        List<RsltBean> rsltList = rsltDAO.selectRsltList(argsMap);
+    @Override                 /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap) {
+        List<SynthesisCheckupResultBean> rsltList = synthesisCheckupResultDAO.selectRsltList(argsMap);
         return rsltList;
     }
 
-    @Override                 종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList) {
-        for(RsltBean rsltBean : rsltList){
-            rsltDAO.updateRslt(rsltBean);
+    @Override                 /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList) {
+        for(SynthesisCheckupResultBean rsltBean : rsltList){
+        	synthesisCheckupResultDAO.updateRslt(rsltBean);
         }
     }
-*/
+
 
 
 }

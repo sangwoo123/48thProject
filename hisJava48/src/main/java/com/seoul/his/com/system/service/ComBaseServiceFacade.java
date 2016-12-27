@@ -51,4 +51,7 @@ public interface ComBaseServiceFacade {
     
     // 코드 바인드
     public Map<String, List<OutCodeBean>> bindCode(List<BindCodeBean> bindCodeList);
+   
+    //restful 접속 로그
+	public void insertLog(String id, String time);
 }
