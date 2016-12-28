@@ -11,87 +11,92 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="mainDiv" taborder="1" left="0.8%" top="55" right="1.12%" height="697" style="background:#edececff;" enableevent="false">
+        <Div id="dayGuntaeInfoDiv" taborder="1" left="1.36%" top="70" right="0.8%" height="48" style="background:#546e7aff;">
           <Layouts>
-            <Layout width="1233" height="721">
-              <Grid id="holidayRequestGrid" taborder="43" binddataset="dsDayGuntae" useinputpanel="false" autofittype="col" oncellclick="mainDiv_holidayRequestGrid_oncellclick" left="0.65%" top="40" right="3.59%" height="649">
+            <Layout>
+              <Static id="subCodeStc00" taborder="13" text="기간" onclick="subCodeStc_onclick" left="1.14%" top="8" right="93.38%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Static id="Static04" taborder="15" text="   ~" left="15.78%" top="10" right="81.6%" height="32" style="color:aliceblue;align:center middle;font:bold 12 arial;"/>
+              <Static id="subCodeStc02" taborder="20" text="사원" onclick="subCodeStc_onclick" left="30.34%" top="8" right="63.12%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="startCal" taborder="21" left="6.87%" top="8" right="83.73%" height="30"/>
+              <Calendar id="endCal" taborder="22" left="18.64%" top="8" right="71.95%" height="30"/>
+              <Edit id="empnoEd" taborder="23" left="37.12%" top="8" right="55.76%" height="30"/>
+              <Button id="findEmpBtn" taborder="24" cssclass="btn_WF_SearchSmall" left="542" top="8" width="30" height="30" onclick="dayGuntaeInfoDiv_findEmpBtn_onclick"/>
+              <Edit id="empnmEd" taborder="25" left="46.85%" top="8" right="46.03%" height="30"/>
+              <Button id="searchDayGuntaeBtn" taborder="26" cssclass="SearchBtn" left="90.76%" top="6" right="1.88%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="dayGuntaeInfoDiv_searchDayGuntaeBtn_onclick"/>
+              <Button id="guntaeCreateBtn" taborder="27" text="일근태생성" left="82.5%" top="7" width="80" height="30" style="background:#cfd8dcff;color:black;font:9 돋움;" onclick="dayGuntaeInfoDiv_guntaeCreateBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="dayGuntaeDiv" taborder="2" left="1.36%" top="125" right="0.8%" height="627" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Grid id="dayGuntaeGrid" taborder="0" binddataset="dsDayGuntae" useinputpanel="false" autofittype="col" oncellclick="transferPatGrid_oncellclick" left="13" top="19" width="1202" height="592">
                 <Formats>
                   <Format id="default">
                     <Columns>
-                      <Column size="40"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
-                      <Column size="78"/>
+                      <Column size="28"/>
+                      <Column size="66"/>
+                      <Column size="68"/>
+                      <Column size="57"/>
+                      <Column size="79"/>
+                      <Column size="73"/>
+                      <Column size="76"/>
+                      <Column size="68"/>
+                      <Column size="67"/>
+                      <Column size="73"/>
+                      <Column size="73"/>
+                      <Column size="74"/>
+                      <Column size="72"/>
+                      <Column size="67"/>
+                      <Column size="81"/>
+                      <Column size="62"/>
                     </Columns>
                     <Rows>
                       <Row size="24" band="head"/>
                       <Row size="24"/>
                     </Rows>
                     <Band id="head">
-                      <Cell text="No"/>
-                      <Cell col="1" text="날짜"/>
-                      <Cell col="2" text="요일"/>
-                      <Cell col="3" text="사번"/>
-                      <Cell col="4" text="출근시간"/>
-                      <Cell col="5" text="퇴근시간"/>
-                      <Cell col="6" text="외출시간"/>
-                      <Cell col="7" text="귀사시간"/>
-                      <Cell col="8" text="기본시간"/>
-                      <Cell col="9" text="연장시간"/>
-                      <Cell col="10" text="지각시간"/>
-                      <Cell col="11" text="외출시각"/>
-                      <Cell col="12" text="조퇴시간"/>
-                      <Cell col="13" text="근태구분"/>
-                      <Cell col="14" text="근태외구분"/>
-                      <Cell col="15" text="마감여부"/>
+                      <Cell style="background:#b0bec5ff;" text="NO"/>
+                      <Cell col="1" style="background:#b0bec5ff;font:bold 9 돋움;" text="날짜"/>
+                      <Cell col="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="요일"/>
+                      <Cell col="3" style="background:#b0bec5ff;font:bold 9 돋움;" text="사번"/>
+                      <Cell col="4" style="background:#b0bec5ff;font:bold 9 돋움;" text="출근시간"/>
+                      <Cell col="5" style="background:#b0bec5ff;font:bold 9 돋움;" text="퇴근시간"/>
+                      <Cell col="6" style="background:#b0bec5ff;font:bold 9 돋움;" text="외출시간" autosizecol="default"/>
+                      <Cell col="7" style="background:#b0bec5ff;" text="귀사시간"/>
+                      <Cell col="8" style="background:#b0bec5ff;font:bold 9 돋움;" text="기본시간"/>
+                      <Cell col="9" style="background:#b0bec5ff;font:bold 9 돋움;" text="연장시간"/>
+                      <Cell col="10" style="background:#b0bec5ff;font:bold 9 돋움;" text="지각시간"/>
+                      <Cell col="11" style="background:#b0bec5ff;font:bold 9 돋움;" text="외출시간"/>
+                      <Cell col="12" style="background:#b0bec5ff;font:bold 9 돋움;" text="조퇴시간"/>
+                      <Cell col="13" style="background:#b0bec5ff;font:bold 9 돋움;" text="근태구분"/>
+                      <Cell col="14" style="background:#b0bec5ff;font:bold 9 돋움;" text="근태외구분"/>
+                      <Cell col="15" style="background:#b0bec5ff;font:bold 9 돋움;" text="마감여부"/>
                     </Band>
                     <Band id="body">
-                      <Cell expr="expr:currow+1"/>
-                      <Cell col="1" text="bind:belongDay"/>
-                      <Cell col="2" text="bind:guntaeDay"/>
-                      <Cell col="3" text="bind:empNo"/>
-                      <Cell col="4" edittype="masknumber" text="bind:inTime" mask="##:00"/>
-                      <Cell col="5" edittype="masknumber" text="bind:outTime" mask="##:00"/>
-                      <Cell col="6" edittype="masknumber" text="bind:goOutTime" mask="##:00"/>
-                      <Cell col="7" edittype="masknumber" text="bind:returnTime" mask="##:00"/>
-                      <Cell col="8" text="bind:basicTime" mask="##시간"/>
-                      <Cell col="9" text="bind:overTime" mask="##시간"/>
-                      <Cell col="10" text="bind:latelessTime" mask="##시간"/>
-                      <Cell col="11" edittype="normal" text="bind:goOutHour" mask="##시간"/>
-                      <Cell col="12" edittype="masknumber" text="bind:aleryOutTime" mask="##:00"/>
-                      <Cell col="13" text="bind:guntaeCd" combodataset="dsGuntaeGubun" combocodecol="cd" combodatacol="value"/>
-                      <Cell col="14" text="bind:guntaeOutCd" combodataset="dsGuntaeOutGubun" combocodecol="cd" combodatacol="value"/>
-                      <Cell col="15" text="bind:closeYn"/>
+                      <Cell style="align:center middle;font:10 돋움;" expr="expr:currow+1"/>
+                      <Cell col="1" style="align:center middle;font:10 돋움;" text="bind:belongDay"/>
+                      <Cell col="2" style="align:center middle;font:10 돋움;" text="bind:guntaeDay"/>
+                      <Cell col="3" displaytype="normal" edittype="none" style="align:center middle;font:10 돋움;" text="bind:empNo"/>
+                      <Cell col="4" displaytype="normal" edittype="masknumber" style="align:center middle;font:10 돋움;" text="bind:inTime" mask="##:00"/>
+                      <Cell col="5" edittype="masknumber" style="align:center middle;font:10 돋움;" text="bind:outTime" mask="##:00"/>
+                      <Cell col="6" edittype="masknumber" style="align:center middle;font:10 돋움;" text="bind:goOutTime" mask="##:00"/>
+                      <Cell col="7" edittype="masknumber" style="align:center middle;" text="bind:returnTime" mask="##:00"/>
+                      <Cell col="8" style="align:center middle;font:10 돋움;" text="bind:basicTime" mask="##시간"/>
+                      <Cell col="9" style="align:center middle;font:10 돋움;" text="bind:overTime" mask="##시간"/>
+                      <Cell col="10" style="align:center middle;font:10 돋움;" text="bind:latelessTime" mask="##시간"/>
+                      <Cell col="11" edittype="normal" style="align:center middle;font:10 돋움;" text="bind:goOutHour" mask="##시간"/>
+                      <Cell col="12" edittype="masknumber" style="align:center middle;font:10 돋움;" text="bind:aleryOutTime" mask="##:00"/>
+                      <Cell col="13" style="align:center middle;font:10 돋움;" text="bind:guntaeCd" combodataset="dsGuntaeGubun" combocodecol="cd" combodatacol="value"/>
+                      <Cell col="14" style="align:center middle;font:10 돋움;" text="bind:guntaeOutCd" combodataset="dsGuntaeOutGubun" combocodecol="cd" combodatacol="value"/>
+                      <Cell col="15" style="align:center middle;font:10 돋움;" text="bind:closeYn"/>
                     </Band>
                   </Format>
                 </Formats>
               </Grid>
-              <Static id="empnoStc" taborder="45" text="사번" onclick="subCodeStc_onclick" left="58.32%" top="7" right="38.17%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="empnoEdt" taborder="46" enable="false" left="62.15%" top="7" right="33.12%" height="26"/>
-              <Edit id="empnmEdt" taborder="48" enable="false" left="75.37%" top="7" right="19.74%" height="26"/>
-              <Static id="empnmStc" taborder="49" text="성명" left="71.37%" top="7" right="25.12%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Button id="empSearchBtn" taborder="50" onclick="mainDiv_empSearchBtn_onclick" cssclass="AddBtn" left="67.54%" top="5" right="29.85%" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Button id="searchDayGuntaeBtn" taborder="51" onclick="mainDiv_searchDayGuntaeBtn_onclick" cssclass="SearchBtn" left="89.07%" top="5" right="3.59%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-              <Static id="hdateStc" taborder="52" text="기간" left="0.57%" top="6" right="92.41%" height="30" style="background:#c4d2daff;border:0 none #808080ff ;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;" class="AreaStc"/>
-              <Calendar id="startCal" taborder="53" left="7.34%" top="6" right="81.4%" height="30"/>
-              <Static id="Static04" taborder="54" text="   ~" left="18.35%" top="6" right="79.04%" height="31" style="color:#46463dff;"/>
-              <Calendar id="endCal" taborder="55" left="20.15%" top="6" right="68.6%" height="30"/>
             </Layout>
           </Layouts>
         </Div>
-        <Button id="Button00guntaeCreateBtn" taborder="3" text="일근태생성" left="80.56%" top="60" right="12.48%" height="30" onclick="guntaeCreateBtn_onclick"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -194,8 +199,8 @@
 * 일근퇴 관리                                                              	*
 *                                                                               *
 * @Path		    hrs-HG_DayGuntaeForm                        	                *
-* @Description 	일근퇴 조회                            		   	            *
-* @Author	    이병민					                                		*
+* @Description 	일근태 조회                            		   	            *
+* @Author	    백송은					                                		*
 * 									                                            *
 * Created on 2016. 5. 29.                             		                    *
 *									                                            *
@@ -204,9 +209,10 @@
 /***************************************************************************************************
 *                                         공통 Script Include                                      *
 ***************************************************************************************************/
-include "scripts::commonScript.xjs";
+
+include "scripts::commonScripts.xjs";
 include "scripts::hrsScripts.xjs";
-include "scripts::commonTransaction.xjs";
+
 
 
 /***************************************************************************************************
@@ -217,6 +223,8 @@ var startDate;
 var endDate;
 var empNo;
 var empNm;
+
+
 
 /***************************************************************************************************
 *                                         콜백 함수 셋팅                                           *
@@ -263,29 +271,6 @@ this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
 	
 }
 
-/***************************************************************************************************
-*                                         onload Event                                      	   *
-***************************************************************************************************/
-this.HG_DayGuntaeForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
-{
-	this.mainDiv.startCal.set_value(this.fn-Today());
-	this.mainDiv.endCal.set_value(this.fn_Today())
-	
-	this.mainDiv.empnoEdt.set_value(application.gdsEmp.getColumn(0,"empNo"));
-	this.mainDiv.empnmEdt.set_value(application.gdsEmp.getColumn(0,"empNm"));
-	
-	empNo = this.mainDiv.empnoEdt.value;
-	empNm = this.mainDiv.empnmEdt.value;
-	
-	var pms = application.gdsEmp.getColumn(0,"pms");
-	var deptNm = application.gdsEmp.getColumn(0,"deptNm");
-	
-	if(pms == 'admin' && deptNm == '인사팀'){
-		
-		this.guntaeCreateBtn.set_enable(true);
-	}
-}
-
 
 /***************************************************************************************************
 *                                         현재 날짜 셋팅 FUNCTION                          	   	   *
@@ -301,54 +286,78 @@ this.fn_Today = function()
 }
 
 
+
+/***************************************************************************************************
+*                                         onload Event                                      	   *
+***************************************************************************************************/
+
+this.HG_DayGuntaeForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.dayGuntaeInfoDiv.startCal.set_value(this.fn-Today());
+	this.dayGuntaeInfoDiv.endCal.set_value(this.fn_Today());
+	
+	this.dayGuntaeInfoDiv.empnoEd.set_value(application.gdsEmp.getColumn(0,"empNo"));
+	this.dayGuntaeInfoDiv.empnmEd.set_value(application.gdsEmp.getColumn(0,"empNm"));
+	
+	empNo = this.dayGuntaeInfoDiv.empnoEd.value;
+	empNm = this.dayGuntaeInfoDiv.empnmEd.value;
+	
+	var pms = application.gdsEmp.getColumn(0,"pms");
+	var deptNm = application.gdsEmp.getColumn(0,"deptNm");
+	
+	if(pms == 'admin' && deptNm == '인사팀'){
+		
+		this.guntaeCreateBtn.set_enable(true);
+	}
+	
+}
+
 /***************************************************************************************************
 *                                         사원 조회 버튼 클릭 Event                            	*
 ***************************************************************************************************/
-this.mainDiv_empSearchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+
+this.dayGuntaeInfoDiv_findEmpBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	this.gfn_EmpPopup();
+		this.gfnEmpPopup();
 }
 
 
 /***************************************************************************************************
 *                                        사원 셋팅 				    		                    *
 ***************************************************************************************************/
-/*this.setEmpInfo = function(hrs,arrRtn){
-
-	this.mainDiv.empnoEdt.set_value(arrRtn[0]);
-	this.mainDiv.empnmEdt.set_value(arrRtn[1]);
-
-}*/
-
-this.setEmpInfo = function(arrRtn){//set_value 해야 들어감
-    this.mainDiv.empnoEdt.set_value(arrRtn[0]);
-    this.mainDiv.empnmEdt.set_value(arrRtn[1]);
+this.setEmpInfo = function(arrRtn){
+    this.dayGuntaeInfoDiv.empnoEd.set_value(arrRtn[0]);
+    this.dayGuntaeInfoDiv.empnmEd.set_value(arrRtn[1]);
 }
+
+
 
 /***************************************************************************************************
 *                                         조회 버튼 클릭 Event     		                       *
 ***************************************************************************************************/
-this.mainDiv_searchDayGuntaeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+
+this.dayGuntaeInfoDiv_searchDayGuntaeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	empNo = this.mainDiv.empnoEdt.value;
-	startDate = this.mainDiv.startCal.value;
-	endDate = this.mainDiv.endCal.value;
+	empNo = this.dayGuntaeInfoDiv.empnoEd.value;
+	startDate = this.dayGuntaeInfoDiv.startCal.value;
+	endDate = this.dayGuntaeInfoDiv.endCal.value;
+	
 	var argument = 'empNo='+empNo+' startDate='+startDate+' endDate='+endDate;
+	
 	this.dsService.setColumn(0,"argument",argument);
 	this.gfnService("searchDayGuntaeList");
+
 }
 
 
 /***************************************************************************************************
 *                                         일근태생성 버튼 클릭 Event	                       	   *
 ***************************************************************************************************/
-this.guntaeCreateBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
-{
 
+this.dayGuntaeInfoDiv_guntaeCreateBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
 	this.gfnService("createGuntae");
 }
-
-
 ]]></Script>
   </Form>
 </FDL>

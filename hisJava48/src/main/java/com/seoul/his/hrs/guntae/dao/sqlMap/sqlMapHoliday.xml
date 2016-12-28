@@ -24,6 +24,7 @@
 		order by USE_DAYS
 	</select>
 
+
 	<select id="selectAdminHolidayList" resultType="HolidayBean">
 		select APP_TYPE
 			 , GUNTAE_GUBUN
@@ -64,5 +65,6 @@
 		HOLIDAY_STATUS = #{holidayStatus}
 		where HOLIDAY_NO = #{holidayNo}
 	</update>
+
 
 </mapper>

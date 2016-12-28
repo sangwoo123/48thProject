@@ -16,14 +16,16 @@ import com.seoul.his.hrs.guntae.service.GuntaeServiceFacade;
 import com.seoul.his.hrs.guntae.to.HolidayBean;
 
 /**
- * @Package  com.seoul.his.hrs.guntae.controller
- * @Class    HolidayController.java
- * @Create   2016. 6. 29.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.controller
+ *    |_ HolidayController.java
  *
- * @LastUpdated
+ * </pre>
+ * @date : 2016. 12. 24. 오전 10:49:31
+ * @version :
+ * @author : User
  */
+
 @Controller
 @RequestMapping("hrs/holiday")
 public class HolidayController {
@@ -33,53 +35,58 @@ public class HolidayController {
 	@Autowired
 	DataSetBeanMapper dataSetBeanMapper;
 
-    //개인휴가 조회
-	@RequestMapping("/findHolidayList.do")
-	public void findHolidayList(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
+	//개인휴가 조회
+		@RequestMapping("/findHolidayList.do")
+		public void findHolidayList(HttpServletRequest request,
+				HttpServletResponse response) throws Exception{
 
-		PlatformData inData = (PlatformData)request.getAttribute("inData");
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
+			PlatformData inData = (PlatformData)request.getAttribute("inData");
+			PlatformData outData = (PlatformData)request.getAttribute("outData");
 
-		 Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+			 Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-		List<HolidayBean> list = guntaeServiceFacade.findHolidayList(argsMap);
+			List<HolidayBean> list = guntaeServiceFacade.findHolidayList(argsMap);
 
-		dataSetBeanMapper.beansToDataset(outData, list, HolidayBean.class);
+			dataSetBeanMapper.beansToDataset(outData, list, HolidayBean.class);
 
-	}
+		}
 
-    //관리자 휴가신청 조회
-	@RequestMapping("/findAdminHolidayList.do")
-	public void findAdminHolidayList(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
 
-		PlatformData inData = (PlatformData)request.getAttribute("inData");
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
+		//관리자 휴가신청 조회
+		@RequestMapping("/findAdminHolidayList.do")
+		public void findAdminHolidayList(HttpServletRequest request,
+				HttpServletResponse response) throws Exception{
 
-		 Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		 System.out.println("indata:"+argsMap);
+			PlatformData inData = (PlatformData)request.getAttribute("inData");
+			PlatformData outData = (PlatformData)request.getAttribute("outData");
 
-		List<HolidayBean> list = guntaeServiceFacade.findAdminHolidayList(argsMap);
+			 Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+			 System.out.println("indata:"+argsMap);
 
-		dataSetBeanMapper.beansToDataset(outData, list, HolidayBean.class);
+			List<HolidayBean> list = guntaeServiceFacade.findAdminHolidayList(argsMap);
 
-	}
+			dataSetBeanMapper.beansToDataset(outData, list, HolidayBean.class);
 
-    //휴가신청 일괄처리
-	@RequestMapping("/batchHolidayProcess.do")
-	public void batchHolidayProcess(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
-	    System.out.println("일괄처리 컨트롤러 타나??");
-		PlatformData inData = (PlatformData)request.getAttribute("inData");
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
+		}
 
-		List<HolidayBean> list;
+		  //휴가신청 일괄처리
+		@RequestMapping("/batchHolidayProcess.do")
+		public void batchHolidayProcess(HttpServletRequest request,
+				HttpServletResponse response) throws Exception{
+		    System.out.println("일괄처리 컨트롤러 타나??");
+			PlatformData inData = (PlatformData)request.getAttribute("inData");
+			PlatformData outData = (PlatformData)request.getAttribute("outData");
 
-		list = dataSetBeanMapper.datasetToBeans(inData, HolidayBean.class);
+			List<HolidayBean> list;
 
-		guntaeServiceFacade.batchHolidayProcess(list);
+			list = dataSetBeanMapper.datasetToBeans(inData, HolidayBean.class);
 
-	}
+			guntaeServiceFacade.batchHolidayProcess(list);
 
+		}
 }
+
+
+
+
+

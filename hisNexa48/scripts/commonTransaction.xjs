@@ -91,5 +91,9 @@ this.gfnCallbackFunc = function(svcID, ErrorCode, ErrorMsg){
    } else {
       // 트랜잭션 완료
       trace("===== " + svcID + " 트랜잭션 성공 =====\n");
+      if(svcID == 'findPersonnelStatusList'){
+		
+			if(this.dsHsps.rowcount == 0){alert("조회되는 직원이 없습니다.");}
+		}
    }
 }]]></Script>

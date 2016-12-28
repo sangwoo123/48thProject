@@ -15,57 +15,45 @@ import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.hrs.guntae.service.GuntaeServiceFacade;
 import com.seoul.his.hrs.guntae.to.HdayBean;
 
-
 /**
- * @Package  com.seoul.his.hrs.guntae.controller
- * @Class    HdayController.java
- * @Create   2016. 5. 27.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.controller
+ *    |_ HdayController.java
  *
- * @LastUpdated
- *      2016.05.27
+ * </pre>
+ * @date : 2016. 12. 26. 오후 7:51:49
+ * @version :
+ * @author : User
  */
 @Controller
 @RequestMapping("hrs/hday")
 public class HdayController {
 
-    @Autowired
-    GuntaeServiceFacade guntaeServiceFacade;
-    @Autowired
-    DataSetBeanMapper dataSetBeanMapper;
-
-    //휴일 조회
-    @RequestMapping("/findHday.do")
-    public void findHday(HttpServletRequest request,
-            HttpServletResponse response) throws Exception{
-
-        PlatformData inData = (PlatformData)request.getAttribute("inData");
-        PlatformData outData = (PlatformData)request.getAttribute("outData");
-
-        Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-
-        List<HdayBean> list = guntaeServiceFacade.findHdayList(argsMap);
-
-        dataSetBeanMapper.beansToDataset(outData, list, HdayBean.class);
+	 @Autowired
+	    GuntaeServiceFacade guntaeServiceFacade;
+	    @Autowired
+	    DataSetBeanMapper dataSetBeanMapper;
 
 
-    }
+	    //휴일 조회
+	    @RequestMapping("/findHday.do")
+	    public void findHday(HttpServletRequest request,
+	            HttpServletResponse response) throws Exception{
 
-    //휴일 일괄처리
-    @RequestMapping("/batchHdayProcess.do")
-    public void batchHdayProcess(HttpServletRequest request,
-            HttpServletResponse response) throws Exception{
+	        PlatformData inData = (PlatformData)request.getAttribute("inData");
+	        PlatformData outData = (PlatformData)request.getAttribute("outData");
 
-        PlatformData inData = (PlatformData)request.getAttribute("inData");
-        PlatformData outData = (PlatformData)request.getAttribute("outData");
+	        Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-        List<HdayBean> list;
+	        List<HdayBean> list = guntaeServiceFacade.findHdayList(argsMap);
 
-        list = dataSetBeanMapper.datasetToBeans(inData, HdayBean.class);
+	        dataSetBeanMapper.beansToDataset(outData, list, HdayBean.class);
 
-        guntaeServiceFacade.batchHdayProcess(list);
 
-    }
+	    }
 
-}
+	  //휴일 일괄처리
+	    @RequestMapping("/batchHdayProcess.do")
+	    public void batchHdayProcess(HttpServletRequest request,
+	            HttpServletResponse response) throws Exception{
+

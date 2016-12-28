@@ -6,17 +6,17 @@ import java.util.Map;
 import com.seoul.his.hrs.guntae.to.HolidayBean;
 
 /**
- * @Package  com.seoul.his.hrs.guntae.dao
- * @Class    HolidayDAO.java
- * @Create   2016. 5. 27.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.dao
+ *    |_ HolidayDAO.java
  *
- * @LastUpdated
- *       2016.05.27
+ * </pre>
+ * @date : 2016. 12. 24. 오전 10:44:29
+ * @version :
+ * @author : User
  */
-public interface HolidayDAO {
 
+public interface HolidayDAO {
 	List<HolidayBean> selectHolidayList(Map<String, String> argsMap);
 
 	List<HolidayBean> selectAdminHolidayList(Map<String, String> argsMap);
@@ -24,5 +24,9 @@ public interface HolidayDAO {
 	void callHoliday(HolidayBean holidayBean);
 
 	void updateHoliday(HolidayBean holidayBean);
-
 }
+
+
+
+
+

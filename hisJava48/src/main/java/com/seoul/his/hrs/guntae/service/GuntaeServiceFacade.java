@@ -3,9 +3,12 @@ package com.seoul.his.hrs.guntae.service;
 import java.util.List;
 import java.util.Map;
 
+import com.seoul.his.hrs.guntae.to.DayGuntaeBean;
 import com.seoul.his.hrs.guntae.to.HdayBean;
 import com.seoul.his.hrs.guntae.to.HolidayBean;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeCloseBean;
 import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
@@ -37,21 +40,41 @@ public interface GuntaeServiceFacade {
     //시간외근무 일괄처리
     void batchOverTimeWorkProcess(List<OverTimeWorkBean> list) ;
 
-	List<HdayBean> findHdayList(Map<String, String> argsMap);
+    //개인휴가 조회
+    List<HolidayBean> findHolidayList(Map<String, String> argsMap);
 
-	List<HolidayBean> findHolidayList(Map<String, String> argsMap);
+  //관리자 휴가신청 조회
+    List<HolidayBean> findAdminHolidayList(Map<String, String> argsMap);
 
-	List<YeonchaBean> findYeonchaList(Map<String, String> argsMap);
+    //휴가신청 일괄처리
+    void batchHolidayProcess(List<HolidayBean> list);
 
+    //연차 조회
+    List<YeonchaBean> findYeonchaList(Map<String, String> argsMap);
 
-	void batchHdayProcess(List<HdayBean> list);
+    //연차발생
+    List<YeonchaBean> callYeoncha(Map<String, String> argsMap);
 
-	List<HolidayBean> findAdminHolidayList(Map<String, String> argsMap);
+    //휴일 조회
+    List<HdayBean> findHdayList(Map<String, String> argsMap);
 
-	List<YeonchaBean> callYeoncha(Map<String, String> argsMap);
+    //휴일 일괄처리
+    void batchHdayProcess(List<HdayBean> list);
 
+    //일근태생성
+    List<DayGuntaeBean> createDayGuntae(Map<String, String> argsMap);
 
-	void batchHolidayProcess(List<HolidayBean> list);
+    //일근태조회
+    List<DayGuntaeBean> findDayGuntaeList(Map<String, String> argsMap);
+
+    //월근태조회
+    List<MonGuntaeBean> findMonGuntaeList(Map<String, String> argsMap);
+
+    //월근태생성
+    List<MonGuntaeBean> createMonGuntae(Map<String, String> argsMap);
+
+    //월근태마감&조회
+    List<MonGuntaeCloseBean> closeMonGuntae(Map<String, String> argsMap);
 
 
 }

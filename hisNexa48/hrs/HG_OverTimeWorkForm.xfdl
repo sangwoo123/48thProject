@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="HG_OverTimeWorkForm" classname="HG_OverTimeWorkForm" left="0" top="0" width="1250" height="768" titletext="New Form" onload="HG_OverTimeWorkForm_onload">
+  <Form id="HG_OverTimeWorkForm" classname="HG_OverTimeWorkForm" left="0" top="0" width="1250" height="768" titletext="시간외근무" onload="HG_OverTimeWorkForm_onload">
     <Layouts>
       <Layout>
         <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar1.jpg');">

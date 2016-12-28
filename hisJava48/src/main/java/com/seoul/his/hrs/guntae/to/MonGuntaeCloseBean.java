@@ -8,23 +8,27 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoul.his.hrs.guntae.to
- * @Class    MonGuntaeCloseBean.java
- * @Create   2016. 5. 26.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.to
+ *    |_ MonGuntaeCloseBean.java
  *
- * @LastUpdated
- *      2016.05.26
+ * </pre>
+ * @date : 2016. 12. 27. 오후 8:35:42
+ * @version :
+ * @author : User
  */
 @Dataset(name="dsMonGuntaeClose")
 @Getter
 @Setter
 @ToString
 public class MonGuntaeCloseBean extends BaseBean{
-
 	private String
-    		monGuntaeNo
-    	  , belongYearMon
-    	  , closeYn;
+	monGuntaeNo
+  , belongYearMon
+  , closeYn;
 }
+
+
+
+
+

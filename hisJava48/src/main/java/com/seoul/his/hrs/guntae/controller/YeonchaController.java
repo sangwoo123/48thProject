@@ -17,51 +17,55 @@ import com.seoul.his.hrs.guntae.service.GuntaeServiceFacade;
 import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
 /**
- * @Package  com.seoul.his.hrs.guntae.controller
- * @Class    YeonchaController.java
- * @Create   2016. 6. 29.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.controller
+ *    |_ YeonchaController.java
  *
- * @LastUpdated
+ * </pre>
+ * @date : 2016. 12. 26. 오후 5:16:20
+ * @version :
+ * @author : User
  */
 @RequestMapping("hrs/guntae")
 @Controller
 public class YeonchaController {
-
 	@Autowired
 	GuntaeServiceFacade guntaeServiceFacade;
 	@Autowired
 	DataSetBeanMapper dataSetBeanMapper;
 
-    // 각 사원 연차조회
-	@RequestMapping("/findYeonchaList.do")
+	 // 각 사원 연차조회
+		@RequestMapping("/findYeonchaList.do")
 
-	public void findYeonchaList(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData)request.getAttribute("inData");
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
-		NexacroLogger.debug(inData);
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		List<YeonchaBean> list = guntaeServiceFacade.findYeonchaList(argsMap);
+		public void findYeonchaList(HttpServletRequest request,
+				HttpServletResponse response) throws Exception{
+		    PlatformData inData = (PlatformData)request.getAttribute("inData");
+			PlatformData outData = (PlatformData)request.getAttribute("outData");
+			NexacroLogger.debug(inData);
+			Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+			List<YeonchaBean> list = guntaeServiceFacade.findYeonchaList(argsMap);
 
-		dataSetBeanMapper.beansToDataset(outData, list, YeonchaBean.class);
-	}
+			dataSetBeanMapper.beansToDataset(outData, list, YeonchaBean.class);
+		}
 
-    //연차발생
-	@RequestMapping("/createYeoncha.do")
+	    //연차발생
+		@RequestMapping("/createYeoncha.do")
 
-	public void insertYeoncha(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
-	    System.out.println("연차발생 controller");
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
-		PlatformData inData = (PlatformData)request.getAttribute("inData");
-		NexacroLogger.debug(inData);
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+		public void insertYeoncha(HttpServletRequest request,
+				HttpServletResponse response) throws Exception{
+		    System.out.println("연차발생 controller");
+			PlatformData outData = (PlatformData)request.getAttribute("outData");
+			PlatformData inData = (PlatformData)request.getAttribute("inData");
+			NexacroLogger.debug(inData);
+			Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 
-		List<YeonchaBean> list = guntaeServiceFacade.callYeoncha(argsMap);
+			List<YeonchaBean> list = guntaeServiceFacade.callYeoncha(argsMap);
 
-		dataSetBeanMapper.beansToDataset(outData, list, YeonchaBean.class);
-	}
-
+			dataSetBeanMapper.beansToDataset(outData, list, YeonchaBean.class);
+		}
 }
+
+
+
+
+

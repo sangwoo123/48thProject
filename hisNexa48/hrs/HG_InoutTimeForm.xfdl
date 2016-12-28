@@ -19,7 +19,7 @@
               <Static id="Static04" taborder="2" text="   ~" left="15.13%" top="10" right="82.26%" height="32" style="color:aliceblue;align:center middle;font:bold 12 arial;"/>
               <Calendar id="endCal" taborder="3" left="17.66%" top="8" right="72.85%" height="30"/>
               <Static id="subCodeStc01" taborder="4" text="부서" onclick="subCodeStc_onclick" left="28.21%" top="8" right="65.25%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-              <Edit id="deptnoEd" taborder="5" left="34.91%" top="8" right="57.97%" height="30"/>
+              <Edit id="deptnoEd" taborder="5" left="34.91%" top="8" right="57.97%" height="30" oneditclick="inoutInfoDiv_deptnoEd_oneditclick"/>
               <Edit id="deptnmEd" taborder="6" left="44.64%" top="8" right="48.24%" height="30"/>
               <Static id="subCodeStc02" taborder="7" text="사원" onclick="subCodeStc_onclick" left="52.58%" top="8" right="40.88%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Edit id="empnoEd" taborder="8" left="59.28%" top="8" right="33.61%" height="30"/>
@@ -293,12 +293,12 @@ this.setEmpInfo = function(arrRtn){
 //================================  조회 버튼 클릭 Event  ================================
 this.inoutInfoDiv_searchInoutTimeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	
-	deptNm = this.inoutInfoDiv.deptnmEd.value;
+
+	deptNm = this.inoutInfoDiv.deptnoEd.value;
 	empNo = this.inoutInfoDiv.empnoEd.value;
 	startDate = this.inoutInfoDiv.startCal.value;
 	endDate = this.inoutInfoDiv.endCal.value;
-	
+	alert(deptNm);
 	if(deptNm == '인사팀'){
 	alert(deptNm);
 		this.inoutInfoDiv.addInoutTimeBtn.set_enable(true);
@@ -358,6 +358,11 @@ alert(111);
 this.inoutInfoDiv_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.gfnService("batchInoutTimeProcess");
+}
+
+this.inoutInfoDiv_deptnoEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
+{
+	
 }
 ]]></Script>
   </Form>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.seoul.his.hrs.guntae.dao.GuntaeDAO">
 
-	<select id="callDayGuntae" statementType="CALLABLE" parameterType="map">
+<select id="callDayGuntae" statementType="CALLABLE" parameterType="map">
 
 		{ CALL PC_HG_DAYGUNTAE_CREATE(
                #{date, mode=IN, jdbcType=VARCHAR, javaType=string},
@@ -78,16 +78,7 @@
 		}
     </select>
 
-<!--     <parameterMap id="monGuntaeParmeterMap" type="hashmap" >
-      <parameter property="errorCode" mode="OUT" javaType="string" jdbcType="VARCHAR" />
-      <parameter property="errorMsg" mode="OUT" javaType="string" jdbcType="VARCHAR" />
-   </parameterMap>
-
-   <select id="callMonGuntae" statementType="CALLABLE" parameterMap="monGuntaeParmeterMap">
-      { CALL PC_HG_DAY_MON_CALL(?, ?) }
-   </select> -->
-
-	<select id="callCloseMonGuntae" statementType="CALLABLE" parameterType="map">
+    <select id="callCloseMonGuntae" statementType="CALLABLE" parameterType="map">
 
 		{ CALL PC_HG_DAY_MON_GUNTAE_CLOSE(
 			   #{belongYearMon, mode=IN, jdbcType=VARCHAR, javaType=string},
@@ -104,5 +95,8 @@
 		FROM HG_MON_GUNTAE_CLOSE
 		WHERE BELONG_YEAR_MON = #{belongYearMon}
 	</select>
+
+
+
 
 </mapper>

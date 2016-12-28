@@ -8,14 +8,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * @Package  com.seoul.his.hrs.guntae.to
- * @Class    HdayBean.java
- * @Create   2016. 5. 26.
- * @Author   yi
- * @Description
+ * <pre>
+ * com.seoul.his.hrs.guntae.to
+ *    |_ HdayBean.java
  *
- * @LastUpdated
- *      2016.05.26
+ * </pre>
+ * @date : 2016. 12. 26. 오후 7:43:43
+ * @version :
+ * @author : User
  */
 @Dataset(name="dsHday")
 @Getter
@@ -24,10 +24,14 @@ import lombok.ToString;
 public class HdayBean extends BaseBean{
 
 	private String
-        	hdayDate  //휴일날짜
-          , hdayNm   //휴일명
-          , hdayNm2  //공휴일명
-          , sDate    //검색 시작 날짜
-          , eDate;   //검색 종료 날짜
-
+	hdayDate  //휴일날짜
+  , hdayNm   //휴일명
+  , hdayNm2  //공휴일명
+  , sDate    //검색 시작 날짜
+  , eDate;   //검색 종료 날짜
 }
+
+
+
+
+
