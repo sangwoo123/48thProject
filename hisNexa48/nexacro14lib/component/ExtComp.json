@@ -4,11 +4,11 @@
 	"description": "nexacro platform 14 Unified Framework Library",
 	"license": "",
 	"scripts": [
-			"ExtComp/ExtFileUpDownload.js"
+	"ExtComp/ExtFileUpDownload.js"
 	],
 	"objInfo": [
-		"ExtComp/ExtFileUpload.info",
-		"ExtComp/ExtFileDownload.info"
+	"ExtComp/ExtFileUpload.info",
+	"ExtComp/ExtFileDownload.info"
 	]
 }
 //@ sourceURL=ExtComp.json

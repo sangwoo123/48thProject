@@ -4,7 +4,7 @@
   <GlobalVariables url="globalvars.xml"/>
   <ADL id="nexa" url="hisNexa48.xadl"/>
   <Services>
-    <Service id="img" file_ext="" include_subdir="false"/>
+    <Service id="img" file_ext="" include_subdir="true"/>
     <Service id="nexacro14lib" file_ext="" include_subdir="true"/>
     <Service id="IjectJS" file_ext="" include_subdir="true"/>
     <Service id="EcoLibrary" file_ext="" include_subdir="true"/>

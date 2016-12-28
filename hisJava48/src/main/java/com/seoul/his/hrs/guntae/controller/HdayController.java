@@ -57,22 +57,3 @@ public class HdayController {
 	    public void batchHdayProcess(HttpServletRequest request,
 	            HttpServletResponse response) throws Exception{
 
-	        PlatformData inData = (PlatformData)request.getAttribute("inData");
-	        PlatformData outData = (PlatformData)request.getAttribute("outData");
-
-	        List<HdayBean> list;
-
-	        list = dataSetBeanMapper.datasetToBeans(inData, HdayBean.class);
-
-	        guntaeServiceFacade.batchHdayProcess(list);
-
-	    }
-
-
-
-}
-
-
-
-
-

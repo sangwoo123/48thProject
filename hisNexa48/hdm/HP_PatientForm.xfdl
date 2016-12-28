@@ -225,7 +225,6 @@
 include "scripts::commonScripts.xjs";
 
 
-
 /***************************************************************************************************
 *                                          dsService 호출                                       *
 /*-------------------------------------------------------------------------------------------------+
@@ -322,6 +321,14 @@ this.Patient_CallbackFunc = function(svcID, ErrorCode, ErrorMsg){
 
 this.patNmStc00_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
 {
+	
+}
+
+this.titleDiv_Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+	
+ExtWebSocket.wsstart();	
 	
 }
 ]]></Script>

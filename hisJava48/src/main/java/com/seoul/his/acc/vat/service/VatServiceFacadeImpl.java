@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.seoul.his.acc.vat.applicationService.VatApplicationService;
 import com.seoul.his.acc.vat.to.TaxInvBean;
+import com.seoul.his.acc.vat.to.VATDeclBean;
 
 /**
  * <pre>
@@ -28,6 +29,20 @@ public class VatServiceFacadeImpl implements VatServiceFacade{
 	public List<TaxInvBean> searchTaxInvList(Map<String, String> argsMap) {
 		List<TaxInvBean> taxInvList = vatApplicationService.searchTaxInvoiceList(argsMap);
 		return taxInvList;
+	}
+
+	@Override
+	public List<TaxInvBean> findTaxInvList(Map<String, String> argsMap) {
+		return null;
+	}
+
+	@Override
+	public void batchTaxInvProcess(List<TaxInvBean> tempTaxInvList) {
+	}
+
+	@Override
+	public List<VATDeclBean> findVATDeclList(Map<String, String> argsMap) {
+		return null;
 	}
 
 
