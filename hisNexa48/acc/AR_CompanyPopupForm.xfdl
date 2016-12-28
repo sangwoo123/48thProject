@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="AR_CompanyPopupForm" classname="AR_CompanyPopupForm" left="0" top="0" width="625" height="488" titletext="거래처조회" onload="AR_CompanyPopupForm_onload">
+  <Form id="AR_CompanyPopupForm" classname="AR_CompanyPopupForm" left="0" top="0" width="579" height="511" titletext="New Form" onload="AR_CompanyPopupForm_onload">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" left="-2.72%" top="-4" width="627" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+        <Div id="Div00" taborder="0" left="-2.46%" top="-4" width="583" height="60" style="background:transparent URL('img::titleBar1.jpg');">
           <Layouts>
             <Layout>
-              <Static id="Static00" taborder="3" text="거래처조회" left="9.41%" top="-2" right="59.17%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+              <Static id="Static00" taborder="0" text="거래처조회" left="9.41%" top="-2" right="59.17%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Grid id="companyGrid" taborder="1" binddataset="dsAccount" useinputpanel="false" autofittype="col" oncelldblclick="Div01_companyGrid_oncelldblclick" left="1.6%" top="55" right="1.92%" height="425" class="AreaGrid">
+        <Grid id="companyGrid" taborder="1" binddataset="dsAccount" useinputpanel="false" autofittype="col" oncelldblclick="Div01_companyGrid_oncelldblclick" left="1.55%" top="55" right="4.15%" height="425" class="AreaGrid">
           <Formats>
             <Format id="default">
               <Columns>
@@ -39,25 +39,6 @@
       </Layout>
     </Layouts>
     <Objects>
-      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
-        <ColumnInfo>
-          <Column id="serviceID" type="STRING" size="256"/>
-          <Column id="URL" type="STRING" size="256"/>
-          <Column id="inData" type="STRING" size="256"/>
-          <Column id="outData" type="STRING" size="256"/>
-          <Column id="argument" type="STRING" size="256"/>
-          <Column id="callbackFunc" type="STRING" size="256"/>
-        </ColumnInfo>
-        <Rows>
-          <Row>
-            <Col id="serviceID">findCompany</Col>
-            <Col id="URL">his::acc/resol/findAccount.do</Col>
-            <Col id="inData"/>
-            <Col id="outData">dsAccount=dsAccount</Col>
-            <Col id="argument"/>
-          </Row>
-        </Rows>
-      </Dataset>
       <Dataset id="dsAccount" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="custCd" type="STRING" size="256"/>
@@ -82,6 +63,25 @@
           <Column id="riuseYn" type="STRING" size="256"/>
           <Column id="hospcls" type="STRING" size="256"/>
         </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findCompany</Col>
+            <Col id="URL">his::acc/resol/findAccount.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsAccount=dsAccount</Col>
+            <Col id="argument"/>
+          </Row>
+        </Rows>
       </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[include "scripts::commonScripts.xjs";

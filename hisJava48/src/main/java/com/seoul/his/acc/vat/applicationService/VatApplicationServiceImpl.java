@@ -21,14 +21,7 @@ import com.seoul.his.acc.vat.to.TaxInvBean;
  */
 @Component
 public class VatApplicationServiceImpl implements VatApplicationService{
-	@Autowired
-	TaxInvDAO taxInvDAO;
 
-	@Override
-	public List<TaxInvBean> searchTaxInvoiceList(Map<String, String> argsMap) {
-		List<TaxInvBean> taxnvBeanList = taxInvDAO.selectTaxInvoiceList(argsMap);
-		return taxnvBeanList;
-	}
 }
 
 

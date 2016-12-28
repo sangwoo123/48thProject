@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.elementary.dao;
 
 import java.util.List;
@@ -37,7 +38,6 @@ public interface AccPridDAO {
 
 
 }
-
 
 
 

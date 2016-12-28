@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.budget.controller;
 
 import java.util.List;
@@ -16,13 +17,14 @@ import com.seoul.his.acc.budget.to.RunBudgBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 /**
- * @Package  com.seoul.his.acc.budget.controller
- * @Class    RunBudgController.java
- * @Create   2016. 6. 16.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.acc.budget.controller
+ *    |_ RunBudgController.java
  *
- * @LastUpdated 
+ * </pre>
+ * @date : 2016. 12. 26. 오후 3:20:56
+ * @version :
+ * @author : 응디꿍디
  */
 
 @Controller
@@ -33,14 +35,16 @@ public class RunBudgController {
 	BudgetServiceFacade budgetServiceFacade;
 	
 	// 예산현황 조회
-	@RequestMapping("acc/budget/findRunBudg.do")
-	public void findRunBudg(HttpServletRequest request, HttpServletResponse response) throws Exception{
-	    PlatformData inData = (PlatformData)request.getAttribute("inData");
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		List<RunBudgBean> runBudgList = budgetServiceFacade.findRunBudg(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, runBudgList, RunBudgBean.class);
-	}
+		@RequestMapping("acc/budget/findRunBudg.do")
+		public void findRunBudg(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		    PlatformData inData = (PlatformData)request.getAttribute("inData");
+			PlatformData outData = (PlatformData) request.getAttribute("outData");
+			Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+			List<RunBudgBean> runBudgList = budgetServiceFacade.findRunBudg(argsMap);
+			System.out.println("예산돌아간댜");
+			System.out.println(runBudgList.get(0));
+			dataSetBeanMapper.beansToDataset(outData, runBudgList, RunBudgBean.class);
+		}
 	
 	// 비목코드조회
 	@RequestMapping("acc/budget/findRunBudgList.do")
@@ -52,5 +56,4 @@ public class RunBudgController {
 		dataSetBeanMapper.beansToDataset(outData, runBudgList, RunBudgBean.class);
 	}
 }
-
 

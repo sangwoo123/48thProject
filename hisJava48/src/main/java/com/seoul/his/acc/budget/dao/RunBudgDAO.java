@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.budget.dao;
 
 import java.util.List;
@@ -14,3 +15,4 @@ public interface RunBudgDAO {
 	RunBudgBean selectRunBimok(Map<String, String> argsMap);
 	
 }
+

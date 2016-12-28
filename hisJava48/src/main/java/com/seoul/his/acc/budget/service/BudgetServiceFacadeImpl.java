@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.budget.service;
 
 import java.util.List;
@@ -21,13 +22,14 @@ import com.seoul.his.acc.budget.to.OrgDlineBean;
 import com.seoul.his.acc.budget.to.RunBudgBean;
 
 /**
- * @Package  com.seoul.his.acc.budget.service
- * @Class    BudgetServiceFacadeImpl.java
- * @Create   2016. 6. 27.
- * @Author   jeong
- * @Description
+ * <pre>
+ * com.seoul.his.acc.budget.service
+ *    |_ BudgetServiceFacadeImpl.java
  *
- * @LastUpdated 
+ * </pre>
+ * @date : 2016. 12. 26. 오후 3:23:37
+ * @version :
+ * @author : 응디꿍디
  */
 
 @Service
@@ -71,6 +73,7 @@ public class BudgetServiceFacadeImpl implements BudgetServiceFacade{
 		List<RunBudgBean> runBudgList = accBudgetApplicationService.findRunBudg(argsMap);
 		return runBudgList;
 	}
+ 
 
     // 부서별 적정인원 조회	
 	@Override
@@ -183,3 +186,4 @@ public class BudgetServiceFacadeImpl implements BudgetServiceFacade{
         return budgetPreparationApplicationService.findRunBimok(argsMap);
     }
 }
+

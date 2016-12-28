@@ -750,11 +750,16 @@
     </Objects>
     <Script type="xscript5.0"><![CDATA[include "scripts::commonScripts.xjs";
 
-this.resolNo = ""; 	//자바단에서 보내주는 결의서 번호 담을 변수
+this.resolNo = ""; 	//결의서 번호
 
 //   폼 로드 이벤트
 this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
+alert(this.dsHmEmp.getColumn(0,"deptCd"));
+
+alert(this.dsHmEmp.getColumn(0,"empNm"));
+
+alert(this.dsHmEmp.getColumn(1,"empNm"));
 	this.gfnBind();
 	if(this.parent.gubun=="reg"){
 		//거래처 데이터
@@ -770,7 +775,7 @@ this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo
 		this.Div01.resolDeptNameEd.set_value(this.dsHmEmp.getColumn(0,"deptCd"));
 		this.Div01.resolerCdEd.set_value(this.dsHmEmp.getColumn(0,"empNo"));
 		this.Div01.resolerNameEd.set_value(this.dsHmEmp.getColumn(0,"empNm"));	
-		//alert("등록 날짜"+this.gfnDate('yyyymmdd'));
+	
 		this.Div01.resolDateCal.set_value(this.gfnDate('yyyymmdd'));
 		this.Div01.resolDeptExtsnEd.set_value(this.dsHmEmp.getColumn(0,"extsn"));
 		this.Div01.resolDivCombo.set_text(this.dsResolDiv.getColumn(0,"value"));
@@ -784,7 +789,6 @@ this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo
 		//회계기수 현재 회계기수로 셋팅	
 		this.Div01.accPridCombo.set_value(this.dsAccPrid.getColumn(0,"accPrid"));
 	}else if(this.parent.gubun=="modi"){
-		alert('수정!!!!');
 		resolDiv = this.Div01.resolDivCombo.value;
 		//등록버튼 비활성화
 		this.modiBtn.visible=true;
@@ -807,6 +811,7 @@ this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo
 		var findResolLetListRow = this.dsService.findRow( "serviceID", "findResolLetList");	
 		this.dsService.setColumn(findResolLetListRow,"argument",argument);
 		this.gfnService("findResolLetList",false);
+		
 		//분개,지불내역,첨부파일 불러오기
 		var findResolLetDetailListnRow = this.dsService.findRow( "serviceID", "findResolLetDetailList");
 		this.dsService.setColumn(findResolLetDetailListnRow,"argument",argument);
@@ -820,9 +825,167 @@ this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo
 		this.dsAccount.filter("custcd==''");
 		this.gfnService("empInfo",false);//사원정보 데이터셋
 		alert("데이터 불러오기 성공");
-		/*this.gfnService("findAccPridList",null);//회계기수데이터셋*/				
+	
 	}
 }
+
+//   결의서 항목 회계기수 변경시 함수
+this.Div01_accPridCombo_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	if(this.dsAccPrid.getColumn(e.postindex,"dlineYn")=="Y"){
+		alert("해당회계기수는 마감되었습니다.");
+		//this.accPridCombo.set_value(this.dsAccPrid.getColumn(0,"accPrid"));	//회계기수 현재 회계기수로 셋팅
+	}
+}
+
+//   결의서 항목 결의구분 변경시 함수
+this.resolDivCombo_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	resolDiv = this.Div01.resolDivCombo.value;	
+	if(resolDiv == '1'){		//결의구분이 지출 일 때
+		this.Div01.acntCdEd.enable = true;
+		this.Div01.pirintDivCombo.set_value('O');
+		this.Div01.autoJourCheck.enable = true;
+	}else if(resolDiv == '2'){	//결의구분이 지출대체 일 때 
+		this.Div01.acntCdEd.enable = false;		
+		this.Div01.pirintDivCombo.set_value('O');
+		this.Div01.autoJourCheck.set_value(false);
+		this.Div01.autoJourCheck.enable = false;
+	}else if(resolDiv == '3'){	//결의구분이 수입 일 때
+		this.Div01.acntCdEd.enable = false;		
+		this.Div01.pirintDivCombo.set_value('I');
+		this.Div01.autoJourCheck.set_value(false);
+		this.Div01.autoJourCheck.enable = false;
+	}else if(resolDiv == '4'){	//결의구분이 수입대체 일 때
+		this.Div01.acntCdEd.enable = false;		
+		this.Div01.pirintDivCombo.set_value('I');
+		this.Div01.autoJourCheck.set_value(false);
+		this.Div01.autoJourCheck.enable = false;
+	}
+}
+
+// 코드세팅 함수
+this.setCode=function(code,array){
+	switch(code){
+		//거래처 찾기 버튼 실행 후
+		case "ACC" : this.Div01.custCdEd.set_value(array[0]);	//거래처코드 셋팅
+					 this.Div01.custNameEd.set_value(array[1]);	//거래처명 셋팅
+					 this.Div01.operNoEd.set_value(array[2]);	//사업자등록번호 셋팅
+					 break;
+		//요구부서 찾기 버튼 실행 후			 
+		case "GP500" : this.Div01.demdDeptCdEd.set_value(array[0]);		//요구부서코드 셋팅
+					   this.Div01.demdDeptNameEd.set_value(array[1]);	//요구부서명 셋팅
+					   break;
+		//분개 그리드의 계정코드 찾기 버튼 실행 후 
+		case "ACCD" : this.dsJour.setColumn(this.dsJour.rowposition,"bimokCd",array[0]);	//비목코드셋팅										
+					  this.dsJour.setColumn(this.dsJour.rowposition,"acntCd",array[1]);		//계정코드 셋팅
+					  this.dsJour.setColumn(this.dsJour.rowposition,"acntNm",array[2]);		//계정코드명 셋팅
+					  this.dsJour.setColumn(this.dsJour.rowposition,"assiSubCd",array[3]);	//보조과목코드 셋팅
+					  this.dsJour.setColumn(this.dsJour.rowposition,"assiSubNm",array[4]);	//보조과목명 셋팅
+					  break;
+		case "ACCA" : this.dsJour.setColumn(e.row,"acntCd",arr[0]);	//계정코드 셋팅
+					  this.dsJour.setColumn(e.row,"acntNm",arr[1]);	//계정코드명 셋팅
+					  assiTypeCd = arr[2];							//변수에 보주유형 셋팅
+					  								
+					  //보조유형이 있으면 실행		
+					  if(assiTypeCd!=null){								
+						  application.open("assiSubCdPopupForm"
+											,"acc::AE_AccAssiSubPopupForm.xfdl"
+											,this.parent
+											,{acntCd:this.dsJour.getColumn(e.row,"acntCd"),code:"ACCA2"}
+											,"showtitlebar=true showstatusbar=false"
+											,100 
+											,100);
+					  }else{	
+				  	    alert("해당계정과목은 보조과목이 등록되어 있지 않습니다.");
+				      }
+				      break;
+		case "ACCA2" : this.dsJour.setColumn(e.row,"assiSubCd",arr[0]);	//보조과목 셋팅
+					   this.dsJour.setColumn(e.row,"assiSubNm",arr[1]);	//보조과목명 셋팅
+					   break;
+		case "ACCDA" : this.dsJour.setColumn(e.row,"acntCd",arr[0]);	//계정코드 셋팅
+					   this.dsJour.setColumn(e.row,"acntNm",arr[1]);	//계정코드명 셋팅
+					   assiTypeCd = arr[2];							//변수에 보조유형 셋팅
+								
+					   //보조유형이 있으면 실행		
+					   if(assiTypeCd!=null){						
+					  	 application.open("assiSubCdPopupForm"
+											,"acc::AE_AccAssiSubPopupForm.xfdl"
+											,this.parent	
+											,{acntCd:dsJour.getColumn(e.row,"acntCd"),code:"ACCDA2"}
+											,"showtitlebar=true showstatusbar=false"
+											,100 
+											,100);
+					   }else{
+						  alert("해당계정과목은 보조과목이 등록되어 있지 않습니다.");
+					   }
+					   break;
+		case "ACCDA2" : this.dsJour.setColumn(e.row,"assiSubCd",arr[0]);	//보조과목 셋팅
+						this.dsJour.setColumn(e.row,"assiSubNm",arr[1]);	//보조과목명 셋팅
+						break;
+		//분개 그리드의 보조과목코드 찾기 버튼 실행 후   
+		case "AAA" : this.dsJour.setColumn(e.row,"assiSubCd",arr[0]);
+					 this.dsJour.setColumn(e.row,"assiSubNm",arr[1]);
+					 break;
+		//자동분개규칙 조회 후			
+		case "ACCK"	: this.Div01.acntCdEd.set_value(array[0]);
+					  this.Div01.acntNameEd.set_value(array[1]);	
+					  this.Div01.assiSubNameEd.set_value(array[3]);	
+					  //회겨년도, 비목코드 argument에 셋팅
+					  var argument ='accYear=2016';
+					  argument +=' bimokCd='+array[4];
+					  var nRow = this.dsService.findRow( "serviceID", "findRunBimok" );
+					  this.dsService.setColumn(nRow,"argument",argument);
+					  //예산비목 조회 메서드 호출
+					  this.gfnService("findRunBimok");		
+						
+					  var debRow = this.dsJour.addRow();
+					  var creRow = this.dsJour.addRow();			
+					  //차변row 셋팅↓
+					  this.dsJour.setColumn(debRow,"resolNo",this.Div01.resolNoEd.value);		//차변 결의번호셋팅
+					  this.dsJour.setColumn(debRow,"seq",'1');							//차변 순번셋팅
+					  this.dsJour.setColumn(debRow,"creDebDiv",'1');					//차변 셋팅
+				  	  this.dsJour.setColumn(debRow,"debAmt",this.Div01.resolAmtMaskEdt.value);	//차변 금액셋팅
+					  this.dsJour.setColumn(debRow,"acntCd",this.Div01.acntCdEd.value);			//차변 계정코드셋팅
+					  this.dsJour.setColumn(debRow,"acntNm",this.Div01.acntNameEd.value);		//차변 계정과목이름셋팅
+					  this.dsJour.setColumn(debRow,"assiSubNm",this.Div01.assiSubNameEd.value);	//차변 보조과목이름셋팅
+					  this.dsJour.setColumn(debRow,"bimokCd",array[4]);					//차변 비목셋팅			
+					  this.dsJour.setColumn(debRow,"accPrid",this.Div01.accPridCombo.displaynulltext);	//차변 회계기수셋팅
+					  this.dsJour.setColumn(debRow,"closYb","N");						//차변 결산여부셋팅
+					  this.dsJour.setColumn(debRow,"closYb","N");						//차변 결산여부셋팅
+								
+					  //대변row 셋팅↓
+					  this.dsJour.setColumn(creRow,"resolNo",this.Div01.resolNoEd.value);		//대변 결의번호셋팅
+					  this.dsJour.setColumn(creRow,"seq",'2');							//대변 순번셋팅
+					  this.dsJour.setColumn(creRow,"creDebDiv",'2');					//대변 셋팅
+					  this.dsJour.setColumn(creRow,"creAmt",this.Div01.resolAmtMaskEdt.value);	//대변 금액셋팅
+					  this.dsJour.setColumn(creRow,"acntCd",array[5]);					//대변 계정코드셋팅
+					  this.dsJour.setColumn(creRow,"acntNm",array[6]);					//대변 계정과목이름셋팅
+					  this.dsJour.setColumn(creRow,"assiSubCd",array[7]);				//대변 보조과목코드셋팅
+					  this.dsJour.setColumn(creRow,"assiSubNm",array[8]);				//대변 보조과목이름셋팅			
+					  this.dsJour.setColumn(creRow,"accPrid",this.Div01.accPridCombo.displaynulltext);	//대변 회계기수 셋팅
+					  this.dsJour.setColumn(creRow,"closYb","N");						//대변 결산여부셋팅
+					  break;
+		case "CARD" : alert(array);
+					  this.dsPayRec.setColumn(this.dsPayRec.rowposition,"cardNo",array[0]);											
+					  this.dsPayRec.setColumn(this.dsPayRec.rowposition,"cardUseDate",array[1]);
+					  this.dsPayRec.setColumn(this.dsPayRec.rowposition,"aprvNo",array[2]);
+					  if(array[3]==null){
+						
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"custCd",array[4]);
+					  }else{
+						
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"custCd",array[3]);
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"operNo",array[5]);
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"addr",array[6]);	
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"depoOwner",array[7]);		
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"transBank",array[8]);
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"accountNo",array[9]);
+						this.dsPayRec.setColumn(this.dsPayRec.rowposition,"price",array[10]);		
+					  }		
+	}			   
+}
+
 
 
 this.CloseBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
