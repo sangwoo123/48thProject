@@ -22,6 +22,7 @@ import com.seoul.his.com.system.to.BindCodeBean;
 import com.seoul.his.common.annotation.Column;
 import com.seoul.his.common.annotation.Dataset;
 import com.seoul.his.common.annotation.Remove;
+import com.seoul.his.log.base.to.OutLogCdBean;
 
 /**
  * @Package  com.seoul.his.common.util
@@ -373,19 +374,19 @@ public class DataSetBeanMapper {
     }
 
     @Deprecated
-    public <T> void bindLogCd(PlatformData outData, Map<String, List<T>> bindLogCdMap,
-            List<BindLogCdBean> bindLogCdList, Class<T> classType) throws Exception {
+    public <T> void bindLogCd(PlatformData outData, Map<String, List<OutLogCdBean>> bindLogCdMap,
+            List<com.seoul.his.log.base.to.BindLogCdBean> bindLogCdList, Class<OutLogCdBean> class1) throws Exception {
         DataSetList dataSetList = outData.getDataSetList();
-        for (BindLogCdBean blcdBean : bindLogCdList) {
+        for (com.seoul.his.log.base.to.BindLogCdBean blcdBean : bindLogCdList) {
             Map<String, String> nameMapper = new HashMap<String, String>();
             String dataSetName = blcdBean.getDsLogName();
             DataSet dataSet = new DataSet(dataSetName);
             dataSetList.add(dataSet);
-            Method[] methods = classType.getDeclaredMethods();
+            Method[] methods = class1.getDeclaredMethods();
             for (Method method : methods) {
                 setColumnName(dataSet, nameMapper, method);
             }
-            List<T> beanList = bindLogCdMap.get(blcdBean.getDsLogName());
+            List<T> beanList = (List<T>) bindLogCdMap.get(blcdBean.getDsLogName());
             for (T bean : beanList) {
                 setColumnValue(dataSet, nameMapper, bean);
             }

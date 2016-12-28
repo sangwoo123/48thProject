@@ -11,6 +11,8 @@ import com.seoul.his.hrs.guntae.to.DayGuntaeBean;
 import com.seoul.his.hrs.guntae.to.HdayBean;
 import com.seoul.his.hrs.guntae.to.HolidayBean;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeCloseBean;
 import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
 import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
@@ -120,6 +122,23 @@ public class GuntaeServiceFacadeImpl implements GuntaeServiceFacade{
     }
 
 
+    //월근태 조회
+    @Override
+    public List<MonGuntaeBean> findMonGuntaeList(Map<String, String> argsMap) {
+        return guntaeApplicationService.findMonGuntaeList(argsMap);
+    }
+
+    //월근태 생성
+    @Override
+    public List<MonGuntaeBean> createMonGuntae(Map<String, String> argsMap) {
+        return guntaeApplicationService.createMonGuntae(argsMap);
+    }
+
+  //월근태 마감
+    @Override
+    public List<MonGuntaeCloseBean> closeMonGuntae(Map<String, String> argsMap) {
+        return guntaeApplicationService.closeMonGuntae(argsMap);
+    }
 
 }
 
