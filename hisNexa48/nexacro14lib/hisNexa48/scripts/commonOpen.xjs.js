@@ -21,7 +21,7 @@
         	var movetap = 0;
         	// 메뉴아이디로 이미 열린 탭이 있는지 검사
         	for (var num=0; num < application.mainframe.frameSet.tabFrame.form.topTab.tabpages.length; num++) {
-        		//alert(application.mainframe.frameSet.tabFrame.form.topTab.tabpages[num].url);
+        		//alert("열린탭 검사: "+application.mainframe.frameSet.tabFrame.form.topTab.tabpages[num].url);
         		
         		if(application.mainframe.frameSet.tabFrame.form.topTab.tabpages[num].url == sID){
         			flag = false;
@@ -31,7 +31,7 @@
         	
         	// 열린 탭이 없다면 새창 객체를 만들고 ADD
         	if (flag) {
-        													 
+        		application.gvTabIndex=application.gvTabIndex+1;											 
         		application.mainframe.frameSet.tabFrame.form.fn_addTabpage(sID, menuName);
         		
          		var oChildFrame = new ChildFrame(sID, "absolute", 0, 0, 1250, 785, null, null, sURL);

@@ -32,7 +32,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findSido</Col><Col id=\"URL\">erp47::com/post/findSido.do</Col><Col id=\"inData\"/><Col id=\"outData\">dsPostSi=dsPostSi</Col><Col id=\"argument\"/><Col id=\"callbackFunc\"/></Row><Row><Col id=\"serviceID\">findSigungu</Col><Col id=\"URL\">erp47::com/post/findSigungu.do</Col><Col id=\"outData\">dsPostSigungu=dsPostSigungu</Col><Col id=\"callbackFunc\">callbackSigungu</Col><Col id=\"inData\"/><Col id=\"argument\"/></Row><Row><Col id=\"serviceID\">findRoadPost</Col><Col id=\"URL\">erp47::com/post/findRoadPost.do</Col><Col id=\"outData\">dsRoadPost=dsRoadPost</Col><Col id=\"inData\">dsPostCond=dsPostCond</Col><Col id=\"callbackFunc\"/><Col id=\"argument\"/></Row><Row><Col id=\"serviceID\">findDongPost</Col><Col id=\"URL\">erp47::com/post/findDongPost.do</Col><Col id=\"outData\">dsDongPost=dsDongPost</Col><Col id=\"inData\"/><Col id=\"argument\"/><Col id=\"callbackFunc\"/></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findSido</Col><Col id=\"URL\">his::com/post/findSido.do</Col><Col id=\"inData\"/><Col id=\"outData\">dsPostSi=dsPostSi</Col><Col id=\"argument\"/><Col id=\"callbackFunc\"/></Row><Row><Col id=\"serviceID\">findSigungu</Col><Col id=\"URL\">his::com/post/findSigungu.do</Col><Col id=\"outData\">dsPostSigungu=dsPostSigungu</Col><Col id=\"callbackFunc\">callbackSigungu</Col><Col id=\"inData\"/><Col id=\"argument\"/></Row><Row><Col id=\"serviceID\">findRoadPost</Col><Col id=\"URL\">his::com/post/findRoadPost.do</Col><Col id=\"outData\">dsRoadPost=dsRoadPost</Col><Col id=\"inData\">dsPostCond=dsPostCond</Col><Col id=\"callbackFunc\"/><Col id=\"argument\"/></Row><Row><Col id=\"serviceID\">findDongPost</Col><Col id=\"URL\">his::com/post/findDongPost.do</Col><Col id=\"outData\">dsDongPost=dsDongPost</Col><Col id=\"inData\"/><Col id=\"argument\"/><Col id=\"callbackFunc\"/></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsPostSi", this);
@@ -359,7 +359,6 @@
         	//alert(this.postTab.tabpage2.gunguCombo.value);
         	//alert(this.postTab.tabpage2.gunguCombo.text);
         	
-        	//아 시박 진짜 value랑 text의 명확한 차이를 모르겠다 ㅗ
         	this.gfnService("findRoadPost");
         	
         	
@@ -378,7 +377,6 @@
         	//지번주소탭에서 그리드 셀 클릭시,
         	this.postTab.tabpage1.zipEdit.set_value(this.dsDongPost.getColumn(this.dsDongPost.rowposition,1));
         	this.postTab.tabpage1.baseEdit.set_value(this.dsDongPost.getColumn(this.dsDongPost.rowposition,0));
-        	
         }
 
         this.postTab_tabpage2_doroGrid_oncellclick = function(obj,e)
@@ -402,10 +400,18 @@
         		}else{
         					target=this.postTab.tabpage2;
         		}
+        	
+        	var arrRtn = new Array;
+        	var i=0;
+        	
+        	arrRtn[i++] = target.zipEdit.value;  
+        	arrRtn[i++] = target.baseEdit.value;  
+        	arrRtn[i++] = target.detailEdit.value;   
         		
-        	this.opener.setPost(target.zipEdit.value, target.baseEdit.value, target.detailEdit.value);
+        	this.opener.setPost(arrRtn);
         	this.close();
         }
+
         
         });
 
@@ -416,6 +422,7 @@
         {
             this.addEventHandler("onload", this.CM_PostpopupForm_onload, this);
             this.postTab.tabpage1.dongPostGrid.addEventHandler("oncellclick", this.postTab_tabpage1_dongPostGrid_oncellclick, this);
+            this.postTab.tabpage1.zipEdit.addEventHandler("oneditclick", this.postTab_tabpage1_zipEdit_oneditclick, this);
             this.postTab.tabpage1.searchBtn.addEventHandler("onclick", this.postTab_tabpage1_searchBtn_onclick, this);
             this.postTab.tabpage2.sidoCombo.addEventHandler("onitemclick", this.postTab_tabpage2_sidoCombo_onitemclick, this);
             this.postTab.tabpage2.doroGrid.addEventHandler("oncellclick", this.postTab_tabpage2_doroGrid_oncellclick, this);

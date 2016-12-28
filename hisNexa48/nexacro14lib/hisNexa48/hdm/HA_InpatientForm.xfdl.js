@@ -89,7 +89,7 @@
             // UI Components Initialize
             obj = new Div("Div03", "absolute", "0%", "0", "1200", "60", null, null, this);
             obj.set_taborder("0");
-            obj.style.set_background("transparent URL('img::titleBar4.jpg')");
+            obj.style.set_background("transparent URL('img::titleBar5.jpg')");
             this.addChild(obj.name, obj);
 
             obj = new Static("Static00", "absolute", "4.8%", "-4", null, "60", "81.68%", null, this);
@@ -101,7 +101,7 @@
 
             obj = new Div("baseDiv", "absolute", "2.24%", "64", null, "91", "1.68%", null, this);
             obj.set_taborder("2");
-            obj.style.set_background("#edececff");
+            obj.style.set_background("#cfd8dcff");
             obj.style.set_border("1 solid lightsteelblue");
             obj.style.set_bordertype("round 5 5");
             obj.set_applystyletype("cascade,keep");
@@ -110,7 +110,7 @@
             obj = new Static("patStc", "absolute", "3.28%", "75", null, "28", "87.84%", null, this);
             obj.set_taborder("3");
             obj.set_text("환자등록번호");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -122,10 +122,11 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("bigValue");
             obj.style.set_itemfont("9 Dotum");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#ffffffff");
+            obj.style.set_color("#333333ff");
             obj.style.set_font("9 돋움");
 
-            obj = new Edit("patNmEd", "absolute", "24.48%", "78", null, "28", "66.32%", null, this);
+            obj = new Edit("patNmEd", "absolute", "24.48%", "76", null, "28", "66.32%", null, this);
             obj.set_taborder("6");
             this.addChild(obj.name, obj);
 
@@ -142,7 +143,7 @@
             obj = new Static("deptStc", "absolute", "60.8%", "116", null, "28", "30.48%", null, this);
             obj.set_taborder("8");
             obj.set_text("담당의사");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -150,7 +151,7 @@
             obj = new Static("trmtStc", "absolute", "36.48%", "116", null, "28", "54.8%", null, this);
             obj.set_taborder("9");
             obj.set_text("진료과");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -158,7 +159,7 @@
             obj = new Static("hospStc", "absolute", "3.28%", "115", null, "28", "87.84%", null, this);
             obj.set_taborder("10");
             obj.set_text("입원일자");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -167,12 +168,13 @@
             obj.set_taborder("12");
             this.addChild(obj.name, obj);
 
-            obj = new Button("patBtn", "absolute", "272", "76", "32", "32", null, null, this);
+            obj = new Button("patBtn", "absolute", "274", "76", "30", "28", null, null, this);
             obj.set_taborder("13");
             obj.set_cssclass("patBtn");
-            obj.style.set_background("@gradation URL('img::miniSearchBtn.png') stretch");
+            obj.style.set_image("URL('theme://img/btn_WF_Search.png')");
+            obj.style.set_background("#455a64ff");
             obj.style.set_border("1 none #999999ff");
-            obj.style.set_bordertype("normal 3 3");
+            obj.style.set_bordertype("round 3 3");
             obj.style.set_cursor("hand");
             obj.style.set_gradation("none 0,0 white 100,100 black");
             obj.getSetter("class").set("patBtn");
@@ -181,7 +183,7 @@
             obj = new Static("wardStc", "absolute", "36.32%", "79", null, "28", "54.96%", null, this);
             obj.set_taborder("14");
             obj.set_text("병동");
-            obj.style.set_background("antiquewhite");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_align("center middle");
             obj.style.set_font("bold 9 Dotum");
             this.addChild(obj.name, obj);
@@ -192,7 +194,8 @@
             obj.set_innerdataset("@gdsEmp");
             obj.set_codecolumn("empNo");
             obj.set_datacolumn("empNm");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#ffffffff");
+            obj.style.set_color("#333333ff");
 
             obj = new Combo("trmtDeptNmCombo", "absolute", "45.84%", "116", null, "28", "43.44%", null, this);
             this.addChild(obj.name, obj);
@@ -201,7 +204,8 @@
             obj.set_codecolumn("code");
             obj.set_datacolumn("bigValue");
             obj.style.set_itemfont("9 Dotum");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#ffffffff");
+            obj.style.set_color("#333333ff");
 
             obj = new Calendar("hosptlzStartDateCal", "absolute", "12.56%", "115", null, "30", "77.6%", null, this);
             this.addChild(obj.name, obj);
@@ -227,7 +231,7 @@
             obj.set_taborder("20");
             obj.set_binddataset("dsInpatient");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"100\"/><Column size=\"70\"/><Column size=\"80\"/><Column size=\"40\"/><Column size=\"40\"/><Column size=\"70\"/><Column size=\"70\"/><Column size=\"40\"/><Column size=\"40\"/><Column size=\"70\"/><Column size=\"70\"/><Column size=\"150\"/></Columns><Rows><Row size=\"27\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"No\"/><Cell col=\"1\" text=\"환자등록번호\"/><Cell col=\"2\" text=\"성명\"/><Cell col=\"3\" text=\"생년월일\"/><Cell col=\"4\" text=\"성별\"/><Cell col=\"5\" text=\"나이\"/><Cell col=\"6\" text=\"진료과\"/><Cell col=\"7\" text=\"담당의사\"/><Cell col=\"8\" text=\"병동\"/><Cell col=\"9\" text=\"병실\"/><Cell col=\"10\" text=\"입원일\"/><Cell col=\"11\" text=\"퇴원일\"/><Cell col=\"12\" text=\"주소\"/></Band><Band id=\"body\"><Cell expr=\"expr:currow+1\"/><Cell col=\"1\" text=\"bind:patNo\"/><Cell col=\"2\" text=\"bind:patNm\"/><Cell col=\"3\" edittype=\"mask\" text=\"bind:rrn1\" mask=\"##/##/##\"/><Cell col=\"4\" text=\"bind:gender\"/><Cell col=\"5\" text=\"bind:age\"/><Cell col=\"6\" displaytype=\"combo\" text=\"bind:trmtDept\" combodataset=\"dsTrmtDept\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"7\" displaytype=\"combo\" text=\"bind:trmtDoct\" combodataset=\"gdsEmp\" combocodecol=\"empNo\" combodatacol=\"empNm\"/><Cell col=\"8\" text=\"bind:ward\"/><Cell col=\"9\" text=\"bind:hroom\"/><Cell col=\"10\" displaytype=\"date\" text=\"bind:hosptlzDate\"/><Cell col=\"11\" displaytype=\"date\" text=\"bind:dscgDate\"/><Cell col=\"12\" text=\"bind:addr\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"20\"/><Column size=\"100\"/><Column size=\"70\"/><Column size=\"80\"/><Column size=\"40\"/><Column size=\"40\"/><Column size=\"70\"/><Column size=\"70\"/><Column size=\"40\"/><Column size=\"40\"/><Column size=\"70\"/><Column size=\"70\"/><Column size=\"150\"/></Columns><Rows><Row size=\"27\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#90a4aeff;\" text=\"No\"/><Cell col=\"1\" style=\"background:#90a4aeff;\" text=\"환자등록번호\"/><Cell col=\"2\" style=\"background:#90a4aeff;\" text=\"성명\"/><Cell col=\"3\" style=\"background:#90a4aeff;\" text=\"생년월일\"/><Cell col=\"4\" style=\"background:#90a4aeff;\" text=\"성별\"/><Cell col=\"5\" style=\"background:#90a4aeff;\" text=\"나이\"/><Cell col=\"6\" style=\"background:#90a4aeff;\" text=\"진료과\"/><Cell col=\"7\" style=\"background:#90a4aeff;\" text=\"담당의사\"/><Cell col=\"8\" style=\"background:#90a4aeff;\" text=\"병동\"/><Cell col=\"9\" style=\"background:#90a4aeff;\" text=\"병실\"/><Cell col=\"10\" style=\"background:#90a4aeff;\" text=\"입원일\"/><Cell col=\"11\" style=\"background:#90a4aeff;\" text=\"퇴원일\"/><Cell col=\"12\" style=\"background:#90a4aeff;\" text=\"주소\"/></Band><Band id=\"body\"><Cell expr=\"expr:currow+1\"/><Cell col=\"1\" text=\"bind:patNo\"/><Cell col=\"2\" text=\"bind:patNm\"/><Cell col=\"3\" edittype=\"mask\" text=\"bind:rrn1\" mask=\"##/##/##\"/><Cell col=\"4\" text=\"bind:gender\"/><Cell col=\"5\" text=\"bind:age\"/><Cell col=\"6\" displaytype=\"combo\" text=\"bind:trmtDept\" combodataset=\"dsTrmtDept\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"7\" displaytype=\"combo\" text=\"bind:trmtDoct\" combodataset=\"gdsEmp\" combocodecol=\"empNo\" combodatacol=\"empNm\"/><Cell col=\"8\" text=\"bind:ward\"/><Cell col=\"9\" text=\"bind:hroom\"/><Cell col=\"10\" displaytype=\"date\" text=\"bind:hosptlzDate\"/><Cell col=\"11\" displaytype=\"date\" text=\"bind:dscgDate\"/><Cell col=\"12\" text=\"bind:addr\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
 

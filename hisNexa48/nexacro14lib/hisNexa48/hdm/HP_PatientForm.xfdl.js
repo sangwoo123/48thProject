@@ -65,7 +65,7 @@
             obj.style.set_font("bold 20 돋움");
             this.titleDiv.addChild(obj.name, obj);
 
-            obj = new Div("Div00", "fixed", "1.95%", "64", null, "686", "46.68%", null, this);
+            obj = new Div("SearchPatient", "fixed", "1.95%", "64", null, "686", "46.68%", null, this);
             obj.set_taborder("43");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #b0bec5ff");
@@ -73,22 +73,41 @@
             obj.set_applystyletype("cascade,keep");
             obj.set_visible("true");
             this.addChild(obj.name, obj);
-            obj = new Grid("Grid00", "absolute", "2.48%", "47", null, "628", "2.48%", null, this.Div00);
-            obj.set_taborder("0");
-            obj.set_binddataset("dsPatient");
-            obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"환자번호\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"나이\"/><Cell col=\"3\" text=\"성별\"/></Band><Band id=\"body\"><Cell style=\"align:center;\" text=\"bind:patNo\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:patNm\"/><Cell col=\"2\" style=\"align:center;\" text=\"bind:age\"/><Cell col=\"3\" style=\"align:center;\" text=\"bind:gender\"/></Band></Format></Formats>");
-            this.Div00.addChild(obj.name, obj);
-            obj = new Combo("searchWardCombo", "absolute", "23.09%", "9", "100", "28", null, null, this.Div00);
-            this.Div00.addChild(obj.name, obj);
+            obj = new Combo("searchWardCombo", "absolute", "23.09%", "9", "100", "28", null, null, this.SearchPatient);
+            this.SearchPatient.addChild(obj.name, obj);
             obj.set_taborder("1");
             obj.set_innerdataset("@dsWardCd");
             obj.set_codecolumn("code");
             obj.set_datacolumn("data");
             obj.style.set_background("white");
             obj.set_displaynulltext("선택");
+            obj = new Edit("Edit00", "absolute", "224", "10", "131", "28", null, null, this.SearchPatient);
+            obj.set_taborder("2");
+            obj.set_displaynulltext("입력");
+            this.SearchPatient.addChild(obj.name, obj);
+            obj = new Button("Button00", "absolute", "361", "10", "45", "28", null, null, this.SearchPatient);
+            obj.set_taborder("3");
+            obj.set_text("검색");
+            obj.set_cssclass("btn_WF_CRUD");
+            this.SearchPatient.addChild(obj.name, obj);
+            obj = new Button("Button01", "absolute", "412", "10", "45", "28", null, null, this.SearchPatient);
+            obj.set_taborder("4");
+            obj.set_text("재설정");
+            obj.set_cssclass("btn_WF_CRUD");
+            this.SearchPatient.addChild(obj.name, obj);
+            obj = new Button("Button03", "absolute", "463", "10", "45", "28", null, null, this.SearchPatient);
+            obj.set_taborder("5");
+            obj.set_text("추가");
+            obj.set_cssclass("btn_WF_CRUD");
+            this.SearchPatient.addChild(obj.name, obj);
+            obj = new Grid("PatientGrid", "absolute", "2.1%", "45", null, "628", "2.86%", null, this.SearchPatient);
+            obj.set_taborder("6");
+            obj.set_binddataset("dsPatient");
+            obj.set_autofittype("col");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"환자번호\"/><Cell col=\"1\" text=\"성명\"/><Cell col=\"2\" text=\"나이\"/><Cell col=\"3\" text=\"성별\"/></Band><Band id=\"body\"><Cell style=\"align:center;\" text=\"bind:patNo\"/><Cell col=\"1\" style=\"align:center;\" text=\"bind:patNm\"/><Cell col=\"2\" style=\"align:center;\" text=\"bind:age\"/><Cell col=\"3\" style=\"align:center;\" text=\"bind:gender\"/></Band></Format></Formats>");
+            this.SearchPatient.addChild(obj.name, obj);
 
-            obj = new Div("Div01", "absolute", "54.3%", "64", null, "686", "1.76%", null, this);
+            obj = new Div("EditPatient", "absolute", "54.3%", "64", null, "686", "1.76%", null, this);
             obj.set_taborder("87");
             obj.style.set_background("#eceff1ff");
             obj.style.set_border("1 solid #b0bec5ff");
@@ -360,34 +379,11 @@
             obj.set_text("문자알림 수신허용");
             this.addChild(obj.name, obj);
 
-            obj = new Button("Button03", "absolute", "487", "74", "45", "28", null, null, this);
-            obj.set_taborder("135");
-            obj.set_text("추가");
-            obj.set_cssclass("btn_WF_CRUD");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button00", "absolute", "385", "74", "45", "28", null, null, this);
-            obj.set_taborder("136");
-            obj.set_text("검색");
-            obj.set_cssclass("btn_WF_CRUD");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("Edit00", "absolute", "248", "74", "131", "28", null, null, this);
-            obj.set_taborder("137");
-            obj.set_displaynulltext("입력");
-            this.addChild(obj.name, obj);
-
             obj = new Static("Static51", "absolute", "35", "79", "94", "21", null, null, this);
             obj.set_taborder("138");
             obj.set_text("환자정보 검색");
             obj.set_cssclass("sta_WF_SubTitle1");
             obj.style.set_font("bold 9 돋움");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button01", "absolute", "436", "74", "45", "28", null, null, this);
-            obj.set_taborder("139");
-            obj.set_text("재설정");
-            obj.set_cssclass("btn_WF_CRUD");
             this.addChild(obj.name, obj);
 
             obj = new Static("patNmStc00", "absolute", "55.37%", "74", null, "28", "34.67%", null, this);
@@ -419,7 +415,7 @@
             this.titleDiv.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 0, 686, this.Div00,
+            obj = new Layout("default", "", 0, 686, this.SearchPatient,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("43");
@@ -431,10 +427,10 @@
 
             	}
             );
-            this.Div00.addLayout(obj.name, obj);
+            this.SearchPatient.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 0, 686, this.Div01,
+            obj = new Layout("default", "", 0, 686, this.EditPatient,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("87");
@@ -443,7 +439,7 @@
 
             	}
             );
-            this.Div01.addLayout(obj.name, obj);
+            this.EditPatient.addLayout(obj.name, obj);
 
             //-- Default Layout
             obj = new Layout("default", "", 1024, 768, this,
@@ -657,15 +653,15 @@
         this.on_initEvent = function()
         {
             this.titleDiv.titleStc.addEventHandler("onclick", this.titleDiv_titleStc_onclick, this);
-            this.Div00.Grid00.addEventHandler("oncellclick", this.patGrid_oncellclick, this);
+            this.SearchPatient.Button00.addEventHandler("onclick", this.Button00_onclick, this);
+            this.SearchPatient.Button01.addEventHandler("onclick", this.Button01_onclick, this);
+            this.SearchPatient.Button03.addEventHandler("onclick", this.Button03_onclick, this);
+            this.SearchPatient.PatientGrid.addEventHandler("oncellclick", this.patGrid_oncellclick, this);
             this.smsReceiverStc.addEventHandler("onclick", this.smsReceiverStc_onclick, this);
             this.addPatBtn.addEventHandler("onclick", this.clickBtn, this);
             this.Static00.addEventHandler("onclick", this.Static00_onclick, this);
             this.addPatBtn00.addEventHandler("onclick", this.clickBtn, this);
             this.Static03.addEventHandler("onclick", this.Static03_onclick, this);
-            this.Button03.addEventHandler("onclick", this.Button03_onclick, this);
-            this.Button00.addEventHandler("onclick", this.Button00_onclick, this);
-            this.Button01.addEventHandler("onclick", this.Button01_onclick, this);
             this.patNmStc00.addEventHandler("onclick", this.patNmStc00_onclick, this);
 
         };

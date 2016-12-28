@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="menuFrame" classname="menuFrame" left="0" top="0" width="1275" height="85" titletext="menuFrame" onload="menuFrame_onload">
+  <Form id="menuFrame" classname="menuFrame" left="0" top="0" width="1275" height="105" titletext="menuFrame" onload="menuFrame_onload" style="background:#90a4aeff;" scrollbars="none">
     <Layouts>
       <Layout>
-        <Menu id="menu" taborder="0" innerdataset="@dsMenu" idcolumn="menuCode" captioncolumn="menuName" levelcolumn="menuLevel" userdatacolumn="menuUrl" onmenuclick="menu_onmenuclick" left="2.96%" top="7" right="0.32%" height="33" style="itempadding:0 13 0 13;popupitemheight:25;popupitempadding:1 3 1 24;popupfont:bold antialias 12 맑은 고딕;background:transparent;color:black;font:bold antialias 12 문체부 돋음체;"/>
         <Static id="subCodeStc" taborder="1" text="권한명" onclick="subCodeStc_onclick" left="10.96%" top="-1429" right="87.28%" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 10 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="empNameStc" taborder="2" onclick="subCodeStc_onclick" left="90.24%" top="49" right="1.52%" height="26" style="background:transparent;border:1 solid lightsteelblue ;color:black;bordertype:round 2 2 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="empNameStc00" taborder="3" onclick="subCodeStc_onclick" left="77.36%" top="49" right="16.16%" height="26" style="background:transparent;border:1 solid lightsteelblue ;color:black;bordertype:round 2 2 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Static id="Static00" taborder="4" left="0.88%" top="7" right="96.16%" height="36" style="background:transparent;bordertype:round 5 5 ;"/>
-        <Static id="empNameStc01" taborder="5" onclick="subCodeStc_onclick" left="83.76%" top="49" right="9.76%" height="26" style="background:transparent;border:1 solid lightsteelblue ;color:black;bordertype:round 2 2 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc" text="사용자"/>
-        <Static id="empNameStc02" taborder="6" onclick="subCodeStc_onclick" left="71.04%" top="49" right="22.48%" height="26" style="background:transparent;border:1 solid lightsteelblue ;color:black;bordertype:round 2 2 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc" text="사원번호"/>
+        <Static id="empNameStc" taborder="2" onclick="subCodeStc_onclick" left="92.16%" top="55" height="44" style="background:#cfd8dcff;border:0 none #ffffffff ;color:#555555ff;bordertype:normal 0 0 ;align:center middle;font:normal 9 맑은고딕;blur:0 ;glow:0 transparent;" class="AreaStc" width="94"/>
+        <Static id="empNameStc00" taborder="3" onclick="subCodeStc_onclick" left="92.16%" top="6" height="44" style="background:#cfd8dcff;border:0 none #ffffffff ;color:#555555ff;bordertype:normal 0 0 ;align:center middle;font:normal 9 맑은고딕;blur:0 ;glow:0 transparent;" class="AreaStc" width="94"/>
+        <Static id="empNameStc01" taborder="5" onclick="subCodeStc_onclick" left="84.71%" top="55" height="44" style="background:#cfd8dcff;border:0 none #ffffffff ;color:#555555ff;bordertype:normal 0 0 ;align:center middle;font:normal 9 맑은고딕;blur:0 ;glow:0 transparent;" class="AreaStc" text="사용자" width="94"/>
+        <Static id="empNameStc02" taborder="6" onclick="subCodeStc_onclick" left="84.71%" top="6" height="44" style="background:#cfd8dcff;border:0 none #ffffffff ;color:#555555ff;bordertype:normal 0 0 ;align:center middle;font:normal 9 맑은고딕;blur:0 ;glow:0 transparent;" class="AreaStc" text="사원번호" width="94"/>
+        <Menu id="menu" taborder="7" innerdataset="@dsMenu" idcolumn="menuCode" captioncolumn="menuName" levelcolumn="menuLevel" userdatacolumn="menuUrl" onmenuclick="menu_onmenuclick" left="8.24%" top="0" right="15.76%" height="105" style="itempadding:0 20 10 20;itembackground:right middle;itemborder:0 none #ccccccff,1 solid #ccccccff,0 none #ccccccff,0 none #ccccccff;itemalign:center bottom;popupborder:1 solid #21367eff ;popupitemheight:25;popupitempadding:1 3 1 24;popupcolor:black;popupfont:antialias 10 Verdana;background:#eceff1ff URL('img::menu.png');border:1 solid #808080ff ;color:black;font:antialias 10 맑은 고딕 Semilight;"/>
+        <Static id="Static00" taborder="8" left="0.63%" top="7" height="90" style="background:transparent URL('https://cdn0.iconfinder.com/data/icons/medical-volume-2-4/256/52-128.png') stretch;bordertype:round 5 5 ;" width="90"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -76,6 +76,7 @@ this.menu_onmenuclick = function(obj:Menu, e:nexacro.MenuClickEventInfo)
 {
 	//alert("권한 : "+application.dsHmEmp.getColumn(0,"pms"));	
 	//this.dsService.setColumn(0, 4, "authCode=" + application.gdsEmp.getColumn(0,"pms") + " menuCode=" + e.id);
+	//this.dsData.addRow();
 	this.dsData.setColumn(0, 0, e.id);
 	this.dsData.setColumn(0, 1, e.userdata);
 	//alert(e.userdata);

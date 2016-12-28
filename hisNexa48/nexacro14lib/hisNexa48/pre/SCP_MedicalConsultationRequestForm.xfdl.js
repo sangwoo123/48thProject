@@ -370,11 +370,6 @@
         //include "scripts::commonScripts.xjs";
         //include "scripts::commonBind.xjs";
 
-        this.MC_CfrcTrmtAskingForm_onload = function(obj,e)
-        {
-
-        }
-
         //조회
         this.topDiv_searchBtn_onclick = function(obj,e)
         {

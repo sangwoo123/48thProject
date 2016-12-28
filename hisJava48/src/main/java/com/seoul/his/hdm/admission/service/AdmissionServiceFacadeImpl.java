@@ -40,7 +40,7 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	@Autowired
 	ForeignApplicationService foreignApplicationService;
 	@Autowired
-	HospitalRoomAssignmentApplicationService hospitalRoomAssignmentApplicationService;
+	HospitalRoomApplicationService hospitalRoomApplicationService;
 	@Autowired
 	PatientApplicationService patientApplicationService;
 
@@ -72,7 +72,7 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 
     @Override
     public List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap) {
-        return hospitalRoomAssignmentApplicationService.findHospitalRoomList(argsMap);
+        return hospitalRoomApplicationService.findHospitalRoomList(argsMap);
     }
 
 	@Override
@@ -109,6 +109,16 @@ public class AdmissionServiceFacadeImpl implements AdmissionServiceFacade{
 	public void batchHospitalizationScheduleManageProcess(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList) {
 		hospitalizationScheduleApplicationService.batchHospitalizationScheduleManageProcess(hospitalizationScheduleManageList);
 	}
+
+    @Override
+    public void batchHospitalRoomProcess(List<HospitalRoomBean> hospitalRoomBeanList) {
+    	hospitalRoomApplicationService.batchHospitalRoomProcess(hospitalRoomBeanList);
+    }
+
+    @Override
+    public String getHospitalRoomSeq() {
+    	return hospitalRoomApplicationService.getHospitalRoomSeq();
+    }
 
 
 }

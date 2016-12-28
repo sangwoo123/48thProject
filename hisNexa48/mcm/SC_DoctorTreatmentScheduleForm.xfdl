@@ -442,6 +442,7 @@
             <Col id="serviceID">registerDoctorSchedule</Col>
             <Col id="URL">his::msv/mcm/doctorschedule/registerDoctorSchedule.do</Col>
             <Col id="inData">dsDrSchRegiInfo=dsDrSchRegiInfo:u</Col>
+            <Col id="callbackFunc">callbackFunc</Col>
           </Row>
           <Row>
             <Col id="serviceID">removeDoctorSchedule</Col>

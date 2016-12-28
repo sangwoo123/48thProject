@@ -153,7 +153,7 @@
         {	
         	if(nexacro.Browser == "Runtime")
         	{
-        		web.set_url("http://localhost:9503/eChart.html");
+        		web.set_url("http://www.matcl.com/chart/Area.html");
         		web.option = option;
         		return;
         	}
