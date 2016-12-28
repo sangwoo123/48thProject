@@ -22,7 +22,6 @@ import lombok.ToString;
 @ToString
 
 @Dataset(name = "dsRunBudg")
-
 public class RunBudgBean extends BaseBean{
 
 	private String 	cngAmount,         // 변경금액
