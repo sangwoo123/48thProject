@@ -54,25 +54,12 @@ public class HdayController {
 
 	  //휴일 일괄처리
 	    @RequestMapping("/batchHdayProcess.do")
-	    public void batchHdayProcess(HttpServletRequest request,
-	            HttpServletResponse response) throws Exception{
+	    public void batchHdayProcess(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
 	        PlatformData inData = (PlatformData)request.getAttribute("inData");
 	        PlatformData outData = (PlatformData)request.getAttribute("outData");
-
 	        List<HdayBean> list;
-
 	        list = dataSetBeanMapper.datasetToBeans(inData, HdayBean.class);
-
 	        guntaeServiceFacade.batchHdayProcess(list);
-
 	    }
-
-
-
 }
-
-
-
-
-

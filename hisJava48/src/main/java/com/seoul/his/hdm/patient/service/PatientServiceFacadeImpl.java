@@ -37,6 +37,14 @@ public class PatientServiceFacadeImpl implements PatientServiceFacade{
 	}
 	
 	
+
+	@Override
+	public List<PatientBean> findPatientList() {
+		List<PatientBean> patientList = patientApplicationService.findPatientList();
+		return patientList;
+	}
+
+	
 	@Override
     public void batchPatientProcess(List<PatientBean> patientBeanList) {
 		patientApplicationService.batchPatientProcess(patientBeanList);
@@ -55,6 +63,7 @@ public class PatientServiceFacadeImpl implements PatientServiceFacade{
 		checkPatientApplicationService.batchCheckPatientProcess(checkPatientBeanList);
 		
 	}
+
 
 	
 }

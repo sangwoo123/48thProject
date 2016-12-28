@@ -23,5 +23,22 @@
         <Button id="closedBtn" taborder="4" onclick="closedBtn_onclick" left="85.9%" top="94" right="3.65%" height="26" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
       </Layout>
     </Layouts>
+    <Script type="xscript5.0"><![CDATA[// 접수반려 버튼 클릭이벤트
+this.resolBrBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	if(this.Div01.resolBrEd.value==null){
+		alert("반려사유를 작성하여 주시기 바랍니다");
+	}else{
+		var resolBrCau = this.Div01.resolBrEd.value;		
+		this.close(resolBrCau);
+		alert("정상처리되었습니다.");
+	}
+}
+
+// 닫기 버튼 클릭이벤트
+this.closedBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}]]></Script>
   </Form>
 </FDL>
