@@ -3,8 +3,11 @@ package com.seoul.his.hrs.guntae.service;
 import java.util.List;
 import java.util.Map;
 
+import com.seoul.his.hrs.guntae.to.HdayBean;
+import com.seoul.his.hrs.guntae.to.HolidayBean;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
 import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
+import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
 /**
  * <pre>
@@ -33,6 +36,24 @@ public interface GuntaeServiceFacade {
 
     //시간외근무 일괄처리
     void batchOverTimeWorkProcess(List<OverTimeWorkBean> list) ;
+
+	List<HdayBean> findHdayList(Map<String, String> argsMap);
+
+	List<HolidayBean> findHolidayList(Map<String, String> argsMap);
+
+	List<YeonchaBean> findYeonchaList(Map<String, String> argsMap);
+
+
+	void batchHdayProcess(List<HdayBean> list);
+
+	List<HolidayBean> findAdminHolidayList(Map<String, String> argsMap);
+
+	List<YeonchaBean> callYeoncha(Map<String, String> argsMap);
+
+
+	void batchHolidayProcess(List<HolidayBean> list);
+
+
 }
 
 

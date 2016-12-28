@@ -12,7 +12,8 @@ public interface PatientApplicationService {
 
 	List<PatientBean> findPatientList(Map<String, String> argsMap);
 
-
+	List<PatientBean> findPatientList();
+	
 	void batchPatientProcess(List<PatientBean> patientBeanList);
 
 

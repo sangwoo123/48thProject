@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="AT_VatDedForm" classname="AT_VatDedForm" left="0" top="0" width="1250" height="768" titletext="New Form" onload="AT_VatDedForm_onload" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Div id="titleBarDiv" taborder="0" text="       부가가치세 신고" left="0%" top="4" width="1237" height="60" style="align:left middle;background:transparent URL('img::titleBar6.jpg');font:bold 15 Dotum;" cssclass="TStc"/>
+        <Div id="taxinvDiv" taborder="1" left="1.52%" top="69" right="1.28%" height="643" style="background:#edececff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
+          <Layouts>
+            <Layout>
+              <Spin id="declYearSpin" taborder="9" value="0" left="8.33%" top="11" right="82.61%" height="28" max="2020" min="2016"/>
+              <Combo id="declPridCombo" taborder="10" innerdataset="dsDeclPrid" codecolumn="declPrid" datacolumn="declPrid" left="25.39%" top="11" right="65.54%" height="28" onitemchanged="taxinvDiv_declPridCombo_onitemchanged"/>
+              <Calendar id="sDayCal" taborder="11" left="8.33%" top="46" right="82.61%" height="28"/>
+              <Static id="stc_acnt_sub01" taborder="12" text="~" left="17.72%" top="45" right="80.13%" height="31" style="border:1 none #808080ff ;color:black;font:bold 15 Dotum;"/>
+              <Calendar id="eDayCal" taborder="13" left="19.54%" top="46" right="71.39%" height="28"/>
+              <Edit id="salesTaxAmtEd" taborder="14" left="5.61%" top="84" right="87.63%" height="28"/>
+              <Button id="searchAtaxinvBtn" taborder="15" left="499" top="118" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="taxinvDiv_searchAtaxinvBtn_onclick" onmouseleave="taxinvDiv_searchAtaxinvBtn_onmouseleave"/>
+              <Grid id="Grid00" taborder="16" binddataset="dsTaxInv" useinputpanel="false" autofittype="col" suppresslevel="allcompare" left="0.99%" top="156" right="51.53%" height="476" oncellclick="taxinvDiv_Grid00_oncellclick">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="90"/>
+                      <Column size="90"/>
+                      <Column size="90"/>
+                      <Column size="90"/>
+                      <Column size="90"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="발행일자"/>
+                      <Cell col="1" text="발행번호"/>
+                      <Cell col="2" text="발행구분"/>
+                      <Cell col="3" text="계산서구분"/>
+                      <Cell col="4" text="매입/매출"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:pubDate"/>
+                      <Cell col="1" text="bind:pubNo"/>
+                      <Cell col="2" displaytype="combo" text="bind:pubDiv" combodataset="dsPubDiv" combocodecol="code" combodatacol="value"/>
+                      <Cell col="3" displaytype="combo" text="bind:billDiv" combodataset="dsBillDiv" combocodecol="code" combodatacol="value"/>
+                      <Cell col="4" displaytype="combo" text="bind:purchSalesDiv" combodataset="dsPurchSalesDiv" combocodecol="code" combodatacol="value"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_state_divide06" taborder="2" text="신고년도" left="2.56%" top="81" right="91.04%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stc_state_divide05" taborder="3" text="신고기수" left="19.2%" top="81" right="74.4%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stc_ask_date01" taborder="4" text="신고기간" left="2.56%" top="116" right="91.04%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stc_ask_date02" taborder="5" text="매출세" left="2.56%" top="153" right="92.96%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stc_ask_date03" taborder="6" text="매입세" left="14%" top="153" right="81.52%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Edit id="purchTaxAmtEd" taborder="7" left="18.96%" top="153" right="74.48%" height="28"/>
+        <Static id="stc_ask_date04" taborder="8" text="부가율" left="37.52%" top="153" right="58%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Edit id="vatRateEd" taborder="9" left="41.68%" top="153" right="51.76%" height="28"/>
+        <Grid id="AtVatDeclGrid" taborder="11" binddataset="dsVatDecl" useinputpanel="false" selecttype="area" left="49.76%" top="110" right="2.48%" height="591" enable="false" autofittype="col" autosizingtype="none">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="56"/>
+                <Column size="70"/>
+                <Column size="212"/>
+                <Column size="34"/>
+                <Column size="130"/>
+                <Column size="45"/>
+                <Column size="136"/>
+              </Columns>
+              <Rows>
+                <Row size="33" band="head"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="23"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="30"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="20"/>
+                <Row size="24"/>
+                <Row size="38"/>
+              </Rows>
+              <Band id="head">
+                <Cell colspan="4" style="background:cornsilk;" text="구분"/>
+                <Cell col="4" style="background:cornsilk;" text="금액"/>
+                <Cell col="5" style="background:cornsilk;" text="세율"/>
+                <Cell col="6" style="background:cornsilk;" text="세액"/>
+              </Band>
+              <Band id="body">
+                <Cell rowspan="8" celltype="head" displaytype="normal">
+                  <Cell celltype="head" displayexpdec="-1"/>
+                  <Cell row="1" celltype="head" text="과세" displayexpdec="-1"/>
+                  <Cell row="2" celltype="head" text="표준" displayexpdec="-1"/>
+                  <Cell row="3" celltype="head" text="및" displayexpdec="-1"/>
+                  <Cell row="4" celltype="head" text="매출" displayexpdec="-1"/>
+                  <Cell row="5" celltype="head" text="세액" displayexpdec="-1"/>
+                  <Cell row="6" celltype="head" displayexpdec="-1"/>
+                  <Cell row="7" celltype="head" displayexpdec="-1"/>
+                </Cell>
+                <Cell col="1" rowspan="4" celltype="head" displaytype="normal" text="과세"/>
+                <Cell col="2" celltype="head" displaytype="normal" text="세금계산서 발급분"/>
+                <Cell col="3" celltype="head" displaytype="normal" text="1"/>
+                <Cell col="4" displaytype="normal" edittype="normal" text="bind:salesTaxinv"/>
+                <Cell col="5" celltype="head" displaytype="normal" text="10/100"/>
+                <Cell col="6" celltype="body" displaytype="normal" edittype="normal" text="bind:vatSalesTaxinv"/>
+                <Cell row="1" col="2" celltype="head" displaytype="normal" text="매입자발행 세금계산서"/>
+                <Cell row="1" col="3" celltype="head" displaytype="normal" text="2"/>
+                <Cell row="1" col="4" displaytype="normal" edittype="normal" text="bind:salesBuyerTaxinv"/>
+                <Cell row="1" col="5" celltype="head" displaytype="normal" text="10/100"/>
+                <Cell row="1" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesBuyerTaxinv"/>
+                <Cell row="2" col="2" celltype="head" displaytype="normal" text="신용카드ㆍ현금영수증 발행분"/>
+                <Cell row="2" col="3" celltype="head" displaytype="normal" text="3"/>
+                <Cell row="2" col="4" displaytype="normal" edittype="normal" text="bind:salesCcardCreceipt"/>
+                <Cell row="2" col="5" celltype="head" displaytype="normal" text="10/100"/>
+                <Cell row="2" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesCcardCreceipt"/>
+                <Cell row="3" col="2" celltype="head" displaytype="normal" text="기타(정규영수증 외 매출분)"/>
+                <Cell row="3" col="3" celltype="head" displaytype="normal" text="4"/>
+                <Cell row="3" col="4" displaytype="normal" edittype="normal" text="bind:salesEtc"/>
+                <Cell row="3" col="5" celltype="head" displaytype="normal" text="10/100"/>
+                <Cell row="3" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesEtc"/>
+                <Cell row="4" col="1" rowspan="2" celltype="head" displaytype="normal" text="영세율"/>
+                <Cell row="4" col="2" celltype="head" displaytype="normal" text="세금계산서 발급분"/>
+                <Cell row="4" col="3" celltype="head" displaytype="normal" text="5"/>
+                <Cell row="4" col="4" displaytype="normal" edittype="normal" text="bind:salesZtrTaxinv"/>
+                <Cell row="4" col="5" celltype="head" displaytype="normal" text="0/100"/>
+                <Cell row="4" col="6" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="5" col="2" celltype="head" displaytype="normal" text="기               타"/>
+                <Cell row="5" col="3" celltype="head" displaytype="normal" text="6"/>
+                <Cell row="5" col="4" displaytype="normal" edittype="normal" text="bind:salesZtrEtc"/>
+                <Cell row="5" col="5" celltype="head" displaytype="normal" text="0/100"/>
+                <Cell row="5" col="6" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="6" col="1" colspan="2" celltype="head" displaytype="normal" text="예  정  신  고      누  락  분"/>
+                <Cell row="6" col="3" celltype="head" displaytype="normal" text="7"/>
+                <Cell row="6" col="4" displaytype="normal" edittype="normal" text="bind:salesPlnDeclOmi"/>
+                <Cell row="6" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="6" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesPlnDeclOmi"/>
+                <Cell row="7" col="1" colspan="2" celltype="head" displaytype="normal" text="대  손  세  액      가       감"/>
+                <Cell row="7" col="3" celltype="head" displaytype="normal" text="8"/>
+                <Cell row="7" col="4" celltype="head" displaytype="normal" edittype="none" style="background:silver;"/>
+                <Cell row="7" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="7" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesBdtc"/>
+                <Cell row="8" colspan="3" celltype="head" displaytype="normal" style="background:cornsilk;" text="합                                계"/>
+                <Cell row="8" col="3" celltype="head" displaytype="normal" style="background:cornsilk;" text="9"/>
+                <Cell row="8" col="4" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:parseInt(!isNaN(salesTaxinv)? salesTaxinv: 0)+parseInt(!isNaN(salesBuyerTaxinv)? salesBuyerTaxinv: 0)+parseInt(!isNaN(salesCcardCreceipt)? salesCcardCreceipt:0)+parseInt(!isNaN(salesEtc)? salesEtc:0)+parseInt(!isNaN(salesZtrTaxinv)? salesZtrTaxinv: 0)+parseInt(!isNaN(salesZtrEtc)? salesZtrEtc: 0)+parseInt(!isNaN(salesPlnDeclOmi)? salesPlnDeclOmi: 0)"/>
+                <Cell row="8" col="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="㉮"/>
+                <Cell row="8" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:parseInt(!isNaN(vatSalesTaxinv)? vatSalesTaxinv: 0)+parseInt(!isNaN(vatSalesBuyerTaxinv)? vatSalesBuyerTaxinv: 0)+parseInt(!isNaN(vatSalesCcardCreceipt)? vatSalesCcardCreceipt:0)+parseInt(!isNaN(vatSalesEtc)? vatSalesEtc:0)+parseInt(!isNaN(vatSalesPlnDeclOmi)? vatSalesPlnDeclOmi: 0)+parseInt(!isNaN(vatSalesBdtc)? vatSalesBdtc: 0)"/>
+                <Cell row="9" rowspan="8" celltype="head" displaytype="normal">
+                  <Cell celltype="head"/>
+                  <Cell row="1" celltype="head"/>
+                  <Cell row="2" celltype="head"/>
+                  <Cell row="3" celltype="head" text="매입"/>
+                  <Cell row="4" celltype="head" text="세액"/>
+                  <Cell row="5" celltype="head"/>
+                  <Cell row="6" celltype="head"/>
+                  <Cell row="7" celltype="head"/>
+                </Cell>
+                <Cell row="9" col="1" rowspan="2" celltype="head" displaytype="normal">
+                  <Cell celltype="head" text="세금계산서"/>
+                  <Cell row="1" celltype="head" text="수  취  분"/>
+                </Cell>
+                <Cell row="9" col="2" celltype="head" displaytype="normal" text="일   반   매   입"/>
+                <Cell row="9" col="3" celltype="head" displaytype="normal" text="10"/>
+                <Cell row="9" col="4" displaytype="normal" edittype="normal" text="bind:purchTaxinv"/>
+                <Cell row="9" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="9" col="6" displaytype="normal" edittype="normal" text="bind:vatPurchTaxinv"/>
+                <Cell row="10" col="2" celltype="head" displaytype="normal" text="고정자산   매입"/>
+                <Cell row="10" col="3" celltype="head" displaytype="normal" text="11"/>
+                <Cell row="10" col="4" displaytype="normal" edittype="normal" text="bind:purchFixedAssetTaxinv"/>
+                <Cell row="10" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="10" col="6" displaytype="normal" edittype="normal" text="bind:vatPurchFixedAssetTaxinv"/>
+                <Cell row="11" col="1" colspan="2" celltype="head" displaytype="normal" text="예  정  신  고      누  락  분"/>
+                <Cell row="11" col="3" celltype="head" displaytype="normal" text="12"/>
+                <Cell row="11" col="4" displaytype="normal" edittype="normal" text="bind:purchPlnDeclOmi"/>
+                <Cell row="11" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="11" col="6" displaytype="normal" edittype="normal" text="bind:vatPurchPlnDeclOmi"/>
+                <Cell row="12" col="1" colspan="2" celltype="head" displaytype="normal" text="매입자발행       세금계산서"/>
+                <Cell row="12" col="3" celltype="head" displaytype="normal" text="13"/>
+                <Cell row="12" col="4" displaytype="normal" edittype="normal" text="bind:buyerTaxinv"/>
+                <Cell row="12" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="12" col="6" displaytype="normal" edittype="normal" text="bind:vatBuyerTaxinv"/>
+                <Cell row="13" col="1" colspan="2" celltype="head" displaytype="normal" text="기 타 공 제        매 입 세 액"/>
+                <Cell row="13" col="3" celltype="head" displaytype="normal" text="14"/>
+                <Cell row="13" col="4" displaytype="normal" edittype="normal" text="bind:purchEtcDeduct"/>
+                <Cell row="13" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="13" col="6" displaytype="normal" edittype="normal" text="bind:vatPurchEtcDeduct"/>
+                <Cell row="14" col="1" colspan="2" celltype="head" displaytype="normal" style="background:cornsilk;" text="합   계 ( 10 + 11 + 12 + 13 + 14 )"/>
+                <Cell row="14" col="3" celltype="head" displaytype="normal" style="background:cornsilk;" text="15"/>
+                <Cell row="14" col="4" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:parseInt(!isNaN(purchTaxinv)? purchTaxinv: 0)+parseInt(!isNaN(purchFixedAssetTaxinv)? purchFixedAssetTaxinv: 0)+parseInt(!isNaN(purchPlnDeclOmi)? purchPlnDeclOmi:0)+parseInt(!isNaN(buyerTaxinv)? buyerTaxinv:0)+parseInt(!isNaN(purchEtcDeduct)? purchEtcDeduct: 0)"/>
+                <Cell row="14" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="14" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:parseInt(!isNaN(vatPurchTaxinv)? vatPurchTaxinv: 0)+parseInt(!isNaN(vatPurchFixedAssetTaxinv)? vatPurchFixedAssetTaxinv: 0)+parseInt(!isNaN(vatPurchPlnDeclOmi)? vatPurchPlnDeclOmi:0)+parseInt(!isNaN(vatBuyerTaxinv)? vatBuyerTaxinv:0)+parseInt(!isNaN(vatPurchEtcDeduct)? vatPurchEtcDeduct: 0)"/>
+                <Cell row="15" col="1" colspan="2" celltype="head" displaytype="normal" text="공제받지못할     매 입 세 액"/>
+                <Cell row="15" col="3" celltype="head" displaytype="normal" text="16"/>
+                <Cell row="15" col="4" displaytype="normal" edittype="normal" text="bind:purchNonDeduct"/>
+                <Cell row="15" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="15" col="6" displaytype="normal" edittype="normal" text="bind:vatPurchNonDeduct"/>
+                <Cell row="16" col="1" colspan="2" celltype="head" displaytype="normal" style="background:cornsilk;" text="차  감  계 ( 15 - 16 )"/>
+                <Cell row="16" col="3" celltype="head" displaytype="normal" style="background:cornsilk;" text="17"/>
+                <Cell row="16" col="4" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:(parseInt(!isNaN(purchTaxinv)? purchTaxinv: 0)+parseInt(!isNaN(purchFixedAssetTaxinv)? purchFixedAssetTaxinv: 0)+parseInt(!isNaN(purchPlnDeclOmi)? purchPlnDeclOmi:0)+parseInt(!isNaN(buyerTaxinv)? buyerTaxinv:0)+parseInt(!isNaN(purchEtcDeduct)? purchEtcDeduct: 0))-(!isNaN(this.grid.getCellValue(0,82))?this.grid.getCellValue(0,82):0)"/>
+                <Cell row="16" col="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="㉯"/>
+                <Cell row="16" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:(parseInt(!isNaN(vatPurchTaxinv)? vatPurchTaxinv: 0)+parseInt(!isNaN(vatPurchFixedAssetTaxinv)? vatPurchFixedAssetTaxinv: 0)+parseInt(!isNaN(vatPurchPlnDeclOmi)? vatPurchPlnDeclOmi:0)+parseInt(!isNaN(vatBuyerTaxinv)? vatBuyerTaxinv:0)+parseInt(!isNaN(vatPurchEtcDeduct)? vatPurchEtcDeduct: 0))-(!isNaN(this.grid.getCellValue(0,84))?this.grid.getCellValue(0,84):0)"/>
+                <Cell row="17" colspan="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="납부(환급) 세액   ( 매출세액 ㉮- 매입세액 ㉯ )"/>
+                <Cell row="17" col="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="㉰"/>
+                <Cell row="17" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:this.grid.getCellText(0,47)-this.grid.getCellText(0,89)"/>
+                <Cell row="18" rowspan="3" celltype="head" displaytype="normal">
+                  <Cell celltype="head" text="경감"/>
+                  <Cell row="1" celltype="head" text="공제"/>
+                  <Cell row="2" celltype="head" text="세액"/>
+                </Cell>
+                <Cell row="18" col="1" colspan="2" celltype="head" displaytype="normal" text="기  타  공  제  .  경  감  세  액"/>
+                <Cell row="18" col="3" celltype="head" displaytype="normal" text="18"/>
+                <Cell row="18" col="4" celltype="head" displaytype="normal" style="background:silver;" text="bind:etcDeductReductTaxAmt"/>
+                <Cell row="18" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="18" col="6" displaytype="normal" edittype="normal" text="bind:vatEtcDeductReduct"/>
+                <Cell row="19" col="1" colspan="2" celltype="head" displaytype="normal" text="신용카드  매출전표  발행공제"/>
+                <Cell row="19" col="3" celltype="head" displaytype="normal" text="19"/>
+                <Cell row="19" col="4" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="19" col="5" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="19" col="6" displaytype="normal" edittype="normal" text="bind:vatSalesCcardDeduct"/>
+                <Cell row="20" col="1" colspan="2" celltype="head" displaytype="normal" style="background:cornsilk;" text="합                                계"/>
+                <Cell row="20" col="3" celltype="head" displaytype="normal" style="background:cornsilk;" text="20"/>
+                <Cell row="20" col="4" celltype="head" displaytype="normal" style="background:cornsilk;"/>
+                <Cell row="20" col="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="㉱"/>
+                <Cell row="20" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:parseInt(!isNaN(vatEtcDeductReduct)? vatEtcDeductReduct: 0)+parseInt(!isNaN(vatSalesCcardDeduct)? vatSalesCcardDeduct: 0)"/>
+                <Cell row="21" colspan="3" celltype="head" displaytype="normal" text="예 정 신 고 미 환 급 세 액"/>
+                <Cell row="21" col="3" celltype="head" displaytype="normal" text="21"/>
+                <Cell row="21" col="4" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="21" col="5" celltype="head" displaytype="normal" text="㉲"/>
+                <Cell row="21" col="6" displaytype="normal" edittype="normal" text="bind:vatPlnDeclNonRefund"/>
+                <Cell row="22" colspan="3" celltype="head" displaytype="normal" text="예  정  고  지  세  액"/>
+                <Cell row="22" col="3" celltype="head" displaytype="normal" text="22"/>
+                <Cell row="22" col="4" celltype="head" displaytype="normal" style="background:silver;"/>
+                <Cell row="22" col="5" celltype="head" displaytype="normal" text="㉳"/>
+                <Cell row="22" col="6" displaytype="normal" edittype="normal" text="bind:vatPlnNoti"/>
+                <Cell row="23" colspan="3" celltype="head" displaytype="normal" text="가   산   세   액   계"/>
+                <Cell row="23" col="3" celltype="head" displaytype="normal" text="23"/>
+                <Cell row="23" col="4" celltype="head" displaytype="normal" style="background:silver;" text="bind:sumTaxdef"/>
+                <Cell row="23" col="5" celltype="head" displaytype="normal" text="㉴"/>
+                <Cell row="23" col="6" displaytype="normal" edittype="normal" text="bind:vatSumTaxdef"/>
+                <Cell row="24" colspan="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="차감ㆍ가감하여 납부할 세액(환급받을 세액) (㉰-㉱-㉲-㉳+㉴)"/>
+                <Cell row="24" col="5" celltype="head" displaytype="normal" style="background:cornsilk;" text="24"/>
+                <Cell row="24" col="6" celltype="none" displaytype="normal" style="background:cornsilk;" expr="expr:(!isNaN(this.grid.getCellText(0,92))? this.grid.getCellText(0,92): 0)-(!isNaN(this.grid.getCellText(0,108))? this.grid.getCellText(0,108): 0)-(!isNaN(this.grid.getCellText(0,113))? this.grid.getCellText(0,113): 0)-(!isNaN(this.grid.getCellText(0,118))? this.grid.getCellText(0,118): 0)+(!isNaN(this.grid.getCellText(0,123))? this.grid.getCellText(0,123): 0)"/>
+                <Cell row="25" colspan="6" celltype="head" displaytype="normal" style="background:cornsilk;" text="총괄 납부 사업자가 납부할 세액 (환급받을 세액)"/>
+                <Cell row="25" col="6" celltype="summary" displaytype="normal" style="background:cornsilk;" expr="expr:(!isNaN(this.grid.getCellText(0,92))? this.grid.getCellText(0,92): 0)-(!isNaN(this.grid.getCellText(0,108))? this.grid.getCellText(0,108): 0)-(!isNaN(this.grid.getCellText(0,113))? this.grid.getCellText(0,113): 0)-(!isNaN(this.grid.getCellText(0,118))? this.grid.getCellText(0,118): 0)+(!isNaN(this.grid.getCellText(0,123))? this.grid.getCellText(0,123): 0)"/>
+                <Cell row="26" celltype="summary" expr="expr:this.grid.getCellText(0,45)"/>
+                <Cell row="26" col="1" celltype="summary" expr="expr:this.grid.getCellValue(0,2)"/>
+                <Cell row="26" col="2" celltype="summary" expr="expr:this.grid.getCellText(0,92)"/>
+                <Cell row="26" col="3" celltype="summary"/>
+                <Cell row="26" col="4" celltype="none" expr="expr:this.grid.getCellText(0,92)"/>
+                <Cell row="26" col="5" celltype="summary"/>
+                <Cell row="26" col="6" celltype="summary" expr="expr:parseInt(this.grid.getCellText(0,89))"/>
+                <Cell row="27" celltype="summary" text="expr:this.grid.getCellValue(0,10)"/>
+                <Cell row="27" col="1" celltype="summary" expr="expr:this.grid.getCellValue(0,20)"/>
+                <Cell row="27" col="2" celltype="summary" expr="expr:(!isNaN(this.grid.getCellText(0,92))? this.grid.getCellText(0,92): 0)"/>
+                <Cell row="27" col="3" celltype="summary"/>
+                <Cell row="27" col="4" celltype="summary" expr="expr:this.grid.getCellText(0,47)"/>
+                <Cell row="27" col="5" celltype="summary"/>
+                <Cell row="27" col="6" celltype="summary" expr="expr:this.grid.getCellText(0,89)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="stc_ask_date00" taborder="12" text="세금계산서" left="49.76%" top="82" right="41.92%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv2" taborder="13" text="매입/매출" left="2.56%" top="190" right="91.12%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="purchSaleCombo" taborder="14" innerdataset="dsPurchSalesDiv" codecolumn="code" datacolumn="value" left="9.76%" top="190" right="81.44%" height="28"/>
+        <Button id="batchVATDeclBtn" taborder="15" cssclass="DelBtn" left="1144" top="720" width="90" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="addVATDeclBtn" taborder="16" left="1040" top="720" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="addVATDeclBtn_onclick"/>
+        <Edit id="subtracTaxAmtEd" taborder="17" left="30.4%" top="153" right="63.04%" height="28"/>
+        <Static id="stc_ask_date05" taborder="18" text="차감세" left="25.84%" top="153" right="69.68%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsVatDecl">
+        <ColumnInfo>
+          <Column id="purchPlnDeclOmi" type="undefined" size="100"/>
+          <Column id="salesPlnDeclOmi" type="undefined" size="100"/>
+          <Column id="vatSalesBdtc" type="undefined" size="100"/>
+          <Column id="vatPurchEtcDeduct" type="undefined" size="100"/>
+          <Column id="buyerTaxinv" type="undefined" size="100"/>
+          <Column id="vatPurchNonDeduct" type="undefined" size="100"/>
+          <Column id="salesZtrEtc" type="undefined" size="100"/>
+          <Column id="salesBuyerTaxinv" type="undefined" size="100"/>
+          <Column id="salesZtrTaxinv" type="undefined" size="100"/>
+          <Column id="vatPlnNoti" type="undefined" size="100"/>
+          <Column id="salesTaxinv" type="undefined" size="100"/>
+          <Column id="purchTaxinv" type="undefined" size="100"/>
+          <Column id="salesCcardDeduct" type="undefined" size="100"/>
+          <Column id="vatBuyerTaxinv" type="undefined" size="100"/>
+          <Column id="vatPurchTaxinv" type="undefined" size="100"/>
+          <Column id="vatSalesEtc" type="undefined" size="100"/>
+          <Column id="purchEtcDeduct" type="undefined" size="100"/>
+          <Column id="purchNonDeduct" type="undefined" size="100"/>
+          <Column id="vatSumTaxdef" type="undefined" size="100"/>
+          <Column id="vatSalesTaxinv" type="undefined" size="100"/>
+          <Column id="salesEtc" type="undefined" size="100"/>
+          <Column id="declYear" type="undefined" size="100"/>
+          <Column id="declPrid" type="undefined" size="100"/>
+          <Column id="purchFixedAssetTaxinv" type="undefined" size="100"/>
+          <Column id="vatEtcDeductReduct" type="undefined" size="100"/>
+          <Column id="vatSalesCcardDeduct" type="undefined" size="100"/>
+          <Column id="vatPlnDeclNonRefund" type="undefined" size="100"/>
+          <Column id="vatPurchFixedAssetTaxinv" type="undefined" size="100"/>
+          <Column id="vatPurchPlnDeclOmi" type="undefined" size="100"/>
+          <Column id="vatSalesCcardCreceipt" type="undefined" size="100"/>
+          <Column id="salesCcardCreceipt" type="undefined" size="100"/>
+          <Column id="vatSalesBuyerTaxinv" type="undefined" size="100"/>
+          <Column id="vatSalesPlnDeclOmi" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="100"/>
+          <Column id="URL" type="STRING" size="100"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findTaxInvList</Col>
+            <Col id="inData"/>
+            <Col id="URL">his::acc/vat/findTaxInvList.do</Col>
+            <Col id="callbackFunc">texinvCallBack</Col>
+            <Col id="outData">dsTaxInv=dsTaxInv dsDetailTaxInv=dsDetailTaxInv</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchAtTaxInvProcess</Col>
+            <Col id="URL">his::acc/vat/batchAtTaxInvProcess.do</Col>
+            <Col id="inData">dsTaxInv=dsTaxInv:U dsDetailTaxInv=dsDetailTaxInv:U</Col>
+            <Col id="callbackFunc">texinvCallBack</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findCustList</Col>
+            <Col id="URL">his::log/baseInfo/findCustList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsCust=dsCust</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBindCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="dsName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">GA074</Col>
+            <Col id="dsName">dsBillDiv</Col>
+          </Row>
+          <Row>
+            <Col id="dsName">dsAnspDiv</Col>
+            <Col id="code">GA087</Col>
+          </Row>
+          <Row>
+            <Col id="code">GA073</Col>
+            <Col id="dsName">dsPubDiv</Col>
+          </Row>
+          <Row>
+            <Col id="code">GA075</Col>
+            <Col id="dsName">dsPurchSalesDiv</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBillDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsSearchCondition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="tableName" type="STRING" size="256"/>
+          <Column id="columnName" type="STRING" size="256"/>
+          <Column id="columnValue" type="STRING" size="256"/>
+          <Column id="operator" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsPurchSalesDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDeclPrid" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="declPrid" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="declPrid">1</Col>
+          </Row>
+          <Row>
+            <Col id="declPrid">2</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCheckBox" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="select" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="select">전체</Col>
+          </Row>
+          <Row>
+            <Col id="select">매입</Col>
+          </Row>
+          <Row>
+            <Col id="select">매출</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsPubDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTaxInv">
+        <ColumnInfo>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="custCd" type="undefined" size="100"/>
+          <Column id="pubDiv" type="undefined" size="100"/>
+          <Column id="abs" type="undefined" size="100"/>
+          <Column id="anspDiv" type="undefined" size="100"/>
+          <Column id="sumPrice" type="undefined" size="100"/>
+          <Column id="slipNo" type="undefined" size="100"/>
+          <Column id="gipyoDate" type="undefined" size="100"/>
+          <Column id="resolNo" type="undefined" size="100"/>
+          <Column id="billDiv" type="undefined" size="100"/>
+          <Column id="purchSalesDiv" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsAnspDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDetailTaxInv" onvaluechanged="dsDetailTaxInv_onvaluechanged">
+        <ColumnInfo>
+          <Column id="no" type="undefined" size="100"/>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="stand" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="dedYn" type="undefined" size="100"/>
+          <Column id="qnt" type="undefined" size="100"/>
+          <Column id="fm" type="undefined" size="100"/>
+          <Column id="price" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[ /*******************************************************************************
+*                                                                               *
+* @Path		    세금계산서 관리							                 	*
+* @Description  부가가치세                                 	                *
+* 																				*
+*																				*
+* @Author	 정재욱    					                             		*
+* 									                                            *
+* Created on 2016. 06. 07                             		                    *
+*									                                            *
+********************************************************************************/
+
+/********************************************************************************
+ 공통스크립트 include
+********************************************************************************/
+include "scripts::commonTransaction.xjs";  
+include "scripts::commonBind.xjs";
+
+/********************************************************************************
+  폼 로드 이벤트
+********************************************************************************/
+
+this.AT_VatDedForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfnBind();
+}
+
+/********************************************************************************
+  세금 계산서 조회
+********************************************************************************/
+
+this.taxinvDiv_declYearSpin_ontextchanged = function(obj:Spin, e:nexacro.TextChangedEventInfo)
+{
+	this.setPeriod();
+}
+
+this.taxinvDiv_declPridCombo_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.setPeriod();
+}
+
+//신고년도 기수 입력시 기간 설정
+this.setPeriod = function(){
+    var declYear = this.taxinvDiv.declYearSpin.value;
+    var declPrid = this.taxinvDiv.declPridCombo.value;
+    var sDay;
+    var eDay;
+    if(declYear != null && declPrid == 1){
+		sDay = declYear+"0101";
+		eDay = declYear+"0630";
+	}else if(declYear != null && declPrid == 2){
+		sDay = declYear+"0701";
+		eDay = declYear+"1231";
+	}
+	this.dsVatDecl.setColumn(0,"declYear",declYear);
+	this.dsVatDecl.setColumn(0,"declPrid",declPrid);
+	this.taxinvDiv.sDayCal.set_value(sDay);
+	this.taxinvDiv.eDayCal.set_value(eDay);
+}
+
+//Checked Box 클릭 이벤트
+this.taxinvDiv_Radio00_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	if(obj.value == "전체"){
+		this.dsAtTaxinv.filter("");
+	}else if(obj.value == "매입"){
+		this.dsAtTaxinv.filter("purchSalesDiv == 2");
+	}else if(obj.value == "매출"){
+		this.dsAtTaxinv.filter("purchSalesDiv == 1");
+	}
+}
+
+//조회 기간에 따른 조회
+this.taxinvDiv_searchAtaxinvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var argument = "";
+	if(this.taxinvDiv.sDayCal.value != null){
+		var startDay = this.taxinvDiv.sDayCal.value;
+		argument = "startPubDate='"+startDay+"'";
+	}
+	if(this.taxinvDiv.eDayCal.value != null){
+		var endDay = this.taxinvDiv.eDayCal.value;
+		argument = argument+" endPubDate='"+endDay+"'";
+	}		
+	if(this.purchSaleCombo.value != null){
+		var purchSales = this.purchSaleCombo.value;
+		argument = argument+" purchSalesDiv='"+purchSales+"'";
+	}
+	if(argument != ""){
+		this.dsService.setColumn(0,"argument",argument);
+	}
+	this.gfnService("findTaxInvList");
+
+}
+
+/********************************************************************************
+  부가가치세 계산
+********************************************************************************/
+
+// 세금 계산서 조회에 따른 부가가치세 계산
+this.texinvCallBack = function(strSvcID, nErrorCode, strErrorMag){
+	if(strSvcID == "findTaxInvList" && nErrorCode == 1){
+		if(this.dsTaxInv.rowcount == 0){
+			alert("조회된 세금 계산서가 없습니다.");
+		}
+		else{
+			this.dsVatDecl.deleteAll();
+			this.dsVatDecl.addRow();
+			//매입 계산
+			this.dsTaxInv.filter("purchSalesDiv == '2'");
+			this.dsVatDecl.setColumn(0,"purchTaxinv",this.dsTaxInv.getCaseSum("1>0","splyPrice"));
+			this.dsVatDecl.setColumn(0,"vatPurchTaxinv",this.dsTaxInv.getCaseSum("1>0","taxAmt"));
+
+			//매출 계산
+			this.dsTaxInv.filter("purchSalesDiv == '1'");
+			this.dsVatDecl.setColumn(0,"salesTaxinv",this.dsTaxInv.getCaseSum("1>0","splyPrice"));
+			this.dsVatDecl.setColumn(0,"vatSalesTaxinv",this.dsTaxInv.getCaseSum("1>0","taxAmt"));
+			
+			this.dsVatDecl.filter("");
+			trace(this.dsVatDecl.saveXML());
+		}
+	}
+}
+
+/*******************************************************1*************************
+  매출세/매입세/차감세/부가율을 구하는 함수
+*********************************************************************************/
+this.fnSetTaxAmt = function()
+{
+	var salesTaxAmt = this.AtVatDeclGrid.getCellText(0,47);
+	var purchTaxAmt = this.AtVatDeclGrid.getCellText(0,79);
+	var subtracTaxAmt = this.AtVatDeclGrid.getCellText(0,89);
+	var vatRate = !isNaN(salesTaxAmt-purchTaxAmt)/(salesTaxAmt*100)?(salesTaxAmt-purchTaxAmt)/(salesTaxAmt*100):0;
+	vatRate.toFixed(5);
+	this.taxinvDiv.salesTaxAmtEd.set_value(salesTaxAmt);
+	this.purchTaxAmtEd.set_value(purchTaxAmt);
+	this.subtracTaxAmtEd.set_value(subtracTaxAmt);
+	this.vatRateEd.set_value(vatRate);
+
+}
+
+
+/*******************************************************1*************************
+ 부가가치세신고 그리드 등록 상태로 변경
+*********************************************************************************/
+this.addVATDeclBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.AtVatDeclGrid.set_enable(true);
+}
+
+this.taxinvDiv_searchAtaxinvBtn_onmouseleave = function(obj:Button, e:nexacro.MouseEventInfo)
+{
+	this.fnSetTaxAmt();
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="BBP_SelectDailyPatientForm" classname="BBP_SelectDailyPatientForm" left="0" top="0" width="1250" height="774" titletext="New Form">
+  <Form id="BBP_SelectDailyPatientForm" classname="BBP_SelectDailyPatientForm" left="0" top="0" width="1250" height="774" titletext="New Form" oninit="BBP_SelectDailyPatientForm_oninit">
     <Layouts>
       <Layout>
         <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar5.jpg');">
@@ -330,6 +330,11 @@ this.Button11_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 }
 
 
+
+this.BBP_SelectDailyPatientForm_oninit = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.WebBrowser00.set_url("http://localhost:8282/his/wc.html");
+}
 ]]></Script>
   </Form>
 </FDL>

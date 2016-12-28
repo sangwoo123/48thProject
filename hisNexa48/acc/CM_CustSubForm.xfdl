@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CM_CustSubForm" classname="CM_CustSubForm" left="0" top="0" width="500" height="400" titletext="New Form" onload="CM_CustSubForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="titleEdit" taborder="0" left="0%" top="-12" width="500" height="60" style="align:left middle;background:transparent URL('img::titleBar6.jpg');font:bold 15 Dotum;" cssclass="TStc" text="       거래처">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="stc_ask_date" taborder="1" text="업태명" left="4%" top="48" right="81.6%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="filterCombo" taborder="2" left="20%" top="48" right="53.2%" height="28" innerdataset="@dsfilter" codecolumn="업종명" datacolumn="업종명" onitemchanged="filterCombo_onitemchanged"/>
+        <Grid id="Grid00" taborder="3" useinputpanel="false" left="835.4%" top="85" right="-735.4%" height="308" binddataset="dsCust" autofittype="col" oncelldblclick="Grid00_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="220"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사업자번호"/>
+                <Cell col="1" text="사업장명"/>
+                <Cell col="2" text="대표자명"/>
+                <Cell col="3" text="주소"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:bussNo"/>
+                <Cell col="1" text="bind:custNm"/>
+                <Cell col="2" text="bind:prsdntNm"/>
+                <Cell col="3" text="bind:addr"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="customerGrid" taborder="4" binddataset="dsCust" useinputpanel="false" autofittype="col" left="4%" top="83" right="3.6%" height="300" oncelldblclick="customerGrid_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="85"/>
+                <Column size="85"/>
+                <Column size="85"/>
+                <Column size="205"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="사업자번호"/>
+                <Cell col="1" text="사업장명"/>
+                <Cell col="2" text="대표자명"/>
+                <Cell col="3" text="주소"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:bussNo"/>
+                <Cell col="1" text="bind:custNm"/>
+                <Cell col="2" text="bind:prsdntNm"/>
+                <Cell col="3" text="bind:addr"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsfilter" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="업종명" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="업종명">도매</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">소매</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">도-소매</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">건설</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">제조</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">서비스</Col>
+          </Row>
+          <Row>
+            <Col id="업종명">전기</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="100"/>
+          <Column id="URL" type="STRING" size="100"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="URL">his::log/base/findCustList.do</Col>
+            <Col id="serviceID">findCustList</Col>
+            <Col id="outData">dsCust=dsCust</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsCust">
+        <ColumnInfo>
+          <Column id="accNo" type="undefined" size="100"/>
+          <Column id="telNo" type="undefined" size="100"/>
+          <Column id="bussNo" type="undefined" size="100"/>
+          <Column id="bankCd" type="undefined" size="100"/>
+          <Column id="busCtgNm" type="undefined" size="100"/>
+          <Column id="faxNo" type="undefined" size="100"/>
+          <Column id="prsdntNm" type="undefined" size="100"/>
+          <Column id="custCd" type="undefined" size="100"/>
+          <Column id="adptDt" type="undefined" size="100"/>
+          <Column id="addr" type="undefined" size="100"/>
+          <Column id="resNo" type="undefined" size="100"/>
+          <Column id="busShpNm" type="undefined" size="100"/>
+          <Column id="custNm" type="undefined" size="100"/>
+          <Column id="zipCd" type="undefined" size="100"/>
+          <Column id="dpstr" type="undefined" size="100"/>
+          <Column id="cardYn" type="undefined" size="100"/>
+          <Column id="gpUseYn" type="undefined" size="100"/>
+          <Column id="riUseYn" type="undefined" size="100"/>
+          <Column id="hospCls" type="undefined" size="100"/>
+          <Column id="useYn" type="undefined" size="100"/>
+          <Column id="gdUseYn" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[ /********************************************************************************
+*                                                                               *
+* 세금 계산서 관리           												    *
+*                                                                               *
+* @Path		    세금계산서 관리							                 	*
+* @Description  부가가치세 신고를 위한 세금계산서 관리 	                *
+* 																				*
+*																				*
+* @Author	 정재욱    					                             		*
+* 									                                            *
+* Created on 2016. 06. 02                             		                    *
+*									                                            *
+********************************************************************************/
+
+/********************************************************************************
+ 공통스크립트 include
+********************************************************************************/
+
+include "scripts::commonTransaction.xjs";
+include "scripts::commonBind.xjs";
+
+/********************************************************************************
+  폼 로드 이벤트
+********************************************************************************/
+
+this.CM_CustSubForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	// 거래처 정보를 가지고 온다.
+	this.gfnService("findCustList");
+}
+
+/********************************************************************************
+  콤보 필터
+********************************************************************************/
+
+//콤보 선택에 따른 필터
+this.filterCombo_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	var filter = this.filterCombo.value
+	this.dsCust.filter("");
+	var rows = this.dsCust.rowcount;
+	for(var i = 0; i<rows; i++){
+		this.dsCust.filter("String(busShpNm).indexOf('"+filter+"') >= 0");
+	}
+}
+
+/********************************************************************************
+  거래처 선택시
+********************************************************************************/
+
+this.customerGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var v = application.getActiveForm().purchSaleCombo.value;
+	alert(v);
+	var row = this.dsCust.rowposition;
+	//매출
+	if(v == 1){
+		application.getActiveForm().salesAddrEd.set_value(this.dsCust.getColumn(row,"addr"));
+		application.getActiveForm().salesBusctgnmEd.set_value(this.dsCust.getColumn(row,"busCtgNm"));
+		application.getActiveForm().salesBussHpnmEd.set_value(this.dsCust.getColumn(row,"busShpNm"));
+		application.getActiveForm().salesCustnmEd.set_value(this.dsCust.getColumn(row,"custNm"));
+		application.getActiveForm().salesPrsdntnmEd.set_value(this.dsCust.getColumn(row,"prsdntNm"));
+	//매입
+	}else if(v == 2){
+		application.getActiveForm().salesAddrEd.set_value(this.dsCust.getColumn(row,"addr"));
+		application.getActiveForm().salesBusctgnmEd.set_value(this.dsCust.getColumn(row,"busCtgNm"));
+		application.getActiveForm().salesBussHpnmEd.set_value(this.dsCust.getColumn(row,"busShpNm"));
+		application.getActiveForm().salesCustnmEd.set_value(this.dsCust.getColumn(row,"custNm"));
+		application.getActiveForm().salesPrsdntnmEd.set_value(this.dsCust.getColumn(row,"prsdntNm"));
+	}
+	var custCd = this.dsCust.getColumn(row,"custCd");
+		alert(1);
+	application.getActiveForm().dsAtTaxinv.setColumn(application.getActiveForm().dsAtTaxinv.rowposition,"custCd",custCd);
+	this.parent.destroy();
+}
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>

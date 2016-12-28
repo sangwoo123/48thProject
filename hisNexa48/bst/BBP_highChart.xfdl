@@ -41,7 +41,7 @@ this.BBP_highChart_oninit = function(obj:Form, e:nexacro.InitEventInfo)
 	var jsonText3=jsonText1.slice(0,-1);
 	var jsonText4=jsonText2.slice(0,-1);
 
-var strUrl ="http://www.matcl.com/chart/Area.html?"+jsonText3+"-"+jsonText4;
+var strUrl ="http://localhost:8282/his/Area.html?"+jsonText3+"-"+jsonText4;
 this.WebBrowser00.set_url(strUrl);
 }
 ]]></Script>

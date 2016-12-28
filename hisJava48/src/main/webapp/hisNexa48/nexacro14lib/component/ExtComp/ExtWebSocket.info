@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<MetaInfo version="1.0">
+    <Object id="nexacro.ExtWebSocket"> 
+
+        <!-- define extend component based nexacro.Combo -->
+        <ObjectInfo 
+            inheritance="nexacro.Static"
+            typename="nexacro.ExtWebSocket"
+            csstypename="Static"
+            group="UIComponent"
+            csspseudo="true"
+            container="false"
+            composite="true"
+            tabstop="false"
+            cssstyle="true"
+            contents="true"
+            formats="false"
+            contentseditor="auto"
+            defaultwidth="300"
+            defaultheight="200"
+            requirement="Runtime,HTML5"
+            description=""/> 
+        
+        <PseudoInfo> 
+            <Pseudo 
+                name="pushed" 
+                control="true" 
+                deprecated="false" 
+                unused="false" 
+            /> 
+            <Pseudo 
+                name="focused" 
+                control="true" 
+                deprecated="false" 
+                unused="true" 
+            />
+        </PseudoInfo> 
+
+        <ControlInfo>
+        </ControlInfo>
+
+
+        <PropertyInfo> 
+         </PropertyInfo> 
+
+        
+        <MethodInfo>
+            <Method
+                name="wsstart"
+                group=""
+                async="false"
+                deprecated="false"
+                unused="false"
+                requirement="Runtime,HTML5"
+                description="this is test method"
+            >
+                <Syntax
+                    text = "testFunc(a [, b])"
+                >
+                <Return/>
+                <Arguments>
+                </Arguments>
+                </Syntax>
+            </Method>
+            <Method
+                name="wsstop"
+                group=""
+                async="false"
+                deprecated="false"
+                unused="false"
+                requirement="Runtime,HTML5"
+                description="this is test method"
+            >
+                <Syntax
+                    text = "testFunc(a [, b])"
+                >
+                <Return/>
+                <Arguments>
+                </Arguments>
+                </Syntax>
+            </Method>
+            <Method
+                name="wsbroadcast"
+                group=""
+                async="false"
+                deprecated="false"
+                unused="false"
+                requirement="Runtime,HTML5"
+                description="this is test method"
+            >
+                <Syntax
+                    text = "testFunc(a [, b])"
+                >
+                <Return/>
+                <Arguments>
+                </Arguments>
+                </Syntax>
+            </Method>
+        </MethodInfo>
+        
+
+        <EventHandlerInfo>
+            <!-- define event -->
+            <EventHandler
+                name="onbroadcast"
+                group="Event"
+                deprecated="false"
+                unused="false"
+                requirement="Runtime,HTML5"
+                description="this is test event"
+            >
+                <Syntax
+                    text="onbroadcast(obj:Object, e:nexacro.EventInfo)"
+                >
+                    <Return/>
+                    <Arguments>
+                        <Argument 
+                            name="obj" 
+                            type="Object" 
+                            in="true" 
+                            out="false" 
+                            option="false" 
+                            variable="false" 
+                            description="Event Source Object" 
+                        /> 
+                        <Argument 
+                            name="e" 
+                            type="nexacro.EventInfo" 
+                            in="true" 
+                            out="false" 
+                            option="false" 
+                            variable="false" 
+                            description="Event Information Object" 
+                        /> 
+                    </Arguments>
+                </Syntax>
+            </EventHandler>
+        </EventHandlerInfo>
+    </Object> 
+</MetaInfo>
