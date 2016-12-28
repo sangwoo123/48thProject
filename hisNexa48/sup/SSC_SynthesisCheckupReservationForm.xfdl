@@ -182,11 +182,11 @@
           <Layouts>
             <Layout>
               <Div id="Div02" taborder="0" text="기본검사금액" left="0.75%" top="6" right="84.98%" height="27" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:10 돋움;"/>
-              <MaskEdit id="basicInspSumAmtEd" taborder="1" mask="###,###" left="15.62%" top="6" height="27" width="100"/>
+              <MaskEdit id="basicInspSumAmtEd" taborder="1" mask="###,###" left="15.62%" top="6" height="27" width="100" enable="false"/>
               <Div id="Div05" taborder="2" text="선택검사금액" left="31.53%" top="6" right="54.35%" height="27" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:10 돋움;"/>
-              <MaskEdit id="choInspAmtEd" taborder="3" mask="###,###" left="46.55%" top="6" height="27" width="100"/>
+              <MaskEdit id="choInspAmtEd" taborder="3" mask="###,###" left="46.55%" top="6" height="27" width="100" enable="false"/>
               <Div id="Div04" taborder="4" text="총수납금액" left="62.46%" top="6" right="24.32%" height="27" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:10 돋움;"/>
-              <MaskEdit id="inspSumAmtEd" taborder="5" mask="###,###" left="76.58%" top="6" height="27" width="150"/>
+              <MaskEdit id="inspSumAmtEd" taborder="5" mask="###,###" left="76.58%" top="6" height="27" width="150" enable="false"/>
             </Layout>
           </Layouts>
         </Div>

@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.msv.mcm.patientservice.service.PatientServiceServiceFacade;
-import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrPrescBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrTransfusionBean;
 
  /**
  * <pre>
@@ -40,7 +41,7 @@ public class EmrController {
         PlatformData inData = (PlatformData) request.getAttribute("inData");
         PlatformData outData = (PlatformData) request.getAttribute("outData");
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-        List<EmrBean> emrList = patientserviceServiceFacade.findEmrList(argsMap);
-        dataSetBeanMapper.beansToDataset(outData, emrList, EmrBean.class);
+        List<EmrPrescBean> emrList = patientserviceServiceFacade.findEmrPrescList(argsMap);
+        dataSetBeanMapper.beansToDataset(outData, emrList, EmrPrescBean.class);
     }
 }

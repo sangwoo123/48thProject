@@ -9,4 +9,6 @@ public interface ServiceApplicationService {
     public List<ServiceBean> findService(Map<String, String> argsMap);
 
     public void batchErrorProcess(List<ServiceBean> service);
+
+	public void insertLog(String id, String time);
 }
