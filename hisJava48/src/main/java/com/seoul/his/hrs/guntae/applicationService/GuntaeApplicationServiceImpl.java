@@ -6,10 +6,20 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.hrs.guntae.dao.GuntaeDAO;
+import com.seoul.his.hrs.guntae.dao.HdayDAO;
+import com.seoul.his.hrs.guntae.dao.HolidayDAO;
 import com.seoul.his.hrs.guntae.dao.InoutWorkTimeDAO;
 import com.seoul.his.hrs.guntae.dao.OverTimeWorkDAO;
+import com.seoul.his.hrs.guntae.dao.YeonchaDAO;
+import com.seoul.his.hrs.guntae.to.DayGuntaeBean;
+import com.seoul.his.hrs.guntae.to.HdayBean;
+import com.seoul.his.hrs.guntae.to.HolidayBean;
 import com.seoul.his.hrs.guntae.to.InoutWorkTimeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeBean;
+import com.seoul.his.hrs.guntae.to.MonGuntaeCloseBean;
 import com.seoul.his.hrs.guntae.to.OverTimeWorkBean;
+import com.seoul.his.hrs.guntae.to.YeonchaBean;
 
 /**
  * <pre>
@@ -28,6 +38,14 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
     InoutWorkTimeDAO inoutWorkTimeDAO;
 	@Autowired
 	OverTimeWorkDAO overTimeWorkDAO;
+	@Autowired
+	HolidayDAO holidayDAO;
+	@Autowired
+	YeonchaDAO yeonchaDAO;
+	@Autowired
+	HdayDAO hdayDAO;
+	@Autowired
+	GuntaeDAO guntaeDAO;
 
 	 //출퇴근시간 조회
     @Override
@@ -66,7 +84,6 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
     //시간외근무 일괄처리
     @Override
     public void batchOverTimeWorkProcess(List<OverTimeWorkBean> list) {
-        System.out.println("시간외근무 일괄처리 AS");
         for(OverTimeWorkBean overTimeWorkbean : list){
 
             switch(overTimeWorkbean.getStatus()){
@@ -83,6 +100,142 @@ public class GuntaeApplicationServiceImpl implements GuntaeApplicationService{
         }
 
     }
+
+    //개인휴가 조회
+    @Override
+    public List<HolidayBean> findHolidayList(Map<String, String> argsMap) {
+        return holidayDAO.selectHolidayList(argsMap);
+    }
+
+    //관리자 휴가신청 조회
+    @Override
+    public List<HolidayBean> findAdminHolidayList(Map<String, String> argsMap) {
+        return holidayDAO.selectAdminHolidayList(argsMap);
+    }
+
+  //휴가신청 일괄처리
+    @Override
+    public void batchHolidayProcess(List<HolidayBean> list) {
+        System.out.println("일괄처리 AS타나?");
+        for(HolidayBean holidayBean : list){
+
+            String appType = holidayBean.getAppType();
+            String holidayStatus = holidayBean.getHolidayStatus();
+
+            switch(holidayBean.getStatus()){
+
+            case "inserted" : holidayDAO.callHoliday(holidayBean);break;
+            case "updated" : holidayDAO.updateHoliday(holidayBean);break;
+
+            }
+
+        }
+
+    }
+
+  //연차 조회
+    @Override
+    public List<YeonchaBean> findYeonchaList(Map<String, String> argsMap) {
+        return yeonchaDAO.selectYeonchaList(argsMap);
+    }
+
+    //연차발생
+    @Override
+    public List<YeonchaBean> callYeoncha(Map<String, String> argsMap) {
+        System.out.println("연차발생 applicationService");
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<YeonchaBean> callYeon = yeonchaDAO.callYeoncha(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }
+        return callYeon;
+    }
+
+    //휴일 조회
+    @Override
+    public List<HdayBean> findHdayList(Map<String, String> argsMap) {
+        return hdayDAO.selectHdayList(argsMap);
+    }
+
+    //휴일 일괄처리
+    @Override
+    public void batchHdayProcess(List<HdayBean> list) {
+
+        for(HdayBean hdayBean : list){
+
+            switch (hdayBean.getStatus()) {
+            case "inserted" : hdayDAO.callHday(hdayBean); break;
+            case "updated" : hdayDAO.callHday(hdayBean); break;
+            case "deleted" : hdayDAO.deleteHday(hdayBean); break;
+
+            }
+
+        }
+
+    }
+
+  //일근태 생성
+    @Override
+    public List<DayGuntaeBean> createDayGuntae(Map<String, String> argsMap) {
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<DayGuntaeBean> callDayGuntae = guntaeDAO.callDayGuntae(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }
+        if(argsMap.get("errorCode").equals("1")){
+            System.out.println(argsMap.get("errorMsg"));
+        }
+        return callDayGuntae;
+    }
+
+    //일근태 조회
+    @Override
+    public List<DayGuntaeBean> findDayGuntaeList(Map<String, String> argsMap) {
+        return guntaeDAO.selectDayGuntaeList(argsMap);
+    }
+
+
+    //월근태 조회
+    @Override
+    public List<MonGuntaeBean> findMonGuntaeList(Map<String, String> argsMap) {
+        return guntaeDAO.selectMonGuntaeList(argsMap);
+    }
+
+    //월근태 생성
+    @Override
+    public List<MonGuntaeBean> createMonGuntae(Map<String, String> argsMap) {
+
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<MonGuntaeBean> callMonGuntae = guntaeDAO.callMonGuntae(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }if(argsMap.get("errorCode").equals("1")){
+            System.out.println(argsMap.get("errorMsg"));
+        }
+        return callMonGuntae;
+    }
+
+    //월근태 마감
+    @Override
+    public List<MonGuntaeCloseBean> closeMonGuntae(Map<String, String> argsMap) {
+
+        argsMap.put("errorCode", "");
+        argsMap.put("errorMsg", "");
+        List<MonGuntaeBean> callCloseMonGuntae = guntaeDAO.callCloseMonGuntae(argsMap);
+        if(argsMap.get("errorCode").equals("-1")){
+            new RuntimeException(argsMap.get("errorMsg"));
+        }if(argsMap.get("errorCode").equals("1")){
+            System.out.println(argsMap.get("errorMsg"));
+        }
+
+        List<MonGuntaeCloseBean> monGuntaeCloseList = guntaeDAO.selectMonGuntaeCloseList(argsMap);
+
+        return monGuntaeCloseList;
+    }
+
 }
 
 

@@ -13,8 +13,9 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.DetailsCheckupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.PackgeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
-
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
 
 
 
@@ -144,64 +145,60 @@ public class ComprehensiveExamServiceFacadeImpl implements ComprehensiveExamServ
         return pckInspList;
     }
     
-  /*   종합검진 접수 - 접수, 예약조회 
+    /*종합검진 접수 - 접수, 예약조회 */
     @Override               
     public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap) {
+    	System.out.println("service");
         Map<String, Object> map = comprehensiveExamApplicationService.findRsvtReceiptList(argsMap);
         return map;
     }
     
-     종합검진 접수 - 예약검사 조회 
+     /*종합검진 접수 - 예약검사 조회 */
     @Override               
     public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap) {
     	SynthesisCheckupReservationBean rsvtBean = comprehensiveExamApplicationService.findRsvtInspList(argsMap);
         return rsvtBean;
     }
     
-     종합검진 접수 - 접수 등록 
+     /*종합검진 접수 - 접수 등록 */
     @Override                
     public void registerReceipt(SynthesisCheckupReceiptBean receiptBean) {
     	comprehensiveExamApplicationService.registerReceipt(receiptBean);
     }
     
-     종합검진 접수 - 접수 취소 
+     /*종합검진 접수 - 접수 취소 */
     @Override                
     public void cancelReceipt(SynthesisCheckupReceiptBean receiptBean) {
     	comprehensiveExamApplicationService.cancelReceipt(receiptBean);
     }
     
-     종합검진 접수 - 접수 저장 
+     /*종합검진 접수 - 접수 저장 */
     @Override               
     public void batchReceiptProcess(Map<String, Object> map) {
     	comprehensiveExamApplicationService.batchReceiptProcess(map);
     }
     
-     종합검진 접수 - 선택검사 일괄처리 
+     /*종합검진 접수 - 선택검사 일괄처리 */
     @Override                
     public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList) {
     	comprehensiveExamApplicationService.batchPckInspProcess(pckInspList);
-    }*/
-
-/*
-
-
-    @Override                 종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap) {
-        List<ReceiptBean> receiptList = supCheckupApplicationService.findReceiptList(argsMap);
+    }
+    
+    @Override                 /*종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap) {
+        List<SynthesisCheckupReceiptBean> receiptList = comprehensiveExamApplicationService.findReceiptList(argsMap);
         return receiptList;
     }
 
-    @Override                 종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap) {
-        List<RsltBean> rsltList = supCheckupApplicationService.findRsltList(argsMap);
+    @Override                 /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap) {
+        List<SynthesisCheckupResultBean> rsltList = comprehensiveExamApplicationService.findRsltList(argsMap);
         return rsltList;
     }
 
-    @Override                 종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList) {
-        supCheckupApplicationService.registerRslt(rsltList);
+    @Override                 /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList) {
+    	comprehensiveExamApplicationService.registerRslt(rsltList);
     }
-*/
-
 
 }

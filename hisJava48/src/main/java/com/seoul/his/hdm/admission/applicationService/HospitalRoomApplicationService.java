@@ -5,8 +5,9 @@ import java.util.Map;
 
 import com.seoul.his.hdm.admission.to.HospitalRoomBean;
 
-public interface HospitalRoomAssignmentApplicationService {
+public interface HospitalRoomApplicationService {
 
 	List<HospitalRoomBean> findHospitalRoomList(Map<String, String> argsMap);
-
+	void batchHospitalRoomProcess(List<HospitalRoomBean> hospitalRoomBeanList);
+	String getHospitalRoomSeq();
 }
