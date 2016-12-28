@@ -212,7 +212,7 @@
                       </Format>
                     </Formats>
                   </Grid>
-                  <Grid id="patientPrescGrid" taborder="8" binddataset="dsPrescValue" useinputpanel="false" autofittype="col" left="356" top="214" width="420" height="181" style="font:9 arial;" oncellclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick">
+                  <Grid id="patientPrescGrid" taborder="8" binddataset="dsPrescValue" useinputpanel="false" autofittype="col" left="356" top="214" width="420" height="181" style="font:9 arial;" oncellclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick" oncelldblclick="disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick">
                     <Formats>
                       <Format id="default">
                         <Columns>
@@ -439,8 +439,8 @@
         <Div id="otherDiv" taborder="14" left="37.2%" top="728" right="17.12%" height="34" style="background:#eceff1ff;">
           <Layouts>
             <Layout>
-              <Button id="returningOutPatBtn" taborder="0" text="외래재진예약" left="31.35%" top="3" right="48.34%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;"/>
-              <Button id="ConsultationTrtmtBtn" taborder="1" text="협의진료의뢰" left="53.94%" top="3" right="25.74%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;"/>
+              <Button id="returningOutPatBtn" taborder="0" text="외래재진예약" left="31.35%" top="3" right="48.34%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_returningOutPatBtn_onclick"/>
+              <Button id="ConsultationTrtmtBtn" taborder="1" text="협의진료의뢰" left="53.94%" top="3" right="25.74%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_ConsultationTrtmtBtn_onclick"/>
               <Button id="dischargeHosBtn" taborder="2" text="퇴원지시" left="76.71%" top="3" right="2.98%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;"/>
               <Div id="Div00" taborder="3" left="0.88%" top="3" right="70.75%" height="27" style="background:#607d8bff;color:#eceff1ff;font:bold 10 돋움;" text="외래/협진/퇴원 신청"/>
             </Layout>
@@ -449,23 +449,23 @@
       </Layout>
     </Layouts>
     <Bind>
-      <BindItem id="item1" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.unitCombo" propid="value" datasetid="dsPrescDtl" columnid="unit"/>
-      <BindItem id="item2" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.timesEd" propid="value" datasetid="dsPrescDtl" columnid="times"/>
+      <BindItem id="item1" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.unitCombo" propid="value" datasetid="dsPrescDtl" columnid="inUnit"/>
+      <BindItem id="item2" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.timesEd" propid="value" datasetid="dsPrescDtl" columnid="inTimes"/>
       <BindItem id="item3" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.numberEd" propid="value" datasetid="dsPrescDtl" columnid="inNumber"/>
       <BindItem id="item4" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.methodEd" propid="value" datasetid="dsPrescDtl" columnid="inMethod"/>
-      <BindItem id="item5" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="insurance"/>
-      <BindItem id="item6" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="emgYn"/>
-      <BindItem id="item7" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.prnCheck" propid="value" datasetid="dsPrescDtl" columnid="prnYn"/>
-      <BindItem id="item8" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.remarkEd" propid="value" datasetid="dsPrescDtl" columnid="remark"/>
+      <BindItem id="item5" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="inInsurance"/>
+      <BindItem id="item6" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="inEmgYn"/>
+      <BindItem id="item7" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.prnCheck" propid="value" datasetid="dsPrescDtl" columnid="inPrnYn"/>
+      <BindItem id="item8" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.remarkEd" propid="value" datasetid="dsPrescDtl" columnid="inRemark"/>
       <BindItem id="item9" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="exEmgYn"/>
       <BindItem id="item10" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.prnCheck" propid="value" datasetid="dsPrescDtl" columnid="exPrnYn"/>
-      <BindItem id="item11" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.nightCheck" propid="value" datasetid="dsPrescDtl" columnid="nightYn"/>
-      <BindItem id="item12" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.Calendar00" propid="value" datasetid="dsPrescDtl" columnid="examWishDate"/>
+      <BindItem id="item11" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.nightCheck" propid="value" datasetid="dsPrescDtl" columnid="exNightYn"/>
+      <BindItem id="item12" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.Calendar00" propid="value" datasetid="dsPrescDtl" columnid="exExamWishDate"/>
       <BindItem id="item13" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.timesEd" propid="value" datasetid="dsPrescDtl" columnid="exTimes"/>
       <BindItem id="item14" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="exInsurance"/>
-      <BindItem id="item15" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.selectCareCheck" propid="value" datasetid="dsPrescDtl" columnid="selectCareYn"/>
-      <BindItem id="item16" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.mtrlCheck" propid="value" datasetid="dsPrescDtl" columnid="mtrlYn"/>
-      <BindItem id="item17" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.antiCheck" propid="value" datasetid="dsPrescDtl" columnid="antiYn"/>
+      <BindItem id="item15" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.selectCareCheck" propid="value" datasetid="dsPrescDtl" columnid="exSelectCareYn"/>
+      <BindItem id="item16" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.mtrlCheck" propid="value" datasetid="dsPrescDtl" columnid="exMtrlYn"/>
+      <BindItem id="item17" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.antiCheck" propid="value" datasetid="dsPrescDtl" columnid="exAntiYn"/>
       <BindItem id="item18" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.remarkEd" propid="value" datasetid="dsPrescDtl" columnid="exRemark"/>
       <BindItem id="item19" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage4.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="hdEmgYn"/>
       <BindItem id="item20" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage4.Div00.reoperCheck" propid="value" datasetid="dsPrescDtl" columnid="hdReoperYn"/>
@@ -477,24 +477,24 @@
       <BindItem id="item26" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="mtEmgYn"/>
       <BindItem id="item27" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.reoperCheck" propid="value" datasetid="dsPrescDtl" columnid="mtReoperYn"/>
       <BindItem id="item28" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.nigthCheck" propid="value" datasetid="dsPrescDtl" columnid="mtNightYn"/>
-      <BindItem id="item29" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.amountEd" propid="value" datasetid="dsPrescDtl" columnid="amount"/>
+      <BindItem id="item29" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.amountEd" propid="value" datasetid="dsPrescDtl" columnid="mtAmount"/>
       <BindItem id="item30" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.startTimeEd" propid="value" datasetid="dsPrescDtl" columnid="mtStarttime"/>
       <BindItem id="item31" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="mtInsurance"/>
       <BindItem id="item32" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.materLocCombo" propid="value" datasetid="dsPrescDtl" columnid="mtMaterLoc"/>
       <BindItem id="item33" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.remarkEd" propid="value" datasetid="dsPrescDtl" columnid="mtRemark"/>
-      <BindItem id="item34" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.takeAwayCombo" propid="value" datasetid="dsPrescDtl" columnid="takeWay"/>
+      <BindItem id="item34" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.takeAwayCombo" propid="value" datasetid="dsPrescDtl" columnid="rbTakeWay"/>
       <BindItem id="item35" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.selectCareCheck" propid="value" datasetid="dsPrescDtl" columnid="rbSelectCareIn"/>
-      <BindItem id="item36" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.daysEd" propid="value" datasetid="dsPrescDtl" columnid="days"/>
+      <BindItem id="item36" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.daysEd" propid="value" datasetid="dsPrescDtl" columnid="rbDays"/>
       <BindItem id="item37" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="rbInsurance"/>
       <BindItem id="item38" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.remarkArea" propid="value" datasetid="dsPrescDtl" columnid="rbRemark"/>
       <BindItem id="item39" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.emgCheck" propid="value" datasetid="dsPrescDtl" columnid="tfEmgYn"/>
       <BindItem id="item40" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.amountEd" propid="value" datasetid="dsPrescDtl" columnid="tfAmount"/>
-      <BindItem id="item41" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.bloodDonorCheck" propid="value" datasetid="dsPrescDtl" columnid="bloodDonor"/>
+      <BindItem id="item41" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.bloodDonorCheck" propid="value" datasetid="dsPrescDtl" columnid="tfBloodDonor"/>
       <BindItem id="item42" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.timesEd" propid="value" datasetid="dsPrescDtl" columnid="tfTimes"/>
       <BindItem id="item43" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.startTimeEd" propid="value" datasetid="dsPrescDtl" columnid="tfStarttime"/>
       <BindItem id="item44" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.insuranceCombo" propid="value" datasetid="dsPrescDtl" columnid="tfInsurance"/>
-      <BindItem id="item45" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.purposeCombo" propid="value" datasetid="dsPrescDtl" columnid="purpose"/>
-      <BindItem id="item46" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.trfuLocCombo" propid="value" datasetid="dsPrescDtl" columnid="trfuLoc"/>
+      <BindItem id="item45" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.purposeCombo" propid="value" datasetid="dsPrescDtl" columnid="tfPurpose"/>
+      <BindItem id="item46" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.trfuLocCombo" propid="value" datasetid="dsPrescDtl" columnid="tfTrfuLoc"/>
       <BindItem id="item47" compid="disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.remarkEd" propid="value" datasetid="dsPrescDtl" columnid="tfRemark"/>
       <BindItem id="item48" compid="patientDiv.searchDeptEd00" propid="value" datasetid="dsOutpaReceipt" columnid="patNm"/>
       <BindItem id="item49" compid="patientDiv.searchDeptEd02" propid="value" datasetid="dsOutpaReceipt" columnid="patNo"/>
@@ -532,7 +532,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findReceiptList</Col>
-            <Col id="URL">his::msv/pre/prescriptionmanagement/findReceiptList.do</Col>
+            <Col id="URL">his::hdm/foreign/findDiagnosisReceiptList.do</Col>
             <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
           </Row>
@@ -762,33 +762,33 @@
         <ColumnInfo>
           <Column id="prescNo" type="STRING" size="256"/>
           <Column id="prescCd" type="STRING" size="256"/>
-          <Column id="emgYn" type="STRING" size="256"/>
-          <Column id="prnYn" type="STRING" size="256"/>
-          <Column id="antiYn" type="STRING" size="256"/>
+          <Column id="inEmgYn" type="STRING" size="256"/>
+          <Column id="inPrnYn" type="STRING" size="256"/>
+          <Column id="exAntiYn" type="STRING" size="256"/>
           <Column id="holdingYn" type="STRING" size="256"/>
-          <Column id="mtrlYn" type="STRING" size="256"/>
+          <Column id="exMtrlYn" type="STRING" size="256"/>
           <Column id="mtrlNm" type="STRING" size="256"/>
           <Column id="mtrlBodyPart" type="STRING" size="256"/>
-          <Column id="examWishDate" type="STRING" size="256"/>
-          <Column id="times" type="STRING" size="256"/>
-          <Column id="insurance" type="STRING" size="256"/>
-          <Column id="selectCareYn" type="STRING" size="256"/>
+          <Column id="exExamWishDate" type="STRING" size="256"/>
+          <Column id="inTimes" type="STRING" size="256"/>
+          <Column id="inInsurance" type="STRING" size="256"/>
+          <Column id="exSelectCareYn" type="STRING" size="256"/>
           <Column id="clncStudyYn" type="STRING" size="256"/>
           <Column id="patType" type="STRING" size="256"/>
-          <Column id="remark" type="STRING" size="256"/>
+          <Column id="inRemark" type="STRING" size="256"/>
           <Column id="irradiYn" type="STRING" size="256"/>
-          <Column id="amount" type="STRING" size="256"/>
-          <Column id="purpose" type="STRING" size="256"/>
-          <Column id="trfuLoc" type="STRING" size="256"/>
+          <Column id="mtAmount" type="STRING" size="256"/>
+          <Column id="tfPurpose" type="STRING" size="256"/>
+          <Column id="tfTrfuLoc" type="STRING" size="256"/>
           <Column id="ast" type="STRING" size="256"/>
-          <Column id="bloodDonor" type="STRING" size="256"/>
+          <Column id="tfBloodDonor" type="STRING" size="256"/>
           <Column id="volume" type="STRING" size="256"/>
-          <Column id="unit" type="STRING" size="256"/>
-          <Column id="takeWay" type="STRING" size="256"/>
-          <Column id="days" type="STRING" size="256"/>
+          <Column id="inUnit" type="STRING" size="256"/>
+          <Column id="rbTakeWay" type="STRING" size="256"/>
+          <Column id="rbDays" type="STRING" size="256"/>
           <Column id="prescDtlNm" type="STRING" size="256"/>
           <Column id="prescType" type="STRING" size="256"/>
-          <Column id="nightYn" type="STRING" size="256"/>
+          <Column id="exNightYn" type="STRING" size="256"/>
           <Column id="inCapacity" type="STRING" size="256"/>
           <Column id="inNumber" type="STRING" size="256"/>
           <Column id="inMethod" type="STRING" size="256"/>
@@ -1127,6 +1127,7 @@ this.disePrescriptTab_prescriptionTabpage_presGrid_oncelldblclick = function(obj
 //처방상세 조회위해 처방셀 클릭 시 
 this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
+/*
 	alert(111);
 	 this.dsPrescDtl.addRow();
 	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
@@ -1140,7 +1141,7 @@ this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick = functio
 	
 	 dsPrescDtl.set_loadfiltermode("keep");
 	
-
+*/
 
 
 
@@ -1170,6 +1171,42 @@ this.disePrescriptTab_prescriptionTabpage_prescDelBtn_onclick = function(obj:But
 
 
 
+
+this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	alert(111);
+	 this.dsPrescDtl.addRow();
+	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
+	 prescNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "prescNo");
+	 var codeNo= this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "codeNo");
+	  
+	 alert(patNo);
+	 alert(prescNo);
+	 	this.dsService.setColumn(5, 'argument','prescCd='+codeNo+' prescNo='+prescNo);
+	this.gfnService("findPatientPrscDtlList", false);
+	
+	 dsPrescDtl.set_loadfiltermode("keep");
+	
+
+
+}
+
+this.otherDiv_ConsultationTrtmtBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+	
+	 var objNew = new ChildFrame();
+   objNew.init("btn1", "absolute", 10, 10, 100, 100 , null, null, "pre::SCP_MedicalConsultationRequestPopupForm.xfdl");
+   objNew.showModal("SCP_MedicalConsultationRequestPopupForm",  this, {patNo:patNo,mode:"register"}, this, null);
+}
+
+this.otherDiv_returningOutPatBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+	patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
+	application.open("SCP_RetreatmentReservationForm","pre::SCP_RetreatmentReservationForm.xfdl",this.parent,{patNo:"000004",patNm:"유재석"},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
+}
 ]]></Script>
   </Form>
 </FDL>

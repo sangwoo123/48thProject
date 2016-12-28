@@ -40,6 +40,7 @@ public class AccountController {
     @RequestMapping("acc/resol/findAccount.do")
     public void findAccount(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+    	System.out.println("어카운트왓찌롱");
         PlatformData outData = (PlatformData)request.getAttribute("outData");
         PlatformData inData = (PlatformData)request.getAttribute("inData");
         Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);

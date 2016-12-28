@@ -7,15 +7,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.seoul.his.msv.mcm.patientservice.applicationService.PatientServiceApplicationService;
+import com.seoul.his.msv.mcm.patientservice.applicationService.TransferPatientApplicationService;
 import com.seoul.his.msv.mcm.patientservice.applicationService.TreatmentReservationApplicationService;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
 import com.seoul.his.msv.mcm.patientservice.to.DaySchBean;
-import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrPrescBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 import com.seoul.his.msv.mcm.patientservice.to.RsvPatBean;
 import com.seoul.his.msv.mcm.patientservice.to.TimeSchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientBean;
 
 /**
  * <pre>
@@ -34,10 +36,12 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 	PatientServiceApplicationService patientserviceApplicationService;
 	@Autowired
 	TreatmentReservationApplicationService treatmentReservationAppService;
+	@Autowired
+	TransferPatientApplicationService transferPatientApplicationService;
 	/* 	 EMR 관리	*/
 	@Override
-	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
-		return patientserviceApplicationService.findEmrList(argsMap);
+	public List<EmrPrescBean> findEmrPrescList(Map<String, String> argsMap) {
+		return patientserviceApplicationService.findEmrPrescList(argsMap);
 	}
 
 	/*	 ADR관리	*/
@@ -102,5 +106,27 @@ public class PatientServiceServiceFacadeImpl implements PatientServiceServiceFac
 	@Override
 	public List<RsvPatBean> findRsvByPatList(Map<String, String> argsMap) {
 		return treatmentReservationAppService.findRsvByPatList(argsMap);
+	}
+
+	// -------- 전원환자 등록 / 수정 / 삭제 / 조회 --------
+
+	@Override
+	public List<TransferPatientBean> findTransferPatientList(Map<String, String> argsMap){
+		return transferPatientApplicationService.findTransferPatientList(argsMap);
+	}
+
+	@Override
+	public void registerTransferPatient(TransferPatientBean transferPatientBean){
+		transferPatientApplicationService.registerTransferPatient(transferPatientBean);
+	}
+
+	@Override
+	public void modifyTransferPatient(TransferPatientBean transferPatientBean){
+		transferPatientApplicationService.modifyTransferPatient(transferPatientBean);
+	}
+
+	@Override
+	public void removeTransferPatient(TransferPatientBean transferPatientBean){
+		transferPatientApplicationService.removeTransferPatient(transferPatientBean);
 	}
 }

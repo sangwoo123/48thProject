@@ -64,7 +64,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"dsName\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">GP080</Col><Col id=\"dsName\">dsGP080</Col></Row><Row><Col id=\"code\">SC070</Col><Col id=\"dsName\">dsSC070</Col></Row><Row><Col id=\"code\">SC071</Col><Col id=\"dsName\">dsSC071</Col></Row><Row><Col id=\"dsName\">dsGS007</Col><Col id=\"code\">GS007</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"dsName\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"code\">GP080</Col><Col id=\"dsName\">dsGP080</Col></Row><Row><Col id=\"code\">SC070</Col><Col id=\"dsName\">dsSC070</Col></Row><Row><Col id=\"code\">SC071</Col><Col id=\"dsName\">dsSC071</Col></Row><Row><Col id=\"dsName\">dsGS007</Col><Col id=\"code\">GS007</Col></Row><Row><Col id=\"code\">MD020</Col><Col id=\"dsName\">dsMD020</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsSC070", this);
@@ -124,7 +124,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"URL\">his::hdm/admission/findOutpaReceipt.do</Col><Col id=\"serviceID\">findOutpaReceipt</Col><Col id=\"outData\">dsOutpaReceipt=dsOutpaReceipt</Col><Col id=\"callbackFunc\">findHosptlzYBCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatient</Col><Col id=\"URL\">his::hdm/patient/findPatient.do</Col><Col id=\"outData\">dsPatient=dsPatient</Col></Row><Row><Col id=\"serviceID\">findReceipt</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationInfo.do</Col><Col id=\"inData\"/><Col id=\"outData\">dsHospitalizationInfo=dsHospitalizationInfo</Col><Col id=\"argument\"/><Col id=\"callbackFunc\">findReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">batchHospitalizationProcess</Col><Col id=\"URL\">his::hdm/admission/batchHospitalizationProcess.do</Col><Col id=\"outData\"/><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col><Col id=\"inData\">dsHospitalizationInfo=dsHospitalizationInfo:u</Col></Row><Row><Col id=\"serviceID\">callHospitalizationSeq</Col><Col id=\"URL\">his::hdm/admission/callHospitalizationSeq.do</Col><Col id=\"outData\">hosptlzReceiptNo=hosptlzReceiptNo</Col><Col id=\"callbackFunc\">findReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findHospitalizationInfo</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationInfo.do</Col><Col id=\"outData\">dsHospitalizationInfo=dsHospitalizationInfo</Col><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">cancelHospitalization</Col><Col id=\"URL\">his::hdm/admission/batchHospitalizationProcess.do</Col><Col id=\"inData\">dsHospitalizationInfo=dsHospitalizationInfo:u</Col><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col><Col id=\"outData\"/></Row><Row><Col id=\"serviceID\">findHospitalizationSchedule</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationSchedule.do</Col><Col id=\"outData\">dsHospitalizationSchedule=dsHospitalizationSchedule</Col><Col id=\"callbackFunc\">findHosptlzRsvtCallbackFunc</Col><Col id=\"inData\"/></Row><Row><Col id=\"serviceID\">modifyHospitalizationScheduleInfo</Col><Col id=\"URL\">his::hdm/admission/modifyHospitalizationScheduleInfo.do</Col><Col id=\"inData\">dsOutpaReceipt=dsOutpaReceipt:u</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"URL\">his::hdm/admission/findOutpaReceipt.do</Col><Col id=\"serviceID\">findOutpaReceipt</Col><Col id=\"outData\">dsOutpaReceipt=dsOutpaReceipt</Col><Col id=\"callbackFunc\">findHosptlzYBCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatient</Col><Col id=\"URL\">his::hdm/patient/findPatientList.do</Col><Col id=\"outData\">dsPatient=dsPatient</Col></Row><Row><Col id=\"serviceID\">findReceipt</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationInfo.do</Col><Col id=\"inData\"/><Col id=\"outData\">dsHospitalizationInfo=dsHospitalizationInfo</Col><Col id=\"argument\"/><Col id=\"callbackFunc\">findReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">batchHospitalizationProcess</Col><Col id=\"URL\">his::hdm/admission/batchHospitalizationProcess.do</Col><Col id=\"outData\"/><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col><Col id=\"inData\">dsHospitalizationInfo=dsHospitalizationInfo:u</Col></Row><Row><Col id=\"serviceID\">callHospitalizationSeq</Col><Col id=\"URL\">his::hdm/admission/callHospitalizationSeq.do</Col><Col id=\"outData\">hosptlzReceiptNo=hosptlzReceiptNo</Col><Col id=\"callbackFunc\">findReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findHospitalizationInfo</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationInfo.do</Col><Col id=\"outData\">dsHospitalizationInfo=dsHospitalizationInfo</Col><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col></Row><Row><Col id=\"serviceID\">cancelHospitalization</Col><Col id=\"URL\">his::hdm/admission/batchHospitalizationProcess.do</Col><Col id=\"inData\">dsHospitalizationInfo=dsHospitalizationInfo:u</Col><Col id=\"callbackFunc\">batchProcessHosptlzReceiptCallbackFunc</Col><Col id=\"outData\"/></Row><Row><Col id=\"serviceID\">findHospitalizationSchedule</Col><Col id=\"URL\">his::hdm/admission/findHospitalizationSchedule.do</Col><Col id=\"outData\">dsHospitalizationSchedule=dsHospitalizationSchedule</Col><Col id=\"callbackFunc\">findHosptlzRsvtCallbackFunc</Col><Col id=\"inData\"/></Row><Row><Col id=\"serviceID\">modifyHospitalizationScheduleInfo</Col><Col id=\"URL\">his::hdm/admission/modifyHospitalizationScheduleInfo.do</Col><Col id=\"inData\">dsOutpaReceipt=dsOutpaReceipt:u</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsOutpaReceipt", this);
@@ -139,23 +139,26 @@
             obj._setContents("<ColumnInfo><Column id=\"outpaReceiptNo\" type=\"STRING\" size=\"256\"/><Column id=\"patNo\" type=\"STRING\" size=\"256\"/><Column id=\"trmtDate\" type=\"STRING\" size=\"256\"/><Column id=\"trmtDept\" type=\"STRING\" size=\"256\"/><Column id=\"trmtDeptNm\" type=\"STRING\" size=\"256\"/><Column id=\"trmtDoct\" type=\"STRING\" size=\"256\"/><Column id=\"trmtDoctNm\" type=\"STRING\" size=\"256\"/><Column id=\"hosptlzYb\" type=\"STRING\" size=\"256\"/><Column id=\"hosptlzRsvtYb\" type=\"STRING\" size=\"256\"/><Column id=\"patType\" type=\"STRING\" size=\"256\"/><Column id=\"trmtCostCalcuYb\" type=\"STRING\" size=\"256\"/><Column id=\"trmtYb\" type=\"STRING\" size=\"256\"/><Column id=\"prescYb\" type=\"STRING\" size=\"256\"/><Column id=\"regDept\" type=\"STRING\" size=\"256\"/><Column id=\"cngDept\" type=\"STRING\" size=\"256\"/><Column id=\"receiptDate\" type=\"STRING\" size=\"256\"/><Column id=\"dgnsNm\" type=\"STRING\" size=\"256\"/><Column id=\"ntTtYb\" type=\"STRING\" size=\"256\"/><Column id=\"expCd\" type=\"STRING\" size=\"256\"/><Column id=\"expNm\" type=\"STRING\" size=\"256\"/><Column id=\"nwDiv\" type=\"STRING\" size=\"256\"/><Column id=\"patNm\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
+            obj = new Dataset("dsMD020", this);
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"value\" type=\"STRING\" size=\"256\"/><Column id=\"bigValue\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            this.addChild(obj.name, obj);
+
 
             
             // UI Components Initialize
             obj = new Div("Div06", "absolute", "0%", "0", "1250", "60", null, null, this);
             obj.set_taborder("0");
-            obj.set_text("           입원관리");
             obj.style.set_align("left middle");
-            obj.style.set_background("transparent URL('img::titleBar7.jpg')");
+            obj.style.set_background("transparent URL('img::titleBar5.jpg')");
             this.addChild(obj.name, obj);
+            obj = new Static("Static00", "absolute", "4.56%", "-4", null, "60", "57.44%", null, this.Div06);
+            obj.set_taborder("0");
+            obj.set_text("입원관리");
+            obj.style.set_color("#6c6c6cff");
+            obj.style.set_font("bold 20 다음_Regular");
+            this.Div06.addChild(obj.name, obj);
 
-            obj = new Div("Div04", "absolute", "2%", "56", null, "39", "63.76%", null, this);
-            obj.set_taborder("1");
-            obj.style.set_border("1 solid lightsteelblue");
-            obj.style.set_bordertype("round 5 5");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("subCodeStc00", "absolute", "2.96%", "61", null, "27", "88.48%", null, this);
+            obj = new Static("subCodeStc00", "absolute", "1.04%", "61", null, "27", "90.4%", null, this);
             obj.set_taborder("2");
             obj.set_text("환자등록번호");
             obj.style.set_color("black");
@@ -165,36 +168,41 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("patNoEd", "absolute", "12.16%", "61", null, "27", "81.12%", null, this);
+            obj = new Edit("patNoEd", "absolute", "10.24%", "61", null, "27", "83.04%", null, this);
             obj.set_taborder("3");
             obj.style.set_font("돋움,9,antialias");
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Button("patNoBtn", "absolute", "19.28%", "61", null, "26", "78.32%", null, this);
+            obj = new Button("patNoBtn", "absolute", "17.36%", "61", null, "26", "80.24%", null, this);
             obj.set_taborder("4");
             obj.getSetter("class").set("AddBtn");
-            obj.set_text("검색");
+            obj.style.set_image("URL('theme://img/btn_WF_Search.png')");
+            obj.style.set_background("#455a64ff");
             this.addChild(obj.name, obj);
 
-            obj = new Button("searchBtn", "absolute", "30.8%", "62", null, "26", "64.4%", null, this);
+            obj = new Button("searchBtn", "absolute", "31.44%", "62", null, "26", "63.76%", null, this);
             obj.set_taborder("5");
             obj.getSetter("class").set("SearchBtn");
             obj.set_text("조회");
+            obj.style.set_image("URL('theme://img/btn_WF_Search.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
+            obj.style.set_font("bold 9 Gulim");
             this.addChild(obj.name, obj);
 
-            obj = new Static("HosptlzReceiptNo", "absolute", "38.32%", "59", null, "27", "53.76%", null, this);
+            obj = new Static("HosptlzReceiptNo", "absolute", "38.8%", "63", null, "27", "53.28%", null, this);
             obj.set_taborder("6");
             obj.set_text("입원등록번호");
             obj.set_visible("false");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
-            obj.style.set_font("9 돋움");
+            obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("hosptlzReceiptNoEdt", "absolute", "46.24%", "59", null, "27", "50%", null, this);
+            obj = new Edit("hosptlzReceiptNoEdt", "absolute", "46.72%", "63", null, "27", "49.52%", null, this);
             obj.set_taborder("7");
             obj.set_enable("false");
             obj.set_visible("false");
@@ -202,18 +210,18 @@
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Static("outpaReceiptNo", "absolute", "51.04%", "59", null, "27", "41.04%", null, this);
+            obj = new Static("outpaReceiptNo", "absolute", "51.52%", "63", null, "27", "40.56%", null, this);
             obj.set_taborder("8");
             obj.set_text("외래접수번호");
             obj.set_visible("false");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
-            obj.style.set_font("9 돋움");
+            obj.style.set_font("bold 9 돋움");
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("outpaReceiptNoEdt", "absolute", "58.88%", "59", null, "27", "37.04%", null, this);
+            obj = new Edit("outpaReceiptNoEdt", "absolute", "59.36%", "63", null, "27", "36.56%", null, this);
             obj.set_taborder("9");
             obj.set_enable("false");
             obj.set_visible("false");
@@ -221,62 +229,72 @@
             obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
-            obj = new Button("hosptlzSearchBtn", "absolute", "75.04%", "56", null, "30", "17.92%", null, this);
+            obj = new Button("hosptlzSearchBtn", "absolute", "75.04%", "62", null, "30", "17.92%", null, this);
             obj.set_taborder("10");
             obj.set_text("입원조회");
-            obj.style.set_color("black");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
             obj.style.set_font("bold 10 돋움");
             obj.getSetter("class").set("ProcessBtn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("hosptlzRegisterBtn", "absolute", "82.64%", "56", null, "30", "10.32%", null, this);
+            obj = new Button("hosptlzRegisterBtn", "absolute", "82.64%", "62", null, "30", "10.32%", null, this);
             obj.set_taborder("11");
             obj.set_text("입원등록");
-            obj.style.set_color("black");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
             obj.style.set_font("bold 10 돋움");
             obj.getSetter("class").set("ProcessBtn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("hosptlzCancelBtn", "absolute", "90.24%", "56", null, "30", "2.72%", null, this);
+            obj = new Button("hosptlzCancelBtn", "absolute", "90.24%", "62", null, "30", "2.72%", null, this);
             obj.set_taborder("12");
             obj.set_text("입원취소");
-            obj.style.set_color("black");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
             obj.style.set_font("bold 10 돋움");
             obj.getSetter("class").set("ProcessBtn");
             this.addChild(obj.name, obj);
 
-            obj = new Div("Div01", "absolute", "37.04%", "100", null, "443", "2.64%", null, this);
+            obj = new Div("Div01", "absolute", "37.04%", "101", null, "442", "2.64%", null, this);
             obj.set_taborder("13");
+            obj.style.set_background("#cfd8dcff");
             obj.style.set_border("1 solid lightsteelblue");
             obj.style.set_bordertype("round 5 5");
             this.addChild(obj.name, obj);
+            obj = new Static("병동", "absolute", "27.66%", "188", null, "24", "65.69%", null, this.Div01);
+            obj.set_taborder("0");
+            obj.set_text("병동");
+            this.Div01.addChild(obj.name, obj);
 
             obj = new Div("Div02", "absolute", "2%", "101", null, "442", "63.76%", null, this);
             obj.set_taborder("14");
-            obj.style.set_background("transparent");
+            obj.style.set_background("#cfd8dcff");
             obj.style.set_border("1 solid lightsteelblue");
             obj.style.set_bordertype("round 5 5");
             this.addChild(obj.name, obj);
 
-            obj = new GroupBox("GroupBox00", "absolute", "1.52%", "551", null, "183", "2.24%", null, this);
+            obj = new GroupBox("GroupBox00", "absolute", "2%", "543", null, "191", "2.56%", null, this);
             obj.set_text("입원예약정보");
             obj.set_taborder("15");
+            obj.style.set_background("#cfd8dcff");
             obj.style.set_border("1 solid lightslategray");
-            obj.style.set_font("10 arial");
+            obj.style.set_bordertype("round 3 3");
+            obj.style.set_font("bold 10 arial");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("hosptlzRsvtGrid", "absolute", "2.56%", "582", null, "98", "3.6%", null, this);
+            obj = new Grid("hosptlzRsvtGrid", "absolute", "2.8%", "582", null, "98", "3.36%", null, this);
             obj.set_taborder("16");
             obj.set_binddataset("dsHospitalizationSchedule");
             obj.set_treeuseline("false");
             obj.set_autofittype("col");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"124\"/><Column size=\"114\"/><Column size=\"105\"/><Column size=\"92\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"395\"/></Columns><Rows><Row size=\"26\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"입원예약번호\"/><Cell col=\"1\" text=\"입원예정일\"/><Cell col=\"2\" text=\"예상재원일\"/><Cell col=\"3\" text=\"진료과\"/><Cell col=\"4\" text=\"담당의사\"/><Cell col=\"5\" text=\"희망병동\"/><Cell col=\"6\" text=\"희망병실\"/><Cell col=\"7\" text=\"특이사항\"/></Band><Band id=\"body\"><Cell text=\"bind:hosptlzRsvtNo\"/><Cell col=\"1\" displaytype=\"normal\" edittype=\"none\" text=\"bind:hosptlzPlnDate\" mask=\"####/ ##/ ##\"/><Cell col=\"2\" displaytype=\"normal\" edittype=\"none\" text=\"bind:prdtFinanDate\"/><Cell col=\"3\" displaytype=\"combo\" text=\"bind:trmtDeptCd\" combodataset=\"dsGP080\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"4\" displaytype=\"combo\" text=\"bind:respDoctCd\" combodataset=\"gdsEmp\" combocodecol=\"empNo\" combodatacol=\"empNm\"/><Cell col=\"5\" displaytype=\"combo\" text=\"bind:hopeWard\" combodataset=\"dsSC070\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"6\" displaytype=\"combo\" text=\"bind:hopeRoom\" combodataset=\"dsSC071\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"7\" text=\"bind:uniqueNtc\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"129\"/><Column size=\"124\"/><Column size=\"114\"/><Column size=\"105\"/><Column size=\"92\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"395\"/></Columns><Rows><Row size=\"26\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#90a4aeff;\" text=\"입원예약번호\"/><Cell col=\"1\" style=\"background:#90a4aeff;\" text=\"입원예정일\"/><Cell col=\"2\" style=\"background:#90a4aeff;\" text=\"예상재원일\"/><Cell col=\"3\" style=\"background:#90a4aeff;\" text=\"진료과\"/><Cell col=\"4\" style=\"background:#90a4aeff;\" text=\"담당의사\"/><Cell col=\"5\" style=\"background:#90a4aeff;\" text=\"희망병동\"/><Cell col=\"6\" style=\"background:#90a4aeff;\" text=\"희망병실\"/><Cell col=\"7\" style=\"background:#90a4aeff;\" text=\"특이사항\"/></Band><Band id=\"body\"><Cell text=\"bind:hosptlzRsvtNo\"/><Cell col=\"1\" displaytype=\"normal\" edittype=\"none\" text=\"bind:hosptlzPlnDate\" mask=\"####/ ##/ ##\"/><Cell col=\"2\" displaytype=\"normal\" edittype=\"none\" text=\"bind:prdtFinanDate\"/><Cell col=\"3\" displaytype=\"combo\" text=\"bind:trmtDeptCd\" combodataset=\"dsGP080\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"4\" displaytype=\"combo\" text=\"bind:respDoctCd\" combodataset=\"gdsEmp\" combocodecol=\"empNo\" combodatacol=\"empNm\"/><Cell col=\"5\" displaytype=\"combo\" text=\"bind:hopeWard\" combodataset=\"dsSC070\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"6\" displaytype=\"combo\" text=\"bind:hopeRoom\" combodataset=\"dsSC071\" combocodecol=\"code\" combodatacol=\"bigValue\"/><Cell col=\"7\" text=\"bind:uniqueNtc\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Static("subCodeStc03", "absolute", "3.36%", "130", null, "27", "89.6%", null, this);
             obj.set_taborder("17");
             obj.set_text("성  명");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -302,7 +320,7 @@
             obj = new Static("subCodeStc04", "absolute", "3.36%", "181", null, "27", "89.6%", null, this);
             obj.set_taborder("20");
             obj.set_text("생년월일");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -313,7 +331,7 @@
             obj = new Static("subCodeStc05", "absolute", "3.36%", "232", null, "27", "89.6%", null, this);
             obj.set_taborder("21");
             obj.set_text("연락처");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -331,7 +349,7 @@
             obj = new Static("subCodeStc06", "absolute", "3.36%", "283", null, "27", "89.6%", null, this);
             obj.set_taborder("23");
             obj.set_text("나  이");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -349,7 +367,7 @@
             obj = new Static("subCodeStc07", "absolute", "20.48%", "283", null, "27", "72.48%", null, this);
             obj.set_taborder("25");
             obj.set_text("성  별");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -367,7 +385,7 @@
             obj = new Static("subCodeStc08", "absolute", "3.36%", "334", null, "27", "89.6%", null, this);
             obj.set_taborder("28");
             obj.set_text("주  소");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -392,7 +410,7 @@
             obj = new Static("subCodeStc09", "absolute", "3.36%", "415", null, "27", "89.6%", null, this);
             obj.set_taborder("31");
             obj.set_text("우편번호");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -403,7 +421,7 @@
             obj = new Static("subCodeStc10", "absolute", "3.36%", "451", null, "27", "89.6%", null, this);
             obj.set_taborder("32");
             obj.set_text("메  모");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -420,7 +438,7 @@
             obj = new Static("subCodeStc01", "absolute", "40%", "121", null, "27", "52.96%", null, this);
             obj.set_taborder("34");
             obj.set_text("입원일시");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -441,7 +459,7 @@
             obj = new Static("subCodeStc11", "absolute", "40%", "163", null, "27", "52.96%", null, this);
             obj.set_taborder("37");
             obj.set_text("퇴원일시");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -449,36 +467,15 @@
             obj.getSetter("class").set("AreaStc");
             this.addChild(obj.name, obj);
 
-            obj = new Static("subCodeStc02", "absolute", "68.08%", "161", null, "27", "24.88%", null, this);
+            obj = new Static("subCodeStc02", "absolute", "71.44%", "163", null, "27", "19.6%", null, this);
             obj.set_taborder("38");
             obj.set_text("입원경로");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
             obj.style.set_font("9 돋움");
             obj.getSetter("class").set("AreaStc");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("hosptlzRouteCdEdt", "absolute", "76.24%", "161", null, "27", "17.04%", null, this);
-            obj.set_taborder("39");
-            obj.set_enable("false");
-            obj.style.set_font("돋움,9,antialias");
-            obj.getSetter("class").set("AreaEdt");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("hosptlzRoutePBtn", "absolute", "83.2%", "161", null, "26", "14.4%", null, this);
-            obj.set_taborder("40");
-            obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
-            obj.getSetter("class").set("AddBtn");
-            this.addChild(obj.name, obj);
-
-            obj = new Edit("hosptlzRouteNmEdt", "absolute", "86%", "161", null, "27", "4.48%", null, this);
-            obj.set_taborder("41");
-            obj.set_enable("false");
-            obj.style.set_font("돋움,9,antialias");
-            obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
             obj = new Button("resetBtn", "absolute", "83.84%", "112", null, "30", "11.04%", null, this);
@@ -491,11 +488,14 @@
             obj.getSetter("class").set("ProcessBtn");
             this.addChild(obj.name, obj);
 
-            obj = new Button("saveBtn", "absolute", "89.28%", "112", null, "30", "3.68%", null, this);
+            obj = new Button("saveBtn", "absolute", "89.44%", "112", null, "30", "3.52%", null, this);
             obj.set_taborder("43");
             obj.set_visible("false");
             obj.getSetter("class").set("DelBtn");
             obj.set_text("입원저장");
+            obj.style.set_background("#455a64ff");
+            obj.style.set_color("#ffffffff");
+            obj.style.set_font("bold 9 Gulim");
             this.addChild(obj.name, obj);
 
             obj = new Edit("trmtDeptNmEdt", "absolute", "60.8%", "205", null, "27", "29.68%", null, this);
@@ -508,7 +508,8 @@
             obj = new Button("trmtDeptPBtn", "absolute", "57.6%", "205", null, "26", "40%", null, this);
             obj.set_taborder("45");
             obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.setStyleValue("image", "disabled", "URL('theme://img/btn_WF_Search.png')");
             obj.getSetter("class").set("AddBtn");
             this.addChild(obj.name, obj);
 
@@ -522,7 +523,7 @@
             obj = new Static("ctrtDateSelStc00", "absolute", "40%", "205", null, "27", "52.96%", null, this);
             obj.set_taborder("47");
             obj.set_text("진료과");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -533,7 +534,7 @@
             obj = new Static("ctrtDateSelStc01", "absolute", "39.92%", "246", null, "27", "52.4%", null, this);
             obj.set_taborder("48");
             obj.set_text("담당의사");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -551,7 +552,8 @@
             obj = new Button("respDoctPBtn", "absolute", "57.6%", "246", null, "26", "40%", null, this);
             obj.set_taborder("50");
             obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.setStyleValue("image", "disabled", "URL('theme://img/btn_WF_Search.png')");
             obj.getSetter("class").set("AddBtn");
             this.addChild(obj.name, obj);
 
@@ -572,7 +574,9 @@
             obj = new Button("hroomBtn", "absolute", "74.88%", "287", null, "26", "22.72%", null, this);
             obj.set_taborder("53");
             obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.setStyleValue("image", "disabled", "URL('theme://img/btn_WF_Search.png')");
+            obj.style.setStyleValue("background", "disabled", "#455a64ff");
             obj.getSetter("class").set("AddBtn");
             this.addChild(obj.name, obj);
 
@@ -593,7 +597,7 @@
             obj = new Static("ctrtDateSelStc05", "absolute", "40%", "287", null, "27", "52.96%", null, this);
             obj.set_taborder("57");
             obj.set_text("병동병실");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -604,7 +608,7 @@
             obj = new Static("ctrtDateSelStc07", "absolute", "40%", "331", null, "27", "52.96%", null, this);
             obj.set_taborder("58");
             obj.set_text("환자유형");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -622,7 +626,8 @@
             obj = new Button("patTypePBtn", "absolute", "57.76%", "331", null, "26", "39.84%", null, this);
             obj.set_taborder("60");
             obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.setStyleValue("image", "disabled", "URL('theme://img/btn_WF_Search.png')");
             obj.getSetter("class").set("AddBtn");
             this.addChild(obj.name, obj);
 
@@ -636,7 +641,7 @@
             obj = new Static("ctrtDateSelStc08", "absolute", "40%", "373", null, "27", "52.96%", null, this);
             obj.set_taborder("62");
             obj.set_text("보증인성명");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -654,7 +659,7 @@
             obj = new Static("ctrtDateSelStc03", "absolute", "71.44%", "373", null, "27", "19.6%", null, this);
             obj.set_taborder("64");
             obj.set_text("환자와의관계");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -670,6 +675,7 @@
             obj.set_datacolumn("value");
             obj.set_enable("false");
             obj.getSetter("class").set("AreaCombo");
+            obj.set_index("-1");
 
             obj = new MaskEdit("grtorRrnEdt", "absolute", "50.56%", "414", null, "28", "33.84%", null, this);
             obj.set_taborder("66");
@@ -682,7 +688,7 @@
             obj = new Static("ctrtDateSelStc09", "absolute", "40%", "415", null, "27", "50.72%", null, this);
             obj.set_taborder("67");
             obj.set_text("보증인주민번호");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -693,7 +699,7 @@
             obj = new Static("ctrtDateSelStc04", "absolute", "40%", "457", null, "27", "51.52%", null, this);
             obj.set_taborder("68");
             obj.set_text("보증인연락처");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -712,7 +718,7 @@
             obj = new Static("ctrtDateSelStc10", "absolute", "40%", "499", null, "27", "52.96%", null, this);
             obj.set_taborder("70");
             obj.set_text("보증인주소");
-            obj.style.set_background("#c4d2daff");
+            obj.style.set_background("#90a4aeff");
             obj.style.set_color("black");
             obj.style.set_bordertype("round 5 5");
             obj.style.set_align("center middle");
@@ -730,7 +736,8 @@
             obj = new Button("grtorAddrBtn", "absolute", "82.08%", "499", null, "26", "15.52%", null, this);
             obj.set_taborder("72");
             obj.set_enable("false");
-            obj.style.set_background("@gradation URL('img::miniSearch.png')");
+            obj.style.set_background("#455a64ff");
+            obj.style.setStyleValue("image", "disabled", "URL('theme://img/btn_WF_Search.png')");
             obj.getSetter("class").set("AddBtn");
             this.addChild(obj.name, obj);
 
@@ -738,32 +745,49 @@
             obj.set_taborder("73");
             obj.set_text("입원예약");
             obj.set_visible("false");
-            obj.style.set_background("#848484ff");
+            obj.style.set_background("#455a64ff");
             obj.style.set_color("white");
             obj.style.set_font("bold 10 돋움");
             obj.getSetter("class").set("ProcessBtn");
+            this.addChild(obj.name, obj);
+
+            obj = new Combo("hosptlzRouteCombo", "absolute", "81.28%", "164", null, "26", "4.96%", null, this);
+            this.addChild(obj.name, obj);
+            obj.set_taborder("74");
+            obj.set_innerdataset("@dsMD020");
+            obj.set_codecolumn("code");
+            obj.set_datacolumn("bigValue");
+            obj.set_enable("false");
+            obj.getSetter("class").set("AreaCombo");
+
+            obj = new Edit("genderEdt", "absolute", "28.88%", "283", null, "27", "65.12%", null, this);
+            obj.set_taborder("75");
+            obj.set_enable("false");
+            obj.style.set_font("돋움,9,antialias");
+            obj.getSetter("class").set("AreaEdt");
             this.addChild(obj.name, obj);
 
 
             
             // Layout Functions
             //-- Default Layout
-            obj = new Layout("default", "", 0, 39, this.Div04,
+            obj = new Layout("default", "", 1250, 60, this.Div06,
             	//-- Layout function
             	function(p) {
-            		p.set_taborder("1");
-            		p.style.set_border("1 solid lightsteelblue");
-            		p.style.set_bordertype("round 5 5");
+            		p.set_taborder("0");
+            		p.style.set_align("left middle");
+            		p.style.set_background("transparent URL('img::titleBar5.jpg')");
 
             	}
             );
-            this.Div04.addLayout(obj.name, obj);
+            this.Div06.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 0, 443, this.Div01,
+            obj = new Layout("default", "", 0, 442, this.Div01,
             	//-- Layout function
             	function(p) {
             		p.set_taborder("13");
+            		p.style.set_background("#cfd8dcff");
             		p.style.set_border("1 solid lightsteelblue");
             		p.style.set_bordertype("round 5 5");
 
@@ -776,7 +800,7 @@
             	//-- Layout function
             	function(p) {
             		p.set_taborder("14");
-            		p.style.set_background("transparent");
+            		p.style.set_background("#cfd8dcff");
             		p.style.set_border("1 solid lightsteelblue");
             		p.style.set_bordertype("round 5 5");
 
@@ -834,9 +858,6 @@
             obj = new BindItem("item12","dscgDateCal","value","dsHospitalizationInfo","dscgDate");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item26","hosptlzRouteCdEdt","value","dsHospitalizationInfo","hosptlzRoute");
-            this.addChild(obj.name, obj);
-            obj.bind();
             obj = new BindItem("item14","trmtDeptNmEdt","value","dsHospitalizationInfo","trmtDeptNm");
             this.addChild(obj.name, obj);
             obj.bind();
@@ -864,9 +885,6 @@
             obj = new BindItem("item21","grtorNmEdt","value","dsHospitalizationInfo","grtorNm");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item25","patRshipCombo","value","dsHospitalizationInfo","rship");
-            this.addChild(obj.name, obj);
-            obj.bind();
             obj = new BindItem("item22","grtorRrnEdt","value","dsHospitalizationInfo","grtorRrn");
             this.addChild(obj.name, obj);
             obj.bind();
@@ -874,6 +892,15 @@
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item24","grtorAddrEdt","value","dsHospitalizationInfo","grtorAddr");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item4","patRshipCombo","value","dsHospitalizationInfo","patRship");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item25","hosptlzRouteCombo","value","dsHospitalizationInfo","hosptlzRoute");
+            this.addChild(obj.name, obj);
+            obj.bind();
+            obj = new BindItem("item26","genderEdt","value","dsPatient","gender");
             this.addChild(obj.name, obj);
             obj.bind();
 
@@ -914,6 +941,7 @@
         //입원예정자관리 창에서 입원등록 했을때 환자등록번호 받아 옴 0
         this.HA_HospitalizationForm_onload = function(obj,e)
         {	
+        	this.gfnBind(); 
         	this.patNoEd.set_value(this.parent.patNo);
         }
 
@@ -929,7 +957,6 @@
         	this.HosptlzReceiptNo.set_visible(false);
         	this.hosptlzReceiptNoEdt.set_visible(false);
         	
-        	//this.gfnPopup("HA_HospitalizationScheduleForm","hdm","");
         	this.gfnPatPopup();
         	this.setPatInfo = function(arrRtn){ 
         		this.patNoEd.set_value(arrRtn[0]);   									
@@ -984,6 +1011,7 @@
         	this.hosptlzDateCal.set_enable(true);
         	this.dscgDateCal.set_enable(true);
         	this.hroomBtn.set_enable(true);
+        	this.hroomBtn.style.set_image("theme://img/btn_WF_Search.png");
         	this.HosptlzReceiptNo.set_visible(true);
         	this.hosptlzReceiptNoEdt.set_visible(true);
         	this.saveBtn.set_visible(true);
@@ -1080,7 +1108,7 @@
 
         			this.dsOutpaReceipt.setColumn(this.dsOutpaReceipt.rowposition,"hosptlzRsvtYb","");
         			this.dsService.setColumn(8,"argument",'outpaReceiptNo='+outpaReceiptNo+' patNo='+patNo);
-        			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (Y->N)
+        			this.gfnService("modifyHospitalizationScheduleInfo","false");  //입원예약여부 변경 (N->Y)
         		}else{
         			alert("실패");
         		}	
@@ -1100,7 +1128,7 @@
         	this.dsHospitalizationInfo.setColumn(0,"outpaReceiptNo",this.outpaReceiptNoEdt.value);	   //외래접수번호
         	this.dsHospitalizationInfo.setColumn(0,"hosptlzDate",this.hosptlzDateCal.value);	               //입원일시
         	this.dsHospitalizationInfo.setColumn(0,"dscgDate",this.dscgDateCal.value);	                   //퇴원일시
-        	this.dsHospitalizationInfo.setColumn(0,"hosptlzRoute",this.hosptlzRouteCdEdt.value);	       //입원경로
+        	this.dsHospitalizationInfo.setColumn(0,"hosptlzRoute",this.hosptlzRouteCombo.value);	       //입원경로
         	this.dsHospitalizationInfo.setColumn(0,"ward",this.wardEdt.value);	                               //병동
         	this.dsHospitalizationInfo.setColumn(0,"hroom",this.hroomEdt.value);                               //병실
         	
@@ -1123,8 +1151,7 @@
 
         //입원등록 0
         this.fn_register=function(){
-        		this.dsHospitalizationInfo.addRow();   //입력추가
-        		this.gfnBind(); 			
+        		this.dsHospitalizationInfo.addRow();   //입력추가		
         		this.fn_enable();	//사용상태허용 함수
         }
 
@@ -1139,17 +1166,22 @@
         	this.grtorNmEdt.set_enable(true);			
         	this.grtorRrnEdt.set_enable(true);
         	this.grtorAddrEdt.set_enable(true);	
+        	this.hosptlzRouteCombo.set_enable(true);
         	this.patRshipCombo.set_enable(true);
         	this.grtorTelEdt.set_enable(true);
-        	
+
         	this.hosptlzCancelBtn.set_enable(true);
         	this.respDoctPBtn.set_enable(true);
+        	this.respDoctPBtn.style.set_image("theme://img/btn_WF_Search.png");
         	this.trmtDeptPBtn.set_enable(true);	
+        	this.trmtDeptPBtn.style.set_image("theme://img/btn_WF_Search.png");
         	this.hroomBtn.set_enable(true);
+        	this.hroomBtn.style.set_image("theme://img/btn_WF_Search.png");
         	this.patTypePBtn.set_enable(true);
+        	this.patTypePBtn.style.set_image("theme://img/btn_WF_Search.png");
         	
         	this.grtorAddrBtn.set_enable(true);
-        	this.hosptlzRoutePBtn.set_enable(true);
+        	this.grtorAddrBtn.style.set_image("theme://img/btn_WF_Search.png");
 
         }
 
@@ -1163,12 +1195,6 @@
         this.hroomBtn_onclick = function(obj,e)
         {
         	this.gfnPopup("HA_HospitalRoomAssignmentForm","hdm","");
-        }
-
-        //입원경로 Popup 0
-        this.hosptlzRoutePBtn_onclick = function(obj,e)
-        {
-        	 this.gfnCodePopup("MD020");	
         }
 
         //진료과 Popup 0
@@ -1204,10 +1230,7 @@
         //팝업창 정보 받아서 세팅 0
         this.setCode=function(code,arr)
         {
-           if(code == "MD020"){
-        		this.hosptlzRouteCdEdt.set_value(arr[0]);
-        		this.hosptlzRouteNmEdt.set_value(arr[1]);
-           }else if(code == "GP080"){
+           if(code == "GP080"){
         		this.trmtDeptCdEdt.set_value(arr[0]);
         		this.trmtDeptNmEdt.set_value(arr[1]);
            }else if(code == "GA043"){
@@ -1243,6 +1266,7 @@
         this.setPost = function(arrRtn){ 
         	this.grtorAddrEdt.set_value(arrRtn[1]+" "+arrRtn[2]); 
         }
+
         
         });
 
@@ -1252,6 +1276,7 @@
         this.on_initEvent = function()
         {
             this.addEventHandler("onload", this.HA_HospitalizationForm_onload, this);
+            this.Div06.Static00.addEventHandler("onclick", this.Div06_Static00_onclick, this);
             this.subCodeStc00.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.patNoBtn.addEventHandler("onclick", this.patNoBtn_onclick, this);
             this.searchBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
@@ -1272,7 +1297,6 @@
             this.subCodeStc01.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.subCodeStc11.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.subCodeStc02.addEventHandler("onclick", this.subCodeStc_onclick, this);
-            this.hosptlzRoutePBtn.addEventHandler("onclick", this.hosptlzRoutePBtn_onclick, this);
             this.resetBtn.addEventHandler("onclick", this.resetBtn_onclick, this);
             this.saveBtn.addEventHandler("onclick", this.saveBtn_onclick, this);
             this.trmtDeptPBtn.addEventHandler("onclick", this.trmtDeptPBtn_onclick, this);
@@ -1286,11 +1310,13 @@
             this.patTypePBtn.addEventHandler("onclick", this.patTypePBtn_onclick, this);
             this.ctrtDateSelStc08.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.ctrtDateSelStc03.addEventHandler("onclick", this.subCodeStc_onclick, this);
+            this.patRshipCombo.addEventHandler("onitemchanged", this.patRshipCombo_onitemchanged, this);
             this.ctrtDateSelStc09.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.ctrtDateSelStc04.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.ctrtDateSelStc10.addEventHandler("onclick", this.subCodeStc_onclick, this);
             this.grtorAddrBtn.addEventHandler("onclick", this.grtorAddrBtn_onclick, this);
             this.hosptlzRsvtBtn.addEventHandler("onclick", this.hosptlzRsvtBtn_onclick, this);
+            this.hosptlzRouteCombo.addEventHandler("onitemchanged", this.patRshipCombo_onitemchanged, this);
 
         };
 

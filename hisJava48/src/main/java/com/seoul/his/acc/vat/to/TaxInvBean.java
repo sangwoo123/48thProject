@@ -29,15 +29,9 @@ public class TaxInvBean extends BaseBean{
                     resolNo                 ,			// 결의번호
                     splyPrice               ,			// 공급가액
                     taxAmt                  ;			// 세액
+
     private List<DetailTaxInvBean> detailTaxInvList ;	// 세금계산서상세정보
 
-    @Remove
-    public List<DetailTaxInvBean> getDetailTaxInvList() {
-        return detailTaxInvList;
-    }
-    @Remove
-    public void setDetailTaxInvList(List<DetailTaxInvBean> detailTaxInvList) {
-        this.detailTaxInvList = detailTaxInvList;
-    }
+
 
 }

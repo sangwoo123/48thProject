@@ -11,16 +11,16 @@
             </Layout>
           </Layouts>
         </Div>
-        <Static id="subCodeStc00" taborder="1" text="적용기간" onclick="subCodeStc_onclick" left="1.44%" top="67" right="93.6%" height="27" style="color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Calendar id="applyStartDateCal" taborder="2" left="7.44%" top="68" right="81.52%" height="25"/>
-        <Calendar id="applyEndDateCal" taborder="3" left="21.04%" top="68" right="67.52%" height="25"/>
-        <Static id="subCodeStc02" taborder="4" text="환자등록번호" onclick="subCodeStc_onclick" left="36.8%" top="67" right="53.92%" height="27" style="color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="patNoEd" taborder="5" left="45.68%" top="67" right="47.52%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
-        <Button id="patNoBtn" taborder="6" onclick="patNoBtn_onclick" left="52.88%" top="66" right="44.8%" height="28" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;" class="AddBtn"/>
-        <Button id="searchBtn" taborder="7" onclick="searchBtn_onclick" cssclass="SearchBtn" left="76.64%" top="66" right="18%" height="29" class="SearchBtn" text="조회" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;color:#ffffffff;font:bold 9 Gulim;"/>
-        <Button id="hosptlzMngntSaveBtn" taborder="8" text="입원등록" onclick="hosptlzMngntSaveBtn_onclick" left="82.24%" top="66" right="10.08%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
+        <Static id="subCodeStc00" taborder="1" text="적용기간" onclick="subCodeStc_onclick" left="1.68%" top="67" right="93.36%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Calendar id="applyStartDateCal" taborder="2" left="7.44%" top="68" right="81.52%" height="25" style="bordertype:round 5 5 ;"/>
+        <Calendar id="applyEndDateCal" taborder="3" left="21.04%" top="68" right="67.52%" height="25" style="bordertype:round 5 5 ;"/>
+        <Static id="subCodeStc02" taborder="4" text="환자등록번호" onclick="subCodeStc_onclick" left="36.88%" top="67" right="55.12%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Edit id="patNoEd" taborder="5" left="45.68%" top="67" right="47.52%" height="27" style="bordertype:round 5 5 ;font:antialias 9 돋움;" class="AreaEdt"/>
+        <Button id="patNoBtn" taborder="6" onclick="patNoBtn_onclick" left="53.04%" top="66" right="44.64%" height="28" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;bordertype:round 5 5 ;" class="AddBtn"/>
+        <Button id="searchBtn" taborder="7" onclick="searchBtn_onclick" cssclass="SearchBtn" left="76.16%" top="66" right="18.48%" height="29" class="SearchBtn" text="조회" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;color:#ffffffff;font:bold 9 Gulim;"/>
+        <Button id="hosptlzMngntSaveBtn" taborder="8" text="입원등록" onclick="hosptlzMngntSaveBtn_onclick" left="82%" top="66" right="10.32%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
         <Button id="hosptlzMngntCancelBtn" taborder="9" text="입원예약취소" onclick="hosptlzMngntCancelBtn_onclick" left="90.16%" top="66" right="2.16%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Grid id="hospitalizationScheduleGrid" taborder="10" binddataset="dsHospitalizationScheduleManage" useinputpanel="false" left="1.68%" top="112" right="2.16%" height="447">
+        <Grid id="hospitalizationScheduleGrid" taborder="10" binddataset="dsHospitalizationScheduleManage" useinputpanel="false" left="1.68%" top="112" right="2.16%" height="447" style="bordertype:round 5 5 ;">
           <Formats>
             <Format id="default">
               <Columns>
@@ -75,25 +75,25 @@
             </Format>
           </Formats>
         </Grid>
-        <GroupBox id="GroupBox00" text="예약일변경" taborder="11" left="1.6%" top="569" right="50.8%" height="161" style="background:#cfd8dcff;border:1 solid lightslategray ;font:bold 11 arial;"/>
-        <Button id="rsvtCngBtn" taborder="12" text="예약일변경" onclick="rsvtCngBtn_onclick" left="39.36%" top="592" right="52%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Calendar id="hosptlzPlnDateModAfterCal" taborder="13" left="33.28%" top="676" right="54.32%" height="25"/>
-        <Edit id="oPatNoNmEdt" taborder="14" enable="false" left="33.28%" top="635" right="59.04%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
-        <Edit id="oPatNoCdEdt" taborder="15" enable="false" left="11.52%" top="635" right="80.8%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
+        <GroupBox id="GroupBox00" text="예약일변경" taborder="11" left="1.6%" top="569" right="50.8%" height="161" style="background:#cfd8dcff;border:1 solid lightslategray ;bordertype:round 5 5 ;font:bold 11 arial;"/>
+        <Button id="rsvtCngBtn" taborder="12" text="예약일변경" onclick="rsvtCngBtn_onclick" left="39.36%" top="592" right="52%" height="30" style="background:#455a64ff;color:white;bordertype:round 5 5 ;font:bold 10 돋움;" class="ProcessBtn"/>
+        <Calendar id="hosptlzPlnDateModAfterCal" taborder="13" left="33.28%" top="676" right="54.32%" height="25" style="bordertype:round 5 5 ;"/>
+        <Edit id="oPatNoNmEdt" taborder="14" enable="false" left="33.28%" top="635" right="59.04%" height="27" style="bordertype:round 5 5 ;font:antialias 9 돋움;" class="AreaEdt"/>
+        <Edit id="oPatNoCdEdt" taborder="15" enable="false" left="11.52%" top="635" right="80.8%" height="27" style="bordertype:round 5 5 ;font:antialias 9 돋움;" class="AreaEdt"/>
         <Static id="subCodeStc01" taborder="16" text="환자번호" onclick="subCodeStc_onclick" left="3.84%" top="635" right="89.12%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc05" taborder="17" text="입원예정일" onclick="subCodeStc_onclick" left="3.84%" top="675" right="89.12%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Calendar id="hosptlzPlnDateModBeforeCal" taborder="18" enable="false" left="11.52%" top="676" right="76.08%" height="25"/>
-        <GroupBox id="GroupBox01" text="병동/병실수정" taborder="19" left="50.4%" top="569" right="2.16%" height="161" style="background:#cfd8dcff;border:1 solid lightslategray ;font:bold 11 arial;"/>
+        <Calendar id="hosptlzPlnDateModBeforeCal" taborder="18" enable="false" left="11.52%" top="676" right="76.08%" height="25" style="bordertype:round 5 5 ;"/>
+        <GroupBox id="GroupBox01" text="병동/병실수정" taborder="19" left="50.4%" top="569" right="2.16%" height="161" style="background:#cfd8dcff;border:1 solid lightslategray ;bordertype:round 5 5 ;font:bold 11 arial;"/>
         <Static id="subCodeStc03" taborder="20" text="환자번호" onclick="subCodeStc_onclick" left="52.32%" top="603" right="40.64%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Edit id="tPatNoCdEdt" taborder="21" enable="false" left="60.16%" top="603" right="32.56%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
-        <Edit id="tPatNoNmEdt" taborder="22" enable="false" left="77.68%" top="603" right="15.04%" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
-        <Button id="hroomAllotBtn" taborder="23" text="병실변경" onclick="hroomAllotBtn_onclick" left="89.04%" top="592" right="3.36%" height="30" style="background:#455a64ff;color:white;font:bold 10 돋움;" class="ProcessBtn"/>
-        <Calendar id="hosptlzPlnDateCal" taborder="24" enable="false" left="60.16%" top="644" right="27.44%" height="25"/>
+        <Edit id="tPatNoCdEdt" taborder="21" enable="false" left="60.16%" top="603" right="32.56%" height="27" style="bordertype:round 5 5 ;font:antialias 9 돋움;" class="AreaEdt"/>
+        <Edit id="tPatNoNmEdt" taborder="22" enable="false" left="77.68%" top="603" right="15.04%" height="27" style="bordertype:round 5 5 ;font:antialias 9 돋움;" class="AreaEdt"/>
+        <Button id="hroomAllotBtn" taborder="23" text="병실변경" onclick="hroomAllotBtn_onclick" left="89.04%" top="592" right="3.36%" height="30" style="background:#455a64ff;color:white;bordertype:round 5 5 ;font:bold 10 돋움;" class="ProcessBtn"/>
+        <Calendar id="hosptlzPlnDateCal" taborder="24" enable="false" left="60.16%" top="644" right="27.44%" height="25" style="bordertype:round 5 5 ;"/>
         <Static id="subCodeStc04" taborder="25" text="입원예정일" onclick="subCodeStc_onclick" left="52.32%" top="643" right="40.64%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc08" taborder="26" text="병동/병실" onclick="subCodeStc_onclick" left="52.32%" top="683" right="40.64%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
-        <Combo id="wardCombo" taborder="27" innerdataset="dsSC070" codecolumn="code" datacolumn="bigValue" left="60.16%" top="684" right="32%" height="26" class="AreaCombo"/>
-        <Combo id="hroomCombo" taborder="29" innerdataset="dsSC071" codecolumn="code" datacolumn="bigValue" left="68.64%" top="684" right="23.6%" height="26" class=""/>
-        <Button id="hroomBtn" taborder="31" onclick="hroomBtn_onclick" left="77.04%" top="684" right="20.64%" height="26" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;" class="AddBtn"/>
+        <Combo id="wardCombo" taborder="27" innerdataset="dsSC070" codecolumn="code" datacolumn="bigValue" left="60.16%" top="684" right="32%" height="26" class="AreaCombo" style="bordertype:round 5 5 ;"/>
+        <Combo id="hroomCombo" taborder="29" innerdataset="dsSC071" codecolumn="code" datacolumn="bigValue" left="68.64%" top="684" right="23.6%" height="26" class="" style="bordertype:round 5 5 ;"/>
+        <Button id="hroomBtn" taborder="31" onclick="hroomBtn_onclick" left="77.04%" top="684" right="20.64%" height="26" style="image:URL('theme://img/btn_WF_Search.png');background:#455a64ff;bordertype:round 5 5 ;" class="AddBtn"/>
         <Static id="Static00" taborder="32" text="~" left="18.56%" top="68" right="79.04%" height="25" style="align:center middle;font:bold 9 Gulim;"/>
         <Static id="subCodeStc06" taborder="33" text="환자명" onclick="subCodeStc_onclick" left="25.6%" top="635" right="67.36%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
         <Static id="subCodeStc07" taborder="34" text="변경희망일" onclick="subCodeStc_onclick" left="25.6%" top="675" right="67.36%" height="27" style="background:#90a4aeff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>

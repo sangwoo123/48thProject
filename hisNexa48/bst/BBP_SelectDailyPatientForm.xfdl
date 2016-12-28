@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="BBP_SelectDailyPatientForm" classname="BBP_SelectDailyPatientForm" left="0" top="0" width="1024" height="768" titletext="New Form">
+  <Form id="BBP_SelectDailyPatientForm" classname="BBP_SelectDailyPatientForm" left="0" top="0" width="1250" height="774" titletext="New Form" oninit="BBP_SelectDailyPatientForm_oninit">
     <Layouts>
       <Layout>
         <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar5.jpg');">
           <Layouts>
             <Layout>
-              <Static id="titleStc" taborder="0" text="경영통계-환자현황" onclick="titleDiv_titleStc_onclick" left="4.79%" top="-4" right="64.75%" height="60" style="color:#6c6c6cff;font:bold 20 돋움;"/>
+              <Static id="titleStc" taborder="0" text="경영통계-환자현황" onclick="titleDiv_titleStc_onclick" left="4.79%" top="-4" right="64.75%" height="60" style="color:#6c6c6cff;font:bold 20 맑은 고딕;"/>
             </Layout>
           </Layouts>
         </Div>
-        <Div id="SearchPatient" taborder="1" position="fixed" left="26.95%" top="64" right="1.56%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
+        <Div id="SearchPatient" taborder="1" position="fixed" left="22.64%" top="64" right="1.6%" height="686" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
           <Layouts>
             <Layout>
-              <Combo id="searchWardCombo" taborder="7" displaynulltext="선택" innerdataset="dsWardCd" codecolumn="code" datacolumn="data" left="17.81%" top="11" width="140" height="28" style="background:white;"/>
-              <Edit id="Edit00" taborder="8" displaynulltext="입력" left="276" top="11" width="262" height="28"/>
-              <Button id="Button00" taborder="9" text="검색" onclick="Button00_onclick" cssclass="btn_WF_CRUD" left="546" top="11" width="80" height="28"/>
-              <Button id="Button01" taborder="10" text="재설정" onclick="Button01_onclick" cssclass="btn_WF_CRUD" left="632" top="11" width="80" height="28"/>
-              <Grid id="PatientGrid" taborder="12" binddataset="dsSelectDailyPatient" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="2.19%" top="51" right="2.19%" height="612" suppresslevel="sameskip">
+              <Combo id="searchWardCombo" taborder="7" displaynulltext="선택" innerdataset="dsWardCd" codecolumn="code" datacolumn="data" left="37.57%" top="11" width="140" height="28" style="background:white;"/>
+              <Edit id="Edit00" taborder="8" displaynulltext="입력" left="501" top="11" width="262" height="28"/>
+              <Button id="Button00" taborder="9" text="검색" onclick="Button00_onclick" cssclass="btn_WF_CRUD" left="771" top="11" width="80" height="28"/>
+              <Button id="Button01" taborder="10" text="재설정" onclick="Button01_onclick" cssclass="btn_WF_CRUD" left="857" top="11" width="80" height="28"/>
+              <Grid id="PatientGrid" taborder="12" binddataset="dsSelectDailyPatient" useinputpanel="false" autofittype="col" oncellclick="patGrid_oncellclick" left="0.74%" top="51" right="0.74%" height="627" suppresslevel="sameskip" style="font:bold 9 맑은 고딕;">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -42,7 +42,7 @@
                       <Cell col="4" text="현황"/>
                       <Cell col="5" text="병명"/>
                     </Band>
-                    <Band id="body" style="border:1 solid #888888ff,0 none #888888ff,0 none #888888ff,1 solid #888888ff;selectcolor:#000000ff;cellline:1 solid #888888ff ;cellfont:9 나눔바른고딕;cellcolor:#000000ff;cellcolor2:#000000ff;">
+                    <Band id="body" style="border:1 solid #888888ff,0 none #888888ff,0 none #888888ff,1 solid #888888ff;selectcolor:#000000ff;cellline:1 solid #888888ff ;cellfont:9 맑은 고딕 Semilight;cellcolor:#000000ff;cellcolor2:#000000ff;">
                       <Cell style="align:center middle;background:#cfd8dcff;background2:#cfd8dcff;color:black;color2:black;" text="bind:patNo" suppress="1" suppressalign="middle,over"/>
                       <Cell col="1" style="align:center middle;" text="bind:patNm" suppress="2" suppressalign="middle,over"/>
                       <Cell col="2" style="align:center middle;" text="bind:prescDate" mask="@@@@-@@-@@ " suppress="3" suppressalign="middle,over"/>
@@ -65,7 +65,7 @@
             </Layout>
           </Layouts>
         </Div>
-        <Div id="SearchPatient00" taborder="45" position="fixed" left="2.05%" top="64" right="73.83%" height="209" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
+        <Div id="SearchPatient00" taborder="45" position="fixed" left="2.08%" top="64" right="78%" height="209" style="background:#eceff1ff;border:1 solid #b0bec5ff ;color:#b0bec5ff;">
           <Layouts>
             <Layout>
               <Static id="Static51" taborder="0" text="환자 현황 선택" cssclass="sta_WF_SubTitle1" left="12" top="6" width="142" height="21" style="font:bold 9 돋움;"/>
@@ -78,10 +78,11 @@
             </Layout>
           </Layouts>
         </Div>
-        <Calendar id="Calendar00" taborder="46" left="1.95%" top="309" right="73.83%" height="310" type="monthonly" style="daysize:40 40;trailingdaycolor:darkgray;displaynulltextcolor:transparent;border:1 solid black ;" ondayclick="Calendar00_ondayclick" dateformat="yyyy-MM-dd ddd" tooltiptype="default" onlbuttondown="Calendar00_onlbuttondown" value="null"/>
-        <Static id="Static00" taborder="48" onclick="Static00_onclick" left="1.95%" top="277" right="73.83%" height="29" style="background:#f5f5f5ff;border:0 solid #6477adff,2 solid #aaaaaaff,2 solid #999999ff,0 solid #999999ff;font:9 돋움;"/>
+        <Calendar id="Calendar00" taborder="46" left="1.92%" top="309" right="78%" height="310" type="monthonly" style="daysize:40 40;trailingdaycolor:darkgray;displaynulltextcolor:transparent;border:1 solid black ;" ondayclick="Calendar00_ondayclick" dateformat="yyyy-MM-dd ddd" tooltiptype="default" onlbuttondown="Calendar00_onlbuttondown" value="null"/>
+        <Static id="Static00" taborder="48" onclick="Static00_onclick" left="1.92%" top="277" right="78%" height="29" style="background:#f5f5f5ff;border:0 solid #6477adff,2 solid #aaaaaaff,2 solid #999999ff,0 solid #999999ff;font:9 돋움;"/>
         <Static id="Static51" taborder="49" text="일자별 환자현황" cssclass="sta_WF_SubTitle1" left="34" top="280" width="180" height="21" style="background:URL('theme://img/img_WF_Subtitle1.png') left middle;font:bold 9 돋움;"/>
-        <Button id="Button11" taborder="51" text="월간 그래프 보기" left="1.95%" top="628" right="73.83%" height="122" onclick="Button11_onclick"/>
+        <Button id="Button11" taborder="51" left="1.92%" top="626" right="78%" height="123" onclick="Button11_onclick" style="background:transparent URL('img::graph.jpg') stretch;border:1 solid black ;color:#ffffffff;bordertype:normal 0 0 ;align:center top;font:bold 12 나눔바른고딕;"/>
+        <Static id="Static01" taborder="52" text="진단치료 현황 차트" left="10.88%" top="627" right="78.48%" height="28" style="color:#ffffffff;align:right middle;font:bold 9 맑은 고딕;"/>
       </Layout>
     </Layouts>
     <Bind/>
@@ -326,6 +327,13 @@ this.dsSelectDailyPatient.filter("rk>'1'");
 this.Button11_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	application.open("modeless", "bst::BBP_highChart.xfdl", this.getOwnerFrame(), {mode:'modeless'}, "", 400, 200);
+}
+
+
+
+this.BBP_SelectDailyPatientForm_oninit = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.WebBrowser00.set_url("http://localhost:8282/his/wc.html");
 }
 ]]></Script>
   </Form>
