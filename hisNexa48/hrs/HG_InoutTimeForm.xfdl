@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="HG_InoutTimeForm" classname="HG_InoutTimeForm" left="0" top="0" width="1250" height="768" titletext="출퇴근관리" onload="HG_InoutTimeForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="titleDiv" taborder="0" left="0%" top="0" right="0%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="titleStc" taborder="0" text="출퇴근등록" left="4.8%" top="-4" right="81.68%" height="60" style="color:#6c6c6cff;font:bold 20 다음_Regular;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="inoutInfoDiv" taborder="1" left="1.36%" top="70" right="0.8%" height="48" style="background:#546e7aff;">
+          <Layouts>
+            <Layout>
+              <Static id="subCodeStc00" taborder="0" text="기간" onclick="subCodeStc_onclick" left="1.14%" top="8" right="93.38%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Calendar id="startCal" taborder="1" left="6.79%" top="8" right="83.73%" height="30"/>
+              <Static id="Static04" taborder="2" text="   ~" left="15.13%" top="10" right="82.26%" height="32" style="color:aliceblue;align:center middle;font:bold 12 arial;"/>
+              <Calendar id="endCal" taborder="3" left="17.66%" top="8" right="72.85%" height="30"/>
+              <Static id="subCodeStc01" taborder="4" text="부서" onclick="subCodeStc_onclick" left="28.21%" top="8" right="65.25%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="deptnoEd" taborder="5" left="34.91%" top="8" right="57.97%" height="30" oneditclick="inoutInfoDiv_deptnoEd_oneditclick"/>
+              <Edit id="deptnmEd" taborder="6" left="44.64%" top="8" right="48.24%" height="30"/>
+              <Static id="subCodeStc02" taborder="7" text="사원" onclick="subCodeStc_onclick" left="52.58%" top="8" right="40.88%" height="30" style="background:#b0bec5ff;color:black;bordertype:normal 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+              <Edit id="empnoEd" taborder="8" left="59.28%" top="8" right="33.61%" height="30"/>
+              <Edit id="empnmEd" taborder="9" left="69.01%" top="8" right="23.88%" height="30"/>
+              <Button id="saveBtn" taborder="10" cssclass="DelBtn" enable="false" left="77.02%" top="6" right="15.62%" height="32" style="background:@gradation URL('img::permitBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="inoutInfoDiv_saveBtn_onclick"/>
+              <Button id="searchInoutTimeBtn" taborder="11" cssclass="SearchBtn" left="92.4%" top="7" right="0.33%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="inoutInfoDiv_searchInoutTimeBtn_onclick"/>
+              <Button id="addInoutTimeBtn" taborder="12" cssclass="DelBtn" enable="false" left="84.63%" top="6" right="8.09%" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="inoutInfoDiv_addInoutTimeBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="findDeptBtn" taborder="2" cssclass="btn_WF_SearchSmall" left="532" top="78" width="30" height="30" onclick="findDeptBtn_onclick"/>
+        <Button id="findEmpBtn" taborder="3" cssclass="btn_WF_SearchSmall" left="830" top="78" width="30" height="30" onclick="findEmpBtn_onclick"/>
+        <Div id="inoutTimeDiv" taborder="5" left="1.36%" top="125" right="0.8%" height="627" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Grid id="transferPatGrid" taborder="0" useinputpanel="false" autofittype="col" oncellclick="transferPatGrid_oncellclick" left="13" top="19" width="1202" height="592" binddataset="dsInoutWorkTime">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="28"/>
+                      <Column size="84"/>
+                      <Column size="68"/>
+                      <Column size="57"/>
+                      <Column size="95"/>
+                      <Column size="90"/>
+                      <Column size="94"/>
+                      <Column size="189"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="24" band="head"/>
+                      <Row size="24"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell style="background:#b0bec5ff;" text="NO"/>
+                      <Cell col="1" style="background:#b0bec5ff;font:bold 9 돋움;" text="사번"/>
+                      <Cell col="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="사원명"/>
+                      <Cell col="3" style="background:#b0bec5ff;font:bold 9 돋움;" text="출/퇴근"/>
+                      <Cell col="4" colspan="2" style="background:#b0bec5ff;font:bold 9 돋움;" text="출입시간"/>
+                      <Cell col="6" style="background:#b0bec5ff;font:bold 9 돋움;" text="시간외근무시간" autosizecol="default"/>
+                      <Cell col="7" style="background:#b0bec5ff;" text="사유"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell style="align:center middle;font:10 돋움;" expr="expr:currow+1"/>
+                      <Cell col="1" style="align:center middle;font:10 돋움;" text="bind:empNo"/>
+                      <Cell col="2" style="align:center middle;font:10 돋움;" text="bind:empNm"/>
+                      <Cell col="3" displaytype="combo" edittype="combo" style="align:center middle;font:10 돋움;" text="bind:inoutGubun" combodataset="dsInoutGubun" combocodecol="code" combodatacol="value"/>
+                      <Cell col="4" displaytype="date" edittype="date" style="align:center middle;font:10 돋움;" text="bind:belongDay"/>
+                      <Cell col="5" edittype="text" style="align:center middle;font:10 돋움;" text="bind:inOutTime" mask="##:##"/>
+                      <Cell col="6" style="align:center middle;font:10 돋움;" text="bind:overTime" mask="#시간"/>
+                      <Cell col="7" edittype="text" text="bind:reason"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">searchInoutTimeList</Col>
+            <Col id="URL">his::hrs/inoutTime/findInoutTimeList.do</Col>
+            <Col id="outData">dsInoutWorkTime=dsInoutWorkTime</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchInoutTimeProcess</Col>
+            <Col id="URL">his::hrs/inoutTime/batchInoutWorkTimeProcess.do</Col>
+            <Col id="inData">dsInoutWorkTime=dsInoutWorkTime:u</Col>
+            <Col id="outData">dsInoutWorkTime=dsInoutWorkTime</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsInoutGubun">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">1</Col>
+            <Col id="value">출근</Col>
+          </Row>
+          <Row>
+            <Col id="code">2</Col>
+            <Col id="value">퇴근</Col>
+          </Row>
+          <Row>
+            <Col id="code">3</Col>
+            <Col id="value">외출</Col>
+          </Row>
+          <Row>
+            <Col id="code">4</Col>
+            <Col id="value">귀사</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsInoutWorkTime">
+        <ColumnInfo>
+          <Column id="inOutTime" type="STRING" size="256"/>
+          <Column id="reason" type="STRING" size="256"/>
+          <Column id="inoutGubun" type="STRING" size="256"/>
+          <Column id="inoutTimeNo" type="STRING" size="256"/>
+          <Column id="empNo" type="STRING" size="256"/>
+          <Column id="empNm" type="STRING" size="256"/>
+          <Column id="deptCd" type="STRING" size="256"/>
+          <Column id="deptNm" type="STRING" size="256"/>
+          <Column id="overTime" type="STRING" size="256"/>
+          <Column id="belongDay" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
+@Path		              				   				
+@Description				
+@Author	  		백송은			    			                        								                                            
+@Create         2016.12.02                          		                    				                                            
+********************************************************************************/
+
+
+//================================공통 Script Include================================
+
+include "scripts::commonScripts.xjs";
+include "scripts::hrsScripts.xjs";
+
+
+//================================ 화면 변수 선언부================================
+
+var deptCd;			//부서코드
+var deptNm;			//부서명
+var empNo;			//사원번호
+var empNm;			//사원명
+var belongDay;		//기준일
+var time;			//현재시간
+var startDate;		//출퇴근등록 시작날짜
+var endDate;		//출퇴근등록 마지막날짜
+var pms;			//권한
+var code;
+var hrs;
+
+
+//================================ CallBackFunc ================================
+
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		alert(errorMsg);
+		return;
+	}
+	
+	if(svcID=="searchInoutTimeList")
+	{
+		var rowCount = this.dsInoutWorkTime.getRowCount();
+			
+			if(rowCount== 0)
+			{
+			
+				alert("조회 내용이 없습니다.");
+				return;
+		
+			}else
+			{
+			
+				alert("조회성공");
+			
+			}
+		
+	}
+	
+	if(svcID=="batchInoutTimeProcess")
+	{
+		alert("정상 처리되었습니다.");
+		
+	}
+	
+	
+}
+
+
+
+//================================ 현재 날짜 세팅 ================================
+
+this.fn_Today = function()
+{
+	var objDate = new Date();
+	var sToday  = objDate.getFullYear().toString();
+	    sToday += (objDate.getMonth()+1).toString().padLeft(2, "0");
+	    sToday += objDate.getDate().toString().padLeft(2, "0"); 
+
+	return sToday;
+
+}
+
+//================================ 현재 시간 세팅 ================================
+
+this.fn_ThisTime = function()
+{
+	var objDate = new Date();
+	var sTime  = objDate.getHours().toString().padLeft(2, "0");
+	    sTime += objDate.getMinutes().toString().padLeft(2, "0");
+
+	return sTime;
+
+}
+
+
+//================================  onload Event ================================
+
+this.HG_InoutTimeForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.inoutInfoDiv.startCal.set_value(this.fn_Today());
+	this.inoutInfoDiv.endCal.set_value(this.fn_Today());
+	
+	belongDay = this.fn_Today().substr(0,6);
+}
+
+
+//================================  부서 조회 버튼 클릭  Event ================================
+
+this.findDeptBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var param = {code:"GP500"};
+    this.gfnPopup("CM_CodePopupForm","com",param);
+    
+   
+  
+}
+
+//================================  부서 세팅  ================================
+
+this.setCode = function(code,arrRtn,codeSeq){
+
+	this.inoutInfoDiv.deptnoEd.set_value(arrRtn[0]);
+	this.inoutInfoDiv.deptnmEd.set_value(arrRtn[1]);
+	
+}
+
+//================================  사원 조회 버튼 클릭  Event   ================================
+
+this.findEmpBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnEmpPopup();
+}
+
+
+//================================  사원 세팅  ================================
+this.setEmpInfo = function(arrRtn){
+
+	this.inoutInfoDiv.empnoEd.set_value(arrRtn[0]);
+	this.inoutInfoDiv.empnmEd.set_value(arrRtn[1]);
+	this.inoutInfoDiv.deptnoEd.set_value(arrRtn[2]);
+	this.inoutInfoDiv.deptnmEd.set_value(arrRtn[3]);
+
+}
+
+
+
+//================================  조회 버튼 클릭 Event  ================================
+this.inoutInfoDiv_searchInoutTimeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	deptNm = this.inoutInfoDiv.deptnoEd.value;
+	empNo = this.inoutInfoDiv.empnoEd.value;
+	startDate = this.inoutInfoDiv.startCal.value;
+	endDate = this.inoutInfoDiv.endCal.value;
+	alert(deptNm);
+	if(deptNm == '인사팀'){
+	alert(deptNm);
+		this.inoutInfoDiv.addInoutTimeBtn.set_enable(true);
+		this.inoutInfoDiv.saveBtn.set_enable(true);
+	}
+	var argument = 'empNo='+empNo+' sDate='+startDate+' eDate='+endDate;
+	 
+	this.dsService.setColumn(0, "argument", argument);
+	
+	this.gfnService("searchInoutTimeList", false);
+}
+
+
+//================================  추가 버튼 클릭 Event  ================================
+
+this.inoutInfoDiv_addInoutTimeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+alert(111);
+
+	empNo = this.inoutInfoDiv.empnoEd.value;
+	empNm = this.inoutInfoDiv.empnmEd.value;
+	deptCd = this.inoutInfoDiv.deptnoEd.value;
+	deptNm = this.inoutInfoDiv.deptnmEd.value;
+	belongDay = this.fn_Today();
+	time = this.fn_ThisTime();
+	
+	this.dsInoutWorkTime.addRow();
+	
+	var inoutTimeNo = this.dsInoutWorkTime.getColumn(this.dsInoutWorkTime.rowposition-1, "inoutTimeNo");
+	var count=0;
+	count = count+1;
+	
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "empNo", empNo);
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "empNm", empNm);
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "deptCd", deptCd);
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "deptNm", deptNm);
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "belongDay", belongDay);
+	this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "inOutTime", time);
+	
+	if(inoutTimeNo == undefined){
+		inoutTimeNo = parseInt(this.fn_Today()+"00")+ count;
+		this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "inoutTimeNo", inoutTimeNo);
+		alert(inoutTimeNo);
+	}else if(belongDay == this.dsInoutWorkTime.getColumn(this.dsInoutWorkTime.rowposition-1, "belongDay")){
+		inoutTimeNo = parseInt(inoutTimeNo) + count;
+		this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "inoutTimeNo", inoutTimeNo);
+		alert(inoutTimeNo);
+	}else if(belongDay != this.dsInoutWorkTime.getColumn(this.dsInoutWorkTime.rowposition-1, "belongDay")){
+		inoutTimeNo = parseInt(this.fn_Today()+"00")+count;
+		this.dsInoutWorkTime.setColumn(this.dsInoutWorkTime.rowposition, "inoutTimeNo", inoutTimeNo);
+		alert(inoutTimeNo);
+	}
+	
+}
+
+//================================  승인버튼 Event  ================================
+this.inoutInfoDiv_saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchInoutTimeProcess");
+}
+
+this.inoutInfoDiv_deptnoEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="comm_message" classname="comm_message" left="0" top="0" width="300" height="200" titletext="메세지" style="background:#ffffffff;" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_bottom" taborder="5" text="Div00" left="0" right="0" height="50" top="150">
+          <Layouts>
+            <Layout>
+              <Button id="btn_confirm" taborder="0" text="확인" visible="false" left="47" top="11" height="28" width="94" onclick="div_bottom_btn_confirm_onclick"/>
+              <Button id="btn_close" taborder="1" text="닫기" onclick="Button00_onclick" left="101" top="11" height="28" width="93"/>
+              <Button id="btn_cancel" taborder="2" text="취소" visible="false" left="154" top="11" height="28" width="92" onclick="div_bottom_btn_cancel_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stc_title" taborder="3" text="Title" left="0" top="0" right="0" height="35" style="padding:0 0 0 10;"/>
+        <TextArea id="txa_msg" taborder="4" left="10" top="35" right="10" style="linespace:5;border:0 none #bdbdbdff ;" readonly="true" wordwrap="char" scrollbars="autovert" height="115"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+ * 01. 업무구분 : 샘플
+ * 02. 메뉴명   : 
+ * 03. 메뉴설명 :  
+ * 04. 작성일   : 
+ * 05. 작성자   : 
+ * 06. 수정이력 : 
+ ***********************************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************************
+ *     
+ **********************************************************************************/
+
+
+/***********************************************************************************
+* include 선언부  													               *
+***********************************************************************************/
+
+/***********************************************************************************/
+/* 폼 전역변수 선언부												               */
+/***********************************************************************************/
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//폼초기화
+	Iject.formOnload(obj);
+		
+	var title = this.parent.caption;
+	var type = this.parent.type;	
+	var msg = this.parent.msg;
+
+	//타이틀설정
+	this.stc_title.set_text(title);
+	
+	//버튼제어
+	if(type == "alert")
+	{
+		this.div_bottom.btn_close.set_visible(true);
+		this.div_bottom.btn_close.setFocus();
+		this.div_bottom.btn_confirm.set_visible(false);
+		this.div_bottom.btn_cancel.set_visible(false);
+	}
+	else if(type == "confirm")
+	{
+		this.div_bottom.btn_close.set_visible(false);
+		this.div_bottom.btn_confirm.set_visible(true);
+		this.div_bottom.btn_confirm.setFocus();
+		this.div_bottom.btn_cancel.set_visible(true);
+	}
+
+	//메세지 설정 및 높이값 구하기
+	this.txa_msg.set_value(msg);
+	this.txa_msg.set_height(40);
+
+	var height = Eco.XComp.PositionSize.getScrollHeight(this.txa_msg) + 20;
+
+	var MAX_HEIGHT = 100;
+	if(height > MAX_HEIGHT) height = MAX_HEIGHT;
+	
+	this.txa_msg.set_height(height);
+	this.div_bottom.set_top(parseInt(this.txa_msg.top) + parseInt(this.txa_msg.height));
+	
+	var TITLE_HEIGHT = parseInt(this.stc_title.height);
+	var MSG_HEIGHT = height;
+	var BTN_HEIGHT = parseInt(this.div_bottom.height);
+	
+	//팝업창 사이즈 조정
+	this.getOwnerFrame().set_height(TITLE_HEIGHT + MSG_HEIGHT + BTN_HEIGHT);
+}
+
+/***********************************************************************************
+* Transaction Function
+***********************************************************************************/
+
+/***********************************************************************************
+* 사용자 Function
+***********************************************************************************/
+ 
+/***********************************************************************************
+* Component Event Function
+***********************************************************************************/
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.close(this, true);
+}
+
+this.div_bottom_btn_confirm_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.close(this, true);
+}
+
+this.div_bottom_btn_cancel_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	Iject.close(this, false);
+}
+]]></Script>
+  </Form>
+</FDL>

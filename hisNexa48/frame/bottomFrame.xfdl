@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="bottomFrame" classname="bottomFrame" left="0" top="0" width="1250" height="20" titletext="bottomFrame" style="background:#cfd8dcff;">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="서울병원정보시스템 2016@Seoulsoft All Right Reserved." left="0%" top="0" right="0.08%" height="18" style="border:1px solid #b0bec5ff,0 none #ffffffff,0 none #ffffffff,0 none #ffffffff;color:#455a64ff;align:center middle;font:normal antialias 8 맑은 고딕;" onclick="Static00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+this.Static00_onclick = function(obj:Static,  e:nexacro.ClickEventInfo)
+{
+	
+}
+]]></Script>
+  </Form>
+</FDL>

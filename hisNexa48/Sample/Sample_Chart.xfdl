@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="Sample_Chart" classname="Sample_Chart" left="0" top="0" width="1024" height="768" titletext="eCharts" onload="form_onload">
+    <Layouts>
+      <Layout>
+        <Static id="Static00" taborder="0" text="@ Chart" left="10" top="10" right="10" height="41" style="background:whitesmoke;border:1 solid black ;color:black;padding:0 0 0 20;font:bold 14 Dotum;"/>
+        <WebBrowser id="WebBrowser00" left="12" top="122" height="478" taborder="1" onloadcompleted="WebBrowser00_onloadcompleted" width="1002" titletext="E-Charts"/>
+        <Button id="Button00" taborder="2" text="draw" left="12" top="75" width="120" height="34" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/***********************************************************************************
+ * 01. 업무구분 : 샘플
+ * 02. 메뉴명   : 
+ * 03. 메뉴설명 :  
+ * 04. 작성일   : 
+ * 05. 작성자   : 
+ * 06. 수정이력 : 
+ ***********************************************************************************
+ *     수정일     작성자   내용
+ ***********************************************************************************
+ *     
+ **********************************************************************************/
+
+
+/***********************************************************************************
+* include 선언부  													               *
+***********************************************************************************/
+
+
+/***********************************************************************************/
+/* 폼 전역변수 선언부												               */
+/***********************************************************************************/
+
+
+/***********************************************************************************
+* Form Event
+***********************************************************************************/
+/**
+ * form onload 함수
+ * @return 
+ * @example
+ *
+ * @memberOf this
+ */
+this.form_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	//기본 공통  함수 초기화
+	Iject.formOnload(obj);
+
+}
+
+/***********************************************************************************
+* Transaction Function
+***********************************************************************************/
+
+/***********************************************************************************
+* Component Event Function
+***********************************************************************************/
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var option = {
+		tooltip: {
+			show: true
+		},
+		legend: {
+			data:['Sales']
+		},
+		xAxis : [
+			{
+				type : 'category',
+				data : ['Shirts', 'Sweaters', 'Chiffon Shirts', 'Pants', 'High Heels', 'Socks']
+			}
+		],
+		yAxis : [
+			{
+				type : 'value'
+			}
+		],
+		series : [
+			{
+				name:'Sales',
+				type:'bar',
+				data:[5, 20, 40, 10, 10, 20]
+			}
+		]
+	};
+	this.gfn_drawChart(this.WebBrowser00, option);
+}
+
+this.gfn_drawChart = function(web, option)
+{	
+	if(nexacro.Browser == "Runtime")
+	{
+		web.set_url("http://www.matcl.com/chart/Area.html");
+		web.option = option;
+		return;
+	}
+	if(nexacro.Browser == "IE" && nexacro.BrowserVersion == 8)
+	{
+		return;
+	}
+	var sOption = Eco.Json.encode(option);
+	
+	var html = "";
+	html += '<!DOCTYPE html>';
+	html += '<head>';
+	html += '    <meta charset="utf-8">';
+	html += '    <title>ECharts</title>';
+	html += '</head>';
+	html += '<body>';
+	html += '    <div id="main" style="height:400px"></div>';
+	html += '    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>';
+	html += '    <script type="text/javascript">';
+	html += '        require.config({';
+	html += '            paths: {';
+	html += '                echarts: "http://echarts.baidu.com/build/dist"';
+	html += '            }';
+	html += '        });';
+	html += '        require(';
+	html += '            [';
+	html += '                "echarts",';
+	html += '                "echarts/chart/bar",';
+	html += '                "echarts/chart/line"';
+	html += '            ],';
+	html += '            function (ec) {';
+	html += '                var myChart = ec.init(document.getElementById("main"));';
+	html += '                var option = '+sOption+';';
+	html += '                myChart.setOption(option); ';
+	html += '            }';
+	html += '        );';
+	html += '    </script>';
+	html += '</body>';
+	
+// 	trace(web.document);
+// 	web.getProperty("document").callMethod("Open");
+// 	web.getProperty("document").callMethod("Write", html);
+// 	web.getProperty("document").callMethod("Close");	
+	
+	var doc = web.document;
+	doc.open();
+	doc.write(html);
+	doc.close();
+}
+
+this.WebBrowser00_onloadcompleted = function(obj:WebBrowser, e:nexacro.WebLoadCompEventInfo)
+{
+	obj.callMethod("draw", obj.option);
+}
+]]></Script>
+  </Form>
+</FDL>

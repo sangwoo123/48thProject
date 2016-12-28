@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="tabFrame" classname="tabFrame" left="0" top="0" width="1250" height="37" titletext="tabFrame" oninit="tabFrame_onload" style="background:#eeeeeeff;border:1px solid #999999ff ;">
+    <Layouts>
+      <Layout>
+        <Tab id="topTab" taborder="0" left="0.64%" top="5" right="2.64%" height="33" onextrabuttonclick="topTab_onextrabuttonclick" tabindex="0" scrollbars="autoboth" style="buttonbackground:#4682b466;buttongradation:liner 0,0 #feffffff 0,100 aliceblue [60% #f2f2efff][70% #ecece9ff];buttonborder:1 solid slategray ;buttonbordertype:normal 0 0 ;buttonpadding:8 16 8 16;background:transparent;border:0 none #ffffffff ;bordertype:round 3 3 ;font:antialias 10 맑은 고딕 Semilight;" onchanged="topTab_onchanged">
+          <Tabpages>
+            <Tabpage id="tabpage" style="background:slategray;" dragscrolltype="none" text="MENU">
+              <Layouts>
+                <Layout width="1207" height="2"/>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage2" text="tabpage2"/>
+          </Tabpages>
+        </Tab>
+        <Button id="allCloseBtn" taborder="1" text="닫기" onclick="allCloseBtn_onclick" left="96%" top="4" right="0.56%" height="29" style="background:gainsboro;color:#555555ff;font:bold antialias 8 맑은 고딕;cursor:default;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
+탭 프레임                                            						                                                                         
+@Path			시스템 레이아웃 프레임          				   				
+@Description 	각 화면으로 이동할 수 있는 탭 프레임						
+@Author	  		강현준
+@Create         2016. 11. 25.                             		                    				                                            
+********************************************************************************/
+
+include "scripts::commonScripts.xjs";
+
+// 폼 로드시
+this.tabFrame_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+   //탭 초기화
+   //alert(this.topTab.tabpages.length-1);
+   
+   for (var i = (this.topTab.tabpages.length); i >= -1; i--) {
+      this.topTab.removeTabpage(i);
+   }
+   this.topTab.removeTabpage(0);
+}
+
+// 탭 추가 함수
+// @Param (탭페이지에 연결할 URL, 탭에 표시할 텍스트)
+this.fn_addTabpage = function(menuURL, menuNM) 
+{   
+	//alert("탭 추가: "+menuURL+", "+menuNM);
+   if(this.topTab.insertTabpage("tabpage"+application.gvTabIndex, application.gvTabIndex, menuURL, menuNM) == -1) {
+      alert("화면 로딩이 실패하였습니다.");
+   } else {
+      application.gvTabIndex++;
+   }
+}
+
+// 모든 창 닫기
+this.allCloseBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+  /*if (confirm("모든 창을 닫으시겠습니까?")) {
+      var tabCnt = this.topTab.tabpages.length;
+      for (var i = (this.topTab.tabpages.length-1); i >= 0; i--) {
+         var childName = this.topTab.tabpages[i].url;
+         var objChild = application.mainframe.VFrameSet.FrameSet.frames[childName];
+         application.mainframe.VFrameSet.FrameSet.removeChild(childName);
+         objChild.destroy();
+         objChild = null;   
+         this.topTab.removeTabpage(i);
+      }
+   }
+   application.gvTabIndex = 0;*/
+}
+
+// 탭 변경시 기존 탭 작아지고 새로 눌러진 탭 키우기
+this.topTab_onchanged = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+   if (this.topTab.tabpages[e.postindex] == null) return;
+   
+   var preChildName  = obj.tabpages[e.preindex].url;
+   var postChildName = obj.tabpages[e.postindex].url;
+   //alert(e.preindex+":"+preChildName+", "+e.postindex+":"+postChildName);
+   var objPreChild = application.mainframe.frameSet.mainFrame.frames[preChildName];
+   var objPostChild = application.mainframe.frameSet.mainFrame.frames[postChildName];
+   
+   //objPreChild.set_openstatus("minimize");
+   //objPostChild.set_openstatus("maximize");
+   //objPostChild.show();
+    objPostChild.setFocus();
+}
+
+// 탭 버튼 옆에 추가적으로 보여지는 extrabutton 을 눌렀을 때 발생하는 이벤트
+this.topTab_onextrabuttonclick = function(obj:Tab, e:nexacro.TabMouseEventInfo)
+{
+   //var ind=e.index;
+   if (confirm(obj.tabpages[e.index].text + " 탭을 닫으시겠습니까?")) {      
+      var childName = obj.tabpages[e.index].url;
+      var objChild = application.mainframe.frameSet.mainFrame.frames[childName];      
+      application.mainframe.frameSet.mainFrame.removeChild(childName);   
+      //this.topTab.set_enable(true);
+      objChild.destroy();       
+      objChild = null;
+      //application.mainframe.frameSet.frames[e.index].setFocus();
+      obj.removeTabpage(e.index);
+      //obj.set_enable(false); 
+   }
+}
+
+
+]]></Script>
+  </Form>
+</FDL>
