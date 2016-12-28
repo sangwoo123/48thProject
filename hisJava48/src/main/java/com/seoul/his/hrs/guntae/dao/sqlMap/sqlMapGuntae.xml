@@ -42,4 +42,61 @@
 			order by BELONG_DAY
 	</select>
 
+	<select id="selectMonGuntaeList" resultType="monGuntaeBean">
+		select
+			BELONG_YEAR_MON
+			,EMP_NO
+			,BASIC_TIME
+			,OVER_TIME
+			,BASIC_DAY
+			,ABSENTEEISM_DAY
+			,PAID_DAY
+			,ABSENCE_DAY
+			,YEONCHA_DAY
+			,ALERY_DAY
+			,LATELESS_DAY
+			,GO_OUT_DAY
+			,CLOSE_YN
+		from HG_MON_GUNTAE
+		where 1=1
+			<if test="empNo != null">
+				AND EMP_NO = #{empNo}
+			</if>
+			<if test="belongYearMon != null and belongYearMon !='' ">
+				AND BELONG_YEAR_MON = #{belongYearMon}
+			</if>
+	</select>
+
+	<select id="callMonGuntae" statementType="CALLABLE" parameterType="map">
+
+		{ CALL SEOUL.PC_HG_MONGUNTAE_CREATE(
+               #{yearMon, mode=IN, jdbcType=VARCHAR, javaType=string},
+               #{monEmpNo, mode=IN, jdbcType=VARCHAR, javaType=string},
+			   #{errorCode, mode=OUT, jdbcType=VARCHAR, javaType=string},
+			   #{errorMsg, mode=OUT, jdbcType=VARCHAR, javaType=string}
+			)
+		}
+    </select>
+
+    <select id="callCloseMonGuntae" statementType="CALLABLE" parameterType="map">
+
+		{ CALL PC_HG_DAY_MON_GUNTAE_CLOSE(
+			   #{belongYearMon, mode=IN, jdbcType=VARCHAR, javaType=string},
+			   #{errorCode, mode=OUT, jdbcType=VARCHAR, javaType=string},
+			   #{errorMsg, mode=OUT, jdbcType=VARCHAR, javaType=string}
+			)
+		}
+	</select>
+
+	<select id="selectMonGuntaeCloseList" resultType="monGuntaeCloseBean">
+		SELECT MON_GUNTAE_NO
+			 , BELONG_YEAR_MON
+			 , CLOSE_YN
+		FROM HG_MON_GUNTAE_CLOSE
+		WHERE BELONG_YEAR_MON = #{belongYearMon}
+	</select>
+
+
+
+
 </mapper>

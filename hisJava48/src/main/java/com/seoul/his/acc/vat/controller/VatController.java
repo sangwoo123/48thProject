@@ -35,20 +35,7 @@ public class VatController {
 	@Autowired
 	VatServiceFacade vatServiceFacade;
 
-	@RequestMapping("acc/vat/findTaxInvList.do")
-	public void searchTaxInvList(HttpServletRequest request, HttpServletResponse response) throws Exception{
-		PlatformData outData = (PlatformData)request.getAttribute("outData");
-		PlatformData inData = (PlatformData)request.getAttribute("inData");
-		   Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-	        List<TaxInvBean> taxInvList = vatServiceFacade.searchTaxInvList(argsMap);
-	        List<DetailTaxInvBean> detailTaxInvList = new ArrayList<DetailTaxInvBean>();
-	        for (TaxInvBean bean : taxInvList) {
-	            List<DetailTaxInvBean> temDetailTaxInvList = bean.getDetailTaxInvList();
-	            detailTaxInvList.addAll(temDetailTaxInvList);
-	        }
-	        dataSetBeanMapper.beansToDataset(outData, taxInvList, TaxInvBean.class);
-	        dataSetBeanMapper.beansToDataset(outData, detailTaxInvList,DetailTaxInvBean.class);
-	   }
+
 
 }
 

@@ -35,6 +35,13 @@ public class PatientApplicationServiceImpl implements PatientApplicationService{
 		List<PatientBean> patientList = patientDAO.selectPatientList(argsMap);
 		return patientList;		
 	}
+	
+
+	@Override
+	public List<PatientBean> findPatientList() {
+		List<PatientBean> patientList = patientDAO.selectRestPatientList();
+		return patientList;		
+	}
 
 
 

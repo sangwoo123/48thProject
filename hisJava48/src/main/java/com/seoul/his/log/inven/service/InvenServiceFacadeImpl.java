@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.seoul.his.log.inven.applicationService.InvenSilsaApplicationService;
 import com.seoul.his.log.inven.to.InvenSilsaBean;
 import com.seoul.his.log.inven.to.InvenSilsaDtlInfoBean;
+import com.seoul.his.log.inven.to.PstInvenBean;
 
 @Service
 public class InvenServiceFacadeImpl implements InvenServiceFacade {
@@ -27,6 +28,15 @@ public class InvenServiceFacadeImpl implements InvenServiceFacade {
 	@Override
 	public void batchInvenSilsaListProcess(List<InvenSilsaBean> invenSilsaList, List<InvenSilsaDtlInfoBean> invenSilsaDtlInfoList) {
 		invenSilsaApplicationService.batchInvenSilsaListProcess(invenSilsaList, invenSilsaDtlInfoList);
+	}
+
+	@Override
+	public List<PstInvenBean> findPstInvenList(Map<String, String> argsMap) {
+		return null;
+	}
+
+	@Override
+	public void batchPstInvenListProcess(List<PstInvenBean> pstInvenList) {
 	}
 
 }

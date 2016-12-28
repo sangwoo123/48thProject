@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="LB_WhMngntForm" classname="LB_WhMngntForm" left="0" top="0" width="1250" height="768" titletext="New Form">
+    <Layouts>
+      <Layout>
+        <Div id="Div02" taborder="0" left="0%" top="0" width="1248" height="60" style="background:transparent URL('img::titleBar3.jpg');"/>
+        <Static id="Static00" taborder="1" text="창고 관리" left="4.8%" top="-4" right="81.68%" height="60" style="color:#6c6c6cff;font:antialias 20 맑은 고딕;"/>
+        <Static id="whCdStc" taborder="2" text="창고코드" onclick="subCodeStc_onclick" left="20" top="69" width="87" height="27" style="background:#c4d2daff;color:black;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
+        <Edit id="whCdEd" taborder="3" left="115" top="69" width="100" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
+        <Edit id="whCdNmEd" taborder="4" left="264" top="69" width="166" height="27" style="font:돋움,9,antialias;" class="AreaEdt"/>
+        <Grid id="whGrid" taborder="5" binddataset="dsWh" useinputpanel="false" autofittype="col" oncellclick="bigGrpGrid_oncellclick" oncloseup="oncloseup" ontextchanged="ontextchanged" left="20" top="105" width="1189" height="591">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="80"/>
+                <Column size="150"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="80"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="창고코드"/>
+                <Cell col="1" text="창고명"/>
+                <Cell col="2" text="입출형태코드"/>
+                <Cell col="3" text="입출형태"/>
+                <Cell col="4" text="입출유형코드"/>
+                <Cell col="5" text="입출유형"/>
+                <Cell col="6" text="사용여부"/>
+                <Cell col="7" text="적용시작일자"/>
+                <Cell col="8" text="적용종료일자"/>
+                <Cell col="9" text="적요"/>
+              </Band>
+              <Band id="body">
+                <Cell edittype="normal" text="bind:whCd"/>
+                <Cell col="1" edittype="normal" text="bind:whNm"/>
+                <Cell col="2" edittype="normal" text="bind:ioCfmtCd"/>
+                <Cell col="3" edittype="normal" text="bind:ioCfmt"/>
+                <Cell col="4" edittype="normal" text="bind:ioTypeCd"/>
+                <Cell col="5" edittype="normal" text="bind:ioType"/>
+                <Cell col="6" edittype="normal" text="bind:useYb"/>
+                <Cell col="7" edittype="normal" text="bind:applyStartDate"/>
+                <Cell col="8" edittype="normal" text="bind:applyEndDate"/>
+                <Cell col="9" edittype="normal" text="bind:note"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="whBtn" taborder="6" onclick="clickBtn" left="224" top="65" width="32" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="searchBtn" taborder="7" onclick="clickBtn" left="1120" top="65" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="addBtn" taborder="8" onclick="clickBtn" left="902" top="704" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" visible="true"/>
+        <Button id="batchBtn" taborder="9" onclick="clickBtn" left="1118" top="704" width="90" height="32" style="background:@gradation URL('img::saveBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="delBtn" taborder="10" onclick="clickBtn" left="1011" top="704" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" visible="true"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findWhList</Col>
+            <Col id="URL">his::log/base/findWhList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsWh=dsWh</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchWhProcess</Col>
+            <Col id="URL">his::log/base/batchWhProcess.do</Col>
+            <Col id="inData">dsWh=dsWh:u</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsYb" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="yn" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="yn">Y</Col>
+          </Row>
+          <Row>
+            <Col id="yn">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsWh" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="whCd" type="STRING" size="0"/>
+          <Column id="whNm" type="STRING" size="256"/>
+          <Column id="ioCfmtCd" type="STRING" size="256"/>
+          <Column id="ioCfmt" type="STRING" size="0"/>
+          <Column id="ioTypeCd" type="STRING" size="256"/>
+          <Column id="ioType" type="STRING" size="0"/>
+          <Column id="useYb" type="STRING" size="0"/>
+          <Column id="applyStartDate" type="STRING" size="256"/>
+          <Column id="applyEndDate" type="STRING" size="256"/>
+          <Column id="note" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
+창고 관리 화면                                             						                                                                         
+@Path			물류공통(Logistics Base)              				   				
+@Description	병원의 창고들을 관리하기 위한 폼							
+@Author	  		임행섭				    			                        								                                            
+@Create         2016. 5. 27.                             		                    				                                            
+********************************************************************************/
+
+include "scripts::commonScripts.xjs";  		//공통 스크립트
+include "scripts::logScripts.xjs";			//물류 스크립트
+
+this.clickBtn = function(obj){	
+	switch(obj){ 		
+		case this.whBtn: 		//창고검색
+				this.clickWhBtn();
+				break;
+		case this.searchBtn:	//창고 조회
+				this.clickSearchBtn();
+				break;		
+		case this.batchBtn:		//저장
+				this.clickSaveBtn();
+				break;	
+	}
+}
+
+
+this.clickWhBtn = function(){
+	this.logOpenCdDialog("wh");
+}
+
+this.clickSearchBtn = function()
+{		
+	var whCd = this.whCdEd.value;
+	var whNm = this.whCdNmEd.value;	
+	var argument = "whCd=" + whCd + " whNm=" + whNm;
+	this.dsService.setColumn(0, "argument", argument);
+	this.gfnService("findWhList", false);		
+}
+
+this.clickSaveBtn = function(){
+	this.gfnService("batchWhProcess");
+}
+
+this.setLogCodeArray = function(divCode,logCode,secCode,thrCode,arr){
+	switch (divCode){
+		case "wh":
+			this.whCdEd.set_value(arr[0]);
+			this.whCdNmEd.set_value(arr[1]);
+			break;
+	}
+}]]></Script>
+  </Form>
+</FDL>

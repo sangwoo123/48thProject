@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="AT_TaxinvSearchForm" classname="AT_TaxinvSearchForm" left="0" top="0" width="1250" height="768" titletext="New Form" onload="AT_TaxinvSearchForm_onload" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Div id="titleBarDiv" taborder="0" text="       세금계산서 관리" left="0%" top="4" width="1229" height="60" style="align:left middle;background:transparent URL('img::titleBar6.jpg');font:bold 15 Dotum;" cssclass="TStc">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="stDiv2" taborder="1" text="매입/매출" left="1.92%" top="153" right="91.76%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="purchSaleCombo" taborder="2" innerdataset="dsPurchSalesDiv" codecolumn="code" datacolumn="value" left="8.96%" top="153" right="83.68%" height="28"/>
+        <Static id="stDiv4" taborder="3" text="발행구분" left="1.92%" top="117" right="91.68%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="pubCombo" taborder="4" innerdataset="dsPubDiv" codecolumn="code" datacolumn="value" left="8.96%" top="118" right="83.68%" height="28" onitemchanged="grpDiv_cardKndCB01_onitemchanged"/>
+        <Combo id="billCombo" taborder="5" innerdataset="dsBillDiv" codecolumn="code" datacolumn="value" left="24%" top="120" right="68.64%" height="28"/>
+        <Static id="stDiv1" taborder="6" text="계산서 구분" left="16.96%" top="119" right="76.64%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stc_ask_date" taborder="7" text="신청일자" left="1.92%" top="81" right="91.68%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Calendar id="startDayCal" taborder="8" left="8.96%" top="81" right="81.36%" height="28"/>
+        <Calendar id="endDayCal" taborder="9" left="21.68%" top="81" right="68.64%" height="28"/>
+        <Static id="stc_acnt_sub01" taborder="10" text="~" left="19.44%" top="82" right="78.4%" height="31" style="border:1 none #808080ff ;color:black;font:bold 15 Dotum;"/>
+        <Button id="searchAtaxinvBtn" taborder="11" onclick="searchAtaxinvBtn_onclick" left="280" top="152" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Grid id="taxinvGrid" taborder="12" binddataset="dsTaxInv" useinputpanel="false" autofittype="col" left="2%" top="194" right="68.72%" height="524" oncellclick="taxinvGrid_oncellclick" onselectchanged="taxinvGrid_onselectchanged">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="70"/>
+                <Column size="80"/>
+                <Column size="70"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="발행일자"/>
+                <Cell col="1" text="발행번호"/>
+                <Cell col="2" text="발행구분"/>
+                <Cell col="3" text="계산서구분"/>
+                <Cell col="4" text="매입/매출"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:pubDate"/>
+                <Cell col="1" text="bind:pubNo"/>
+                <Cell col="2" displaytype="normal" text="bind:pubDiv" combodataset="dsPubDiv" combocodecol="code" combodatacol="value"/>
+                <Cell col="3" displaytype="normal" text="bind:billDiv" combodataset="dsBillDiv" combocodecol="code" combodatacol="value"/>
+                <Cell col="4" displaytype="normal" text="bind:purchSalesDiv" combodataset="dsPurchSalesDiv" combocodecol="code" combodatacol="value"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="taxinvDiv" taborder="13" left="31.84%" top="77" right="0.64%" height="640" style="background:#edececff;border:1 solid lightsteelblue ;bordertype:round 5 5 ;">
+          <Layouts>
+            <Layout>
+              <Combo id="billCombo" taborder="0" left="11.52%" top="11" right="74.11%" height="28" innerdataset="@dsBillDiv" codecolumn="code" datacolumn="value"/>
+              <Combo id="pubCombo" taborder="1" left="37.17%" top="11" right="48.46%" height="28" innerdataset="@dsPubDiv" codecolumn="code" datacolumn="value"/>
+              <Combo id="purchSalesComb" taborder="2" innerdataset="@dsPurchSalesDiv" codecolumn="code" datacolumn="value" left="62.83%" top="11" right="22.8%" height="28"/>
+              <Edit id="slipNoEd" taborder="3" left="11.52%" top="47" right="74.23%" height="28"/>
+              <Edit id="ResolNoEd" taborder="4" left="37.17%" top="46" right="48.57%" height="28"/>
+              <Calendar id="gipyoDateCal" taborder="5" left="83.37%" top="82" right="1.66%" height="28" onchanged="taxinvDiv_gipyoDateCal_onchanged"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="stDiv03" taborder="14" text="계산서 구분" left="32.64%" top="88" right="60.96%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv05" taborder="16" text="매입/매출" left="67.36%" top="89" right="26.32%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv06" taborder="18" text="발행구분" left="50%" top="89" right="43.6%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv07" taborder="20" text="전표 번호" left="32.56%" top="124" right="61.04%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv08" taborder="21" text="결의 번호" left="49.92%" top="128" right="43.76%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv5" taborder="22" text="세금계산서" left="32.72%" top="160" right="21.84%" height="60" style="background:antiquewhite;align:center middle;font:bold 15 Dotum;"/>
+        <Static id="stDiv01" taborder="23" text="         공            급            받            는            자      " wordwrap="english" left="32.8%" top="229" right="64.16%" height="125" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv12" taborder="24" text="상호(법인명)" left="36.56%" top="229" right="55.44%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc01" taborder="25" text="성명(대표자)" left="53.92%" top="229" right="38.4%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc00" taborder="26" text="사업장 주소 " left="36.56%" top="278" right="55.44%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc04" taborder="27" text="업태" left="36.72%" top="323" right="55.28%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc05" taborder="28" text="종목" left="54%" top="323" right="38.4%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc07" taborder="29" text="작성일자" left="32.88%" top="363" right="53.28%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc12" taborder="30" text="공급가액" left="47.68%" top="363" right="31.84%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Calendar id="pubDateCal" taborder="31" left="32.88%" top="399" right="53.2%" height="28"/>
+        <Static id="subCodeStc13" taborder="32" text="세액" left="68.88%" top="363" right="10.48%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc14" taborder="33" text="비고" left="90.24%" top="363" right="2%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Grid id="AtDetailTaxinvGrid" taborder="34" binddataset="dsDetailTaxInv" useinputpanel="false" autofittype="col" left="32.88%" top="434" right="2.08%" height="156" oncelldblclick="AtDetailTaxinvGrid_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="50"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="200"/>
+                <Column size="30"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+                <Column size="90"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="NO"/>
+                <Cell col="1" text="발행일자"/>
+                <Cell col="2" text="공제여부"/>
+                <Cell col="3" colspan="2" text="품목"/>
+                <Cell col="5" text="규격"/>
+                <Cell col="6" text="단가"/>
+                <Cell col="7" text="수량"/>
+                <Cell col="8" text="공급가액"/>
+                <Cell col="9" text="세액"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:no"/>
+                <Cell col="1" edittype="date" text="bind:pubDate"/>
+                <Cell col="2" edittype="combo" text="bind:dedYn"/>
+                <Cell col="3" text="bind:fm"/>
+                <Cell col="4" displaytype="image"/>
+                <Cell col="5" text="bind:stand"/>
+                <Cell col="6" text="bind:price"/>
+                <Cell col="7" edittype="normal" text="bind:qnt"/>
+                <Cell col="8" text="bind:splyPrice"/>
+                <Cell col="9" text="bind:taxAmt"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="subCodeStc10" taborder="35" text="합계금액" left="33.04%" top="638" right="55.6%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc16" taborder="36" text="현금" left="45.12%" top="638" right="46.72%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc11" taborder="37" text="수표" left="54.08%" top="638" right="37.76%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc15" taborder="38" text="어음" left="62.88%" top="638" right="28.96%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc06" taborder="39" text="외상미수금" left="71.76%" top="638" right="20.8%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="subCodeStc17" taborder="40" text="이 금액을                       함" left="80%" top="638" right="2.16%" height="62" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Combo id="anspDivCombo" taborder="41" innerdataset="dsAnspDiv" codecolumn="code" datacolumn="value" left="1083" top="654" width="77" height="28"/>
+        <Button id="checkBtn" taborder="42" onclick="DelBtn_onclick" cssclass="DelBtn" left="1574" top="746" width="90" height="32" style="background:@gradation URL('img::okBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Static id="stDiv3" taborder="43" text="기표일자" left="78.8%" top="160" right="12.64%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Static id="stDiv02" taborder="44" text="발행번호 " left="78.88%" top="191" right="12.72%" height="28" style="background:antiquewhite;align:center middle;font:bold 9 Dotum;"/>
+        <Button id="addDetailTaxInvBtn" taborder="46" cssclass="DelBtn" left="1033" top="597" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="addDetailTaxInvBtn_onclick"/>
+        <Button id="deleteDetailTaxInvBtn" taborder="47" cssclass="DelBtn" left="1136" top="597" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="deleteDetailTaxInvBtn_onclick"/>
+        <Edit id="assetNoEd05" taborder="52" left="47.6%" top="399" right="31.68%" height="28" class="AreaEdt"/>
+        <Edit id="salesCustnmEd" taborder="54" left="45.36%" top="229" right="46.56%" height="28" class="AreaEdt"/>
+        <Edit id="salesPrsdntnmEd" taborder="55" left="62.24%" top="229" right="29.68%" height="28" class="AreaEdt"/>
+        <Edit id="salesAddrEd" taborder="56" left="45.36%" top="278" right="29.76%" height="28" class="AreaEdt"/>
+        <Edit id="salesBusctgnmEd" taborder="57" left="62.24%" top="323" right="18.8%" height="28" class="AreaEdt"/>
+        <Edit id="salesBussHpnmEd" taborder="58" left="45.36%" top="323" right="46.56%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd07" taborder="59" left="68.96%" top="399" right="10.48%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd08" taborder="60" left="90.16%" top="399" right="2%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd09" taborder="61" left="33.04%" top="674" right="55.52%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd19" taborder="62" left="45.12%" top="674" right="46.64%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd10" taborder="63" left="54.08%" top="674" right="37.68%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd18" taborder="64" left="62.96%" top="674" right="28.8%" height="28" class="AreaEdt"/>
+        <Edit id="assetNoEd11" taborder="65" left="71.84%" top="674" right="20.72%" height="28" class="AreaEdt"/>
+        <Button id="searchCustBtn" taborder="66" left="886" top="227" width="32" height="32" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" cssclass="AddBtn" onclick="searchCustBtn_onclick"/>
+        <Button id="printStateBtn" taborder="67" left="1038" top="726" width="90" height="32" style="background:@gradation URL('img::printBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="printStateBtn_onclick"/>
+        <Button id="deleteTaxInvBtn" taborder="69" left="302" top="726" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="deleteTaxInvBtn_onclick"/>
+        <Edit id="pubNoEd" taborder="70" left="88.08%" top="192" right="1.84%" height="28" class="AreaEdt"/>
+        <Button id="batchTaxInvBtn" taborder="71" left="1132" top="726" width="110" height="32" style="background:@gradation URL('img::batchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="batchTaxInvBtn_onclick"/>
+        <Button id="addTaxInvBtn" taborder="72" cssclass="DelBtn" left="207" top="726" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="addTaxInvBtn_onclick"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsSearchCondition" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="tableName" type="STRING" size="256"/>
+          <Column id="columnName" type="STRING" size="256"/>
+          <Column id="columnValue" type="STRING" size="256"/>
+          <Column id="operator" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsTaxInv">
+        <ColumnInfo>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="custCd" type="undefined" size="100"/>
+          <Column id="pubDiv" type="undefined" size="100"/>
+          <Column id="abs" type="undefined" size="100"/>
+          <Column id="anspDiv" type="undefined" size="100"/>
+          <Column id="sumPrice" type="undefined" size="100"/>
+          <Column id="slipNo" type="undefined" size="100"/>
+          <Column id="gipyoDate" type="undefined" size="100"/>
+          <Column id="resolNo" type="undefined" size="100"/>
+          <Column id="billDiv" type="undefined" size="100"/>
+          <Column id="purchSalesDiv" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsBindCode" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="dsName" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="code">GA074</Col>
+            <Col id="dsName">dsBillDiv</Col>
+          </Row>
+          <Row>
+            <Col id="dsName">dsAnspDiv</Col>
+            <Col id="code">GA087</Col>
+          </Row>
+          <Row>
+            <Col id="code">GA073</Col>
+            <Col id="dsName">dsPubDiv</Col>
+          </Row>
+          <Row>
+            <Col id="code">GA075</Col>
+            <Col id="dsName">dsPurchSalesDiv</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsBillDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsPubDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsPurchSalesDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsCust">
+        <ColumnInfo>
+          <Column id="accNo" type="undefined" size="100"/>
+          <Column id="telNo" type="undefined" size="100"/>
+          <Column id="bussNo" type="undefined" size="100"/>
+          <Column id="bankCd" type="undefined" size="100"/>
+          <Column id="busCtgNm" type="undefined" size="100"/>
+          <Column id="faxNo" type="undefined" size="100"/>
+          <Column id="prsdntNm" type="undefined" size="100"/>
+          <Column id="custCd" type="undefined" size="100"/>
+          <Column id="adptDt" type="undefined" size="100"/>
+          <Column id="addr" type="undefined" size="100"/>
+          <Column id="resNo" type="undefined" size="100"/>
+          <Column id="busShpNm" type="undefined" size="100"/>
+          <Column id="custNm" type="undefined" size="100"/>
+          <Column id="zipCd" type="undefined" size="100"/>
+          <Column id="dpstr" type="undefined" size="100"/>
+          <Column id="cardYn" type="undefined" size="100"/>
+          <Column id="gpUseYn" type="undefined" size="100"/>
+          <Column id="riUseYn" type="undefined" size="100"/>
+          <Column id="hospCls" type="undefined" size="100"/>
+          <Column id="useYn" type="undefined" size="100"/>
+          <Column id="gdUseYn" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsYN" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="YN" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="YN">Y</Col>
+          </Row>
+          <Row>
+            <Col id="YN">N</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsAnspDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="value" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="100"/>
+          <Column id="URL" type="STRING" size="100"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findTaxInvList</Col>
+            <Col id="inData"/>
+            <Col id="URL">his::acc/vat/findTaxInvList.do</Col>
+            <Col id="callbackFunc">texinvCallBack</Col>
+            <Col id="outData">dsTaxInv=dsTaxInv dsDetailTaxInv=dsDetailTaxInv</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchAtTaxInvProcess</Col>
+            <Col id="URL">his::acc/vat/batchAtTaxInvProcess.do</Col>
+            <Col id="inData">dsTaxInv=dsTaxInv:U dsDetailTaxInv=dsDetailTaxInv:U</Col>
+            <Col id="callbackFunc">texinvCallBack</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findCustList</Col>
+            <Col id="URL">his::log/base/findCustList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsCust=dsCust</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsDetailTaxInv" onvaluechanged="dsDetailTaxInv_onvaluechanged">
+        <ColumnInfo>
+          <Column id="no" type="undefined" size="100"/>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="stand" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="dedYn" type="undefined" size="100"/>
+          <Column id="qnt" type="undefined" size="100"/>
+          <Column id="fm" type="undefined" size="100"/>
+          <Column id="price" type="undefined" size="100"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="taxinvDiv.billCombo" propid="value" datasetid="dsTaxInv" columnid="billDiv"/>
+      <BindItem id="item1" compid="taxinvDiv.pubCombo" propid="value" datasetid="dsTaxInv" columnid="pubDiv"/>
+      <BindItem id="item2" compid="taxinvDiv.purchSalesComb" propid="value" datasetid="dsTaxInv" columnid="purchSalesDiv"/>
+      <BindItem id="item3" compid="taxinvDiv.slipNoEd" propid="value" datasetid="dsTaxInv" columnid="slipNo"/>
+      <BindItem id="item4" compid="taxinvDiv.ResolNoEd" propid="value" datasetid="dsTaxInv" columnid="resolNo"/>
+      <BindItem id="item5" compid="pubDateCal" propid="value" datasetid="dsDetailTaxInv" columnid="pubDate"/>
+      <BindItem id="item6" compid="assetNoEd05" propid="value" datasetid="dsTaxInv" columnid="splyPrice"/>
+      <BindItem id="item7" compid="assetNoEd07" propid="value" datasetid="dsTaxInv" columnid="taxAmt"/>
+      <BindItem id="item8" compid="assetNoEd08" propid="value" datasetid="dsTaxInv" columnid="abs"/>
+      <BindItem id="item9" compid="taxinvDiv.gipyoDateCal" propid="value" datasetid="dsTaxInv" columnid="gipyoDate"/>
+      <BindItem id="item10" compid="pubNoEd" propid="value" datasetid="dsTaxInv" columnid="pubNo"/>
+      <BindItem id="item11" compid="assetNoEd09" propid="value" datasetid="dsTaxInv" columnid="sumPrice"/>
+      <BindItem id="item12" compid="anspDivCombo" propid="value" datasetid="dsTaxInv" columnid="anspDiv"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[ /********************************************************************************
+*                                                                               *
+* 자산분류 코드            												    *
+*                                                                               *
+* @Path		    세금계산서 관리							                 	*
+* @Description  부가가치세 신고를 위한 세금계산서 관리 	                *
+* 																				*
+*																				*
+* @Author	 정재욱    					                             		*
+* 									                                            *
+* Created on 2016. 06. 07                           		                    *
+*									                                            *
+********************************************************************************/
+
+/********************************************************************************
+ 공통스크립트 include
+********************************************************************************/
+include "scripts::commonScripts.xjs";
+//include "scripts::commonTransaction.xjs";	// 트랜잭션 스크립트
+include "scripts::commonPopup.xjs";
+
+/********************************************************************************
+  폼 로드 이벤트
+********************************************************************************/
+this.AT_TaxinvSearchForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.gfnBind();
+	this.gfnService("findCustList");
+	this.gfnService("findTaxInvList");
+}
+
+// 조회버튼 클릭이벤트
+this.searchAtaxinvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{	
+	var argument = "";
+	if(this.startDayCal.value != null){
+		var startDay = this.startDayCal.value;
+		argument = "startPubDate='"+startDay+"'";
+	}
+	if(this.endDayCal.value != null){
+		var endDay = this.endDayCal.value;
+		argument = argument+" endPubDate='"+endDay+"'";
+	}
+	if(this.pubCombo.value != null){
+		var pub = this.pubCombo.value;	
+		argument = argument+" pubDiv='"+pub+"'";
+	}
+	if(this.billCombo.value != null){
+		var bill = this.billCombo.value;
+		argument = argument+" billDiv='"+bill+"'";
+	}
+	if(this.purchSaleCombo.value != null){
+		var purchSales = this.purchSaleCombo.value;
+		argument = argument+" purchSalesDiv='"+purchSales+"'";
+	}
+	
+	if(argument != ""){
+		this.dsService.setColumn(0,"argument",argument);
+	}
+	this.gfnService("findTaxInvList");	
+}
+
+// dsDetailTaxInv 데이터값 변경시 실행 함수(수량 선택, 품목 선택시 세금 공급가액 계산)
+this.dsDetailTaxInv_onvaluechanged = function(obj:Dataset,  e:nexacro.DSColChangeEventInfo)
+{
+	var totalSplyPrice = 0;
+	var totalTaxAmt = 0;
+	for(i=0;i<this.dsDetailTaxInv.rowcount;i++){
+		var price = this.dsDetailTaxInv.getColumn(i,"price");
+		var qnt = this.dsDetailTaxInv.getColumn(i,"qnt");
+		if(price != null && qnt != null){
+			var toIntPrice = parseInt(price);
+			var tointQnt = parseInt(qnt);
+			this.dsDetailTaxInv.setColumn(i,"splyPrice",toIntPrice*tointQnt);
+			this.dsDetailTaxInv.setColumn(i,"taxAmt",toIntPrice*tointQnt/10);
+			var totalSplyPrice = totalSplyPrice+(toIntPrice*tointQnt);
+			var totalTaxAmt = totalTaxAmt+(toIntPrice*tointQnt/10);
+		}
+	}
+	this.dsTaxInv.setColumn(this.dsTaxInv.rowposition,"splyPrice",totalSplyPrice);
+	this.dsTaxInv.setColumn(this.dsTaxInv.rowposition,"taxAmt",totalTaxAmt);
+	this.dsTaxInv.setColumn(this.dsTaxInv.rowposition,"sumPrice",totalTaxAmt+totalSplyPrice);
+}
+
+// taxinvGrid 그리드 셀 클릭이벤트
+this.taxinvGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var row = this.dsTaxInv.rowposition;
+	var ps = this.dsTaxInv.getColumn(row,"purchSalesDiv");
+	if(ps == 1){//매출
+		this.stDiv01.set_text("         공            급            받            는            자      ");
+	}else if(ps == 2){//매입
+		this.stDiv01.set_text("  공            급          자 ");
+	}
+	var custCd = this.dsTaxInv.getColumn(row,"custCd");
+	var findRow = this.dsCust.findRow("custCd",custCd);
+	this.dsCust.set_rowposition(findRow);
+}
+
+//  taxinvGrid 그리드 선택영역 변경시 이벤트
+this.taxinvGrid_onselectchanged = function(obj:Grid, e:nexacro.GridSelectEventInfo)
+{
+	var pubNo = this.dsTaxInv.getColumn(this.dsTaxInv.rowposition,'pubNo');
+	this.dsDetailTaxInv.filter("pubNo == '" + pubNo + "'");
+}
+
+// 거래처 조회 버튼 클릭이벤트
+this.searchCustBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var searchSalesFrame = new ChildFrame();  
+	searchSalesFrame.init("searchSalesFrame", "absolute", 30, 30, 500, 450, null, null, "acc::CM_CustSubForm.xfdl");
+	this.addChild("searchSalesFrame", searchSalesFrame);
+	searchSalesFrame.show(application.getActiveFrame());
+}
+
+// 상세그리드 셀 더블클릭이벤트
+this.AtDetailTaxinvGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+// 	if(obj.getCellPos() == 4){
+// 		application.open("searchGdsForm","acc::LC_GdsSubForm.xfdl",this.parent,{},"showtitlebar=true showstatusbar=false", 0, 0, 736, 443, this);
+// 	}
+}
+
+// 상세추가 버튼 클릭이벤트
+this.addDetailTaxInvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var row = this.dsDetailTaxInv.addRow();
+	this.dsDetailTaxInv.setColumn(row,"no",row+1);
+	this.dsDetailTaxInv.setColumn(row,"pubNo",this.pubNoEd.value);	
+}
+
+// 상세삭제 버튼 클릭이벤트
+this.deleteDetailTaxInvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsDetailTaxInv.deleteRow(this.dsDetailTaxInv.rowposition);	
+}
+
+// 세금계산서 삭제 클릭이벤트
+this.deleteTaxInvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.dsTaxInv.deleteRow(this.dsTaxInv.rowposition);
+}
+
+
+
+// 세금계산서 출력버튼 클릭이벤트
+this.printStateBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	alert("출력합니다~");
+}
+
+// 세금계산서 일괄처리버튼 클릭이벤트
+this.batchTaxInvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("batchAtTaxInvProcess");
+}
+
+// 세금계산서 추가버튼 클릭이벤트
+this.addTaxInvBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></Script>
+  </Form>
+</FDL>
