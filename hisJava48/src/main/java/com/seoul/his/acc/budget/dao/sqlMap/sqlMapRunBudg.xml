@@ -5,7 +5,7 @@
 
  	<cache flushInterval="86400000" eviction="LRU" />
 
- 	<select id="selectRunBudg" flushCache="false"  useCache="true" resultType="RunBudgBean">
+<select id="selectRunBudg" flushCache="false"  useCache="true" resultType="RunBudgBean">
     	SELECT 	AAAA.*
      	   		, 100-DECODE(AAAA.budgAmount,0,0,TRUNC(AAAA.budgBal / AAAA.budgAmount * 100,1) ) || '%' AS executionPercent
      	FROM 	(SELECT B.BIMOK_CD
@@ -70,7 +70,7 @@
 				<if test="acntNm != null">
 				   AND C.ACNT_NM = #{acntNm}
 				</if>
-		 		ORDER BY B.BIMOK_CD 
+		 		ORDER BY B.BIMOK_CD
 		 	) AAAA
  	</select>
  	
@@ -119,6 +119,5 @@
         ORDER BY B.BIMOK_CD
     </select>
 
-<!-- 	 -->
 
 </mapper>

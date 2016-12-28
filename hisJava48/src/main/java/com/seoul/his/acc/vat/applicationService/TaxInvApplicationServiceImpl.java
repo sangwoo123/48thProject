@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.vat.applicationService;
 
 import java.util.ArrayList;
@@ -21,6 +22,14 @@ public class TaxInvApplicationServiceImpl implements TaxInvApplicationService{
         return taxInvDAO.selectTaxInvList(argsMap);
     }
 
+  
+  
+	@Override
+	public List<DetailTaxInvBean> searchTaxInvoiceList(Map<String, String> argsMap) {
+		List<DetailTaxInvBean> detailtaxnvBeanList = taxInvDAO.selectDetailTaxInvList(argsMap);
+		return detailtaxnvBeanList;
+	}
+  
     @Override
     public void batchTaxInvProcess(List<TaxInvBean> taxInvList) {
         List<DetailTaxInvBean> detailTaxInvList = new ArrayList<DetailTaxInvBean>();

@@ -69,18 +69,17 @@
 
 
 		<!-- 회계 -->
-		<package name="com.seoul.his.acc.elementary.to" />         <!-- 기본 -->
+		<package name="com.seoul.his.acc.elementary.to" />        <!-- 기본 -->
 		<package name="com.seoul.his.acc.resol.to" />				<!-- 결의서 -->
-		<package name="com.seoul.his.acc.slip.to" />
-		<package name="com.seoul.his.acc.vat.to" />			<!-- 전표 -->
-		
-		
-		<package name="com.seoul.his.acc.budget.to" />             <!-- 예산관리 -->
-      	<package name="com.seoul.his.acc.closing.to" />            <!-- 결산/재무재표 -->
-      	<package name="com.seoul.his.acc.fixedasset.to" />         <!-- 고정자산 -->
+    <package name="com.seoul.his.acc.slip.to" />				<!-- 전표 -->
+		<package name="com.seoul.his.acc.vat.to" />				<!--세금계산서 -->
+		<package name="com.seoul.his.acc.budget.to" />			<!--예산 -->
+    <package name="com.seoul.his.acc.closing.to" />            <!-- 결산/재무재표 -->
+    <package name="com.seoul.his.acc.fixedasset.to" />         <!-- 고정자산 -->
 
         
 		
+
 
 
  		<!-- 경영통계 -->

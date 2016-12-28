@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.vat.dao;
 
 import java.util.List;
@@ -30,8 +31,6 @@ public interface TaxInvDAO {
 
 
 }
-
-
 
 
 

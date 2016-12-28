@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.vat.service;
 
 import java.util.List;
@@ -19,18 +20,17 @@ import com.seoul.his.acc.vat.to.VATDeclBean;
 
 public interface VatServiceFacade {
 
-	List<TaxInvBean> searchTaxInvList(Map<String, String> argsMap);
-
+  List<DetailTaxInvBean> searchTaxInvList(Map<String, String> argsMap);
+  
 	List<TaxInvBean> findTaxInvList(Map<String, String> argsMap);
 
 	void batchTaxInvProcess(List<TaxInvBean> tempTaxInvList);
-
+ 
 	List<VATDeclBean> findVATDeclList(Map<String, String> argsMap);
 
 
 
 }
-
 
 
 

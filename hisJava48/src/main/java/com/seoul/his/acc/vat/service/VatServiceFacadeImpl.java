@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.vat.service;
 
 import java.util.List;
@@ -24,13 +25,18 @@ import com.seoul.his.acc.vat.to.VATDeclBean;
 public class VatServiceFacadeImpl implements VatServiceFacade{
 	@Autowired
 	VatApplicationService vatApplicationService;
+  
+  @Autowired
+	TaxInvApplicationService taxInvApplicationService;
+  
 
-	@Override
-	public List<TaxInvBean> searchTaxInvList(Map<String, String> argsMap) {
-		List<TaxInvBean> taxInvList = vatApplicationService.searchTaxInvoiceList(argsMap);
+
+  @Override
+	public List<DetailTaxInvBean> searchTaxInvList(Map<String, String> argsMap) {
+		List<DetailTaxInvBean> taxInvList = taxInvApplicationService.searchTaxInvoiceList(argsMap);
 		return taxInvList;
 	}
-
+  
 	@Override
 	public List<TaxInvBean> findTaxInvList(Map<String, String> argsMap) {
 		return null;
@@ -45,10 +51,9 @@ public class VatServiceFacadeImpl implements VatServiceFacade{
 		return null;
 	}
 
+	
 
 }
-
-
 
 
 
