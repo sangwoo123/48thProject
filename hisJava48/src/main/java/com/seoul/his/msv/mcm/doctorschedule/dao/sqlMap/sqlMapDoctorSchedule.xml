@@ -4,10 +4,12 @@
 <mapper namespace="com.seoul.his.msv.mcm.doctorschedule.dao.DoctorScheduleDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
 	<update id="insertDoctorSchedule" parameterType="ScheduleRegisterInfoBean">
+	<![CDATA[
 		insert into MC_TRMT_SCHD_MAN(EMP_NO, MEDDATE, EXAMTM, TOTCNT, AMPMFLAG,RSV_YN)
 		SELECT S.EMP_NO,D.days,S.TIME,S.TOTCNT,S.AMPMFLAG,S.RSVYN
-		FROM (select days,to_char(to_date(days,'yyyymmdd'), 'd') as weekday
-		<![CDATA[
+		FROM (SELECT A.days,A.weekday from
+(select days,to_char(to_date(days,'yyyymmdd'), 'd') as weekday
+
 		FROM( select to_char(months,'yyyymm') as months,
 		to_char(months,'yyyymm') || lpad(lv, 2, '0') as days,
 		day_cnt
@@ -29,9 +31,11 @@
 		where EMP_NO=#{medDr}
 		and TRMT_TYPE_NO=#{tpSeqNo}
 		group by EMP_NO,TRMT_TYPE_NO,DAY_OF_WEEK
-		)
-		) D,
-		]]>
+		))A
+    where NOT exists (
+    SELECT H.HDAY_DATE FROM HG_HDAY H WHERE H.HDAY_DATE=A.days
+    AND H.HDAY_DATE BETWEEN #{fromDate} AND #{toDate})) D,
+
 		(SELECT EMP_NO,TRMT_TYPE_NO,TIME,DECODE(AM_FM_DIV,'A','오전','오후') AS AMPMFLAG,
 		DECODE(DIFF_DEPT_RESER,'true','Y','N') AS RSVYN,DAY_OF_WEEK,HANDLE AS TOTCNT
 		FROM MC_TRMT_SCHD_TYPE_DETAIL
@@ -44,6 +48,7 @@
 		GROUP BY D.days,S.EMP_NO,S.TOTCNT,S.TIME,S.AMPMFLAG,S.RSVYN
 		 HAVING D.days BETWEEN #{fromDate} AND #{toDate}
 		ORDER BY D.days,S.TIME
+		]]>
 	</update>
 
 	<select id="selectLastDateList" resultType="LastDateBean" parameterType="map">
