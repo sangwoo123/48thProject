@@ -19,7 +19,6 @@ import com.seoul.his.acc.vat.to.TaxInvBean;
 
 public interface TaxInvDAO {
 
-	List<TaxInvBean> selectTaxInvoiceList(Map<String, String> argsMap);
 	List<DetailTaxInvBean> selectDetailTaxInvList(Map<String, String> argsMap);
 
 }

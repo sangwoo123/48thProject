@@ -3,6 +3,7 @@ package com.seoul.his.acc.vat.service;
 import java.util.List;
 import java.util.Map;
 
+import com.seoul.his.acc.vat.to.DetailTaxInvBean;
 import com.seoul.his.acc.vat.to.TaxInvBean;
 
 /**
@@ -18,7 +19,7 @@ import com.seoul.his.acc.vat.to.TaxInvBean;
 
 public interface VatServiceFacade {
 
-	List<TaxInvBean> searchTaxInvList(Map<String, String> argsMap);
+	List<DetailTaxInvBean> searchTaxInvList(Map<String, String> argsMap);
 
 }
 

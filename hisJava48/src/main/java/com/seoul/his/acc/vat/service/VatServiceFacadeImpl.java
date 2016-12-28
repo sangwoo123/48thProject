@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.acc.vat.applicationService.TaxInvApplicationService;
 import com.seoul.his.acc.vat.applicationService.VatApplicationService;
+import com.seoul.his.acc.vat.to.DetailTaxInvBean;
 import com.seoul.his.acc.vat.to.TaxInvBean;
 
 /**
@@ -24,9 +26,11 @@ public class VatServiceFacadeImpl implements VatServiceFacade{
 	@Autowired
 	VatApplicationService vatApplicationService;
 
+	@Autowired
+	TaxInvApplicationService taxInvApplicationService;
 	@Override
-	public List<TaxInvBean> searchTaxInvList(Map<String, String> argsMap) {
-		List<TaxInvBean> taxInvList = vatApplicationService.searchTaxInvoiceList(argsMap);
+	public List<DetailTaxInvBean> searchTaxInvList(Map<String, String> argsMap) {
+		List<DetailTaxInvBean> taxInvList = taxInvApplicationService.searchTaxInvoiceList(argsMap);
 		return taxInvList;
 	}
 

@@ -18,7 +18,7 @@ import com.seoul.his.acc.elementary.to.AccPridBean;
 
 public interface AccPridDAO {
 
-	List<AccPridBean> selectAccPridList(Map<String, String> argsMap);
+	List<AccPridBean> selectAccPridList();
 
 }
 
