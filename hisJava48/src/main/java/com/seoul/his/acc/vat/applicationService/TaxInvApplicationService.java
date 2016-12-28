@@ -4,6 +4,7 @@ package com.seoul.his.acc.vat.applicationService;
 import java.util.List;
 import java.util.Map;
 
+import com.seoul.his.acc.vat.to.DetailTaxInvBean;
 import com.seoul.his.acc.vat.to.TaxInvBean;
 
 public interface TaxInvApplicationService {

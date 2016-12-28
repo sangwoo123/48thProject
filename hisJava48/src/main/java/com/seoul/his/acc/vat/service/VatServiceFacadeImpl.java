@@ -7,7 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.acc.vat.applicationService.TaxInvApplicationService;
 import com.seoul.his.acc.vat.applicationService.VatApplicationService;
+import com.seoul.his.acc.vat.to.DetailTaxInvBean;
 import com.seoul.his.acc.vat.to.TaxInvBean;
 import com.seoul.his.acc.vat.to.VATDeclBean;
 
