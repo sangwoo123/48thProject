@@ -1,5 +1,6 @@
 package com.seoul.his.acc.resol.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import com.seoul.his.acc.resol.applicationService.PayRecApplicationService;
 import com.seoul.his.acc.resol.applicationService.ResolApplicationService;
 import com.seoul.his.acc.resol.to.AccountBean;
 import com.seoul.his.acc.resol.to.AppendFileBean;
+import com.seoul.his.acc.resol.to.AutoJourRuleBean;
 import com.seoul.his.acc.resol.to.JourBean;
 import com.seoul.his.acc.resol.to.PayRecBean;
 import com.seoul.his.acc.resol.to.ResolLetBean;
@@ -60,5 +62,24 @@ public class ResolServiceFacadeImpl implements ResolServiceFacade {
 	        resolLetBean.setPayRecList(payRecList);
 	        resolLetBean.setAppendFileList(appendFileList);
 	        return resolLetBean;
+	}
+
+	@Override
+	public List<AutoJourRuleBean> findAutoJourRuleList(
+			Map<String, String> argsMap) {
+		return null;
+	}
+
+	@Override
+	public String getResolNo() {
+		return null;
+	}
+
+	@Override
+	public void registResolLet(HashMap<String, Object> dataSetMap) {
+	}
+
+	@Override
+	public void batchResolLetProcess(HashMap<String, Object> dataSetMap) {
 	}
 }

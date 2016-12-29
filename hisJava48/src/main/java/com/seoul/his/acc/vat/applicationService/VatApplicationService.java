@@ -18,7 +18,7 @@ import com.seoul.his.acc.vat.to.TaxInvBean;
 
 public interface VatApplicationService {
 
-	List<TaxInvBean> searchTaxInvoiceList(Map<String, String> argsMap);
+
 
 }
 

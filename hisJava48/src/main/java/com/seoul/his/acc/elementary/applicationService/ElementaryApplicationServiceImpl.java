@@ -21,8 +21,8 @@ public class ElementaryApplicationServiceImpl implements ElementaryApplicationSe
 
 
 	@Override
-	public List<AccPridBean> findAccPridList(Map<String, String> argsMap) {
-		List<AccPridBean> accPridList = accPridDAO.selectAccPridList(argsMap);
+	public List<AccPridBean> findAccPridList() {
+		List<AccPridBean> accPridList = accPridDAO.selectAccPridList();
 		return accPridList;
 	}
 

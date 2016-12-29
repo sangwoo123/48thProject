@@ -129,7 +129,7 @@
                           <Cell col="2" displaytype="combo" edittype="combo" text="bind:surYn" combodataset="dsYnType" combocodecol="ynType" combodatacol="ynType"/>
                           <Cell col="3" text="bind:dept"/>
                           <Cell col="4" text="bind:patNo"/>
-                          <Cell col="5" text="bind:prescDate"/>
+                          <Cell col="5" edittype="normal" text="bind:prescDate"/>
                         </Band>
                       </Format>
                     </Formats>
@@ -547,7 +547,7 @@
             <Col id="serviceID">batchDisePrescProcess</Col>
             <Col id="URL">his::msv/pre/prescriptionmanagement/batchDisePrescProcess.do</Col>
             <Col id="outData"/>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
             <Col id="inData">dsPatientDs=dsPatientDs:u dsPatientPrsc=dsPatientPrsc:u dsPrescValue=dsPrescValue:u dsPrescDtl=dsPrescDtl:u dsOutpaReceipt=dsOutpaReceipt:u</Col>
           </Row>
           <Row>
@@ -634,6 +634,8 @@
           <Column id="outpaReceiptNo" type="STRING" size="256"/>
           <Column id="doctNm" type="STRING" size="256"/>
           <Column id="surYn" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="patType" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsInsurance">
@@ -1179,14 +1181,13 @@ this.disePrescriptTab_prescriptionTabpage_prescDelBtn_onclick = function(obj:But
 
 this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
-	alert(111);
+	
 	 this.dsPrescDtl.addRow();
 	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
 	 prescNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "prescNo");
 	 var codeNo= this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "codeNo");
 	  
-	 alert(patNo);
-	 alert(prescNo);
+	  
 	 	this.dsService.setColumn(5, 'argument','prescCd='+codeNo+' prescNo='+prescNo);
 	this.gfnService("findPatientPrscDtlList", false);
 	
@@ -1212,7 +1213,6 @@ this.otherDiv_returningOutPatBtn_onclick = function(obj:Button,  e:nexacro.Click
 	patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
 	application.open("SCP_RetreatmentReservationForm","pre::SCP_RetreatmentReservationForm.xfdl",this.parent,{patNo:"000004",patNm:"유재석"},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
 }
-
 
 this.otherDiv_dischargeHosBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
@@ -1240,7 +1240,10 @@ this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
 		alert("정상 처리되었습니다.");
 		
 	}
+	
+	
 }
+
 this.WS_OutPatReceiptMngnDiv_admisApproveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var outpaReceiptNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, 'outpaReceiptNo');

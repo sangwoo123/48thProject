@@ -4,10 +4,10 @@
   <Form id="CM_CodepopupForm" classname="CM_CodepopupForm" left="0" top="0" width="400" height="500" titletext="코드" onload="CM_CodepopupForm_onload">
     <Layouts>
       <Layout>
-        <Div id="Div00" taborder="0" left="0.25%" top="0" right="1%" height="60" style="background:transparent URL('img::titleBar1.jpg');">
+        <Div id="Div00" taborder="0" left="0.25%" top="0" right="1%" height="60" style="background:transparent URL('img::titleBar5.jpg');">
           <Layouts>
             <Layout>
-              <Static id="Static00" taborder="0" text="코드도움" left="13.92%" top="-4" right="54.18%" height="60" style="color:dodgerblue;font:bold antialias 20 맑은 고딕;"/>
+              <Static id="Static00" taborder="0" text="코드도움" left="13.92%" top="-4" right="54.18%" height="60" style="color:#6c6c6cff;font:bold antialias 20 맑은 고딕;"/>
             </Layout>
           </Layouts>
         </Div>
@@ -25,8 +25,8 @@
                 <Row size="24"/>
               </Rows>
               <Band id="head">
-                <Cell text="코드"/>
-                <Cell col="1" text="코드명"/>
+                <Cell style="background:#90a4aeff;" text="코드"/>
+                <Cell col="1" style="background:#90a4aeff;" text="코드명"/>
               </Band>
               <Band id="body">
                 <Cell text="bind:code"/>
