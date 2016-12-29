@@ -215,7 +215,7 @@ this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 
 	this.gfnService("registerHospitalizationSchedule","false");
 }
-     
+
 this.registerHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 	if(errorCode=="1"){					
 		alert("입원예약등록 되었습니다.");
