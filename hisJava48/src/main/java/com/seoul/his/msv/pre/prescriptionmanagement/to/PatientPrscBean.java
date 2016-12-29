@@ -49,7 +49,8 @@ public class PatientPrscBean extends BaseBean{
      medicationYn,          //조제여부
      medicationNo,          //조제번호
      doctNm,               //담당의
-	 surYn;				//수술여부
+	 surYn;			//수술여부
+
 
 
 	 List<PrescValueBean> prescValueList;		//처방

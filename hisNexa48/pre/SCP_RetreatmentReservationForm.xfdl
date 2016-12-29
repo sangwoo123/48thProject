@@ -41,55 +41,55 @@
               <Band id="body" style="cellbackground2:#ffffffff;">
                 <Cell rowspan="3" colspan="2">
                   <Cell style="color:red;color2:red;font:12 arial;" text="bind:DOW1"/>
-                  <Cell col="1" text="bind:TEXT1"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT1"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM1"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM1"/>
                 </Cell>
                 <Cell col="2" rowspan="3" colspan="2">
-                  <Cell style="color:#90a4aeff;color2:#90a4aeff;font:12 arial;" text="bind:DOW2"/>
-                  <Cell col="1" text="bind:TEXT2"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT2')!=null?'red':'#90a4aeff');color2:EXPR(dataset.getColumn(currow,'TEXT2')!=null?'red':'#90a4aeff');font:12 arial;" text="bind:DOW2"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT2"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM2"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM2"/>
                 </Cell>
                 <Cell col="4" rowspan="3" colspan="2">
-                  <Cell style="color:#90a4aeff;color2:#90a4aeff;font:12 arial;" text="bind:DOW3"/>
-                  <Cell col="1" text="bind:TEXT3"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT3')!=null?'red':'#90a4aeff');color2:EXPR(dataset.getColumn(currow,'TEXT3')!=null?'red':'#90a4aeff');font:12 arial;" text="bind:DOW3"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT3"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM3"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM3"/>
                 </Cell>
                 <Cell col="6" rowspan="3" colspan="2">
-                  <Cell style="color:#90a4aeff;color2:#90a4aeff;font:12 arial;" text="bind:DOW4"/>
-                  <Cell col="1" text="bind:TEXT4"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT4')!=null?'red':'#90a4aeff');color2:EXPR(dataset.getColumn(currow,'TEXT4')!=null?'red':'#90a4aeff');font:12 arial;" text="bind:DOW4"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT4"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM4"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM4"/>
                 </Cell>
                 <Cell col="8" rowspan="3" colspan="2">
-                  <Cell style="color:#90a4aeff;color2:#90a4aeff;font:12 arial;" text="bind:DOW5"/>
-                  <Cell col="1" text="bind:TEXT5"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT5')!=null?'red':'#90a4aeff');color2:EXPR(dataset.getColumn(currow,'TEXT5')!=null?'red':'#90a4aeff');font:12 arial;" text="bind:DOW5"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT5"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM5"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM5"/>
                 </Cell>
                 <Cell col="10" rowspan="3" colspan="2">
-                  <Cell style="color:#90a4aeff;color2:#90a4aeff;font:12 arial;" text="bind:DOW6"/>
-                  <Cell col="1" text="bind:TEXT6"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT6')!=null?'red':'#90a4aeff');color2:EXPR(dataset.getColumn(currow,'TEXT6')!=null?'red':'#90a4aeff');font:12 arial;" text="bind:DOW6"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT6"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM6"/>
                   <Cell row="2"/>
                   <Cell row="2" col="1" text="bind:PM6"/>
                 </Cell>
                 <Cell col="12" rowspan="3" colspan="2">
-                  <Cell style="color:blue;color2:blue;font:12 arial;" text="bind:DOW7"/>
-                  <Cell col="1" text="bind:TEXT7"/>
+                  <Cell style="color:EXPR(dataset.getColumn(currow,'TEXT7')!=null?'red':'blue');color2:EXPR(dataset.getColumn(currow,'TEXT7')!=null?'red':'blue');font:12 arial;" text="bind:DOW7"/>
+                  <Cell col="1" style="font:7 arial;" text="bind:TEXT7"/>
                   <Cell row="1"/>
                   <Cell row="1" col="1" text="bind:AM7"/>
                   <Cell row="2"/>
@@ -340,16 +340,22 @@
             <Col id="serviceID">registerReceipt</Col>
             <Col id="URL">his::hdm/foreign/registerDiagnosisReceipt.do</Col>
             <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
-            <Col id="outData"></Col>
-            <Col id="argument"></Col>
+            <Col id="outData"/>
+            <Col id="argument"/>
             <Col id="callbackFunc">callbackFunc</Col>
           </Row>
           <Row>
             <Col id="serviceID">removeReceipt</Col>
             <Col id="URL">his::hdm/foreign/removeDiagnosisReceipt.do</Col>
             <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:U</Col>
-            <Col id="outData"></Col>
-            <Col id="argument"></Col>
+            <Col id="outData"/>
+            <Col id="argument"/>
+            <Col id="callbackFunc">callbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findHday</Col>
+            <Col id="URL">his::hrs/hday/findHday.do</Col>
+            <Col id="outData">dsHday=dsHday</Col>
             <Col id="callbackFunc">callbackFunc</Col>
           </Row>
         </Rows>
@@ -451,6 +457,13 @@
           <Column id="trmtTime" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsHday">
+        <ColumnInfo>
+          <Column id="hdayDate" type="STRING" size="256"/>
+          <Column id="hdayNm" type="STRING" size="256"/>
+          <Column id="HdayNm2" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Bind>
       <BindItem id="item0" compid="TextArea00" propid="value" datasetid="dsRsvPat" columnid="note"/>
@@ -518,6 +531,7 @@ var medDeptCd;//타과예약가능여부시 사용
 this.SCP_RetreatmentReservationForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {	medDeptCd=application.gdsEmp.getColumn(application.gdsEmp.rowposition,"deptCd");
 	var sDate=this.lfn_GetSysDate();
+	this.gfnService("findHday",true);	
 	this.fn_MakeCalendar(sDate);
 	this.gfnService("findMedDrList");
 	
@@ -569,7 +583,7 @@ this.lfn_GetLastDate = function(val)   //마지막 날짜 구하기
 	 return last_date;
 }
 this.fn_MakeCalendar = function(sDate)
- {
+ {	
 			sYYYY = sDate.substr(0,4);
 			sMM = sDate.substr(4,2);
 		    sDD = sDate.substr(6,2);
@@ -589,6 +603,7 @@ this.fn_MakeCalendar = function(sDate)
 			var amTotCnt;//오전총원
 			var pmRsvCnt;//오후예약인원
 			var pmTotCnt;//오후총원
+			var hdayNm2;//공휴일
 		    for(var i=1; i<= parseInt(sLastDay); i++) {         //1일 ~ 말일
 				objDate.setDate(i);
 				var dd=i;
@@ -601,7 +616,7 @@ this.fn_MakeCalendar = function(sDate)
 		        
 		        this.dsCalendar.setColumn(nRow,"DOW"+(nDow+1),i) ;
 				var row=this.dsDaySchedule.findRow("medDate",sYYYY+sMM+dd);
-				
+				var holy=this.dsHday.findRow("hdayDate",sYYYY+sMM+dd);
 				if(row!=-1){
 					amRsvCnt=this.dsDaySchedule.getColumn(row,"amRsvCnt");
 					amTotCnt=this.dsDaySchedule.getColumn(row,"amTotCnt");
@@ -612,12 +627,18 @@ this.fn_MakeCalendar = function(sDate)
 					if(pmTotCnt){
 					this.dsCalendar.setColumn(nRow,"PM"+(nDow+1),pmRsvCnt+"/"+pmTotCnt);}
 				}
+				if(holy!=-1){
+					hdayNm2=this.dsHday.getColumn(holy,"hdayNm2");
+					if(hdayNm2){
+						this.dsCalendar.setColumn(nRow,"TEXT"+(nDow+1),hdayNm2);
+					}
+				}
 		        if (nDow == 6&&i!=sLastDay) nRow = this.dsCalendar.addRow();      //토요일이면 다음행 추가               
 		    }
 		    this.calendarGrid_setCellPosToday();
 
 }
-		
+
 this.calendarGrid_setCellPosToday=function()
 {
 	//지정일자 디폴트로 보이기

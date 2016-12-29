@@ -509,7 +509,7 @@
             <Col id="serviceID">findRunBimok</Col>
             <Col id="URL">his::acc/budget/findRunBimok.do</Col>
             <Col id="inData"/>
-            <Col id="outData">dsRunBudg=dsRunBudg</Col>
+            <Col id="outData">dsRunBudg=dsBudgBimok</Col>
             <Col id="argument"/>
             <Col id="callbackFunc">callbackFunc</Col>
           </Row>
@@ -894,7 +894,7 @@ this.resolMngmt_searchResolBtn_onclick = function(obj:Button,  e:nexacro.ClickEv
 		
 		var nRow = this.dsService.findRow( "serviceID", "findResolLetList" );
 		this.dsService.setColumn(nRow,"argument",argument);
-
+        alert('a');
 		this.gfnService("findResolLetList");	
 	}	
 }

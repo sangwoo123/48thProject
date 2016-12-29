@@ -34,7 +34,7 @@ public class BudgBimokController {
 	BudgetServiceFacade budgetServiceFacade;
 	
 	// 예산비목 조회
-	@RequestMapping("acc/budget/findBudgBimokList.do")
+	@RequestMapping("acc/budget/findRunBimok.do")
 	public void findBimokList(HttpServletRequest request, HttpServletResponse response) throws Exception{
 	    PlatformData inData = (PlatformData) request.getAttribute("inData");
 		PlatformData outData = (PlatformData) request.getAttribute("outData");

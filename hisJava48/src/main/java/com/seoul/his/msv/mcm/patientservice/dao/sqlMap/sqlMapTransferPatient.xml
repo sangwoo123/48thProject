@@ -31,8 +31,7 @@
             *
         FROM
             MC_TRANSFER_PATIENT
-
-         <trim prefix="WHERE" prefixOverrides="AND">
+WHERE 1=1
            <if test="patNo != null">
                 AND PAT_NO      = #{patNo}
             </if>
@@ -42,7 +41,6 @@
             <if test="transStartDate != null and transEndDate != null">
                 AND TRANSFER_DATE BETWEEN = #{transStartDate} AND #{transEndDate}
             </if>
-        </trim>
 
  </select>
 
