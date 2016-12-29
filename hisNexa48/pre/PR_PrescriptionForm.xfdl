@@ -129,7 +129,7 @@
                           <Cell col="2" displaytype="combo" edittype="combo" text="bind:surYn" combodataset="dsYnType" combocodecol="ynType" combodatacol="ynType"/>
                           <Cell col="3" text="bind:dept"/>
                           <Cell col="4" text="bind:patNo"/>
-                          <Cell col="5" text="bind:prescDate"/>
+                          <Cell col="5" edittype="normal" text="bind:prescDate"/>
                         </Band>
                       </Format>
                     </Formats>
@@ -433,7 +433,7 @@
           </Layouts>
         </Div>
         <Static id="titleStc00" taborder="10" text="진료 정보" onclick="titleStc00_onclick" left="30" top="78" width="116" height="26" style="color:#263238ff;bordertype:round 5 5 ;font:bold 11 돋움;" class="TStc"/>
-        <Button id="searchBtn" taborder="11" left="366" top="728" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="searchBtn_onclick"/>
+        <Button id="searchBtn" taborder="11" left="358" top="728" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="searchBtn_onclick"/>
         <Button id="registerBtn" taborder="12" left="1041" top="728" width="90" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="registerBtn_onclick"/>
         <Button id="closeBtn" taborder="13" left="1142" top="728" width="90" height="32" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="closeBtn_onclick"/>
         <Div id="otherDiv" taborder="14" left="37.2%" top="728" right="17.12%" height="34" style="background:#eceff1ff;">
@@ -441,7 +441,7 @@
             <Layout>
               <Button id="returningOutPatBtn" taborder="0" text="외래재진예약" left="31.35%" top="3" right="48.34%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_returningOutPatBtn_onclick"/>
               <Button id="ConsultationTrtmtBtn" taborder="1" text="협의진료의뢰" left="53.94%" top="3" right="25.74%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_ConsultationTrtmtBtn_onclick"/>
-              <Button id="dischargeHosBtn" taborder="2" text="퇴원지시" left="76.71%" top="3" right="2.98%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;"/>
+              <Button id="dischargeHosBtn" taborder="2" text="퇴원지시" left="76.71%" top="3" right="2.98%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_dischargeHosBtn_onclick"/>
               <Div id="Div00" taborder="3" left="0.88%" top="3" right="70.75%" height="27" style="background:#607d8bff;color:#eceff1ff;font:bold 10 돋움;" text="외래/협진/퇴원 신청"/>
             </Layout>
           </Layouts>
@@ -546,7 +546,7 @@
             <Col id="serviceID">batchDisePrescProcess</Col>
             <Col id="URL">his::msv/pre/prescriptionmanagement/batchDisePrescProcess.do</Col>
             <Col id="outData"/>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
             <Col id="inData">dsPatientDs=dsPatientDs:u dsPatientPrsc=dsPatientPrsc:u dsPrescValue=dsPrescValue:u dsPrescDtl=dsPrescDtl:u dsOutpaReceipt=dsOutpaReceipt:u</Col>
           </Row>
           <Row>
@@ -629,6 +629,8 @@
           <Column id="outpaReceiptNo" type="STRING" size="256"/>
           <Column id="doctNm" type="STRING" size="256"/>
           <Column id="surYn" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="patType" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsInsurance">
@@ -1174,14 +1176,13 @@ this.disePrescriptTab_prescriptionTabpage_prescDelBtn_onclick = function(obj:But
 
 this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
-	alert(111);
+	
 	 this.dsPrescDtl.addRow();
 	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
 	 prescNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "prescNo");
 	 var codeNo= this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "codeNo");
 	  
-	 alert(patNo);
-	 alert(prescNo);
+	  
 	 	this.dsService.setColumn(5, 'argument','prescCd='+codeNo+' prescNo='+prescNo);
 	this.gfnService("findPatientPrscDtlList", false);
 	
@@ -1207,6 +1208,38 @@ this.otherDiv_returningOutPatBtn_onclick = function(obj:Button,  e:nexacro.Click
 	patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
 	application.open("SCP_RetreatmentReservationForm","pre::SCP_RetreatmentReservationForm.xfdl",this.parent,{patNo:"000004",patNm:"유재석"},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
 }
+
+this.otherDiv_dischargeHosBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+		patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+		patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
+	
+			var objNew = new ChildFrame();
+				objNew.init("discharge", "absolute", 10, 10, 100, 100 , null, null, "pre::PR_DischargeRequestPopupForm.xfdl");
+				objNew.showModal("PR_DischargeRequestPopupForm",  this, {patNo:patNo,patNm:patNm}, this, null);
+}
+
+
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		alert(errorMsg);
+		return;
+	}
+	
+
+	if(svcID=="batchDisePrescProcess")
+	{
+		alert("정상 처리되었습니다.");
+		
+	}
+	
+	
+}
+
+
 ]]></Script>
   </Form>
 </FDL>

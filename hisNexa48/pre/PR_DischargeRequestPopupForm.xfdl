@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="PR_DischargeRequestPopupForm" classname="PR_DischargeRequestPopupForm" left="0" top="0" width="399" height="256" titletext="퇴원지시" onload="PR_DischargeRequestPopupForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="dischargeDiv" taborder="0" left="2.01%" top="36" right="3.01%" height="150" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Static id="Static03" taborder="0" text="환자번호 " cssclass="sta_WF_DetailLabel01" left="16" top="19" width="86" height="28" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+              <Static id="Static00" taborder="1" text="환자명" cssclass="sta_WF_DetailLabel01" left="196" top="19" width="86" height="28" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+              <Static id="Static01" taborder="2" text="퇴원예정일" cssclass="sta_WF_DetailLabel01" left="16" top="59" width="86" height="28" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+              <Static id="Static02" taborder="3" text="퇴원사유" cssclass="sta_WF_DetailLabel01" left="16" top="99" width="86" height="28" style="background:#90a4aeff;padding:0 0 0 0;align:center middle;font:9 돋움;"/>
+              <Edit id="patNoEd" taborder="4" left="27.18%" top="19" right="48.81%" height="28" enable="true"/>
+              <Edit id="patNmEd" taborder="5" left="74.67%" top="19" right="2.9%" height="28"/>
+              <Calendar id="dscgDateCal" taborder="6" left="27.18%" top="59" right="36.41%" height="27"/>
+              <Combo id="dscgCombo" taborder="7" left="27.18%" top="100" right="2.9%" height="27" style="font:10 돋움;" innerdataset="@dsDischargeReason" datacolumn="reason" codecolumn="reason"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="dischargeStc" taborder="1" text="퇴원지시" left="2.01%" top="4" right="2.51%" height="27" style="background:#546e7aff;color:white;align:center middle;font:bold 10 돋움;"/>
+        <Div id="buttonDiv" taborder="2" left="2.01%" top="197" right="2.76%" height="49" style="background:#eceff1ff;">
+          <Layouts>
+            <Layout>
+              <Button id="ConfirmScheduleBtn" taborder="0" text="퇴원등록" left="52.89%" top="10" right="24.47%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="buttonDiv_ConfirmScheduleBtn_onclick"/>
+              <Button id="cancleBtn" taborder="1" text="취소" left="77.37%" top="10" right="4.21%" height="27" style="background:#607d8bff;color:#ffffffff;font:bold 9 Gulim;" onclick="buttonDiv_cancleBtn_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsDischargeReason">
+        <ColumnInfo>
+          <Column id="reason" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="reason">퇴원지시 후 퇴원</Col>
+          </Row>
+          <Row>
+            <Col id="reason">자의 퇴원</Col>
+          </Row>
+          <Row>
+            <Col id="reason">타병원전원</Col>
+          </Row>
+          <Row>
+            <Col id="reason">탈원</Col>
+          </Row>
+          <Row>
+            <Col id="reason">의뢰병원회송</Col>
+          </Row>
+          <Row>
+            <Col id="reason">사망</Col>
+          </Row>
+          <Row>
+            <Col id="reason">기타</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsHospitalizationInfo" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ward" type="STRING" size="256"/>
+          <Column id="rship" type="STRING" size="256"/>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="outpaReceiptNo" type="STRING" size="256"/>
+          <Column id="hroom" type="STRING" size="256"/>
+          <Column id="hosptlzRsvtYb" type="STRING" size="256"/>
+          <Column id="hosptlzRoute" type="STRING" size="256"/>
+          <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
+          <Column id="hosptlzDate" type="STRING" size="256"/>
+          <Column id="grtorTel" type="STRING" size="256"/>
+          <Column id="grtorRrn" type="STRING" size="256"/>
+          <Column id="grtorNm" type="STRING" size="256"/>
+          <Column id="grtorAddr" type="STRING" size="256"/>
+          <Column id="dscgDiv" type="STRING" size="256"/>
+          <Column id="dscgDate" type="STRING" size="256"/>
+          <Column id="trmtDeptNm" type="STRING" size="256"/>
+          <Column id="trmtDeptCd" type="STRING" size="256"/>
+          <Column id="respDoctNm" type="STRING" size="256"/>
+          <Column id="respDoctCd" type="STRING" size="256"/>
+          <Column id="patTypeNm" type="STRING" size="256"/>
+          <Column id="patTypeCd" type="STRING" size="256"/>
+          <Column id="patRship" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsHospitalizationInfoCopy" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="ward" type="STRING" size="256"/>
+          <Column id="rship" type="STRING" size="256"/>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="outpaReceiptNo" type="STRING" size="256"/>
+          <Column id="hroom" type="STRING" size="256"/>
+          <Column id="hosptlzRsvtYb" type="STRING" size="256"/>
+          <Column id="hosptlzRoute" type="STRING" size="256"/>
+          <Column id="hosptlzReceiptNo" type="STRING" size="256"/>
+          <Column id="hosptlzDate" type="STRING" size="256"/>
+          <Column id="grtorTel" type="STRING" size="256"/>
+          <Column id="grtorRrn" type="STRING" size="256"/>
+          <Column id="grtorNm" type="STRING" size="256"/>
+          <Column id="grtorAddr" type="STRING" size="256"/>
+          <Column id="dscgDiv" type="STRING" size="256"/>
+          <Column id="dscgDate" type="STRING" size="256"/>
+          <Column id="trmtDeptNm" type="STRING" size="256"/>
+          <Column id="trmtDeptCd" type="STRING" size="256"/>
+          <Column id="respDoctNm" type="STRING" size="256"/>
+          <Column id="respDoctCd" type="STRING" size="256"/>
+          <Column id="patTypeNm" type="STRING" size="256"/>
+          <Column id="patTypeCd" type="STRING" size="256"/>
+          <Column id="patRship" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="true" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="URL">his::hdm/admission/findOutpaReceipt.do</Col>
+            <Col id="serviceID">findOutpaReceipt</Col>
+            <Col id="outData">dsOutpaReceipt=dsOutpaReceipt</Col>
+            <Col id="callbackFunc">findHosptlzYBCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findPatient</Col>
+            <Col id="URL">his::hdm/patient/findPatientList.do</Col>
+            <Col id="outData">dsPatient=dsPatient</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findReceipt</Col>
+            <Col id="URL">his::hdm/admission/findHospitalizationInfo.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsHospitalizationInfo=dsHospitalizationInfo</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc">findReceiptCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">batchHospitalizationProcess</Col>
+            <Col id="URL">his::hdm/admission/batchHospitalizationProcess.do</Col>
+            <Col id="outData"/>
+            <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
+            <Col id="inData">dsHospitalizationInfo=dsHospitalizationInfo:u</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">callHospitalizationSeq</Col>
+            <Col id="URL">his::hdm/admission/callHospitalizationSeq.do</Col>
+            <Col id="outData">hosptlzReceiptNo=hosptlzReceiptNo</Col>
+            <Col id="callbackFunc">findReceiptCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findHospitalizationInfo</Col>
+            <Col id="URL">his::hdm/admission/findHospitalizationInfo.do</Col>
+            <Col id="outData">dsHospitalizationInfo=dsHospitalizationInfo</Col>
+            <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">cancelHospitalization</Col>
+            <Col id="URL">his::hdm/admission/batchHospitalizationProcess.do</Col>
+            <Col id="inData">dsHospitalizationInfo=dsHospitalizationInfo:u</Col>
+            <Col id="callbackFunc">batchProcessHosptlzReceiptCallbackFunc</Col>
+            <Col id="outData"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">findHospitalizationSchedule</Col>
+            <Col id="URL">his::hdm/admission/findHospitalizationSchedule.do</Col>
+            <Col id="outData">dsHospitalizationSchedule=dsHospitalizationSchedule</Col>
+            <Col id="callbackFunc">findHosptlzRsvtCallbackFunc</Col>
+            <Col id="inData"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">modifyHospitalizationScheduleInfo</Col>
+            <Col id="URL">his::hdm/admission/modifyHospitalizationScheduleInfo.do</Col>
+            <Col id="inData">dsOutpaReceipt=dsOutpaReceipt:u</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="dischargeDiv.dscgCombo" propid="value" datasetid="dsHospitalizationInfo" columnid="dscgDiv"/>
+      <BindItem id="item1" compid="dischargeDiv.dscgDateCal" propid="value" datasetid="dsHospitalizationInfo" columnid="dscgDate"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[
+include "scripts::commonScripts.xjs";
+
+var hosptlzReceiptNo;
+
+this.PR_DischargeRequestPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.dischargeDiv.patNoEd.set_value(this.parent.patNo);
+	this.dischargeDiv.patNmEd.set_value(this.parent.patNm);
+	
+	this.dsService.setColumn(5,"argument",'patNo='+patNo);
+	this.gfnService("findHospitalizationInfo",false);
+
+	hosptlzReceiptNo = this.dsHospitalizationInfo.getColumn(this.dsHospitalizationInfo.rowposition, "hosptlzReceiptNo");
+	
+	
+}
+
+this.buttonDiv_cancleBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.close();
+}
+
+
+this.buttonDiv_ConfirmScheduleBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var dscgDate = this.dischargeDiv.dscgDateCal.value;
+	var dscgDiv = this.dischargeDiv.dscgCombo.value;
+	
+	alert(dscgDate + " / " + dscgDiv);
+	
+	var nRow = this.dsHospitalizationInfo.addRow();
+
+	 this.dsHospitalizationInfo.setColumn(nRow, "hosptlzReceiptNo", hosptlzReceiptNo);
+	 this.dsHospitalizationInfo.setColumn(nRow, "patNo", patNo);
+	 this.dsHospitalizationInfo.setColumn(nRow, "dscgDate", dscgDate);
+	 this.dsHospitalizationInfo.setColumn(nRow, "dscgDiv", dscgDiv);
+		 this.dsHospitalizationInfo.setRowType(nRow, "4");
+	
+	
+	this.gfnService("batchHospitalizationProcess",false);  
+}
+]]></Script>
+  </Form>
+</FDL>

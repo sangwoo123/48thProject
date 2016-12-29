@@ -514,7 +514,7 @@ this.findReceiptCallbackFunc=function(svcID, errorCode, errorMsg)
 			if(errorCode=="1"){
 				this.hosptlzReceiptNoEdt.set_value(this.hosptlzReceiptNo);
 				this.dsHospitalizationInfo.setColumn(0,"hosptlzReceiptNo",this.hosptlzReceiptNoEdt.value);   //입원등록번호
-				this.gfnService("batchHospitalizationProcess","false");  //입원등록			
+			
 			}else{
 				alert("입원등록번호에서 오류 발생");
 			}	
