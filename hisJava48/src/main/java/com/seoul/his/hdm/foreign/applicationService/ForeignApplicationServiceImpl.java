@@ -34,7 +34,12 @@ public class ForeignApplicationServiceImpl implements ForeignApplicationService 
 		receiptInfoDAO.insertReceipt(receiptInfoBean);
 
 	}
+	
+	@Override
+	public void modifyDiagnosisReceipt(Map<String, String> argsMap) {
+		receiptInfoDAO.updateReceiptApp(argsMap);
 
+	}
 	@Override
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
 		receiptInfoDAO.deleteReceipt(receiptInfoBean);
