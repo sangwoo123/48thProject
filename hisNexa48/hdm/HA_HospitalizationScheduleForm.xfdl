@@ -222,8 +222,8 @@ this.registerHosptlzRsvtCallbackFunc=function(svcID, errorCode, errorMsg){
 		
 		var arrRtn = new Array;
 		var i=0;
-		arrRtn[i++] = this.dsHosptlzRsvt.getColumn(row,"patNo"); // 환자등록번호 0
-	    arrRtn[i++] = this.dsHosptlzRsvt.getColumn(row,"hosptlzRsvtNo"); // 입원예약번호 1
+		arrRtn[i++] = this.dsHospitalizationSchedule.getColumn(row,"patNo"); // 환자등록번호 0
+	    arrRtn[i++] = this.dsHospitalizationSchedule.getColumn(row,"hosptlzRsvtNo"); // 입원예약번호 1
 	    
 	    this.opener.registerHosptlzRsvtInfo(arrRtn);		
 		this.close();

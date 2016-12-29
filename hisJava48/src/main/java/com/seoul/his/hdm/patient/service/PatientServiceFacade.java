@@ -11,6 +11,8 @@ import com.seoul.his.hdm.patient.to.PatientBean;
 public interface PatientServiceFacade {
 
 	List<PatientBean> findPatientList(Map<String, String> argsMap);
+	
+	List<PatientBean> findPatientList();
 
 	void batchPatientProcess(List<PatientBean> patientBeanList);
 

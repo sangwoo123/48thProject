@@ -12,5 +12,8 @@ public interface JourDAO {
 
     List<JourBean> selectJourDetail(Map<String, String> argsMap);
 
+	void insertJour(JourBean jour);
+
+
 
 }

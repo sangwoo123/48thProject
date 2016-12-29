@@ -32,13 +32,6 @@ public class TaxInvBean extends BaseBean{
 
     private List<DetailTaxInvBean> detailTaxInvList ;	// 세금계산서상세정보
 
-    @Remove
-    public List<DetailTaxInvBean> getDetailTaxInvList() {
-        return detailTaxInvList;
-    }
-    @Remove
-    public void setDetailTaxInvList(List<DetailTaxInvBean> detailTaxInvList) {
-        this.detailTaxInvList = detailTaxInvList;
-    }
+
 
 }
