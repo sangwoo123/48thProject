@@ -157,7 +157,7 @@
                       <Cell row="1" col="4" text="bind:prsdntnm"/>
                       <Cell row="1" col="5" text="bind:busshpnm"/>
                       <Cell row="1" col="6" colspan="2" text="bind:busctgnm"/>
-                      <Cell row="2" col="1" colspan="7" style="align:center;" text="bind:fm"/>
+                      <Cell row="2" col="1" colspan="7" text="bind:fm"/>
                     </Band>
                     <Band id="summary">
                       <Cell style="background:#37474fff;"/>
@@ -288,7 +288,7 @@
                       <Cell row="2" col="11" style="background:#cfd8dcff;" text="사유/비고"/>
                     </Band>
                     <Band id="body">
-                      <Cell rowspan="3" celltype="none" text="bind:seq"/>
+                      <Cell rowspan="3" celltype="none" text="expr:expr:currow+1"/>
                       <Cell col="1" displaytype="combo" edittype="combo" text="bind:payDiv" combodataset="dsJibulDiv" combocodecol="code" combodatacol="value"/>
                       <Cell col="2" colspan="2" text="bind:stdTask"/>
                       <Cell col="4" text="bind:stdBimok"/>
@@ -324,9 +324,9 @@
             </Layout>
           </Layouts>
         </Div>
-        <Button id="modiBtn" taborder="5" onclick="modiBtn_onclick" left="914" top="728" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="addBtn" taborder="6" onclick="addBtn_onclick" left="726" top="728" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
-        <Button id="deleteBtn" taborder="7" onclick="deleteBtn_onclick" left="819" top="728" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="modiBtn" taborder="5" onclick="modiBtn_onclick" left="886" top="728" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="addBtn" taborder="6" onclick="addBtn_onclick" left="698" top="728" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+        <Button id="deleteBtn" taborder="7" onclick="deleteBtn_onclick" left="791" top="728" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Div id="Div00" taborder="8" left="0%" top="0" width="1023" height="60" style="background:transparent URL('img::titleBar1.jpg');">
           <Layouts>
             <Layout>
@@ -507,10 +507,10 @@
           </Row>
           <Row>
             <Col id="serviceID">findRunBimok</Col>
-            <Col id="URL">his::acc/budget/findRunBimok.do</Col>
+            <Col id="URL">his::acc/budget/findRunBudg.do</Col>
             <Col id="inData"/>
-            <Col id="outData">dsRunBudg=dsRunBudg</Col>
-            <Col id="argument">[Undefined]</Col>
+            <Col id="outData">dsRunBudg=dsBudgBimok</Col>
+            <Col id="argument"/>
             <Col id="callbackFunc">callbackFunc</Col>
           </Row>
           <Row>
@@ -794,15 +794,17 @@ this.callbackFunc = function(svcID, ErrorCode, ErrorMsg){
  	
 			this.dsService.setColumn(1,"argument",argument); ////결의서 조회 메서드에 argument에 셋팅
 			this.gfnService("findResolLetList"); // 결의서 조회
-		}else if(svcID=="findResolLetList"){
-				alert("콜백으로달려감");
+		}else if(svcID=="findResolLetDetail"){
 			this.callback(svcID, ErrorCode, ErrorMsg);
-						alert("콜붹");
 			this.gfnService("findAccount",false); //거래처 데이터셋
 			this.dsAccount.filter("custcd==''");	
 		}else if(svcID=="findAccount"){
 		this.gfnService("empInfo"); //사원정보 데이터셋
 		}else if(svcID=="empInfo"){
+		}else if(svcID=="searchTaxInvoiceList"){
+			alert("완료");
+			alert(this.dsTaxInv.getColumn(0,"sumPrice"));
+			alert(this.dsTaxInv.getRowCount());
 		}
 		
 	}
@@ -810,9 +812,9 @@ this.callbackFunc = function(svcID, ErrorCode, ErrorMsg){
 
 //  콜백 함수
 this.callback = function(trid, ErrorCode, ErrorMsg){
+	alert("오");
 	//자동분개 일시 실행		
 	if(autoJourYes=="true"){			
-	alert("자동분개에트루얌");
 		//분개의 차변 예산비목 값을 bimokCd 셋팅
 		var bimokCd = this.dsJour.getColumn(0,"bimokCd");
 		this.resolMngmt.acntNmEd.set_value(this.dsJour.getColumn(0,"acntNm"));
@@ -821,9 +823,9 @@ this.callback = function(trid, ErrorCode, ErrorMsg){
 		if(this.dsJour.getColumn(0,"assiSubNm")!=null){
 			//보조과목명 assiSubNmEd에 셋팅				
 			this.resolMngmt.assiSubNmEd.set_value(this.dsJour.getColumn(0,"assiSubNm"));
-		}
+		}	
+		alert(11);
 		
-	
 		//회계년도 
 		var argument ='accYear='+accYear;
 		//비목코드
@@ -831,7 +833,6 @@ this.callback = function(trid, ErrorCode, ErrorMsg){
  		var nRow = this.dsService.findRow( "ServiceID", "findRunBimok" );
  		this.dsService.setColumn(nRow,"argument",argument);
  		//예산비목 조회 메서드 호출
- 		alert("비목조회실시");
  		alert(accYear+bimokCd);
  		this.gfnService("findRunBimok");	
  		alert("비목조회");
@@ -894,7 +895,7 @@ this.resolMngmt_searchResolBtn_onclick = function(obj:Button,  e:nexacro.ClickEv
 		
 		var nRow = this.dsService.findRow( "serviceID", "findResolLetList" );
 		this.dsService.setColumn(nRow,"argument",argument);
-
+        alert('a');
 		this.gfnService("findResolLetList");	
 	}	
 }

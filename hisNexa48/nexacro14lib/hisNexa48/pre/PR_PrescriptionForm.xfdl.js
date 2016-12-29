@@ -33,7 +33,7 @@
             obj.set_loadkeymode("keep");
             obj.set_loadfiltermode("keep");
             obj.set_reversesubsum("false");
-            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findDiseaseList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findDiseaseList.do</Col><Col id=\"outData\">dsDisease=dsDisease</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findReceiptList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findReceiptList.do</Col><Col id=\"outData\">dsOutpaReceipt=dsOutpaReceipt</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findFeeListEMR</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findFeeListEMR.do</Col><Col id=\"outData\">dsFeeCd=dsFeeCd</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">batchDisePrescProcess</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/batchDisePrescProcess.do</Col><Col id=\"outData\"/><Col id=\"callbackFunc\">gfnCallbackFunc</Col><Col id=\"inData\">dsPatientDs=dsPatientDs:u dsPatientPrsc=dsPatientPrsc:u dsPrescValue=dsPrescValue:u dsPrescDtl=dsPrescDtl:u dsOutpaReceipt=dsOutpaReceipt:u</Col></Row><Row><Col id=\"serviceID\">findPatientDsPrscList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findDsPrescList.do</Col><Col id=\"outData\">dsPatientDs=dsPatientDs dsPatientPrsc=dsPatientPrsc</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatientPrscDtlList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findPrescDtlList.do</Col><Col id=\"outData\">dsPrescDtl=dsPrescDtl</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatientPrscList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findPrescList.do</Col><Col id=\"outData\">dsPatientPrsc=dsPatientPrsc dsPrescValue=dsPrescValue</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row></Rows>");
+            obj._setContents("<ColumnInfo><Column id=\"serviceID\" type=\"STRING\" size=\"256\"/><Column id=\"URL\" type=\"STRING\" size=\"256\"/><Column id=\"inData\" type=\"STRING\" size=\"256\"/><Column id=\"outData\" type=\"STRING\" size=\"256\"/><Column id=\"argument\" type=\"STRING\" size=\"256\"/><Column id=\"callbackFunc\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"serviceID\">findDiseaseList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findDiseaseList.do</Col><Col id=\"outData\">dsDisease=dsDisease</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findReceiptList</Col><Col id=\"URL\">his::hdm/foreign/findDiagnosisReceiptList.do</Col><Col id=\"outData\">dsOutpaReceipt=dsOutpaReceipt</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findFeeListEMR</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findFeeListEMR.do</Col><Col id=\"outData\">dsFeeCd=dsFeeCd</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">batchDisePrescProcess</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/batchDisePrescProcess.do</Col><Col id=\"outData\"/><Col id=\"callbackFunc\">gfnCallbackFunc</Col><Col id=\"inData\">dsPatientDs=dsPatientDs:u dsPatientPrsc=dsPatientPrsc:u dsPrescValue=dsPrescValue:u dsPrescDtl=dsPrescDtl:u dsOutpaReceipt=dsOutpaReceipt:u</Col></Row><Row><Col id=\"serviceID\">findPatientDsPrscList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findDsPrescList.do</Col><Col id=\"outData\">dsPatientDs=dsPatientDs dsPatientPrsc=dsPatientPrsc</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatientPrscDtlList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findPrescDtlList.do</Col><Col id=\"outData\">dsPrescDtl=dsPrescDtl</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row><Row><Col id=\"serviceID\">findPatientPrscList</Col><Col id=\"URL\">his::msv/pre/prescriptionmanagement/findPrescList.do</Col><Col id=\"outData\">dsPatientPrsc=dsPatientPrsc dsPrescValue=dsPrescValue</Col><Col id=\"callbackFunc\">gfnCallbackFunc</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsPatientDs", this);
@@ -77,7 +77,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsPrescDtl", this);
-            obj._setContents("<ColumnInfo><Column id=\"prescNo\" type=\"STRING\" size=\"256\"/><Column id=\"prescCd\" type=\"STRING\" size=\"256\"/><Column id=\"emgYn\" type=\"STRING\" size=\"256\"/><Column id=\"prnYn\" type=\"STRING\" size=\"256\"/><Column id=\"antiYn\" type=\"STRING\" size=\"256\"/><Column id=\"holdingYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtrlYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtrlNm\" type=\"STRING\" size=\"256\"/><Column id=\"mtrlBodyPart\" type=\"STRING\" size=\"256\"/><Column id=\"examWishDate\" type=\"STRING\" size=\"256\"/><Column id=\"times\" type=\"STRING\" size=\"256\"/><Column id=\"insurance\" type=\"STRING\" size=\"256\"/><Column id=\"selectCareYn\" type=\"STRING\" size=\"256\"/><Column id=\"clncStudyYn\" type=\"STRING\" size=\"256\"/><Column id=\"patType\" type=\"STRING\" size=\"256\"/><Column id=\"remark\" type=\"STRING\" size=\"256\"/><Column id=\"irradiYn\" type=\"STRING\" size=\"256\"/><Column id=\"amount\" type=\"STRING\" size=\"256\"/><Column id=\"purpose\" type=\"STRING\" size=\"256\"/><Column id=\"trfuLoc\" type=\"STRING\" size=\"256\"/><Column id=\"ast\" type=\"STRING\" size=\"256\"/><Column id=\"bloodDonor\" type=\"STRING\" size=\"256\"/><Column id=\"volume\" type=\"STRING\" size=\"256\"/><Column id=\"unit\" type=\"STRING\" size=\"256\"/><Column id=\"takeWay\" type=\"STRING\" size=\"256\"/><Column id=\"days\" type=\"STRING\" size=\"256\"/><Column id=\"prescDtlNm\" type=\"STRING\" size=\"256\"/><Column id=\"prescType\" type=\"STRING\" size=\"256\"/><Column id=\"nightYn\" type=\"STRING\" size=\"256\"/><Column id=\"inCapacity\" type=\"STRING\" size=\"256\"/><Column id=\"inNumber\" type=\"STRING\" size=\"256\"/><Column id=\"inMethod\" type=\"STRING\" size=\"256\"/><Column id=\"exEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"exPrnYn\" type=\"STRING\" size=\"256\"/><Column id=\"exTimes\" type=\"STRING\" size=\"256\"/><Column id=\"exInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"exRemark\" type=\"STRING\" size=\"256\"/><Column id=\"hdEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdReoperYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdNightYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdTimes\" type=\"STRING\" size=\"256\"/><Column id=\"hdStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"hdInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"hdRemark\" type=\"STRING\" size=\"256\"/><Column id=\"mtEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtReoperYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtNightYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"mtInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"mtMaterLoc\" type=\"STRING\" size=\"256\"/><Column id=\"mtRemark\" type=\"STRING\" size=\"256\"/><Column id=\"rbSelectCareIn\" type=\"STRING\" size=\"256\"/><Column id=\"rbInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"rbRemark\" type=\"STRING\" size=\"256\"/><Column id=\"tfEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"tfAmount\" type=\"STRING\" size=\"256\"/><Column id=\"tfTimes\" type=\"STRING\" size=\"256\"/><Column id=\"tfStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"tfInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"tfRemark\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"prescNo\" type=\"STRING\" size=\"256\"/><Column id=\"prescCd\" type=\"STRING\" size=\"256\"/><Column id=\"inEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"inPrnYn\" type=\"STRING\" size=\"256\"/><Column id=\"exAntiYn\" type=\"STRING\" size=\"256\"/><Column id=\"holdingYn\" type=\"STRING\" size=\"256\"/><Column id=\"exMtrlYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtrlNm\" type=\"STRING\" size=\"256\"/><Column id=\"mtrlBodyPart\" type=\"STRING\" size=\"256\"/><Column id=\"exExamWishDate\" type=\"STRING\" size=\"256\"/><Column id=\"inTimes\" type=\"STRING\" size=\"256\"/><Column id=\"inInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"exSelectCareYn\" type=\"STRING\" size=\"256\"/><Column id=\"clncStudyYn\" type=\"STRING\" size=\"256\"/><Column id=\"patType\" type=\"STRING\" size=\"256\"/><Column id=\"inRemark\" type=\"STRING\" size=\"256\"/><Column id=\"irradiYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtAmount\" type=\"STRING\" size=\"256\"/><Column id=\"tfPurpose\" type=\"STRING\" size=\"256\"/><Column id=\"tfTrfuLoc\" type=\"STRING\" size=\"256\"/><Column id=\"ast\" type=\"STRING\" size=\"256\"/><Column id=\"tfBloodDonor\" type=\"STRING\" size=\"256\"/><Column id=\"volume\" type=\"STRING\" size=\"256\"/><Column id=\"inUnit\" type=\"STRING\" size=\"256\"/><Column id=\"rbTakeWay\" type=\"STRING\" size=\"256\"/><Column id=\"rbDays\" type=\"STRING\" size=\"256\"/><Column id=\"prescDtlNm\" type=\"STRING\" size=\"256\"/><Column id=\"prescType\" type=\"STRING\" size=\"256\"/><Column id=\"exNightYn\" type=\"STRING\" size=\"256\"/><Column id=\"inCapacity\" type=\"STRING\" size=\"256\"/><Column id=\"inNumber\" type=\"STRING\" size=\"256\"/><Column id=\"inMethod\" type=\"STRING\" size=\"256\"/><Column id=\"exEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"exPrnYn\" type=\"STRING\" size=\"256\"/><Column id=\"exTimes\" type=\"STRING\" size=\"256\"/><Column id=\"exInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"exRemark\" type=\"STRING\" size=\"256\"/><Column id=\"hdEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdReoperYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdNightYn\" type=\"STRING\" size=\"256\"/><Column id=\"hdTimes\" type=\"STRING\" size=\"256\"/><Column id=\"hdStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"hdInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"hdRemark\" type=\"STRING\" size=\"256\"/><Column id=\"mtEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtReoperYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtNightYn\" type=\"STRING\" size=\"256\"/><Column id=\"mtStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"mtInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"mtMaterLoc\" type=\"STRING\" size=\"256\"/><Column id=\"mtRemark\" type=\"STRING\" size=\"256\"/><Column id=\"rbSelectCareIn\" type=\"STRING\" size=\"256\"/><Column id=\"rbInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"rbRemark\" type=\"STRING\" size=\"256\"/><Column id=\"tfEmgYn\" type=\"STRING\" size=\"256\"/><Column id=\"tfAmount\" type=\"STRING\" size=\"256\"/><Column id=\"tfTimes\" type=\"STRING\" size=\"256\"/><Column id=\"tfStarttime\" type=\"STRING\" size=\"256\"/><Column id=\"tfInsurance\" type=\"STRING\" size=\"256\"/><Column id=\"tfRemark\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("dsOutpaReceipt", this);
@@ -1429,10 +1429,10 @@
 
             
             // BindItem Information
-            obj = new BindItem("item1","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.unitCombo","value","dsPrescDtl","unit");
+            obj = new BindItem("item1","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.unitCombo","value","dsPrescDtl","inUnit");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item2","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.timesEd","value","dsPrescDtl","times");
+            obj = new BindItem("item2","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.timesEd","value","dsPrescDtl","inTimes");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item3","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.numberEd","value","dsPrescDtl","inNumber");
@@ -1441,16 +1441,16 @@
             obj = new BindItem("item4","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.methodEd","value","dsPrescDtl","inMethod");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item5","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.insuranceCombo","value","dsPrescDtl","insurance");
+            obj = new BindItem("item5","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.insuranceCombo","value","dsPrescDtl","inInsurance");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item6","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.emgCheck","value","dsPrescDtl","emgYn");
+            obj = new BindItem("item6","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.emgCheck","value","dsPrescDtl","inEmgYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item7","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.prnCheck","value","dsPrescDtl","prnYn");
+            obj = new BindItem("item7","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.prnCheck","value","dsPrescDtl","inPrnYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item8","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.remarkEd","value","dsPrescDtl","remark");
+            obj = new BindItem("item8","disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.remarkEd","value","dsPrescDtl","inRemark");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item9","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.emgCheck","value","dsPrescDtl","exEmgYn");
@@ -1459,10 +1459,10 @@
             obj = new BindItem("item10","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.prnCheck","value","dsPrescDtl","exPrnYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item11","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.nightCheck","value","dsPrescDtl","nightYn");
+            obj = new BindItem("item11","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.nightCheck","value","dsPrescDtl","exNightYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item12","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.Calendar00","value","dsPrescDtl","examWishDate");
+            obj = new BindItem("item12","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.Calendar00","value","dsPrescDtl","exExamWishDate");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item13","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.timesEd","value","dsPrescDtl","exTimes");
@@ -1471,13 +1471,13 @@
             obj = new BindItem("item14","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.insuranceCombo","value","dsPrescDtl","exInsurance");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item15","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.selectCareCheck","value","dsPrescDtl","selectCareYn");
+            obj = new BindItem("item15","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.selectCareCheck","value","dsPrescDtl","exSelectCareYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item16","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.mtrlCheck","value","dsPrescDtl","mtrlYn");
+            obj = new BindItem("item16","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.mtrlCheck","value","dsPrescDtl","exMtrlYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item17","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.antiCheck","value","dsPrescDtl","antiYn");
+            obj = new BindItem("item17","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.antiCheck","value","dsPrescDtl","exAntiYn");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item18","disePrescriptTab.prescriptionTabpage.pd.tabpage2.Div00.remarkEd","value","dsPrescDtl","exRemark");
@@ -1513,7 +1513,7 @@
             obj = new BindItem("item28","disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.nigthCheck","value","dsPrescDtl","mtNightYn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item29","disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.amountEd","value","dsPrescDtl","amount");
+            obj = new BindItem("item29","disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.amountEd","value","dsPrescDtl","mtAmount");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item30","disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.startTimeEd","value","dsPrescDtl","mtStarttime");
@@ -1528,13 +1528,13 @@
             obj = new BindItem("item33","disePrescriptTab.prescriptionTabpage.pd.tabpage5.Div00.remarkEd","value","dsPrescDtl","mtRemark");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item34","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.takeAwayCombo","value","dsPrescDtl","takeWay");
+            obj = new BindItem("item34","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.takeAwayCombo","value","dsPrescDtl","rbTakeWay");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item35","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.selectCareCheck","value","dsPrescDtl","rbSelectCareIn");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item36","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.daysEd","value","dsPrescDtl","days");
+            obj = new BindItem("item36","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.daysEd","value","dsPrescDtl","rbDays");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item37","disePrescriptTab.prescriptionTabpage.pd.tabpage6.Div00.insuranceCombo","value","dsPrescDtl","rbInsurance");
@@ -1549,7 +1549,7 @@
             obj = new BindItem("item40","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.amountEd","value","dsPrescDtl","tfAmount");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item41","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.bloodDonorCheck","value","dsPrescDtl","bloodDonor");
+            obj = new BindItem("item41","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.bloodDonorCheck","value","dsPrescDtl","tfBloodDonor");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item42","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.timesEd","value","dsPrescDtl","tfTimes");
@@ -1561,10 +1561,10 @@
             obj = new BindItem("item44","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.insuranceCombo","value","dsPrescDtl","tfInsurance");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item45","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.purposeCombo","value","dsPrescDtl","purpose");
+            obj = new BindItem("item45","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.purposeCombo","value","dsPrescDtl","tfPurpose");
             this.addChild(obj.name, obj);
             obj.bind();
-            obj = new BindItem("item46","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.trfuLocCombo","value","dsPrescDtl","trfuLoc");
+            obj = new BindItem("item46","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.trfuLocCombo","value","dsPrescDtl","tfTrfuLoc");
             this.addChild(obj.name, obj);
             obj.bind();
             obj = new BindItem("item47","disePrescriptTab.prescriptionTabpage.pd.tabpage3.Div00.remarkEd","value","dsPrescDtl","tfRemark");
@@ -1876,6 +1876,7 @@
         //처방상세 조회위해 처방셀 클릭 시 
         this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick = function(obj,e)
         {
+        /*
         	alert(111);
         	 this.dsPrescDtl.addRow();
         	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
@@ -1889,10 +1890,10 @@
         	
         	 dsPrescDtl.set_loadfiltermode("keep");
         	
+        */
 
         
 
-        
         }
 
         
@@ -1919,6 +1920,42 @@
         
 
         
+
+        this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick = function(obj,e)
+        {
+        	alert(111);
+        	 this.dsPrescDtl.addRow();
+        	 patNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "patNo");
+        	 prescNo = this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "prescNo");
+        	 var codeNo= this.dsPrescValue.getColumn(this.dsPrescValue.rowposition, "codeNo");
+        	  
+        	 alert(patNo);
+        	 alert(prescNo);
+        	 	this.dsService.setColumn(5, 'argument','prescCd='+codeNo+' prescNo='+prescNo);
+        	this.gfnService("findPatientPrscDtlList", false);
+        	
+        	 dsPrescDtl.set_loadfiltermode("keep");
+        	
+
+        
+        }
+
+        this.otherDiv_ConsultationTrtmtBtn_onclick = function(obj,e)
+        {
+
+        	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+        	
+        	 var objNew = new ChildFrame();
+           objNew.init("btn1", "absolute", 10, 10, 100, 100 , null, null, "pre::SCP_MedicalConsultationRequestPopupForm.xfdl");
+           objNew.showModal("SCP_MedicalConsultationRequestPopupForm",  this, {patNo:patNo,mode:"register"}, this, null);
+        }
+
+        this.otherDiv_returningOutPatBtn_onclick = function(obj,e)
+        {
+        	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+        	patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
+        	application.open("SCP_RetreatmentReservationForm","pre::SCP_RetreatmentReservationForm.xfdl",this.parent,{patNo:"000004",patNm:"유재석"},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
+        }
         
         });
 
@@ -1948,6 +1985,7 @@
             this.disePrescriptTab.prescriptionTabpage.diseaseGrid.addEventHandler("oncellclick", this.disePrescriptTab_prescriptionTabpage_diseaseGrid_oncellclick, this);
             this.disePrescriptTab.prescriptionTabpage.presGrid.addEventHandler("oncelldblclick", this.disePrescriptTab_prescriptionTabpage_presGrid_oncelldblclick, this);
             this.disePrescriptTab.prescriptionTabpage.patientPrescGrid.addEventHandler("oncellclick", this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncellclick, this);
+            this.disePrescriptTab.prescriptionTabpage.patientPrescGrid.addEventHandler("oncelldblclick", this.disePrescriptTab_prescriptionTabpage_patientPrescGrid_oncelldblclick, this);
             this.disePrescriptTab.prescriptionTabpage.pd.tabpage1.Div00.capaEd.addEventHandler("oneditclick", this.disePrescriptTab_prescriptionTabpage_pd_tabpage1_Div00_capaEd_oneditclick, this);
             this.disePrescriptTab.prescriptionTabpage.prescDiv.medicationBtn.addEventHandler("onclick", this.disePrescriptTab_prescriptionTabpage_prescDiv_prescBtn_onclick, this);
             this.disePrescriptTab.prescriptionTabpage.prescDiv.checkupBtn.addEventHandler("onclick", this.disePrescriptTab_prescriptionTabpage_prescDiv_prescBtn_onclick, this);
@@ -1960,6 +1998,8 @@
             this.searchBtn.addEventHandler("onclick", this.searchBtn_onclick, this);
             this.registerBtn.addEventHandler("onclick", this.registerBtn_onclick, this);
             this.closeBtn.addEventHandler("onclick", this.closeBtn_onclick, this);
+            this.otherDiv.returningOutPatBtn.addEventHandler("onclick", this.otherDiv_returningOutPatBtn_onclick, this);
+            this.otherDiv.ConsultationTrtmtBtn.addEventHandler("onclick", this.otherDiv_ConsultationTrtmtBtn_onclick, this);
 
         };
 

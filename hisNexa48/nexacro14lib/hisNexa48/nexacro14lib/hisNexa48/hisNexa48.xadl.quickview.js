@@ -29,6 +29,7 @@
             this._addService("default_typedef.xml", "Template", "form", "./Template/", "", null, "", "0", "0");
             this._addService("default_typedef.xml", "Sample", "form", "./Sample/", "", null, "", "0", "0");
             this._addService("default_typedef.xml", "Comm", "form", "./Comm/", "", null, "", "0", "0");
+            this._addService("default_typedef.xml", "bst", "form", "./bst/", "", null, "", "0", "0");
 
             this._component_uri = (this._arg_compurl ? this._arg_compurl : "./nexacro14lib/component/");
             // load components

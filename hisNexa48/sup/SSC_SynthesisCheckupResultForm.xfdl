@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="SSC_SynthesisCheckupResultForm" classname="SSC_SynthesisCheckupResultForm" left="0" top="0" width="1250" height="768" titletext="종합검진 결과관리 화면">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="0" left="0%" top="0" right="0.32%" height="53" style="background:transparent URL('img::titleBar5.jpg');">
+          <Layouts>
+            <Layout>
+              <Static id="Static00" taborder="0" text="종합검진 결과관리" left="4.49%" top="3" right="71.83%" height="45" style="color:#263238ff;font:bold 11 돋움;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="patPopupBtn" taborder="2" onclick="patPopupBtn_onclick" left="30.88%" top="79" right="66.56%" height="27" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;"/>
+        <Edit id="patNmEd" taborder="3" left="18%" top="80" right="69.76%" height="24"/>
+        <Edit id="patNoEd" taborder="4" left="10.16%" top="80" right="82.64%" height="24"/>
+        <Calendar id="inspPlnDateCal" taborder="5" dateformat="yyyy-MM-dd" left="10.24%" top="120" right="74.96%" height="24"/>
+        <Div id="Div03" taborder="6" text="검진예정일자" left="2.24%" top="120" right="90.4%" height="25" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:9 돋움;"/>
+        <Div id="Div01" taborder="7" text="검진자" left="2.16%" top="80" right="90.48%" height="25" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:9 돋움;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Grid id="receiptGrid" taborder="8" binddataset="dsRsvt" useinputpanel="false" autofittype="col" oncellclick="receiptGrid_oncellclick" left="2.16%" top="167" right="63.44%" height="540">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="88"/>
+                <Column size="80"/>
+                <Column size="80"/>
+                <Column size="33"/>
+                <Column size="34"/>
+                <Column size="142"/>
+              </Columns>
+              <Rows>
+                <Row size="27" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검진일자"/>
+                <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="등록번호"/>
+                <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="환자명"/>
+                <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="나이"/>
+                <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="성별"/>
+                <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="패키지"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:inspPlnDate"/>
+                <Cell col="1" text="bind:patNo"/>
+                <Cell col="2" text="bind:patNm"/>
+                <Cell col="3" text="bind:age"/>
+                <Cell col="4" text="bind:gender"/>
+                <Cell col="5" text="bind:pckNm"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="searchBtn" taborder="9" text="조회" left="25.92%" top="120" right="66.72%" height="25" style="background:@gradation;" onclick="searchBtn_onclick"/>
+        <Div id="Div02" taborder="11" text="검사결과목록" left="38.72%" top="76" right="1.44%" height="25" style="background:#cfd8dcff;color:black;bordertype:round 5 5 ;font:bold 10 돋움;"/>
+        <Tab id="rsltTab" taborder="12" left="38.72%" top="112" right="1.44%" height="626" onchanged="rsltTab_onchanged" tabindex="0" scrollbars="autoboth" style="buttonbackground:@gradation;buttonborder:1 solid gray ;background:transparent;color:black;">
+          <Tabpages>
+            <Tabpage id="tpgHOM" text="기본검사" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgNMR" text="핵체외" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgMAT" text="산모진찰" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgCPL" text="임상병리" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgEND" text="내시경" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgXRT" text="진단방사선" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgAPC" text="세포병리" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgIMA" text="폐기능" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgEKK" text="안과상담" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgAPS" text="조직병리" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgHPO" text="외과" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgHP1" text="채혈실" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgHAT" text="청력검사" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tpgDRG" text="약국" style="background:#eceff1ff;">
+              <Layouts>
+                <Layout>
+                  <Grid id="rsltGrid" taborder="0" binddataset="dsRslt" useinputpanel="false" cellsizingtype="col" autofittype="col" oncelldblclick="rsltGrid_oncelldblclick" onenterdown="rsltGrid_onenterdown" left="1.47%" top="17" right="1.34%" height="578">
+                    <Formats>
+                      <Format id="default">
+                        <Columns>
+                          <Column size="40"/>
+                          <Column size="206"/>
+                          <Column size="166"/>
+                          <Column size="80"/>
+                          <Column size="80"/>
+                          <Column size="67"/>
+                        </Columns>
+                        <Rows>
+                          <Row size="24" band="head"/>
+                          <Row size="24"/>
+                        </Rows>
+                        <Band id="head">
+                          <Cell style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="No."/>
+                          <Cell col="1" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검    사    명"/>
+                          <Cell col="2" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="검   사   결   과"/>
+                          <Cell col="3" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="하한"/>
+                          <Cell col="4" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="상한"/>
+                          <Cell col="5" style="background:#cfd8dcff;background2:#cfd8dcff;font:10 돋움;" text="단위"/>
+                        </Band>
+                        <Band id="body">
+                          <Cell celltype="head" expr="expr:currow+1"/>
+                          <Cell col="1" text="bind:dtlInspNm"/>
+                          <Cell col="2" text="bind:inspRslt"/>
+                          <Cell col="3" text="bind:refLowFig"/>
+                          <Cell col="4" text="bind:refHighFig"/>
+                          <Cell col="5" text="bind:unit"/>
+                        </Band>
+                      </Format>
+                    </Formats>
+                  </Grid>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+          </Tabpages>
+        </Tab>
+        <Button id="Button01" taborder="13" text="저장" left="29.2%" top="716" right="63.44%" height="25" style="background:#cfd8dcff;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsService" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="serviceID" type="STRING" size="256"/>
+          <Column id="URL" type="STRING" size="256"/>
+          <Column id="inData" type="STRING" size="256"/>
+          <Column id="outData" type="STRING" size="256"/>
+          <Column id="argument" type="STRING" size="256"/>
+          <Column id="callbackFunc" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="serviceID">findReceiptList</Col>
+            <Col id="URL">his::sup/comprehensiveexam/findReceiptList.do</Col>
+            <Col id="inData"/>
+            <Col id="outData">dsRsvt=dsReceipt</Col>
+            <Col id="argument"/>
+            <Col id="callbackFunc">supCallBackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">findRsltList</Col>
+            <Col id="URL">his::sup/comprehensiveexam/findRsltList.do</Col>
+            <Col id="outData">dsRslt=dsRslt</Col>
+            <Col id="callbackFunc"/>
+            <Col id="inData"/>
+          </Row>
+          <Row>
+            <Col id="serviceID">registerRslt</Col>
+            <Col id="URL">his::sup/comprehensiveexam/registerRslt.do</Col>
+            <Col id="inData">dsRslt=dsRslt:U</Col>
+            <Col id="outData"/>
+            <Col id="argument"/>
+            <Col id="callbackFunc">supCallBackFunc</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="dsRsvt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="dsRsvt_canrowposchange" onrowposchanged="dsRsvt_onrowposchanged">
+        <ColumnInfo>
+          <Column id="rsvtNo" type="STRING" size="256"/>
+          <Column id="patNo" type="STRING" size="256"/>
+          <Column id="patNm" type="STRING" size="256"/>
+          <Column id="age" type="STRING" size="256"/>
+          <Column id="gender" type="STRING" size="256"/>
+          <Column id="rsvtDate" type="STRING" size="256"/>
+          <Column id="rsvtTime" type="STRING" size="256"/>
+          <Column id="inspPlnDate" type="STRING" size="256"/>
+          <Column id="inspPlnTime" type="STRING" size="256"/>
+          <Column id="rrn1" type="STRING" size="256"/>
+          <Column id="rrn2" type="STRING" size="256"/>
+          <Column id="sms" type="STRING" size="256"/>
+          <Column id="aplMan" type="STRING" size="256"/>
+          <Column id="aplManTel" type="STRING" size="256"/>
+          <Column id="rship" type="STRING" size="256"/>
+          <Column id="pckCd" type="STRING" size="256"/>
+          <Column id="pckNm" type="STRING" size="256"/>
+          <Column id="basicInspAmt" type="STRING" size="256"/>
+          <Column id="reducCd" type="STRING" size="256"/>
+          <Column id="reducNm" type="STRING" size="256"/>
+          <Column id="reducAmt" type="STRING" size="256"/>
+          <Column id="rsvtAmt" type="STRING" size="256"/>
+          <Column id="basicInspSumAmt" type="STRING" size="256"/>
+          <Column id="payMan" type="STRING" size="256"/>
+          <Column id="rsvtResp" type="STRING" size="256"/>
+          <Column id="memo" type="STRING" size="256"/>
+          <Column id="cancelYn" type="STRING" size="256"/>
+          <Column id="choInspAmt" type="STRING" size="256"/>
+          <Column id="inspSumAmt" type="STRING" size="256"/>
+          <Column id="userId" type="STRING" size="256"/>
+          <Column id="userIp" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsChoInsp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="inspCd" type="STRING" size="256"/>
+          <Column id="inspNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsPckInsp" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="inspCd" type="STRING" size="256"/>
+          <Column id="inspNm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsRslt" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="rsvtNo" type="STRING" size="256"/>
+          <Column id="inspCd" type="STRING" size="256"/>
+          <Column id="dtlInspCd" type="STRING" size="256"/>
+          <Column id="dtlInspNm" type="STRING" size="256"/>
+          <Column id="inspRslt" type="STRING" size="256"/>
+          <Column id="ocsDivCd" type="STRING" size="256"/>
+          <Column id="rsltDeptCd" type="STRING" size="256"/>
+          <Column id="refLowFig" type="STRING" size="256"/>
+          <Column id="refHighFig" type="STRING" size="256"/>
+          <Column id="unit" type="STRING" size="256"/>
+          <Column id="userId" type="STRING" size="256"/>
+          <Column id="userIp" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.0"><![CDATA[
+// 공통 스크립트
+include "scripts::supScripts.xjs";
+include "scripts::wonScripts.xjs";
+include "scripts::commonScripts.xjs"; 
+
+// 공통 변수
+var rsvtNo;
+var editFlag = false;
+var	addFlag = false;
+
+// 검진자 버튼 
+this.patPopupBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnPatPopup();
+}
+
+this.setPatInfo=function(arry)
+{	
+	this.patNoEd.set_value(arry[0]);
+	this.patNmEd.set_value(arry[1]);
+}
+
+// 조회버튼
+this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var inspDate = this.inspPlnDateCal.value;
+	
+		var patNo = this.patNoEd.value;
+		var argument = 'inspPlnDate='+inspDate+' patNo='+patNo;
+		var row = this.dsService.findRow('serviceID' , "findReceiptList");
+		this.dsService.setColumn(row, "argument", argument);
+		
+		this.gfnService("findReceiptList", false);
+		
+		editFlag = false;
+		addFlag = false;
+	
+}
+
+// 결과 조회
+this.receiptGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var rsvtNo = this.dsRsvt.getColumn(this.dsRsvt.rowposition, "rsvtNo");
+	var argument = 'rsvtNo='+rsvtNo;
+	var row = this.dsService.findRow('serviceID' , "findRsltList");
+	this.dsService.setColumn(row, "argument", argument);
+	
+	this.gfnService("findRsltList", false);
+	
+	this.rsltTab.tpgDRG.rsltGrid.setCellProperty("Body", 2, "edittype", "none");
+	
+	this.setBaseInspRslt();
+}
+
+this.setBaseInspRslt=function()
+{
+	this.rsltTab_onchanged(null,null);
+}
+
+this.rsltTab_onchanged=function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	
+	if(this.gfnIsNull(obj))
+	{
+		rsltDeptCd = 'HOM';
+	}
+	else
+	{
+		var rsltDeptCd = obj.tabpages[e.postindex].name.substr(3);
+	}
+	this.dsRslt.filter("rsltDeptCd == '"+rsltDeptCd+"'");
+}
+
+// 등록, 수정
+this.rsltGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+    alert("11");
+	this.rsltTab.tpgDRG.rsltGrid.setCellProperty("Body", 2, "edittype", "normal");
+}
+
+this.rsltGrid_onenterdown = function(obj:Grid, e:nexacro.GridEditEventInfo)
+{
+	//this.fn_setUserData(this.dsRslt);
+	var bool = this.rsltGrid.moveToNextCell();
+	if(!bool)
+	{
+		this.rsltGrid.setCellPos(0);
+	}
+}
+
+// 저장버튼
+this.saveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.gfnService("registerRslt",false);
+	
+	alert(this.MSG_SUP_SAVE);
+}
+
+
+
+this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.rsltGrid.setCellProperty("Body", 2, "edittype", "normal");
+}
+]]></Script>
+  </Form>
+</FDL>

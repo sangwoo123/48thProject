@@ -38,36 +38,6 @@
               <Edit id="assiSubNameEd" taborder="303" enable="false" left="75.07%" top="31" right="16.19%" height="25" class="AreaEdt"/>
               <Edit id="ctrtNoEd" taborder="304" enable="false" left="64.55%" top="58" right="26.81%" height="25" class="AreaEdt"/>
               <Edit id="progStatDivEd" taborder="305" enable="false" left="40.22%" top="85" right="51.14%" height="25" class="AreaEdt"/>
-              <Grid id="Grid00" taborder="306" binddataset="dsRunBudg" useinputpanel="false" autofittype="col" left="0.1%" top="171" right="0.1%" height="52">
-                <Formats>
-                  <Format id="default">
-                    <Columns>
-                      <Column size="78"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                    </Columns>
-                    <Rows>
-                      <Row size="24" band="head"/>
-                      <Row size="24"/>
-                    </Rows>
-                    <Band id="head">
-                      <Cell colspan="2" style="background:#cfd8dcff;" text="비목"/>
-                      <Cell col="2" style="background:#cfd8dcff;" text="예산금액"/>
-                      <Cell col="3" style="background:#cfd8dcff;" text="배정예산금액"/>
-                      <Cell col="4" style="background:#cfd8dcff;" text="결의가능금액"/>
-                    </Band>
-                    <Band id="body">
-                      <Cell text="bind:bimokCd"/>
-                      <Cell col="1" text="bind:bimokNm"/>
-                      <Cell col="2" displaytype="number" text="bind:budgAmount"/>
-                      <Cell col="3" displaytype="number" text="bind:allotPlanAmount"/>
-                      <Cell col="4" displaytype="number" text="bind:budgBal"/>
-                    </Band>
-                  </Format>
-                </Formats>
-              </Grid>
               <Grid id="payGrid" taborder="307" binddataset="dsPayRec" useinputpanel="false" autofittype="col" oncellclick="payGrid_oncellclick" onenterdown="payGrid_onenterdown" oncloseup="payGrid_oncloseup" onexpanddown="payGrid_onexpanddown" left="0.2%" top="346" right="7.85%" height="173">
                 <Formats>
                   <Format id="default">
@@ -150,70 +120,6 @@
                   </Format>
                 </Formats>
               </Grid>
-              <Grid id="taxInvGrid" taborder="308" binddataset="dsTaxInv" useinputpanel="false" autofittype="col" onenterdown="taxInvGrid_onenterdown" oncloseup="taxInvGrid_oncloseup" left="0.2%" top="523" right="0.1%" height="172">
-                <Formats>
-                  <Format id="default">
-                    <Columns>
-                      <Column size="40"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                      <Column size="100"/>
-                    </Columns>
-                    <Rows>
-                      <Row size="24" band="head"/>
-                      <Row size="24" band="head"/>
-                      <Row size="24" band="head"/>
-                      <Row size="24"/>
-                      <Row size="24"/>
-                      <Row size="24"/>
-                      <Row size="24" band="summ"/>
-                    </Rows>
-                    <Band id="head">
-                      <Cell rowspan="3" style="background:#cfd8dcff;" text="순번"/>
-                      <Cell col="1" style="background:#cfd8dcff;" text="발행일"/>
-                      <Cell col="2" style="background:#cfd8dcff;" text="계산서구분"/>
-                      <Cell col="3" style="background:#cfd8dcff;" text="매입/매출"/>
-                      <Cell col="4" colspan="2" style="background:#cfd8dcff;" text="금액"/>
-                      <Cell col="6" style="background:#cfd8dcff;" text="공금가액"/>
-                      <Cell col="7" style="background:#cfd8dcff;" text="세액"/>
-                      <Cell row="1" col="1" style="background:#cfd8dcff;" text="거래처"/>
-                      <Cell row="1" col="2" style="background:#cfd8dcff;" text="거래처명"/>
-                      <Cell row="1" col="3" style="background:#cfd8dcff;" text="사업자번호"/>
-                      <Cell row="1" col="4" style="background:#cfd8dcff;" text="대표자"/>
-                      <Cell row="1" col="5" style="background:#cfd8dcff;" text="업태"/>
-                      <Cell row="1" col="6" colspan="2" style="background:#cfd8dcff;" text="종목"/>
-                      <Cell row="2" col="1" colspan="7" style="background:#cfd8dcff;" text="품목"/>
-                    </Band>
-                    <Band id="body">
-                      <Cell rowspan="3" expr="expr:currow+1"/>
-                      <Cell col="1" displaytype="date" edittype="date" text="bind:pubDate"/>
-                      <Cell col="2" displaytype="combo" edittype="combo" text="bind:billDiv" combodataset="dsBillDiv" combocodecol="code" combodatacol="value"/>
-                      <Cell col="3" displaytype="combo" edittype="combo" text="bind:purchSalesDiv" combodataset="dsPurchSalesDiv" combocodecol="code" combodatacol="value"/>
-                      <Cell col="4" colspan="2" displaytype="number" text="bind:sumPrice"/>
-                      <Cell col="6" displaytype="number" text="bind:splyPrice"/>
-                      <Cell col="7" displaytype="number" text="bind:taxAmt"/>
-                      <Cell row="1" col="1" text="bind:custCd"/>
-                      <Cell row="1" col="2" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="custnm"/>
-                      <Cell row="1" col="3" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="bussno"/>
-                      <Cell row="1" col="4" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="prsdntnm"/>
-                      <Cell row="1" col="5" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="busshpnm"/>
-                      <Cell row="1" col="6" colspan="2" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="busctgnm"/>
-                      <Cell row="2" col="1" colspan="7" edittype="normal" text="bind:aBS"/>
-                    </Band>
-                    <Band id="summary">
-                      <Cell style="background:#37474fff;"/>
-                      <Cell col="1" colspan="3" style="background:#37474fff;" text="합계"/>
-                      <Cell col="4" colspan="2" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;sumPrice*1&quot;)"/>
-                      <Cell col="6" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;splyPrice*1&quot;)"/>
-                      <Cell col="7" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;taxAmt*1&quot;)"/>
-                    </Band>
-                  </Format>
-                </Formats>
-              </Grid>
               <Static id="subCodeStc22" taborder="309" text="결의부서" onclick="subCodeStc_onclick" left="73.68%" top="58" right="19.27%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc23" taborder="310" text="접수번호" onclick="subCodeStc_onclick" left="16.48%" top="87" right="76.46%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
               <Static id="subCodeStc24" taborder="311" text="결의자" onclick="subCodeStc_onclick" left="77.26%" top="4" right="15.69%" height="25" style="background:#b0bec5ff;color:black;bordertype:round 5 5 ;align:center middle;font:9 돋움;blur:0 ;glow:0 transparent;" class="AreaStc"/>
@@ -291,6 +197,36 @@
               <Edit id="acntNameEd" taborder="333" enable="false" left="51.64%" top="31" right="32.37%" height="25" class="AreaEdt"/>
               <MaskEdit id="resolAmtMaskEdt" taborder="334" mask="###,###" left="23.93%" top="31" right="67.33%" height="25"/>
               <Button id="searchDemdDeptBtn" taborder="335" onclick="searchDemdDeptBtn_onclick" left="657" top="3" width="24" height="28" style="background:@gradation URL('img::miniSearchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+              <Grid id="Grid00" taborder="336" binddataset="dsRunBudg" useinputpanel="false" autofittype="col" left="0.2%" top="167" right="8.14%" height="50">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="50"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                      <Column size="100"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="19" band="head"/>
+                      <Row size="20"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell colspan="2" style="background:#cfd8dcff;" text="비목명"/>
+                      <Cell col="2" style="background:#cfd8dcff;" text="배정예산금액"/>
+                      <Cell col="3" style="background:#cfd8dcff;" text="예산금액"/>
+                      <Cell col="4" style="background:#cfd8dcff;" text="결의가능금액"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:bimokCd"/>
+                      <Cell col="1" text="bind:bimokNm"/>
+                      <Cell col="2" text="bind:allotPlanAmount"/>
+                      <Cell col="3" text="bind:budgAmount"/>
+                      <Cell col="4" text="bind:budgBal"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
             </Layout>
           </Layouts>
         </Div>
@@ -303,6 +239,70 @@
         <Button id="modiBtn" taborder="9" onclick="modiBtn_onclick" left="821" top="11" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Button id="CloseBtn" taborder="10" onclick="CloseBtn_onclick" left="918" top="11" width="90" height="32" style="background:@gradation URL('img::cancelBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Button id="regBtn" taborder="11" onclick="regBtn_onclick" left="721" top="11" width="90" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Grid id="taxInvGrid" taborder="12" binddataset="dsDetailTaxInv" useinputpanel="false" autofittype="col" left="1.27%" top="582" right="8.4%" height="162" style="color:#333333ff;">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="40"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+                <Column size="100"/>
+              </Columns>
+              <Rows>
+                <Row size="21" band="head"/>
+                <Row size="21" band="head"/>
+                <Row size="19" band="head"/>
+                <Row size="19"/>
+                <Row size="18"/>
+                <Row size="20"/>
+                <Row size="24" band="summ"/>
+              </Rows>
+              <Band id="head">
+                <Cell rowspan="3" style="background:#cfd8dcff;" text="순번"/>
+                <Cell col="1" style="background:#cfd8dcff;" text="발행일"/>
+                <Cell col="2" style="background:#cfd8dcff;" text="계산서구분"/>
+                <Cell col="3" style="background:#cfd8dcff;" text="매입/매출"/>
+                <Cell col="4" colspan="2" style="background:#cfd8dcff;" text="금액"/>
+                <Cell col="6" style="background:#cfd8dcff;" text="공금가액"/>
+                <Cell col="7" style="background:#cfd8dcff;" text="세액"/>
+                <Cell row="1" col="1" style="background:#cfd8dcff;" text="거래처"/>
+                <Cell row="1" col="2" style="background:#cfd8dcff;" text="거래처명"/>
+                <Cell row="1" col="3" style="background:#cfd8dcff;" text="사업자번호"/>
+                <Cell row="1" col="4" style="background:#cfd8dcff;" text="대표자"/>
+                <Cell row="1" col="5" style="background:#cfd8dcff;" text="업태"/>
+                <Cell row="1" col="6" colspan="2" style="background:#cfd8dcff;" text="종목"/>
+                <Cell row="2" col="1" colspan="7" style="background:#cfd8dcff;" text="품목"/>
+              </Band>
+              <Band id="body">
+                <Cell rowspan="3" celltype="head"/>
+                <Cell col="1" text="bind:pubDate"/>
+                <Cell col="2" text="bind:billDiv"/>
+                <Cell col="3" text="bind:purchSalesDiv"/>
+                <Cell col="4" colspan="2" text="bind:totalSumPrice"/>
+                <Cell col="6" text="bind:totalSplyPrice"/>
+                <Cell col="7" text="bind:totalTaxAmt"/>
+                <Cell row="1" col="1" text="bind:custCd"/>
+                <Cell row="1" col="2" text="bind:custnm"/>
+                <Cell row="1" col="3" text="bind:bussno"/>
+                <Cell row="1" col="4" text="bind:prsdntnm"/>
+                <Cell row="1" col="5" text="bind:busshpnm"/>
+                <Cell row="1" col="6" colspan="2" text="bind:busctgnm"/>
+                <Cell row="2" col="1" colspan="7" text="bind:fm"/>
+              </Band>
+              <Band id="summary">
+                <Cell style="background:#37474fff;"/>
+                <Cell col="1" colspan="3" style="background:#37474fff;" text="합계"/>
+                <Cell col="4" colspan="2" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;sumPrice*1&quot;)"/>
+                <Cell col="6" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;splyPrice*1&quot;)"/>
+                <Cell col="7" displaytype="number" style="background:#37474fff;" expr="expr:getSum(&quot;taxAmt*1&quot;)"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
       </Layout>
     </Layouts>
     <Objects>
@@ -406,7 +406,7 @@
             <Col id="serviceID">findAtTaxinvListAndAtDetailTaxinvList</Col>
             <Col id="URL">his::acc/vat/findTaxInvList.do</Col>
             <Col id="inData"/>
-            <Col id="outData">dsTaxInv=dsTaxInv dsDetailTaxInv=dsDetailTaxInv</Col>
+            <Col id="outData">dsDetailTaxInv=dsDetailTaxInv</Col>
             <Col id="argument"/>
             <Col id="callbackFunc"/>
           </Row>
@@ -501,38 +501,6 @@
         <ColumnInfo>
           <Column id="code" type="STRING" size="256"/>
           <Column id="value" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
-      <Dataset id="dsTaxInv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="dsTaxInv_canrowposchange">
-        <ColumnInfo>
-          <Column id="pubNo" type="STRING" size="256"/>
-          <Column id="pubDate" type="STRING" size="256"/>
-          <Column id="pubDiv" type="STRING" size="256"/>
-          <Column id="slipNo" type="STRING" size="256"/>
-          <Column id="billDiv" type="STRING" size="256"/>
-          <Column id="purchSalesDiv" type="STRING" size="256"/>
-          <Column id="anspDiv" type="STRING" size="256"/>
-          <Column id="custCd" type="STRING" size="256"/>
-          <Column id="aBS" type="STRING" size="256"/>
-          <Column id="splyPrice" type="STRING" size="256"/>
-          <Column id="taxAmt" type="STRING" size="256"/>
-          <Column id="resolNo" type="STRING" size="256"/>
-          <Column id="gipyoDate" type="STRING" size="256"/>
-          <Column id="sumPrice" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
-      <Dataset id="dsDetailTaxInv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" oncolumnchanged="dsDetailTaxInv_oncolumnchanged">
-        <ColumnInfo>
-          <Column id="no" type="STRING" size="256"/>
-          <Column id="pubDate" type="STRING" size="256"/>
-          <Column id="fm" type="STRING" size="256"/>
-          <Column id="stand" type="STRING" size="256"/>
-          <Column id="qnt" type="STRING" size="256"/>
-          <Column id="price" type="STRING" size="256"/>
-          <Column id="taxAmt" type="STRING" size="256"/>
-          <Column id="splyPrice" type="STRING" size="256"/>
-          <Column id="pubNo" type="STRING" size="256"/>
-          <Column id="dedYN" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="dsPurchSalesDiv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
@@ -747,6 +715,37 @@
           <Column id="riuseyn" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <Dataset id="dsDetailTaxInv" onvaluechanged="dsAtDetailTaxinv_onvaluechanged">
+        <ColumnInfo>
+          <Column id="no" type="undefined" size="100"/>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="stand" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="dedYn" type="undefined" size="100"/>
+          <Column id="qnt" type="undefined" size="100"/>
+          <Column id="fm" type="undefined" size="100"/>
+          <Column id="price" type="undefined" size="100"/>
+          <Column id="pubDiv" type="STRING" size="256"/>
+          <Column id="slipNo" type="STRING" size="256"/>
+          <Column id="billDiv" type="STRING" size="256"/>
+          <Column id="purchSalesDiv" type="STRING" size="256"/>
+          <Column id="anspDiv" type="STRING" size="256"/>
+          <Column id="custCd" type="STRING" size="256"/>
+          <Column id="abs" type="STRING" size="256"/>
+          <Column id="totalSplyPrice" type="STRING" size="256"/>
+          <Column id="totalTaxAmt" type="STRING" size="256"/>
+          <Column id="totalSumPrice" type="STRING" size="256"/>
+          <Column id="gipyoDate" type="STRING" size="256"/>
+          <Column id="resolNo" type="STRING" size="256"/>
+          <Column id="bussno" type="STRING" size="256"/>
+          <Column id="prsdntnm" type="STRING" size="256"/>
+          <Column id="busctgnm" type="STRING" size="256"/>
+          <Column id="busshpnm" type="STRING" size="256"/>
+          <Column id="custnm" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
     </Objects>
     <Script type="xscript5.0"><![CDATA[include "scripts::commonScripts.xjs";
 
@@ -770,7 +769,6 @@ this.AR_ResolRegistPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo
 		this.Div01.resolDeptNameEd.set_value(this.dsHmEmp.getColumn(0,"deptCd"));
 		this.Div01.resolerCdEd.set_value(this.dsHmEmp.getColumn(0,"empNo"));
 		this.Div01.resolerNameEd.set_value(this.dsHmEmp.getColumn(0,"empNm"));	
-		//alert("등록 날짜"+this.gfnDate('yyyymmdd'));
 		this.Div01.resolDateCal.set_value(this.gfnDate('yyyymmdd'));
 		this.Div01.resolDeptExtsnEd.set_value(this.dsHmEmp.getColumn(0,"extsn"));
 		this.Div01.resolDivCombo.set_text(this.dsResolDiv.getColumn(0,"value"));

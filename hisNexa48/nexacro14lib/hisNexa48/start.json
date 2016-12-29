@@ -108,6 +108,7 @@
         [
          "./frame/menuFrame.xfdl.js",
          "./frame/tabFrame.xfdl.js",
+         "./com/CM_MainForm.xfdl.js",
          "./frame/bottomFrame.xfdl.js"
         ],
         "xadl" :

@@ -258,7 +258,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Grid id="taxInvGrid" taborder="64" binddataset="dsTaxInv" useinputpanel="false" autofittype="col" left="34.08%" top="587" right="0.68%" height="172">
+        <Grid id="taxInvGrid" taborder="64" binddataset="dsDetailTaxInv" useinputpanel="false" autofittype="col" left="34.08%" top="587" right="0.68%" height="172">
           <Formats>
             <Format id="default">
               <Columns>
@@ -301,16 +301,16 @@
                 <Cell col="1" displaytype="date" edittype="date" text="bind:pubDate"/>
                 <Cell col="2" displaytype="combo" edittype="combo" text="bind:billDiv" combodataset="dsBillDiv" combocodecol="code" combodatacol="value"/>
                 <Cell col="3" displaytype="combo" edittype="combo" text="bind:purchSalesDiv" combodataset="dsPurchSalesDiv" combocodecol="code" combodatacol="value"/>
-                <Cell col="4" colspan="2" displaytype="number" text="bind:sumPrice"/>
-                <Cell col="6" displaytype="number" text="bind:splyPrice"/>
-                <Cell col="7" displaytype="number" text="bind:taxAmt"/>
+                <Cell col="4" colspan="2" displaytype="number" text="bind:totalSumPrice"/>
+                <Cell col="6" displaytype="number" text="bind:totalSplyPrice"/>
+                <Cell col="7" displaytype="number" text="bind:totalTaxAmt"/>
                 <Cell row="1" col="1" text="bind:custCd"/>
-                <Cell row="1" col="2" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="custnm"/>
-                <Cell row="1" col="3" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="bussno"/>
-                <Cell row="1" col="4" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="prsdntnm"/>
-                <Cell row="1" col="5" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="busshpnm"/>
-                <Cell row="1" col="6" colspan="2" displaytype="combo" text="bind:custCd" combodataset="dsAccount" combocodecol="custcd" combodatacol="busctgnm"/>
-                <Cell row="2" col="1" colspan="7" edittype="normal" text="bind:aBS"/>
+                <Cell row="1" col="2" displaytype="normal" text="bind:custnm"/>
+                <Cell row="1" col="3" displaytype="normal" text="bind:bussno"/>
+                <Cell row="1" col="4" displaytype="normal" text="bind:prsdntnm"/>
+                <Cell row="1" col="5" displaytype="normal" text="bind:busctgnm"/>
+                <Cell row="1" col="6" colspan="2" displaytype="normal" text="bind:busshpnm" combodataset="dsAccount" combocodecol="custcd" combodatacol="busctgnm"/>
+                <Cell row="2" col="1" colspan="7" edittype="normal" text="bind:fm"/>
               </Band>
               <Band id="summary">
                 <Cell style="background:#37474fff;color:aliceblue;"/>
@@ -448,24 +448,6 @@
           <Column id="exePurp" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
-      <Dataset id="dsTaxInv" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false" canrowposchange="dsTaxInv_canrowposchange">
-        <ColumnInfo>
-          <Column id="pubNo" type="STRING" size="256"/>
-          <Column id="pubDate" type="STRING" size="256"/>
-          <Column id="pubDiv" type="STRING" size="256"/>
-          <Column id="slipNo" type="STRING" size="256"/>
-          <Column id="billDiv" type="STRING" size="256"/>
-          <Column id="purchSalesDiv" type="STRING" size="256"/>
-          <Column id="anspDiv" type="STRING" size="256"/>
-          <Column id="custCd" type="STRING" size="256"/>
-          <Column id="aBS" type="STRING" size="256"/>
-          <Column id="splyPrice" type="STRING" size="256"/>
-          <Column id="taxAmt" type="STRING" size="256"/>
-          <Column id="resolNo" type="STRING" size="256"/>
-          <Column id="gipyoDate" type="STRING" size="256"/>
-          <Column id="sumPrice" type="STRING" size="256"/>
-        </ColumnInfo>
-      </Dataset>
       <Dataset id="dsAppendFile" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
         <ColumnInfo>
           <Column id="seq" type="STRING" size="256"/>
@@ -594,7 +576,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findRunBimok</Col>
-            <Col id="URL">his::acc/budget/findRunBimok.do</Col>
+            <Col id="URL">his::acc/budget/findRunBudg.do</Col>
             <Col id="inData"/>
             <Col id="outData">dsRunBudg=dsRunBudg</Col>
             <Col id="argument"/>
@@ -604,7 +586,7 @@
             <Col id="serviceID">searchTaxInvoiceList</Col>
             <Col id="URL">his::acc/vat/findTaxInvList.do</Col>
             <Col id="inData"/>
-            <Col id="outData">dsTaxInv=dsTaxInv dsDetailTaxInv=dsDetailTaxInv</Col>
+            <Col id="outData">dsDetailTaxInv=dsDetailTaxInv</Col>
             <Col id="argument"/>
             <Col id="callbackFunc"/>
           </Row>
@@ -645,7 +627,7 @@
           <Row>
             <Col id="serviceID">registerSlipList</Col>
             <Col id="URL">his::acc/slip/registerSlipList.do</Col>
-            <Col id="inData">dsSlip=dsSlip:a</Col>
+            <Col id="inData">dsSlip=dsSlip:u</Col>
             <Col id="callbackFunc">callback</Col>
           </Row>
         </Rows>
@@ -723,6 +705,58 @@
           <Column id="cardYn" type="STRING" size="256"/>
           <Column id="riuseYn" type="STRING" size="256"/>
           <Column id="hospcls" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsSlip" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
+        <ColumnInfo>
+          <Column id="slipNo" type="STRING" size="256"/>
+          <Column id="gipyoDate" type="STRING" size="256"/>
+          <Column id="slipDiv" type="STRING" size="256"/>
+          <Column id="ctrtNo" type="STRING" size="256"/>
+          <Column id="custCd" type="STRING" size="256"/>
+          <Column id="operNo" type="STRING" size="256"/>
+          <Column id="abs" type="STRING" size="256"/>
+          <Column id="demdDeptCd" type="STRING" size="256"/>
+          <Column id="resolDeptCd" type="STRING" size="256"/>
+          <Column id="regWorker" type="STRING" size="256"/>
+          <Column id="danDiv" type="STRING" size="256"/>
+          <Column id="prfYb" type="STRING" size="256"/>
+          <Column id="receiptNo" type="STRING" size="256"/>
+          <Column id="sakNo" type="STRING" size="256"/>
+          <Column id="resolNo" type="STRING" size="256"/>
+          <Column id="closYb" type="STRING" size="256"/>
+          <Column id="accPrid" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDetailTaxInv" onvaluechanged="dsAtDetailTaxinv_onvaluechanged">
+        <ColumnInfo>
+          <Column id="no" type="undefined" size="100"/>
+          <Column id="pubDate" type="undefined" size="100"/>
+          <Column id="taxAmt" type="undefined" size="100"/>
+          <Column id="splyPrice" type="undefined" size="100"/>
+          <Column id="stand" type="undefined" size="100"/>
+          <Column id="pubNo" type="undefined" size="100"/>
+          <Column id="dedYn" type="undefined" size="100"/>
+          <Column id="qnt" type="undefined" size="100"/>
+          <Column id="fm" type="undefined" size="100"/>
+          <Column id="price" type="undefined" size="100"/>
+          <Column id="pubDiv" type="STRING" size="256"/>
+          <Column id="slipNo" type="STRING" size="256"/>
+          <Column id="billDiv" type="STRING" size="256"/>
+          <Column id="purchSalesDiv" type="STRING" size="256"/>
+          <Column id="anspDiv" type="STRING" size="256"/>
+          <Column id="custCd" type="STRING" size="256"/>
+          <Column id="abs" type="STRING" size="256"/>
+          <Column id="totalSplyPrice" type="STRING" size="256"/>
+          <Column id="totalTaxAmt" type="STRING" size="256"/>
+          <Column id="totalSumPrice" type="STRING" size="256"/>
+          <Column id="gipyoDate" type="STRING" size="256"/>
+          <Column id="resolNo" type="STRING" size="256"/>
+          <Column id="bussno" type="STRING" size="256"/>
+          <Column id="prsdntnm" type="STRING" size="256"/>
+          <Column id="busctgnm" type="STRING" size="256"/>
+          <Column id="busshpnm" type="STRING" size="256"/>
+          <Column id="custnm" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
     </Objects>
@@ -839,7 +873,9 @@ this.Div01_slipRegBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 				//회계기수 셋팅
 				this.dsSlip.setColumn(row,"accPrid",this.dsResolLet.getColumn(i,"accPrid"));
 				//전표 등록  메서드 호출
+				alert("전표들어간다");
 				this.gfnService("registerSlipList");
+				alert("전표트랜잭션끝");
 			}
 		}
 	//체크된 결의서가 없을때 실행		
@@ -891,28 +927,35 @@ this.grid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 	}	
 }
 
+
+
 // 콜백함수
 this.callback = function(trid, ErrorCode, ErrorMsg){
 	//결의서 상세 메서드 호출 이후
-	if(trid=="findResolLetDetailList"){
+	if(trid=="findResolLetDetail"){
+	alert("뀹");
 		//자동부개 일시 실행		
-		if(autoJourYes=="true"){			
+		if(autoJourYes=="true"){	
+				alert("삉");
 			//분개의 차변 예산비목 값을 bimokCd 셋팅
 			var bimokCd = this.dsJour.getColumn(0,"bimokCd");			
 			this.acntNmEd.value=this.dsJour.getColumn(0,"acntNm");
 			//보조과목명이 있을 때만 실행
 			if(this.dsJour.getColumn(0,"assiSubNm")!=null){
 				//보조과목명 assiSubNmEd에 셋팅				
-				this.Div01.assiSubNmEd.value=dsJour.getColumn(0,"assiSubNm");
+				this.assiSubNmEd.value=this.dsJour.getColumn(0,"assiSubNm");
 			}
 			//회계년도 
 			var argument ='accYear='+accYear;
 			//비목코드
 			argument +=' bimokCd='+bimokCd;
 			var nRow = this.dsService.findRow( "serviceID", "findRunBimok" );
+
 			this.dsService.setColumn(nRow,"argument",argument);
+			alert("비목불러온디");
 			//예산비목 조회 메서드 호출
-			this.gfnService("findRunBimok");	
+			this.gfnService("findRunBimok",true);	
+			alert("비목완료");
 		}
 	//전표등록 메서드 호출 이후
 	}else if(trid=="registerSlipList"){
