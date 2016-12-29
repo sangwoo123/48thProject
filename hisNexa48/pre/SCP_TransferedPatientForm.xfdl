@@ -220,21 +220,21 @@
             <Col id="serviceID">registerTransferPatient</Col>
             <Col id="URL">his::msv/mcm/patientservice/registerTransferPatient.do</Col>
             <Col id="outData"/>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
             <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
           </Row>
           <Row>
             <Col id="serviceID">modifyTransferPatient</Col>
             <Col id="URL">his::msv/mcm/patientservice/modifyTransferPatient.do</Col>
             <Col id="outData"/>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
             <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
           </Row>
           <Row>
             <Col id="serviceID">removeTransferPatient</Col>
             <Col id="URL">his::msv/mcm/patientservice/removeTransferPatient.do</Col>
             <Col id="outData"/>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
             <Col id="inData">dsTransferPatient=dsTransferPatient</Col>
           </Row>
           <Row>
@@ -346,10 +346,10 @@
       <BindItem id="item29" compid="transferDetailDiv.providingMedInfoChk" propid="value" datasetid="dsTransferPatient" columnid="providingMedInfo"/>
     </Bind>
     <Script type="xscript5.0"><![CDATA[/********************************************************************************                                                                            
-@Path			진료처방              				   				
-@Description	전원환자 관리 화면 			
-@Author	  		백송은			    			                        								                                            
-@Create         2016.12.                      		                    				                                            
+@Path         진료처방                                         
+@Description   전원환자 관리 화면          
+@Author           백송은                                                                                                                  
+@Create         2016.12.                                                                                                        
 ********************************************************************************/
 
 include "scripts::commonScripts.xjs";
@@ -361,24 +361,24 @@ var patNo;
 
 this.SCP_TransferedPatientForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	todayDate = this.gfnFormatDate("Ymd");
-	
-	empNo = application.gdsEmp.getColumn(0, "empNo");
-	empNm = application.gdsEmp.getColumn(0, "empNm");
-	
-	this.patientDiv.diagnDoctEd.set_value(application.gdsEmp.getColumn(0, "empNm"));
-	this.patientDiv.diagnDeptEd.set_value(application.gdsEmp.getColumn(0, "deptNm"));
+   todayDate = this.gfnFormatDate("Ymd");
+   
+   empNo = application.gdsEmp.getColumn(0, "empNo");
+   empNm = application.gdsEmp.getColumn(0, "empNm");
+   
+   this.patientDiv.diagnDoctEd.set_value(application.gdsEmp.getColumn(0, "empNm"));
+   this.patientDiv.diagnDeptEd.set_value(application.gdsEmp.getColumn(0, "deptNm"));
 
-	this.transferDetailDiv.recodeDateCal.set_value(todayDate);
+   this.transferDetailDiv.recodeDateCal.set_value(todayDate);
 }
 
 this.searchBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	searchDate = this.patientDiv.diagnDateCal.text;
-	this.dsService.setColumn(0, "argument", "trmtDoct=" + empNo + " trmtDate=" + searchDate);
-	
-		this.gfnService("findTransferPatientInfoList",false);
-		
+   searchDate = this.patientDiv.diagnDateCal.text;
+   this.dsService.setColumn(0, "argument", "trmtDoct=" + empNo + " trmtDate=" + searchDate);
+   
+      this.gfnService("findTransferPatientInfoList",false);
+      
 }
 
 
@@ -387,90 +387,119 @@ this.transferPatGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventIn
 {
 
  
-	this.dsTransferPatient.addRow();
-	
-	
-	//칼럼get / set 
-	 patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
-	var rrn1 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn1");
-	var rrn2 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn2");
-	var gender = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "gender");
-	var age = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "age");
-	var addr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "addr");
-	var dtlAddr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dtlAddr");
-	var trmtDeptNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDeptNm");
-	var trmtDoct = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDoct");
-	var dgnsNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dgnsNm");
-	
-	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "patNo", patNo);
-	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDept", trmtDeptNm);
-	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDoct", trmtDoct);
-	this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "dgnsNm", dgnsNm);
-	
-	this.transferDetailDiv.rrnEd.set_value(rrn1+" - "+ rrn2);
-	this.transferDetailDiv.genderAgeEd.set_value(gender+" / "+ age);
-	if(dtlAddr == null ){
-		dtlAddr = " ";
-		this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
-	}else{
-		this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
-	}
-	
+   this.dsTransferPatient.addRow();
+   
+   
+   //칼럼get / set 
+    patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
+   var rrn1 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn1");
+   var rrn2 = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "rrn2");
+   var gender = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "gender");
+   var age = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "age");
+   var addr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "addr");
+   var dtlAddr = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dtlAddr");
+   var trmtDeptNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDeptNm");
+   var trmtDoct = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "trmtDoct");
+   var dgnsNm = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "dgnsNm");
+   
+   this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "patNo", patNo);
+   this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDept", trmtDeptNm);
+   this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "trmtDoct", trmtDoct);
+   this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "dgnsNm", dgnsNm);
+   
+   this.transferDetailDiv.rrnEd.set_value(rrn1+" - "+ rrn2);
+   this.transferDetailDiv.genderAgeEd.set_value(gender+" / "+ age);
+   if(dtlAddr == null ){
+      dtlAddr = " ";
+      this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
+   }else{
+      this.transferDetailDiv.addrEd.set_value(addr+ " " + dtlAddr);
+   }
+   
 
 
 }
 
 this.transferDetailDiv_makeTransferPatNoBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	transferNo = this.dsTransferPatient.getColumn(this.dsTransferPatient.rowposition, "transferNo");
-	prescSeqNo = (this.dsTransferPatient.getRowCount()).toString().padLeft(2,"0");
-	if(transferNo != null ){
-		alert("이미 생성된 전원환자 번호가 있습니다.");
-	}else{
-	
-		transferNo = todayDate + "-" + patNo + "-" +  prescSeqNo;
+   transferNo = this.dsTransferPatient.getColumn(this.dsTransferPatient.rowposition, "transferNo");
+   prescSeqNo = (this.dsTransferPatient.getRowCount()).toString().padLeft(2,"0");
+   if(transferNo != null ){
+      alert("이미 생성된 전원환자 번호가 있습니다.");
+   }else{
+   
+      transferNo = todayDate + "-" + patNo + "-" +  prescSeqNo;
 
-		if(confirm("환자번호 : "+transferNo+" 로 생성하시겠습니까?")){
-			this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "transferNo", transferNo);
-			this.transferDetailDiv.transferNoEd.set_value(transferNo);
-		}
-	}
+      if(confirm("환자번호 : "+transferNo+" 로 생성하시겠습니까?")){
+         this.dsTransferPatient.setColumn(this.dsTransferPatient.rowposition, "transferNo", transferNo);
+         this.transferDetailDiv.transferNoEd.set_value(transferNo);
+      }
+   }
 }
 
 this.registerBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	if(confirm("입력한 전원환자정보를 등록하시겠습니까?")){
-			this.gfnService("registerTransferPatient",false);
-	}
+   if(confirm("입력한 전원환자정보를 등록하시겠습니까?")){
+         this.gfnService("registerTransferPatient",false);
+   }
 }
 
 this.closeBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	this.close();
+   this.close();
 }
 
 this.updateBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	if(confirm("전원환자정보를 수정하시겠습니까?")){
-			this.gfnService("modifyTransferPatient",false);
-	}
+   if(confirm("전원환자정보를 수정하시겠습니까?")){
+         this.gfnService("modifyTransferPatient",false);
+   }
 }
 
 this.deleteBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	if(confirm("전원환자정보를 삭제하시겠습니까?")){
-			this.gfnService("removeTransferPatient",false);
-	}
+   if(confirm("전원환자정보를 삭제하시겠습니까?")){
+         this.gfnService("removeTransferPatient",false);
+   }
 }
 
 this.transferPatGrid_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
 {
-	patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
-	this.dsService.setColumn(4,'argument','patNo='+patNo);
-	this.gfnService("findTransferPatientList",false);
+   patNo = this.dsTransferPatientInfo.getColumn(this.dsTransferPatientInfo.rowposition, "patNo");
+   this.dsService.setColumn(4,'argument','patNo='+patNo);
+   this.gfnService("findTransferPatientList",false);
 }
 
 
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		alert(errorMsg);
+		return;
+	}
+	
+
+	if(svcID=="registerTransferPatient")
+	{
+		alert("정상 등록되었습니다.");
+		
+	}
+	
+	if(svcID=="modifyTransferPatient")
+	{
+		alert("정상 수정되었습니다.");
+		
+	}
+	
+	if(svcID=="removeTransferPatient")
+	{
+		alert("정상 삭제되었습니다.");
+		
+	}
+	
+	
+}
 ]]></Script>
   </Form>
 </FDL>

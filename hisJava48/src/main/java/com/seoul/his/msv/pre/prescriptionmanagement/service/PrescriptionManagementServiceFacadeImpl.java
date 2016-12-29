@@ -51,6 +51,7 @@ public class PrescriptionManagementServiceFacadeImpl implements PrescriptionMana
 	return patientPrscList;
 }
 
+
 	@Override
 	public List<PrescValueBean> findPrescValueList(Map<String, String> argsMap) {
 	List<PrescValueBean> prescValueList = diseaseApplicationService.findPrescValueList(argsMap);
