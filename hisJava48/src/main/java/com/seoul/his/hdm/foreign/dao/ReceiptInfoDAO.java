@@ -12,6 +12,8 @@ public interface ReceiptInfoDAO {
     void insertReceipt(ReceiptInfoBean receiptInfoBean);
     
     void updateReceipt(ReceiptInfoBean receiptInfoBean);
+    
+    void updateReceiptApp(Map<String, String> argsMap);
 
     void deleteReceipt(ReceiptInfoBean receiptInfoBean);
 
