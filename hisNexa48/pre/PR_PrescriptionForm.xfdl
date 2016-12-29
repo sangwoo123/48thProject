@@ -1213,6 +1213,34 @@ this.otherDiv_returningOutPatBtn_onclick = function(obj:Button,  e:nexacro.Click
 	application.open("SCP_RetreatmentReservationForm","pre::SCP_RetreatmentReservationForm.xfdl",this.parent,{patNo:"000004",patNm:"유재석"},"showtitlebar=true showstatusbar=false", 0, 0, 800, 443, this);
 }
 
+
+this.otherDiv_dischargeHosBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	
+		patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+		patNm = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNm");
+	
+			var objNew = new ChildFrame();
+				objNew.init("discharge", "absolute", 10, 10, 100, 100 , null, null, "pre::PR_DischargeRequestPopupForm.xfdl");
+				objNew.showModal("PR_DischargeRequestPopupForm",  this, {patNo:patNo,patNm:patNm}, this, null);
+}
+
+
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		alert(errorMsg);
+		return;
+	}
+	
+
+	if(svcID=="batchDisePrescProcess")
+	{
+		alert("정상 처리되었습니다.");
+		
+	}
+}
 this.WS_OutPatReceiptMngnDiv_admisApproveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var outpaReceiptNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, 'outpaReceiptNo');
