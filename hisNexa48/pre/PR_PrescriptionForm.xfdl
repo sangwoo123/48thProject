@@ -433,19 +433,20 @@
           </Layouts>
         </Div>
         <Static id="titleStc00" taborder="10" text="진료 정보" onclick="titleStc00_onclick" left="30" top="78" width="116" height="26" style="color:#263238ff;bordertype:round 5 5 ;font:bold 11 돋움;" class="TStc"/>
-        <Button id="searchBtn" taborder="11" left="358" top="728" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="searchBtn_onclick"/>
+        <Button id="searchBtn" taborder="11" left="366" top="278" width="90" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="searchBtn_onclick"/>
         <Button id="registerBtn" taborder="12" left="1041" top="728" width="90" height="32" style="background:@gradation URL('img::registerBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="registerBtn_onclick"/>
         <Button id="closeBtn" taborder="13" left="1142" top="728" width="90" height="32" style="background:@gradation URL('img::closeBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn" onclick="closeBtn_onclick"/>
         <Div id="otherDiv" taborder="14" left="37.2%" top="728" right="17.12%" height="34" style="background:#eceff1ff;">
           <Layouts>
             <Layout>
-              <Button id="returningOutPatBtn" taborder="0" text="외래재진예약" left="31.35%" top="3" right="48.34%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_returningOutPatBtn_onclick"/>
-              <Button id="ConsultationTrtmtBtn" taborder="1" text="협의진료의뢰" left="53.94%" top="3" right="25.74%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_ConsultationTrtmtBtn_onclick"/>
-              <Button id="dischargeHosBtn" taborder="2" text="퇴원지시" left="76.71%" top="3" right="2.98%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_dischargeHosBtn_onclick"/>
-              <Div id="Div00" taborder="3" left="0.88%" top="3" right="70.75%" height="27" style="background:#607d8bff;color:#eceff1ff;font:bold 10 돋움;" text="외래/협진/퇴원 신청"/>
+              <Button id="returningOutPatBtn" taborder="0" text="외래재진예약" left="11.73%" top="3" right="67.95%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_returningOutPatBtn_onclick"/>
+              <Button id="ConsultationTrtmtBtn" taborder="1" text="협의진료의뢰" left="34.33%" top="3" right="45.36%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;" onclick="otherDiv_ConsultationTrtmtBtn_onclick"/>
+              <Button id="dischargeHosBtn" taborder="2" text="퇴원지시" left="76.53%" top="2" right="3.15%" height="28" style="background:#b0bec5ff;font:bold 10 돋움;gradation:linear 0,0 whitesmoke 100,100 black;"/>
             </Layout>
           </Layouts>
         </Div>
+        <Button id="admisApproveBtn" taborder="15" text="입원승인" onclick="WS_OutPatReceiptMngnDiv_admisApproveBtn_onclick" left="63.36%" top="730" right="28.96%" height="28" style="background:#b0bec5ff;color:#555555ff;font:bold 10 돋움;"/>
+        <Div id="Div00" taborder="16" text="외래/협진/퇴원 신청" left="28.8%" top="731" right="58.56%" height="27" style="background:#607d8bff;color:#eceff1ff;font:bold 10 돋움;"/>
       </Layout>
     </Layouts>
     <Bind>
@@ -566,6 +567,10 @@
             <Col id="URL">his::msv/pre/prescriptionmanagement/findPrescList.do</Col>
             <Col id="outData">dsPatientPrsc=dsPatientPrsc dsPrescValue=dsPrescValue</Col>
             <Col id="callbackFunc">gfnCallbackFunc</Col>
+          </Row>
+          <Row>
+            <Col id="serviceID">approveAdmis</Col>
+            <Col id="URL">his::hdm/foreign/approveAdmisson.do</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -1157,9 +1162,9 @@ this.disePrescriptTab_prescriptionTabpage_diseaseGrid_oncellclick = function(obj
 	
 	prescNo = this.dsPatientPrsc.getColumn(this.dsPatientPrsc.rowposition, "prescNo");
 	patNo = this.dsPatientPrsc.getColumn(this.dsPatientPrsc.rowposition, "patNo");
-
+	
 	this.dsService.setColumn(6, 'argument','patNo='+patNo +' prescNo='+prescNo);
-	this.gfnService("findPatientPrscList",false);
+	this.gfnService("findPatientPrscList", false);
 	
 	
 }
@@ -1239,7 +1244,15 @@ this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
 	
 }
 
-
+this.WS_OutPatReceiptMngnDiv_admisApproveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var outpaReceiptNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, 'outpaReceiptNo');
+	patNo = this.dsOutpaReceipt.getColumn(this.dsOutpaReceipt.rowposition, "patNo");
+	this.dsService.setColumn(7,"argument",'patNo='+patNo+' outpaReceiptNo='+outpaReceiptNo);
+	this.gfnService("approveAdmis");
+	alert(patNo+" 환자의 입원승인이 완료되었습니다");
+	alert(outpaReceiptNo);
+}
 ]]></Script>
   </Form>
 </FDL>

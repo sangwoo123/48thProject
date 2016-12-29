@@ -343,6 +343,12 @@
             <Col id="argument"/>
             <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
           </Row>
+          <Row>
+            <Col id="serviceID">approveAdmis</Col>
+            <Col id="URL">his::hdm/foreign/approveAdmisson.do</Col>
+            <Col id="inData"/>
+            <Col id="callbackFunc">outPatReceiptMngntCallbackFunc</Col>
+          </Row>
         </Rows>
       </Dataset>
       <Dataset id="dsPat" firefirstcount="0" firenextcount="0" useclientlayout="false" updatecontrol="true" enableevent="true" loadkeymode="keep" loadfiltermode="keep" reversesubsum="false">
@@ -658,6 +664,15 @@ this.WS_OutPatReceiptMngnDiv_trmtSchBtn_onclick = function(obj:Button,  e:nexacr
 	this.setDate = function(date){
 		this.WS_OutPatReceiptMngnDiv.trmtDateCal.set_value(date);
 		}
+}
+
+
+this.WS_OutPatReceiptMngnDiv_admisApproveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var outpaReceiptNo = this.dsOutpaReceipt.getColumn(0, 'outpaReceiptNo');	
+	this.dsService.setColumn(5,"argument",'patNo='+this.WS_OutPatReceiptMngnDiv.patNoEd.value+' outpaReceiptNo='+outpaReceiptNo);
+	this.gfnService("approveAdmis");
+	alert("입원승인이 완료되었습니다");
 }
 ]]></Script>
   </Form>
