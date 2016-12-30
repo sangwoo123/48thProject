@@ -9,6 +9,11 @@
 	<configs>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/context/applicationContext-mybatis.xml</config>
+		<config>src/main/webapp/WEB-INF/context/applicationContext-aop.xml</config>
+		<config>src/main/webapp/WEB-INF/context/applicationContext-jdbc.xml</config>
+		<config>src/main/webapp/WEB-INF/servlet/servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/context/applicationContext.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
