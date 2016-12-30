@@ -288,7 +288,7 @@
                       <Cell row="2" col="11" style="background:#cfd8dcff;" text="사유/비고"/>
                     </Band>
                     <Band id="body">
-                      <Cell rowspan="3" celltype="none" text="bind:seq"/>
+                      <Cell rowspan="3" celltype="none" text="expr:expr:currow+1"/>
                       <Cell col="1" displaytype="combo" edittype="combo" text="bind:payDiv" combodataset="dsJibulDiv" combocodecol="code" combodatacol="value"/>
                       <Cell col="2" colspan="2" text="bind:stdTask"/>
                       <Cell col="4" text="bind:stdBimok"/>
@@ -324,9 +324,9 @@
             </Layout>
           </Layouts>
         </Div>
-        <Button id="modiBtn" taborder="5" onclick="modiBtn_onclick" left="914" top="728" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
-        <Button id="addBtn" taborder="6" onclick="addBtn_onclick" left="726" top="728" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
-        <Button id="deleteBtn" taborder="7" onclick="deleteBtn_onclick" left="819" top="728" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="modiBtn" taborder="5" onclick="modiBtn_onclick" left="886" top="728" width="90" height="32" style="background:@gradation URL('img::reviseBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
+        <Button id="addBtn" taborder="6" onclick="addBtn_onclick" left="698" top="728" width="90" height="32" style="background:@gradation URL('img::addBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class=""/>
+        <Button id="deleteBtn" taborder="7" onclick="deleteBtn_onclick" left="791" top="728" width="90" height="32" style="background:@gradation URL('img::deleteBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
         <Div id="Div00" taborder="8" left="0%" top="0" width="1023" height="60" style="background:transparent URL('img::titleBar1.jpg');">
           <Layouts>
             <Layout>
@@ -507,7 +507,7 @@
           </Row>
           <Row>
             <Col id="serviceID">findRunBimok</Col>
-            <Col id="URL">his::acc/budget/findRunBimok.do</Col>
+            <Col id="URL">his::acc/budget/findRunBudg.do</Col>
             <Col id="inData"/>
             <Col id="outData">dsRunBudg=dsBudgBimok</Col>
             <Col id="argument"/>
@@ -794,7 +794,7 @@ this.callbackFunc = function(svcID, ErrorCode, ErrorMsg){
  	
 			this.dsService.setColumn(1,"argument",argument); ////결의서 조회 메서드에 argument에 셋팅
 			this.gfnService("findResolLetList"); // 결의서 조회
-		}else if(svcID=="findResolLetList"){
+		}else if(svcID=="findResolLetDetail"){
 			this.callback(svcID, ErrorCode, ErrorMsg);
 			this.gfnService("findAccount",false); //거래처 데이터셋
 			this.dsAccount.filter("custcd==''");	
@@ -833,6 +833,7 @@ this.callback = function(trid, ErrorCode, ErrorMsg){
  		var nRow = this.dsService.findRow( "ServiceID", "findRunBimok" );
  		this.dsService.setColumn(nRow,"argument",argument);
  		//예산비목 조회 메서드 호출
+ 		alert(accYear+bimokCd);
  		this.gfnService("findRunBimok");	
  		alert("비목조회");
 	}

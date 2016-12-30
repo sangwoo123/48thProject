@@ -640,7 +640,7 @@
         <Edit id="edit_fzip" taborder="70" cssclass="AreaEdt" left="42.24%" top="424" right="49.84%" height="30" style="border:1 solid #a6a6a9ff ;font:9 돋움;"/>
         <Edit id="edit_empAddr" taborder="71" cssclass="AreaEdt" left="50.4%" top="424" right="27.04%" height="30" style="border:1 solid #a6a6a9ff ;font:9 돋움;"/>
         <Edit id="detailAddrEd" taborder="72" cssclass="AreaEdt" left="42.24%" top="456" right="24.4%" height="30" style="border:1 solid #a6a6a9ff ;font:9 돋움;"/>
-        <Tab id="tab_empInfo" taborder="73" left="18.16%" top="500" right="0.88%" height="214" tabindex="0" scrollbars="autoboth" cssclass="AreaTab" style="buttonbackground:#eceff1ff;buttongradation:liner 0,0 #feffffff 0,100 #e1e1dfff [60% #f2f2efff][70% #ecece9ff];buttonborder:1 solid #a8a8a2ff ;buttonbordertype:round 3 3  lefttop;showextrabutton:false;background:transparent;border:1 solid #9f8f71ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff;color:#777777ff;font:9 돋움; :selected {buttonbackground:#b0bec5ff;}">
+        <Tab id="tab_empInfo" taborder="73" left="18.16%" top="500" right="0.88%" height="214" tabindex="1" scrollbars="autoboth" cssclass="AreaTab" style="buttonbackground:#eceff1ff;buttongradation:liner 0,0 #feffffff 0,100 #e1e1dfff [60% #f2f2efff][70% #ecece9ff];buttonborder:1 solid #a8a8a2ff ;buttonbordertype:round 3 3  lefttop;showextrabutton:false;background:transparent;border:1 solid #9f8f71ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff;color:#777777ff;font:9 돋움; :selected {buttonbackground:#b0bec5ff;}">
           <Tabpages>
             <Tabpage id="tpg_perconaldate" text="인적사항">
               <Layouts>

@@ -36,29 +36,41 @@
 
 	<!-- 입원등록하기 -->
 	<update id="insertHospitalizationInfo">
-		INSERT INTO WH_HOSPTLZ_RECEIPT(
-		DSCG_DATE
-		,DSCG_DIV
-		,GRTOR_ADDR
-		,GRTOR_NM
-		,GRTOR_RRN
-		,GRTOR_TEL
-		,HOSPTLZ_DATE
-		,HOSPTLZ_RECEIPT_NO
-		,HOSPTLZ_ROUTE
-		,HOSPTLZ_RSVT_YB
-		,HROOM
-		,OUTPA_RECEIPT_NO
-		,PAT_NO
-		,PAT_RSHIP
-		,PAT_TYPE_CD
-		,PAT_TYPE_NM
-		,RESP_DOCT_CD
-		,RESP_DOCT_NM
-		,RSHIP
-		,TRMT_DEPT_CD
-		,TRMT_DEPT_NM
-		,WARD)
+		merge into WH_HOSPTLZ_RECEIPT m
+		using dual d
+		on
+		(
+		m.PAT_NO=#{patNo}
+		AND m.HOSPTLZ_RECEIPT_NO =#{hosptlzReceiptNo}
+		)
+		  when matched then
+		update set
+		m.DSCG_DATE=#{dscgDate}
+		,m.DSCG_DIV=#{dscgDiv}
+		  when not matched then
+		INSERT (
+		m.DSCG_DATE
+		,m.DSCG_DIV
+		,m.GRTOR_ADDR
+		,m.GRTOR_NM
+		,m.GRTOR_RRN
+		,m.GRTOR_TEL
+		,m.HOSPTLZ_DATE
+		,m.HOSPTLZ_RECEIPT_NO
+		,m.HOSPTLZ_ROUTE
+		,m.HOSPTLZ_RSVT_YB
+		,m.HROOM
+		,m.OUTPA_RECEIPT_NO
+		,m.PAT_NO
+		,m.PAT_RSHIP
+		,m.PAT_TYPE_CD
+		,m.PAT_TYPE_NM
+		,m.RESP_DOCT_CD
+		,m.RESP_DOCT_NM
+		,m.RSHIP
+		,m.TRMT_DEPT_CD
+		,m.TRMT_DEPT_NM
+		,m.WARD)
 		VALUES (
 		#{dscgDate}
 		, #{dscgDiv}

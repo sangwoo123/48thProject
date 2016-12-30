@@ -50,6 +50,6 @@ public class ForeignController {
         PatInfoBean patInfoBean = foreignServiceFacade.findPat(argsMap);
         System.out.println(patInfoBean);
         dataSetBeanMapper.beanToDataset(outData, patInfoBean, PatInfoBean.class);
-    }   
-    
+    }       
+     
 }

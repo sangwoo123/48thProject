@@ -49,6 +49,12 @@ public class ForeignServiceFacadeImpl implements ForeignServiceFacade {
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean) {
 		foreignApplicationService.removeDiagnosisReceipt(receiptInfoBean);
 	}
+	
+	@Override
+	public void modifyDiagnosisReceipt(Map<String, String> argsMap) {
+		foreignApplicationService.modifyDiagnosisReceipt(argsMap);
+	}
+	
 
 	//진료일정달력조회
     @Override

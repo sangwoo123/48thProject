@@ -73,7 +73,73 @@
 		 		ORDER BY B.BIMOK_CD
 		 	) AAAA
  	</select>
- 	
+
+
+ 	<select id="selectRunBudg1" flushCache="false"  useCache="true" resultType="RunBudgBean">
+    	SELECT 	AAAA.ALLOTPLANAMOUNT AS allotPlanAmount, AAAA.BIMOK_CD, AAAA.CNGAMOUNT AS cngAmount, AAAA.BUDGAMOUNT AS  budgAmount,
+    	AAAA.BUDGBAL AS budgBal, AAAA.BIMOK_NM,AAAA.ACNT_NM
+     	   		, 100-DECODE(AAAA.budgAmount,0,0,TRUNC(AAAA.budgBal / AAAA.budgAmount * 100,1) ) || '%' AS executionPercent
+     	FROM 	(SELECT B.BIMOK_CD
+	      			, NVL( (
+		         		SELECT SUM(nvl(BB.CNG_AMOUNT,'0'))
+		           		FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) BB
+		            	RIGHT OUTER JOIN(SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR = #{accYear}) AA
+		             	ON BB.BIMOK_CD = AA.BIMOK_CD
+		             	CONNECT BY PRIOR AA.BIMOK_CD = AA.PARENT_BIMOK
+		             	START WITH AA.PARENT_BIMOK = B.BIMOK_CD
+	       			), '0') AS cngAmount
+	      			, NVL( (
+	              		SELECT SUM(nvl(BB.ALLOT_PLAN_AMOUNT,'0'))
+	                    FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) BB
+	             		RIGHT OUTER JOIN(SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR = #{accYear}) AA
+			           	ON BB.BIMOK_CD = AA.BIMOK_CD
+			         	CONNECT BY PRIOR AA.BIMOK_CD = AA.PARENT_BIMOK
+			          	START WITH AA.PARENT_BIMOK = B.BIMOK_CD
+	       			),'0') AS allotPlanAmount
+		 			, A.BIMOK_CD        AS bimokCode
+		 			, A.ACC_YEAR        AS accYear
+					, NVL( (
+		         		SELECT SUM(nvl(BB.CAUSE_AMOUNT,'0'))
+		    			FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) BB
+		       			RIGHT OUTER JOIN(SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR = #{accYear}) AA
+		       			ON BB.BIMOK_CD = AA.BIMOK_CD
+		    			CONNECT BY PRIOR AA.BIMOK_CD = AA.PARENT_BIMOK
+		 				START WITH AA.PARENT_BIMOK = B.BIMOK_CD
+		       		),'0') AS causeAmount
+	      			, NVL( (
+	  					SELECT SUM(nvl(BB.BUDG_AMOUNT,'0'))
+	         			FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) BB
+	 					RIGHT OUTER JOIN(SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR = #{accYear}) AA
+	    				ON BB.BIMOK_CD = AA.BIMOK_CD
+	   					CONNECT BY PRIOR AA.BIMOK_CD = AA.PARENT_BIMOK
+						START WITH AA.PARENT_BIMOK = B.BIMOK_CD
+	       			),'0') AS budgAmount
+	      			, NVL( (
+	              		SELECT SUM(nvl(BB.BUDG_BAL,'0'))
+	         			FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) BB
+						RIGHT OUTER JOIN(SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR = #{accYear}) AA
+	     				ON BB.BIMOK_CD = AA.BIMOK_CD
+						CONNECT BY PRIOR AA.BIMOK_CD = AA.PARENT_BIMOK
+	 					START WITH AA.PARENT_BIMOK = B.BIMOK_CD
+	      				),'0') AS budgBal
+	        		, B.BIMOK_NM
+	      			, C.ACNT_NM
+	      			, B.BIMOK_LEVEL
+
+				FROM (SELECT * FROM AB_RUN_BUDG WHERE ACC_YEAR=#{accYear}) A
+	    		RIGHT OUTER JOIN (SELECT * FROM AB_BUDG_BIMOK WHERE ACC_YEAR=#{accYear}) B
+				ON A.BIMOK_CD = B.BIMOK_CD
+				LEFT OUTER JOIN (SELECT * FROM AE_ACC_ACNT WHERE ACC_YEAR= #{accYear}) C
+				ON B.ACNT_CD = C.ACNT_CD
+
+	    		WHERE 1=1
+
+		 		ORDER BY B.BIMOK_CD
+		 	) AAAA
+
+		 	 where AAAA.bimok_cd=#{bimokCd}
+ 	</select>
+
 	<select id="selectRunBudgList" flushCache="false"  useCache="true" resultType="RunBudgBean">
 		SELECT 	A.BUDG_AMOUNT
 			   	, A.BUDG_BAL
@@ -95,7 +161,7 @@
 		ORDER BY B.BIMOK_CD
 
  	</select>
-    
+
     <select id="selectRunBimok" flushCache="false"  useCache="true" resultType="RunBudgBean">
         SELECT A.CAUSE_AMOUNT,
                A.BUDG_BAL,

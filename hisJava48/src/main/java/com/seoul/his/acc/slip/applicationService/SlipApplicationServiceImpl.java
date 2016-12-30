@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.seoul.his.acc.resol.dao.ResolDAO;
 import com.seoul.his.acc.slip.dao.SlipDAO;
 import com.seoul.his.acc.slip.to.SlipBean;
 
@@ -14,13 +15,15 @@ import com.seoul.his.acc.slip.to.SlipBean;
 public class SlipApplicationServiceImpl implements SlipApplicationService{
     @Autowired
     SlipDAO slipDAO;
-
+    @Autowired
+    ResolDAO resolDAO;
     @Override
     public void registerSlipList(List<SlipBean> slipBeanList) {
+    	System.out.println(111+"들어옴");
         Map<String, String> param=new HashMap<String, String>();
         for(SlipBean slipBean:slipBeanList){
             slipDAO.insertSlip(slipBean);
-
+            resolDAO.updateProgStatDiv(slipBean.getResolNo());
             String resolNo= slipBean.getResolNo();
             if(resolNo==null || resolNo==""){
                 new RuntimeException("에러메시지!!");

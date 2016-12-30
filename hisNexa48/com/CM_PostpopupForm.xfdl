@@ -5,7 +5,7 @@
     <Layouts>
       <Layout>
         <Div id="Div04" taborder="0" left="0.14%" top="0" right="0.43%" height="60" style="background:transparent URL('img::titleBar5.jpg');"/>
-        <Static id="Static00" taborder="1" text="주소검색" left="41.86%" top="-5" right="42%" height="60" style="color:dodgerblue;font:bold antialias 20 맑은 고딕;"/>
+        <Static id="Static00" taborder="1" text="주소검색" left="8.43%" top="-4" right="75.43%" height="60" style="color:#6c6c6cff;font:bold antialias 20 맑은 고딕;"/>
         <Tab id="postTab" taborder="2" left="5.14%" top="67" right="4.57%" height="405" tabindex="0" scrollbars="autoboth">
           <Tabpages>
             <Tabpage id="tabpage1" text="지번주소">
@@ -25,8 +25,8 @@
                           <Row size="24"/>
                         </Rows>
                         <Band id="head">
-                          <Cell text="우편번호"/>
-                          <Cell col="1" text="주소"/>
+                          <Cell style="background:#90a4aeff;" text="우편번호"/>
+                          <Cell col="1" style="background:#90a4aeff;" text="주소"/>
                         </Band>
                         <Band id="body">
                           <Cell text="bind:zipCode"/>
@@ -35,12 +35,12 @@
                       </Format>
                     </Formats>
                   </Grid>
-                  <Static id="inDongZipStc" taborder="13" text="우편번호" left="5.71%" top="255" right="83.17%" height="26" style="background:dodgerblue;border:0 none #808080ff ;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;" class="AreaStc"/>
-                  <Static id="inDongBaseStc" taborder="14" text="기본주소" left="34.92%" top="255" right="53.97%" height="26" style="background:dodgerblue;border:0 none #808080ff ;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;" class="AreaStc"/>
-                  <Static id="inDongDetailStc" taborder="15" text="상세주소" left="5.71%" top="296" right="83.17%" height="30" style="background:dodgerblue;border:0 none #808080ff ;color:cornsilk;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움;" class="AreaStc"/>
-                  <Edit id="zipEdit" taborder="16" enable="false" left="17.62%" top="255" right="66.35%" height="26" oneditclick="postTab_tabpage1_zipEdit_oneditclick"/>
-                  <Edit id="detailEdit" taborder="17" left="17.62%" top="296" right="3.17%" height="31"/>
-                  <Edit id="baseEdit" taborder="18" enable="false" left="46.83%" top="255" right="3.17%" height="28"/>
+                  <Static id="inDongZipStc" taborder="13" text="우편번호" left="5.71%" top="255" height="28" style="background:#455a64ff;border:0 none #808080ff ;color:#ffffffff;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움; :disabled {color:black;}" class="AreaStc" right="83.17%"/>
+                  <Static id="inDongBaseStc" taborder="14" text="기본주소" left="34.92%" top="255" height="28" style="background:#455a64ff;border:0 none #808080ff ;color:#ffffffff;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움; :disabled {color:black;}" class="AreaStc" right="53.97%"/>
+                  <Static id="inDongDetailStc" taborder="15" text="상세주소" left="5.71%" top="296" height="28" style="background:#455a64ff;border:0 none #808080ff ;color:#ffffffff;bordertype:round 5 5 ;align:center middle;font:bold 9 돋움; :disabled {color:black;}" class="AreaStc" right="83.17%"/>
+                  <Edit id="zipEdit" taborder="16" enable="false" left="17.62%" top="255" height="28" oneditclick="postTab_tabpage1_zipEdit_oneditclick" style=":disabled {color:black;}" right="66.35%"/>
+                  <Edit id="detailEdit" taborder="17" left="17.62%" top="296" height="28" right="3.17%"/>
+                  <Edit id="baseEdit" taborder="18" enable="false" left="46.83%" top="255" height="28" right="3.17%"/>
                   <Button id="searchBtn" taborder="19" onclick="postTab_tabpage1_searchBtn_onclick" left="83.33%" top="12" right="2.7%" height="32" style="background:@gradation URL('img::searchBtn.png') stretch;border:1 none #999999ff ;bordertype:normal 3 3 ;cursor:hand;gradation:none 0,0 white 100,100 black;" class="DelBtn"/>
                 </Layout>
               </Layouts>

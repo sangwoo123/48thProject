@@ -16,6 +16,8 @@ public interface ForeignApplicationService {
 
 	void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
 	
+	void modifyDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
+	
 	public List<PatInfoBean> findPatList(Map<String, String> argsMap);
 
 	public PatInfoBean findPat(Map<String, String> argsMap);
