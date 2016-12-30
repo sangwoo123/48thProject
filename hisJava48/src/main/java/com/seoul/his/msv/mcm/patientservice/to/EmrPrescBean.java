@@ -28,11 +28,14 @@ import lombok.ToString;
 public class EmrPrescBean extends BaseBean {
 	private String prescNo;
 	private String patNo ;
+	private String codeValue ;
+	private String prescDate;
 	private String diseaseCd;
 	private String diseaseNm;
 	private String surYn;
-	private String deptNo;
-	private String prescDate;
+	private String deptNm;
+	private String empNo;
+	private String empNm;
 
 	List<EmrRehabilitationBean> rehabilitationList;	// 재활리스트
 	List<EmrMaterialBean> materialList;				// 재료리스트

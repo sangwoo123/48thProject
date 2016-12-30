@@ -69,6 +69,7 @@ public class DiseaseApplicationServiceImpl implements DiseaseApplicationService{
 		return patientPrscDAO.selectPatientPrscList(argsMap);
 	}
 
+
 	@Override
 	public List<PrescValueBean> findPrescValueList(Map<String, String> argsMap){
 		return prescValueDAO.selectPrescValueList(argsMap);
@@ -127,6 +128,7 @@ public class DiseaseApplicationServiceImpl implements DiseaseApplicationService{
 			if("Y".equalsIgnoreCase(patientDsBean.getGubun())){
 				for(PatientPrscBean patientPrscBean : patientPrscList){
 					if(patientDsBean.getCode().equals(patientPrscBean.getDiseaseCd())){
+						System.out.println(patientDsBean.getCode()  + "     ==    " + patientPrscBean.getDiseaseCd());
 						switch(patientPrscBean.getStatus()){
 						case "inserted":
 							patientDsDAO.insertInpatientPrsc(patientPrscBean);

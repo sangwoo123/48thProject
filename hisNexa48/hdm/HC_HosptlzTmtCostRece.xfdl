@@ -517,13 +517,13 @@ this.trmtCostReceBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	var patNo = this.Div01.patNoCdEd.value;
 
-	if(this._isNull(patNo)){
+	if(patNo==null){
 		alert("환자등록번호를 입력하세요.");
 		return;
 	}else if(this.dsHosptlzPatRece.getColumn(0, "receState") == 'Y'){
 		alert("수납이 완료되었습니다");
 	}else{
-		var argument = 'hosptlzReceiptNo='+hosptlzReceiptNo;
+		var argument = 'hosptlzReceiptNo='+this.hosptlzReceiptNo;
 			
 		this.dsService.setColumn(2, "argument", argument);
 			

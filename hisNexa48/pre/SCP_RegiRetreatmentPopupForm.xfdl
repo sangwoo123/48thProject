@@ -84,8 +84,8 @@
 // 	examTm:this.dsTimeSchedule.getColumn(this.dsTimeSchedule.rowposition,"examTm")};
 this.SCP_RegiRetreatmentPopupForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
-	this.autoInsertedDiv.PatNoEd.set_value(this.parent.patNo);
-	this.autoInsertedDiv.PatNmEd.set_value(this.parent.patNm);
+	this.autoInsertedDiv.patNoEd.set_value(this.parent.patNo);
+	this.autoInsertedDiv.patNmEd.set_value(this.parent.patNm);
 	this.autoInsertedDiv.MedDeptNmEd.set_value(this.parent.medDeptNm);
 	this.autoInsertedDiv.MedDrNmEd.set_value(this.parent.medDrNm);
 	this.autoInsertedDiv.MedDateCal.set_value(this.parent.medDate);

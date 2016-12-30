@@ -325,6 +325,7 @@ this.hosptlzMngntSaveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 	if(this.dsHospitalizationScheduleManage.rowcount==0){
 		alert("입원예정자 선택 후 등록하세요.");
 	}else if(this.confirm( "입원등록 하시겠습니까?", "서울병원 - 입원예약")){
+	
 		patNo=this.dsHospitalizationScheduleManage.getColumn(this.dsHospitalizationScheduleManage.rowposition,"patNo");	 //환자번호	
 		var outpaReceiptNo= this.dsHospitalizationScheduleManage.getColumn(this.dsHospitalizationScheduleManage.rowposition,"outpaReceiptNo");  //외래접수번호
 					
@@ -332,6 +333,7 @@ this.hosptlzMngntSaveBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInf
 		
 		this.dsService.setColumn(5,"argument",'patNo='+patNo+' outpaReceiptNo='+outpaReceiptNo); 
 	    this.gfnService("changeHospitalizationScheduleYb","false"); //입원예약상태 변경 (Y->N) 
+	    
 		var param = {patNo:patNo}
 	    this.gfnPopup("HA_HospitalizationForm","hdm",param);
 	}	

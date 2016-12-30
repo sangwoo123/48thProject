@@ -129,7 +129,7 @@
             <Col id="URL">his::msv/mcm/patientservice/findTransferPatientList.do</Col>
             <Col id="serviceID">findTransferPatientList</Col>
             <Col id="outData">dsTransferPatient=dsTransferPatient</Col>
-            <Col id="callbackFunc">gfnCallbackFunc</Col>
+            <Col id="callbackFunc">CallbackFunc</Col>
           </Row>
         </Rows>
       </Dataset>
@@ -259,6 +259,25 @@ this.transferPatGrid_oncellclick = function(obj:Grid, e:nexacro.GridClickEventIn
 	
 	
 	this.dsTransferPatient.filter("transferNo=='" + transferNo + "'");
+}
+
+
+this.CallbackFunc = function CallbackFunc(svcID, errorCode, errorMsg)
+{
+	if(errorCode<0)
+	{
+		alert(errorMsg);
+		return;
+	}
+	
+
+	if(svcID=="findTransferPatientList")
+	{
+		alert("정상 조회되었습니다.");
+		
+	}
+	
+	
 }
 ]]></Script>
   </Form>
