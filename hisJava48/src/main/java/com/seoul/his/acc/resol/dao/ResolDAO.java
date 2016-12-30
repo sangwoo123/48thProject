@@ -22,6 +22,8 @@ public interface ResolDAO {
 
 	ResolLetBean selectResolLetDetail(Map<String, String> argsMap);
 
+	void updateProgStatDiv(String resolNo);
+
 }
 
 
