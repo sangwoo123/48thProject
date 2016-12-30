@@ -25,7 +25,6 @@ public class WsConfig extends WebMvcConfigurerAdapter implements WebSocketConfig
 	@Override
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
 		System.out.println("ccc");
-		registry.addHandler(echoHandler(), "/echo.sock");
 		registry.addHandler(echoHandler(), "/echo.sockjs").withSockJS();
 
 	}

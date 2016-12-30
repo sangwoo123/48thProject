@@ -59,16 +59,6 @@ public class PatientController {
 	}
 	
 
-	@RequestMapping("hdm/patient/findRestPatientList.do")
-	public void findRestPatientList(HttpServletRequest request,HttpServletResponse response) throws Exception {
-		PlatformData outData = (PlatformData) request.getAttribute("outData");
-		PlatformData inData = (PlatformData) request.getAttribute("inData");
-		Map<String,String> argsMap = dataSetBeanMapper.variablesToMap(inData);
-		URL UR = new  URL("http://localhost:8282/his/Patient");
-		List<PatientBean> list = patientServiceFacade.findPatientList(argsMap);
-		dataSetBeanMapper.beansToDataset(outData, list, PatientBean.class);
-	}
-	
 	
 	
 	
@@ -113,6 +103,8 @@ public class PatientController {
 			dustList.add(dustBean);
 		}
 		dataSetBeanMapper.beansToDataset(outData, dustList, DustBean.class);
+		
+		
 	}
 	
 }
