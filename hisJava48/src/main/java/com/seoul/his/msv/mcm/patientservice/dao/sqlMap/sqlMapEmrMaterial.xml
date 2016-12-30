@@ -4,13 +4,8 @@
 <mapper namespace="com.seoul.his.msv.mcm.patientservice.dao.EmrMaterialDAO">
 
     <select id="selectEmrMaterialList" parameterType="map" resultType="EmrMaterialBean">
-        SELECT    PRESC_NO
-					,PAT_NO
-					,PRESC_DATE
-					,DISEASE_CD
-					,DISEASE_NM
-					,SUR_YN
-					,DEPT_NO
-        FROM 	MC_EMR_PRESC
+        SELECT    *
+        FROM 	MC_EMR_MATERIAL
+           WHERE PRESC_CD = #{diseaseCd}
     </select>
 </mapper>
