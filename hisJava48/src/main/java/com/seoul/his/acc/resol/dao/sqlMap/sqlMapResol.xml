@@ -35,5 +35,7 @@
 
  	</select>
 
-
+<update id="updateProgStatDiv"  flushCache="false" parameterType="string">
+	update AR_RESOL_LET set prog_stat_div = '56' where resol_no=#{resolNo}
+	</update>
  </mapper>

@@ -310,6 +310,7 @@ this.SN_FoodAddPopForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 		this.dsFood.setColumn(0, "notes", this.parent.foodMemo);
 		
 		this.dsFoodDtl.copyData(this.parent.dataSet);
+		alert(this.dsFoodDtl.getRowType(0));
 		}
 }
 //식재료조회시
@@ -345,7 +346,8 @@ this.plusBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 //식재료삭제버튼
 this.minusBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	this.dsFoodDtl.deleteRow(this.ingredDtlGrid.currentrow);
+	this.dsFoodDtl.deleteRow(this.dsFoodDtl.rowposition);
+	alert(this.dsFoodDtl.getRowType(this.ingredDtlGrid.currentrow));
 }
 
 //확인버튼
@@ -355,6 +357,7 @@ this.okBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 	this.gfnService("batchFoodListProcess", false);
 	alert("저장되었습니다");
 	this.close();
+	
 }
 
 this.callBackFunc=function(svcID, errorCode, errorMsg)

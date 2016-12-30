@@ -5,7 +5,7 @@
 <mapper namespace="com.seoul.his.acc.resol.dao.ResolLetDAO">
 <cache flushInterval="86400000" eviction="LRU" />
     <select id="selectResolLetList" flushCache="false"  useCache="true" resultType="ResolLetBean">
-        SELECT  
+        SELECT
             RESOL_NO
            ,RESOL_DIV
            ,RESOL_DATE
@@ -71,15 +71,15 @@
     </select>
 
     <select id="getResolNo" flushCache="false"  useCache="true" resultType="string">
-        SELECT 
-            TO_CHAR(SYSDATE,'YYMM') ||AR_RESOL_SEQ.NEXTVAL 
-        FROM 
+        SELECT
+            TO_CHAR(SYSDATE,'YYMM') ||AR_RESOL_SEQ.NEXTVAL
+        FROM
             DUAL
     </select>
     <!-- 결의서 등록 -->
     <insert id="insertResolLet" flushCache="false" parameterType="ResolLetBean">
-        INSERT INTO 
-            AR_RESOL_LET 
+        INSERT INTO
+            AR_RESOL_LET
         VALUES(
             #{resolNo         }
            ,#{resolDiv       }
@@ -113,9 +113,9 @@
     </insert>
     <!-- 결의서 수정 -->
     <update id="updateResolLet" flushCache="false" parameterType="ResolLetBean">
-        UPDATE 
-            AR_RESOL_LET 
-        SET  
+        UPDATE
+            AR_RESOL_LET
+        SET
             RESOL_DIV        = #{resolDiv      }
            ,RESOL_DATE       = #{resolDate     }
            ,RESOLER          = #{resoler       }
@@ -154,5 +154,5 @@
         WHERE
             RESOL_NO=#{resolNo}
     </delete>
-
+	
 </mapper>

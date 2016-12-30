@@ -24,7 +24,8 @@ public class SlipController {
 
     @RequestMapping("acc/slip/registerSlipList.do")
     public void registerSlipList(HttpServletRequest request,HttpServletResponse response) throws Exception {
-        PlatformData inData = (PlatformData) request.getAttribute("inData");
+        System.out.println("들어왔따");
+    	PlatformData inData = (PlatformData) request.getAttribute("inData");
         System.out.println(inData.saveXml());
         List<SlipBean> slipBeanList = dataSetBeanMapper.datasetToBeans(inData,SlipBean.class);
         slipServiceFacade.registerSlipList(slipBeanList);
