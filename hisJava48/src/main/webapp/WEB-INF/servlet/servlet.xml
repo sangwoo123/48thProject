@@ -12,13 +12,15 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
        
-       
     <!-- <context:annotation-config/> -->
     <!-- <aop:aspectj-autoproxy/> -->
     <context:component-scan base-package="com.seoul">
         <context:include-filter type="aspectj" expression="com.seoul..controller.*" />
     </context:component-scan>
 
+	<bean id="gson" class="com.google.gson.Gson" />
+	
+	<bean id="echoHandler" class="com.seoul.his.com.sockjs.ws.EchoHandler" />
     <bean id="loggerAspect" class="com.seoul.his.common.aspect.LoggerAspect" />
     <bean id="nexacroInterceptor" class="com.seoul.his.common.interceptor.NexacroInterceptor" />
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" />
@@ -39,3 +41,7 @@
     </bean>
 
 </beans>
+
+
+
+

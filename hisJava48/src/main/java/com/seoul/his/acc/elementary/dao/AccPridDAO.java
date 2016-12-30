@@ -1,3 +1,4 @@
+
 package com.seoul.his.acc.elementary.dao;
 
 import java.util.List;
@@ -20,8 +21,23 @@ public interface AccPridDAO {
 
 	List<AccPridBean> selectAccPridList(Map<String, String> argsMap);
 
-}
+	void updateAccPridDline(AccPridBean accPrid);
 
+	void callCarrfor(AccPridBean accPrid);
+
+	void insertAccPrid(AccPridBean batchAccPridBean);
+
+	void deleteAccPrid(AccPridBean batchAccPridBean);
+
+	void updateAccPrid(AccPridBean batchAccPridBean);
+
+	List<AccPridBean> selectAccPridList();
+
+	AccPridBean selectAccPrid(Map<String, String> argsMap);
+
+
+
+}
 
 
 

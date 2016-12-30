@@ -9,8 +9,9 @@ import com.seoul.his.msv.sup.comprehensiveexam.to.DetailsCheckupBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.PackgeBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.ReducBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupCheckTypeBean;
-
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReceiptBean;
 import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupReservationBean;
+import com.seoul.his.msv.sup.comprehensiveexam.to.SynthesisCheckupResultBean;
 
 
 
@@ -72,33 +73,30 @@ public interface ComprehensiveExamApplicationService {
     public List<SynthesisCheckupCheckTypeBean> findExPckInspList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 접수, 예약조회 */
-   // public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap);
+    public Map<String, Object> findRsvtReceiptList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 예약검사 조회 */
-    //public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap);
+    public SynthesisCheckupReservationBean findRsvtInspList(Map<String, String> argsMap);
     
     /* 종합검진 접수 - 접수 등록 */
-    //public void registerReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
+    public void registerReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
     
     /* 종합검진 접수 - 접수 취소 */
-    //public void cancelReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
+    public void cancelReceipt(SynthesisCheckupReceiptBean synthesisCheckupReceiptBean);
     
     /* 종합검진 접수 - 접수 저장 */
-    //public void batchReceiptProcess(Map<String, Object> map);
+    public void batchReceiptProcess(Map<String, Object> map);
     
     /* 종합검진 접수 - 선택검사 일괄처리 */
-    //public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList);
+    public void batchPckInspProcess(List<SynthesisCheckupCheckTypeBean> pckInspList);
 
-  /*
+    /* 종합검진 결과관리 - 검진자조회*/
+    public List<SynthesisCheckupReceiptBean> findReceiptList(Map<String, String> argsMap);
 
-     종합검진 결과관리 - 검진자조회
-    public List<ReceiptBean> findReceiptList(Map<String, String> argsMap);
+     /*종합검진 결과관리 - 결과조회*/
+    public List<SynthesisCheckupResultBean> findRsltList(Map<String, String> argsMap);
 
-     종합검진 결과관리 - 결과조회
-    public List<RsltBean> findRsltList(Map<String, String> argsMap);
-
-     종합검진 결과관리 - 저장
-    public void registerRslt(List<RsltBean> rsltList);
-*/
+     /*종합검진 결과관리 - 저장*/
+    public void registerRslt(List<SynthesisCheckupResultBean> rsltList);
 
 }

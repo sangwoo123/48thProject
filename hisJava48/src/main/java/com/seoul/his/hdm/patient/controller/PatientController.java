@@ -11,6 +11,12 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 /*import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;*/
@@ -52,6 +58,20 @@ public class PatientController {
 		dataSetBeanMapper.beansToDataset(outData, list, PatientBean.class);
 	}
 	
+
+	@RequestMapping("hdm/patient/findRestPatientList.do")
+	public void findRestPatientList(HttpServletRequest request,HttpServletResponse response) throws Exception {
+		PlatformData outData = (PlatformData) request.getAttribute("outData");
+		PlatformData inData = (PlatformData) request.getAttribute("inData");
+		Map<String,String> argsMap = dataSetBeanMapper.variablesToMap(inData);
+		URL UR = new  URL("http://localhost:8282/his/Patient");
+		List<PatientBean> list = patientServiceFacade.findPatientList(argsMap);
+		dataSetBeanMapper.beansToDataset(outData, list, PatientBean.class);
+	}
+	
+	
+	
+	
 	
 	
 	@RequestMapping("hdm/patient/batchPatientProcess.do") //xxx.do로 넥사크로에서 요청하는 패키지구조와 xxx.do를 기입
@@ -62,7 +82,7 @@ public class PatientController {
 	}
 
 	
-	/*
+	
 	
 	@RequestMapping("hdm/patient/findDustList.do")
 	public void findDustList(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -93,6 +113,6 @@ public class PatientController {
 			dustList.add(dustBean);
 		}
 		dataSetBeanMapper.beansToDataset(outData, dustList, DustBean.class);
-	}*/
+	}
 	
 }
