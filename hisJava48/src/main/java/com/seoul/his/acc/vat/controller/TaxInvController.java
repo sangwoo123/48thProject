@@ -1,6 +1,6 @@
 package com.seoul.his.acc.vat.controller;
 
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.acc.vat.service.VatServiceFacade;
 import com.seoul.his.acc.vat.to.DetailTaxInvBean;
-import com.seoul.his.acc.vat.to.TaxInvBean;
 import com.seoul.his.common.util.DataSetBeanMapper;
 
 /**
@@ -40,9 +39,7 @@ public class TaxInvController {
 		PlatformData inData = (PlatformData)request.getAttribute("inData");
 		   Map<String, String> argsMap = dataSetBeanMapper.variablesToMap(inData);
 		   List<DetailTaxInvBean> detailTaxInvList= vatServiceFacade.searchTaxInvList(argsMap);
-
-
-	        dataSetBeanMapper.beansToDataset(outData, detailTaxInvList,DetailTaxInvBean.class);
+		   dataSetBeanMapper.beansToDataset(outData, detailTaxInvList,DetailTaxInvBean.class);
 	   }
 }
 

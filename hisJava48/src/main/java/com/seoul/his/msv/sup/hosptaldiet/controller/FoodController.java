@@ -1,5 +1,6 @@
 package com.seoul.his.msv.sup.hosptaldiet.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,8 +67,11 @@ public class FoodController {
 		PlatformData inData = (PlatformData) request.getAttribute("inData");
 		List<FoodBean> foodList = dataSetBeanMapper.datasetToBeans(inData, FoodBean.class);
 		List<FoodDtlBean> foodDtlList = dataSetBeanMapper.datasetToBeans(inData, FoodDtlBean.class);
-		hosptaldietServiceFacade.batchFoodProcess(foodList);
-		hosptaldietServiceFacade.batchFoodDtlProcess(foodDtlList);
+		Map<String,Object> map = new HashMap<String,Object>();
+		map.put("foodList",foodList);
+		map.put("foodDtlList", foodDtlList);
+		hosptaldietServiceFacade.batchFoodProcess(map);
+
 
 	}
 }

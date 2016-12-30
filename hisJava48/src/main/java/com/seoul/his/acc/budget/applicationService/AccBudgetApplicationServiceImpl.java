@@ -25,7 +25,7 @@ import com.seoul.his.acc.budget.to.RunBudgBean;
  * @Author   jeong
  * @Description
  *
- * @LastUpdated 
+ * @LastUpdated
  */
 
 @Component
@@ -39,7 +39,7 @@ public class AccBudgetApplicationServiceImpl implements AccBudgetApplicationServ
 	@Autowired
 	JobLimitDAO jobLimitDAO;
 
-    // 예산비목 조회	
+    // 예산비목 조회
 	@Override
 	public List<BudgBimokBean> findBimokList(Map<String, String> argsMap) {
 		List<BudgBimokBean> bimokList = budgBimokDAO.selectBimokList(argsMap);
@@ -53,7 +53,7 @@ public class AccBudgetApplicationServiceImpl implements AccBudgetApplicationServ
 		return budgUseDeptList;
 	}
 
-    // 예산비목 일괄처리	
+    // 예산비목 일괄처리
 	@Override
 	public void batchBimokProcess(List<BudgBimokBean> bimokList) {
 		for(BudgBimokBean budgBimokBean : bimokList){
@@ -84,7 +84,7 @@ public class AccBudgetApplicationServiceImpl implements AccBudgetApplicationServ
 		}
 	}
 
-    // 예산사용부서 저장    
+    // 예산사용부서 저장
 	@Override
 	public void batchBudgUseDeptProcess(List<BudgUseDeptBean> useDeptBeanList) {
 		for(BudgUseDeptBean budgUseDeptBean:useDeptBeanList) {
@@ -103,7 +103,7 @@ public class AccBudgetApplicationServiceImpl implements AccBudgetApplicationServ
     // 예산집행현황 조회
 	@Override
 	public List<RunBudgBean> findRunBudg(Map<String, String> argsMap) {
-		List<RunBudgBean> runBudgList = runBudgDAO.selectRunBudg(argsMap);
+		List<RunBudgBean> runBudgList = runBudgDAO.selectRunBudg1(argsMap);
 		return runBudgList;
 	}
 

@@ -34,10 +34,7 @@ public interface HosptalDietServiceFacade {
 		//음식상세정보가져오기
 		List<FoodDtlBean> findFoodDtlList(Map<String, String> argsMap);
         //음식 배치
-		void batchFoodProcess(List<FoodBean> foodList);
-
-		//음식상세정보 배치
-		void batchFoodDtlProcess(List<FoodDtlBean> foodDtlList);
+		void batchFoodProcess(Map<String,Object> map);
 
 		//식단분류
 		List<HosptalDietCodeBean> findDietSeparateCodeList(Map<String, String> argsMap);
