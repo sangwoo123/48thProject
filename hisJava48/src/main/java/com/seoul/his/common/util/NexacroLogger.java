@@ -5,6 +5,7 @@ import com.nexacro.xapi.data.DataSetList;
 import com.nexacro.xapi.data.Debugger;
 import com.nexacro.xapi.data.PlatformData;
 import com.nexacro.xapi.data.VariableList;
+import org.springframework.context.ApplicationContext;
 
 public class NexacroLogger {
     

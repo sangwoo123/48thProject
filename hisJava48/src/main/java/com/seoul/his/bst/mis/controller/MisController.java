@@ -38,10 +38,15 @@ public class MisController {
 	Gson gson;
 	
     @RequestMapping(value = "/findPatientList", method=RequestMethod.GET , produces="application/json; charset=UTF-8")
-    public String  findPatientList() throws Exception{
+    public String  findPatientList(){
 	List<PatientBean> list = misServiceFacade.findPatientList();
 	String json = gson.toJson(list);
-	echoHandler.sendMessage(json);
+	try {
+		echoHandler.sendMessage(json);
+	} catch (Exception e) {
+		
+		e.printStackTrace();
+	}
 	return json;
 	}
 
