@@ -516,6 +516,17 @@
         this.addIncludeScript("SCP_AttentionalPatientForm.xfdl", "scripts::commonScripts.xjs");
         this.addIncludeScript("SCP_AttentionalPatientForm.xfdl", "scripts::wonScripts.xjs");
         this.registerScript("SCP_AttentionalPatientForm.xfdl", function() {
+        /********************************************************************
+        *                                                                   *
+        * 처방공통 관심환자 관리                                         *
+        *                                                                   *
+        * @Path		    관심환자관리                 						*
+        * @Description  관심환자관리       								*
+        * @Author		왕민혁  					                        *
+        * 								                                    *
+        * Created on 2016. 12.  12.                             		    *
+        *								                                    *
+        ********************************************************************/
         /**************************************************************************************************
         *                                         공통 Script Include                                     *
         ***************************************************************************************************/

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.seoul.his.com.system.dao.LogDAO;
 import com.seoul.his.com.system.dao.ServiceDAO;
 import com.seoul.his.com.system.to.ServiceBean;
 
@@ -14,6 +15,8 @@ public class ServiceApplicationServiceImpl implements ServiceApplicationService 
 
     @Autowired
     private ServiceDAO serviceDAO;
+    @Autowired
+    private LogDAO logDAO;
 
     @Override
     public List<ServiceBean> findService(Map<String, String> argsMap) {
@@ -31,4 +34,10 @@ public class ServiceApplicationServiceImpl implements ServiceApplicationService 
             }
         }
     }
+
+
+	@Override
+	public void insertLog(String id, String time) {
+		 logDAO.insertLog(id,time);
+	}
 }

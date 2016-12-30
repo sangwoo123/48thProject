@@ -5,8 +5,6 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
 import com.seoul.his.acc.resol.dao.AccountDAO;
 import com.seoul.his.acc.resol.dao.ResolDAO;
 import com.seoul.his.acc.resol.to.AccountBean;
@@ -40,6 +38,12 @@ public class ResolApplicationServiceImpl implements ResolApplicationService {
 	public List<AccountBean> findAccount(Map<String, String> argsMap) {
 		List<AccountBean> accountBeanList = accountDAO.selectAccount(argsMap);
 		return accountBeanList;
+	}
+
+	@Override
+	public ResolLetBean findResolLetDetail(Map<String, String> argsMap) {
+		ResolLetBean resolLetDetail = resolDAO.selectResolLetDetail(argsMap);
+		return resolLetDetail;
 	}
 
 }

@@ -15,8 +15,8 @@ public class ElementaryServiceFacadeImpl implements ElementaryServiceFacade {
 	ElementaryApplicationService elementaryApplicationService;
 
 	@Override
-	public List<AccPridBean> findAccPridList(Map<String, String> argsMap) {
-		List<AccPridBean> accpridList = elementaryApplicationService.findAccPridList(argsMap);
+	public List<AccPridBean> findAccPridList() {
+		List<AccPridBean> accpridList = elementaryApplicationService.findAccPridList();
 		return accpridList;
 	}
 

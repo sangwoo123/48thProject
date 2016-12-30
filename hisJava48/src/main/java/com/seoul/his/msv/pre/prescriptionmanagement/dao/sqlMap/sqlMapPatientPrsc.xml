@@ -10,7 +10,7 @@
         <result property="diseaseCd"      column="DISEASE_CD" />
         <result property="diseaseNm"     column="DISEASE_NM" />
         <result property="dept"   column="DEPT" />
-        <result property="hosptizReceiptNo" column="HOSPTIZ_RECEIPT_NO" />
+        <result property="hosptizReceiptNo" column="HOSPTLZ_RECEIPT_NO" />
         <result property="feeCd"     column="FEE_CD" />
         <result property="feeNm"     column="FEE_NM" />
         <result property="bigGrp"     column="BIG_GRP" />
@@ -59,6 +59,8 @@
             </if>
         </trim>
     </select>
+
+
 
     <update id="insertOutPrescValue">
 

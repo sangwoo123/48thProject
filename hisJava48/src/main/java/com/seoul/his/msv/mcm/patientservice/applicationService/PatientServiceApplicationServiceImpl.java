@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 import com.seoul.his.msv.mcm.patientservice.dao.AdrDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalFieldDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.AttentionalPatientDAO;
-import com.seoul.his.msv.mcm.patientservice.dao.EmrDAO;
+import com.seoul.his.msv.mcm.patientservice.dao.EmrPrescDAO;
 import com.seoul.his.msv.mcm.patientservice.dao.MedicalConsultationRequestDAO;
 import com.seoul.his.msv.mcm.patientservice.to.AdrBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalFieldBean;
 import com.seoul.his.msv.mcm.patientservice.to.AttentionalPatientBean;
-import com.seoul.his.msv.mcm.patientservice.to.EmrBean;
+import com.seoul.his.msv.mcm.patientservice.to.EmrPrescBean;
 import com.seoul.his.msv.mcm.patientservice.to.MedicalConsultationRequestBean;
 
 /**
@@ -38,13 +38,13 @@ public class PatientServiceApplicationServiceImpl implements PatientServiceAppli
 	@Autowired
 	AdrDAO adrDAO;
 	@Autowired
-	EmrDAO emrDAO;
+	EmrPrescDAO emrPrescDAO;
 	@Autowired
 	MedicalConsultationRequestDAO medicalConsultationRequestDAO;
 	/* 	 EMR 관리	*/
 	@Override
-	public List<EmrBean> findEmrList(Map<String, String> argsMap) {
-		return emrDAO.selectEmrList(argsMap);
+	public List<EmrPrescBean> findEmrPrescList(Map<String, String> argsMap) {
+		return emrPrescDAO.selectEmrPrescList(argsMap);
 	}
 
 

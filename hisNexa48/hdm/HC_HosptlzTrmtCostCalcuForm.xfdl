@@ -404,7 +404,7 @@ this.patNoCdEd_oneditclick = function(obj:Edit,  e:nexacro.EditClickEventInfo)
 }
 
 		
-	var argument = 'outpaReceiptNo='+this.outpaReceiptNo; ;
+	var argument = 'outpaReceiptNo='+this.outpaReceiptNo;
 	this.dsService.setColumn(0,"argument",argument);
 }
 
@@ -445,13 +445,15 @@ this.trmtCostCalcuBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 		alert("환자등록번호를 입력하세요.");
 		return;
 	}else if(this.dsHosptlzTrmtCost.getRowCount() != 0){
-		alert("입원진료비 계산이 완료 되었습니다");
+		alert("입원진료비 계산이 이미 완료 되었습니다");
 	}else{
 		var argument = 'outpaReceiptNo='+this.outpaReceiptNo+' hosptlzReceiptNo='+this.hosptlzReceiptNo+' patNo='+patNo;
 				   
 		this.dsService.setColumn(1, "argument", argument);
 				   
 		this.gfnService("calcuHosptlzTrmtCost", false);
+		
+		alert("입원진료비가 계산되었습니다");
 	}
 }
 

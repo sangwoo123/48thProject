@@ -14,6 +14,7 @@ import com.nexacro.xapi.data.PlatformData;
 import com.seoul.his.common.util.DataSetBeanMapper;
 import com.seoul.his.common.util.NexacroLogger;
 import com.seoul.his.hdm.foreign.service.ForeignServiceFacade;
+import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 
 @Controller
@@ -56,5 +57,13 @@ public class ReceptionController {
 	        = dataSetBeanMapper.datasetToBean( inData, ReceiptInfoBean.class);
 	        foreignServiceFacade.removeDiagnosisReceipt(receiptInfoBean);
 	    }
+	    // 입원 승인
+	    @RequestMapping("hdm/foreign/approveAdmisson.do")
+	    public void approveAdmisson(HttpServletRequest request
+	                            , HttpServletResponse response) throws Exception {
+	    	inData = (PlatformData) request.getAttribute("inData");
+	    	argsMap = dataSetBeanMapper.variablesToMap(inData);
+	        foreignServiceFacade.modifyDiagnosisReceipt(argsMap);
+	    } 
 }
 

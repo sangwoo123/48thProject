@@ -262,12 +262,11 @@ this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
 	this.dsFood.addRow();
 	var preFoodCd=this.dsFood.getColumn(this.dsFood.rowposition-1,"foodCd");
-	alert(preFoodCd);
 	var addFoodNm=nexacro.toNumber(preFoodCd.substring(1,4))+1;
 	var addFoodNm=addFoodNm.toString().padLeft(3, "0");
 	
 	var param = {state:"insert", foodGrpCd:foodGrpCd, foodCd:foodGrpCd+addFoodNm};
-	this.gfnPopup("SN_FoodAddPopForm","sup",param);
+	this.gfnPopup("SN_FoodAddPopForm","sup",param,this.SN_FoodMgtForm_onload );
 
 
 }
@@ -275,13 +274,11 @@ this.addBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 //수정버튼
 this.modBtn_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
 {
-	alert(arg[0]);
 	var foodNm = this.dsFood.getColumn(this.dsFood.rowposition, "foodNm");
-	alert(foodNm);
 	var memo = this.dsFood.getColumn(this.dsFood.rowposition, "notes");
 	var param = {state:"update", foodGrpCd:foodGrpCd, foodCd:foodCd, foodNm:foodNm, foodMemo:memo, dataSet:this.dsFoodDtl};
 
-	this.gfnPopup("SN_FoodAddPopForm","sup",param);
+	this.gfnPopup("SN_FoodAddPopForm","sup",param,this.SN_FoodMgtForm_onload );
 }
 
 //배치버튼

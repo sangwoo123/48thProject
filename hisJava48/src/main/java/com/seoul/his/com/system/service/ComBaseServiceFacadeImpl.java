@@ -130,4 +130,10 @@ public class ComBaseServiceFacadeImpl implements ComBaseServiceFacade {
 
         return codeApplicationService.bindCode(bindCodeList);
     }
+
+
+	@Override
+	public void insertLog(String id, String time) {
+		 serviceApplicationService.insertLog(id,time);
+	}
 }

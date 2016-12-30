@@ -20,6 +20,10 @@ public interface ResolDAO {
 
 	List<ResolLetBean> selectResolLetList(Map<String,String>argsMap);
 
+	ResolLetBean selectResolLetDetail(Map<String, String> argsMap);
+
+	void updateProgStatDiv(String resolNo);
+
 }
 
 

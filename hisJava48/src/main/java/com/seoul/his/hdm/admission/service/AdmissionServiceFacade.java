@@ -20,5 +20,10 @@ public interface AdmissionServiceFacade {
 	String callHospitalizationSeq();
 	List<HospitalizationScheduleBean> findHospitalizationSchedule(Map<String, String> argsMap);
 	void modifyHosptalizationScheduleInfo(List<ReceiptInfoBean> receiptInfoList);
+	List<HospitalizationScheduleManageBean> findHospitalizationScheduleManageList(Map<String, String> argsMap);
+	void changeHospitalizationScheduleYb(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList);
+	void batchHospitalizationScheduleManageProcess(List<HospitalizationScheduleManageBean> hospitalizationScheduleManageList);
+	void batchHospitalRoomProcess(List<HospitalRoomBean> hospitalRoomBeanList);
+	String getHospitalRoomSeq();
 
 }

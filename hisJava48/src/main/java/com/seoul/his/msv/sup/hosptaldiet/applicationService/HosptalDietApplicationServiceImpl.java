@@ -123,99 +123,51 @@ public class HosptalDietApplicationServiceImpl implements HosptalDietApplication
 
 	@Override
 	public void batchFoodProcess(List<FoodBean> foodList) {
-		List<FoodBean> insertedList = new ArrayList<FoodBean>();
-		List<FoodBean> updatedList = new ArrayList<FoodBean>();
-		List<FoodBean> deletedList = new ArrayList<FoodBean>();
 
 		for(FoodBean foodBean:foodList){
 			switch(foodBean.getStatus())
 			{
 			case "inserted" :
-				insertedList.add(foodBean);
+				foodDAO.insertFoodList(foodBean);
 				break;
 
 			case "updated" :
-				updatedList.add(foodBean);
+				foodDAO.updateFoodList(foodBean);
 				break;
 
 			case "deleted" :
-				deletedList.add(foodBean);
+				foodDAO.deleteFoodList(foodBean);
 				break;
 			}
 		}
-		if(insertedList.size() >0){
-		addFoodList(insertedList);
-		}
-		if(updatedList.size() >0){
-		modifyFoodList(updatedList);
-		}
-		if(deletedList.size() >0){
-		removeFoodList(deletedList);
-		}
+
 	}
 
-	private void removeFoodList(List<FoodBean> deletedList) {
-		for(FoodBean foodBean:deletedList)
-		foodDAO.deleteFoodList(foodBean);
-	}
 
-	private void modifyFoodList(List<FoodBean> updatedList) {
-		for(FoodBean foodBean:updatedList)
-			foodDAO.updateFoodList(foodBean);
-	}
-
-	private void addFoodList(List<FoodBean> insertedList) {
-		for(FoodBean foodBean:insertedList)
-			foodDAO.insertFoodList(foodBean);
-	}
 
 	@Override
 	public void batchFoodDtlProcess(List<FoodDtlBean> foodDtlList) {
-		List<FoodDtlBean> insertedList = new ArrayList<FoodDtlBean>();
-		List<FoodDtlBean> updatedList = new ArrayList<FoodDtlBean>();
-		List<FoodDtlBean> deletedList = new ArrayList<FoodDtlBean>();
-
 		for(FoodDtlBean foodDtlBean:foodDtlList){
+			System.out.println(foodDtlBean.getIngredCd());
 			switch(foodDtlBean.getStatus())
 			{
 			case "inserted" :
-				insertedList.add(foodDtlBean);
+				foodDAO.insertFoodDtlList(foodDtlBean);
 				break;
 
 			case "updated" :
-				updatedList.add(foodDtlBean);
+				foodDAO.updateFoodDtlList(foodDtlBean);
 				break;
 
 			case "deleted" :
-				deletedList.add(foodDtlBean);
+				foodDAO.deleteFoodDtlList(foodDtlBean);
 				break;
 			}
 		}
-		if(insertedList.size() >0){
-		addFoodDtlList(insertedList);
-		}
-		if(updatedList.size() >0){
-		modifyFoodDtlList(updatedList);
-		}
-		if(deletedList.size() >0){
-		removeFoodDtlList(deletedList);
-		}
+
 	}
 
-	private void removeFoodDtlList(List<FoodDtlBean> deletedList) {
-		for(FoodDtlBean foodDtlBean:deletedList)
-			foodDAO.deleteFoodDtlList(foodDtlBean);
-	}
 
-	private void modifyFoodDtlList(List<FoodDtlBean> updatedList) {
-		for(FoodDtlBean foodDtlBean:updatedList)
-			foodDAO.updateFoodDtlList(foodDtlBean);
-	}
-
-	private void addFoodDtlList(List<FoodDtlBean> insertedList) {
-		for(FoodDtlBean foodDtlBean:insertedList)
-			foodDAO.insertFoodDtlList(foodDtlBean);
-	}
 
 	@Override
 	public List<HosptalDietCodeBean> findDietSeparateCodeList(Map<String, String> argsMap) {

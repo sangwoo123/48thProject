@@ -9,6 +9,7 @@ import com.seoul.his.hdm.foreign.to.PatInfoBean;
 import com.seoul.his.hdm.foreign.to.ReceiptInfoBean;
 import com.seoul.his.hdm.foreign.to.TrmtSchdBean;
 import com.seoul.his.msv.mcm.patientservice.to.DaySchBean;
+import com.seoul.his.msv.mcm.patientservice.to.TransferPatientInfoBean;
 
 
 public interface ForeignServiceFacade {
@@ -18,6 +19,8 @@ public interface ForeignServiceFacade {
 	public void registerDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
 
 	public void removeDiagnosisReceipt(ReceiptInfoBean receiptInfoBean);
+	
+	public void modifyDiagnosisReceipt(Map<String, String> argsMap);
 
 	public PatInfoBean findPat(Map<String, String> argsMap);
 
@@ -32,6 +35,9 @@ public interface ForeignServiceFacade {
     List<ApplyHistoryBean> findApplyHistoryList(String empNo);
 
     List<DaySchBean> findDayScheduleList(String empNo);
+
+	//전원환자 환자 기본 정보
+    List<TransferPatientInfoBean> findTransferPatientInfoList(Map<String, String> argsMap);
 
 
 	/*CalcuOutpaTrmtCostBean calcuOutpaTrmtCost(Map<String, Object> procedureMap) throws Exception;

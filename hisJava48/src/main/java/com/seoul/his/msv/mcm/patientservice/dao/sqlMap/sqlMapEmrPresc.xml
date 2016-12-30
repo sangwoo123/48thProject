@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.seoul.his.msv.mcm.patientservice.dao.EmrPrescDAO">
+
+	<resultMap type="EmrPrescBean" id="resultEmr">
+		<result property="prescNo" column="PRESC_NO" />
+		<result property="patNo" column="PAT_NO" />
+		<result property="codeValue" column="CODE_VALUE" />
+		<result property="prescDate" column="PRESC_DATE" />
+		<result property="diseaseCd" column="DISEASE_CD" />
+		<result property="diseaseNm" column="DISEASE_NM" />
+		<result property="surYn" column="SUR_YN" />
+		<result property="deptNm" column="DEPT_NM" />
+		<result property="empNo" column="EMP_NO" />
+		<result property="empNm" column="EMP_NM" />
+		<collection property="rehabilitationList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrRehabilitationDAO.selectEmrRehabilitationList"
+			column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+		<collection property="materialList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrMaterialDAO.selectEmrMaterialList"
+				column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+		<collection property="injectionList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrInjectionDAO.selectEmrInjectionList"
+				column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+		<collection property="handleList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrHandleDAO.selectEmrHandleList"
+			column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+		<collection property="checkupList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrCheckupDAO.selectEmrCheckupList"
+			column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+		<collection property="transfusionList"
+			select="com.seoul.his.msv.mcm.patientservice.dao.EmrTransfusionDAO.selectEmrTransfusionList"
+			column="{patNo=PAT_NO,diseaseCd=DISEASE_CD}"
+			javaType="list" />
+	</resultMap>
+
+    <select id="selectEmrPrescList" parameterType="map" resultMap="resultEmr">
+        SELECT   DISTINCT A.PRESC_NO
+					,A.PAT_NO
+          			,D.CODE_VALUE
+					,A.PRESC_DATE
+					,A.DISEASE_CD
+					,A.DISEASE_NM
+					,A.SUR_YN
+					,C.DEPT_NM
+          			,C.EMP_NO
+          			,C.EMP_NM
+        FROM 	MC_EMR_PRESC A, MC_IN_PAIENT B, HM_EMP C, MC_IN_PAIENT_DETAIL D
+        WHERE   A.PRESC_NO = B.PRESC_NO
+        AND 		A.DEPT_NO = C.DEPT_CD
+        AND      A.PRESC_NO = D.PRESC_NO
+       <if test="patNo != '' and patNo != null">
+                AND A.PAT_NO=#{patNo}
+       </if>
+        <if test="doctNo != '' and doctNo != null">
+                AND C.EMP_NO=#{doctNo}
+       </if>
+    </select>
+</mapper>

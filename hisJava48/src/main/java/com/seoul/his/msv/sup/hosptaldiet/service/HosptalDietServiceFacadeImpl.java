@@ -73,15 +73,16 @@ public class HosptalDietServiceFacadeImpl implements HosptalDietServiceFacade{
 		return findFoodDtlList;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void batchFoodProcess(List<FoodBean> foodList) {
-		hosptaldietApplicationService.batchFoodProcess(foodList);
+	public void batchFoodProcess(Map<String,Object> map) {
+		hosptaldietApplicationService.batchFoodProcess((List<FoodBean>)map.get("foodList"));
+		System.out.println((List<FoodBean>)map.get("foodList"));
+		hosptaldietApplicationService.batchFoodDtlProcess((List<FoodDtlBean>)map.get("foodDtlList"));
+		System.out.println((List<FoodBean>)map.get("foodDtlList"));
 	}
 
-	@Override
-	public void batchFoodDtlProcess(List<FoodDtlBean> foodDtlList) {
-		hosptaldietApplicationService.batchFoodDtlProcess(foodDtlList);
-	}
+
 
 	@Override
 	public List<HosptalDietCodeBean> findDietSeparateCodeList(Map<String, String> argsMap) {

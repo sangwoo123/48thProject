@@ -77,7 +77,21 @@
 </select>
 
 <update id="insertFoodList">
- insert into SN_FOOD values(
+merge
+ into SN_FOOD f
+ using dual d
+ on(f.FOOD_CD=#{foodCd})
+ when matched then
+ update set
+ f.FOOD_GRP_CD=#{foodGrpCd},
+f.FOOD_TYPE=#{foodType},
+f.FOOD_NM=#{foodNm},
+f.NOTES=#{notes}
+
+when not matched then
+
+insert(f.FOOD_GRP_CD, f.FOOD_CD,f.FOOD_TYPE,f.FOOD_NM,f.NOTES,f.HOSPCLS)
+ values(
 #{foodGrpCd},
 #{foodCd},
 #{foodType},
@@ -90,7 +104,6 @@
 <update id="updateFoodList">
  update SN_FOOD set
 FOOD_GRP_CD=#{foodGrpCd},
-FOOD_CD=#{foodCd},
 FOOD_TYPE=#{foodType},
 FOOD_NM=#{foodNm},
 NOTES=#{notes}
@@ -131,5 +144,6 @@ delete from SN_FOOD where FOOD_CD=#{foodCd}
 
 <delete id="deleteFoodDtlList">
 delete from SN_FOOD_DTL where FOOD_CD=#{foodCd}
+           AND INGRED_CD = #{ingredCd}
 </delete>
 </mapper>

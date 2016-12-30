@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="BBP_highChart" classname="BBP_highChart" left="0" top="0" width="796" height="429" titletext="경영통계 그래프" oninit="BBP_highChart_oninit" scrollbars="none" style="border:0 none #000000ff,1px solid #000000ff,1px solid #000000ff,0 none #000000ff;">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="WebBrowser00" left="-1" top="0" width="829" height="430" taborder="1" onloadcompleted="WebBrowser00_onloadcompleted" titletext="E-Chart" style="border:0 solid #808080ff ;"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.0"><![CDATA[
+
+this.BBP_highChart_oninit = function(obj:Form, e:nexacro.InitEventInfo)
+{
+	this.opener.dsSelectDailyPatientCopy.copyData(this.opener.dsSelectDailyPatient);
+	this.opener.dsSelectDailyPatientCopy.filter("ibwon=='퇴원'");
+	
+	var d = new Date();
+	var year=d.getFullYear();
+	var mon=(d.getMonth() + 1);
+	var day=d.getDate();
+	var jsonText1="";
+	var jsonText2="";
+		
+	for(var y=2010;y<year+1;y++){	
+	for(var m=1;m<13;m++){	
+	for(var d=1;d<32;d++){		
+	if((m+"").length<2){m="0"+m;}
+	if((d+"").length<2){d="0"+d;}
+    var prescDateNum=y+""+m+""+d;
+    var things=this.opener.dsSelectDailyPatient.getCaseCount("prescDate=="+prescDateNum);
+    if(things>0){
+    
+    jsonText1+="'"+prescDateNum+"',";
+    jsonText2+=things+",";
+
+    }
+	}
+	}
+	}
+	
+	var jsonText3=jsonText1.slice(0,-1);
+	var jsonText4=jsonText2.slice(0,-1);
+
+var strUrl ="http://localhost:8282/his/Area.html?"+jsonText3+"-"+jsonText4;
+this.WebBrowser00.set_url(strUrl);
+}
+]]></Script>
+  </Form>
+</FDL>

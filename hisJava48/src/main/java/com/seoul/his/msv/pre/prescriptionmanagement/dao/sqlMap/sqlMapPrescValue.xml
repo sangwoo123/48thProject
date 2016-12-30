@@ -39,41 +39,93 @@
 
     </select>
 
-
-
-
+ <select id="selectMedPrescList" resultType="PrescMediBean">
+ 	 SELECT  A.PAT_NO
+				 , A.PRESC_NO
+				 , CODE_NO
+				 , CODE_VALUE
+         		 , NVL(IN_NUMBER,0) AS IN_NUMBER
+         		 , PRESC_DATE
+	  FROM 	(SELECT    PAT_NO
+				 			, C.PRESC_NO
+						    , CODE_NO
+				 			, CODE_VALUE
+         					, IN_NUMBER
+	  			  FROM   MC_IN_PAIENT_DETAIL C
+	  			  			,MP_PRESC_DTL D
+     			 WHERE   C.PRESC_NO = D.PRESC_NO ) A
+				,(SELECT   FEE_CD
+  				  FROM    WB_FEE
+				 WHERE    SM_GRP='약제' ) B
+  			   , MC_DISEASE C
+  	 WHERE A.CODE_NO = B. FEE_CD
+  	    AND A.PRESC_NO = C.PRESC_NO
+   	 <if test="patNo != null">
+        AND A.PAT_NO = #{patNo}
+      </if>
+      <if test="prescNo != null">
+        AND  A.PRESC_NO      = #{prescNo}
+     </if>
+  	 UNION
+  	SELECT  	 A.PAT_NO
+			    , A.PRESC_NO
+				, CODE_NO
+				, CODE_VALUE
+         		, NVL(IN_NUMBER,0) AS IN_NUMBER
+         		, PRESC_DATE
+	 FROM 	(SELECT 	 PAT_NO
+				 		   , C.PRESC_NO
+				 		   , CODE_NO
+				 		   , CODE_VALUE
+         				   , IN_NUMBER
+	  			  FROM   MC_OUT_PAIENT_DETAIL C
+	  			  			,MP_PRESC_DTL D
+    			WHERE  C.PRESC_NO = D.PRESC_NO ) A
+				,(SELECT   FEE_CD
+  				  FROM   WB_FEE
+				 WHERE  SM_GRP='약제' ) B
+  				, MC_DISEASE C
+  	WHERE 	A.CODE_NO = B. FEE_CD
+  	AND 		A.PRESC_NO = C.PRESC_NO
+	<if test="patNo != null">
+     AND 	A.PAT_NO = #{patNo}
+    </if>
+     <if test="prescNo != null">
+        AND  A.PRESC_NO      = #{prescNo}
+     </if>
+</select>
 <update id="insertPrescDtl" >
         INSERT INTO
             MP_PRESC_DTL (
                 PRESC_NO
               , PRESC_CD
-              , EMG_YN
-              , PRN_YN
-              , ANTI_YN
+              , IN_EMG_YN
+              , IN_PRN_YN
+              , EX_ANTI_YN
               , HOLDING_YN
-              , MTRL_YN
+              , EX_MTRL_YN
               , MTRL_NM
               , MTRL_BODY_PART
-              , EXAM_WISH_DATE
-              , TIMES
-              , INSURANCE
-              , SELECT_CARE_YN
+              , EX_EXAM_WISH_DATE
+              , IN_TIMES
+              , IN_INSURANCE
+              , EX_SELECT_CARE_YN
               , CLNC_STUDY_YN
               , PAT_TYPE
-              , REMARK
+              , IN_REMARK
               , IRRADI_YN
-              , AMOUNT
-              , PURPOSE
-              , TRFU_LOC
+              , MT_AMOUNT
+              , TF_PURPOSE
+              , TF_TRFU_LOC
               , AST
-              , BLOOD_DONOR
+              , TF_BLOOD_DONOR
               , VOLUME
-              , UNIT
-              , TAKE_WAY
-              , DAYS
+              , IN_UNIT
+              , RB_TAKE_AWAY
+              , RB_DAYS
               , PRESC_DTL_NM
               , PRESC_TYPE
-              , NIGHT_YN
+              , EX_NIGHT_YN
               , IN_CAPACITY
               , IN_NUMBER
               , IN_METHOD
@@ -109,33 +161,33 @@
         VALUES (
             #{prescNo}
           , #{prescCd}
-          , #{emgYn}
-          , #{prnYn}
-          , #{antiYn}
+          , #{inEmgYn}
+          , #{inPrnYn}
+          , #{exAntiYn}
           , #{holdingYn}
-          , #{mtrlYn}
+          , #{exMtrlYn}
           , #{mtrlNm}
           , #{mtrlBodyPart}
-          , #{examWishDate}
-          , #{times}
-          , #{insurance}
-          , #{selectCareYn}
+          , #{exExamWishDate}
+          , #{inTimes}
+          , #{inInsurance}
+          , #{exSelectCareYn}
           , #{clncStudyYn}
           , #{patType}
-          , #{remark}
+          , #{inRemark}
           , #{irradiYn}
-          , #{amount}
-          , #{purpose}
-          , #{trfuLoc}
+          , #{mtAmount}
+          , #{tfPurpose}
+          , #{tfTrfuLoc}
           , #{ast}
-          , #{bloodDonor}
+          , #{tfBloodDonor}
           , #{volume}
-          , #{unit}
-          , #{takeWay}
-          , #{days}
+          , #{inUnit}
+          , #{rbTakeWay}
+          , #{rbDays}
           , #{prescDtlNm}
           , #{prescType}
-          , #{nightYn}
+          , #{exNightYn}
           , #{inCapacity}
           , #{inNumber}
           , #{inMethod}
@@ -174,33 +226,33 @@
         UPDATE
             MP_PRESC_DTL
         SET
-          EMG_YN         = #{emgYn}
-          , PRN_YN               = #{prnYn}
-          , ANTI_YN = #{antiYn}
+          IN_EMG_YN         = #{inEmgYn}
+          , IN_PRN_YN               = #{inPrnYn}
+          , EX_ANTI_YN = #{exAntiYn}
           , HOLDING_YN             = #{holdingYn}
-          , MTRL_YN             = #{mtrlYn}
+          , EX_MTRL_YN             = #{exMtrlYn}
           , MTRL_NM            = #{mtrlNm}
           , MTRL_BODY_PART            = #{mtrlBodyPart}
-          , EXAM_WISH_DATE             = #{examWishDate}
-          , TIMES               = #{times}
-          , INSURANCE         = #{insurance}
-          , SELECT_CARE_YN        = #{selectCareYn}
+          , EX_EXAM_WISH_DATE             = #{exExamWishDate}
+          , IN_TIMES               = #{inTimes}
+          , IN_INSURANCE         = #{inInsurance}
+          , EX_SELECT_CARE_YN        = #{exSelectCareYn}
           , CLNC_STUDY_YN         = #{clncStudyYn}
           , PAT_TYPE          = #{patType}
-          , REMARK            = #{remark}
+          , IN_REMARK            = #{inRemark}
           , IRRADI_YN				= #{irradiYn}
-          , AMOUNT				= #{amount}
-          , PURPOSE				= #{purpose}
-          , TRFU_LOC				= #{trfuLoc}
+          , MT_AMOUNT				= #{mtAmount}
+          , TF_PURPOSE				= #{tfPurpose}
+          , TF_TRFU_LOC				= #{tfTrfuLoc}
           , AST				= #{ast}
-          , BLOOD_DONOR				= #{bloodDonor}
+          , TF_BLOOD_DONOR				= #{tfBloodDonor}
           , VOLUME				= #{volume}
-          , UNIT				= #{unit}
-          , TAKE_WAY				= #{takeWay}
-          , DAYS				= #{days}
+          , IN_UNIT				= #{inUnit}
+          , RB_TAKE_AWAY				= #{rbTakeWay}
+          , RB_DAYS				= #{rbDays}
           , PRESC_DTL_NM				= #{prescDtlNm}
           , PRESC_TYPE				= #{prescType}
-          , NIGHT_YN				= #{nightYn}
+          , EX_NIGHT_YN				= #{exNightYn}
           , IN_CAPACITY				= #{inCapacity}
           , IN_NUMBER				= #{inNumber}
           , IN_METHOD				= #{inMethod}

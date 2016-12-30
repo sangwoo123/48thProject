@@ -4,7 +4,7 @@
 <mapper namespace="com.seoul.his.acc.resol.dao.ResolDAO">
 	<cache flushInterval="86400000" eviction="LRU" />
 
- <!-- 음식 코드 리스트 -->
+
     <select id="selectResolLetList" flushCache="false"  useCache="true" resultType="ResolLetBean">
 			SELECT RESOL_NO ,RESOL_DIV ,RESOL_DATE ,RESOLER ,RESOL_DEPT_CD ,PROG_STAT_DIV ,SAK_NO ,RECEIPT_NO ,CUST_CD ,OPER_NO ,RESOL_AMT ,BR_CAU ,ABS ,DEMD_DEPT_CD ,AUTO_JOUR_YB ,MOD_WORKER ,MOD_DATE ,DAN_DIV ,ACNT_CD ,ASSI_SUB_CD ,CTRT_NO ,SURTAX_YB ,RESOL_DEPT_EXTSN ,CLOS_YB ,ACC_PRID ,RESOLER_NM ,ACNT_CD_NM ,ASSI_SUB_CD_NM FROM AR_RESOL_LET WHERE 1=1
 		<if test="resolNo != null"> AND RESOL_NO = #{resolNo} </if>
@@ -35,5 +35,7 @@
 
  	</select>
 
-
+<update id="updateProgStatDiv"  flushCache="false" parameterType="string">
+	update AR_RESOL_LET set prog_stat_div = '56' where resol_no=#{resolNo}
+	</update>
  </mapper>

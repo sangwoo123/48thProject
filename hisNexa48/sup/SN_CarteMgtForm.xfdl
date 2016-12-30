@@ -371,9 +371,7 @@ this.getDate=function(date)
 	var partMonth;
 	var partDay;
 	var dateArr = date.split("-"); 
-	alert(dateArr[0]);
-    alert(dateArr[1]);
-	alert(dateArr[2]);
+
 	if(dateArr[1].length==1){
 		partMonth="0"+dateArr[1];
 	}else{

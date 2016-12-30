@@ -47,6 +47,8 @@ public class LoginController {
         try {
             login = comBaseServiceFacade.login(argsMap);
             empBean = (EmpBean) login.get("empInfo");
+           
+            
         } catch (IdNotFoundException | PwMissMatchException e) {
             outData.getVariableList().add("ExceptionMsg", e.getMessage());
         }
@@ -54,4 +56,7 @@ public class LoginController {
         datasetBeanMapper.beanToDataset(outData, empBean, EmpBean.class);
 
     }
+    
+ 
+    
 }

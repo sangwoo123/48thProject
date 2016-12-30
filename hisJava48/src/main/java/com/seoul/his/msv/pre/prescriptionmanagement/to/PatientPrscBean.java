@@ -33,7 +33,7 @@ public class PatientPrscBean extends BaseBean{
      diseaseNm,             //상병명
      dept,                  //과
      receiptNo,             //입원&외래접수번호
-     hosptlzReceiptNo,      //입원접수번호
+     hosptizReceiptNo,      //입원접수번호
      outpaReceiptNo,        //외래접수번호
      feeCd,                 //수가코드
      feeNm,                 //수가명칭
@@ -49,7 +49,8 @@ public class PatientPrscBean extends BaseBean{
      medicationYn,          //조제여부
      medicationNo,          //조제번호
      doctNm,               //담당의
-	 surYn;				//수술여부
+	 surYn;			//수술여부
+
 
 
 	 List<PrescValueBean> prescValueList;		//처방
